@@ -52,11 +52,11 @@ performance.
 | MP24 | Low-target case: hockeystick target 1750 and limit 0. |
 | MP31 | Higher-limit case: hockeystick target 2000 and limit 0.3. |
 | MP23 | Different rule shape: slope HCR with its original five-year averaging window. |
-| MP36 | Different data input: CPUE indices only. |
-| MP38 | Different information source: shortcut stock assessment. |
+| MP35 | CPUE-only powerramp contrast: target 1500 and limit 0.1. |
+| MP36 | CPUE-only hockeystick contrast: target 2000 and limit 0.1. |
 
 The MP filter includes one-click selections for the advanced candidates,
-target contrasts, the limit contrast, rule-shape contrasts, information-source
+target contrasts, the limit contrast, rule-shape contrasts, CPUE-only
 contrasts, all CMPs, and each individual CMP.
 
 MP23 retains the five-year averaging window used in its original tuning code.
@@ -70,7 +70,7 @@ From the `jmMSE` folder on branch `devel`:
 
 ```sh
 Rscript run_candidate_mps.R \
-  --candidates=tun29,tun32,tun18,tun24,tun31,tun23,tun36,tun38 \
+  --candidates=tun29,tun32,tun18,tun24,tun31,tun23,tun35,tun36 \
   --mode=reference \
   --cores=1
 ```
@@ -152,7 +152,7 @@ The robustness operating models and candidate runs can be reproduced from
 ```sh
 Rscript prepare_candidate_robustness_oms.R
 Rscript run_candidate_mps.R \
-  --candidates=tun29,tun32,tun18,tun24,tun31,tun23,tun36,tun38 \
+  --candidates=tun29,tun32,tun18,tun24,tun31,tun23,tun35,tun36 \
   --mode=robustness \
   --cores=1
 ```

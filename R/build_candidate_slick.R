@@ -176,12 +176,12 @@ make_mp_metadata <- function(candidate_codes, registry_file) {
   registry <- fread(registry_file)
   registry <- registry[cmp_id %in% sub("^tun", "MP", candidate_codes)]
   catalog <- data.table(
-    cmp_id = c("MP29", "MP32", "MP18", "MP24", "MP31", "MP23", "MP36",
-      "MP38"),
+    cmp_id = c("MP29", "MP32", "MP18", "MP24", "MP31", "MP23", "MP35",
+      "MP36"),
     slick_label = c("MP29 — optimal HS", "MP32 — alternative PR",
       "MP18 — high target", "MP24 — low target", "MP31 — higher limit",
-      "MP23 — slope rule", "MP36 — CPUE only",
-      "MP38 — shortcut assessment"),
+      "MP23 — slope rule", "MP35 — CPUE-only PR",
+      "MP36 — CPUE-only HS"),
     slick_description = c(
       "Optimal comparison case: hockeystick rule, target catch 2000, limit 0.1, using all selected indices.",
       "Alternative comparison case: powerramp rule, target catch 1500, limit 0.1, using all selected indices.",
@@ -189,8 +189,8 @@ make_mp_metadata <- function(candidate_codes, registry_file) {
       "Low-target contrast: hockeystick rule with target catch 1750 and limit 0. In the current analysis this setup had lower short-term SB0green performance.",
       "Alternative-limit contrast: hockeystick rule with target catch 2000 and limit 0.3. This isolates the limit value; the current analysis found only a small effect on IACC.",
       "Alternative rule-shape contrast: slope rule using all selected indices and the original five-year averaging window. Because MP29 uses three years, this is not a shape-only contrast.",
-      "Data-input contrast: hockeystick rule using CPUE indices only. In the current analysis it was more responsive, with higher IACC and lower short-term catch.",
-      "Information-source contrast: hockeystick rule driven by a shortcut stock assessment rather than empirical indices. It gave higher short-term catch but weaker long-term performance in the current analysis."
+      "Data-input and rule-shape contrast: powerramp rule with target catch 1500 and limit 0.1, using CPUE indices only.",
+      "Data-input contrast: hockeystick rule using CPUE indices only. In the current analysis it was more responsive, with higher IACC and lower short-term catch."
     )
   )
   meta <- data.table(code = candidate_codes)
@@ -211,7 +211,7 @@ make_mp_metadata <- function(candidate_codes, registry_file) {
     `Target contrasts` = mp_rows(c("tun29", "tun18", "tun24")),
     `Limit contrast` = mp_rows(c("tun29", "tun31")),
     `Rule-shape contrast` = mp_rows(c("tun29", "tun32", "tun23")),
-    `Information contrasts` = mp_rows(c("tun29", "tun36", "tun38")),
+    `CPUE-only contrasts` = mp_rows(c("tun29", "tun32", "tun35", "tun36")),
     `All CMPs` = seq_len(nrow(meta))
   )
   presets <- c(presets, setNames(lapply(meta$code, mp_rows),
@@ -225,7 +225,7 @@ build_candidate_slick <- function(
   out_file = file.path("output", "jm_candidates.slick"),
   registry_file = file.path("doc", "data", "cmp-registry.csv"),
   candidate_codes = c("tun29", "tun32", "tun18", "tun24", "tun31",
-    "tun23", "tun36", "tun38"),
+    "tun23", "tun35", "tun36"),
   time_now = 2025L,
   historical_om_files = NULL,
   historical_start = 1970L

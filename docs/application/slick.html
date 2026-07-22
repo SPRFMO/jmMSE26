@@ -443,23 +443,23 @@ Explore the Eight CMP Comparison Cases in Slick
 <td>Different rule shape: slope HCR with its original five-year averaging window.</td>
 </tr>
 <tr class="odd">
-<td>MP36</td>
-<td>Different data input: CPUE indices only.</td>
+<td>MP35</td>
+<td>CPUE-only powerramp contrast: target 1500 and limit 0.1.</td>
 </tr>
 <tr class="even">
-<td>MP38</td>
-<td>Different information source: shortcut stock assessment.</td>
+<td>MP36</td>
+<td>CPUE-only hockeystick contrast: target 2000 and limit 0.1.</td>
 </tr>
 </tbody>
 </table>
-<p>The MP filter includes one-click selections for the advanced candidates, target contrasts, the limit contrast, rule-shape contrasts, information-source contrasts, all CMPs, and each individual CMP.</p>
+<p>The MP filter includes one-click selections for the advanced candidates, target contrasts, the limit contrast, rule-shape contrasts, CPUE-only contrasts, all CMPs, and each individual CMP.</p>
 <p>MP23 retains the five-year averaging window used in its original tuning code. MP29 and MP32 use three years, so the MP23 comparison changes both rule shape and averaging window; it should not be interpreted as a pure test of shape alone.</p>
 </section>
 <section id="run-or-extend-the-reference-comparison" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="run-or-extend-the-reference-comparison"><span class="header-section-number">3</span> Run or extend the reference comparison</h2>
 <p>From the <code>jmMSE</code> folder on branch <code>devel</code>:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> run_candidate_mps.R <span class="dt">\</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">--candidates</span><span class="op">=</span>tun29,tun32,tun18,tun24,tun31,tun23,tun36,tun38 <span class="dt">\</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">--candidates</span><span class="op">=</span>tun29,tun32,tun18,tun24,tun31,tun23,tun35,tun36 <span class="dt">\</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">--mode</span><span class="op">=</span>reference <span class="dt">\</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">--cores</span><span class="op">=</span>1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>The candidate codes come from <code>candidate_mps.csv</code>. Additional hockeystick or powerramp trials can be included for contrast, for example:</p>
@@ -506,7 +506,7 @@ Explore the Eight CMP Comparison Cases in Slick
 <p>The robustness operating models and candidate runs can be reproduced from <code>jmMSE</code> branch <code>devel</code> with:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> prepare_candidate_robustness_oms.R</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> run_candidate_mps.R <span class="dt">\</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">--candidates</span><span class="op">=</span>tun29,tun32,tun18,tun24,tun31,tun23,tun36,tun38 <span class="dt">\</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">--candidates</span><span class="op">=</span>tun29,tun32,tun18,tun24,tun31,tun23,tun35,tun36 <span class="dt">\</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">--mode</span><span class="op">=</span>robustness <span class="dt">\</span></span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">--cores</span><span class="op">=</span>1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Then build the robustness component and combine it with the reference:</p>
@@ -1091,11 +1091,11 @@ Explore the Eight CMP Comparison Cases in Slick
 <span id="cb7-52"><a href="#cb7-52" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> MP24 <span class="pp">|</span> Low-target case: hockeystick target 1750 and limit 0. <span class="pp">|</span></span>
 <span id="cb7-53"><a href="#cb7-53" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> MP31 <span class="pp">|</span> Higher-limit case: hockeystick target 2000 and limit 0.3. <span class="pp">|</span></span>
 <span id="cb7-54"><a href="#cb7-54" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> MP23 <span class="pp">|</span> Different rule shape: slope HCR with its original five-year averaging window. <span class="pp">|</span></span>
-<span id="cb7-55"><a href="#cb7-55" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> MP36 <span class="pp">|</span> Different data input: CPUE indices only. <span class="pp">|</span></span>
-<span id="cb7-56"><a href="#cb7-56" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> MP38 <span class="pp">|</span> Different information source: shortcut stock assessment. <span class="pp">|</span></span>
+<span id="cb7-55"><a href="#cb7-55" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> MP35 <span class="pp">|</span> CPUE-only powerramp contrast: target 1500 and limit 0.1. <span class="pp">|</span></span>
+<span id="cb7-56"><a href="#cb7-56" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> MP36 <span class="pp">|</span> CPUE-only hockeystick contrast: target 2000 and limit 0.1. <span class="pp">|</span></span>
 <span id="cb7-57"><a href="#cb7-57" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-58"><a href="#cb7-58" aria-hidden="true" tabindex="-1"></a>The MP filter includes one-click selections for the advanced candidates,</span>
-<span id="cb7-59"><a href="#cb7-59" aria-hidden="true" tabindex="-1"></a>target contrasts, the limit contrast, rule-shape contrasts, information-source</span>
+<span id="cb7-59"><a href="#cb7-59" aria-hidden="true" tabindex="-1"></a>target contrasts, the limit contrast, rule-shape contrasts, CPUE-only</span>
 <span id="cb7-60"><a href="#cb7-60" aria-hidden="true" tabindex="-1"></a>contrasts, all CMPs, and each individual CMP.</span>
 <span id="cb7-61"><a href="#cb7-61" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-62"><a href="#cb7-62" aria-hidden="true" tabindex="-1"></a>MP23 retains the five-year averaging window used in its original tuning code.</span>
@@ -1109,7 +1109,7 @@ Explore the Eight CMP Comparison Cases in Slick
 <span id="cb7-70"><a href="#cb7-70" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-71"><a href="#cb7-71" aria-hidden="true" tabindex="-1"></a><span class="in">```sh</span></span>
 <span id="cb7-72"><a href="#cb7-72" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> run_candidate_mps.R <span class="dt">\</span></span>
-<span id="cb7-73"><a href="#cb7-73" aria-hidden="true" tabindex="-1"></a>  <span class="at">--candidates</span><span class="op">=</span>tun29,tun32,tun18,tun24,tun31,tun23,tun36,tun38 <span class="dt">\</span></span>
+<span id="cb7-73"><a href="#cb7-73" aria-hidden="true" tabindex="-1"></a>  <span class="at">--candidates</span><span class="op">=</span>tun29,tun32,tun18,tun24,tun31,tun23,tun35,tun36 <span class="dt">\</span></span>
 <span id="cb7-74"><a href="#cb7-74" aria-hidden="true" tabindex="-1"></a>  <span class="at">--mode</span><span class="op">=</span>reference <span class="dt">\</span></span>
 <span id="cb7-75"><a href="#cb7-75" aria-hidden="true" tabindex="-1"></a>  <span class="at">--cores</span><span class="op">=</span>1</span>
 <span id="cb7-76"><a href="#cb7-76" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
@@ -1191,7 +1191,7 @@ Explore the Eight CMP Comparison Cases in Slick
 <span id="cb7-154"><a href="#cb7-154" aria-hidden="true" tabindex="-1"></a><span class="in">```sh</span></span>
 <span id="cb7-155"><a href="#cb7-155" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> prepare_candidate_robustness_oms.R</span>
 <span id="cb7-156"><a href="#cb7-156" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> run_candidate_mps.R <span class="dt">\</span></span>
-<span id="cb7-157"><a href="#cb7-157" aria-hidden="true" tabindex="-1"></a>  <span class="at">--candidates</span><span class="op">=</span>tun29,tun32,tun18,tun24,tun31,tun23,tun36,tun38 <span class="dt">\</span></span>
+<span id="cb7-157"><a href="#cb7-157" aria-hidden="true" tabindex="-1"></a>  <span class="at">--candidates</span><span class="op">=</span>tun29,tun32,tun18,tun24,tun31,tun23,tun35,tun36 <span class="dt">\</span></span>
 <span id="cb7-158"><a href="#cb7-158" aria-hidden="true" tabindex="-1"></a>  <span class="at">--mode</span><span class="op">=</span>robustness <span class="dt">\</span></span>
 <span id="cb7-159"><a href="#cb7-159" aria-hidden="true" tabindex="-1"></a>  <span class="at">--cores</span><span class="op">=</span>1</span>
 <span id="cb7-160"><a href="#cb7-160" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
