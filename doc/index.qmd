@@ -18,14 +18,17 @@ endorsement or adoption.
 ## Purpose
 
 This site is the durable specification and implementation guide for candidate
-management procedures (CMPs) evaluated for South Pacific jack mackerel. It
-brings together four strands developed for SCW17:
+management procedures (CMPs) evaluated for South Pacific jack mackerel. It is
+derived primarily from the current `jmMSE` repository and brings together:
 
-1. the management-procedure inventory;
+1. the MP29 and MP32 candidate definitions advanced into robustness testing;
 2. the end-to-end MSE workflow;
-3. evidence from CMP tests and performance comparisons; and
+3. evidence from tuning, trade-off, and robustness comparisons; and
 4. instructions for applying a selected procedure when new annual data become
    available.
+
+SCW17 Papers 03, 04, 08, and 09 provide historical context and documentation
+structure, but they do not define the current candidate registry.
 
 The scientific simulation engine remains in
 [`SPRFMO/jmMSE`](https://github.com/SPRFMO/jmMSE). This repository records what
@@ -34,13 +37,18 @@ version of code and evidence supports it.
 
 ## Start here
 
-- [CMP registry](cmp/index.qmd): candidate identity, parameters, and status.
+- [CMP registry](cmp/index.qmd): the two candidates currently advanced by
+  `jmMSE`, MP29 and MP32.
+- [MP29](cmp/mp29.qmd) and [MP32](cmp/mp32.qmd): candidate-specific rules and
+  annual calculation details.
 - [Annual application](application/annual-workflow.qmd): controlled operational
   sequence from new data to advice.
+- [Slick explorer](application/slick.qmd): validated conversion of MP29/MP32
+  performance outputs for interactive review.
 - [MSE workflow](workflow/mse-flow.qmd): where CMPs fit within the assessment
   and simulation system.
-- [SCW17 evidence](evidence/scw17-evidence.qmd): evidence inherited from Papers
-  08 and 09, with limitations retained.
+- [Evidence and history](evidence/scw17-evidence.qmd): current `jmMSE` evidence
+  with SCW17 development context.
 - [Traceability](governance/traceability.qmd): source commits, review state, and
   change control.
 

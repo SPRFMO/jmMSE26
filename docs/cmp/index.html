@@ -68,7 +68,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../cmp/components.html" rel="next">
+<link href="../cmp/mp29.html" rel="next">
 <link href="../index.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -138,6 +138,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="dropdown-text">CMP registry</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="../cmp/mp29.html">
+ <span class="dropdown-text">MP29 hockeystick</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../cmp/mp32.html">
+ <span class="dropdown-text">MP32 powerramp</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../cmp/components.html">
  <span class="dropdown-text">MP components</span></a>
   </li>  
@@ -150,6 +158,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li class="nav-item">
     <a class="nav-link" href="../application/annual-workflow.html"> 
 <span class="menu-text">Annual application</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../application/slick.html"> 
+<span class="menu-text">Slick explorer</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../workflow/mse-flow.html"> 
@@ -209,6 +221,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../cmp/mp29.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">MP29 hockeystick candidate</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../cmp/mp32.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">MP32 powerramp candidate</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../cmp/components.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Management-procedure components</span></a>
   </div>
@@ -242,6 +266,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Annual input data</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../application/slick.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Load candidates into Slick</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -253,7 +283,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../evidence/scw17-evidence.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">SCW17 CMP evidence</span></a>
+ <span class="menu-text">CMP evidence and development history</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -273,8 +303,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#status-vocabulary" id="toc-status-vocabulary" class="nav-link active" data-scroll-target="#status-vocabulary"><span class="header-section-number">1</span> Status vocabulary</a></li>
-  <li><a href="#interpretation-safeguards" id="toc-interpretation-safeguards" class="nav-link" data-scroll-target="#interpretation-safeguards"><span class="header-section-number">2</span> Interpretation safeguards</a></li>
-  <li><a href="#promotion-requirement" id="toc-promotion-requirement" class="nav-link" data-scroll-target="#promotion-requirement"><span class="header-section-number">3</span> Promotion requirement</a></li>
+  <li><a href="#candidate-pages" id="toc-candidate-pages" class="nav-link" data-scroll-target="#candidate-pages"><span class="header-section-number">2</span> Candidate pages</a></li>
+  <li><a href="#development-lineage" id="toc-development-lineage" class="nav-link" data-scroll-target="#development-lineage"><span class="header-section-number">3</span> Development lineage</a></li>
+  <li><a href="#interpretation-safeguards" id="toc-interpretation-safeguards" class="nav-link" data-scroll-target="#interpretation-safeguards"><span class="header-section-number">4</span> Interpretation safeguards</a></li>
+  <li><a href="#promotion-requirement" id="toc-promotion-requirement" class="nav-link" data-scroll-target="#promotion-requirement"><span class="header-section-number">5</span> Promotion requirement</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/SPRFMO/jmMSE26/blob/main/cmp/index.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/SPRFMO/jmMSE26/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -330,48 +362,57 @@ Candidate Management Procedure Registry
 <td>Defined sufficiently for testing; not shortlisted or adopted.</td>
 </tr>
 <tr class="even">
+<td>Advanced candidate</td>
+<td>Selected in the current analytical workflow for robustness testing; formal status not yet confirmed.</td>
+</tr>
+<tr class="odd">
 <td>Shortlisted</td>
 <td>Retained by the working group for formal comparative evaluation.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Recommended</td>
 <td>Supported by a documented working-group recommendation.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Adopted</td>
 <td>Formally adopted through the applicable SPRFMO process.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Retired</td>
 <td>Preserved for traceability but no longer under active consideration.</td>
 </tr>
 </tbody>
 </table>
-<p>The initial registry below is reorganized from SCW17/Paper-09. All rows remain <strong>test candidates</strong> pending a documented selection decision.</p>
+<p>The primary registry is derived from the merged <code>jmMSE</code> <code>main</code> branch. <code>model_robustness.R</code> selects <code>tun29</code> and <code>tun32</code> for robustness evaluation, and the 25 July 2026 presentation describes MP29 as a potentially good candidate and MP32 as the optimal powerramp run. They are <strong>advanced candidates</strong>, not adopted procedures.</p>
 <div class="cell">
 <div id="tbl-cmp-registry" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-cmp-registry-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;1: CMP test registry seeded from SCW17/Paper-09. Blank constraints are unconstrained in the source test definition.
+Table&nbsp;1: Current advanced candidates derived from jmMSE. Tuned trigger values are those reported in the 25 July 2026 presentation.
 </figcaption>
 <div aria-describedby="tbl-cmp-registry-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
 <table class="cell caption-top table table-sm table-striped small">
 <colgroup>
-<col style="width: 8%">
-<col style="width: 11%">
-<col style="width: 7%">
-<col style="width: 5%">
-<col style="width: 8%">
-<col style="width: 27%">
-<col style="width: 2%">
-<col style="width: 2%">
-<col style="width: 4%">
-<col style="width: 3%">
 <col style="width: 2%">
 <col style="width: 2%">
 <col style="width: 6%">
-<col style="width: 7%">
+<col style="width: 3%">
+<col style="width: 5%">
+<col style="width: 22%">
+<col style="width: 5%">
+<col style="width: 4%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 15%">
+<col style="width: 14%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -381,208 +422,63 @@ Table&nbsp;1: CMP test registry seeded from SCW17/Paper-09. Blank constraints ar
 <th style="text-align: left;">estimator</th>
 <th style="text-align: left;">hcr</th>
 <th style="text-align: left;">indices</th>
+<th style="text-align: left;">reference_years</th>
+<th style="text-align: right;">window_years</th>
+<th style="text-align: left;">metric</th>
+<th style="text-align: left;">output</th>
 <th style="text-align: right;">min</th>
 <th style="text-align: right;">lim</th>
 <th style="text-align: right;">trigger</th>
 <th style="text-align: right;">target</th>
+<th style="text-align: right;">initial</th>
 <th style="text-align: right;">dlow</th>
 <th style="text-align: right;">dupp</th>
-<th style="text-align: right;">window_years</th>
-<th style="text-align: left;">source</th>
+<th style="text-align: left;">implementation</th>
+<th style="text-align: left;">primary_source</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">SCW17-HS-BASE</td>
-<td style="text-align: left;">Base (Wed pm)</td>
-<td style="text-align: left;">test candidate</td>
+<td style="text-align: left;">MP29</td>
+<td style="text-align: left;">MP29</td>
+<td style="text-align: left;">advanced candidate</td>
 <td style="text-align: left;">cpues.ind</td>
 <td style="text-align: left;">hockeystick.hcr</td>
-<td style="text-align: left;">Chile_CPUE + Offshore_CPUE</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0.5</td>
-<td style="text-align: right;">1.50</td>
-<td style="text-align: right;">1385.0</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: left;">SCW17 Paper 09</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">SCW17-HS-ZERO</td>
-<td style="text-align: left;">Zero-Zero</td>
-<td style="text-align: left;">test candidate</td>
-<td style="text-align: left;">cpues.ind</td>
-<td style="text-align: left;">hockeystick.hcr</td>
-<td style="text-align: left;">Chile_CPUE + Offshore_CPUE</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0.0</td>
-<td style="text-align: right;">1.50</td>
-<td style="text-align: right;">1385.0</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: left;">SCW17 Paper 09</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">SCW17-HS-C15</td>
-<td style="text-align: left;">15% Constraint</td>
-<td style="text-align: left;">test candidate</td>
-<td style="text-align: left;">cpues.ind</td>
-<td style="text-align: left;">hockeystick.hcr</td>
-<td style="text-align: left;">Chile_CPUE + Offshore_CPUE</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0.0</td>
-<td style="text-align: right;">1.50</td>
-<td style="text-align: right;">1385.0</td>
-<td style="text-align: right;">0.85</td>
-<td style="text-align: right;">1.2</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: left;">SCW17 Paper 09</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">SCW17-HS-C20</td>
-<td style="text-align: left;">20% Constraint</td>
-<td style="text-align: left;">test candidate</td>
-<td style="text-align: left;">cpues.ind</td>
-<td style="text-align: left;">hockeystick.hcr</td>
-<td style="text-align: left;">Chile_CPUE + Offshore_CPUE</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0.0</td>
-<td style="text-align: right;">1.50</td>
-<td style="text-align: right;">1385.0</td>
-<td style="text-align: right;">0.80</td>
-<td style="text-align: right;">1.2</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: left;">SCW17 Paper 09</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">SCW17-HS-I50</td>
-<td style="text-align: left;">50% Inc</td>
-<td style="text-align: left;">test candidate</td>
-<td style="text-align: left;">cpues.ind</td>
-<td style="text-align: left;">hockeystick.hcr</td>
-<td style="text-align: left;">Chile_CPUE + Offshore_CPUE</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0.0</td>
-<td style="text-align: right;">2.25</td>
-<td style="text-align: right;">2077.5</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: left;">SCW17 Paper 09</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">SCW17-HS-I50C15</td>
-<td style="text-align: left;">15% Constraint 50% Inc</td>
-<td style="text-align: left;">test candidate</td>
-<td style="text-align: left;">cpues.ind</td>
-<td style="text-align: left;">hockeystick.hcr</td>
-<td style="text-align: left;">Chile_CPUE + Offshore_CPUE</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0.0</td>
-<td style="text-align: right;">2.25</td>
-<td style="text-align: right;">2077.5</td>
-<td style="text-align: right;">0.85</td>
-<td style="text-align: right;">1.2</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: left;">SCW17 Paper 09</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">SCW17-HS-I50W3</td>
-<td style="text-align: left;">3-Year mean 50% Inc</td>
-<td style="text-align: left;">test candidate</td>
-<td style="text-align: left;">cpues.ind</td>
-<td style="text-align: left;">hockeystick.hcr</td>
-<td style="text-align: left;">Chile_CPUE + Offshore_CPUE</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0.0</td>
-<td style="text-align: right;">2.25</td>
-<td style="text-align: right;">2077.5</td>
-<td style="text-align: right;">0.85</td>
-<td style="text-align: right;">1.2</td>
+<td style="text-align: left;">Chile_AcousN + Chile_CPUE + Peru_Artis + Peru_Ind + Offshore_CPUE</td>
+<td style="text-align: left;">2019-2023</td>
 <td style="text-align: right;">3</td>
-<td style="text-align: left;">SCW17 Paper 09</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">SCW17-HS-I100</td>
-<td style="text-align: left;">100% Inc</td>
-<td style="text-align: left;">test candidate</td>
-<td style="text-align: left;">cpues.ind</td>
-<td style="text-align: left;">hockeystick.hcr</td>
-<td style="text-align: left;">Chile_CPUE + Offshore_CPUE</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0.0</td>
-<td style="text-align: right;">3.00</td>
-<td style="text-align: right;">2770.0</td>
-<td style="text-align: right;">0.85</td>
-<td style="text-align: right;">1.2</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: left;">SCW17 Paper 09</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">SCW17-HS-MIN1385</td>
-<td style="text-align: left;">minC target=1385</td>
-<td style="text-align: left;">test candidate</td>
-<td style="text-align: left;">cpues.ind</td>
-<td style="text-align: left;">hockeystick.hcr</td>
-<td style="text-align: left;">Chile_CPUE + Offshore_CPUE</td>
+<td style="text-align: left;">mean</td>
+<td style="text-align: left;">catch</td>
 <td style="text-align: right;">270</td>
-<td style="text-align: right;">0.2</td>
-<td style="text-align: right;">1.50</td>
-<td style="text-align: right;">1385.0</td>
+<td style="text-align: right;">0.1</td>
+<td style="text-align: right;">2.12</td>
+<td style="text-align: right;">2000</td>
+<td style="text-align: right;">1385</td>
 <td style="text-align: right;">0.85</td>
 <td style="text-align: right;">1.2</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: left;">SCW17 Paper 09</td>
+<td style="text-align: left;">split.is using last-5-year catch proportions</td>
+<td style="text-align: left;">jmMSE model_tune.R and model_robustness.R</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">SCW17-HS-MIN1500</td>
-<td style="text-align: left;">minC target=1500</td>
-<td style="text-align: left;">test candidate</td>
+<td style="text-align: left;">MP32</td>
+<td style="text-align: left;">MP32</td>
+<td style="text-align: left;">advanced candidate</td>
 <td style="text-align: left;">cpues.ind</td>
-<td style="text-align: left;">hockeystick.hcr</td>
-<td style="text-align: left;">Chile_CPUE + Offshore_CPUE</td>
+<td style="text-align: left;">powerramp.hcr</td>
+<td style="text-align: left;">Chile_AcousN + Chile_CPUE + Peru_Artis + Peru_Ind + Offshore_CPUE</td>
+<td style="text-align: left;">2019-2023</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">mean</td>
+<td style="text-align: left;">catch</td>
 <td style="text-align: right;">270</td>
-<td style="text-align: right;">0.2</td>
-<td style="text-align: right;">1.50</td>
-<td style="text-align: right;">1500.0</td>
+<td style="text-align: right;">0.1</td>
+<td style="text-align: right;">1.42</td>
+<td style="text-align: right;">1500</td>
+<td style="text-align: right;">1385</td>
 <td style="text-align: right;">0.85</td>
 <td style="text-align: right;">1.2</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: left;">SCW17 Paper 09</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">SCW17-HS-ALLIDX</td>
-<td style="text-align: left;">All indices</td>
-<td style="text-align: left;">test candidate</td>
-<td style="text-align: left;">cpues.ind</td>
-<td style="text-align: left;">hockeystick.hcr</td>
-<td style="text-align: left;">Chile_CPUE + Offshore_CPUE + Chile_AcousN + Peru_Artis</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0.0</td>
-<td style="text-align: right;">1.50</td>
-<td style="text-align: right;">1385.0</td>
-<td style="text-align: right;">0.85</td>
-<td style="text-align: right;">1.2</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: left;">SCW17 Paper 09</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">SCW17-HS-NIDX</td>
-<td style="text-align: left;">Northern indices</td>
-<td style="text-align: left;">test candidate</td>
-<td style="text-align: left;">cpues.ind</td>
-<td style="text-align: left;">hockeystick.hcr</td>
-<td style="text-align: left;">Chile_AcousN + Peru_Artis</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0.0</td>
-<td style="text-align: right;">1.50</td>
-<td style="text-align: right;">1385.0</td>
-<td style="text-align: right;">0.85</td>
-<td style="text-align: right;">1.2</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: left;">SCW17 Paper 09</td>
+<td style="text-align: left;">split.is using last-5-year catch proportions</td>
+<td style="text-align: left;">jmMSE model_tune.R and model_robustness.R</td>
 </tr>
 </tbody>
 </table>
@@ -592,17 +488,75 @@ Table&nbsp;1: CMP test registry seeded from SCW17/Paper-09. Blank constraints ar
 </div>
 </div>
 </section>
-<section id="interpretation-safeguards" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="interpretation-safeguards"><span class="header-section-number">2</span> Interpretation safeguards</h2>
+<section id="candidate-pages" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="candidate-pages"><span class="header-section-number">2</span> Candidate pages</h2>
 <ul>
-<li><code>min</code>, <code>lim</code>, <code>trigger</code>, and <code>target</code> retain their SCW17 test values and units; units must be confirmed in a normative specification before adoption.</li>
-<li><code>dlow</code> and <code>dupp</code> are interannual lower and upper multipliers where supplied.</li>
-<li>Index names are exact <code>jmMSE</code> object names, not workshop shorthand.</li>
-<li>The three rows called Polynomial10/20/30 in workshop discussions are omitted from the registry because Paper-09 found that the current implementation was loess smoothing, not a polynomial estimator. They may be restored as clearly labelled sensitivity tests.</li>
+<li><a href="../cmp/mp29.html">MP29</a>: empirical all-index estimator plus hockeystick HCR.</li>
+<li><a href="../cmp/mp32.html">MP32</a>: empirical all-index estimator plus power-ramp HCR.</li>
 </ul>
 </section>
-<section id="promotion-requirement" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="promotion-requirement"><span class="header-section-number">3</span> Promotion requirement</h2>
+<section id="development-lineage" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="development-lineage"><span class="header-section-number">3</span> Development lineage</h2>
+<p>The <code>jmMSE</code> tuning sequence tested targets, minimum catches, limit values, HCR families, and estimator variants.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Run</th>
+<th>Role in development</th>
+<th>July presentation interpretation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>MP16</td>
+<td>Hockeystick, target 2000, no minimum/limit</td>
+<td>Potential candidate before minimum/limit refinement</td>
+</tr>
+<tr class="even">
+<td>MP25</td>
+<td>Powerramp, target 1500, no minimum/limit</td>
+<td>Potential candidate before minimum/limit refinement</td>
+</tr>
+<tr class="odd">
+<td>MP29</td>
+<td>Hockeystick with minimum 270 and limit 0.1</td>
+<td>Optimal hockeystick run; advanced to robustness tests</td>
+</tr>
+<tr class="even">
+<td>MP32</td>
+<td>Powerramp with minimum 270 and limit 0.1</td>
+<td>Optimal powerramp run; advanced to robustness tests</td>
+</tr>
+<tr class="odd">
+<td>MP35-40</td>
+<td>CPUE-only, shortcut-assessment, and perfect-information variants</td>
+<td>Estimator sensitivity and diagnostic comparisons</td>
+</tr>
+<tr class="even">
+<td>MP41-42</td>
+<td>500-iteration versions of the MP29/MP32 designs</td>
+<td>Replication-count sensitivity, not distinct operational CMPs</td>
+</tr>
+</tbody>
+</table>
+<p>The earlier SCW17/Paper-09 rows are retained in source history as workshop test proposals. They are not the primary candidate list for this site.</p>
+</section>
+<section id="interpretation-safeguards" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="interpretation-safeguards"><span class="header-section-number">4</span> Interpretation safeguards</h2>
+<ul>
+<li><code>min</code>, <code>trigger</code>, <code>target</code>, and <code>initial</code> are catch quantities in the current code and presentation; final normative units must be stated before adoption.</li>
+<li><code>dlow</code> and <code>dupp</code> are interannual lower and upper multipliers where supplied.</li>
+<li>Index names match <code>model_tune.R</code> exactly.</li>
+<li>The trigger was tuned to a 0.60 probability for <code>SB0green</code> over 2041-2050 on the reference setup. It is part of the candidate version and should not be silently retuned during annual application.</li>
+</ul>
+</section>
+<section id="promotion-requirement" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="promotion-requirement"><span class="header-section-number">5</span> Promotion requirement</h2>
 <p>A candidate can move beyond test status only when it has a completed <a href="../cmp/specification-template.html">specification</a>, reproducible performance evidence, an implementation test using frozen inputs, and a decision record identifying the approving body and date.</p>
 
 
@@ -1074,8 +1028,8 @@ Table&nbsp;1: CMP test registry seeded from SCW17/Paper-09. Blank constraints ar
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../cmp/components.html" class="pagination-link" aria-label="Management-procedure components">
-        <span class="nav-page-text">Management-procedure components</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../cmp/mp29.html" class="pagination-link" aria-label="MP29 hockeystick candidate">
+        <span class="nav-page-text">MP29 hockeystick candidate</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
@@ -1092,40 +1046,65 @@ Table&nbsp;1: CMP test registry seeded from SCW17/Paper-09. Blank constraints ar
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Status <span class="pp">|</span> Meaning <span class="pp">|</span></span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|</span></span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Test candidate <span class="pp">|</span> Defined sufficiently for testing; not shortlisted or adopted. <span class="pp">|</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Shortlisted <span class="pp">|</span> Retained by the working group for formal comparative evaluation. <span class="pp">|</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Recommended <span class="pp">|</span> Supported by a documented working-group recommendation. <span class="pp">|</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Adopted <span class="pp">|</span> Formally adopted through the applicable SPRFMO process. <span class="pp">|</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Retired <span class="pp">|</span> Preserved for traceability but no longer under active consideration. <span class="pp">|</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>The initial registry below is reorganized from SCW17/Paper-09. All rows remain</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>**test candidates** pending a documented selection decision.</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-cmp-registry</span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "CMP test registry seeded from SCW17/Paper-09. Blank constraints are unconstrained in the source test definition."</span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>registry <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"../data/cmp-registry.csv"</span>, <span class="at">check.names =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(registry)</span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Advanced candidate <span class="pp">|</span> Selected in the current analytical workflow for robustness testing; formal status not yet confirmed. <span class="pp">|</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Shortlisted <span class="pp">|</span> Retained by the working group for formal comparative evaluation. <span class="pp">|</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Recommended <span class="pp">|</span> Supported by a documented working-group recommendation. <span class="pp">|</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Adopted <span class="pp">|</span> Formally adopted through the applicable SPRFMO process. <span class="pp">|</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Retired <span class="pp">|</span> Preserved for traceability but no longer under active consideration. <span class="pp">|</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>The primary registry is derived from the merged <span class="in">`jmMSE`</span> <span class="in">`main`</span> branch.</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="in">`model_robustness.R`</span> selects <span class="in">`tun29`</span> and <span class="in">`tun32`</span> for robustness evaluation, and</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>the 25 July 2026 presentation describes MP29 as a potentially good candidate</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>and MP32 as the optimal powerramp run. They are **advanced candidates**, not</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>adopted procedures.</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-cmp-registry</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Current advanced candidates derived from jmMSE. Tuned trigger values are those reported in the 25 July 2026 presentation."</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
 <span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="fu">## Interpretation safeguards</span></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`min`</span>, <span class="in">`lim`</span>, <span class="in">`trigger`</span>, and <span class="in">`target`</span> retain their SCW17 test values and</span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>  units; units must be confirmed in a normative specification before adoption.</span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`dlow`</span> and <span class="in">`dupp`</span> are interannual lower and upper multipliers where supplied.</span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Index names are exact <span class="in">`jmMSE`</span> object names, not workshop shorthand.</span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The three rows called Polynomial10/20/30 in workshop discussions are omitted</span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>  from the registry because Paper-09 found that the current implementation was</span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>  loess smoothing, not a polynomial estimator. They may be restored as clearly</span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>  labelled sensitivity tests.</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>registry <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"../data/cmp-registry.csv"</span>, <span class="at">check.names =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(registry)</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="fu">## Candidate pages</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">MP29</span><span class="co">](mp29.qmd)</span>: empirical all-index estimator plus hockeystick HCR.</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">MP32</span><span class="co">](mp32.qmd)</span>: empirical all-index estimator plus power-ramp HCR.</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="fu">## Development lineage</span></span>
 <span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="fu">## Promotion requirement</span></span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>A candidate can move beyond test status only when it has a completed</span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">specification</span><span class="co">](specification-template.qmd)</span>, reproducible performance evidence,</span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>an implementation test using frozen inputs, and a decision record identifying</span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>the approving body and date.</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>The <span class="in">`jmMSE`</span> tuning sequence tested targets, minimum catches, limit values, HCR</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>families, and estimator variants.</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Run <span class="pp">|</span> Role in development <span class="pp">|</span> July presentation interpretation <span class="pp">|</span></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|</span></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> MP16 <span class="pp">|</span> Hockeystick, target 2000, no minimum/limit <span class="pp">|</span> Potential candidate before minimum/limit refinement <span class="pp">|</span></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> MP25 <span class="pp">|</span> Powerramp, target 1500, no minimum/limit <span class="pp">|</span> Potential candidate before minimum/limit refinement <span class="pp">|</span></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> MP29 <span class="pp">|</span> Hockeystick with minimum 270 and limit 0.1 <span class="pp">|</span> Optimal hockeystick run; advanced to robustness tests <span class="pp">|</span></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> MP32 <span class="pp">|</span> Powerramp with minimum 270 and limit 0.1 <span class="pp">|</span> Optimal powerramp run; advanced to robustness tests <span class="pp">|</span></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> MP35-40 <span class="pp">|</span> CPUE-only, shortcut-assessment, and perfect-information variants <span class="pp">|</span> Estimator sensitivity and diagnostic comparisons <span class="pp">|</span></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> MP41-42 <span class="pp">|</span> 500-iteration versions of the MP29/MP32 designs <span class="pp">|</span> Replication-count sensitivity, not distinct operational CMPs <span class="pp">|</span></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>The earlier SCW17/Paper-09 rows are retained in source history as workshop test</span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>proposals. They are not the primary candidate list for this site.</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a><span class="fu">## Interpretation safeguards</span></span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`min`</span>, <span class="in">`trigger`</span>, <span class="in">`target`</span>, and <span class="in">`initial`</span> are catch quantities in the current</span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>  code and presentation; final normative units must be stated before adoption.</span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`dlow`</span> and <span class="in">`dupp`</span> are interannual lower and upper multipliers where supplied.</span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Index names match <span class="in">`model_tune.R`</span> exactly.</span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The trigger was tuned to a 0.60 probability for <span class="in">`SB0green`</span> over 2041-2050 on</span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>  the reference setup. It is part of the candidate version and should not be</span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>  silently retuned during annual application.</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a><span class="fu">## Promotion requirement</span></span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>A candidate can move beyond test status only when it has a completed</span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">specification</span><span class="co">](specification-template.qmd)</span>, reproducible performance evidence,</span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>an implementation test using frozen inputs, and a decision record identifying</span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>the approving body and date.</span>
 </code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

@@ -11,33 +11,58 @@ title: "CMP registry"
 | Status | Meaning |
 |---|---|
 | Test candidate | Defined sufficiently for testing; not shortlisted or adopted. |
+| Advanced candidate | Selected in the current analytical workflow for robustness testing; formal status not yet confirmed. |
 | Shortlisted | Retained by the working group for formal comparative evaluation. |
 | Recommended | Supported by a documented working-group recommendation. |
 | Adopted | Formally adopted through the applicable SPRFMO process. |
 | Retired | Preserved for traceability but no longer under active consideration. |
 
-The initial registry below is reorganized from SCW17/Paper-09. All rows remain
-**test candidates** pending a documented selection decision.
+The primary registry is derived from the merged `jmMSE` `main` branch.
+`model_robustness.R` selects `tun29` and `tun32` for robustness evaluation, and
+the 25 July 2026 presentation describes MP29 as a potentially good candidate
+and MP32 as the optimal powerramp run. They are **advanced candidates**, not
+adopted procedures.
 
 ```{r}
 #| label: tbl-cmp-registry
-#| tbl-cap: "CMP test registry seeded from SCW17/Paper-09. Blank constraints are unconstrained in the source test definition."
+#| tbl-cap: "Current advanced candidates derived from jmMSE. Tuned trigger values are those reported in the 25 July 2026 presentation."
 #| echo: false
 
 registry <- read.csv("../data/cmp-registry.csv", check.names = FALSE)
 knitr::kable(registry)
 ```
 
+## Candidate pages
+
+- [MP29](mp29.qmd): empirical all-index estimator plus hockeystick HCR.
+- [MP32](mp32.qmd): empirical all-index estimator plus power-ramp HCR.
+
+## Development lineage
+
+The `jmMSE` tuning sequence tested targets, minimum catches, limit values, HCR
+families, and estimator variants.
+
+| Run | Role in development | July presentation interpretation |
+|---|---|---|
+| MP16 | Hockeystick, target 2000, no minimum/limit | Potential candidate before minimum/limit refinement |
+| MP25 | Powerramp, target 1500, no minimum/limit | Potential candidate before minimum/limit refinement |
+| MP29 | Hockeystick with minimum 270 and limit 0.1 | Optimal hockeystick run; advanced to robustness tests |
+| MP32 | Powerramp with minimum 270 and limit 0.1 | Optimal powerramp run; advanced to robustness tests |
+| MP35-40 | CPUE-only, shortcut-assessment, and perfect-information variants | Estimator sensitivity and diagnostic comparisons |
+| MP41-42 | 500-iteration versions of the MP29/MP32 designs | Replication-count sensitivity, not distinct operational CMPs |
+
+The earlier SCW17/Paper-09 rows are retained in source history as workshop test
+proposals. They are not the primary candidate list for this site.
+
 ## Interpretation safeguards
 
-- `min`, `lim`, `trigger`, and `target` retain their SCW17 test values and
-  units; units must be confirmed in a normative specification before adoption.
+- `min`, `trigger`, `target`, and `initial` are catch quantities in the current
+  code and presentation; final normative units must be stated before adoption.
 - `dlow` and `dupp` are interannual lower and upper multipliers where supplied.
-- Index names are exact `jmMSE` object names, not workshop shorthand.
-- The three rows called Polynomial10/20/30 in workshop discussions are omitted
-  from the registry because Paper-09 found that the current implementation was
-  loess smoothing, not a polynomial estimator. They may be restored as clearly
-  labelled sensitivity tests.
+- Index names match `model_tune.R` exactly.
+- The trigger was tuned to a 0.60 probability for `SB0green` over 2041-2050 on
+  the reference setup. It is part of the candidate version and should not be
+  silently retuned during annual application.
 
 ## Promotion requirement
 

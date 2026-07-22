@@ -137,6 +137,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="dropdown-text">CMP registry</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="../cmp/mp29.html">
+ <span class="dropdown-text">MP29 hockeystick</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../cmp/mp32.html">
+ <span class="dropdown-text">MP32 powerramp</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../cmp/components.html">
  <span class="dropdown-text">MP components</span></a>
   </li>  
@@ -149,6 +157,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li class="nav-item">
     <a class="nav-link" href="../application/annual-workflow.html"> 
 <span class="menu-text">Annual application</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../application/slick.html"> 
+<span class="menu-text">Slick explorer</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../workflow/mse-flow.html"> 
@@ -208,6 +220,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../cmp/mp29.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">MP29 hockeystick candidate</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../cmp/mp32.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">MP32 powerramp candidate</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../cmp/components.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Management-procedure components</span></a>
   </div>
@@ -241,6 +265,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Annual input data</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../application/slick.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Load candidates into Slick</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -252,7 +282,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../evidence/scw17-evidence.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">SCW17 CMP evidence</span></a>
+ <span class="menu-text">CMP evidence and development history</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -328,18 +358,18 @@ Traceability and Change Control
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>SPRFMO/scw17</code></td>
-<td><code>0eb97c9c0329f5ec3338e3cf885f6e1f184c4780</code></td>
-<td>Papers 03, 04, 08, and 09; Quarto site conventions</td>
-</tr>
-<tr class="even">
 <td><code>SPRFMO/jmMSE</code></td>
 <td><code>94d4d325ba46220f56097b3de90824c83b7cf3cd</code></td>
-<td>Current merged <code>main</code> reference at scaffold time</td>
+<td>Primary source: MP29/MP32 controls, robustness selection, HCR implementation, and July presentation</td>
+</tr>
+<tr class="even">
+<td><code>SPRFMO/scw17</code></td>
+<td><code>0eb97c9c0329f5ec3338e3cf885f6e1f184c4780</code></td>
+<td>Secondary source: Papers 03, 04, 08, and 09 plus Quarto conventions</td>
 </tr>
 </tbody>
 </table>
-<p>The scaffold summarizes and reorganizes source material. It does not assert that any SCW17 test candidate has been shortlisted, recommended, or adopted.</p>
+<p>The current registry derives from <code>jmMSE</code>, not the SCW17 test table. It does not assert that MP29 or MP32 has been formally recommended or adopted.</p>
 </section>
 <section id="required-traceability-for-a-cmp" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="required-traceability-for-a-cmp"><span class="header-section-number">2</span> Required traceability for a CMP</h2>
@@ -396,8 +426,8 @@ Traceability and Change Control
 <section id="open-items-at-scaffold-time" class="level2" data-number="4">
 <h2 data-number="4" class="anchored" data-anchor-id="open-items-at-scaffold-time"><span class="header-section-number">4</span> Open items at scaffold time</h2>
 <ul>
-<li>Identify which SCW17 candidates, if any, were formally shortlisted after the source papers were prepared.</li>
-<li>Replace test labels with stable working-group CMP identifiers where decisions exist.</li>
+<li>Confirm the formal working-group status and stable identifiers for MP29 and MP32.</li>
+<li>Reconcile the 100-iteration MP29/MP32 tuned triggers with the 500-iteration MP41/MP42 sensitivity values before freezing a normative version.</li>
 <li>Populate immutable evidence artifacts from agreed <code>jmMSE</code> runs.</li>
 <li>Complete normative units, annual cutoffs, missing-data rules, rounding, and exceptional-circumstances provisions.</li>
 <li>Add frozen worked examples and automated conformance tests.</li>
@@ -867,8 +897,8 @@ Traceability and Change Control
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../evidence/scw17-evidence.html" class="pagination-link" aria-label="SCW17 CMP evidence">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">SCW17 CMP evidence</span>
+      <a href="../evidence/scw17-evidence.html" class="pagination-link" aria-label="CMP evidence and development history">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">CMP evidence and development history</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
@@ -886,11 +916,11 @@ Traceability and Change Control
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Source <span class="pp">|</span> Commit used for scaffold <span class="pp">|</span> Reorganized material <span class="pp">|</span></span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`SPRFMO/scw17`</span> <span class="pp">|</span> <span class="in">`0eb97c9c0329f5ec3338e3cf885f6e1f184c4780`</span> <span class="pp">|</span> Papers 03, 04, 08, and 09; Quarto site conventions <span class="pp">|</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`SPRFMO/jmMSE`</span> <span class="pp">|</span> <span class="in">`94d4d325ba46220f56097b3de90824c83b7cf3cd`</span> <span class="pp">|</span> Current merged <span class="in">`main`</span> reference at scaffold time <span class="pp">|</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`SPRFMO/jmMSE`</span> <span class="pp">|</span> <span class="in">`94d4d325ba46220f56097b3de90824c83b7cf3cd`</span> <span class="pp">|</span> Primary source: MP29/MP32 controls, robustness selection, HCR implementation, and July presentation <span class="pp">|</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`SPRFMO/scw17`</span> <span class="pp">|</span> <span class="in">`0eb97c9c0329f5ec3338e3cf885f6e1f184c4780`</span> <span class="pp">|</span> Secondary source: Papers 03, 04, 08, and 09 plus Quarto conventions <span class="pp">|</span></span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>The scaffold summarizes and reorganizes source material. It does not assert</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>that any SCW17 test candidate has been shortlisted, recommended, or adopted.</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>The current registry derives from <span class="in">`jmMSE`</span>, not the SCW17 test table. It does not</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>assert that MP29 or MP32 has been formally recommended or adopted.</span>
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="fu">## Required traceability for a CMP</span></span>
 <span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
@@ -915,10 +945,10 @@ Traceability and Change Control
 <span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="fu">## Open items at scaffold time</span></span>
 <span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Identify which SCW17 candidates, if any, were formally shortlisted after the</span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>  source papers were prepared.</span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Replace test labels with stable working-group CMP identifiers where decisions</span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>  exist.</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Confirm the formal working-group status and stable identifiers for MP29 and</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>  MP32.</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Reconcile the 100-iteration MP29/MP32 tuned triggers with the 500-iteration</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>  MP41/MP42 sensitivity values before freezing a normative version.</span>
 <span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Populate immutable evidence artifacts from agreed <span class="in">`jmMSE`</span> runs.</span>
 <span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Complete normative units, annual cutoffs, missing-data rules, rounding, and</span>
 <span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>  exceptional-circumstances provisions.</span>

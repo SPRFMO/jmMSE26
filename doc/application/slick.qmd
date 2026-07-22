@@ -1,0 +1,74 @@
+---
+title: "Load candidates into Slick"
+---
+
+{{< include ../_includes/sprfmo-banner.qmd >}}
+
+<div class="paper-title">Load the MP29/MP32 Candidate Set into Slick</div>
+
+The project-local adapter `R/build_candidate_slick.R` converts current `jmMSE`
+performance outputs into a validated Slick object. It does not run the MSE and
+does not fabricate missing results.
+
+## Required input
+
+Use either:
+
+- a long performance `data.frame`/`data.table`; or
+- an `FLmses`-like S4 object with a populated `performance` slot.
+
+The input must contain MP29 and MP32 runs and the columns `run`, `om`, `biol`,
+`statistic`, `year`, `iter`, and `data`. At minimum, statistics `SBMSY`, `FMSY`,
+and `C` must be present. `IACC` is included when available.
+
+The current checkout does not yet contain MP29/MP32 result artifacts in
+`model/tune/` or `model/robustness/`; the available top-level tuning artifacts
+end at MP22. Run the current candidate/robustness workflow before attempting
+the production export.
+
+## Build the Slick object
+
+From the `jmMSE26` repository root:
+
+```{r}
+#| eval: false
+source("R/build_candidate_slick.R")
+
+slick <- build_candidate_slick(
+  performance_file = "../jmMSE/model/robustness/robs.rds",
+  out_file = "output/jm_candidates.slick"
+)
+```
+
+The builder creates:
+
+- `MPs()` metadata for MP29 and MP32 from the registry;
+- `OMs()` metadata for each OM/stock combination;
+- `Timeseries()` values ordered as iteration x OM x MP x indicator x year; and
+- `Kobe()` values for `SB/SBMSY` and `F/FMSY` over projection years.
+
+It calls `Check()` on the time-series, Kobe, and final Slick objects, calls
+`methods::validObject()`, and writes the `.slick` file only after validation.
+
+## Inspect or launch
+
+```{r}
+#| eval: false
+library(Slick)
+
+slick <- readRDS("output/jm_candidates.slick")
+Check(slick)
+methods::validObject(slick)
+
+dim(Value(Timeseries(slick)))
+Metadata(MPs(slick))
+Design(slick)
+
+App(slick = slick)
+```
+
+## Reproducibility record
+
+Archive the `.slick` file together with the source performance artifact, its
+checksum, the `jmMSE` commit, the `jmMSE26` commit, and the R package versions.
+

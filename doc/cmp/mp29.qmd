@@ -1,0 +1,82 @@
+---
+title: "MP29 hockeystick candidate"
+---
+
+{{< include ../_includes/sprfmo-banner.qmd >}}
+
+<div class="paper-title">MP29: All-index Hockeystick Candidate</div>
+
+::: {.status-note}
+**Status:** advanced candidate in the current `jmMSE` workflow. MP29 is not
+documented here as adopted. This page reflects `jmMSE` commit
+`94d4d325ba46220f56097b3de90824c83b7cf3cd` and the 25 July 2026 presentation.
+:::
+
+## Identity
+
+| Component | Current definition |
+|---|---|
+| `jmMSE` run | `tun29`, labelled MP29 |
+| Estimator | `cpues.ind` |
+| Indices | `Chile_AcousN`, `Chile_CPUE`, `Peru_Artis`, `Peru_Ind`, `Offshore_CPUE` |
+| Reference years | 2019-2023 |
+| Recent-data window | 3 years |
+| Combination and metric | `combine = "mean"`, `metric = "mean"` |
+| HCR | `hockeystick.hcr`; `hockeystick.hcr_rob` in multi-stock robustness runs |
+| Output | Catch |
+| Implementation | `split.is`, using last-five-year catch proportions |
+
+## HCR parameters
+
+| Parameter | Value |
+|---|---:|
+| Minimum catch, `min` | 270 |
+| Limit metric, `lim` | 0.1 |
+| Trigger metric | 2.12 |
+| Target catch | 2000 |
+| Initial catch for constraints | 1385 |
+| Maximum annual decrease multiplier, `dlow` | 0.85 |
+| Maximum annual increase multiplier, `dupp` | 1.20 |
+
+The trigger is the tuned value reported in the July presentation. Before
+formal use it should be read from a frozen control object or normative registry,
+not reconstructed by rerunning the tuner.
+
+## Rule
+
+Let $I_t$ be the annual `mean` metric returned by the specified estimator. The
+unconstrained catch recommendation $C_t^*$ is
+
+$$
+C_t^* =
+\begin{cases}
+270, & I_t \le 0.1,\\
+270 + (I_t-0.1)\dfrac{2000-270}{2.12-0.1}, & 0.1 < I_t < 2.12,\\
+2000, & I_t \ge 2.12.
+\end{cases}
+$$
+
+The interannual constraint limits the recommendation to 85%-120% of the
+previous recommendation. In the first application year the current code uses
+1385 as the previous value.
+
+## Evidence status
+
+The July presentation identifies MP29 as the optimal hockeystick minimum/limit
+run and reports lower IACC than MP32, with slightly higher short-term catches.
+`model_robustness.R` advances MP29 alongside MP32 across robustness OMs. Final
+adoption still requires complete, reproducible robustness results and an
+approved operational data contract.
+
+Primary sources: [`model_tune.R`](https://github.com/SPRFMO/jmMSE/blob/main/model_tune.R),
+[`model_robustness.R`](https://github.com/SPRFMO/jmMSE/blob/main/model_robustness.R),
+and the [July presentation source](https://github.com/SPRFMO/jmMSE/blob/main/doc/presentation/presentation_20260725.Rmd).
+
+## Annual application requirements still to resolve
+
+- authoritative provider and annual cutoff for each index;
+- precise standardization performed by `cpues.ind` and its package version;
+- treatment of missing or revised indices;
+- catch units and rounding;
+- approved catch-allocation update rule; and
+- exceptional-circumstances review and decision process.

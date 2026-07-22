@@ -137,6 +137,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="dropdown-text">CMP registry</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="./cmp/mp29.html">
+ <span class="dropdown-text">MP29 hockeystick</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./cmp/mp32.html">
+ <span class="dropdown-text">MP32 powerramp</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="./cmp/components.html">
  <span class="dropdown-text">MP components</span></a>
   </li>  
@@ -149,6 +157,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li class="nav-item">
     <a class="nav-link" href="./application/annual-workflow.html"> 
 <span class="menu-text">Annual application</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./application/slick.html"> 
+<span class="menu-text">Slick explorer</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./workflow/mse-flow.html"> 
@@ -208,6 +220,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./cmp/mp29.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">MP29 hockeystick candidate</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./cmp/mp32.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">MP32 powerramp candidate</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./cmp/components.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Management-procedure components</span></a>
   </div>
@@ -241,6 +265,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Annual input data</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./application/slick.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Load candidates into Slick</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -252,7 +282,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./evidence/scw17-evidence.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">SCW17 CMP evidence</span></a>
+ <span class="menu-text">CMP evidence and development history</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -315,22 +345,25 @@ Candidate Management Procedures: Specifications, Evidence, and Application
 </div>
 <section id="purpose" class="level2">
 <h2 class="anchored" data-anchor-id="purpose">Purpose</h2>
-<p>This site is the durable specification and implementation guide for candidate management procedures (CMPs) evaluated for South Pacific jack mackerel. It brings together four strands developed for SCW17:</p>
+<p>This site is the durable specification and implementation guide for candidate management procedures (CMPs) evaluated for South Pacific jack mackerel. It is derived primarily from the current <code>jmMSE</code> repository and brings together:</p>
 <ol type="1">
-<li>the management-procedure inventory;</li>
+<li>the MP29 and MP32 candidate definitions advanced into robustness testing;</li>
 <li>the end-to-end MSE workflow;</li>
-<li>evidence from CMP tests and performance comparisons; and</li>
+<li>evidence from tuning, trade-off, and robustness comparisons; and</li>
 <li>instructions for applying a selected procedure when new annual data become available.</li>
 </ol>
+<p>SCW17 Papers 03, 04, 08, and 09 provide historical context and documentation structure, but they do not define the current candidate registry.</p>
 <p>The scientific simulation engine remains in <a href="https://github.com/SPRFMO/jmMSE"><code>SPRFMO/jmMSE</code></a>. This repository records what a CMP is, why it remains under consideration, how it is applied, and which version of code and evidence supports it.</p>
 </section>
 <section id="start-here" class="level2">
 <h2 class="anchored" data-anchor-id="start-here">Start here</h2>
 <ul>
-<li><a href="./cmp/index.html">CMP registry</a>: candidate identity, parameters, and status.</li>
+<li><a href="./cmp/index.html">CMP registry</a>: the two candidates currently advanced by <code>jmMSE</code>, MP29 and MP32.</li>
+<li><a href="./cmp/mp29.html">MP29</a> and <a href="./cmp/mp32.html">MP32</a>: candidate-specific rules and annual calculation details.</li>
 <li><a href="./application/annual-workflow.html">Annual application</a>: controlled operational sequence from new data to advice.</li>
+<li><a href="./application/slick.html">Slick explorer</a>: validated conversion of MP29/MP32 performance outputs for interactive review.</li>
 <li><a href="./workflow/mse-flow.html">MSE workflow</a>: where CMPs fit within the assessment and simulation system.</li>
-<li><a href="./evidence/scw17-evidence.html">SCW17 evidence</a>: evidence inherited from Papers 08 and 09, with limitations retained.</li>
+<li><a href="./evidence/scw17-evidence.html">Evidence and history</a>: current <code>jmMSE</code> evidence with SCW17 development context.</li>
 <li><a href="./governance/traceability.html">Traceability</a>: source commits, review state, and change control.</li>
 </ul>
 </section>
@@ -829,38 +862,46 @@ Candidate Management Procedures: Specifications, Evidence, and Application
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="fu">## Purpose</span></span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>This site is the durable specification and implementation guide for candidate</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>management procedures (CMPs) evaluated for South Pacific jack mackerel. It</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>brings together four strands developed for SCW17:</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>management procedures (CMPs) evaluated for South Pacific jack mackerel. It is</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>derived primarily from the current <span class="in">`jmMSE`</span> repository and brings together:</span>
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>the management-procedure inventory;</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>the MP29 and MP32 candidate definitions advanced into robustness testing;</span>
 <span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>the end-to-end MSE workflow;</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>evidence from CMP tests and performance comparisons; and</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>evidence from tuning, trade-off, and robustness comparisons; and</span>
 <span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>instructions for applying a selected procedure when new annual data become</span>
 <span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>   available.</span>
 <span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>The scientific simulation engine remains in</span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">`SPRFMO/jmMSE`</span><span class="co">](https://github.com/SPRFMO/jmMSE)</span>. This repository records what</span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>a CMP is, why it remains under consideration, how it is applied, and which</span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>version of code and evidence supports it.</span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="fu">## Start here</span></span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">CMP registry</span><span class="co">](cmp/index.qmd)</span>: candidate identity, parameters, and status.</span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Annual application</span><span class="co">](application/annual-workflow.qmd)</span>: controlled operational</span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>  sequence from new data to advice.</span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">MSE workflow</span><span class="co">](workflow/mse-flow.qmd)</span>: where CMPs fit within the assessment</span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>  and simulation system.</span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">SCW17 evidence</span><span class="co">](evidence/scw17-evidence.qmd)</span>: evidence inherited from Papers</span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>  08 and 09, with limitations retained.</span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Traceability</span><span class="co">](governance/traceability.qmd)</span>: source commits, review state, and</span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>  change control.</span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="fu">## Governing principle</span></span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>The normative CMP specification is separate from explanatory text and MSE</span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>results. A scientific result may change the status of a candidate, but it does</span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>not silently change the estimator, HCR, implementation system, parameter</span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>values, or exceptional-circumstances rules.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>SCW17 Papers 03, 04, 08, and 09 provide historical context and documentation</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>structure, but they do not define the current candidate registry.</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>The scientific simulation engine remains in</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">`SPRFMO/jmMSE`</span><span class="co">](https://github.com/SPRFMO/jmMSE)</span>. This repository records what</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>a CMP is, why it remains under consideration, how it is applied, and which</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>version of code and evidence supports it.</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="fu">## Start here</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">CMP registry</span><span class="co">](cmp/index.qmd)</span>: the two candidates currently advanced by</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>  <span class="in">`jmMSE`</span>, MP29 and MP32.</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">MP29</span><span class="co">](cmp/mp29.qmd)</span> and <span class="co">[</span><span class="ot">MP32</span><span class="co">](cmp/mp32.qmd)</span>: candidate-specific rules and</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>  annual calculation details.</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Annual application</span><span class="co">](application/annual-workflow.qmd)</span>: controlled operational</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>  sequence from new data to advice.</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Slick explorer</span><span class="co">](application/slick.qmd)</span>: validated conversion of MP29/MP32</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>  performance outputs for interactive review.</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">MSE workflow</span><span class="co">](workflow/mse-flow.qmd)</span>: where CMPs fit within the assessment</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>  and simulation system.</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Evidence and history</span><span class="co">](evidence/scw17-evidence.qmd)</span>: current <span class="in">`jmMSE`</span> evidence</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>  with SCW17 development context.</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Traceability</span><span class="co">](governance/traceability.qmd)</span>: source commits, review state, and</span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>  change control.</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a><span class="fu">## Governing principle</span></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>The normative CMP specification is separate from explanatory text and MSE</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>results. A scientific result may change the status of a candidate, but it does</span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>not silently change the estimator, HCR, implementation system, parameter</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>values, or exceptional-circumstances rules.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">

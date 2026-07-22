@@ -1,16 +1,34 @@
 ---
-title: "SCW17 CMP evidence"
+title: "CMP evidence and development history"
 ---
 
 {{< include ../_includes/sprfmo-banner.qmd >}}
 
-<div class="paper-title">Evidence Seeded from SCW17 Papers 08 and 09</div>
+<div class="paper-title">Current jmMSE Evidence and SCW17 Development History</div>
 
 ::: {.status-note}
-This is an evidence inventory, not a final CMP ranking. Numerical results must
-be regenerated or linked to immutable artifacts before supporting a formal
-selection decision.
+This is an evidence inventory, not an adoption decision. The current candidate
+interpretation comes from `jmMSE`; SCW17 material documents earlier development.
 :::
+
+## Current candidate evidence from jmMSE
+
+The current merged repository provides three mutually supporting signals:
+
+1. `model_tune.R` defines and tunes MP29 and MP32 using the same five-index
+   empirical estimator, minimum catch, limit, and annual constraints.
+2. The 25 July 2026 presentation identifies MP29 as the optimal hockeystick run,
+   MP32 as the optimal powerramp run, and MP29 as a potentially good candidate
+   after their direct trade-off comparison.
+3. `model_robustness.R` explicitly selects `tun29` and `tun32` for application
+   across the robustness OM set.
+
+The presentation also reports 500-iteration versions, MP41 and MP42, with
+slightly different retuned triggers. These are treated here as replication
+sensitivity checks rather than new operational candidates.
+
+Numerical results should be regenerated or linked to immutable artifacts before
+they support a formal selection decision.
 
 ## Paper-08 subset screen
 
@@ -44,9 +62,8 @@ hockeystick tests. It established several useful implementation controls:
 - distinguish mean-index tests from loess smoothing sensitivities; and
 - retain unavailable tests as unavailable until their methods exist.
 
-Those rows seed the [CMP registry](../cmp/index.qmd). Their status remains “test
-candidate” because Paper-09 described how to run them, not a decision to adopt
-them.
+Those rows remain historical test proposals. They no longer seed the primary
+[CMP registry](../cmp/index.qmd), which is based on the current `jmMSE` code.
 
 ## Evidence promotion checklist
 

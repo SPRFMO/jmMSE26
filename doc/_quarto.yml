@@ -18,12 +18,18 @@ website:
         menu:
           - href: cmp/index.qmd
             text: CMP registry
+          - href: cmp/mp29.qmd
+            text: MP29 hockeystick
+          - href: cmp/mp32.qmd
+            text: MP32 powerramp
           - href: cmp/components.qmd
             text: MP components
           - href: cmp/specification-template.qmd
             text: Specification template
       - href: application/annual-workflow.qmd
         text: Annual application
+      - href: application/slick.qmd
+        text: Slick explorer
       - href: workflow/mse-flow.qmd
         text: MSE workflow
       - href: evidence/scw17-evidence.qmd
@@ -37,12 +43,15 @@ website:
       - section: "Candidate management procedures"
         contents:
           - cmp/index.qmd
+          - cmp/mp29.qmd
+          - cmp/mp32.qmd
           - cmp/components.qmd
           - cmp/specification-template.qmd
       - section: "Applying a CMP"
         contents:
           - application/annual-workflow.qmd
           - application/input-data.qmd
+          - application/slick.qmd
       - workflow/mse-flow.qmd
       - evidence/scw17-evidence.qmd
       - governance/traceability.qmd
@@ -67,4 +76,3 @@ execute:
   freeze: auto
   warning: false
   message: false
-
