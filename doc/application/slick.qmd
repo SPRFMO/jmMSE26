@@ -92,6 +92,21 @@ The script organizes the results by:
 - performance measure, including Kobe-plot values for $SB/SB_{MSY}$ and
   $F/F_{MSY}$.
 
+It also prepares three summary views using the comparison periods already used
+in `jmMSE`:
+
+- **Boxplots** show the distribution among simulation replicates in the final
+  year, 2050.
+- **Quilts** compare stock status, fishing pressure, catch, and catch stability
+  among operating models and MPs. Long-term results use 2036–2040; short-term
+  catch uses 2026–2030.
+- **Trade-off plots** use the same periods to compare conservation, catch, and
+  catch-stability measures directly.
+
+Kobe quadrant probabilities are calculated from $SB/SB_{MSY}$ and $F/F_{MSY}$.
+Non-finite ratios, which can occur when a stock component approaches zero, are
+treated as missing rather than replaced with invented values.
+
 Before saving the Slick file, the script checks that the expected dimensions
 and labels agree. The technical checks are shown in the code for analysts who
 maintain the export.
