@@ -341,15 +341,21 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#what-is-needed" id="toc-what-is-needed" class="nav-link active" data-scroll-target="#what-is-needed"><span class="header-section-number">1</span> What is needed</a></li>
-  <li><a href="#cmps-included" id="toc-cmps-included" class="nav-link" data-scroll-target="#cmps-included"><span class="header-section-number">2</span> CMPs included</a></li>
-  <li><a href="#run-or-extend-the-reference-comparison" id="toc-run-or-extend-the-reference-comparison" class="nav-link" data-scroll-target="#run-or-extend-the-reference-comparison"><span class="header-section-number">3</span> Run or extend the reference comparison</a></li>
-  <li><a href="#prepare-the-combined-slick-file" id="toc-prepare-the-combined-slick-file" class="nav-link" data-scroll-target="#prepare-the-combined-slick-file"><span class="header-section-number">4</span> Prepare the combined Slick file</a>
+  <li><a href="#open-the-current-file" id="toc-open-the-current-file" class="nav-link active" data-scroll-target="#open-the-current-file"><span class="header-section-number">1</span> Open the current file</a>
   <ul class="collapse">
-  <li><a href="#add-the-robustness-sets" id="toc-add-the-robustness-sets" class="nav-link" data-scroll-target="#add-the-robustness-sets"><span class="header-section-number">4.1</span> Add the robustness sets</a></li>
+  <li><a href="#in-the-hosted-app" id="toc-in-the-hosted-app" class="nav-link" data-scroll-target="#in-the-hosted-app"><span class="header-section-number">1.1</span> In the hosted app</a></li>
+  <li><a href="#from-r" id="toc-from-r" class="nav-link" data-scroll-target="#from-r"><span class="header-section-number">1.2</span> From R</a></li>
+  <li><a href="#make-it-a-selectable-case-study" id="toc-make-it-a-selectable-case-study" class="nav-link" data-scroll-target="#make-it-a-selectable-case-study"><span class="header-section-number">1.3</span> Make it a selectable case study</a></li>
   </ul></li>
-  <li><a href="#inspect-or-launch" id="toc-inspect-or-launch" class="nav-link" data-scroll-target="#inspect-or-launch"><span class="header-section-number">5</span> Inspect or launch</a></li>
-  <li><a href="#what-to-save-with-the-slick-file" id="toc-what-to-save-with-the-slick-file" class="nav-link" data-scroll-target="#what-to-save-with-the-slick-file"><span class="header-section-number">6</span> What to save with the Slick file</a></li>
+  <li><a href="#what-is-needed" id="toc-what-is-needed" class="nav-link" data-scroll-target="#what-is-needed"><span class="header-section-number">2</span> What is needed</a></li>
+  <li><a href="#cmps-included" id="toc-cmps-included" class="nav-link" data-scroll-target="#cmps-included"><span class="header-section-number">3</span> CMPs included</a></li>
+  <li><a href="#run-or-extend-the-reference-comparison" id="toc-run-or-extend-the-reference-comparison" class="nav-link" data-scroll-target="#run-or-extend-the-reference-comparison"><span class="header-section-number">4</span> Run or extend the reference comparison</a></li>
+  <li><a href="#prepare-the-combined-slick-file" id="toc-prepare-the-combined-slick-file" class="nav-link" data-scroll-target="#prepare-the-combined-slick-file"><span class="header-section-number">5</span> Prepare the combined Slick file</a>
+  <ul class="collapse">
+  <li><a href="#add-the-robustness-sets" id="toc-add-the-robustness-sets" class="nav-link" data-scroll-target="#add-the-robustness-sets"><span class="header-section-number">5.1</span> Add the robustness sets</a></li>
+  </ul></li>
+  <li><a href="#inspect-or-launch" id="toc-inspect-or-launch" class="nav-link" data-scroll-target="#inspect-or-launch"><span class="header-section-number">6</span> Inspect or launch</a></li>
+  <li><a href="#what-to-save-with-the-slick-file" id="toc-what-to-save-with-the-slick-file" class="nav-link" data-scroll-target="#what-to-save-with-the-slick-file"><span class="header-section-number">7</span> What to save with the Slick file</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/SPRFMO/jmMSE26/blob/main/application/slick.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/SPRFMO/jmMSE26/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -387,8 +393,47 @@ window.Quarto = {
 Explore the Eight CMP Comparison Cases in Slick
 </div>
 <p>Slick is an interactive tool for exploring MSE results. The simulation is run in <code>jmMSE</code>; this repository converts the resulting performance table into a Slick file.</p>
-<section id="what-is-needed" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="what-is-needed"><span class="header-section-number">1</span> What is needed</h2>
+<section id="open-the-current-file" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="open-the-current-file"><span class="header-section-number">1</span> Open the current file</h2>
+<section id="in-the-hosted-app" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="in-the-hosted-app"><span class="header-section-number">1.1</span> In the hosted app</h3>
+<ol type="1">
+<li><a href="https://raw.githubusercontent.com/SPRFMO/jmMSE26/main/output/jm_candidates.slick">Download <code>jm_candidates.slick</code></a>.</li>
+<li>Open the <a href="https://shiny.bluematterscience.com/app/slick">Blue Matter Slick app</a>.</li>
+<li>If the app has stopped, select <strong>Restart app</strong>.</li>
+<li>Under <strong>Load your MSE Results</strong>, select the downloaded <code>.slick</code> file.</li>
+<li>When the Overview appears, use the MP and OM filters to explore the results.</li>
+</ol>
+<p>The hosted app accepts file uploads but does not currently provide a field for loading a file directly from a GitHub URL.</p>
+</section>
+<section id="from-r" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="from-r"><span class="header-section-number">1.2</span> From R</h3>
+<div class="cell">
+<details class="code-fold">
+<summary>Show implementation detail</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"Slick"</span>) <span class="co"># needed only once</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Slick)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="fu">paste0</span>(</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">"https://raw.githubusercontent.com/SPRFMO/jmMSE26/"</span>,</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">"main/output/jm_candidates.slick"</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>file <span class="ot">&lt;-</span> <span class="fu">tempfile</span>(<span class="at">fileext =</span> <span class="st">".slick"</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">download.file</span>(url, file, <span class="at">mode =</span> <span class="st">"wb"</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>slick <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(file)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">Check</span>(slick)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">App</span>(<span class="at">slick =</span> slick)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</section>
+<section id="make-it-a-selectable-case-study" class="level3" data-number="1.3">
+<h3 data-number="1.3" class="anchored" data-anchor-id="make-it-a-selectable-case-study"><span class="header-section-number">1.3</span> Make it a selectable case study</h3>
+<p>Slick’s case-study menu is populated from the <a href="https://github.com/Blue-Matter/SlickLibrary"><code>Blue-Matter/SlickLibrary</code></a> repository. To request direct integration, copy the file to <code>Slick_Objects/SPRFMO_Jack_Mackerel.slick</code> in a fork of that repository and submit a pull request. Once the SlickLibrary maintainers merge it, <strong>SPRFMO Jack Mackerel</strong> will appear in the hosted app’s case-study menu. See the <a href="https://slick.bluematterscience.com/articles/DevelopersGuide.html#slick-object-library">official contribution instructions</a>.</p>
+</section>
+</section>
+<section id="what-is-needed" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="what-is-needed"><span class="header-section-number">2</span> What is needed</h2>
 <p>The conversion can use either:</p>
 <ul>
 <li>the table of performance results produced by <code>jmMSE</code>; or</li>
@@ -403,8 +448,8 @@ Explore the Eight CMP Comparison Cases in Slick
 <p>These are reference-operating-model results. They are suitable for checking the candidate calculations and comparing the rule and data contrasts, but they are not a substitute for robustness testing across the full set of operating models.</p>
 <p>The nine-OM robustness set has also been completed and is stored locally in <code>jmMSE/model/candidates/robustness/</code>. It contains all eight CMPs, 100 simulation replicates, and annual results through 2050 for every operating model.</p>
 </section>
-<section id="cmps-included" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="cmps-included"><span class="header-section-number">2</span> CMPs included</h2>
+<section id="cmps-included" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="cmps-included"><span class="header-section-number">3</span> CMPs included</h2>
 <p>MP29 and MP32 remain the two advanced candidates. The other six procedures are comparison cases that help show which part of a procedure causes a change in performance.</p>
 <table class="caption-top table">
 <colgroup>
@@ -455,34 +500,34 @@ Explore the Eight CMP Comparison Cases in Slick
 <p>The MP filter includes one-click selections for the advanced candidates, target contrasts, the limit contrast, rule-shape contrasts, CPUE-only contrasts, all CMPs, and each individual CMP.</p>
 <p>MP23 retains the five-year averaging window used in its original tuning code. MP29 and MP32 use three years, so the MP23 comparison changes both rule shape and averaging window; it should not be interpreted as a pure test of shape alone.</p>
 </section>
-<section id="run-or-extend-the-reference-comparison" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="run-or-extend-the-reference-comparison"><span class="header-section-number">3</span> Run or extend the reference comparison</h2>
+<section id="run-or-extend-the-reference-comparison" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="run-or-extend-the-reference-comparison"><span class="header-section-number">4</span> Run or extend the reference comparison</h2>
 <p>From the <code>jmMSE</code> folder on branch <code>devel</code>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> run_candidate_mps.R <span class="dt">\</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">--candidates</span><span class="op">=</span>tun29,tun32,tun18,tun24,tun31,tun23,tun35,tun36 <span class="dt">\</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">--mode</span><span class="op">=</span>reference <span class="dt">\</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">--cores</span><span class="op">=</span>1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>The candidate codes come from <code>candidate_mps.csv</code>. Additional hockeystick or powerramp trials can be included for contrast, for example:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> run_candidate_mps.R <span class="dt">\</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">--candidates</span><span class="op">=</span>tun25,tun29,tun32 <span class="dt">\</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">--candidates</span><span class="op">=</span>tun29,tun32,tun18,tun24,tun31,tun23,tun35,tun36 <span class="dt">\</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">--mode</span><span class="op">=</span>reference <span class="dt">\</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">--cores</span><span class="op">=</span>1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The candidate codes come from <code>candidate_mps.csv</code>. Additional hockeystick or powerramp trials can be included for contrast, for example:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> run_candidate_mps.R <span class="dt">\</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">--candidates</span><span class="op">=</span>tun25,tun29,tun32 <span class="dt">\</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">--mode</span><span class="op">=</span>reference <span class="dt">\</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">--cores</span><span class="op">=</span>1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>The runner uses the recorded definitions in <code>candidate_mps.csv</code> together with the original estimator and rule functions in <code>jmMSE</code>. Shortcut-assessment errors are generated from the original error model using fixed seeds so the comparison can be repeated. Each CMP starts from the same fixed random stream within an operating model, so adding or reordering CMPs does not change the other CMP results. Moving to a newer combined-index implementation should be treated as a method change requiring the operating models to be rebuilt and the candidates to be retuned and revalidated.</p>
 <p>The validated reference run used R 4.6.1 with FLCore 2.6.30, FLFishery 0.4.0, mse 2.4.8.9004, msemodules 0.2.2, and FLjjm 0.3.4. The run folder contains the complete <code>sessionInfo.txt</code> record.</p>
 </section>
-<section id="prepare-the-combined-slick-file" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="prepare-the-combined-slick-file"><span class="header-section-number">4</span> Prepare the combined Slick file</h2>
+<section id="prepare-the-combined-slick-file" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="prepare-the-combined-slick-file"><span class="header-section-number">5</span> Prepare the combined Slick file</h2>
 <p>From the main <code>jmMSE26</code> folder:</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Show implementation detail</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"R/build_candidate_slick.R"</span>)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>reference_slick <span class="ot">&lt;-</span> <span class="fu">build_candidate_slick</span>(</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">performance_file =</span> <span class="st">"../jmMSE/model/candidates/reference/performance.rds"</span>,</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">out_file =</span> <span class="cn">NULL</span>,</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">historical_om_files =</span> <span class="fu">candidate_reference_om_files</span>(<span class="st">"../jmMSE"</span>)</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"R/build_candidate_slick.R"</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>reference_slick <span class="ot">&lt;-</span> <span class="fu">build_candidate_slick</span>(</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">performance_file =</span> <span class="st">"../jmMSE/model/candidates/reference/performance.rds"</span>,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">out_file =</span> <span class="cn">NULL</span>,</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">historical_om_files =</span> <span class="fu">candidate_reference_om_files</span>(<span class="st">"../jmMSE"</span>)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <p>The script organizes the results by:</p>
@@ -501,31 +546,31 @@ Explore the Eight CMP Comparison Cases in Slick
 <p>Kobe quadrant probabilities are calculated from <span class="math inline">\(SB/SB_{MSY}\)</span> and <span class="math inline">\(F/F_{MSY}\)</span>. Non-finite ratios, which can occur when a stock component approaches zero, are treated as missing rather than replaced with invented values.</p>
 <p>Before saving the Slick file, the script checks that the expected dimensions and labels agree. The technical checks are shown in the code for analysts who maintain the export.</p>
 <p>The reference is labelled <code>om11</code> in Slick. Its source name, <code>h1_0.16</code>, remains in the OM metadata for traceability.</p>
-<section id="add-the-robustness-sets" class="level3" data-number="4.1">
-<h3 data-number="4.1" class="anchored" data-anchor-id="add-the-robustness-sets"><span class="header-section-number">4.1</span> Add the robustness sets</h3>
+<section id="add-the-robustness-sets" class="level3" data-number="5.1">
+<h3 data-number="5.1" class="anchored" data-anchor-id="add-the-robustness-sets"><span class="header-section-number">5.1</span> Add the robustness sets</h3>
 <p>The robustness operating models and candidate runs can be reproduced from <code>jmMSE</code> branch <code>devel</code> with:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> prepare_candidate_robustness_oms.R</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> run_candidate_mps.R <span class="dt">\</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">--candidates</span><span class="op">=</span>tun29,tun32,tun18,tun24,tun31,tun23,tun35,tun36 <span class="dt">\</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">--mode</span><span class="op">=</span>robustness <span class="dt">\</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">--cores</span><span class="op">=</span>1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> prepare_candidate_robustness_oms.R</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> run_candidate_mps.R <span class="dt">\</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">--candidates</span><span class="op">=</span>tun29,tun32,tun18,tun24,tun31,tun23,tun35,tun36 <span class="dt">\</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">--mode</span><span class="op">=</span>robustness <span class="dt">\</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">--cores</span><span class="op">=</span>1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Then build the robustness component and combine it with the reference:</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Show implementation detail</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"R/build_candidate_slick.R"</span>)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>robustness_slick <span class="ot">&lt;-</span> <span class="fu">build_candidate_slick</span>(</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">performance_file =</span> <span class="st">"../jmMSE/model/candidates/robustness/performance.rds"</span>,</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">out_file =</span> <span class="cn">NULL</span>,</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">historical_om_files =</span> <span class="fu">candidate_robustness_om_files</span>(<span class="st">"../jmMSE"</span>)</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>slick <span class="ot">&lt;-</span> <span class="fu">build_combined_candidate_slick</span>(</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">reference_slick =</span> reference_slick,</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">robustness_slick =</span> robustness_slick,</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">out_file =</span> <span class="st">"output/jm_candidates.slick"</span></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"R/build_candidate_slick.R"</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>robustness_slick <span class="ot">&lt;-</span> <span class="fu">build_candidate_slick</span>(</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">performance_file =</span> <span class="st">"../jmMSE/model/candidates/robustness/performance.rds"</span>,</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">out_file =</span> <span class="cn">NULL</span>,</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">historical_om_files =</span> <span class="fu">candidate_robustness_om_files</span>(<span class="st">"../jmMSE"</span>)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>slick <span class="ot">&lt;-</span> <span class="fu">build_combined_candidate_slick</span>(</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">reference_slick =</span> reference_slick,</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">robustness_slick =</span> robustness_slick,</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">out_file =</span> <span class="st">"output/jm_candidates.slick"</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <p>The resulting Slick file contains 14 OM–stock series: one reference, five single-stock robustness cases, and eight stock-specific series from four two-stock robustness cases. Slick retains the Southern and Northern results rather than averaging them.</p>
@@ -540,27 +585,27 @@ Explore the Eight CMP Comparison Cases in Slick
 <p>Do not combine results produced under different package sets without first confirming that the candidate calculations are equivalent.</p>
 </section>
 </section>
-<section id="inspect-or-launch" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="inspect-or-launch"><span class="header-section-number">5</span> Inspect or launch</h2>
+<section id="inspect-or-launch" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="inspect-or-launch"><span class="header-section-number">6</span> Inspect or launch</h2>
 <div class="cell">
 <details class="code-fold">
 <summary>Show implementation detail</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Slick)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>slick <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"output/jm_candidates.slick"</span>)</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">Check</span>(slick)</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>methods<span class="sc">::</span><span class="fu">validObject</span>(slick)</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(<span class="fu">Value</span>(<span class="fu">Timeseries</span>(slick)))</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="fu">Metadata</span>(<span class="fu">MPs</span>(slick))</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="fu">Design</span>(slick)</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="fu">App</span>(<span class="at">slick =</span> slick)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Slick)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>slick <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"output/jm_candidates.slick"</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">Check</span>(slick)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>methods<span class="sc">::</span><span class="fu">validObject</span>(slick)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(<span class="fu">Value</span>(<span class="fu">Timeseries</span>(slick)))</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="fu">Metadata</span>(<span class="fu">MPs</span>(slick))</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="fu">Design</span>(slick)</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="fu">App</span>(<span class="at">slick =</span> slick)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </section>
-<section id="what-to-save-with-the-slick-file" class="level2" data-number="6">
-<h2 data-number="6" class="anchored" data-anchor-id="what-to-save-with-the-slick-file"><span class="header-section-number">6</span> What to save with the Slick file</h2>
+<section id="what-to-save-with-the-slick-file" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="what-to-save-with-the-slick-file"><span class="header-section-number">7</span> What to save with the Slick file</h2>
 <p>Save the Slick file together with the original performance results, their digital fingerprint, the exact saved versions of <code>jmMSE</code> and <code>jmMSE26</code>, and the versions of the R packages used.</p>
 
 
@@ -1037,232 +1082,274 @@ Explore the Eight CMP Comparison Cases in Slick
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Load candidates into Slick"</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>{{&lt; include ../_includes/sprfmo-banner.qmd &gt;}}</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">"paper-title"</span><span class="dt">&gt;</span>Explore the Eight CMP Comparison Cases in Slick<span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>Slick is an interactive tool for exploring MSE results. The simulation is run</span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>in <span class="in">`jmMSE`</span>; this repository converts the resulting performance table into a</span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>Slick file.</span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="fu">## What is needed</span></span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>The conversion can use either:</span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>the table of performance results produced by <span class="in">`jmMSE`</span>; or</span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>a saved <span class="in">`jmMSE`</span> results object that already contains those performance results.</span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>The results must include the eight CMPs listed below, the operating-model and stock names,</span>
-<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>simulation year and replicate, and the calculated performance measures. At a</span>
-<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>minimum, the results must include spawning biomass relative to $SB_{MSY}$,</span>
-<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>fishing mortality relative to $F_{MSY}$, and catch. Interannual catch change</span>
-<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>(IACC) is included when available.</span>
-<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>The current reference comparison has been completed for eight CMPs with 100</span>
-<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>simulation replicates through 2050. It is stored locally in <span class="in">`jmMSE`</span> as:</span>
-<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`model/candidates/reference/runs.rds`</span>: the complete simulation object; and</span>
-<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`model/candidates/reference/performance.rds`</span>: the smaller table used for</span>
-<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>  Slick.</span>
-<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>These are reference-operating-model results. They are suitable for checking the</span>
-<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>candidate calculations and comparing the rule and data contrasts, but they are not a</span>
-<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>substitute for robustness testing across the full set of operating models.</span>
-<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a>The nine-OM robustness set has also been completed and is stored locally in</span>
-<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a><span class="in">`jmMSE/model/candidates/robustness/`</span>. It contains all eight CMPs, 100 simulation</span>
-<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>replicates, and annual results through 2050 for every operating model.</span>
-<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a><span class="fu">## CMPs included</span></span>
-<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a>MP29 and MP32 remain the two advanced candidates. The other six procedures are</span>
-<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a>comparison cases that help show which part of a procedure causes a change in</span>
-<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a>performance.</span>
-<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> CMP <span class="pp">|</span> Role in the comparison <span class="pp">|</span></span>
-<span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|</span></span>
-<span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> MP29 <span class="pp">|</span> Optimal hockeystick case: target 2000, limit 0.1, all selected indices. <span class="pp">|</span></span>
-<span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> MP32 <span class="pp">|</span> Alternative powerramp case: target 1500, limit 0.1, all selected indices. <span class="pp">|</span></span>
-<span id="cb7-51"><a href="#cb7-51" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> MP18 <span class="pp">|</span> Extreme high-target case: hockeystick target 5000. <span class="pp">|</span></span>
-<span id="cb7-52"><a href="#cb7-52" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> MP24 <span class="pp">|</span> Low-target case: hockeystick target 1750 and limit 0. <span class="pp">|</span></span>
-<span id="cb7-53"><a href="#cb7-53" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> MP31 <span class="pp">|</span> Higher-limit case: hockeystick target 2000 and limit 0.3. <span class="pp">|</span></span>
-<span id="cb7-54"><a href="#cb7-54" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> MP23 <span class="pp">|</span> Different rule shape: slope HCR with its original five-year averaging window. <span class="pp">|</span></span>
-<span id="cb7-55"><a href="#cb7-55" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> MP35 <span class="pp">|</span> CPUE-only powerramp contrast: target 1500 and limit 0.1. <span class="pp">|</span></span>
-<span id="cb7-56"><a href="#cb7-56" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> MP36 <span class="pp">|</span> CPUE-only hockeystick contrast: target 2000 and limit 0.1. <span class="pp">|</span></span>
-<span id="cb7-57"><a href="#cb7-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-58"><a href="#cb7-58" aria-hidden="true" tabindex="-1"></a>The MP filter includes one-click selections for the advanced candidates,</span>
-<span id="cb7-59"><a href="#cb7-59" aria-hidden="true" tabindex="-1"></a>target contrasts, the limit contrast, rule-shape contrasts, CPUE-only</span>
-<span id="cb7-60"><a href="#cb7-60" aria-hidden="true" tabindex="-1"></a>contrasts, all CMPs, and each individual CMP.</span>
-<span id="cb7-61"><a href="#cb7-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-62"><a href="#cb7-62" aria-hidden="true" tabindex="-1"></a>MP23 retains the five-year averaging window used in its original tuning code.</span>
-<span id="cb7-63"><a href="#cb7-63" aria-hidden="true" tabindex="-1"></a>MP29 and MP32 use three years, so the MP23 comparison changes both rule shape</span>
-<span id="cb7-64"><a href="#cb7-64" aria-hidden="true" tabindex="-1"></a>and averaging window; it should not be interpreted as a pure test of shape</span>
-<span id="cb7-65"><a href="#cb7-65" aria-hidden="true" tabindex="-1"></a>alone.</span>
-<span id="cb7-66"><a href="#cb7-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-67"><a href="#cb7-67" aria-hidden="true" tabindex="-1"></a><span class="fu">## Run or extend the reference comparison</span></span>
-<span id="cb7-68"><a href="#cb7-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-69"><a href="#cb7-69" aria-hidden="true" tabindex="-1"></a>From the <span class="in">`jmMSE`</span> folder on branch <span class="in">`devel`</span>:</span>
-<span id="cb7-70"><a href="#cb7-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-71"><a href="#cb7-71" aria-hidden="true" tabindex="-1"></a><span class="in">```sh</span></span>
-<span id="cb7-72"><a href="#cb7-72" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> run_candidate_mps.R <span class="dt">\</span></span>
-<span id="cb7-73"><a href="#cb7-73" aria-hidden="true" tabindex="-1"></a>  <span class="at">--candidates</span><span class="op">=</span>tun29,tun32,tun18,tun24,tun31,tun23,tun35,tun36 <span class="dt">\</span></span>
-<span id="cb7-74"><a href="#cb7-74" aria-hidden="true" tabindex="-1"></a>  <span class="at">--mode</span><span class="op">=</span>reference <span class="dt">\</span></span>
-<span id="cb7-75"><a href="#cb7-75" aria-hidden="true" tabindex="-1"></a>  <span class="at">--cores</span><span class="op">=</span>1</span>
-<span id="cb7-76"><a href="#cb7-76" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb7-77"><a href="#cb7-77" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-78"><a href="#cb7-78" aria-hidden="true" tabindex="-1"></a>The candidate codes come from <span class="in">`candidate_mps.csv`</span>. Additional hockeystick or</span>
-<span id="cb7-79"><a href="#cb7-79" aria-hidden="true" tabindex="-1"></a>powerramp trials can be included for contrast, for example:</span>
-<span id="cb7-80"><a href="#cb7-80" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-81"><a href="#cb7-81" aria-hidden="true" tabindex="-1"></a><span class="in">```sh</span></span>
-<span id="cb7-82"><a href="#cb7-82" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> run_candidate_mps.R <span class="dt">\</span></span>
-<span id="cb7-83"><a href="#cb7-83" aria-hidden="true" tabindex="-1"></a>  <span class="at">--candidates</span><span class="op">=</span>tun25,tun29,tun32 <span class="dt">\</span></span>
-<span id="cb7-84"><a href="#cb7-84" aria-hidden="true" tabindex="-1"></a>  <span class="at">--mode</span><span class="op">=</span>reference <span class="dt">\</span></span>
-<span id="cb7-85"><a href="#cb7-85" aria-hidden="true" tabindex="-1"></a>  <span class="at">--cores</span><span class="op">=</span>1</span>
-<span id="cb7-86"><a href="#cb7-86" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb7-87"><a href="#cb7-87" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-88"><a href="#cb7-88" aria-hidden="true" tabindex="-1"></a>The runner uses the recorded definitions in <span class="in">`candidate_mps.csv`</span> together with</span>
-<span id="cb7-89"><a href="#cb7-89" aria-hidden="true" tabindex="-1"></a>the original estimator and rule functions in <span class="in">`jmMSE`</span>. Shortcut-assessment</span>
-<span id="cb7-90"><a href="#cb7-90" aria-hidden="true" tabindex="-1"></a>errors are generated from the original error model using fixed seeds so the</span>
-<span id="cb7-91"><a href="#cb7-91" aria-hidden="true" tabindex="-1"></a>comparison can be repeated. Each CMP starts from the same fixed random stream</span>
-<span id="cb7-92"><a href="#cb7-92" aria-hidden="true" tabindex="-1"></a>within an operating model, so adding or reordering CMPs does not change the</span>
-<span id="cb7-93"><a href="#cb7-93" aria-hidden="true" tabindex="-1"></a>other CMP results. Moving to a newer</span>
-<span id="cb7-94"><a href="#cb7-94" aria-hidden="true" tabindex="-1"></a>combined-index implementation should be treated as a method change requiring</span>
-<span id="cb7-95"><a href="#cb7-95" aria-hidden="true" tabindex="-1"></a>the operating models to be rebuilt and the candidates to be retuned and</span>
-<span id="cb7-96"><a href="#cb7-96" aria-hidden="true" tabindex="-1"></a>revalidated.</span>
-<span id="cb7-97"><a href="#cb7-97" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-98"><a href="#cb7-98" aria-hidden="true" tabindex="-1"></a>The validated reference run used R 4.6.1 with FLCore 2.6.30, FLFishery 0.4.0,</span>
-<span id="cb7-99"><a href="#cb7-99" aria-hidden="true" tabindex="-1"></a>mse 2.4.8.9004, msemodules 0.2.2, and FLjjm 0.3.4. The run folder contains the</span>
-<span id="cb7-100"><a href="#cb7-100" aria-hidden="true" tabindex="-1"></a>complete <span class="in">`sessionInfo.txt`</span> record.</span>
-<span id="cb7-101"><a href="#cb7-101" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-102"><a href="#cb7-102" aria-hidden="true" tabindex="-1"></a><span class="fu">## Prepare the combined Slick file</span></span>
-<span id="cb7-103"><a href="#cb7-103" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-104"><a href="#cb7-104" aria-hidden="true" tabindex="-1"></a>From the main <span class="in">`jmMSE26`</span> folder:</span>
-<span id="cb7-105"><a href="#cb7-105" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-108"><a href="#cb7-108" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb7-109"><a href="#cb7-109" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb7-110"><a href="#cb7-110" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"R/build_candidate_slick.R"</span>)</span>
-<span id="cb7-111"><a href="#cb7-111" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-112"><a href="#cb7-112" aria-hidden="true" tabindex="-1"></a>reference_slick <span class="ot">&lt;-</span> <span class="fu">build_candidate_slick</span>(</span>
-<span id="cb7-113"><a href="#cb7-113" aria-hidden="true" tabindex="-1"></a>  <span class="at">performance_file =</span> <span class="st">"../jmMSE/model/candidates/reference/performance.rds"</span>,</span>
-<span id="cb7-114"><a href="#cb7-114" aria-hidden="true" tabindex="-1"></a>  <span class="at">out_file =</span> <span class="cn">NULL</span>,</span>
-<span id="cb7-115"><a href="#cb7-115" aria-hidden="true" tabindex="-1"></a>  <span class="at">historical_om_files =</span> <span class="fu">candidate_reference_om_files</span>(<span class="st">"../jmMSE"</span>)</span>
-<span id="cb7-116"><a href="#cb7-116" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb7-117"><a href="#cb7-117" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb7-118"><a href="#cb7-118" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-119"><a href="#cb7-119" aria-hidden="true" tabindex="-1"></a>The script organizes the results by:</span>
-<span id="cb7-120"><a href="#cb7-120" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-121"><a href="#cb7-121" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>management procedure (one of the eight CMP comparison cases);</span>
-<span id="cb7-122"><a href="#cb7-122" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>operating model and stock;</span>
-<span id="cb7-123"><a href="#cb7-123" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>simulation replicate and year; and</span>
-<span id="cb7-124"><a href="#cb7-124" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>performance measure, including Kobe-plot values for $SB/SB_{MSY}$ and</span>
-<span id="cb7-125"><a href="#cb7-125" aria-hidden="true" tabindex="-1"></a>  $F/F_{MSY}$.</span>
-<span id="cb7-126"><a href="#cb7-126" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-127"><a href="#cb7-127" aria-hidden="true" tabindex="-1"></a>It also prepares three summary views using the comparison periods already used</span>
-<span id="cb7-128"><a href="#cb7-128" aria-hidden="true" tabindex="-1"></a>in <span class="in">`jmMSE`</span>:</span>
-<span id="cb7-129"><a href="#cb7-129" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-130"><a href="#cb7-130" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Boxplots** show the distribution among simulation replicates in the final</span>
-<span id="cb7-131"><a href="#cb7-131" aria-hidden="true" tabindex="-1"></a>  year, 2050.</span>
-<span id="cb7-132"><a href="#cb7-132" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Quilts** compare stock status, fishing pressure, catch, and catch stability</span>
-<span id="cb7-133"><a href="#cb7-133" aria-hidden="true" tabindex="-1"></a>  among operating models and MPs. Long-term results use 2036–2040; short-term</span>
-<span id="cb7-134"><a href="#cb7-134" aria-hidden="true" tabindex="-1"></a>  catch uses 2026–2030.</span>
-<span id="cb7-135"><a href="#cb7-135" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Trade-off plots** use the same periods to compare conservation, catch, and</span>
-<span id="cb7-136"><a href="#cb7-136" aria-hidden="true" tabindex="-1"></a>  catch-stability measures directly.</span>
-<span id="cb7-137"><a href="#cb7-137" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-138"><a href="#cb7-138" aria-hidden="true" tabindex="-1"></a>Kobe quadrant probabilities are calculated from $SB/SB_{MSY}$ and $F/F_{MSY}$.</span>
-<span id="cb7-139"><a href="#cb7-139" aria-hidden="true" tabindex="-1"></a>Non-finite ratios, which can occur when a stock component approaches zero, are</span>
-<span id="cb7-140"><a href="#cb7-140" aria-hidden="true" tabindex="-1"></a>treated as missing rather than replaced with invented values.</span>
-<span id="cb7-141"><a href="#cb7-141" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-142"><a href="#cb7-142" aria-hidden="true" tabindex="-1"></a>Before saving the Slick file, the script checks that the expected dimensions</span>
-<span id="cb7-143"><a href="#cb7-143" aria-hidden="true" tabindex="-1"></a>and labels agree. The technical checks are shown in the code for analysts who</span>
-<span id="cb7-144"><a href="#cb7-144" aria-hidden="true" tabindex="-1"></a>maintain the export.</span>
-<span id="cb7-145"><a href="#cb7-145" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-146"><a href="#cb7-146" aria-hidden="true" tabindex="-1"></a>The reference is labelled <span class="in">`om11`</span> in Slick. Its source name, <span class="in">`h1_0.16`</span>, remains</span>
-<span id="cb7-147"><a href="#cb7-147" aria-hidden="true" tabindex="-1"></a>in the OM metadata for traceability.</span>
-<span id="cb7-148"><a href="#cb7-148" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-149"><a href="#cb7-149" aria-hidden="true" tabindex="-1"></a><span class="fu">### Add the robustness sets</span></span>
-<span id="cb7-150"><a href="#cb7-150" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-151"><a href="#cb7-151" aria-hidden="true" tabindex="-1"></a>The robustness operating models and candidate runs can be reproduced from</span>
-<span id="cb7-152"><a href="#cb7-152" aria-hidden="true" tabindex="-1"></a><span class="in">`jmMSE`</span> branch <span class="in">`devel`</span> with:</span>
-<span id="cb7-153"><a href="#cb7-153" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-154"><a href="#cb7-154" aria-hidden="true" tabindex="-1"></a><span class="in">```sh</span></span>
-<span id="cb7-155"><a href="#cb7-155" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> prepare_candidate_robustness_oms.R</span>
-<span id="cb7-156"><a href="#cb7-156" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> run_candidate_mps.R <span class="dt">\</span></span>
-<span id="cb7-157"><a href="#cb7-157" aria-hidden="true" tabindex="-1"></a>  <span class="at">--candidates</span><span class="op">=</span>tun29,tun32,tun18,tun24,tun31,tun23,tun35,tun36 <span class="dt">\</span></span>
-<span id="cb7-158"><a href="#cb7-158" aria-hidden="true" tabindex="-1"></a>  <span class="at">--mode</span><span class="op">=</span>robustness <span class="dt">\</span></span>
-<span id="cb7-159"><a href="#cb7-159" aria-hidden="true" tabindex="-1"></a>  <span class="at">--cores</span><span class="op">=</span>1</span>
-<span id="cb7-160"><a href="#cb7-160" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb7-161"><a href="#cb7-161" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-162"><a href="#cb7-162" aria-hidden="true" tabindex="-1"></a>Then build the robustness component and combine it with the reference:</span>
-<span id="cb7-163"><a href="#cb7-163" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-166"><a href="#cb7-166" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb7-167"><a href="#cb7-167" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb7-168"><a href="#cb7-168" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"R/build_candidate_slick.R"</span>)</span>
-<span id="cb7-169"><a href="#cb7-169" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-170"><a href="#cb7-170" aria-hidden="true" tabindex="-1"></a>robustness_slick <span class="ot">&lt;-</span> <span class="fu">build_candidate_slick</span>(</span>
-<span id="cb7-171"><a href="#cb7-171" aria-hidden="true" tabindex="-1"></a>  <span class="at">performance_file =</span> <span class="st">"../jmMSE/model/candidates/robustness/performance.rds"</span>,</span>
-<span id="cb7-172"><a href="#cb7-172" aria-hidden="true" tabindex="-1"></a>  <span class="at">out_file =</span> <span class="cn">NULL</span>,</span>
-<span id="cb7-173"><a href="#cb7-173" aria-hidden="true" tabindex="-1"></a>  <span class="at">historical_om_files =</span> <span class="fu">candidate_robustness_om_files</span>(<span class="st">"../jmMSE"</span>)</span>
-<span id="cb7-174"><a href="#cb7-174" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb7-175"><a href="#cb7-175" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-176"><a href="#cb7-176" aria-hidden="true" tabindex="-1"></a>slick <span class="ot">&lt;-</span> <span class="fu">build_combined_candidate_slick</span>(</span>
-<span id="cb7-177"><a href="#cb7-177" aria-hidden="true" tabindex="-1"></a>  <span class="at">reference_slick =</span> reference_slick,</span>
-<span id="cb7-178"><a href="#cb7-178" aria-hidden="true" tabindex="-1"></a>  <span class="at">robustness_slick =</span> robustness_slick,</span>
-<span id="cb7-179"><a href="#cb7-179" aria-hidden="true" tabindex="-1"></a>  <span class="at">out_file =</span> <span class="st">"output/jm_candidates.slick"</span></span>
-<span id="cb7-180"><a href="#cb7-180" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb7-181"><a href="#cb7-181" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb7-182"><a href="#cb7-182" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-183"><a href="#cb7-183" aria-hidden="true" tabindex="-1"></a>The resulting Slick file contains 14 OM–stock series: one reference, five</span>
-<span id="cb7-184"><a href="#cb7-184" aria-hidden="true" tabindex="-1"></a>single-stock robustness cases, and eight stock-specific series from four</span>
-<span id="cb7-185"><a href="#cb7-185" aria-hidden="true" tabindex="-1"></a>two-stock robustness cases. Slick retains the Southern and Northern results</span>
-<span id="cb7-186"><a href="#cb7-186" aria-hidden="true" tabindex="-1"></a>rather than averaging them.</span>
-<span id="cb7-187"><a href="#cb7-187" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-188"><a href="#cb7-188" aria-hidden="true" tabindex="-1"></a>The <span class="in">`Set`</span> filter provides three main categories:</span>
-<span id="cb7-189"><a href="#cb7-189" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-190"><a href="#cb7-190" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Reference**: om11;</span>
-<span id="cb7-191"><a href="#cb7-191" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Robustness CJM**: the five single-stock robustness OMs; and</span>
-<span id="cb7-192"><a href="#cb7-192" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Robustness 2-stock**: the Southern and Northern results from the four</span>
-<span id="cb7-193"><a href="#cb7-193" aria-hidden="true" tabindex="-1"></a>  two-stock robustness OMs.</span>
-<span id="cb7-194"><a href="#cb7-194" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-195"><a href="#cb7-195" aria-hidden="true" tabindex="-1"></a>The OM and Stock filters remain available for selecting individual models and</span>
-<span id="cb7-196"><a href="#cb7-196" aria-hidden="true" tabindex="-1"></a>stock components. One-click presets provide quick selections for the reference,</span>
-<span id="cb7-197"><a href="#cb7-197" aria-hidden="true" tabindex="-1"></a>all CJM cases, the CJM robustness cases, the two-stock robustness cases, all</span>
-<span id="cb7-198"><a href="#cb7-198" aria-hidden="true" tabindex="-1"></a>OMs, and each individual alternative OM. Selecting a two-stock OM includes both</span>
-<span id="cb7-199"><a href="#cb7-199" aria-hidden="true" tabindex="-1"></a>its Southern and Northern rows.</span>
-<span id="cb7-200"><a href="#cb7-200" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-201"><a href="#cb7-201" aria-hidden="true" tabindex="-1"></a>The dimensions are 100 simulations, 14 OM–stock series, eight management</span>
-<span id="cb7-202"><a href="#cb7-202" aria-hidden="true" tabindex="-1"></a>procedures, four performance measures, and 81 annual values from 1970 through</span>
-<span id="cb7-203"><a href="#cb7-203" aria-hidden="true" tabindex="-1"></a><span class="ss">2050. </span>Each series uses its own conditioned history through 2025; projections</span>
-<span id="cb7-204"><a href="#cb7-204" aria-hidden="true" tabindex="-1"></a>under the eight CMPs begin in 2026.</span>
-<span id="cb7-205"><a href="#cb7-205" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-206"><a href="#cb7-206" aria-hidden="true" tabindex="-1"></a>Do not combine results produced under different package sets without first</span>
-<span id="cb7-207"><a href="#cb7-207" aria-hidden="true" tabindex="-1"></a>confirming that the candidate calculations are equivalent.</span>
-<span id="cb7-208"><a href="#cb7-208" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-209"><a href="#cb7-209" aria-hidden="true" tabindex="-1"></a><span class="fu">## Inspect or launch</span></span>
-<span id="cb7-210"><a href="#cb7-210" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-213"><a href="#cb7-213" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb7-214"><a href="#cb7-214" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb7-215"><a href="#cb7-215" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Slick)</span>
-<span id="cb7-216"><a href="#cb7-216" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-217"><a href="#cb7-217" aria-hidden="true" tabindex="-1"></a>slick <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"output/jm_candidates.slick"</span>)</span>
-<span id="cb7-218"><a href="#cb7-218" aria-hidden="true" tabindex="-1"></a><span class="fu">Check</span>(slick)</span>
-<span id="cb7-219"><a href="#cb7-219" aria-hidden="true" tabindex="-1"></a>methods<span class="sc">::</span><span class="fu">validObject</span>(slick)</span>
-<span id="cb7-220"><a href="#cb7-220" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-221"><a href="#cb7-221" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(<span class="fu">Value</span>(<span class="fu">Timeseries</span>(slick)))</span>
-<span id="cb7-222"><a href="#cb7-222" aria-hidden="true" tabindex="-1"></a><span class="fu">Metadata</span>(<span class="fu">MPs</span>(slick))</span>
-<span id="cb7-223"><a href="#cb7-223" aria-hidden="true" tabindex="-1"></a><span class="fu">Design</span>(slick)</span>
-<span id="cb7-224"><a href="#cb7-224" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-225"><a href="#cb7-225" aria-hidden="true" tabindex="-1"></a><span class="fu">App</span>(<span class="at">slick =</span> slick)</span>
-<span id="cb7-226"><a href="#cb7-226" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb7-227"><a href="#cb7-227" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-228"><a href="#cb7-228" aria-hidden="true" tabindex="-1"></a><span class="fu">## What to save with the Slick file</span></span>
-<span id="cb7-229"><a href="#cb7-229" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-230"><a href="#cb7-230" aria-hidden="true" tabindex="-1"></a>Save the Slick file together with the original performance results, their</span>
-<span id="cb7-231"><a href="#cb7-231" aria-hidden="true" tabindex="-1"></a>digital fingerprint, the exact saved versions of <span class="in">`jmMSE`</span> and <span class="in">`jmMSE26`</span>, and the</span>
-<span id="cb7-232"><a href="#cb7-232" aria-hidden="true" tabindex="-1"></a>versions of the R packages used.</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Load candidates into Slick"</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>{{&lt; include ../_includes/sprfmo-banner.qmd &gt;}}</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">"paper-title"</span><span class="dt">&gt;</span>Explore the Eight CMP Comparison Cases in Slick<span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>Slick is an interactive tool for exploring MSE results. The simulation is run</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>in <span class="in">`jmMSE`</span>; this repository converts the resulting performance table into a</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>Slick file.</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="fu">## Open the current file</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="fu">### In the hosted app</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span><span class="co">[</span><span class="ot">Download `jm_candidates.slick`</span><span class="co">](https://raw.githubusercontent.com/SPRFMO/jmMSE26/main/output/jm_candidates.slick)</span>.</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Open the <span class="co">[</span><span class="ot">Blue Matter Slick app</span><span class="co">](https://shiny.bluematterscience.com/app/slick)</span>.</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>If the app has stopped, select **Restart app**.</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Under **Load your MSE Results**, select the downloaded <span class="in">`.slick`</span> file.</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>When the Overview appears, use the MP and OM filters to explore the results.</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>The hosted app accepts file uploads but does not currently provide a field for</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>loading a file directly from a GitHub URL.</span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a><span class="fu">### From R</span></span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"Slick"</span>) <span class="co"># needed only once</span></span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Slick)</span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="fu">paste0</span>(</span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a>  <span class="st">"https://raw.githubusercontent.com/SPRFMO/jmMSE26/"</span>,</span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a>  <span class="st">"main/output/jm_candidates.slick"</span></span>
+<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a>file <span class="ot">&lt;-</span> <span class="fu">tempfile</span>(<span class="at">fileext =</span> <span class="st">".slick"</span>)</span>
+<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a><span class="fu">download.file</span>(url, file, <span class="at">mode =</span> <span class="st">"wb"</span>)</span>
+<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a>slick <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(file)</span>
+<span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a><span class="fu">Check</span>(slick)</span>
+<span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a><span class="fu">App</span>(<span class="at">slick =</span> slick)</span>
+<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a><span class="fu">### Make it a selectable case study</span></span>
+<span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-49"><a href="#cb8-49" aria-hidden="true" tabindex="-1"></a>Slick's case-study menu is populated from the</span>
+<span id="cb8-50"><a href="#cb8-50" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">`Blue-Matter/SlickLibrary`</span><span class="co">](https://github.com/Blue-Matter/SlickLibrary)</span></span>
+<span id="cb8-51"><a href="#cb8-51" aria-hidden="true" tabindex="-1"></a>repository. To request direct integration, copy the file to</span>
+<span id="cb8-52"><a href="#cb8-52" aria-hidden="true" tabindex="-1"></a><span class="in">`Slick_Objects/SPRFMO_Jack_Mackerel.slick`</span> in a fork of that repository and</span>
+<span id="cb8-53"><a href="#cb8-53" aria-hidden="true" tabindex="-1"></a>submit a pull request. Once the SlickLibrary maintainers merge it, **SPRFMO</span>
+<span id="cb8-54"><a href="#cb8-54" aria-hidden="true" tabindex="-1"></a>Jack Mackerel** will appear in the hosted app's case-study menu. See the</span>
+<span id="cb8-55"><a href="#cb8-55" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">official contribution instructions</span><span class="co">](https://slick.bluematterscience.com/articles/DevelopersGuide.html#slick-object-library)</span>.</span>
+<span id="cb8-56"><a href="#cb8-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-57"><a href="#cb8-57" aria-hidden="true" tabindex="-1"></a><span class="fu">## What is needed</span></span>
+<span id="cb8-58"><a href="#cb8-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-59"><a href="#cb8-59" aria-hidden="true" tabindex="-1"></a>The conversion can use either:</span>
+<span id="cb8-60"><a href="#cb8-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-61"><a href="#cb8-61" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>the table of performance results produced by <span class="in">`jmMSE`</span>; or</span>
+<span id="cb8-62"><a href="#cb8-62" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>a saved <span class="in">`jmMSE`</span> results object that already contains those performance results.</span>
+<span id="cb8-63"><a href="#cb8-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-64"><a href="#cb8-64" aria-hidden="true" tabindex="-1"></a>The results must include the eight CMPs listed below, the operating-model and stock names,</span>
+<span id="cb8-65"><a href="#cb8-65" aria-hidden="true" tabindex="-1"></a>simulation year and replicate, and the calculated performance measures. At a</span>
+<span id="cb8-66"><a href="#cb8-66" aria-hidden="true" tabindex="-1"></a>minimum, the results must include spawning biomass relative to $SB_{MSY}$,</span>
+<span id="cb8-67"><a href="#cb8-67" aria-hidden="true" tabindex="-1"></a>fishing mortality relative to $F_{MSY}$, and catch. Interannual catch change</span>
+<span id="cb8-68"><a href="#cb8-68" aria-hidden="true" tabindex="-1"></a>(IACC) is included when available.</span>
+<span id="cb8-69"><a href="#cb8-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-70"><a href="#cb8-70" aria-hidden="true" tabindex="-1"></a>The current reference comparison has been completed for eight CMPs with 100</span>
+<span id="cb8-71"><a href="#cb8-71" aria-hidden="true" tabindex="-1"></a>simulation replicates through 2050. It is stored locally in <span class="in">`jmMSE`</span> as:</span>
+<span id="cb8-72"><a href="#cb8-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-73"><a href="#cb8-73" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`model/candidates/reference/runs.rds`</span>: the complete simulation object; and</span>
+<span id="cb8-74"><a href="#cb8-74" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`model/candidates/reference/performance.rds`</span>: the smaller table used for</span>
+<span id="cb8-75"><a href="#cb8-75" aria-hidden="true" tabindex="-1"></a>  Slick.</span>
+<span id="cb8-76"><a href="#cb8-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-77"><a href="#cb8-77" aria-hidden="true" tabindex="-1"></a>These are reference-operating-model results. They are suitable for checking the</span>
+<span id="cb8-78"><a href="#cb8-78" aria-hidden="true" tabindex="-1"></a>candidate calculations and comparing the rule and data contrasts, but they are not a</span>
+<span id="cb8-79"><a href="#cb8-79" aria-hidden="true" tabindex="-1"></a>substitute for robustness testing across the full set of operating models.</span>
+<span id="cb8-80"><a href="#cb8-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-81"><a href="#cb8-81" aria-hidden="true" tabindex="-1"></a>The nine-OM robustness set has also been completed and is stored locally in</span>
+<span id="cb8-82"><a href="#cb8-82" aria-hidden="true" tabindex="-1"></a><span class="in">`jmMSE/model/candidates/robustness/`</span>. It contains all eight CMPs, 100 simulation</span>
+<span id="cb8-83"><a href="#cb8-83" aria-hidden="true" tabindex="-1"></a>replicates, and annual results through 2050 for every operating model.</span>
+<span id="cb8-84"><a href="#cb8-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-85"><a href="#cb8-85" aria-hidden="true" tabindex="-1"></a><span class="fu">## CMPs included</span></span>
+<span id="cb8-86"><a href="#cb8-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-87"><a href="#cb8-87" aria-hidden="true" tabindex="-1"></a>MP29 and MP32 remain the two advanced candidates. The other six procedures are</span>
+<span id="cb8-88"><a href="#cb8-88" aria-hidden="true" tabindex="-1"></a>comparison cases that help show which part of a procedure causes a change in</span>
+<span id="cb8-89"><a href="#cb8-89" aria-hidden="true" tabindex="-1"></a>performance.</span>
+<span id="cb8-90"><a href="#cb8-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-91"><a href="#cb8-91" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> CMP <span class="pp">|</span> Role in the comparison <span class="pp">|</span></span>
+<span id="cb8-92"><a href="#cb8-92" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|</span></span>
+<span id="cb8-93"><a href="#cb8-93" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> MP29 <span class="pp">|</span> Optimal hockeystick case: target 2000, limit 0.1, all selected indices. <span class="pp">|</span></span>
+<span id="cb8-94"><a href="#cb8-94" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> MP32 <span class="pp">|</span> Alternative powerramp case: target 1500, limit 0.1, all selected indices. <span class="pp">|</span></span>
+<span id="cb8-95"><a href="#cb8-95" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> MP18 <span class="pp">|</span> Extreme high-target case: hockeystick target 5000. <span class="pp">|</span></span>
+<span id="cb8-96"><a href="#cb8-96" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> MP24 <span class="pp">|</span> Low-target case: hockeystick target 1750 and limit 0. <span class="pp">|</span></span>
+<span id="cb8-97"><a href="#cb8-97" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> MP31 <span class="pp">|</span> Higher-limit case: hockeystick target 2000 and limit 0.3. <span class="pp">|</span></span>
+<span id="cb8-98"><a href="#cb8-98" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> MP23 <span class="pp">|</span> Different rule shape: slope HCR with its original five-year averaging window. <span class="pp">|</span></span>
+<span id="cb8-99"><a href="#cb8-99" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> MP35 <span class="pp">|</span> CPUE-only powerramp contrast: target 1500 and limit 0.1. <span class="pp">|</span></span>
+<span id="cb8-100"><a href="#cb8-100" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> MP36 <span class="pp">|</span> CPUE-only hockeystick contrast: target 2000 and limit 0.1. <span class="pp">|</span></span>
+<span id="cb8-101"><a href="#cb8-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-102"><a href="#cb8-102" aria-hidden="true" tabindex="-1"></a>The MP filter includes one-click selections for the advanced candidates,</span>
+<span id="cb8-103"><a href="#cb8-103" aria-hidden="true" tabindex="-1"></a>target contrasts, the limit contrast, rule-shape contrasts, CPUE-only</span>
+<span id="cb8-104"><a href="#cb8-104" aria-hidden="true" tabindex="-1"></a>contrasts, all CMPs, and each individual CMP.</span>
+<span id="cb8-105"><a href="#cb8-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-106"><a href="#cb8-106" aria-hidden="true" tabindex="-1"></a>MP23 retains the five-year averaging window used in its original tuning code.</span>
+<span id="cb8-107"><a href="#cb8-107" aria-hidden="true" tabindex="-1"></a>MP29 and MP32 use three years, so the MP23 comparison changes both rule shape</span>
+<span id="cb8-108"><a href="#cb8-108" aria-hidden="true" tabindex="-1"></a>and averaging window; it should not be interpreted as a pure test of shape</span>
+<span id="cb8-109"><a href="#cb8-109" aria-hidden="true" tabindex="-1"></a>alone.</span>
+<span id="cb8-110"><a href="#cb8-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-111"><a href="#cb8-111" aria-hidden="true" tabindex="-1"></a><span class="fu">## Run or extend the reference comparison</span></span>
+<span id="cb8-112"><a href="#cb8-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-113"><a href="#cb8-113" aria-hidden="true" tabindex="-1"></a>From the <span class="in">`jmMSE`</span> folder on branch <span class="in">`devel`</span>:</span>
+<span id="cb8-114"><a href="#cb8-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-115"><a href="#cb8-115" aria-hidden="true" tabindex="-1"></a><span class="in">```sh</span></span>
+<span id="cb8-116"><a href="#cb8-116" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> run_candidate_mps.R <span class="dt">\</span></span>
+<span id="cb8-117"><a href="#cb8-117" aria-hidden="true" tabindex="-1"></a>  <span class="at">--candidates</span><span class="op">=</span>tun29,tun32,tun18,tun24,tun31,tun23,tun35,tun36 <span class="dt">\</span></span>
+<span id="cb8-118"><a href="#cb8-118" aria-hidden="true" tabindex="-1"></a>  <span class="at">--mode</span><span class="op">=</span>reference <span class="dt">\</span></span>
+<span id="cb8-119"><a href="#cb8-119" aria-hidden="true" tabindex="-1"></a>  <span class="at">--cores</span><span class="op">=</span>1</span>
+<span id="cb8-120"><a href="#cb8-120" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-121"><a href="#cb8-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-122"><a href="#cb8-122" aria-hidden="true" tabindex="-1"></a>The candidate codes come from <span class="in">`candidate_mps.csv`</span>. Additional hockeystick or</span>
+<span id="cb8-123"><a href="#cb8-123" aria-hidden="true" tabindex="-1"></a>powerramp trials can be included for contrast, for example:</span>
+<span id="cb8-124"><a href="#cb8-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-125"><a href="#cb8-125" aria-hidden="true" tabindex="-1"></a><span class="in">```sh</span></span>
+<span id="cb8-126"><a href="#cb8-126" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> run_candidate_mps.R <span class="dt">\</span></span>
+<span id="cb8-127"><a href="#cb8-127" aria-hidden="true" tabindex="-1"></a>  <span class="at">--candidates</span><span class="op">=</span>tun25,tun29,tun32 <span class="dt">\</span></span>
+<span id="cb8-128"><a href="#cb8-128" aria-hidden="true" tabindex="-1"></a>  <span class="at">--mode</span><span class="op">=</span>reference <span class="dt">\</span></span>
+<span id="cb8-129"><a href="#cb8-129" aria-hidden="true" tabindex="-1"></a>  <span class="at">--cores</span><span class="op">=</span>1</span>
+<span id="cb8-130"><a href="#cb8-130" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-131"><a href="#cb8-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-132"><a href="#cb8-132" aria-hidden="true" tabindex="-1"></a>The runner uses the recorded definitions in <span class="in">`candidate_mps.csv`</span> together with</span>
+<span id="cb8-133"><a href="#cb8-133" aria-hidden="true" tabindex="-1"></a>the original estimator and rule functions in <span class="in">`jmMSE`</span>. Shortcut-assessment</span>
+<span id="cb8-134"><a href="#cb8-134" aria-hidden="true" tabindex="-1"></a>errors are generated from the original error model using fixed seeds so the</span>
+<span id="cb8-135"><a href="#cb8-135" aria-hidden="true" tabindex="-1"></a>comparison can be repeated. Each CMP starts from the same fixed random stream</span>
+<span id="cb8-136"><a href="#cb8-136" aria-hidden="true" tabindex="-1"></a>within an operating model, so adding or reordering CMPs does not change the</span>
+<span id="cb8-137"><a href="#cb8-137" aria-hidden="true" tabindex="-1"></a>other CMP results. Moving to a newer</span>
+<span id="cb8-138"><a href="#cb8-138" aria-hidden="true" tabindex="-1"></a>combined-index implementation should be treated as a method change requiring</span>
+<span id="cb8-139"><a href="#cb8-139" aria-hidden="true" tabindex="-1"></a>the operating models to be rebuilt and the candidates to be retuned and</span>
+<span id="cb8-140"><a href="#cb8-140" aria-hidden="true" tabindex="-1"></a>revalidated.</span>
+<span id="cb8-141"><a href="#cb8-141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-142"><a href="#cb8-142" aria-hidden="true" tabindex="-1"></a>The validated reference run used R 4.6.1 with FLCore 2.6.30, FLFishery 0.4.0,</span>
+<span id="cb8-143"><a href="#cb8-143" aria-hidden="true" tabindex="-1"></a>mse 2.4.8.9004, msemodules 0.2.2, and FLjjm 0.3.4. The run folder contains the</span>
+<span id="cb8-144"><a href="#cb8-144" aria-hidden="true" tabindex="-1"></a>complete <span class="in">`sessionInfo.txt`</span> record.</span>
+<span id="cb8-145"><a href="#cb8-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-146"><a href="#cb8-146" aria-hidden="true" tabindex="-1"></a><span class="fu">## Prepare the combined Slick file</span></span>
+<span id="cb8-147"><a href="#cb8-147" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-148"><a href="#cb8-148" aria-hidden="true" tabindex="-1"></a>From the main <span class="in">`jmMSE26`</span> folder:</span>
+<span id="cb8-149"><a href="#cb8-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-152"><a href="#cb8-152" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb8-153"><a href="#cb8-153" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb8-154"><a href="#cb8-154" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"R/build_candidate_slick.R"</span>)</span>
+<span id="cb8-155"><a href="#cb8-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-156"><a href="#cb8-156" aria-hidden="true" tabindex="-1"></a>reference_slick <span class="ot">&lt;-</span> <span class="fu">build_candidate_slick</span>(</span>
+<span id="cb8-157"><a href="#cb8-157" aria-hidden="true" tabindex="-1"></a>  <span class="at">performance_file =</span> <span class="st">"../jmMSE/model/candidates/reference/performance.rds"</span>,</span>
+<span id="cb8-158"><a href="#cb8-158" aria-hidden="true" tabindex="-1"></a>  <span class="at">out_file =</span> <span class="cn">NULL</span>,</span>
+<span id="cb8-159"><a href="#cb8-159" aria-hidden="true" tabindex="-1"></a>  <span class="at">historical_om_files =</span> <span class="fu">candidate_reference_om_files</span>(<span class="st">"../jmMSE"</span>)</span>
+<span id="cb8-160"><a href="#cb8-160" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb8-161"><a href="#cb8-161" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-162"><a href="#cb8-162" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-163"><a href="#cb8-163" aria-hidden="true" tabindex="-1"></a>The script organizes the results by:</span>
+<span id="cb8-164"><a href="#cb8-164" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-165"><a href="#cb8-165" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>management procedure (one of the eight CMP comparison cases);</span>
+<span id="cb8-166"><a href="#cb8-166" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>operating model and stock;</span>
+<span id="cb8-167"><a href="#cb8-167" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>simulation replicate and year; and</span>
+<span id="cb8-168"><a href="#cb8-168" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>performance measure, including Kobe-plot values for $SB/SB_{MSY}$ and</span>
+<span id="cb8-169"><a href="#cb8-169" aria-hidden="true" tabindex="-1"></a>  $F/F_{MSY}$.</span>
+<span id="cb8-170"><a href="#cb8-170" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-171"><a href="#cb8-171" aria-hidden="true" tabindex="-1"></a>It also prepares three summary views using the comparison periods already used</span>
+<span id="cb8-172"><a href="#cb8-172" aria-hidden="true" tabindex="-1"></a>in <span class="in">`jmMSE`</span>:</span>
+<span id="cb8-173"><a href="#cb8-173" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-174"><a href="#cb8-174" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Boxplots** show the distribution among simulation replicates in the final</span>
+<span id="cb8-175"><a href="#cb8-175" aria-hidden="true" tabindex="-1"></a>  year, 2050.</span>
+<span id="cb8-176"><a href="#cb8-176" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Quilts** compare stock status, fishing pressure, catch, and catch stability</span>
+<span id="cb8-177"><a href="#cb8-177" aria-hidden="true" tabindex="-1"></a>  among operating models and MPs. Long-term results use 2036–2040; short-term</span>
+<span id="cb8-178"><a href="#cb8-178" aria-hidden="true" tabindex="-1"></a>  catch uses 2026–2030.</span>
+<span id="cb8-179"><a href="#cb8-179" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Trade-off plots** use the same periods to compare conservation, catch, and</span>
+<span id="cb8-180"><a href="#cb8-180" aria-hidden="true" tabindex="-1"></a>  catch-stability measures directly.</span>
+<span id="cb8-181"><a href="#cb8-181" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-182"><a href="#cb8-182" aria-hidden="true" tabindex="-1"></a>Kobe quadrant probabilities are calculated from $SB/SB_{MSY}$ and $F/F_{MSY}$.</span>
+<span id="cb8-183"><a href="#cb8-183" aria-hidden="true" tabindex="-1"></a>Non-finite ratios, which can occur when a stock component approaches zero, are</span>
+<span id="cb8-184"><a href="#cb8-184" aria-hidden="true" tabindex="-1"></a>treated as missing rather than replaced with invented values.</span>
+<span id="cb8-185"><a href="#cb8-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-186"><a href="#cb8-186" aria-hidden="true" tabindex="-1"></a>Before saving the Slick file, the script checks that the expected dimensions</span>
+<span id="cb8-187"><a href="#cb8-187" aria-hidden="true" tabindex="-1"></a>and labels agree. The technical checks are shown in the code for analysts who</span>
+<span id="cb8-188"><a href="#cb8-188" aria-hidden="true" tabindex="-1"></a>maintain the export.</span>
+<span id="cb8-189"><a href="#cb8-189" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-190"><a href="#cb8-190" aria-hidden="true" tabindex="-1"></a>The reference is labelled <span class="in">`om11`</span> in Slick. Its source name, <span class="in">`h1_0.16`</span>, remains</span>
+<span id="cb8-191"><a href="#cb8-191" aria-hidden="true" tabindex="-1"></a>in the OM metadata for traceability.</span>
+<span id="cb8-192"><a href="#cb8-192" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-193"><a href="#cb8-193" aria-hidden="true" tabindex="-1"></a><span class="fu">### Add the robustness sets</span></span>
+<span id="cb8-194"><a href="#cb8-194" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-195"><a href="#cb8-195" aria-hidden="true" tabindex="-1"></a>The robustness operating models and candidate runs can be reproduced from</span>
+<span id="cb8-196"><a href="#cb8-196" aria-hidden="true" tabindex="-1"></a><span class="in">`jmMSE`</span> branch <span class="in">`devel`</span> with:</span>
+<span id="cb8-197"><a href="#cb8-197" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-198"><a href="#cb8-198" aria-hidden="true" tabindex="-1"></a><span class="in">```sh</span></span>
+<span id="cb8-199"><a href="#cb8-199" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> prepare_candidate_robustness_oms.R</span>
+<span id="cb8-200"><a href="#cb8-200" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> run_candidate_mps.R <span class="dt">\</span></span>
+<span id="cb8-201"><a href="#cb8-201" aria-hidden="true" tabindex="-1"></a>  <span class="at">--candidates</span><span class="op">=</span>tun29,tun32,tun18,tun24,tun31,tun23,tun35,tun36 <span class="dt">\</span></span>
+<span id="cb8-202"><a href="#cb8-202" aria-hidden="true" tabindex="-1"></a>  <span class="at">--mode</span><span class="op">=</span>robustness <span class="dt">\</span></span>
+<span id="cb8-203"><a href="#cb8-203" aria-hidden="true" tabindex="-1"></a>  <span class="at">--cores</span><span class="op">=</span>1</span>
+<span id="cb8-204"><a href="#cb8-204" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-205"><a href="#cb8-205" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-206"><a href="#cb8-206" aria-hidden="true" tabindex="-1"></a>Then build the robustness component and combine it with the reference:</span>
+<span id="cb8-207"><a href="#cb8-207" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-210"><a href="#cb8-210" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb8-211"><a href="#cb8-211" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb8-212"><a href="#cb8-212" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"R/build_candidate_slick.R"</span>)</span>
+<span id="cb8-213"><a href="#cb8-213" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-214"><a href="#cb8-214" aria-hidden="true" tabindex="-1"></a>robustness_slick <span class="ot">&lt;-</span> <span class="fu">build_candidate_slick</span>(</span>
+<span id="cb8-215"><a href="#cb8-215" aria-hidden="true" tabindex="-1"></a>  <span class="at">performance_file =</span> <span class="st">"../jmMSE/model/candidates/robustness/performance.rds"</span>,</span>
+<span id="cb8-216"><a href="#cb8-216" aria-hidden="true" tabindex="-1"></a>  <span class="at">out_file =</span> <span class="cn">NULL</span>,</span>
+<span id="cb8-217"><a href="#cb8-217" aria-hidden="true" tabindex="-1"></a>  <span class="at">historical_om_files =</span> <span class="fu">candidate_robustness_om_files</span>(<span class="st">"../jmMSE"</span>)</span>
+<span id="cb8-218"><a href="#cb8-218" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb8-219"><a href="#cb8-219" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-220"><a href="#cb8-220" aria-hidden="true" tabindex="-1"></a>slick <span class="ot">&lt;-</span> <span class="fu">build_combined_candidate_slick</span>(</span>
+<span id="cb8-221"><a href="#cb8-221" aria-hidden="true" tabindex="-1"></a>  <span class="at">reference_slick =</span> reference_slick,</span>
+<span id="cb8-222"><a href="#cb8-222" aria-hidden="true" tabindex="-1"></a>  <span class="at">robustness_slick =</span> robustness_slick,</span>
+<span id="cb8-223"><a href="#cb8-223" aria-hidden="true" tabindex="-1"></a>  <span class="at">out_file =</span> <span class="st">"output/jm_candidates.slick"</span></span>
+<span id="cb8-224"><a href="#cb8-224" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb8-225"><a href="#cb8-225" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-226"><a href="#cb8-226" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-227"><a href="#cb8-227" aria-hidden="true" tabindex="-1"></a>The resulting Slick file contains 14 OM–stock series: one reference, five</span>
+<span id="cb8-228"><a href="#cb8-228" aria-hidden="true" tabindex="-1"></a>single-stock robustness cases, and eight stock-specific series from four</span>
+<span id="cb8-229"><a href="#cb8-229" aria-hidden="true" tabindex="-1"></a>two-stock robustness cases. Slick retains the Southern and Northern results</span>
+<span id="cb8-230"><a href="#cb8-230" aria-hidden="true" tabindex="-1"></a>rather than averaging them.</span>
+<span id="cb8-231"><a href="#cb8-231" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-232"><a href="#cb8-232" aria-hidden="true" tabindex="-1"></a>The <span class="in">`Set`</span> filter provides three main categories:</span>
+<span id="cb8-233"><a href="#cb8-233" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-234"><a href="#cb8-234" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Reference**: om11;</span>
+<span id="cb8-235"><a href="#cb8-235" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Robustness CJM**: the five single-stock robustness OMs; and</span>
+<span id="cb8-236"><a href="#cb8-236" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Robustness 2-stock**: the Southern and Northern results from the four</span>
+<span id="cb8-237"><a href="#cb8-237" aria-hidden="true" tabindex="-1"></a>  two-stock robustness OMs.</span>
+<span id="cb8-238"><a href="#cb8-238" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-239"><a href="#cb8-239" aria-hidden="true" tabindex="-1"></a>The OM and Stock filters remain available for selecting individual models and</span>
+<span id="cb8-240"><a href="#cb8-240" aria-hidden="true" tabindex="-1"></a>stock components. One-click presets provide quick selections for the reference,</span>
+<span id="cb8-241"><a href="#cb8-241" aria-hidden="true" tabindex="-1"></a>all CJM cases, the CJM robustness cases, the two-stock robustness cases, all</span>
+<span id="cb8-242"><a href="#cb8-242" aria-hidden="true" tabindex="-1"></a>OMs, and each individual alternative OM. Selecting a two-stock OM includes both</span>
+<span id="cb8-243"><a href="#cb8-243" aria-hidden="true" tabindex="-1"></a>its Southern and Northern rows.</span>
+<span id="cb8-244"><a href="#cb8-244" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-245"><a href="#cb8-245" aria-hidden="true" tabindex="-1"></a>The dimensions are 100 simulations, 14 OM–stock series, eight management</span>
+<span id="cb8-246"><a href="#cb8-246" aria-hidden="true" tabindex="-1"></a>procedures, four performance measures, and 81 annual values from 1970 through</span>
+<span id="cb8-247"><a href="#cb8-247" aria-hidden="true" tabindex="-1"></a><span class="ss">2050. </span>Each series uses its own conditioned history through 2025; projections</span>
+<span id="cb8-248"><a href="#cb8-248" aria-hidden="true" tabindex="-1"></a>under the eight CMPs begin in 2026.</span>
+<span id="cb8-249"><a href="#cb8-249" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-250"><a href="#cb8-250" aria-hidden="true" tabindex="-1"></a>Do not combine results produced under different package sets without first</span>
+<span id="cb8-251"><a href="#cb8-251" aria-hidden="true" tabindex="-1"></a>confirming that the candidate calculations are equivalent.</span>
+<span id="cb8-252"><a href="#cb8-252" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-253"><a href="#cb8-253" aria-hidden="true" tabindex="-1"></a><span class="fu">## Inspect or launch</span></span>
+<span id="cb8-254"><a href="#cb8-254" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-257"><a href="#cb8-257" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb8-258"><a href="#cb8-258" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb8-259"><a href="#cb8-259" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Slick)</span>
+<span id="cb8-260"><a href="#cb8-260" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-261"><a href="#cb8-261" aria-hidden="true" tabindex="-1"></a>slick <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"output/jm_candidates.slick"</span>)</span>
+<span id="cb8-262"><a href="#cb8-262" aria-hidden="true" tabindex="-1"></a><span class="fu">Check</span>(slick)</span>
+<span id="cb8-263"><a href="#cb8-263" aria-hidden="true" tabindex="-1"></a>methods<span class="sc">::</span><span class="fu">validObject</span>(slick)</span>
+<span id="cb8-264"><a href="#cb8-264" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-265"><a href="#cb8-265" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(<span class="fu">Value</span>(<span class="fu">Timeseries</span>(slick)))</span>
+<span id="cb8-266"><a href="#cb8-266" aria-hidden="true" tabindex="-1"></a><span class="fu">Metadata</span>(<span class="fu">MPs</span>(slick))</span>
+<span id="cb8-267"><a href="#cb8-267" aria-hidden="true" tabindex="-1"></a><span class="fu">Design</span>(slick)</span>
+<span id="cb8-268"><a href="#cb8-268" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-269"><a href="#cb8-269" aria-hidden="true" tabindex="-1"></a><span class="fu">App</span>(<span class="at">slick =</span> slick)</span>
+<span id="cb8-270"><a href="#cb8-270" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-271"><a href="#cb8-271" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-272"><a href="#cb8-272" aria-hidden="true" tabindex="-1"></a><span class="fu">## What to save with the Slick file</span></span>
+<span id="cb8-273"><a href="#cb8-273" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-274"><a href="#cb8-274" aria-hidden="true" tabindex="-1"></a>Save the Slick file together with the original performance results, their</span>
+<span id="cb8-275"><a href="#cb8-275" aria-hidden="true" tabindex="-1"></a>digital fingerprint, the exact saved versions of <span class="in">`jmMSE`</span> and <span class="in">`jmMSE26`</span>, and the</span>
+<span id="cb8-276"><a href="#cb8-276" aria-hidden="true" tabindex="-1"></a>versions of the R packages used.</span>
 </code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
