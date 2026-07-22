@@ -1,0 +1,14 @@
+cmp_id,label,status,estimator,hcr,indices,min,lim,trigger,target,dlow,dupp,window_years,source
+SCW17-HS-BASE,Base (Wed pm),test candidate,cpues.ind,hockeystick.hcr,Chile_CPUE + Offshore_CPUE,0,0.5,1.5,1385,,,4,SCW17 Paper 09
+SCW17-HS-ZERO,Zero-Zero,test candidate,cpues.ind,hockeystick.hcr,Chile_CPUE + Offshore_CPUE,0,0,1.5,1385,,,4,SCW17 Paper 09
+SCW17-HS-C15,15% Constraint,test candidate,cpues.ind,hockeystick.hcr,Chile_CPUE + Offshore_CPUE,0,0,1.5,1385,0.85,1.2,4,SCW17 Paper 09
+SCW17-HS-C20,20% Constraint,test candidate,cpues.ind,hockeystick.hcr,Chile_CPUE + Offshore_CPUE,0,0,1.5,1385,0.8,1.2,4,SCW17 Paper 09
+SCW17-HS-I50,50% Inc,test candidate,cpues.ind,hockeystick.hcr,Chile_CPUE + Offshore_CPUE,0,0,2.25,2077.5,,,4,SCW17 Paper 09
+SCW17-HS-I50C15,15% Constraint 50% Inc,test candidate,cpues.ind,hockeystick.hcr,Chile_CPUE + Offshore_CPUE,0,0,2.25,2077.5,0.85,1.2,4,SCW17 Paper 09
+SCW17-HS-I50W3,3-Year mean 50% Inc,test candidate,cpues.ind,hockeystick.hcr,Chile_CPUE + Offshore_CPUE,0,0,2.25,2077.5,0.85,1.2,3,SCW17 Paper 09
+SCW17-HS-I100,100% Inc,test candidate,cpues.ind,hockeystick.hcr,Chile_CPUE + Offshore_CPUE,0,0,3,2770,0.85,1.2,4,SCW17 Paper 09
+SCW17-HS-MIN1385,minC target=1385,test candidate,cpues.ind,hockeystick.hcr,Chile_CPUE + Offshore_CPUE,270,0.2,1.5,1385,0.85,1.2,4,SCW17 Paper 09
+SCW17-HS-MIN1500,minC target=1500,test candidate,cpues.ind,hockeystick.hcr,Chile_CPUE + Offshore_CPUE,270,0.2,1.5,1500,0.85,1.2,4,SCW17 Paper 09
+SCW17-HS-ALLIDX,All indices,test candidate,cpues.ind,hockeystick.hcr,Chile_CPUE + Offshore_CPUE + Chile_AcousN + Peru_Artis,0,0,1.5,1385,0.85,1.2,4,SCW17 Paper 09
+SCW17-HS-NIDX,Northern indices,test candidate,cpues.ind,hockeystick.hcr,Chile_AcousN + Peru_Artis,0,0,1.5,1385,0.85,1.2,4,SCW17 Paper 09
+

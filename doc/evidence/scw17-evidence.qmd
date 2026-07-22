@@ -1,0 +1,63 @@
+---
+title: "SCW17 CMP evidence"
+---
+
+{{< include ../_includes/sprfmo-banner.html >}}
+
+<div class="paper-title">Evidence Seeded from SCW17 Papers 08 and 09</div>
+
+::: {.status-note}
+This is an evidence inventory, not a final CMP ranking. Numerical results must
+be regenerated or linked to immutable artifacts before supporting a formal
+selection decision.
+:::
+
+## Paper-08 subset screen
+
+SCW17/Paper-08 documented a reproducible subset test of an empirical index
+procedure using `Chile_CPUE` and `Offshore_CPUE`, `cpues.ind` with a mean
+combination, and `buffer.hcr`. Twelve Latin-hypercube design points varied the
+limit and lower/upper buffer parameters.
+
+The paper reported that the subset spanned a wide range of Kobe-green
+performance and that higher green probability could coincide with lower catch
+over the tuning window. It explicitly cautioned that this subset was not the
+intended full parameter screen. That qualification is retained here.
+
+Evidence still needed before promotion:
+
+- immutable run and design artifacts;
+- confirmation against the merged `jmMSE` implementation;
+- evaluation across the agreed reference and robustness OMs;
+- the complete agreed performance-metric set;
+- convergence, failure, and reproducibility diagnostics; and
+- a recorded working-group interpretation of trade-offs.
+
+## Paper-09 hockeystick test set
+
+SCW17/Paper-09 converted workshop proposals into a structured set of index-based
+hockeystick tests. It established several useful implementation controls:
+
+- use exact `jmMSE` index names;
+- define candidate rows in one table rather than hand-editing controls;
+- stop when required indices are unavailable rather than substituting silently;
+- distinguish mean-index tests from loess smoothing sensitivities; and
+- retain unavailable tests as unavailable until their methods exist.
+
+Those rows seed the [CMP registry](../cmp/index.qmd). Their status remains “test
+candidate” because Paper-09 described how to run them, not a decision to adopt
+them.
+
+## Evidence promotion checklist
+
+| Check | Required before shortlist | Required before adoption |
+|---|:---:|:---:|
+| Exact CMP specification | Yes | Yes |
+| Reproducible reference-OM runs | Yes | Yes |
+| Agreed robustness set | Planned or complete | Complete |
+| Full performance metrics | Yes | Yes |
+| Failure and warning audit | Yes | Yes |
+| Frozen worked example | Desirable | Yes |
+| Independent implementation review | Desirable | Yes |
+| Formal decision record | Yes | Yes |
+

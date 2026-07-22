@@ -1,0 +1,42 @@
+---
+title: "Management-procedure components"
+---
+
+{{< include ../_includes/sprfmo-banner.html >}}
+
+<div class="paper-title">Management-Procedure Components</div>
+
+This page reorganizes the architecture and inventory in SCW17/Paper-03. In
+`jmMSE`, a management procedure normally combines three controlled modules:
+
+```{mermaid}
+flowchart LR
+  D["Observed annual data"] --> E["Estimator: est"]
+  E --> S["Status or index metric"]
+  S --> H["Harvest control rule: hcr"]
+  H --> R["Catch recommendation"]
+  R --> I["Implementation system: isys"]
+  I --> A["Implemented catch by fishery or stock"]
+```
+
+| Component | Role | Examples inventoried at SCW17 |
+|---|---|---|
+| `est` | Converts observations or assessment output into the metric used by the rule. | `perfect.sa`, `shortcut.sa`, `cpue.ind`, `cpuescore.ind`, `meta.est`, `spict.sa` |
+| `hcr` | Converts that metric into a catch or effort recommendation. | `fixedC.hcr`, `hockeystick.hcr`, `buffer.hcr`, `bufferdelta.hcr`, `meta.hcr` |
+| `isys` | Allocates or modifies the recommendation for implementation. | `split.is`, `bank_borrow.is` |
+
+## Families represented in the SCW17 inventory
+
+| Family | Typical estimator | Typical HCR | Role at SCW17 |
+|---|---|---|---|
+| Fixed catch reference | Perfect information | Fixed catch | Diagnostic baseline |
+| Shortcut assessment | Depletion estimate | Hockeystick or buffer | Assessment-based comparison |
+| Empirical index | CPUE/index aggregate | Buffer or hockeystick | Main CMP development family |
+| SPiCT assessment | SPiCT biomass/status | Buffer | Model-based candidate |
+| Multi-index/meta | Multiple index scores | Meta-HCR | Exploratory candidate |
+| Banking/borrowing | Existing estimator/HCR | Existing HCR plus modified `isys` | Implementation sensitivity |
+
+These families are an inventory, not a decision about which procedure should be
+selected. Exact CMP identity requires the module versions, full argument set,
+input definitions, and implementation rules recorded together.
+

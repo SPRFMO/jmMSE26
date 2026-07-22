@@ -1,0 +1,46 @@
+---
+title: "MSE workflow"
+---
+
+{{< include ../_includes/sprfmo-banner.html >}}
+
+<div class="paper-title">From Assessment Conditioning to CMP Evidence</div>
+
+This page condenses SCW17/Paper-04. It locates the documentation site within
+the broader analytical system without duplicating that system.
+
+```{mermaid}
+flowchart LR
+  J["JJM assessment configurations"] --> C["Condition operating models"]
+  C --> O["OM / OEM / IEM bundles"]
+  O --> M["Apply CMPs in jmMSE"]
+  M --> P["Performance metrics and diagnostics"]
+  P --> D["CMP comparison and decision"]
+  D --> S["Versioned specification in jmMSE26"]
+  S --> Y["Annual operational application"]
+  Y --> V["Archived inputs, calculations, and advice"]
+```
+
+| Layer | Responsibility |
+|---|---|
+| JJM | Assessment-conditioned stock and fishery dynamics |
+| `jjmR` / `FLjjm` | Reading JJM output and constructing FLR/MSE objects |
+| FLR / `mse` / `msemodules` | Projection objects and generic MP machinery |
+| `jmMSE` | OM definitions, CMP code, tuning, simulation, and performance |
+| `jmMSE26` | Reviewed specifications, selection evidence, and application instructions |
+
+## Separation of responsibilities
+
+`jmMSE26` must not become an independent fork of the MSE engine. Executable
+snippets here are conformance examples or thin wrappers pinned to a `jmMSE`
+commit. Operating models, recruitment assumptions, movement assumptions,
+reference points, and performance metrics remain governed by their scientific
+source repositories.
+
+## Reproducibility chain
+
+Every performance claim should identify the OM set, CMP version, random-seed
+policy, iteration count, projection period, metric definition, output artifact,
+and source commit. Every operational application should identify its input data
+vintage and the adopted CMP version.
+

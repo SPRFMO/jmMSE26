@@ -1,0 +1,38 @@
+---
+title: "Annual input data"
+---
+
+{{< include ../_includes/sprfmo-banner.html >}}
+
+<div class="paper-title">Annual Input Data Contract</div>
+
+The adopted CMP specification must replace this template with exact series and
+rules. Until then, this page defines the minimum metadata required for each
+candidate test and annual dry run.
+
+| Field | Requirement |
+|---|---|
+| Series identifier | Exact name used by the implementation |
+| Provider | Responsible institution and contact point |
+| Unit and scale | Including any thousands/millions convention |
+| Spatial and fleet coverage | Exact area, fleet, and aggregation |
+| Observation period | Months/seasons represented |
+| Management-year cutoff | Latest acceptable receipt date |
+| Revision status | Preliminary, revised, or final |
+| Missing-data rule | Stop, carry forward, omit, or approved substitute |
+| Transformation | Standardization, smoothing, averaging, or rescaling |
+| Checksum | Hash of the archived input file |
+
+## Validation classes
+
+1. **Schema:** expected columns, types, names, years, and uniqueness.
+2. **Units:** expected magnitude and explicit conversion.
+3. **Completeness:** required years and indices are present.
+4. **Plausibility:** changes outside documented bounds are flagged, not
+   automatically corrected.
+5. **Vintage:** the source date and revision state are recorded.
+6. **Identity:** the archived file checksum matches the calculation record.
+
+Missing or revised data must follow the adopted specification. Analysts should
+not invent a replacement rule during the annual calculation.
+

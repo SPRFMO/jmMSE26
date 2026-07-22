@@ -1,0 +1,454 @@
+[
+  {
+    "objectID": "application/input-data.html",
+    "href": "application/input-data.html",
+    "title": "Annual input data",
+    "section": "",
+    "text": "&lt;h1 class=\"sprfmo-wordmark\"&gt;SPRFMO&lt;/h1&gt;\n&lt;div class=\"sprfmo-subtitle\"&gt;South Pacific Regional Fisheries Management Organisation&lt;/div&gt;\n&lt;div class=\"sprfmo-rule\"&gt;&lt;/div&gt;\n&lt;div class=\"sprfmo-group\"&gt;Jack Mackerel Candidate Management Procedures&lt;/div&gt;\nThe adopted CMP specification must replace this template with exact series and rules. Until then, this page defines the minimum metadata required for each candidate test and annual dry run.",
+    "crumbs": [
+      "Home",
+      "Applying a CMP",
+      "Annual input data"
+    ]
+  },
+  {
+    "objectID": "application/input-data.html#validation-classes",
+    "href": "application/input-data.html#validation-classes",
+    "title": "Annual input data",
+    "section": "1 Validation classes",
+    "text": "1 Validation classes\n\nSchema: expected columns, types, names, years, and uniqueness.\nUnits: expected magnitude and explicit conversion.\nCompleteness: required years and indices are present.\nPlausibility: changes outside documented bounds are flagged, not automatically corrected.\nVintage: the source date and revision state are recorded.\nIdentity: the archived file checksum matches the calculation record.\n\nMissing or revised data must follow the adopted specification. Analysts should not invent a replacement rule during the annual calculation.",
+    "crumbs": [
+      "Home",
+      "Applying a CMP",
+      "Annual input data"
+    ]
+  },
+  {
+    "objectID": "governance/traceability.html",
+    "href": "governance/traceability.html",
+    "title": "Traceability and change control",
+    "section": "",
+    "text": "&lt;h1 class=\"sprfmo-wordmark\"&gt;SPRFMO&lt;/h1&gt;\n&lt;div class=\"sprfmo-subtitle\"&gt;South Pacific Regional Fisheries Management Organisation&lt;/div&gt;\n&lt;div class=\"sprfmo-rule\"&gt;&lt;/div&gt;\n&lt;div class=\"sprfmo-group\"&gt;Jack Mackerel Candidate Management Procedures&lt;/div&gt;",
+    "crumbs": [
+      "Home",
+      "Traceability and change control"
+    ]
+  },
+  {
+    "objectID": "governance/traceability.html#seed-provenance",
+    "href": "governance/traceability.html#seed-provenance",
+    "title": "Traceability and change control",
+    "section": "1 Seed provenance",
+    "text": "1 Seed provenance\n\n\n\n\n\n\n\n\nSource\nCommit used for scaffold\nReorganized material\n\n\n\n\nSPRFMO/scw17\n0eb97c9c0329f5ec3338e3cf885f6e1f184c4780\nPapers 03, 04, 08, and 09; Quarto site conventions\n\n\nSPRFMO/jmMSE\n94d4d325ba46220f56097b3de90824c83b7cf3cd\nCurrent merged main reference at scaffold time\n\n\n\nThe scaffold summarizes and reorganizes source material. It does not assert that any SCW17 test candidate has been shortlisted, recommended, or adopted.",
+    "crumbs": [
+      "Home",
+      "Traceability and change control"
+    ]
+  },
+  {
+    "objectID": "governance/traceability.html#required-traceability-for-a-cmp",
+    "href": "governance/traceability.html#required-traceability-for-a-cmp",
+    "title": "Traceability and change control",
+    "section": "2 Required traceability for a CMP",
+    "text": "2 Required traceability for a CMP\nEvery CMP version must link to:\n\nits estimator, HCR, and implementation-system source;\nthe exact argument set and input-data contract;\nthe jmMSE commit used for evaluation;\nOM and robustness scenario definitions;\nperformance metric definitions and output artifacts;\nreview findings and known limitations; and\nthe decision that changed its status.",
+    "crumbs": [
+      "Home",
+      "Traceability and change control"
+    ]
+  },
+  {
+    "objectID": "governance/traceability.html#change-classes",
+    "href": "governance/traceability.html#change-classes",
+    "title": "Traceability and change control",
+    "section": "3 Change classes",
+    "text": "3 Change classes\n\n\n\n\n\n\n\n\nClass\nExamples\nRequired review\n\n\n\n\nEditorial\nSpelling, navigation, clearer non-normative explanation\nDocumentation review\n\n\nImplementation-equivalent\nRefactor proven to return identical results\nCode review plus regression test\n\n\nScientific\nParameter, index, window, HCR, constraint, allocation, or fallback change\nRenewed scientific review and normally MSE evaluation\n\n\nStatus\nTest to shortlist, recommendation, adoption, or retirement\nCited decision record",
+    "crumbs": [
+      "Home",
+      "Traceability and change control"
+    ]
+  },
+  {
+    "objectID": "governance/traceability.html#open-items-at-scaffold-time",
+    "href": "governance/traceability.html#open-items-at-scaffold-time",
+    "title": "Traceability and change control",
+    "section": "4 Open items at scaffold time",
+    "text": "4 Open items at scaffold time\n\nIdentify which SCW17 candidates, if any, were formally shortlisted after the source papers were prepared.\nReplace test labels with stable working-group CMP identifiers where decisions exist.\nPopulate immutable evidence artifacts from agreed jmMSE runs.\nComplete normative units, annual cutoffs, missing-data rules, rounding, and exceptional-circumstances provisions.\nAdd frozen worked examples and automated conformance tests.",
+    "crumbs": [
+      "Home",
+      "Traceability and change control"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "SPRFMO Jack Mackerel Candidate Management Procedures",
+    "section": "",
+    "text": "&lt;h1 class=\"sprfmo-wordmark\"&gt;SPRFMO&lt;/h1&gt;\n&lt;div class=\"sprfmo-subtitle\"&gt;South Pacific Regional Fisheries Management Organisation&lt;/div&gt;\n&lt;div class=\"sprfmo-rule\"&gt;&lt;/div&gt;\n&lt;div class=\"sprfmo-group\"&gt;Jack Mackerel Candidate Management Procedures&lt;/div&gt;",
+    "crumbs": [
+      "Home",
+      "SPRFMO Jack Mackerel Candidate Management Procedures"
+    ]
+  },
+  {
+    "objectID": "index.html#purpose",
+    "href": "index.html#purpose",
+    "title": "SPRFMO Jack Mackerel Candidate Management Procedures",
+    "section": "Purpose",
+    "text": "Purpose\nThis site is the durable specification and implementation guide for candidate management procedures (CMPs) evaluated for South Pacific jack mackerel. It brings together four strands developed for SCW17:\n\nthe management-procedure inventory;\nthe end-to-end MSE workflow;\nevidence from CMP tests and performance comparisons; and\ninstructions for applying a selected procedure when new annual data become available.\n\nThe scientific simulation engine remains in SPRFMO/jmMSE. This repository records what a CMP is, why it remains under consideration, how it is applied, and which version of code and evidence supports it.",
+    "crumbs": [
+      "Home",
+      "SPRFMO Jack Mackerel Candidate Management Procedures"
+    ]
+  },
+  {
+    "objectID": "index.html#start-here",
+    "href": "index.html#start-here",
+    "title": "SPRFMO Jack Mackerel Candidate Management Procedures",
+    "section": "Start here",
+    "text": "Start here\n\nCMP registry: candidate identity, parameters, and status.\nAnnual application: controlled operational sequence from new data to advice.\nMSE workflow: where CMPs fit within the assessment and simulation system.\nSCW17 evidence: evidence inherited from Papers 08 and 09, with limitations retained.\nTraceability: source commits, review state, and change control.",
+    "crumbs": [
+      "Home",
+      "SPRFMO Jack Mackerel Candidate Management Procedures"
+    ]
+  },
+  {
+    "objectID": "index.html#governing-principle",
+    "href": "index.html#governing-principle",
+    "title": "SPRFMO Jack Mackerel Candidate Management Procedures",
+    "section": "Governing principle",
+    "text": "Governing principle\nThe normative CMP specification is separate from explanatory text and MSE results. A scientific result may change the status of a candidate, but it does not silently change the estimator, HCR, implementation system, parameter values, or exceptional-circumstances rules.",
+    "crumbs": [
+      "Home",
+      "SPRFMO Jack Mackerel Candidate Management Procedures"
+    ]
+  },
+  {
+    "objectID": "cmp/components.html",
+    "href": "cmp/components.html",
+    "title": "Management-procedure components",
+    "section": "",
+    "text": "&lt;h1 class=\"sprfmo-wordmark\"&gt;SPRFMO&lt;/h1&gt;\n&lt;div class=\"sprfmo-subtitle\"&gt;South Pacific Regional Fisheries Management Organisation&lt;/div&gt;\n&lt;div class=\"sprfmo-rule\"&gt;&lt;/div&gt;\n&lt;div class=\"sprfmo-group\"&gt;Jack Mackerel Candidate Management Procedures&lt;/div&gt;\nThis page reorganizes the architecture and inventory in SCW17/Paper-03. In jmMSE, a management procedure normally combines three controlled modules:\nflowchart LR\n  D[\"Observed annual data\"] --&gt; E[\"Estimator: est\"]\n  E --&gt; S[\"Status or index metric\"]\n  S --&gt; H[\"Harvest control rule: hcr\"]\n  H --&gt; R[\"Catch recommendation\"]\n  R --&gt; I[\"Implementation system: isys\"]\n  I --&gt; A[\"Implemented catch by fishery or stock\"]",
+    "crumbs": [
+      "Home",
+      "Candidate management procedures",
+      "Management-procedure components"
+    ]
+  },
+  {
+    "objectID": "cmp/components.html#families-represented-in-the-scw17-inventory",
+    "href": "cmp/components.html#families-represented-in-the-scw17-inventory",
+    "title": "Management-procedure components",
+    "section": "1 Families represented in the SCW17 inventory",
+    "text": "1 Families represented in the SCW17 inventory\n\n\n\n\n\n\n\n\n\nFamily\nTypical estimator\nTypical HCR\nRole at SCW17\n\n\n\n\nFixed catch reference\nPerfect information\nFixed catch\nDiagnostic baseline\n\n\nShortcut assessment\nDepletion estimate\nHockeystick or buffer\nAssessment-based comparison\n\n\nEmpirical index\nCPUE/index aggregate\nBuffer or hockeystick\nMain CMP development family\n\n\nSPiCT assessment\nSPiCT biomass/status\nBuffer\nModel-based candidate\n\n\nMulti-index/meta\nMultiple index scores\nMeta-HCR\nExploratory candidate\n\n\nBanking/borrowing\nExisting estimator/HCR\nExisting HCR plus modified isys\nImplementation sensitivity\n\n\n\nThese families are an inventory, not a decision about which procedure should be selected. Exact CMP identity requires the module versions, full argument set, input definitions, and implementation rules recorded together.",
+    "crumbs": [
+      "Home",
+      "Candidate management procedures",
+      "Management-procedure components"
+    ]
+  },
+  {
+    "objectID": "cmp/specification-template.html",
+    "href": "cmp/specification-template.html",
+    "title": "CMP specification template",
+    "section": "",
+    "text": "&lt;h1 class=\"sprfmo-wordmark\"&gt;SPRFMO&lt;/h1&gt;\n&lt;div class=\"sprfmo-subtitle\"&gt;South Pacific Regional Fisheries Management Organisation&lt;/div&gt;\n&lt;div class=\"sprfmo-rule\"&gt;&lt;/div&gt;\n&lt;div class=\"sprfmo-group\"&gt;Jack Mackerel Candidate Management Procedures&lt;/div&gt;\nCopy this structure for every shortlisted CMP. Text labelled normative governs implementation; explanatory evidence belongs in the evidence section.",
+    "crumbs": [
+      "Home",
+      "Candidate management procedures",
+      "CMP specification template"
+    ]
+  },
+  {
+    "objectID": "cmp/specification-template.html#identity-and-authority",
+    "href": "cmp/specification-template.html#identity-and-authority",
+    "title": "CMP specification template",
+    "section": "1 Identity and authority",
+    "text": "1 Identity and authority\n\n\n\nField\nRequired value\n\n\n\n\nCMP identifier\nStable identifier; never reused\n\n\nVersion\nSemantic or dated version\n\n\nStatus\nTest, shortlisted, recommended, adopted, or retired\n\n\nEffective period\nFirst and last management year, if applicable\n\n\nDecision record\nBody, meeting, document, date, and paragraph\n\n\nCode reference\nRepository, commit, file, and function/control name",
+    "crumbs": [
+      "Home",
+      "Candidate management procedures",
+      "CMP specification template"
+    ]
+  },
+  {
+    "objectID": "cmp/specification-template.html#normative-inputs",
+    "href": "cmp/specification-template.html#normative-inputs",
+    "title": "CMP specification template",
+    "section": "2 Normative inputs",
+    "text": "2 Normative inputs\nFor every input state the owner, series name, unit, spatial coverage, seasonal coverage, annual cutoff date, revision policy, missing-value rule, and transformation. Specify exactly which data vintages are eligible.",
+    "crumbs": [
+      "Home",
+      "Candidate management procedures",
+      "CMP specification template"
+    ]
+  },
+  {
+    "objectID": "cmp/specification-template.html#normative-calculation",
+    "href": "cmp/specification-template.html#normative-calculation",
+    "title": "CMP specification template",
+    "section": "3 Normative calculation",
+    "text": "3 Normative calculation\nDocument, in order:\n\ndata validation and exclusions;\nestimator calculation;\nstatus metric and reference period;\nHCR equation and every parameter;\ninterannual constraints;\nrounding and numerical precision;\nimplementation allocation; and\nexceptional-circumstances checks.",
+    "crumbs": [
+      "Home",
+      "Candidate management procedures",
+      "CMP specification template"
+    ]
+  },
+  {
+    "objectID": "cmp/specification-template.html#worked-example",
+    "href": "cmp/specification-template.html#worked-example",
+    "title": "CMP specification template",
+    "section": "4 Worked example",
+    "text": "4 Worked example\nProvide frozen input data, intermediate values, final advice, and a checksum or automated regression test. A reviewer must be able to reproduce the published answer without access to mutable external data.",
+    "crumbs": [
+      "Home",
+      "Candidate management procedures",
+      "CMP specification template"
+    ]
+  },
+  {
+    "objectID": "cmp/specification-template.html#evidence-and-limitations",
+    "href": "cmp/specification-template.html#evidence-and-limitations",
+    "title": "CMP specification template",
+    "section": "5 Evidence and limitations",
+    "text": "5 Evidence and limitations\nLink to MSE runs, operating models, performance metrics, diagnostics, and known limitations. Evidence explains selection but does not redefine the CMP.",
+    "crumbs": [
+      "Home",
+      "Candidate management procedures",
+      "CMP specification template"
+    ]
+  },
+  {
+    "objectID": "cmp/specification-template.html#change-history",
+    "href": "cmp/specification-template.html#change-history",
+    "title": "CMP specification template",
+    "section": "6 Change history",
+    "text": "6 Change history\nEvery change must state whether it is editorial, implementation-equivalent, or scientifically material. Scientifically material changes require renewed MSE evaluation unless an approving decision explicitly states otherwise.",
+    "crumbs": [
+      "Home",
+      "Candidate management procedures",
+      "CMP specification template"
+    ]
+  },
+  {
+    "objectID": "cmp/index.html",
+    "href": "cmp/index.html",
+    "title": "CMP registry",
+    "section": "",
+    "text": "&lt;h1 class=\"sprfmo-wordmark\"&gt;SPRFMO&lt;/h1&gt;\n&lt;div class=\"sprfmo-subtitle\"&gt;South Pacific Regional Fisheries Management Organisation&lt;/div&gt;\n&lt;div class=\"sprfmo-rule\"&gt;&lt;/div&gt;\n&lt;div class=\"sprfmo-group\"&gt;Jack Mackerel Candidate Management Procedures&lt;/div&gt;",
+    "crumbs": [
+      "Home",
+      "Candidate management procedures",
+      "CMP registry"
+    ]
+  },
+  {
+    "objectID": "cmp/index.html#status-vocabulary",
+    "href": "cmp/index.html#status-vocabulary",
+    "title": "CMP registry",
+    "section": "1 Status vocabulary",
+    "text": "1 Status vocabulary\n\n\n\n\n\n\n\nStatus\nMeaning\n\n\n\n\nTest candidate\nDefined sufficiently for testing; not shortlisted or adopted.\n\n\nShortlisted\nRetained by the working group for formal comparative evaluation.\n\n\nRecommended\nSupported by a documented working-group recommendation.\n\n\nAdopted\nFormally adopted through the applicable SPRFMO process.\n\n\nRetired\nPreserved for traceability but no longer under active consideration.\n\n\n\nThe initial registry below is reorganized from SCW17/Paper-09. All rows remain test candidates pending a documented selection decision.\n\n\n\n\nTable 1: CMP test registry seeded from SCW17/Paper-09. Blank constraints are unconstrained in the source test definition.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ncmp_id\nlabel\nstatus\nestimator\nhcr\nindices\nmin\nlim\ntrigger\ntarget\ndlow\ndupp\nwindow_years\nsource\n\n\n\n\nSCW17-HS-BASE\nBase (Wed pm)\ntest candidate\ncpues.ind\nhockeystick.hcr\nChile_CPUE + Offshore_CPUE\n0\n0.5\n1.50\n1385.0\nNA\nNA\n4\nSCW17 Paper 09\n\n\nSCW17-HS-ZERO\nZero-Zero\ntest candidate\ncpues.ind\nhockeystick.hcr\nChile_CPUE + Offshore_CPUE\n0\n0.0\n1.50\n1385.0\nNA\nNA\n4\nSCW17 Paper 09\n\n\nSCW17-HS-C15\n15% Constraint\ntest candidate\ncpues.ind\nhockeystick.hcr\nChile_CPUE + Offshore_CPUE\n0\n0.0\n1.50\n1385.0\n0.85\n1.2\n4\nSCW17 Paper 09\n\n\nSCW17-HS-C20\n20% Constraint\ntest candidate\ncpues.ind\nhockeystick.hcr\nChile_CPUE + Offshore_CPUE\n0\n0.0\n1.50\n1385.0\n0.80\n1.2\n4\nSCW17 Paper 09\n\n\nSCW17-HS-I50\n50% Inc\ntest candidate\ncpues.ind\nhockeystick.hcr\nChile_CPUE + Offshore_CPUE\n0\n0.0\n2.25\n2077.5\nNA\nNA\n4\nSCW17 Paper 09\n\n\nSCW17-HS-I50C15\n15% Constraint 50% Inc\ntest candidate\ncpues.ind\nhockeystick.hcr\nChile_CPUE + Offshore_CPUE\n0\n0.0\n2.25\n2077.5\n0.85\n1.2\n4\nSCW17 Paper 09\n\n\nSCW17-HS-I50W3\n3-Year mean 50% Inc\ntest candidate\ncpues.ind\nhockeystick.hcr\nChile_CPUE + Offshore_CPUE\n0\n0.0\n2.25\n2077.5\n0.85\n1.2\n3\nSCW17 Paper 09\n\n\nSCW17-HS-I100\n100% Inc\ntest candidate\ncpues.ind\nhockeystick.hcr\nChile_CPUE + Offshore_CPUE\n0\n0.0\n3.00\n2770.0\n0.85\n1.2\n4\nSCW17 Paper 09\n\n\nSCW17-HS-MIN1385\nminC target=1385\ntest candidate\ncpues.ind\nhockeystick.hcr\nChile_CPUE + Offshore_CPUE\n270\n0.2\n1.50\n1385.0\n0.85\n1.2\n4\nSCW17 Paper 09\n\n\nSCW17-HS-MIN1500\nminC target=1500\ntest candidate\ncpues.ind\nhockeystick.hcr\nChile_CPUE + Offshore_CPUE\n270\n0.2\n1.50\n1500.0\n0.85\n1.2\n4\nSCW17 Paper 09\n\n\nSCW17-HS-ALLIDX\nAll indices\ntest candidate\ncpues.ind\nhockeystick.hcr\nChile_CPUE + Offshore_CPUE + Chile_AcousN + Peru_Artis\n0\n0.0\n1.50\n1385.0\n0.85\n1.2\n4\nSCW17 Paper 09\n\n\nSCW17-HS-NIDX\nNorthern indices\ntest candidate\ncpues.ind\nhockeystick.hcr\nChile_AcousN + Peru_Artis\n0\n0.0\n1.50\n1385.0\n0.85\n1.2\n4\nSCW17 Paper 09",
+    "crumbs": [
+      "Home",
+      "Candidate management procedures",
+      "CMP registry"
+    ]
+  },
+  {
+    "objectID": "cmp/index.html#interpretation-safeguards",
+    "href": "cmp/index.html#interpretation-safeguards",
+    "title": "CMP registry",
+    "section": "2 Interpretation safeguards",
+    "text": "2 Interpretation safeguards\n\nmin, lim, trigger, and target retain their SCW17 test values and units; units must be confirmed in a normative specification before adoption.\ndlow and dupp are interannual lower and upper multipliers where supplied.\nIndex names are exact jmMSE object names, not workshop shorthand.\nThe three rows called Polynomial10/20/30 in workshop discussions are omitted from the registry because Paper-09 found that the current implementation was loess smoothing, not a polynomial estimator. They may be restored as clearly labelled sensitivity tests.",
+    "crumbs": [
+      "Home",
+      "Candidate management procedures",
+      "CMP registry"
+    ]
+  },
+  {
+    "objectID": "cmp/index.html#promotion-requirement",
+    "href": "cmp/index.html#promotion-requirement",
+    "title": "CMP registry",
+    "section": "3 Promotion requirement",
+    "text": "3 Promotion requirement\nA candidate can move beyond test status only when it has a completed specification, reproducible performance evidence, an implementation test using frozen inputs, and a decision record identifying the approving body and date.",
+    "crumbs": [
+      "Home",
+      "Candidate management procedures",
+      "CMP registry"
+    ]
+  },
+  {
+    "objectID": "evidence/scw17-evidence.html",
+    "href": "evidence/scw17-evidence.html",
+    "title": "SCW17 CMP evidence",
+    "section": "",
+    "text": "&lt;h1 class=\"sprfmo-wordmark\"&gt;SPRFMO&lt;/h1&gt;\n&lt;div class=\"sprfmo-subtitle\"&gt;South Pacific Regional Fisheries Management Organisation&lt;/div&gt;\n&lt;div class=\"sprfmo-rule\"&gt;&lt;/div&gt;\n&lt;div class=\"sprfmo-group\"&gt;Jack Mackerel Candidate Management Procedures&lt;/div&gt;",
+    "crumbs": [
+      "Home",
+      "SCW17 CMP evidence"
+    ]
+  },
+  {
+    "objectID": "evidence/scw17-evidence.html#paper-08-subset-screen",
+    "href": "evidence/scw17-evidence.html#paper-08-subset-screen",
+    "title": "SCW17 CMP evidence",
+    "section": "1 Paper-08 subset screen",
+    "text": "1 Paper-08 subset screen\nSCW17/Paper-08 documented a reproducible subset test of an empirical index procedure using Chile_CPUE and Offshore_CPUE, cpues.ind with a mean combination, and buffer.hcr. Twelve Latin-hypercube design points varied the limit and lower/upper buffer parameters.\nThe paper reported that the subset spanned a wide range of Kobe-green performance and that higher green probability could coincide with lower catch over the tuning window. It explicitly cautioned that this subset was not the intended full parameter screen. That qualification is retained here.\nEvidence still needed before promotion:\n\nimmutable run and design artifacts;\nconfirmation against the merged jmMSE implementation;\nevaluation across the agreed reference and robustness OMs;\nthe complete agreed performance-metric set;\nconvergence, failure, and reproducibility diagnostics; and\na recorded working-group interpretation of trade-offs.",
+    "crumbs": [
+      "Home",
+      "SCW17 CMP evidence"
+    ]
+  },
+  {
+    "objectID": "evidence/scw17-evidence.html#paper-09-hockeystick-test-set",
+    "href": "evidence/scw17-evidence.html#paper-09-hockeystick-test-set",
+    "title": "SCW17 CMP evidence",
+    "section": "2 Paper-09 hockeystick test set",
+    "text": "2 Paper-09 hockeystick test set\nSCW17/Paper-09 converted workshop proposals into a structured set of index-based hockeystick tests. It established several useful implementation controls:\n\nuse exact jmMSE index names;\ndefine candidate rows in one table rather than hand-editing controls;\nstop when required indices are unavailable rather than substituting silently;\ndistinguish mean-index tests from loess smoothing sensitivities; and\nretain unavailable tests as unavailable until their methods exist.\n\nThose rows seed the CMP registry. Their status remains “test candidate” because Paper-09 described how to run them, not a decision to adopt them.",
+    "crumbs": [
+      "Home",
+      "SCW17 CMP evidence"
+    ]
+  },
+  {
+    "objectID": "evidence/scw17-evidence.html#evidence-promotion-checklist",
+    "href": "evidence/scw17-evidence.html#evidence-promotion-checklist",
+    "title": "SCW17 CMP evidence",
+    "section": "3 Evidence promotion checklist",
+    "text": "3 Evidence promotion checklist\n\n\n\nCheck\nRequired before shortlist\nRequired before adoption\n\n\n\n\nExact CMP specification\nYes\nYes\n\n\nReproducible reference-OM runs\nYes\nYes\n\n\nAgreed robustness set\nPlanned or complete\nComplete\n\n\nFull performance metrics\nYes\nYes\n\n\nFailure and warning audit\nYes\nYes\n\n\nFrozen worked example\nDesirable\nYes\n\n\nIndependent implementation review\nDesirable\nYes\n\n\nFormal decision record\nYes\nYes",
+    "crumbs": [
+      "Home",
+      "SCW17 CMP evidence"
+    ]
+  },
+  {
+    "objectID": "workflow/mse-flow.html",
+    "href": "workflow/mse-flow.html",
+    "title": "MSE workflow",
+    "section": "",
+    "text": "&lt;h1 class=\"sprfmo-wordmark\"&gt;SPRFMO&lt;/h1&gt;\n&lt;div class=\"sprfmo-subtitle\"&gt;South Pacific Regional Fisheries Management Organisation&lt;/div&gt;\n&lt;div class=\"sprfmo-rule\"&gt;&lt;/div&gt;\n&lt;div class=\"sprfmo-group\"&gt;Jack Mackerel Candidate Management Procedures&lt;/div&gt;\nThis page condenses SCW17/Paper-04. It locates the documentation site within the broader analytical system without duplicating that system.\nflowchart LR\n  J[\"JJM assessment configurations\"] --&gt; C[\"Condition operating models\"]\n  C --&gt; O[\"OM / OEM / IEM bundles\"]\n  O --&gt; M[\"Apply CMPs in jmMSE\"]\n  M --&gt; P[\"Performance metrics and diagnostics\"]\n  P --&gt; D[\"CMP comparison and decision\"]\n  D --&gt; S[\"Versioned specification in jmMSE26\"]\n  S --&gt; Y[\"Annual operational application\"]\n  Y --&gt; V[\"Archived inputs, calculations, and advice\"]",
+    "crumbs": [
+      "Home",
+      "MSE workflow"
+    ]
+  },
+  {
+    "objectID": "workflow/mse-flow.html#separation-of-responsibilities",
+    "href": "workflow/mse-flow.html#separation-of-responsibilities",
+    "title": "MSE workflow",
+    "section": "1 Separation of responsibilities",
+    "text": "1 Separation of responsibilities\njmMSE26 must not become an independent fork of the MSE engine. Executable snippets here are conformance examples or thin wrappers pinned to a jmMSE commit. Operating models, recruitment assumptions, movement assumptions, reference points, and performance metrics remain governed by their scientific source repositories.",
+    "crumbs": [
+      "Home",
+      "MSE workflow"
+    ]
+  },
+  {
+    "objectID": "workflow/mse-flow.html#reproducibility-chain",
+    "href": "workflow/mse-flow.html#reproducibility-chain",
+    "title": "MSE workflow",
+    "section": "2 Reproducibility chain",
+    "text": "2 Reproducibility chain\nEvery performance claim should identify the OM set, CMP version, random-seed policy, iteration count, projection period, metric definition, output artifact, and source commit. Every operational application should identify its input data vintage and the adopted CMP version.",
+    "crumbs": [
+      "Home",
+      "MSE workflow"
+    ]
+  },
+  {
+    "objectID": "application/annual-workflow.html",
+    "href": "application/annual-workflow.html",
+    "title": "Annual CMP application",
+    "section": "",
+    "text": "&lt;h1 class=\"sprfmo-wordmark\"&gt;SPRFMO&lt;/h1&gt;\n&lt;div class=\"sprfmo-subtitle\"&gt;South Pacific Regional Fisheries Management Organisation&lt;/div&gt;\n&lt;div class=\"sprfmo-rule\"&gt;&lt;/div&gt;\n&lt;div class=\"sprfmo-group\"&gt;Jack Mackerel Candidate Management Procedures&lt;/div&gt;\nThis workflow describes how an adopted CMP should be applied as new data become available. Candidate dry runs should follow the same controls.\nflowchart TD\n  A[\"Freeze CMP version and code commit\"] --&gt; B[\"Receive and archive annual data\"]\n  B --&gt; C[\"Validate schema, units, completeness, and vintage\"]\n  C --&gt;|fail| X[\"Stop and document exception\"]\n  C --&gt;|pass| D[\"Calculate estimator and status metric\"]\n  D --&gt; E[\"Apply HCR\"]\n  E --&gt; F[\"Apply interannual and implementation constraints\"]\n  F --&gt; G[\"Run independent or automated cross-check\"]\n  G --&gt;|mismatch| X\n  G --&gt;|match| H[\"Review exceptional-circumstances indicators\"]\n  H --&gt; I[\"Publish advice and complete calculation record\"]",
+    "crumbs": [
+      "Home",
+      "Applying a CMP",
+      "Annual CMP application"
+    ]
+  },
+  {
+    "objectID": "application/annual-workflow.html#freeze-the-governing-specification",
+    "href": "application/annual-workflow.html#freeze-the-governing-specification",
+    "title": "Annual CMP application",
+    "section": "1 1. Freeze the governing specification",
+    "text": "1 1. Freeze the governing specification\nRecord the CMP identifier and version, repository commit, software environment, management year, analyst, reviewer, and decision record authorizing use.",
+    "crumbs": [
+      "Home",
+      "Applying a CMP",
+      "Annual CMP application"
+    ]
+  },
+  {
+    "objectID": "application/annual-workflow.html#archive-inputs",
+    "href": "application/annual-workflow.html#archive-inputs",
+    "title": "Annual CMP application",
+    "section": "2 2. Archive inputs",
+    "text": "2 2. Archive inputs\nStore the received files unchanged. Record provider, receipt time, data vintage, and checksums. Create a separate validated copy only through a scripted, reviewable transformation.",
+    "crumbs": [
+      "Home",
+      "Applying a CMP",
+      "Annual CMP application"
+    ]
+  },
+  {
+    "objectID": "application/annual-workflow.html#validate-before-calculation",
+    "href": "application/annual-workflow.html#validate-before-calculation",
+    "title": "Annual CMP application",
+    "section": "3 3. Validate before calculation",
+    "text": "3 3. Validate before calculation\nApply the input data contract. A failed required check stops the routine calculation. The failure and any subsequent authorized treatment become part of the permanent annual record.",
+    "crumbs": [
+      "Home",
+      "Applying a CMP",
+      "Annual CMP application"
+    ]
+  },
+  {
+    "objectID": "application/annual-workflow.html#calculate-transparent-intermediates",
+    "href": "application/annual-workflow.html#calculate-transparent-intermediates",
+    "title": "Annual CMP application",
+    "section": "4 4. Calculate transparent intermediates",
+    "text": "4 4. Calculate transparent intermediates\nSave the transformed index values, reference-period values, combined metric, raw HCR recommendation, each constraint adjustment, allocation, rounding step, and final advice. Do not save only the final number.",
+    "crumbs": [
+      "Home",
+      "Applying a CMP",
+      "Annual CMP application"
+    ]
+  },
+  {
+    "objectID": "application/annual-workflow.html#cross-check",
+    "href": "application/annual-workflow.html#cross-check",
+    "title": "Annual CMP application",
+    "section": "5 5. Cross-check",
+    "text": "5 5. Cross-check\nCompare against a frozen worked example and, where feasible, an independent implementation. Differences outside the specification’s numerical tolerance must be resolved before advice is released.",
+    "crumbs": [
+      "Home",
+      "Applying a CMP",
+      "Annual CMP application"
+    ]
+  },
+  {
+    "objectID": "application/annual-workflow.html#exceptional-circumstances",
+    "href": "application/annual-workflow.html#exceptional-circumstances",
+    "title": "Annual CMP application",
+    "section": "6 6. Exceptional circumstances",
+    "text": "6 6. Exceptional circumstances\nRun only the indicators and response process defined in the adopted specification. An exceptional-circumstances review may trigger additional scientific or management consideration; it must not silently rewrite the CMP.",
+    "crumbs": [
+      "Home",
+      "Applying a CMP",
+      "Annual CMP application"
+    ]
+  },
+  {
+    "objectID": "application/annual-workflow.html#publish-the-calculation-record",
+    "href": "application/annual-workflow.html#publish-the-calculation-record",
+    "title": "Annual CMP application",
+    "section": "7 7. Publish the calculation record",
+    "text": "7 7. Publish the calculation record\nThe record should contain inputs and checksums, validation results, intermediate calculations, final advice, software versions, warnings, analyst and reviewer sign-off, and links to any exception decision.",
+    "crumbs": [
+      "Home",
+      "Applying a CMP",
+      "Annual CMP application"
+    ]
+  }
+]

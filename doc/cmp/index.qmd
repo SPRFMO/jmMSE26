@@ -1,0 +1,48 @@
+---
+title: "CMP registry"
+---
+
+{{< include ../_includes/sprfmo-banner.html >}}
+
+<div class="paper-title">Candidate Management Procedure Registry</div>
+
+## Status vocabulary
+
+| Status | Meaning |
+|---|---|
+| Test candidate | Defined sufficiently for testing; not shortlisted or adopted. |
+| Shortlisted | Retained by the working group for formal comparative evaluation. |
+| Recommended | Supported by a documented working-group recommendation. |
+| Adopted | Formally adopted through the applicable SPRFMO process. |
+| Retired | Preserved for traceability but no longer under active consideration. |
+
+The initial registry below is reorganized from SCW17/Paper-09. All rows remain
+**test candidates** pending a documented selection decision.
+
+```{r}
+#| label: tbl-cmp-registry
+#| tbl-cap: "CMP test registry seeded from SCW17/Paper-09. Blank constraints are unconstrained in the source test definition."
+#| echo: false
+
+registry <- read.csv("../data/cmp-registry.csv", check.names = FALSE)
+knitr::kable(registry)
+```
+
+## Interpretation safeguards
+
+- `min`, `lim`, `trigger`, and `target` retain their SCW17 test values and
+  units; units must be confirmed in a normative specification before adoption.
+- `dlow` and `dupp` are interannual lower and upper multipliers where supplied.
+- Index names are exact `jmMSE` object names, not workshop shorthand.
+- The three rows called Polynomial10/20/30 in workshop discussions are omitted
+  from the registry because Paper-09 found that the current implementation was
+  loess smoothing, not a polynomial estimator. They may be restored as clearly
+  labelled sensitivity tests.
+
+## Promotion requirement
+
+A candidate can move beyond test status only when it has a completed
+[specification](specification-template.qmd), reproducible performance evidence,
+an implementation test using frozen inputs, and a decision record identifying
+the approving body and date.
+

@@ -1,0 +1,58 @@
+---
+title: "CMP specification template"
+---
+
+{{< include ../_includes/sprfmo-banner.html >}}
+
+<div class="paper-title">Normative CMP Specification Template</div>
+
+Copy this structure for every shortlisted CMP. Text labelled normative governs
+implementation; explanatory evidence belongs in the evidence section.
+
+## Identity and authority
+
+| Field | Required value |
+|---|---|
+| CMP identifier | Stable identifier; never reused |
+| Version | Semantic or dated version |
+| Status | Test, shortlisted, recommended, adopted, or retired |
+| Effective period | First and last management year, if applicable |
+| Decision record | Body, meeting, document, date, and paragraph |
+| Code reference | Repository, commit, file, and function/control name |
+
+## Normative inputs
+
+For every input state the owner, series name, unit, spatial coverage, seasonal
+coverage, annual cutoff date, revision policy, missing-value rule, and
+transformation. Specify exactly which data vintages are eligible.
+
+## Normative calculation
+
+Document, in order:
+
+1. data validation and exclusions;
+2. estimator calculation;
+3. status metric and reference period;
+4. HCR equation and every parameter;
+5. interannual constraints;
+6. rounding and numerical precision;
+7. implementation allocation; and
+8. exceptional-circumstances checks.
+
+## Worked example
+
+Provide frozen input data, intermediate values, final advice, and a checksum or
+automated regression test. A reviewer must be able to reproduce the published
+answer without access to mutable external data.
+
+## Evidence and limitations
+
+Link to MSE runs, operating models, performance metrics, diagnostics, and
+known limitations. Evidence explains selection but does not redefine the CMP.
+
+## Change history
+
+Every change must state whether it is editorial, implementation-equivalent, or
+scientifically material. Scientifically material changes require renewed MSE
+evaluation unless an approving decision explicitly states otherwise.
+

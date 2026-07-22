@@ -1,0 +1,50 @@
+---
+title: "Traceability and change control"
+---
+
+{{< include ../_includes/sprfmo-banner.html >}}
+
+<div class="paper-title">Traceability and Change Control</div>
+
+## Seed provenance
+
+| Source | Commit used for scaffold | Reorganized material |
+|---|---|---|
+| `SPRFMO/scw17` | `0eb97c9c0329f5ec3338e3cf885f6e1f184c4780` | Papers 03, 04, 08, and 09; Quarto site conventions |
+| `SPRFMO/jmMSE` | `94d4d325ba46220f56097b3de90824c83b7cf3cd` | Current merged `main` reference at scaffold time |
+
+The scaffold summarizes and reorganizes source material. It does not assert
+that any SCW17 test candidate has been shortlisted, recommended, or adopted.
+
+## Required traceability for a CMP
+
+Every CMP version must link to:
+
+- its estimator, HCR, and implementation-system source;
+- the exact argument set and input-data contract;
+- the `jmMSE` commit used for evaluation;
+- OM and robustness scenario definitions;
+- performance metric definitions and output artifacts;
+- review findings and known limitations; and
+- the decision that changed its status.
+
+## Change classes
+
+| Class | Examples | Required review |
+|---|---|---|
+| Editorial | Spelling, navigation, clearer non-normative explanation | Documentation review |
+| Implementation-equivalent | Refactor proven to return identical results | Code review plus regression test |
+| Scientific | Parameter, index, window, HCR, constraint, allocation, or fallback change | Renewed scientific review and normally MSE evaluation |
+| Status | Test to shortlist, recommendation, adoption, or retirement | Cited decision record |
+
+## Open items at scaffold time
+
+- Identify which SCW17 candidates, if any, were formally shortlisted after the
+  source papers were prepared.
+- Replace test labels with stable working-group CMP identifiers where decisions
+  exist.
+- Populate immutable evidence artifacts from agreed `jmMSE` runs.
+- Complete normative units, annual cutoffs, missing-data rules, rounding, and
+  exceptional-circumstances provisions.
+- Add frozen worked examples and automated conformance tests.
+

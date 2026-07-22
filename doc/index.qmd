@@ -1,0 +1,53 @@
+---
+title: "SPRFMO Jack Mackerel Candidate Management Procedures"
+format:
+  html:
+    number-sections: false
+---
+
+{{< include _includes/sprfmo-banner.html >}}
+
+<div class="paper-title">Candidate Management Procedures: Specifications, Evidence, and Application</div>
+
+::: {.status-note}
+This site distinguishes **test candidates**, **shortlisted candidates**, and
+**adopted management procedures**. Inclusion in the registry does not imply
+endorsement or adoption.
+:::
+
+## Purpose
+
+This site is the durable specification and implementation guide for candidate
+management procedures (CMPs) evaluated for South Pacific jack mackerel. It
+brings together four strands developed for SCW17:
+
+1. the management-procedure inventory;
+2. the end-to-end MSE workflow;
+3. evidence from CMP tests and performance comparisons; and
+4. instructions for applying a selected procedure when new annual data become
+   available.
+
+The scientific simulation engine remains in
+[`SPRFMO/jmMSE`](https://github.com/SPRFMO/jmMSE). This repository records what
+a CMP is, why it remains under consideration, how it is applied, and which
+version of code and evidence supports it.
+
+## Start here
+
+- [CMP registry](cmp/index.qmd): candidate identity, parameters, and status.
+- [Annual application](application/annual-workflow.qmd): controlled operational
+  sequence from new data to advice.
+- [MSE workflow](workflow/mse-flow.qmd): where CMPs fit within the assessment
+  and simulation system.
+- [SCW17 evidence](evidence/scw17-evidence.qmd): evidence inherited from Papers
+  08 and 09, with limitations retained.
+- [Traceability](governance/traceability.qmd): source commits, review state, and
+  change control.
+
+## Governing principle
+
+The normative CMP specification is separate from explanatory text and MSE
+results. A scientific result may change the status of a candidate, but it does
+not silently change the estimator, HCR, implementation system, parameter
+values, or exceptional-circumstances rules.
+

@@ -1,0 +1,70 @@
+project:
+  type: website
+  output-dir: ../docs
+
+website:
+  title: "SPRFMO Jack Mackerel CMPs"
+  site-url: "https://sprfmo.github.io/jmMSE26/"
+  repo-url: "https://github.com/SPRFMO/jmMSE26"
+  repo-actions: [source, issue]
+  page-navigation: true
+  search: true
+  navbar:
+    title: false
+    left:
+      - href: index.qmd
+        text: Home
+      - text: Candidate MPs
+        menu:
+          - href: cmp/index.qmd
+            text: CMP registry
+          - href: cmp/components.qmd
+            text: MP components
+          - href: cmp/specification-template.qmd
+            text: Specification template
+      - href: application/annual-workflow.qmd
+        text: Annual application
+      - href: workflow/mse-flow.qmd
+        text: MSE workflow
+      - href: evidence/scw17-evidence.qmd
+        text: Evidence
+      - href: governance/traceability.qmd
+        text: Traceability
+  sidebar:
+    style: docked
+    contents:
+      - index.qmd
+      - section: "Candidate management procedures"
+        contents:
+          - cmp/index.qmd
+          - cmp/components.qmd
+          - cmp/specification-template.qmd
+      - section: "Applying a CMP"
+        contents:
+          - application/annual-workflow.qmd
+          - application/input-data.qmd
+      - workflow/mse-flow.qmd
+      - evidence/scw17-evidence.qmd
+      - governance/traceability.qmd
+  page-footer:
+    left: "SPRFMO Jack Mackerel Working Group"
+    right: "Specifications and evidence are version controlled."
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    code-fold: true
+    code-summary: "Show implementation detail"
+    code-tools: true
+    lightbox: true
+    link-external-newwindow: true
+
+execute:
+  freeze: auto
+  warning: false
+  message: false
+
