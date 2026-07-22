@@ -50,7 +50,91 @@ performance_matrix <- function(perf, statistic_code, run_code, biol_code,
   for (yr in as.character(years)) {
     if (!yr %in% names(wide)) wide[, (yr) := NA_real_]
   }
-  as.matrix(wide[, as.character(years), with = FALSE])
+  out <- as.matrix(wide[, as.character(years), with = FALSE])
+  out[!is.finite(out)] <- NA_real_
+  out
+}
+
+candidate_reference_om_files <- function(jm_root = file.path("..", "jmMSE")) {
+  setNames(file.path(jm_root, "data", "om11_h1_0.16_065.rds"), "h1_0.16")
+}
+
+candidate_robustness_om_files <- function(jm_root = file.path("..", "jmMSE")) {
+  models_file <- file.path(jm_root, "data", "models_loaded.rda")
+  if (!file.exists(models_file)) stop("Operating-model index not found: ",
+    models_file)
+  loaded <- new.env(parent = emptyenv())
+  load(models_file, envir = loaded)
+  models <- as.data.table(loaded$models)
+  models <- models[set == "rob"]
+  setNames(file.path(jm_root, "data", models$file), models$short)
+}
+
+historical_performance <- function(om_files, run_map, years) {
+  if (!requireNamespace("FLCore", quietly = TRUE) ||
+      !requireNamespace("mse", quietly = TRUE)) {
+    stop("Historical extraction requires the FLCore and mse packages")
+  }
+  needed <- unique(run_map$om_code)
+  missing_codes <- setdiff(needed, names(om_files))
+  if (length(missing_codes)) stop("Historical OM files were not supplied for: ",
+    paste(missing_codes, collapse = ", "))
+  missing_files <- om_files[needed][!file.exists(om_files[needed])]
+  if (length(missing_files)) stop("Historical OM files not found: ",
+    paste(missing_files, collapse = ", "))
+
+  bundles <- lapply(om_files[needed], readRDS)
+  names(bundles) <- needed
+  flquant_table <- function(q) {
+    arr <- as.array(q)
+    dimension_names <- names(dimnames(q))
+    year_i <- match("year", dimension_names)
+    iter_i <- match("iter", dimension_names)
+    if (is.na(year_i) || is.na(iter_i)) stop(
+      "Historical FLQuant lacks named year or iter dimensions")
+    other_i <- setdiff(seq_along(dim(arr)), c(iter_i, year_i))
+    if (any(dim(arr)[other_i] != 1L)) stop(
+      "Historical metric has non-singleton dimensions other than year and iter")
+    ordered <- aperm(arr, c(iter_i, year_i, other_i))
+    year_values <- as.integer(dimnames(q)[[year_i]])
+    iter_values <- as.integer(dimnames(q)[[iter_i]])
+    data.table(
+      year = rep(year_values, each = length(iter_values)),
+      iter = rep(iter_values, times = length(year_values)),
+      data = as.numeric(ordered)
+    )
+  }
+  out <- rbindlist(lapply(seq_len(nrow(run_map)), function(i) {
+    mapping <- run_map[i]
+    om_object <- bundles[[mapping$om_code]]$om
+    metric_groups <- FLCore::metrics(om_object)
+    if (!mapping$biol %in% names(metric_groups)) stop("Stock ", mapping$biol,
+      " is absent from historical OM ", mapping$om_code)
+    met <- metric_groups[[mapping$biol]]
+    rp <- FLCore::refpts(om_object)
+    biol_rp <- if (methods::is(rp, "FLPars")) rp[[mapping$biol]] else rp
+    ref_quant <- function(code, q) {
+      vals <- as.numeric(biol_rp[code, ])
+      FLCore::FLQuant(array(rep(vals, each = prod(dim(q)[1:5])),
+        dim = dim(q), dimnames = dimnames(q)))
+    }
+    values <- list(
+      SBMSY = met$SB / ref_quant("SBMSY", met$SB),
+      FMSY = met$F / ref_quant("FMSY", met$F),
+      C = met$C,
+      IACC = 100 * abs(met$C[, -1] / met$C[, -dim(met$C)[2]] - 1)
+    )
+    rbindlist(lapply(names(values), function(stat_code) {
+      dat <- flquant_table(values[[stat_code]])
+      dat <- dat[year %in% years,
+        .(data = mean(data, na.rm = TRUE)), by = .(year, iter)]
+      dat[!is.finite(data), data := NA_real_]
+      dat[, `:=`(run = mapping$run, om = mapping$source_om,
+        biol = mapping$biol, statistic = stat_code)]
+      dat[]
+    }))
+  }), fill = TRUE)
+  out[]
 }
 
 finite_mean <- function(x) {
@@ -108,7 +192,9 @@ build_candidate_slick <- function(
   out_file = file.path("output", "jm_candidates.slick"),
   registry_file = file.path("doc", "data", "cmp-registry.csv"),
   candidate_codes = c("tun29", "tun32"),
-  time_now = 2025L
+  time_now = 2025L,
+  historical_om_files = NULL,
+  historical_start = 1970L
 ) {
   perf <- read_performance(performance_file)
   setDT(perf)
@@ -123,17 +209,26 @@ build_candidate_slick <- function(
   )]
 
   run_map <- candidate_run_map(perf, candidate_codes)
+  if (!is.null(historical_om_files)) {
+    history <- historical_performance(historical_om_files, run_map,
+      seq.int(historical_start, time_now))
+    perf <- rbindlist(list(
+      history,
+      perf[year > time_now]
+    ), fill = TRUE, use.names = TRUE)
+  }
   available <- intersect(c("SBMSY", "FMSY", "C", "IACC"),
     unique(perf$statistic))
   if (!all(c("SBMSY", "FMSY", "C") %in% available)) {
     stop("Slick export requires SBMSY, FMSY, and C performance statistics")
   }
 
-  coverage <- perf[run %in% run_map$run & statistic %in% available,
+  core_statistics <- c("SBMSY", "FMSY", "C")
+  coverage <- perf[run %in% run_map$run & statistic %in% core_statistics,
     .N, by = .(run, biol, statistic, year)]
-  expected <- nrow(run_map) * length(available)
+  expected <- nrow(run_map) * length(core_statistics)
   years <- sort(coverage[, .N, by = year][N == expected, year])
-  years <- years[years >= time_now]
+  if (is.null(historical_om_files)) years <- years[years >= time_now]
   if (!length(years)) stop("No common years across candidate runs")
   iters <- sort(unique(perf[run %in% run_map$run & statistic == "C", iter]))
 

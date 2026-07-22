@@ -80,7 +80,8 @@ source("R/build_candidate_slick.R")
 
 slick <- build_candidate_slick(
   performance_file = "../jmMSE/model/candidates/reference/performance.rds",
-  out_file = "output/jm_candidates.slick"
+  out_file = "output/jm_candidates.slick",
+  historical_om_files = candidate_reference_om_files("../jmMSE")
 )
 ```
 
@@ -112,8 +113,9 @@ and labels agree. The technical checks are shown in the code for analysts who
 maintain the export.
 
 The current file contains 100 simulations, one reference operating model, two
-management procedures, four performance measures, and 26 annual values from
-2025 through 2050.
+management procedures, four performance measures, and 81 annual values from
+1970 through 2050. The vertical time boundary is 2025: values through 2025 are
+the conditioned operating-model history, and MP projections begin in 2026.
 
 ## Prepare the robustness Slick file
 
@@ -136,7 +138,8 @@ source("R/build_candidate_slick.R")
 
 robustness_slick <- build_candidate_slick(
   performance_file = "../jmMSE/model/candidates/robustness/performance.rds",
-  out_file = "output/jm_candidates_robustness.slick"
+  out_file = "output/jm_candidates_robustness.slick",
+  historical_om_files = candidate_robustness_om_files("../jmMSE")
 )
 ```
 
@@ -144,7 +147,9 @@ The Slick file contains the nine operating models as 13 OM–stock series. Five
 operating models contain one stock. Four contain separate Southern and Northern
 stocks, and Slick retains both stock results rather than averaging them. The
 dimensions are 100 simulations, 13 OM–stock series, two management procedures,
-four performance measures, and 26 annual values from 2025 through 2050.
+four performance measures, and 81 annual values from 1970 through 2050. Each
+OM–stock series uses its own conditioned history through 2025; projections
+under MP29 and MP32 begin in 2026.
 
 Do not combine results produced under different package sets without first
 confirming that the candidate calculations are equivalent.
