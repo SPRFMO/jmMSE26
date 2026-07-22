@@ -2,7 +2,7 @@
 title: "Management-procedure components"
 ---
 
-{{< include ../_includes/sprfmo-banner.html >}}
+{{< include ../_includes/sprfmo-banner.qmd >}}
 
 <div class="paper-title">Management-Procedure Components</div>
 
@@ -39,4 +39,3 @@ flowchart LR
 These families are an inventory, not a decision about which procedure should be
 selected. Exact CMP identity requires the module versions, full argument set,
 input definitions, and implementation rules recorded together.
-

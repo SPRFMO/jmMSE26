@@ -2,7 +2,7 @@
 title: "MSE workflow"
 ---
 
-{{< include ../_includes/sprfmo-banner.html >}}
+{{< include ../_includes/sprfmo-banner.qmd >}}
 
 <div class="paper-title">From Assessment Conditioning to CMP Evidence</div>
 
@@ -43,4 +43,3 @@ Every performance claim should identify the OM set, CMP version, random-seed
 policy, iteration count, projection period, metric definition, output artifact,
 and source commit. Every operational application should identify its input data
 vintage and the adopted CMP version.
-

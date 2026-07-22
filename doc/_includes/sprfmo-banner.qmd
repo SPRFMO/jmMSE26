@@ -1,3 +1,4 @@
+```{=html}
 <div class="sprfmo-front">
   <div class="sprfmo-banner">
     <h1 class="sprfmo-wordmark">SPRFMO</h1>
@@ -6,4 +7,4 @@
     <div class="sprfmo-group">Jack Mackerel Candidate Management Procedures</div>
   </div>
 </div>
-
+```

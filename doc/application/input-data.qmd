@@ -2,7 +2,7 @@
 title: "Annual input data"
 ---
 
-{{< include ../_includes/sprfmo-banner.html >}}
+{{< include ../_includes/sprfmo-banner.qmd >}}
 
 <div class="paper-title">Annual Input Data Contract</div>
 
@@ -35,4 +35,3 @@ candidate test and annual dry run.
 
 Missing or revised data must follow the adopted specification. Analysts should
 not invent a replacement rule during the annual calculation.
-

@@ -2,7 +2,7 @@
 title: "CMP specification template"
 ---
 
-{{< include ../_includes/sprfmo-banner.html >}}
+{{< include ../_includes/sprfmo-banner.qmd >}}
 
 <div class="paper-title">Normative CMP Specification Template</div>
 
@@ -55,4 +55,3 @@ known limitations. Evidence explains selection but does not redefine the CMP.
 Every change must state whether it is editorial, implementation-equivalent, or
 scientifically material. Scientifically material changes require renewed MSE
 evaluation unless an approving decision explicitly states otherwise.
-

@@ -302,12 +302,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <div class="sprfmo-front">
-<div class="sprfmo-banner">
-<pre><code>&lt;h1 class="sprfmo-wordmark"&gt;SPRFMO&lt;/h1&gt;
-&lt;div class="sprfmo-subtitle"&gt;South Pacific Regional Fisheries Management Organisation&lt;/div&gt;
-&lt;div class="sprfmo-rule"&gt;&lt;/div&gt;
-&lt;div class="sprfmo-group"&gt;Jack Mackerel Candidate Management Procedures&lt;/div&gt;</code></pre>
-</div>
+  <div class="sprfmo-banner">
+    <h1 class="sprfmo-wordmark">SPRFMO</h1>
+    <div class="sprfmo-subtitle">South Pacific Regional Fisheries Management Organisation</div>
+    <div class="sprfmo-rule"></div>
+    <div class="sprfmo-group">Jack Mackerel Candidate Management Procedures</div>
+  </div>
 </div>
 <div class="paper-title">
 Management-Procedure Components
@@ -894,47 +894,47 @@ Management-Procedure Components
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Management-procedure components"</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>{{&lt; include ../_includes/sprfmo-banner.html &gt;}}</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">"paper-title"</span><span class="dt">&gt;</span>Management-Procedure Components<span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>This page reorganizes the architecture and inventory in SCW17/Paper-03. In</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="in">`jmMSE`</span>, a management procedure normally combines three controlled modules:</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="in">```{mermaid}</span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>flowchart LR</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  D[<span class="ot">"</span><span class="st">Observed annual data</span><span class="ot">"</span>] --&gt; E[<span class="ot">"</span><span class="st">Estimator: est</span><span class="ot">"</span>]</span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  E --&gt; S[<span class="ot">"</span><span class="st">Status or index metric</span><span class="ot">"</span>]</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>  S --&gt; H[<span class="ot">"</span><span class="st">Harvest control rule: hcr</span><span class="ot">"</span>]</span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>  H --&gt; R[<span class="ot">"</span><span class="st">Catch recommendation</span><span class="ot">"</span>]</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  R --&gt; I[<span class="ot">"</span><span class="st">Implementation system: isys</span><span class="ot">"</span>]</span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>  I --&gt; A[<span class="ot">"</span><span class="st">Implemented catch by fishery or stock</span><span class="ot">"</span>]</span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Component <span class="pp">|</span> Role <span class="pp">|</span> Examples inventoried at SCW17 <span class="pp">|</span></span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|</span></span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`est`</span> <span class="pp">|</span> Converts observations or assessment output into the metric used by the rule. <span class="pp">|</span> <span class="in">`perfect.sa`</span>, <span class="in">`shortcut.sa`</span>, <span class="in">`cpue.ind`</span>, <span class="in">`cpuescore.ind`</span>, <span class="in">`meta.est`</span>, <span class="in">`spict.sa`</span> <span class="pp">|</span></span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`hcr`</span> <span class="pp">|</span> Converts that metric into a catch or effort recommendation. <span class="pp">|</span> <span class="in">`fixedC.hcr`</span>, <span class="in">`hockeystick.hcr`</span>, <span class="in">`buffer.hcr`</span>, <span class="in">`bufferdelta.hcr`</span>, <span class="in">`meta.hcr`</span> <span class="pp">|</span></span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`isys`</span> <span class="pp">|</span> Allocates or modifies the recommendation for implementation. <span class="pp">|</span> <span class="in">`split.is`</span>, <span class="in">`bank_borrow.is`</span> <span class="pp">|</span></span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="fu">## Families represented in the SCW17 inventory</span></span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Family <span class="pp">|</span> Typical estimator <span class="pp">|</span> Typical HCR <span class="pp">|</span> Role at SCW17 <span class="pp">|</span></span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|---|</span></span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Fixed catch reference <span class="pp">|</span> Perfect information <span class="pp">|</span> Fixed catch <span class="pp">|</span> Diagnostic baseline <span class="pp">|</span></span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Shortcut assessment <span class="pp">|</span> Depletion estimate <span class="pp">|</span> Hockeystick or buffer <span class="pp">|</span> Assessment-based comparison <span class="pp">|</span></span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Empirical index <span class="pp">|</span> CPUE/index aggregate <span class="pp">|</span> Buffer or hockeystick <span class="pp">|</span> Main CMP development family <span class="pp">|</span></span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> SPiCT assessment <span class="pp">|</span> SPiCT biomass/status <span class="pp">|</span> Buffer <span class="pp">|</span> Model-based candidate <span class="pp">|</span></span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Multi-index/meta <span class="pp">|</span> Multiple index scores <span class="pp">|</span> Meta-HCR <span class="pp">|</span> Exploratory candidate <span class="pp">|</span></span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Banking/borrowing <span class="pp">|</span> Existing estimator/HCR <span class="pp">|</span> Existing HCR plus modified <span class="in">`isys`</span> <span class="pp">|</span> Implementation sensitivity <span class="pp">|</span></span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>These families are an inventory, not a decision about which procedure should be</span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>selected. Exact CMP identity requires the module versions, full argument set,</span>
-<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>input definitions, and implementation rules recorded together.</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Management-procedure components"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>{{&lt; include ../_includes/sprfmo-banner.qmd &gt;}}</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">"paper-title"</span><span class="dt">&gt;</span>Management-Procedure Components<span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>This page reorganizes the architecture and inventory in SCW17/Paper-03. In</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="in">`jmMSE`</span>, a management procedure normally combines three controlled modules:</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="in">```{mermaid}</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>flowchart LR</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  D[<span class="ot">"</span><span class="st">Observed annual data</span><span class="ot">"</span>] --&gt; E[<span class="ot">"</span><span class="st">Estimator: est</span><span class="ot">"</span>]</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  E --&gt; S[<span class="ot">"</span><span class="st">Status or index metric</span><span class="ot">"</span>]</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  S --&gt; H[<span class="ot">"</span><span class="st">Harvest control rule: hcr</span><span class="ot">"</span>]</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  H --&gt; R[<span class="ot">"</span><span class="st">Catch recommendation</span><span class="ot">"</span>]</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  R --&gt; I[<span class="ot">"</span><span class="st">Implementation system: isys</span><span class="ot">"</span>]</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  I --&gt; A[<span class="ot">"</span><span class="st">Implemented catch by fishery or stock</span><span class="ot">"</span>]</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Component <span class="pp">|</span> Role <span class="pp">|</span> Examples inventoried at SCW17 <span class="pp">|</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`est`</span> <span class="pp">|</span> Converts observations or assessment output into the metric used by the rule. <span class="pp">|</span> <span class="in">`perfect.sa`</span>, <span class="in">`shortcut.sa`</span>, <span class="in">`cpue.ind`</span>, <span class="in">`cpuescore.ind`</span>, <span class="in">`meta.est`</span>, <span class="in">`spict.sa`</span> <span class="pp">|</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`hcr`</span> <span class="pp">|</span> Converts that metric into a catch or effort recommendation. <span class="pp">|</span> <span class="in">`fixedC.hcr`</span>, <span class="in">`hockeystick.hcr`</span>, <span class="in">`buffer.hcr`</span>, <span class="in">`bufferdelta.hcr`</span>, <span class="in">`meta.hcr`</span> <span class="pp">|</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`isys`</span> <span class="pp">|</span> Allocates or modifies the recommendation for implementation. <span class="pp">|</span> <span class="in">`split.is`</span>, <span class="in">`bank_borrow.is`</span> <span class="pp">|</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="fu">## Families represented in the SCW17 inventory</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Family <span class="pp">|</span> Typical estimator <span class="pp">|</span> Typical HCR <span class="pp">|</span> Role at SCW17 <span class="pp">|</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|---|</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Fixed catch reference <span class="pp">|</span> Perfect information <span class="pp">|</span> Fixed catch <span class="pp">|</span> Diagnostic baseline <span class="pp">|</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Shortcut assessment <span class="pp">|</span> Depletion estimate <span class="pp">|</span> Hockeystick or buffer <span class="pp">|</span> Assessment-based comparison <span class="pp">|</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Empirical index <span class="pp">|</span> CPUE/index aggregate <span class="pp">|</span> Buffer or hockeystick <span class="pp">|</span> Main CMP development family <span class="pp">|</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> SPiCT assessment <span class="pp">|</span> SPiCT biomass/status <span class="pp">|</span> Buffer <span class="pp">|</span> Model-based candidate <span class="pp">|</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Multi-index/meta <span class="pp">|</span> Multiple index scores <span class="pp">|</span> Meta-HCR <span class="pp">|</span> Exploratory candidate <span class="pp">|</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Banking/borrowing <span class="pp">|</span> Existing estimator/HCR <span class="pp">|</span> Existing HCR plus modified <span class="in">`isys`</span> <span class="pp">|</span> Implementation sensitivity <span class="pp">|</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>These families are an inventory, not a decision about which procedure should be</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>selected. Exact CMP identity requires the module versions, full argument set,</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>input definitions, and implementation rules recorded together.</span>
 </code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

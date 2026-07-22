@@ -2,7 +2,7 @@
 title: "Traceability and change control"
 ---
 
-{{< include ../_includes/sprfmo-banner.html >}}
+{{< include ../_includes/sprfmo-banner.qmd >}}
 
 <div class="paper-title">Traceability and Change Control</div>
 
@@ -47,4 +47,3 @@ Every CMP version must link to:
 - Complete normative units, annual cutoffs, missing-data rules, rounding, and
   exceptional-circumstances provisions.
 - Add frozen worked examples and automated conformance tests.
-

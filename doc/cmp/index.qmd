@@ -2,7 +2,7 @@
 title: "CMP registry"
 ---
 
-{{< include ../_includes/sprfmo-banner.html >}}
+{{< include ../_includes/sprfmo-banner.qmd >}}
 
 <div class="paper-title">Candidate Management Procedure Registry</div>
 
@@ -45,4 +45,3 @@ A candidate can move beyond test status only when it has a completed
 [specification](specification-template.qmd), reproducible performance evidence,
 an implementation test using frozen inputs, and a decision record identifying
 the approving body and date.
-

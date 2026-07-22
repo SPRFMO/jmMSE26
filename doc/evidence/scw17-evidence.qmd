@@ -2,7 +2,7 @@
 title: "SCW17 CMP evidence"
 ---
 
-{{< include ../_includes/sprfmo-banner.html >}}
+{{< include ../_includes/sprfmo-banner.qmd >}}
 
 <div class="paper-title">Evidence Seeded from SCW17 Papers 08 and 09</div>
 
@@ -60,4 +60,3 @@ them.
 | Frozen worked example | Desirable | Yes |
 | Independent implementation review | Desirable | Yes |
 | Formal decision record | Yes | Yes |
-

@@ -4,7 +4,7 @@
     "href": "application/input-data.html",
     "title": "Annual input data",
     "section": "",
-    "text": "&lt;h1 class=\"sprfmo-wordmark\"&gt;SPRFMO&lt;/h1&gt;\n&lt;div class=\"sprfmo-subtitle\"&gt;South Pacific Regional Fisheries Management Organisation&lt;/div&gt;\n&lt;div class=\"sprfmo-rule\"&gt;&lt;/div&gt;\n&lt;div class=\"sprfmo-group\"&gt;Jack Mackerel Candidate Management Procedures&lt;/div&gt;\nThe adopted CMP specification must replace this template with exact series and rules. Until then, this page defines the minimum metadata required for each candidate test and annual dry run.",
+    "text": "South Pacific Regional Fisheries Management Organisation\n    \n    Jack Mackerel Candidate Management Procedures\nThe adopted CMP specification must replace this template with exact series and rules. Until then, this page defines the minimum metadata required for each candidate test and annual dry run.",
     "crumbs": [
       "Home",
       "Applying a CMP",
@@ -28,7 +28,7 @@
     "href": "governance/traceability.html",
     "title": "Traceability and change control",
     "section": "",
-    "text": "&lt;h1 class=\"sprfmo-wordmark\"&gt;SPRFMO&lt;/h1&gt;\n&lt;div class=\"sprfmo-subtitle\"&gt;South Pacific Regional Fisheries Management Organisation&lt;/div&gt;\n&lt;div class=\"sprfmo-rule\"&gt;&lt;/div&gt;\n&lt;div class=\"sprfmo-group\"&gt;Jack Mackerel Candidate Management Procedures&lt;/div&gt;",
+    "text": "South Pacific Regional Fisheries Management Organisation\n    \n    Jack Mackerel Candidate Management Procedures",
     "crumbs": [
       "Home",
       "Traceability and change control"
@@ -83,7 +83,7 @@
     "href": "index.html",
     "title": "SPRFMO Jack Mackerel Candidate Management Procedures",
     "section": "",
-    "text": "&lt;h1 class=\"sprfmo-wordmark\"&gt;SPRFMO&lt;/h1&gt;\n&lt;div class=\"sprfmo-subtitle\"&gt;South Pacific Regional Fisheries Management Organisation&lt;/div&gt;\n&lt;div class=\"sprfmo-rule\"&gt;&lt;/div&gt;\n&lt;div class=\"sprfmo-group\"&gt;Jack Mackerel Candidate Management Procedures&lt;/div&gt;",
+    "text": "South Pacific Regional Fisheries Management Organisation\n    \n    Jack Mackerel Candidate Management Procedures",
     "crumbs": [
       "Home",
       "SPRFMO Jack Mackerel Candidate Management Procedures"
@@ -127,7 +127,7 @@
     "href": "cmp/components.html",
     "title": "Management-procedure components",
     "section": "",
-    "text": "&lt;h1 class=\"sprfmo-wordmark\"&gt;SPRFMO&lt;/h1&gt;\n&lt;div class=\"sprfmo-subtitle\"&gt;South Pacific Regional Fisheries Management Organisation&lt;/div&gt;\n&lt;div class=\"sprfmo-rule\"&gt;&lt;/div&gt;\n&lt;div class=\"sprfmo-group\"&gt;Jack Mackerel Candidate Management Procedures&lt;/div&gt;\nThis page reorganizes the architecture and inventory in SCW17/Paper-03. In jmMSE, a management procedure normally combines three controlled modules:\nflowchart LR\n  D[\"Observed annual data\"] --&gt; E[\"Estimator: est\"]\n  E --&gt; S[\"Status or index metric\"]\n  S --&gt; H[\"Harvest control rule: hcr\"]\n  H --&gt; R[\"Catch recommendation\"]\n  R --&gt; I[\"Implementation system: isys\"]\n  I --&gt; A[\"Implemented catch by fishery or stock\"]",
+    "text": "South Pacific Regional Fisheries Management Organisation\n    \n    Jack Mackerel Candidate Management Procedures\nThis page reorganizes the architecture and inventory in SCW17/Paper-03. In jmMSE, a management procedure normally combines three controlled modules:\nflowchart LR\n  D[\"Observed annual data\"] --&gt; E[\"Estimator: est\"]\n  E --&gt; S[\"Status or index metric\"]\n  S --&gt; H[\"Harvest control rule: hcr\"]\n  H --&gt; R[\"Catch recommendation\"]\n  R --&gt; I[\"Implementation system: isys\"]\n  I --&gt; A[\"Implemented catch by fishery or stock\"]",
     "crumbs": [
       "Home",
       "Candidate management procedures",
@@ -151,7 +151,7 @@
     "href": "cmp/specification-template.html",
     "title": "CMP specification template",
     "section": "",
-    "text": "&lt;h1 class=\"sprfmo-wordmark\"&gt;SPRFMO&lt;/h1&gt;\n&lt;div class=\"sprfmo-subtitle\"&gt;South Pacific Regional Fisheries Management Organisation&lt;/div&gt;\n&lt;div class=\"sprfmo-rule\"&gt;&lt;/div&gt;\n&lt;div class=\"sprfmo-group\"&gt;Jack Mackerel Candidate Management Procedures&lt;/div&gt;\nCopy this structure for every shortlisted CMP. Text labelled normative governs implementation; explanatory evidence belongs in the evidence section.",
+    "text": "South Pacific Regional Fisheries Management Organisation\n    \n    Jack Mackerel Candidate Management Procedures\nCopy this structure for every shortlisted CMP. Text labelled normative governs implementation; explanatory evidence belongs in the evidence section.",
     "crumbs": [
       "Home",
       "Candidate management procedures",
@@ -235,7 +235,7 @@
     "href": "cmp/index.html",
     "title": "CMP registry",
     "section": "",
-    "text": "&lt;h1 class=\"sprfmo-wordmark\"&gt;SPRFMO&lt;/h1&gt;\n&lt;div class=\"sprfmo-subtitle\"&gt;South Pacific Regional Fisheries Management Organisation&lt;/div&gt;\n&lt;div class=\"sprfmo-rule\"&gt;&lt;/div&gt;\n&lt;div class=\"sprfmo-group\"&gt;Jack Mackerel Candidate Management Procedures&lt;/div&gt;",
+    "text": "South Pacific Regional Fisheries Management Organisation\n    \n    Jack Mackerel Candidate Management Procedures",
     "crumbs": [
       "Home",
       "Candidate management procedures",
@@ -283,7 +283,7 @@
     "href": "evidence/scw17-evidence.html",
     "title": "SCW17 CMP evidence",
     "section": "",
-    "text": "&lt;h1 class=\"sprfmo-wordmark\"&gt;SPRFMO&lt;/h1&gt;\n&lt;div class=\"sprfmo-subtitle\"&gt;South Pacific Regional Fisheries Management Organisation&lt;/div&gt;\n&lt;div class=\"sprfmo-rule\"&gt;&lt;/div&gt;\n&lt;div class=\"sprfmo-group\"&gt;Jack Mackerel Candidate Management Procedures&lt;/div&gt;",
+    "text": "South Pacific Regional Fisheries Management Organisation\n    \n    Jack Mackerel Candidate Management Procedures",
     "crumbs": [
       "Home",
       "SCW17 CMP evidence"
@@ -327,7 +327,7 @@
     "href": "workflow/mse-flow.html",
     "title": "MSE workflow",
     "section": "",
-    "text": "&lt;h1 class=\"sprfmo-wordmark\"&gt;SPRFMO&lt;/h1&gt;\n&lt;div class=\"sprfmo-subtitle\"&gt;South Pacific Regional Fisheries Management Organisation&lt;/div&gt;\n&lt;div class=\"sprfmo-rule\"&gt;&lt;/div&gt;\n&lt;div class=\"sprfmo-group\"&gt;Jack Mackerel Candidate Management Procedures&lt;/div&gt;\nThis page condenses SCW17/Paper-04. It locates the documentation site within the broader analytical system without duplicating that system.\nflowchart LR\n  J[\"JJM assessment configurations\"] --&gt; C[\"Condition operating models\"]\n  C --&gt; O[\"OM / OEM / IEM bundles\"]\n  O --&gt; M[\"Apply CMPs in jmMSE\"]\n  M --&gt; P[\"Performance metrics and diagnostics\"]\n  P --&gt; D[\"CMP comparison and decision\"]\n  D --&gt; S[\"Versioned specification in jmMSE26\"]\n  S --&gt; Y[\"Annual operational application\"]\n  Y --&gt; V[\"Archived inputs, calculations, and advice\"]",
+    "text": "South Pacific Regional Fisheries Management Organisation\n    \n    Jack Mackerel Candidate Management Procedures\nThis page condenses SCW17/Paper-04. It locates the documentation site within the broader analytical system without duplicating that system.\nflowchart LR\n  J[\"JJM assessment configurations\"] --&gt; C[\"Condition operating models\"]\n  C --&gt; O[\"OM / OEM / IEM bundles\"]\n  O --&gt; M[\"Apply CMPs in jmMSE\"]\n  M --&gt; P[\"Performance metrics and diagnostics\"]\n  P --&gt; D[\"CMP comparison and decision\"]\n  D --&gt; S[\"Versioned specification in jmMSE26\"]\n  S --&gt; Y[\"Annual operational application\"]\n  Y --&gt; V[\"Archived inputs, calculations, and advice\"]",
     "crumbs": [
       "Home",
       "MSE workflow"
@@ -360,7 +360,7 @@
     "href": "application/annual-workflow.html",
     "title": "Annual CMP application",
     "section": "",
-    "text": "&lt;h1 class=\"sprfmo-wordmark\"&gt;SPRFMO&lt;/h1&gt;\n&lt;div class=\"sprfmo-subtitle\"&gt;South Pacific Regional Fisheries Management Organisation&lt;/div&gt;\n&lt;div class=\"sprfmo-rule\"&gt;&lt;/div&gt;\n&lt;div class=\"sprfmo-group\"&gt;Jack Mackerel Candidate Management Procedures&lt;/div&gt;\nThis workflow describes how an adopted CMP should be applied as new data become available. Candidate dry runs should follow the same controls.\nflowchart TD\n  A[\"Freeze CMP version and code commit\"] --&gt; B[\"Receive and archive annual data\"]\n  B --&gt; C[\"Validate schema, units, completeness, and vintage\"]\n  C --&gt;|fail| X[\"Stop and document exception\"]\n  C --&gt;|pass| D[\"Calculate estimator and status metric\"]\n  D --&gt; E[\"Apply HCR\"]\n  E --&gt; F[\"Apply interannual and implementation constraints\"]\n  F --&gt; G[\"Run independent or automated cross-check\"]\n  G --&gt;|mismatch| X\n  G --&gt;|match| H[\"Review exceptional-circumstances indicators\"]\n  H --&gt; I[\"Publish advice and complete calculation record\"]",
+    "text": "South Pacific Regional Fisheries Management Organisation\n    \n    Jack Mackerel Candidate Management Procedures\nThis workflow describes how an adopted CMP should be applied as new data become available. Candidate dry runs should follow the same controls.\nflowchart TD\n  A[\"Freeze CMP version and code commit\"] --&gt; B[\"Receive and archive annual data\"]\n  B --&gt; C[\"Validate schema, units, completeness, and vintage\"]\n  C --&gt;|fail| X[\"Stop and document exception\"]\n  C --&gt;|pass| D[\"Calculate estimator and status metric\"]\n  D --&gt; E[\"Apply HCR\"]\n  E --&gt; F[\"Apply interannual and implementation constraints\"]\n  F --&gt; G[\"Run independent or automated cross-check\"]\n  G --&gt;|mismatch| X\n  G --&gt;|match| H[\"Review exceptional-circumstances indicators\"]\n  H --&gt; I[\"Publish advice and complete calculation record\"]",
     "crumbs": [
       "Home",
       "Applying a CMP",

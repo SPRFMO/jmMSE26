@@ -2,7 +2,7 @@
 title: "Annual CMP application"
 ---
 
-{{< include ../_includes/sprfmo-banner.html >}}
+{{< include ../_includes/sprfmo-banner.qmd >}}
 
 <div class="paper-title">Controlled Annual Application Workflow</div>
 
@@ -63,4 +63,3 @@ scientific or management consideration; it must not silently rewrite the CMP.
 The record should contain inputs and checksums, validation results, intermediate
 calculations, final advice, software versions, warnings, analyst and reviewer
 sign-off, and links to any exception decision.
-
