@@ -34,6 +34,10 @@ These are reference-operating-model results. They are suitable for checking the
 candidate calculations and comparing MP29 with MP32, but they are not a
 substitute for robustness testing across the full set of operating models.
 
+The nine-OM robustness set has also been completed and is stored locally in
+`jmMSE/model/candidates/robustness/`. It contains MP29 and MP32, 100 simulation
+replicates, and annual results through 2050 for every operating model.
+
 ## Run or extend the reference comparison
 
 From the `jmMSE` folder on branch `devel`:
@@ -96,13 +100,39 @@ The current file contains 100 simulations, one reference operating model, two
 management procedures, four performance measures, and 26 annual values from
 2025 through 2050.
 
-## Add robustness results later
+## Prepare the robustness Slick file
 
-Once the derived robustness operating models have been rebuilt under an agreed
-and recorded package set, run the candidate script with `--mode=robustness` and
-pass its performance table to the same Slick conversion. Do not combine
-reference and robustness results produced under different package sets without
-first confirming that the candidate calculations are equivalent.
+The robustness operating models and candidate runs can be reproduced from
+`jmMSE` branch `devel` with:
+
+```sh
+Rscript prepare_candidate_robustness_oms.R
+Rscript run_candidate_mps.R \
+  --candidates=tun29,tun32 \
+  --mode=robustness \
+  --cores=1
+```
+
+Then build the Slick file from `jmMSE26`:
+
+```{r}
+#| eval: false
+source("R/build_candidate_slick.R")
+
+robustness_slick <- build_candidate_slick(
+  performance_file = "../jmMSE/model/candidates/robustness/performance.rds",
+  out_file = "output/jm_candidates_robustness.slick"
+)
+```
+
+The Slick file contains the nine operating models as 13 OM–stock series. Five
+operating models contain one stock. Four contain separate Southern and Northern
+stocks, and Slick retains both stock results rather than averaging them. The
+dimensions are 100 simulations, 13 OM–stock series, two management procedures,
+four performance measures, and 26 annual values from 2025 through 2050.
+
+Do not combine results produced under different package sets without first
+confirming that the candidate calculations are equivalent.
 
 ## Inspect or launch
 
