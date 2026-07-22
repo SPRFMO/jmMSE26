@@ -11,6 +11,7 @@ title: "CMP registry"
 | Status | Meaning |
 |---|---|
 | Test candidate | Defined sufficiently for testing; not shortlisted or adopted. |
+| Comparison case | Included to isolate an important assumption or design choice; not an advanced or adopted procedure. |
 | Advanced candidate | Selected in the current analysis for robustness testing; formal status not yet confirmed. |
 | Shortlisted | Retained by the working group for formal comparative evaluation. |
 | Recommended | Supported by a documented working-group recommendation. |
@@ -18,14 +19,17 @@ title: "CMP registry"
 | Retired | Kept in the historical record but no longer under active consideration. |
 
 The primary registry comes from the current approved working version of
-`jmMSE`. Its robustness-testing script selects `tun29` and `tun32`, and
+`jmMSE`. MP29 and MP32 are the advanced candidates. Six additional CMPs are
+included as comparison cases in Slick so scientists can quickly examine the
+effects of target catch, limit, rule shape, and source of stock information.
+The earlier robustness-testing script selected `tun29` and `tun32`, and
 the 25 July 2026 presentation describes MP29 as a potentially good candidate
 and MP32 as the optimal powerramp run. They are **advanced candidates**, not
 adopted procedures.
 
 ```{r}
 #| label: tbl-cmp-registry
-#| tbl-cap: "Current advanced candidates derived from jmMSE. Tuned trigger values are those reported in the 25 July 2026 presentation."
+#| tbl-cap: "Advanced candidates and comparison cases derived from jmMSE."
 #| echo: false
 
 registry <- read.csv("../data/cmp-registry.csv", check.names = FALSE)
@@ -38,6 +42,10 @@ knitr::kable(registry)
 - [MP32](mp32.qmd): empirical all-index estimator plus power-ramp HCR.
 - [Trial and robustness run reference](control-reference.qmd): the full set of
   tuning trials and the operating models used to test MP29 and MP32.
+
+The Slick comparison also includes MP18, MP24, MP31, MP23, MP36, and MP38.
+These are clearly labelled as comparison cases rather than advanced or adopted
+procedures.
 
 ## How these candidates were developed
 

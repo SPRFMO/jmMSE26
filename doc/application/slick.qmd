@@ -4,7 +4,7 @@ title: "Load candidates into Slick"
 
 {{< include ../_includes/sprfmo-banner.qmd >}}
 
-<div class="paper-title">Explore MP29 and MP32 Results in Slick</div>
+<div class="paper-title">Explore the Eight CMP Comparison Cases in Slick</div>
 
 Slick is an interactive tool for exploring MSE results. The simulation is run
 in `jmMSE`; this repository converts the resulting performance table into a
@@ -17,13 +17,13 @@ The conversion can use either:
 - the table of performance results produced by `jmMSE`; or
 - a saved `jmMSE` results object that already contains those performance results.
 
-The results must include MP29 and MP32, the operating-model and stock names,
+The results must include the eight CMPs listed below, the operating-model and stock names,
 simulation year and replicate, and the calculated performance measures. At a
 minimum, the results must include spawning biomass relative to $SB_{MSY}$,
 fishing mortality relative to $F_{MSY}$, and catch. Interannual catch change
 (IACC) is included when available.
 
-The current reference comparison has been completed for MP29 and MP32 with 100
+The current reference comparison has been completed for eight CMPs with 100
 simulation replicates through 2050. It is stored locally in `jmMSE` as:
 
 - `model/candidates/reference/runs.rds`: the complete simulation object; and
@@ -31,12 +31,38 @@ simulation replicates through 2050. It is stored locally in `jmMSE` as:
   Slick.
 
 These are reference-operating-model results. They are suitable for checking the
-candidate calculations and comparing MP29 with MP32, but they are not a
+candidate calculations and comparing the rule and data contrasts, but they are not a
 substitute for robustness testing across the full set of operating models.
 
 The nine-OM robustness set has also been completed and is stored locally in
-`jmMSE/model/candidates/robustness/`. It contains MP29 and MP32, 100 simulation
+`jmMSE/model/candidates/robustness/`. It contains all eight CMPs, 100 simulation
 replicates, and annual results through 2050 for every operating model.
+
+## CMPs included
+
+MP29 and MP32 remain the two advanced candidates. The other six procedures are
+comparison cases that help show which part of a procedure causes a change in
+performance.
+
+| CMP | Role in the comparison |
+|---|---|
+| MP29 | Optimal hockeystick case: target 2000, limit 0.1, all selected indices. |
+| MP32 | Alternative powerramp case: target 1500, limit 0.1, all selected indices. |
+| MP18 | Extreme high-target case: hockeystick target 5000. |
+| MP24 | Low-target case: hockeystick target 1750 and limit 0. |
+| MP31 | Higher-limit case: hockeystick target 2000 and limit 0.3. |
+| MP23 | Different rule shape: slope HCR with its original five-year averaging window. |
+| MP36 | Different data input: CPUE indices only. |
+| MP38 | Different information source: shortcut stock assessment. |
+
+The MP filter includes one-click selections for the advanced candidates,
+target contrasts, the limit contrast, rule-shape contrasts, information-source
+contrasts, all CMPs, and each individual CMP.
+
+MP23 retains the five-year averaging window used in its original tuning code.
+MP29 and MP32 use three years, so the MP23 comparison changes both rule shape
+and averaging window; it should not be interpreted as a pure test of shape
+alone.
 
 ## Run or extend the reference comparison
 
@@ -44,7 +70,7 @@ From the `jmMSE` folder on branch `devel`:
 
 ```sh
 Rscript run_candidate_mps.R \
-  --candidates=tun29,tun32 \
+  --candidates=tun29,tun32,tun18,tun24,tun31,tun23,tun36,tun38 \
   --mode=reference \
   --cores=1
 ```
@@ -59,9 +85,12 @@ Rscript run_candidate_mps.R \
   --cores=1
 ```
 
-The runner uses the estimator and rule implementations saved with the original
-tuning runs, then applies the selected rows from `candidate_mps.csv`. This
-preserves the calculations used to tune the candidates. Moving to a newer
+The runner uses the recorded definitions in `candidate_mps.csv` together with
+the original estimator and rule functions in `jmMSE`. Shortcut-assessment
+errors are generated from the original error model using fixed seeds so the
+comparison can be repeated. Each CMP starts from the same fixed random stream
+within an operating model, so adding or reordering CMPs does not change the
+other CMP results. Moving to a newer
 combined-index implementation should be treated as a method change requiring
 the operating models to be rebuilt and the candidates to be retuned and
 revalidated.
@@ -87,7 +116,7 @@ reference_slick <- build_candidate_slick(
 
 The script organizes the results by:
 
-- management procedure (MP29 or MP32);
+- management procedure (one of the eight CMP comparison cases);
 - operating model and stock;
 - simulation replicate and year; and
 - performance measure, including Kobe-plot values for $SB/SB_{MSY}$ and
@@ -123,7 +152,7 @@ The robustness operating models and candidate runs can be reproduced from
 ```sh
 Rscript prepare_candidate_robustness_oms.R
 Rscript run_candidate_mps.R \
-  --candidates=tun29,tun32 \
+  --candidates=tun29,tun32,tun18,tun24,tun31,tun23,tun36,tun38 \
   --mode=robustness \
   --cores=1
 ```
@@ -165,10 +194,10 @@ all CJM cases, the CJM robustness cases, the two-stock robustness cases, all
 OMs, and each individual alternative OM. Selecting a two-stock OM includes both
 its Southern and Northern rows.
 
-The dimensions are 100 simulations, 14 OM–stock series, two management
+The dimensions are 100 simulations, 14 OM–stock series, eight management
 procedures, four performance measures, and 81 annual values from 1970 through
 2050. Each series uses its own conditioned history through 2025; projections
-under MP29 and MP32 begin in 2026.
+under the eight CMPs begin in 2026.
 
 Do not combine results produced under different package sets without first
 confirming that the candidate calculations are equivalent.
