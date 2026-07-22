@@ -726,23 +726,11 @@
     ]
   },
   {
-    "objectID": "application/slick.html#prepare-the-slick-file",
-    "href": "application/slick.html#prepare-the-slick-file",
+    "objectID": "application/slick.html#prepare-the-combined-slick-file",
+    "href": "application/slick.html#prepare-the-combined-slick-file",
     "title": "Load candidates into Slick",
-    "section": "3 Prepare the Slick file",
-    "text": "3 Prepare the Slick file\nFrom the main jmMSE26 folder:\n\n\nShow implementation detail\nsource(\"R/build_candidate_slick.R\")\n\nslick &lt;- build_candidate_slick(\n  performance_file = \"../jmMSE/model/candidates/reference/performance.rds\",\n  out_file = \"output/jm_candidates.slick\",\n  historical_om_files = candidate_reference_om_files(\"../jmMSE\")\n)\n\n\nThe script organizes the results by:\n\nmanagement procedure (MP29 or MP32);\noperating model and stock;\nsimulation replicate and year; and\nperformance measure, including Kobe-plot values for \\(SB/SB_{MSY}\\) and \\(F/F_{MSY}\\).\n\nIt also prepares three summary views using the comparison periods already used in jmMSE:\n\nBoxplots show the distribution among simulation replicates in the final year, 2050.\nQuilts compare stock status, fishing pressure, catch, and catch stability among operating models and MPs. Long-term results use 2036–2040; short-term catch uses 2026–2030.\nTrade-off plots use the same periods to compare conservation, catch, and catch-stability measures directly.\n\nKobe quadrant probabilities are calculated from \\(SB/SB_{MSY}\\) and \\(F/F_{MSY}\\). Non-finite ratios, which can occur when a stock component approaches zero, are treated as missing rather than replaced with invented values.\nBefore saving the Slick file, the script checks that the expected dimensions and labels agree. The technical checks are shown in the code for analysts who maintain the export.\nThe current file contains 100 simulations, one reference operating model, two management procedures, four performance measures, and 81 annual values from 1970 through 2050. The vertical time boundary is 2025: values through 2025 are the conditioned operating-model history, and MP projections begin in 2026.",
-    "crumbs": [
-      "Home",
-      "Applying a CMP",
-      "Load candidates into Slick"
-    ]
-  },
-  {
-    "objectID": "application/slick.html#prepare-the-robustness-slick-file",
-    "href": "application/slick.html#prepare-the-robustness-slick-file",
-    "title": "Load candidates into Slick",
-    "section": "4 Prepare the robustness Slick file",
-    "text": "4 Prepare the robustness Slick file\nThe robustness operating models and candidate runs can be reproduced from jmMSE branch devel with:\nRscript prepare_candidate_robustness_oms.R\nRscript run_candidate_mps.R \\\n  --candidates=tun29,tun32 \\\n  --mode=robustness \\\n  --cores=1\nThen build the Slick file from jmMSE26:\n\n\nShow implementation detail\nsource(\"R/build_candidate_slick.R\")\n\nrobustness_slick &lt;- build_candidate_slick(\n  performance_file = \"../jmMSE/model/candidates/robustness/performance.rds\",\n  out_file = \"output/jm_candidates_robustness.slick\",\n  historical_om_files = candidate_robustness_om_files(\"../jmMSE\")\n)\n\n\nThe Slick file contains the nine operating models as 13 OM–stock series. Five operating models contain one stock. Four contain separate Southern and Northern stocks, and Slick retains both stock results rather than averaging them. The dimensions are 100 simulations, 13 OM–stock series, two management procedures, four performance measures, and 81 annual values from 1970 through 2050. Each OM–stock series uses its own conditioned history through 2025; projections under MP29 and MP32 begin in 2026.\nDo not combine results produced under different package sets without first confirming that the candidate calculations are equivalent.",
+    "section": "3 Prepare the combined Slick file",
+    "text": "3 Prepare the combined Slick file\nFrom the main jmMSE26 folder:\n\n\nShow implementation detail\nsource(\"R/build_candidate_slick.R\")\n\nreference_slick &lt;- build_candidate_slick(\n  performance_file = \"../jmMSE/model/candidates/reference/performance.rds\",\n  out_file = NULL,\n  historical_om_files = candidate_reference_om_files(\"../jmMSE\")\n)\n\n\nThe script organizes the results by:\n\nmanagement procedure (MP29 or MP32);\noperating model and stock;\nsimulation replicate and year; and\nperformance measure, including Kobe-plot values for \\(SB/SB_{MSY}\\) and \\(F/F_{MSY}\\).\n\nIt also prepares three summary views using the comparison periods already used in jmMSE:\n\nBoxplots show the distribution among simulation replicates in the final year, 2050.\nQuilts compare stock status, fishing pressure, catch, and catch stability among operating models and MPs. Long-term results use 2036–2040; short-term catch uses 2026–2030.\nTrade-off plots use the same periods to compare conservation, catch, and catch-stability measures directly.\n\nKobe quadrant probabilities are calculated from \\(SB/SB_{MSY}\\) and \\(F/F_{MSY}\\). Non-finite ratios, which can occur when a stock component approaches zero, are treated as missing rather than replaced with invented values.\nBefore saving the Slick file, the script checks that the expected dimensions and labels agree. The technical checks are shown in the code for analysts who maintain the export.\nThe reference is labelled om11 in Slick. Its source name, h1_0.16, remains in the OM metadata for traceability.\n\n3.1 Add the robustness sets\nThe robustness operating models and candidate runs can be reproduced from jmMSE branch devel with:\nRscript prepare_candidate_robustness_oms.R\nRscript run_candidate_mps.R \\\n  --candidates=tun29,tun32 \\\n  --mode=robustness \\\n  --cores=1\nThen build the robustness component and combine it with the reference:\n\n\nShow implementation detail\nsource(\"R/build_candidate_slick.R\")\n\nrobustness_slick &lt;- build_candidate_slick(\n  performance_file = \"../jmMSE/model/candidates/robustness/performance.rds\",\n  out_file = NULL,\n  historical_om_files = candidate_robustness_om_files(\"../jmMSE\")\n)\n\nslick &lt;- build_combined_candidate_slick(\n  reference_slick = reference_slick,\n  robustness_slick = robustness_slick,\n  out_file = \"output/jm_candidates.slick\"\n)\n\n\nThe resulting Slick file contains 14 OM–stock series: one reference, five single-stock robustness cases, and eight stock-specific series from four two-stock robustness cases. Slick retains the Southern and Northern results rather than averaging them.\nThe Set filter provides three main categories:\n\nReference: om11;\nRobustness CJM: the five single-stock robustness OMs; and\nRobustness 2-stock: the Southern and Northern results from the four two-stock robustness OMs.\n\nThe OM and Stock filters remain available for selecting individual models and stock components. The dimensions are 100 simulations, 14 OM–stock series, two management procedures, four performance measures, and 81 annual values from 1970 through 2050. Each series uses its own conditioned history through 2025; projections under MP29 and MP32 begin in 2026.\nDo not combine results produced under different package sets without first confirming that the candidate calculations are equivalent.",
     "crumbs": [
       "Home",
       "Applying a CMP",
@@ -753,8 +741,8 @@
     "objectID": "application/slick.html#inspect-or-launch",
     "href": "application/slick.html#inspect-or-launch",
     "title": "Load candidates into Slick",
-    "section": "5 Inspect or launch",
-    "text": "5 Inspect or launch\n\n\nShow implementation detail\nlibrary(Slick)\n\nslick &lt;- readRDS(\"output/jm_candidates.slick\")\nCheck(slick)\nmethods::validObject(slick)\n\ndim(Value(Timeseries(slick)))\nMetadata(MPs(slick))\nDesign(slick)\n\nApp(slick = slick)",
+    "section": "4 Inspect or launch",
+    "text": "4 Inspect or launch\n\n\nShow implementation detail\nlibrary(Slick)\n\nslick &lt;- readRDS(\"output/jm_candidates.slick\")\nCheck(slick)\nmethods::validObject(slick)\n\ndim(Value(Timeseries(slick)))\nMetadata(MPs(slick))\nDesign(slick)\n\nApp(slick = slick)",
     "crumbs": [
       "Home",
       "Applying a CMP",
@@ -765,8 +753,8 @@
     "objectID": "application/slick.html#what-to-save-with-the-slick-file",
     "href": "application/slick.html#what-to-save-with-the-slick-file",
     "title": "Load candidates into Slick",
-    "section": "6 What to save with the Slick file",
-    "text": "6 What to save with the Slick file\nSave the Slick file together with the original performance results, their digital fingerprint, the exact saved versions of jmMSE and jmMSE26, and the versions of the R packages used.",
+    "section": "5 What to save with the Slick file",
+    "text": "5 What to save with the Slick file\nSave the Slick file together with the original performance results, their digital fingerprint, the exact saved versions of jmMSE and jmMSE26, and the versions of the R packages used.",
     "crumbs": [
       "Home",
       "Applying a CMP",

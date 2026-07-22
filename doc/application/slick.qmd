@@ -70,7 +70,7 @@ The validated reference run used R 4.6.1 with FLCore 2.6.30, FLFishery 0.4.0,
 mse 2.4.8.9004, msemodules 0.2.2, and FLjjm 0.3.4. The run folder contains the
 complete `sessionInfo.txt` record.
 
-## Prepare the Slick file
+## Prepare the combined Slick file
 
 From the main `jmMSE26` folder:
 
@@ -78,9 +78,9 @@ From the main `jmMSE26` folder:
 #| eval: false
 source("R/build_candidate_slick.R")
 
-slick <- build_candidate_slick(
+reference_slick <- build_candidate_slick(
   performance_file = "../jmMSE/model/candidates/reference/performance.rds",
-  out_file = "output/jm_candidates.slick",
+  out_file = NULL,
   historical_om_files = candidate_reference_om_files("../jmMSE")
 )
 ```
@@ -112,12 +112,10 @@ Before saving the Slick file, the script checks that the expected dimensions
 and labels agree. The technical checks are shown in the code for analysts who
 maintain the export.
 
-The current file contains 100 simulations, one reference operating model, two
-management procedures, four performance measures, and 81 annual values from
-1970 through 2050. The vertical time boundary is 2025: values through 2025 are
-the conditioned operating-model history, and MP projections begin in 2026.
+The reference is labelled `om11` in Slick. Its source name, `h1_0.16`, remains
+in the OM metadata for traceability.
 
-## Prepare the robustness Slick file
+### Add the robustness sets
 
 The robustness operating models and candidate runs can be reproduced from
 `jmMSE` branch `devel` with:
@@ -130,7 +128,7 @@ Rscript run_candidate_mps.R \
   --cores=1
 ```
 
-Then build the Slick file from `jmMSE26`:
+Then build the robustness component and combine it with the reference:
 
 ```{r}
 #| eval: false
@@ -138,18 +136,34 @@ source("R/build_candidate_slick.R")
 
 robustness_slick <- build_candidate_slick(
   performance_file = "../jmMSE/model/candidates/robustness/performance.rds",
-  out_file = "output/jm_candidates_robustness.slick",
+  out_file = NULL,
   historical_om_files = candidate_robustness_om_files("../jmMSE")
+)
+
+slick <- build_combined_candidate_slick(
+  reference_slick = reference_slick,
+  robustness_slick = robustness_slick,
+  out_file = "output/jm_candidates.slick"
 )
 ```
 
-The Slick file contains the nine operating models as 13 OM–stock series. Five
-operating models contain one stock. Four contain separate Southern and Northern
-stocks, and Slick retains both stock results rather than averaging them. The
-dimensions are 100 simulations, 13 OM–stock series, two management procedures,
-four performance measures, and 81 annual values from 1970 through 2050. Each
-OM–stock series uses its own conditioned history through 2025; projections
-under MP29 and MP32 begin in 2026.
+The resulting Slick file contains 14 OM–stock series: one reference, five
+single-stock robustness cases, and eight stock-specific series from four
+two-stock robustness cases. Slick retains the Southern and Northern results
+rather than averaging them.
+
+The `Set` filter provides three main categories:
+
+- **Reference**: om11;
+- **Robustness CJM**: the five single-stock robustness OMs; and
+- **Robustness 2-stock**: the Southern and Northern results from the four
+  two-stock robustness OMs.
+
+The OM and Stock filters remain available for selecting individual models and
+stock components. The dimensions are 100 simulations, 14 OM–stock series, two
+management procedures, four performance measures, and 81 annual values from
+1970 through 2050. Each series uses its own conditioned history through 2025;
+projections under MP29 and MP32 begin in 2026.
 
 Do not combine results produced under different package sets without first
 confirming that the candidate calculations are equivalent.

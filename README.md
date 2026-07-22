@@ -28,10 +28,9 @@ Rendered files are written to `docs/` for GitHub Pages.
 - `doc/governance/`: provenance, versioning, and change-control rules.
 - `doc/data/cmp-registry.csv`: machine-readable registry sourced from `jmMSE`.
 - `R/build_candidate_slick.R`: validated MP29/MP32 performance-to-Slick adapter.
-- `output/jm_candidates.slick`: validated reference-OM comparison for MP29 and
-  MP32 (100 simulations, 2025-2050).
-- `output/jm_candidates_robustness.slick`: validated nine-OM robustness set for
-  MP29 and MP32 (100 simulations, 2025-2050).
+- `output/jm_candidates.slick`: the single validated MP29/MP32 review file,
+  combining the om11 reference with the single-stock and two-stock robustness
+  sets (100 simulations, 1970–2050).
 
 Candidate status is explicit. A test candidate is not an adopted management
 procedure unless its registry status and decision record say so.

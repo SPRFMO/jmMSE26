@@ -406,8 +406,126 @@ build_candidate_slick <- function(
 
   Check(slick)
   methods::validObject(slick)
-  dir.create(dirname(out_file), recursive = TRUE, showWarnings = FALSE)
-  saveRDS(slick, out_file)
-  message("Wrote validated Slick object: ", out_file)
+  if (!is.null(out_file)) {
+    dir.create(dirname(out_file), recursive = TRUE, showWarnings = FALSE)
+    saveRDS(slick, out_file)
+    message("Wrote validated Slick object: ", out_file)
+  }
   invisible(slick)
+}
+
+bind_slick_om_arrays <- function(reference, robustness, om_dimension) {
+  reference_dim <- dim(reference)
+  robustness_dim <- dim(robustness)
+  if (length(reference_dim) != length(robustness_dim) ||
+      any(reference_dim[-om_dimension] != robustness_dim[-om_dimension])) {
+    stop("Reference and robustness plot dimensions do not agree")
+  }
+  combined_dim <- reference_dim
+  combined_dim[om_dimension] <- reference_dim[om_dimension] +
+    robustness_dim[om_dimension]
+  combined <- array(NA_real_, dim = combined_dim)
+  reference_index <- rep(list(TRUE), length(combined_dim))
+  reference_index[[om_dimension]] <- seq_len(reference_dim[om_dimension])
+  combined <- do.call(`[<-`, c(list(combined), reference_index,
+    list(value = reference)))
+  robustness_index <- rep(list(TRUE), length(combined_dim))
+  robustness_index[[om_dimension]] <- reference_dim[om_dimension] +
+    seq_len(robustness_dim[om_dimension])
+  do.call(`[<-`, c(list(combined), robustness_index,
+    list(value = robustness)))
+}
+
+make_combined_candidate_oms <- function(reference_slick, robustness_slick) {
+  reference <- as.data.table(Design(reference_slick))
+  if (nrow(reference) != 1L || reference$Stock != "CJM") stop(
+    "The reference Slick object must contain one CJM OM")
+  reference[, `:=`(
+    OM = "om11",
+    Set = "Reference",
+    Model = "om11"
+  )]
+
+  robustness <- as.data.table(Design(robustness_slick))
+  robustness[, Set := fifelse(Stock == "CJM", "Robustness CJM",
+    "Robustness 2-stock")]
+  design <- rbindlist(list(reference, robustness), fill = TRUE,
+    use.names = TRUE)
+  design <- design[, .(OM, Set, Model, Stock, SourceOM)]
+
+  factor_order <- c("Set", "OM", "Model", "Stock", "SourceOM")
+  factors <- rbindlist(lapply(factor_order, function(nm) {
+    levels <- unique(as.character(design[[nm]]))
+    descriptions <- levels
+    if (nm == "Set") descriptions <- c(
+      Reference = "Reference operating model (om11).",
+      `Robustness CJM` = "Single-stock robustness operating models.",
+      `Robustness 2-stock` = "Two-stock robustness operating models."
+    )[levels]
+    data.table(Factor = nm, Level = levels, Description = descriptions)
+  }))
+  OMs(Factors = as.data.frame(factors), Design = as.data.frame(design))
+}
+
+build_combined_candidate_slick <- function(
+  reference_slick,
+  robustness_slick,
+  out_file = file.path("output", "jm_candidates.slick")
+) {
+  if (is.character(reference_slick)) reference_slick <- readRDS(reference_slick)
+  if (is.character(robustness_slick)) robustness_slick <- readRDS(robustness_slick)
+  Check(reference_slick)
+  Check(robustness_slick)
+
+  if (!identical(Metadata(MPs(reference_slick)),
+      Metadata(MPs(robustness_slick)))) stop(
+    "Reference and robustness MP metadata do not agree")
+  if (!identical(Time(Timeseries(reference_slick)),
+      Time(Timeseries(robustness_slick))) ||
+      !identical(Time(Kobe(reference_slick)), Time(Kobe(robustness_slick)))) {
+    stop("Reference and robustness time axes do not agree")
+  }
+
+  combined <- reference_slick
+  Title(combined) <- "SPRFMO Jack Mackerel Candidate MPs"
+  Subtitle(combined) <- "MP29 and MP32: reference and robustness operating models"
+  Introduction(combined) <- paste(
+    "This file combines the om11 reference operating model with the",
+    "single-stock and two-stock robustness sets. Use the Set filter to",
+    "switch among Reference, Robustness CJM, and Robustness 2-stock."
+  )
+  OMs(combined) <- make_combined_candidate_oms(reference_slick,
+    robustness_slick)
+
+  timeseries <- Timeseries(reference_slick)
+  Value(timeseries) <- bind_slick_om_arrays(
+    Value(Timeseries(reference_slick)), Value(Timeseries(robustness_slick)), 2L)
+  Timeseries(combined) <- timeseries
+
+  kobe <- Kobe(reference_slick)
+  Value(kobe) <- bind_slick_om_arrays(
+    Value(Kobe(reference_slick)), Value(Kobe(robustness_slick)), 2L)
+  Kobe(combined) <- kobe
+
+  boxplot <- Boxplot(reference_slick)
+  Value(boxplot) <- bind_slick_om_arrays(
+    Value(Boxplot(reference_slick)), Value(Boxplot(robustness_slick)), 2L)
+  Boxplot(combined) <- boxplot
+
+  quilt <- Quilt(reference_slick)
+  Value(quilt) <- bind_slick_om_arrays(
+    Value(Quilt(reference_slick)), Value(Quilt(robustness_slick)), 1L)
+  Quilt(combined) <- quilt
+
+  tradeoff <- Tradeoff(reference_slick)
+  Value(tradeoff) <- bind_slick_om_arrays(
+    Value(Tradeoff(reference_slick)), Value(Tradeoff(robustness_slick)), 1L)
+  Tradeoff(combined) <- tradeoff
+
+  Check(combined)
+  methods::validObject(combined)
+  dir.create(dirname(out_file), recursive = TRUE, showWarnings = FALSE)
+  saveRDS(combined, out_file)
+  message("Wrote combined Slick object: ", out_file)
+  invisible(combined)
 }
