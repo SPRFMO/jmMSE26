@@ -160,10 +160,15 @@ The `Set` filter provides three main categories:
   two-stock robustness OMs.
 
 The OM and Stock filters remain available for selecting individual models and
-stock components. The dimensions are 100 simulations, 14 OM–stock series, two
-management procedures, four performance measures, and 81 annual values from
-1970 through 2050. Each series uses its own conditioned history through 2025;
-projections under MP29 and MP32 begin in 2026.
+stock components. One-click presets provide quick selections for the reference,
+all CJM cases, the CJM robustness cases, the two-stock robustness cases, all
+OMs, and each individual alternative OM. Selecting a two-stock OM includes both
+its Southern and Northern rows.
+
+The dimensions are 100 simulations, 14 OM–stock series, two management
+procedures, four performance measures, and 81 annual values from 1970 through
+2050. Each series uses its own conditioned history through 2025; projections
+under MP29 and MP32 begin in 2026.
 
 Do not combine results produced under different package sets without first
 confirming that the candidate calculations are equivalent.

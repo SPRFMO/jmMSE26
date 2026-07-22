@@ -482,7 +482,8 @@ Explore MP29 and MP32 Results in Slick
 <li><strong>Robustness CJM</strong>: the five single-stock robustness OMs; and</li>
 <li><strong>Robustness 2-stock</strong>: the Southern and Northern results from the four two-stock robustness OMs.</li>
 </ul>
-<p>The OM and Stock filters remain available for selecting individual models and stock components. The dimensions are 100 simulations, 14 OM–stock series, two management procedures, four performance measures, and 81 annual values from 1970 through 2050. Each series uses its own conditioned history through 2025; projections under MP29 and MP32 begin in 2026.</p>
+<p>The OM and Stock filters remain available for selecting individual models and stock components. One-click presets provide quick selections for the reference, all CJM cases, the CJM robustness cases, the two-stock robustness cases, all OMs, and each individual alternative OM. Selecting a two-stock OM includes both its Southern and Northern rows.</p>
+<p>The dimensions are 100 simulations, 14 OM–stock series, two management procedures, four performance measures, and 81 annual values from 1970 through 2050. Each series uses its own conditioned history through 2025; projections under MP29 and MP32 begin in 2026.</p>
 <p>Do not combine results produced under different package sets without first confirming that the candidate calculations are equivalent.</p>
 </section>
 </section>
@@ -1145,36 +1146,41 @@ Explore MP29 and MP32 Results in Slick
 <span id="cb7-164"><a href="#cb7-164" aria-hidden="true" tabindex="-1"></a>  two-stock robustness OMs.</span>
 <span id="cb7-165"><a href="#cb7-165" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-166"><a href="#cb7-166" aria-hidden="true" tabindex="-1"></a>The OM and Stock filters remain available for selecting individual models and</span>
-<span id="cb7-167"><a href="#cb7-167" aria-hidden="true" tabindex="-1"></a>stock components. The dimensions are 100 simulations, 14 OM–stock series, two</span>
-<span id="cb7-168"><a href="#cb7-168" aria-hidden="true" tabindex="-1"></a>management procedures, four performance measures, and 81 annual values from</span>
-<span id="cb7-169"><a href="#cb7-169" aria-hidden="true" tabindex="-1"></a>1970 through 2050. Each series uses its own conditioned history through 2025;</span>
-<span id="cb7-170"><a href="#cb7-170" aria-hidden="true" tabindex="-1"></a>projections under MP29 and MP32 begin in 2026.</span>
+<span id="cb7-167"><a href="#cb7-167" aria-hidden="true" tabindex="-1"></a>stock components. One-click presets provide quick selections for the reference,</span>
+<span id="cb7-168"><a href="#cb7-168" aria-hidden="true" tabindex="-1"></a>all CJM cases, the CJM robustness cases, the two-stock robustness cases, all</span>
+<span id="cb7-169"><a href="#cb7-169" aria-hidden="true" tabindex="-1"></a>OMs, and each individual alternative OM. Selecting a two-stock OM includes both</span>
+<span id="cb7-170"><a href="#cb7-170" aria-hidden="true" tabindex="-1"></a>its Southern and Northern rows.</span>
 <span id="cb7-171"><a href="#cb7-171" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-172"><a href="#cb7-172" aria-hidden="true" tabindex="-1"></a>Do not combine results produced under different package sets without first</span>
-<span id="cb7-173"><a href="#cb7-173" aria-hidden="true" tabindex="-1"></a>confirming that the candidate calculations are equivalent.</span>
-<span id="cb7-174"><a href="#cb7-174" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-175"><a href="#cb7-175" aria-hidden="true" tabindex="-1"></a><span class="fu">## Inspect or launch</span></span>
+<span id="cb7-172"><a href="#cb7-172" aria-hidden="true" tabindex="-1"></a>The dimensions are 100 simulations, 14 OM–stock series, two management</span>
+<span id="cb7-173"><a href="#cb7-173" aria-hidden="true" tabindex="-1"></a>procedures, four performance measures, and 81 annual values from 1970 through</span>
+<span id="cb7-174"><a href="#cb7-174" aria-hidden="true" tabindex="-1"></a><span class="ss">2050. </span>Each series uses its own conditioned history through 2025; projections</span>
+<span id="cb7-175"><a href="#cb7-175" aria-hidden="true" tabindex="-1"></a>under MP29 and MP32 begin in 2026.</span>
 <span id="cb7-176"><a href="#cb7-176" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-179"><a href="#cb7-179" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb7-180"><a href="#cb7-180" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb7-181"><a href="#cb7-181" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Slick)</span>
-<span id="cb7-182"><a href="#cb7-182" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-183"><a href="#cb7-183" aria-hidden="true" tabindex="-1"></a>slick <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"output/jm_candidates.slick"</span>)</span>
-<span id="cb7-184"><a href="#cb7-184" aria-hidden="true" tabindex="-1"></a><span class="fu">Check</span>(slick)</span>
-<span id="cb7-185"><a href="#cb7-185" aria-hidden="true" tabindex="-1"></a>methods<span class="sc">::</span><span class="fu">validObject</span>(slick)</span>
-<span id="cb7-186"><a href="#cb7-186" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-187"><a href="#cb7-187" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(<span class="fu">Value</span>(<span class="fu">Timeseries</span>(slick)))</span>
-<span id="cb7-188"><a href="#cb7-188" aria-hidden="true" tabindex="-1"></a><span class="fu">Metadata</span>(<span class="fu">MPs</span>(slick))</span>
-<span id="cb7-189"><a href="#cb7-189" aria-hidden="true" tabindex="-1"></a><span class="fu">Design</span>(slick)</span>
-<span id="cb7-190"><a href="#cb7-190" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-191"><a href="#cb7-191" aria-hidden="true" tabindex="-1"></a><span class="fu">App</span>(<span class="at">slick =</span> slick)</span>
-<span id="cb7-192"><a href="#cb7-192" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb7-193"><a href="#cb7-193" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-194"><a href="#cb7-194" aria-hidden="true" tabindex="-1"></a><span class="fu">## What to save with the Slick file</span></span>
+<span id="cb7-177"><a href="#cb7-177" aria-hidden="true" tabindex="-1"></a>Do not combine results produced under different package sets without first</span>
+<span id="cb7-178"><a href="#cb7-178" aria-hidden="true" tabindex="-1"></a>confirming that the candidate calculations are equivalent.</span>
+<span id="cb7-179"><a href="#cb7-179" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-180"><a href="#cb7-180" aria-hidden="true" tabindex="-1"></a><span class="fu">## Inspect or launch</span></span>
+<span id="cb7-181"><a href="#cb7-181" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-184"><a href="#cb7-184" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb7-185"><a href="#cb7-185" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb7-186"><a href="#cb7-186" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Slick)</span>
+<span id="cb7-187"><a href="#cb7-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-188"><a href="#cb7-188" aria-hidden="true" tabindex="-1"></a>slick <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"output/jm_candidates.slick"</span>)</span>
+<span id="cb7-189"><a href="#cb7-189" aria-hidden="true" tabindex="-1"></a><span class="fu">Check</span>(slick)</span>
+<span id="cb7-190"><a href="#cb7-190" aria-hidden="true" tabindex="-1"></a>methods<span class="sc">::</span><span class="fu">validObject</span>(slick)</span>
+<span id="cb7-191"><a href="#cb7-191" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-192"><a href="#cb7-192" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(<span class="fu">Value</span>(<span class="fu">Timeseries</span>(slick)))</span>
+<span id="cb7-193"><a href="#cb7-193" aria-hidden="true" tabindex="-1"></a><span class="fu">Metadata</span>(<span class="fu">MPs</span>(slick))</span>
+<span id="cb7-194"><a href="#cb7-194" aria-hidden="true" tabindex="-1"></a><span class="fu">Design</span>(slick)</span>
 <span id="cb7-195"><a href="#cb7-195" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-196"><a href="#cb7-196" aria-hidden="true" tabindex="-1"></a>Save the Slick file together with the original performance results, their</span>
-<span id="cb7-197"><a href="#cb7-197" aria-hidden="true" tabindex="-1"></a>digital fingerprint, the exact saved versions of <span class="in">`jmMSE`</span> and <span class="in">`jmMSE26`</span>, and the</span>
-<span id="cb7-198"><a href="#cb7-198" aria-hidden="true" tabindex="-1"></a>versions of the R packages used.</span>
+<span id="cb7-196"><a href="#cb7-196" aria-hidden="true" tabindex="-1"></a><span class="fu">App</span>(<span class="at">slick =</span> slick)</span>
+<span id="cb7-197"><a href="#cb7-197" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-198"><a href="#cb7-198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-199"><a href="#cb7-199" aria-hidden="true" tabindex="-1"></a><span class="fu">## What to save with the Slick file</span></span>
+<span id="cb7-200"><a href="#cb7-200" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-201"><a href="#cb7-201" aria-hidden="true" tabindex="-1"></a>Save the Slick file together with the original performance results, their</span>
+<span id="cb7-202"><a href="#cb7-202" aria-hidden="true" tabindex="-1"></a>digital fingerprint, the exact saved versions of <span class="in">`jmMSE`</span> and <span class="in">`jmMSE26`</span>, and the</span>
+<span id="cb7-203"><a href="#cb7-203" aria-hidden="true" tabindex="-1"></a>versions of the R packages used.</span>
 </code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

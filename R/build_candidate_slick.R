@@ -442,18 +442,30 @@ make_combined_candidate_oms <- function(reference_slick, robustness_slick) {
     "The reference Slick object must contain one CJM OM")
   reference[, `:=`(
     OM = "om11",
-    Set = "Reference",
-    Model = "om11"
+    Set = "Reference"
   )]
 
   robustness <- as.data.table(Design(robustness_slick))
   robustness[, Set := fifelse(Stock == "CJM", "Robustness CJM",
     "Robustness 2-stock")]
+  robustness[, OM := Model]
   design <- rbindlist(list(reference, robustness), fill = TRUE,
     use.names = TRUE)
-  design <- design[, .(OM, Set, Model, Stock, SourceOM)]
+  design <- design[, .(Set, OM, Stock)]
 
-  factor_order <- c("Set", "OM", "Model", "Stock", "SourceOM")
+  om_descriptions <- c(
+    om11 = "Reference: one stock, 2026 assessment, low productivity (h = 0.65).",
+    om11_1 = "One-stock alternative selectivity pattern.",
+    om11_2 = "One-stock low-recruitment projection.",
+    om11_3 = "One-stock cyclic-recruitment projection.",
+    om12 = "One stock, 2026 assessment, higher productivity (h = 0.80).",
+    om13 = "One stock, legacy 2025 assessment, low productivity (h = 0.65).",
+    om21 = "Two stocks, 2026 assessment, low productivity (h = 0.65).",
+    om21_1 = "Two-stock movement sensitivity based on om21.",
+    om22 = "Two stocks, 2026 assessment, higher productivity (h = 0.80).",
+    om23 = "Two stocks, legacy 2025 assessment, low productivity (h = 0.65)."
+  )
+  factor_order <- c("Set", "OM", "Stock")
   factors <- rbindlist(lapply(factor_order, function(nm) {
     levels <- unique(as.character(design[[nm]]))
     descriptions <- levels
@@ -462,9 +474,28 @@ make_combined_candidate_oms <- function(reference_slick, robustness_slick) {
       `Robustness CJM` = "Single-stock robustness operating models.",
       `Robustness 2-stock` = "Two-stock robustness operating models."
     )[levels]
+    if (nm == "OM") descriptions <- om_descriptions[levels]
+    if (nm == "Stock") descriptions <- c(
+      CJM = "Single jack mackerel stock.",
+      North = "Northern stock component.",
+      Southern = "Southern stock component."
+    )[levels]
     data.table(Factor = nm, Level = levels, Description = descriptions)
   }))
-  OMs(Factors = as.data.frame(factors), Design = as.data.frame(design))
+
+  om_rows <- function(code) which(design$OM == code)
+  presets <- list(
+    Reference = om_rows("om11"),
+    `All CJM` = which(design$Stock == "CJM"),
+    `CJM robustness` = which(design$Set == "Robustness CJM"),
+    `2-stock robustness` = which(design$Set == "Robustness 2-stock"),
+    `All OMs` = seq_len(nrow(design))
+  )
+  alternative_codes <- setdiff(unique(design$OM), "om11")
+  presets <- c(presets, setNames(lapply(alternative_codes, om_rows),
+    alternative_codes))
+  OMs(Factors = as.data.frame(factors), Design = as.data.frame(design),
+    Preset = presets)
 }
 
 build_combined_candidate_slick <- function(
