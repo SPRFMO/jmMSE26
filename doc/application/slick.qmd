@@ -6,9 +6,9 @@ title: "Load candidates into Slick"
 
 <div class="paper-title">Explore MP29 and MP32 Results in Slick</div>
 
-Slick is an interactive tool for exploring MSE results. The supplied conversion
-script prepares MP29 and MP32 results for Slick after the MSE runs have been
-completed. It does not run the MSE and it does not fill in missing results.
+Slick is an interactive tool for exploring MSE results. The simulation is run
+in `jmMSE`; this repository converts the resulting performance table into a
+Slick file.
 
 ## What is needed
 
@@ -23,10 +23,48 @@ minimum, the results must include spawning biomass relative to $SB_{MSY}$,
 fishing mortality relative to $F_{MSY}$, and catch. Interannual catch change
 (IACC) is included when available.
 
-The current working folder does not yet contain saved MP29/MP32 results in
-`model/tune/` or `model/robustness/`; the available top-level tuning artifacts
-end at MP22. Run the current candidate and robustness analyses before attempting
-the final Slick export.
+The current reference comparison has been completed for MP29 and MP32 with 100
+simulation replicates through 2050. It is stored locally in `jmMSE` as:
+
+- `model/candidates/reference/runs.rds`: the complete simulation object; and
+- `model/candidates/reference/performance.rds`: the smaller table used for
+  Slick.
+
+These are reference-operating-model results. They are suitable for checking the
+candidate calculations and comparing MP29 with MP32, but they are not a
+substitute for robustness testing across the full set of operating models.
+
+## Run or extend the reference comparison
+
+From the `jmMSE` folder on branch `devel`:
+
+```sh
+Rscript run_candidate_mps.R \
+  --candidates=tun29,tun32 \
+  --mode=reference \
+  --cores=1
+```
+
+The candidate codes come from `candidate_mps.csv`. Additional hockeystick or
+powerramp trials can be included for contrast, for example:
+
+```sh
+Rscript run_candidate_mps.R \
+  --candidates=tun25,tun29,tun32 \
+  --mode=reference \
+  --cores=1
+```
+
+The runner uses the estimator and rule implementations saved with the original
+tuning runs, then applies the selected rows from `candidate_mps.csv`. This
+preserves the calculations used to tune the candidates. Moving to a newer
+combined-index implementation should be treated as a method change requiring
+the operating models to be rebuilt and the candidates to be retuned and
+revalidated.
+
+The validated reference run used R 4.6.1 with FLCore 2.6.30, FLFishery 0.4.0,
+mse 2.4.8.9004, msemodules 0.2.2, and FLjjm 0.3.4. The run folder contains the
+complete `sessionInfo.txt` record.
 
 ## Prepare the Slick file
 
@@ -37,7 +75,7 @@ From the main `jmMSE26` folder:
 source("R/build_candidate_slick.R")
 
 slick <- build_candidate_slick(
-  performance_file = "../jmMSE/model/robustness/robs.rds",
+  performance_file = "../jmMSE/model/candidates/reference/performance.rds",
   out_file = "output/jm_candidates.slick"
 )
 ```
@@ -53,6 +91,18 @@ The script organizes the results by:
 Before saving the Slick file, the script checks that the expected dimensions
 and labels agree. The technical checks are shown in the code for analysts who
 maintain the export.
+
+The current file contains 100 simulations, one reference operating model, two
+management procedures, four performance measures, and 26 annual values from
+2025 through 2050.
+
+## Add robustness results later
+
+Once the derived robustness operating models have been rebuilt under an agreed
+and recorded package set, run the candidate script with `--mode=robustness` and
+pass its performance table to the same Slick conversion. Do not combine
+reference and robustness results produced under different package sets without
+first confirming that the candidate calculations are equivalent.
 
 ## Inspect or launch
 

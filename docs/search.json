@@ -694,7 +694,7 @@
     "href": "application/slick.html",
     "title": "Load candidates into Slick",
     "section": "",
-    "text": "South Pacific Regional Fisheries Management Organisation\n    \n    Jack Mackerel Candidate Management Procedures\nSlick is an interactive tool for exploring MSE results. The supplied conversion script prepares MP29 and MP32 results for Slick after the MSE runs have been completed. It does not run the MSE and it does not fill in missing results.",
+    "text": "South Pacific Regional Fisheries Management Organisation\n    \n    Jack Mackerel Candidate Management Procedures\nSlick is an interactive tool for exploring MSE results. The simulation is run in jmMSE; this repository converts the resulting performance table into a Slick file.",
     "crumbs": [
       "Home",
       "Applying a CMP",
@@ -706,7 +706,19 @@
     "href": "application/slick.html#what-is-needed",
     "title": "Load candidates into Slick",
     "section": "1 What is needed",
-    "text": "1 What is needed\nThe conversion can use either:\n\nthe table of performance results produced by jmMSE; or\na saved jmMSE results object that already contains those performance results.\n\nThe results must include MP29 and MP32, the operating-model and stock names, simulation year and replicate, and the calculated performance measures. At a minimum, the results must include spawning biomass relative to \\(SB_{MSY}\\), fishing mortality relative to \\(F_{MSY}\\), and catch. Interannual catch change (IACC) is included when available.\nThe current working folder does not yet contain saved MP29/MP32 results in model/tune/ or model/robustness/; the available top-level tuning artifacts end at MP22. Run the current candidate and robustness analyses before attempting the final Slick export.",
+    "text": "1 What is needed\nThe conversion can use either:\n\nthe table of performance results produced by jmMSE; or\na saved jmMSE results object that already contains those performance results.\n\nThe results must include MP29 and MP32, the operating-model and stock names, simulation year and replicate, and the calculated performance measures. At a minimum, the results must include spawning biomass relative to \\(SB_{MSY}\\), fishing mortality relative to \\(F_{MSY}\\), and catch. Interannual catch change (IACC) is included when available.\nThe current reference comparison has been completed for MP29 and MP32 with 100 simulation replicates through 2050. It is stored locally in jmMSE as:\n\nmodel/candidates/reference/runs.rds: the complete simulation object; and\nmodel/candidates/reference/performance.rds: the smaller table used for Slick.\n\nThese are reference-operating-model results. They are suitable for checking the candidate calculations and comparing MP29 with MP32, but they are not a substitute for robustness testing across the full set of operating models.",
+    "crumbs": [
+      "Home",
+      "Applying a CMP",
+      "Load candidates into Slick"
+    ]
+  },
+  {
+    "objectID": "application/slick.html#run-or-extend-the-reference-comparison",
+    "href": "application/slick.html#run-or-extend-the-reference-comparison",
+    "title": "Load candidates into Slick",
+    "section": "2 Run or extend the reference comparison",
+    "text": "2 Run or extend the reference comparison\nFrom the jmMSE folder on branch devel:\nRscript run_candidate_mps.R \\\n  --candidates=tun29,tun32 \\\n  --mode=reference \\\n  --cores=1\nThe candidate codes come from candidate_mps.csv. Additional hockeystick or powerramp trials can be included for contrast, for example:\nRscript run_candidate_mps.R \\\n  --candidates=tun25,tun29,tun32 \\\n  --mode=reference \\\n  --cores=1\nThe runner uses the estimator and rule implementations saved with the original tuning runs, then applies the selected rows from candidate_mps.csv. This preserves the calculations used to tune the candidates. Moving to a newer combined-index implementation should be treated as a method change requiring the operating models to be rebuilt and the candidates to be retuned and revalidated.\nThe validated reference run used R 4.6.1 with FLCore 2.6.30, FLFishery 0.4.0, mse 2.4.8.9004, msemodules 0.2.2, and FLjjm 0.3.4. The run folder contains the complete sessionInfo.txt record.",
     "crumbs": [
       "Home",
       "Applying a CMP",
@@ -717,8 +729,20 @@
     "objectID": "application/slick.html#prepare-the-slick-file",
     "href": "application/slick.html#prepare-the-slick-file",
     "title": "Load candidates into Slick",
-    "section": "2 Prepare the Slick file",
-    "text": "2 Prepare the Slick file\nFrom the main jmMSE26 folder:\n\n\nShow implementation detail\nsource(\"R/build_candidate_slick.R\")\n\nslick &lt;- build_candidate_slick(\n  performance_file = \"../jmMSE/model/robustness/robs.rds\",\n  out_file = \"output/jm_candidates.slick\"\n)\n\n\nThe script organizes the results by:\n\nmanagement procedure (MP29 or MP32);\noperating model and stock;\nsimulation replicate and year; and\nperformance measure, including Kobe-plot values for \\(SB/SB_{MSY}\\) and \\(F/F_{MSY}\\).\n\nBefore saving the Slick file, the script checks that the expected dimensions and labels agree. The technical checks are shown in the code for analysts who maintain the export.",
+    "section": "3 Prepare the Slick file",
+    "text": "3 Prepare the Slick file\nFrom the main jmMSE26 folder:\n\n\nShow implementation detail\nsource(\"R/build_candidate_slick.R\")\n\nslick &lt;- build_candidate_slick(\n  performance_file = \"../jmMSE/model/candidates/reference/performance.rds\",\n  out_file = \"output/jm_candidates.slick\"\n)\n\n\nThe script organizes the results by:\n\nmanagement procedure (MP29 or MP32);\noperating model and stock;\nsimulation replicate and year; and\nperformance measure, including Kobe-plot values for \\(SB/SB_{MSY}\\) and \\(F/F_{MSY}\\).\n\nBefore saving the Slick file, the script checks that the expected dimensions and labels agree. The technical checks are shown in the code for analysts who maintain the export.\nThe current file contains 100 simulations, one reference operating model, two management procedures, four performance measures, and 26 annual values from 2025 through 2050.",
+    "crumbs": [
+      "Home",
+      "Applying a CMP",
+      "Load candidates into Slick"
+    ]
+  },
+  {
+    "objectID": "application/slick.html#add-robustness-results-later",
+    "href": "application/slick.html#add-robustness-results-later",
+    "title": "Load candidates into Slick",
+    "section": "4 Add robustness results later",
+    "text": "4 Add robustness results later\nOnce the derived robustness operating models have been rebuilt under an agreed and recorded package set, run the candidate script with --mode=robustness and pass its performance table to the same Slick conversion. Do not combine reference and robustness results produced under different package sets without first confirming that the candidate calculations are equivalent.",
     "crumbs": [
       "Home",
       "Applying a CMP",
@@ -729,8 +753,8 @@
     "objectID": "application/slick.html#inspect-or-launch",
     "href": "application/slick.html#inspect-or-launch",
     "title": "Load candidates into Slick",
-    "section": "3 Inspect or launch",
-    "text": "3 Inspect or launch\n\n\nShow implementation detail\nlibrary(Slick)\n\nslick &lt;- readRDS(\"output/jm_candidates.slick\")\nCheck(slick)\nmethods::validObject(slick)\n\ndim(Value(Timeseries(slick)))\nMetadata(MPs(slick))\nDesign(slick)\n\nApp(slick = slick)",
+    "section": "5 Inspect or launch",
+    "text": "5 Inspect or launch\n\n\nShow implementation detail\nlibrary(Slick)\n\nslick &lt;- readRDS(\"output/jm_candidates.slick\")\nCheck(slick)\nmethods::validObject(slick)\n\ndim(Value(Timeseries(slick)))\nMetadata(MPs(slick))\nDesign(slick)\n\nApp(slick = slick)",
     "crumbs": [
       "Home",
       "Applying a CMP",
@@ -741,8 +765,8 @@
     "objectID": "application/slick.html#what-to-save-with-the-slick-file",
     "href": "application/slick.html#what-to-save-with-the-slick-file",
     "title": "Load candidates into Slick",
-    "section": "4 What to save with the Slick file",
-    "text": "4 What to save with the Slick file\nSave the Slick file together with the original performance results, their digital fingerprint, the exact saved versions of jmMSE and jmMSE26, and the versions of the R packages used.",
+    "section": "6 What to save with the Slick file",
+    "text": "6 What to save with the Slick file\nSave the Slick file together with the original performance results, their digital fingerprint, the exact saved versions of jmMSE and jmMSE26, and the versions of the R packages used.",
     "crumbs": [
       "Home",
       "Applying a CMP",
