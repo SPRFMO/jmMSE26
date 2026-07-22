@@ -124,7 +124,7 @@
     "href": "workflow/mse-flow.html",
     "title": "How the MSE work fits together",
     "section": "",
-    "text": "South Pacific Regional Fisheries Management Organisation\n    \n    Jack Mackerel Candidate Management Procedures\nThis page condenses SCW17/Paper-04. It shows where this documentation site fits within the jack mackerel assessment and MSE work.\nflowchart LR\n  J[\"JJM assessment configurations\"] --&gt; C[\"Condition operating models\"]\n  C --&gt; O[\"Operating models with observation and implementation uncertainty\"]\n  O --&gt; M[\"Test CMPs in jmMSE\"]\n  M --&gt; P[\"Performance metrics and diagnostics\"]\n  P --&gt; D[\"CMP comparison and decision\"]\n  D --&gt; S[\"Approved written CMP definition in jmMSE26\"]\n  S --&gt; Y[\"Apply the CMP when new annual data arrive\"]\n  Y --&gt; V[\"Save the data, calculations, and advice\"]",
+    "text": "South Pacific Regional Fisheries Management Organisation\n    \n    Jack Mackerel Candidate Management Procedures\nThis page condenses SCW17/Paper-04. It shows where this documentation site fits within the jack mackerel assessment and MSE work.\nflowchart TD\n  J[\"JJM assessment configurations\"] --&gt; C[\"Condition operating models\"]\n  C --&gt; O[\"Operating models with observation and implementation uncertainty\"]\n  O --&gt; M[\"Test CMPs in jmMSE\"]\n  M --&gt; P[\"Performance metrics and diagnostics\"]\n  P --&gt; D[\"CMP comparison and decision\"]\n  D --&gt; S[\"Approved written CMP definition in jmMSE26\"]\n  S --&gt; Y[\"Apply the CMP when new annual data arrive\"]\n  Y --&gt; V[\"Save the data, calculations, and advice\"]",
     "crumbs": [
       "Home",
       "How the MSE work fits together"

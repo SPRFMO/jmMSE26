@@ -10,7 +10,7 @@ This page condenses SCW17/Paper-04. It shows where this documentation site fits
 within the jack mackerel assessment and MSE work.
 
 ```{mermaid}
-flowchart LR
+flowchart TD
   J["JJM assessment configurations"] --> C["Condition operating models"]
   C --> O["Operating models with observation and implementation uncertainty"]
   O --> M["Test CMPs in jmMSE"]
