@@ -356,7 +356,7 @@
     "href": "cmp/specification-template.html",
     "title": "CMP specification template",
     "section": "",
-    "text": "South Pacific Regional Fisheries Management Organisation\n    \n    Jack Mackerel Candidate Management Procedures\nCopy this structure for every shortlisted CMP. Text labelled normative governs implementation; explanatory evidence belongs in the evidence section.",
+    "text": "South Pacific Regional Fisheries Management Organisation\n    \n    Jack Mackerel Candidate Management Procedures\nThe Normative CMP Specification Template defines the information required to turn a candidate management procedure into an unambiguous and reproducible management rule. Once completed and approved, the normative specification governs implementation: it identifies the authorized inputs, calculations, parameter values, constraints, exceptional-circumstances provisions, and code version. Background explanations and MSE performance results support selection of the CMP but do not alter its operational definition. Where explanatory text and the approved normative specification differ, the normative specification takes precedence.\nCopy this structure for every shortlisted CMP. Text labelled normative governs implementation; explanatory evidence belongs in the evidence section.",
     "crumbs": [
       "Home",
       "Candidate management procedures",
