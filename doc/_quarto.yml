@@ -22,6 +22,8 @@ website:
             text: MP29 hockeystick
           - href: cmp/mp32.qmd
             text: MP32 powerramp
+          - href: cmp/control-reference.qmd
+            text: Trial & robustness runs
           - href: cmp/components.qmd
             text: Parts of a CMP
           - href: cmp/specification-template.qmd
@@ -45,6 +47,7 @@ website:
           - cmp/index.qmd
           - cmp/mp29.qmd
           - cmp/mp32.qmd
+          - cmp/control-reference.qmd
           - cmp/components.qmd
           - cmp/specification-template.qmd
       - section: "Applying a CMP"

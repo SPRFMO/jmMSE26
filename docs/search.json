@@ -280,75 +280,51 @@
     ]
   },
   {
-    "objectID": "cmp/mp32.html",
-    "href": "cmp/mp32.html",
-    "title": "MP32 powerramp candidate",
+    "objectID": "cmp/control-reference.html",
+    "href": "cmp/control-reference.html",
+    "title": "Trial and robustness run reference",
     "section": "",
-    "text": "South Pacific Regional Fisheries Management Organisation\n    \n    Jack Mackerel Candidate Management Procedures",
+    "text": "South Pacific Regional Fisheries Management Organisation\n    \n    Jack Mackerel Candidate Management Procedures\nThis page provides a quick reference to the procedure settings recorded in tuns_ctrl.csv and robs_ctrl.csv. The tables are rebuilt from those files when the website is rendered, so they remain aligned with the analysis control files.",
     "crumbs": [
       "Home",
       "Candidate management procedures",
-      "MP32 powerramp candidate"
+      "Trial and robustness run reference"
     ]
   },
   {
-    "objectID": "cmp/mp32.html#identity",
-    "href": "cmp/mp32.html#identity",
-    "title": "MP32 powerramp candidate",
-    "section": "1 Identity",
-    "text": "1 Identity\n\n\n\n\n\n\n\nComponent\nCurrent definition\n\n\n\n\nName in the jmMSE analysis\ntun32, labelled MP32\n\n\nStock/index indicator\ncpues.ind\n\n\nIndices\nChile_AcousN, Chile_CPUE, Peru_Artis, Peru_Ind, Offshore_CPUE\n\n\nReference years\n2019-2023\n\n\nRecent-data window\n3 years\n\n\nHow the indices are combined\nMean (combine = \"mean\", metric = \"mean\")\n\n\nHarvest control rule\nPower ramp (powerramp.hcr)\n\n\nOutput\nCatch\n\n\nCatch allocation\nSplit among fisheries using their average catch proportions over the last five years (split.is)",
+    "objectID": "cmp/control-reference.html#tuning-trials",
+    "href": "cmp/control-reference.html#tuning-trials",
+    "title": "Trial and robustness run reference",
+    "section": "1 Tuning trials",
+    "text": "1 Tuning trials\nThese are the procedure designs examined during tuning. MP29 and MP32 were subsequently carried forward for robustness testing.\n\n\n\n\nTable 1: Settings for the 27 tuning trials. A dash means that the setting does not apply to that rule.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMP\nRule\nInformation source\nSummary measure\nTarget catch\nMinimum catch\nLimit\nTrigger\nAnnual decrease limit\nAnnual increase limit\n\n\n\n\nMP16\nHockeystick\nall.idx\nmean\n2000\n0\n0.0\n2.0117188\n0.85\n1.20\n\n\nMP17\nHockeystick\nall.idx\nmean\n3500\n0\n0.0\n4.0156250\n0.85\n1.20\n\n\nMP18\nHockeystick\nall.idx\nmean\n5000\n0\n0.0\n5.7968750\n0.85\n1.20\n\n\nMP19\nHockeystick\nall.idx\nmean\n1750\n270\n0.1\n1.6000000\n0.85\n1.20\n\n\nMP20\nHockeystick\nall.idx\nmean\n1750\n270\n0.2\n1.5656250\n0.85\n1.20\n\n\nMP21\nHockeystick\nall.idx\nmean\n2000\n0\n0.0\n2.0000000\n0.80\n1.15\n\n\nMP22\nPowerramp\nall.idx\nmean\n1500\n270\n0.0\n1.4062500\n0.85\n1.20\n\n\nMP23\nSlope\nall.idx\nmean\n—\n0\n0.0\n—\n0.85\n1.20\n\n\nMP24\nHockeystick\nall.idx\nmean\n1750\n0\n0.0\n1.5125000\n0.85\n1.20\n\n\nMP25\nPowerramp\nall.idx\nmean\n1500\n0\n0.0\n1.3750000\n0.85\n1.20\n\n\nMP26\nPowerramp\nall.idx\nmean\n1750\n0\n0.0\n1.7031250\n0.85\n1.20\n\n\nMP27\nPowerramp\nall.idx\nmean\n2000\n0\n0.0\n2.1250000\n0.85\n1.20\n\n\nMP28\nPowerramp\nall.idx\nmean\n3500\n0\n0.0\n3.6718750\n0.85\n1.20\n\n\nMP29\nHockeystick\nall.idx\nmean\n2000\n270\n0.1\n2.1250000\n0.85\n1.20\n\n\nMP30\nHockeystick\nall.idx\nmean\n2000\n270\n0.2\n2.0546875\n0.85\n1.20\n\n\nMP31\nHockeystick\nall.idx\nmean\n2000\n270\n0.3\n1.9843750\n0.85\n1.20\n\n\nMP32\nPowerramp\nall.idx\nmean\n1500\n270\n0.1\n1.4218750\n0.85\n1.20\n\n\nMP33\nPowerramp\nall.idx\nmean\n1500\n270\n0.2\n1.4453125\n0.85\n1.20\n\n\nMP34\nPowerramp\nall.idx\nmean\n1500\n270\n0.3\n1.4687500\n0.85\n1.20\n\n\nMP35\nPowerramp\nall.cpue\nmean\n1500\n270\n0.1\n1.4921875\n0.85\n1.20\n\n\nMP36\nHockeystick\nall.cpue\nmean\n2000\n270\n0.1\n2.2187500\n0.85\n1.20\n\n\nMP37\nPowerramp\nshortcut.sa\ndepletion\n1500\n270\n0.1\n0.3410889\n0.85\n1.20\n\n\nMP38\nHockeystick\nshortcut.sa\ndepletion\n2000\n270\n0.1\n0.4548828\n0.85\n1.20\n\n\nMP39\nPowerramp\nperfect.sa\ndepletion\n1500\n270\n0.1\n0.3353027\n0.85\n1.20\n\n\nMP40\nHockeystick\nshortcut.sa\ndepletion\n2000\n270\n0.1\n0.4625977\n0.85\n1.20\n\n\nMP41\nHockeystick\nall.idx\nmean\n2000\n270\n0.1\n2.0937500\n0.85\n1.20\n\n\nMP42\nPowerramp\nall.idx\nmean\n1500\n270\n0.1\n1.3750000\n0.85\n1.20",
     "crumbs": [
       "Home",
       "Candidate management procedures",
-      "MP32 powerramp candidate"
+      "Trial and robustness run reference"
     ]
   },
   {
-    "objectID": "cmp/mp32.html#harvest-control-rule-parameters",
-    "href": "cmp/mp32.html#harvest-control-rule-parameters",
-    "title": "MP32 powerramp candidate",
-    "section": "2 Harvest control rule parameters",
-    "text": "2 Harvest control rule parameters\n\n\n\nParameter\nValue\n\n\n\n\nMinimum catch, min\n270\n\n\nLimit metric, lim\n0.1\n\n\nTrigger metric\n1.42\n\n\nTarget catch\n1500\n\n\nInitial catch for constraints\n1385\n\n\nMaximum annual decrease multiplier, dlow\n0.85\n\n\nMaximum annual increase multiplier, dupp\n1.20",
+    "objectID": "cmp/control-reference.html#robustness-runs",
+    "href": "cmp/control-reference.html#robustness-runs",
+    "title": "Trial and robustness run reference",
+    "section": "2 Robustness runs",
+    "text": "2 Robustness runs\nThe robustness analysis applies MP29 and MP32 to nine alternative operating models. Each row below identifies one procedure–operating-model combination.\n\n\n\n\nTable 2: MP29 and MP32 robustness runs by operating model.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRun name\nMP\nOperating model\nRule\nInformation source\nTarget catch\nMinimum catch\nLimit\nTrigger\n\n\n\n\ntun29_om11_1\nMP29\nom11_1\nHockeystick\nall.idx\n2000\n270\n0.1\n2.125000\n\n\ntun32_om11_1\nMP32\nom11_1\nPowerramp\nall.idx\n1500\n270\n0.1\n1.421875\n\n\ntun29_om11_2\nMP29\nom11_2\nHockeystick\nall.idx\n2000\n270\n0.1\n2.125000\n\n\ntun32_om11_2\nMP32\nom11_2\nPowerramp\nall.idx\n1500\n270\n0.1\n1.421875\n\n\ntun29_om11_3\nMP29\nom11_3\nHockeystick\nall.idx\n2000\n270\n0.1\n2.125000\n\n\ntun32_om11_3\nMP32\nom11_3\nPowerramp\nall.idx\n1500\n270\n0.1\n1.421875\n\n\ntun29_om12\nMP29\nom12\nHockeystick\nall.idx\n2000\n270\n0.1\n2.125000\n\n\ntun32_om12\nMP32\nom12\nPowerramp\nall.idx\n1500\n270\n0.1\n1.421875\n\n\ntun29_om13\nMP29\nom13\nHockeystick\nall.idx\n2000\n270\n0.1\n2.125000\n\n\ntun32_om13\nMP32\nom13\nPowerramp\nall.idx\n1500\n270\n0.1\n1.421875\n\n\ntun29_om21\nMP29\nom21\nHockeystick\nall.idx\n2000\n270\n0.1\n2.125000\n\n\ntun32_om21\nMP32\nom21\nPowerramp\nall.idx\n1500\n270\n0.1\n1.421875\n\n\ntun29_om21_1\nMP29\nom21_1\nHockeystick\nall.idx\n2000\n270\n0.1\n2.125000\n\n\ntun32_om21_1\nMP32\nom21_1\nPowerramp\nall.idx\n1500\n270\n0.1\n1.421875\n\n\ntun29_om22\nMP29\nom22\nHockeystick\nall.idx\n2000\n270\n0.1\n2.125000\n\n\ntun32_om22\nMP32\nom22\nPowerramp\nall.idx\n1500\n270\n0.1\n1.421875\n\n\ntun29_om23\nMP29\nom23\nHockeystick\nall.idx\n2000\n270\n0.1\n2.125000\n\n\ntun32_om23\nMP32\nom23\nPowerramp\nall.idx\n1500\n270\n0.1\n1.421875",
     "crumbs": [
       "Home",
       "Candidate management procedures",
-      "MP32 powerramp candidate"
+      "Trial and robustness run reference"
     ]
   },
   {
-    "objectID": "cmp/mp32.html#rule",
-    "href": "cmp/mp32.html#rule",
-    "title": "MP32 powerramp candidate",
-    "section": "3 Rule",
-    "text": "3 Rule\nLet \\(I_t\\) be the annual mean of the standardized index information and\n\\[\nx_t = \\frac{I_t-0.1}{1.42-0.1}.\n\\]\nBefore applying the annual change limit, the current power-ramp rule calculates the catch recommendation as\n\\[\nC_t^* =\n\\begin{cases}\n270, & I_t \\le 0.1,\\\\\n270 + (1500-270)x_t^{2.5}, & 0.1 &lt; I_t &lt; 1.42,\\\\\n1500(0.2+0.8x_t)^{0.6}, & I_t \\ge 1.42.\n\\end{cases}\n\\]\nUnlike a capped hockeystick, the upper branch continues to rise above the trigger. The annual change rule then prevents the result from falling below 85% or rising above 120% of the previous recommendation. For the first application year, the reference value is 1385.",
+    "objectID": "cmp/control-reference.html#reading-the-tables",
+    "href": "cmp/control-reference.html#reading-the-tables",
+    "title": "Trial and robustness run reference",
+    "section": "3 Reading the tables",
+    "text": "3 Reading the tables\n\nRule is the form of the harvest control rule.\nInformation source identifies the stock information supplied to the rule. all.idx means that all specified abundance indices are combined.\nLimit is the indicator value at or below which the minimum catch applies.\nTrigger is the indicator value at or above which the target catch applies.\nAnnual decrease and increase limits are multipliers on the previous year’s catch advice. For example, 0.85 and 1.20 limit a change to a 15% decrease or a 20% increase.\nOperating model identifies the alternative description of stock dynamics used for robustness testing. See the MSE analysis for the assumptions that define each operating model.\n\nThe detailed definitions of the two advanced candidates are on the MP29 and MP32 pages.",
     "crumbs": [
       "Home",
       "Candidate management procedures",
-      "MP32 powerramp candidate"
-    ]
-  },
-  {
-    "objectID": "cmp/mp32.html#evidence-status",
-    "href": "cmp/mp32.html#evidence-status",
-    "title": "MP32 powerramp candidate",
-    "section": "4 Evidence status",
-    "text": "4 Evidence status\nThe July presentation identifies MP32 as the optimal powerramp minimum/limit run. The MP29-MP32 comparison reports broadly similar long-term catch and stock performance, with MP32 showing more year-to-year catch variation (IACC) than MP29. The jmMSE robustness analysis carries both candidates forward.\nPrimary sources: model_tune.R, model_robustness.R, and the July presentation source.",
-    "crumbs": [
-      "Home",
-      "Candidate management procedures",
-      "MP32 powerramp candidate"
-    ]
-  },
-  {
-    "objectID": "cmp/mp32.html#annual-application-requirements-still-to-resolve",
-    "href": "cmp/mp32.html#annual-application-requirements-still-to-resolve",
-    "title": "MP32 powerramp candidate",
-    "section": "5 Annual application requirements still to resolve",
-    "text": "5 Annual application requirements still to resolve\n\nauthoritative provider and annual cutoff for each index;\nprecise index standardization performed by cpues.ind and the software version used;\ntreatment of missing or revised indices;\ncatch units and rounding;\napproved catch-allocation update rule; and\nexceptional-circumstances review and decision process.",
-    "crumbs": [
-      "Home",
-      "Candidate management procedures",
-      "MP32 powerramp candidate"
+      "Trial and robustness run reference"
     ]
   },
   {
@@ -436,6 +412,78 @@
     ]
   },
   {
+    "objectID": "cmp/mp32.html",
+    "href": "cmp/mp32.html",
+    "title": "MP32 powerramp candidate",
+    "section": "",
+    "text": "South Pacific Regional Fisheries Management Organisation\n    \n    Jack Mackerel Candidate Management Procedures",
+    "crumbs": [
+      "Home",
+      "Candidate management procedures",
+      "MP32 powerramp candidate"
+    ]
+  },
+  {
+    "objectID": "cmp/mp32.html#identity",
+    "href": "cmp/mp32.html#identity",
+    "title": "MP32 powerramp candidate",
+    "section": "1 Identity",
+    "text": "1 Identity\n\n\n\n\n\n\n\nComponent\nCurrent definition\n\n\n\n\nName in the jmMSE analysis\ntun32, labelled MP32\n\n\nStock/index indicator\ncpues.ind\n\n\nIndices\nChile_AcousN, Chile_CPUE, Peru_Artis, Peru_Ind, Offshore_CPUE\n\n\nReference years\n2019-2023\n\n\nRecent-data window\n3 years\n\n\nHow the indices are combined\nMean (combine = \"mean\", metric = \"mean\")\n\n\nHarvest control rule\nPower ramp (powerramp.hcr)\n\n\nOutput\nCatch\n\n\nCatch allocation\nSplit among fisheries using their average catch proportions over the last five years (split.is)",
+    "crumbs": [
+      "Home",
+      "Candidate management procedures",
+      "MP32 powerramp candidate"
+    ]
+  },
+  {
+    "objectID": "cmp/mp32.html#harvest-control-rule-parameters",
+    "href": "cmp/mp32.html#harvest-control-rule-parameters",
+    "title": "MP32 powerramp candidate",
+    "section": "2 Harvest control rule parameters",
+    "text": "2 Harvest control rule parameters\n\n\n\nParameter\nValue\n\n\n\n\nMinimum catch, min\n270\n\n\nLimit metric, lim\n0.1\n\n\nTrigger metric\n1.42\n\n\nTarget catch\n1500\n\n\nInitial catch for constraints\n1385\n\n\nMaximum annual decrease multiplier, dlow\n0.85\n\n\nMaximum annual increase multiplier, dupp\n1.20",
+    "crumbs": [
+      "Home",
+      "Candidate management procedures",
+      "MP32 powerramp candidate"
+    ]
+  },
+  {
+    "objectID": "cmp/mp32.html#rule",
+    "href": "cmp/mp32.html#rule",
+    "title": "MP32 powerramp candidate",
+    "section": "3 Rule",
+    "text": "3 Rule\nLet \\(I_t\\) be the annual mean of the standardized index information and\n\\[\nx_t = \\frac{I_t-0.1}{1.42-0.1}.\n\\]\nBefore applying the annual change limit, the current power-ramp rule calculates the catch recommendation as\n\\[\nC_t^* =\n\\begin{cases}\n270, & I_t \\le 0.1,\\\\\n270 + (1500-270)x_t^{2.5}, & 0.1 &lt; I_t &lt; 1.42,\\\\\n1500(0.2+0.8x_t)^{0.6}, & I_t \\ge 1.42.\n\\end{cases}\n\\]\nUnlike a capped hockeystick, the upper branch continues to rise above the trigger. The annual change rule then prevents the result from falling below 85% or rising above 120% of the previous recommendation. For the first application year, the reference value is 1385.",
+    "crumbs": [
+      "Home",
+      "Candidate management procedures",
+      "MP32 powerramp candidate"
+    ]
+  },
+  {
+    "objectID": "cmp/mp32.html#evidence-status",
+    "href": "cmp/mp32.html#evidence-status",
+    "title": "MP32 powerramp candidate",
+    "section": "4 Evidence status",
+    "text": "4 Evidence status\nThe July presentation identifies MP32 as the optimal powerramp minimum/limit run. The MP29-MP32 comparison reports broadly similar long-term catch and stock performance, with MP32 showing more year-to-year catch variation (IACC) than MP29. The jmMSE robustness analysis carries both candidates forward.\nPrimary sources: model_tune.R, model_robustness.R, and the July presentation source.",
+    "crumbs": [
+      "Home",
+      "Candidate management procedures",
+      "MP32 powerramp candidate"
+    ]
+  },
+  {
+    "objectID": "cmp/mp32.html#annual-application-requirements-still-to-resolve",
+    "href": "cmp/mp32.html#annual-application-requirements-still-to-resolve",
+    "title": "MP32 powerramp candidate",
+    "section": "5 Annual application requirements still to resolve",
+    "text": "5 Annual application requirements still to resolve\n\nauthoritative provider and annual cutoff for each index;\nprecise index standardization performed by cpues.ind and the software version used;\ntreatment of missing or revised indices;\ncatch units and rounding;\napproved catch-allocation update rule; and\nexceptional-circumstances review and decision process.",
+    "crumbs": [
+      "Home",
+      "Candidate management procedures",
+      "MP32 powerramp candidate"
+    ]
+  },
+  {
     "objectID": "cmp/index.html",
     "href": "cmp/index.html",
     "title": "CMP registry",
@@ -464,7 +512,7 @@
     "href": "cmp/index.html#candidate-pages",
     "title": "CMP registry",
     "section": "2 Candidate pages",
-    "text": "2 Candidate pages\n\nMP29: empirical all-index estimator plus hockeystick HCR.\nMP32: empirical all-index estimator plus power-ramp HCR.",
+    "text": "2 Candidate pages\n\nMP29: empirical all-index estimator plus hockeystick HCR.\nMP32: empirical all-index estimator plus power-ramp HCR.\nTrial and robustness run reference: the full set of tuning trials and the operating models used to test MP29 and MP32.",
     "crumbs": [
       "Home",
       "Candidate management procedures",

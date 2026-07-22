@@ -175,6 +175,10 @@ window.Quarto = {
  <span class="dropdown-text">MP32 powerramp</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="../cmp/control-reference.html">
+ <span class="dropdown-text">Trial &amp; robustness runs</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../cmp/components.html">
  <span class="dropdown-text">Parts of a CMP</span></a>
   </li>  
@@ -258,6 +262,12 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="../cmp/mp32.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">MP32 powerramp candidate</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../cmp/control-reference.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Trial and robustness run reference</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -522,6 +532,7 @@ Table&nbsp;1: Current advanced candidates derived from jmMSE. Tuned trigger valu
 <ul>
 <li><a href="../cmp/mp29.html">MP29</a>: empirical all-index estimator plus hockeystick HCR.</li>
 <li><a href="../cmp/mp32.html">MP32</a>: empirical all-index estimator plus power-ramp HCR.</li>
+<li><a href="../cmp/control-reference.html">Trial and robustness run reference</a>: the full set of tuning trials and the operating models used to test MP29 and MP32.</li>
 </ul>
 </section>
 <section id="how-these-candidates-were-developed" class="level2" data-number="3">
@@ -1100,43 +1111,45 @@ Table&nbsp;1: Current advanced candidates derived from jmMSE. Tuned trigger valu
 <span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">MP29</span><span class="co">](mp29.qmd)</span>: empirical all-index estimator plus hockeystick HCR.</span>
 <span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">MP32</span><span class="co">](mp32.qmd)</span>: empirical all-index estimator plus power-ramp HCR.</span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="fu">## How these candidates were developed</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Trial and robustness run reference</span><span class="co">](control-reference.qmd)</span>: the full set of</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>  tuning trials and the operating models used to test MP29 and MP32.</span>
 <span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>The <span class="in">`jmMSE`</span> analysis tested alternative target catches, minimum catches, limit</span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>values, harvest control rules, and ways of calculating the stock indicator.</span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Run <span class="pp">|</span> Role in development <span class="pp">|</span> July presentation interpretation <span class="pp">|</span></span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|</span></span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> MP16 <span class="pp">|</span> Hockeystick, target 2000, no minimum/limit <span class="pp">|</span> Potential candidate before minimum/limit refinement <span class="pp">|</span></span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> MP25 <span class="pp">|</span> Powerramp, target 1500, no minimum/limit <span class="pp">|</span> Potential candidate before minimum/limit refinement <span class="pp">|</span></span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> MP29 <span class="pp">|</span> Hockeystick with minimum 270 and limit 0.1 <span class="pp">|</span> Optimal hockeystick run; advanced to robustness tests <span class="pp">|</span></span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> MP32 <span class="pp">|</span> Powerramp with minimum 270 and limit 0.1 <span class="pp">|</span> Optimal powerramp run; advanced to robustness tests <span class="pp">|</span></span>
-<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> MP35-40 <span class="pp">|</span> CPUE-only, shortcut-assessment, and perfect-information variants <span class="pp">|</span> Tests of how the source of stock information affects results <span class="pp">|</span></span>
-<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> MP41-42 <span class="pp">|</span> 500-replicate versions of the MP29/MP32 designs <span class="pp">|</span> Test of whether the number of simulation replicates affects results; not separate CMPs <span class="pp">|</span></span>
-<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>The earlier SCW17/Paper-09 rows are retained in source history as workshop test</span>
-<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>proposals. They are not the primary candidate list for this site.</span>
-<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a><span class="fu">## Points to keep in mind</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="fu">## How these candidates were developed</span></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>The <span class="in">`jmMSE`</span> analysis tested alternative target catches, minimum catches, limit</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>values, harvest control rules, and ways of calculating the stock indicator.</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Run <span class="pp">|</span> Role in development <span class="pp">|</span> July presentation interpretation <span class="pp">|</span></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|</span></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> MP16 <span class="pp">|</span> Hockeystick, target 2000, no minimum/limit <span class="pp">|</span> Potential candidate before minimum/limit refinement <span class="pp">|</span></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> MP25 <span class="pp">|</span> Powerramp, target 1500, no minimum/limit <span class="pp">|</span> Potential candidate before minimum/limit refinement <span class="pp">|</span></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> MP29 <span class="pp">|</span> Hockeystick with minimum 270 and limit 0.1 <span class="pp">|</span> Optimal hockeystick run; advanced to robustness tests <span class="pp">|</span></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> MP32 <span class="pp">|</span> Powerramp with minimum 270 and limit 0.1 <span class="pp">|</span> Optimal powerramp run; advanced to robustness tests <span class="pp">|</span></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> MP35-40 <span class="pp">|</span> CPUE-only, shortcut-assessment, and perfect-information variants <span class="pp">|</span> Tests of how the source of stock information affects results <span class="pp">|</span></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> MP41-42 <span class="pp">|</span> 500-replicate versions of the MP29/MP32 designs <span class="pp">|</span> Test of whether the number of simulation replicates affects results; not separate CMPs <span class="pp">|</span></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>The earlier SCW17/Paper-09 rows are retained in source history as workshop test</span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>proposals. They are not the primary candidate list for this site.</span>
 <span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`min`</span>, <span class="in">`trigger`</span>, <span class="in">`target`</span>, and <span class="in">`initial`</span> are catch quantities in the current</span>
-<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>  code and presentation; final units must be stated before adoption.</span>
-<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`dlow`</span> and <span class="in">`dupp`</span> limit the decrease and increase in catch advice from one</span>
-<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>  year to the next.</span>
-<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Index names match <span class="in">`model_tune.R`</span> exactly.</span>
-<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The trigger was tuned so that the probability of being in the Kobe green</span>
-<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>  zone (<span class="in">`SB0green`</span>: spawning biomass above $SB_{MSY}$ and fishing mortality</span>
-<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>  below $F_{MSY}$) was 0.60 over 2041-2050 in the reference analysis. The</span>
-<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>  resulting trigger is part of the candidate definition and should not be</span>
-<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>  recalculated during annual application.</span>
-<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a><span class="fu">## Requirements before changing a candidate's status</span></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a><span class="fu">## Points to keep in mind</span></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`min`</span>, <span class="in">`trigger`</span>, <span class="in">`target`</span>, and <span class="in">`initial`</span> are catch quantities in the current</span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>  code and presentation; final units must be stated before adoption.</span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`dlow`</span> and <span class="in">`dupp`</span> limit the decrease and increase in catch advice from one</span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>  year to the next.</span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Index names match <span class="in">`model_tune.R`</span> exactly.</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The trigger was tuned so that the probability of being in the Kobe green</span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>  zone (<span class="in">`SB0green`</span>: spawning biomass above $SB_{MSY}$ and fishing mortality</span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>  below $F_{MSY}$) was 0.60 over 2041-2050 in the reference analysis. The</span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>  resulting trigger is part of the candidate definition and should not be</span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>  recalculated during annual application.</span>
 <span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>A candidate can move beyond test status only when it has a completed</span>
-<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">specification</span><span class="co">](specification-template.qmd)</span>, repeatable performance results,</span>
-<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a>a calculation test using saved inputs, and a decision record identifying</span>
-<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>the approving body and date.</span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a><span class="fu">## Requirements before changing a candidate's status</span></span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a>A candidate can move beyond test status only when it has a completed</span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">specification</span><span class="co">](specification-template.qmd)</span>, repeatable performance results,</span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a>a calculation test using saved inputs, and a decision record identifying</span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>the approving body and date.</span>
 </code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

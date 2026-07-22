@@ -36,6 +36,8 @@ knitr::kable(registry)
 
 - [MP29](mp29.qmd): empirical all-index estimator plus hockeystick HCR.
 - [MP32](mp32.qmd): empirical all-index estimator plus power-ramp HCR.
+- [Trial and robustness run reference](control-reference.qmd): the full set of
+  tuning trials and the operating models used to test MP29 and MP32.
 
 ## How these candidates were developed
 

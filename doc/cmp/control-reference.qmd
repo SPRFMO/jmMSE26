@@ -1,0 +1,96 @@
+---
+title: "Trial and robustness run reference"
+---
+
+{{< include ../_includes/sprfmo-banner.qmd >}}
+
+<div class="paper-title">Cross-reference for CMP Trial and Robustness Runs</div>
+
+This page provides a quick reference to the procedure settings recorded in
+`tuns_ctrl.csv` and `robs_ctrl.csv`. The tables are rebuilt from those files
+when the website is rendered, so they remain aligned with the analysis control
+files.
+
+## Tuning trials
+
+These are the procedure designs examined during tuning. MP29 and MP32 were
+subsequently carried forward for robustness testing.
+
+```{r}
+#| label: tbl-tuning-controls
+#| tbl-cap: "Settings for the 27 tuning trials. A dash means that the setting does not apply to that rule."
+#| echo: false
+
+tuning <- read.csv("../tuns_ctrl.csv", check.names = FALSE,
+                   na.strings = c("", "NA"))
+
+show_number <- function(x) {
+  out <- format(x, trim = TRUE, scientific = FALSE, digits = 7)
+  out[is.na(x)] <- "—"
+  out
+}
+
+tuning_table <- data.frame(
+  MP = tuning$label,
+  Rule = sub("^hockeystick$", "Hockeystick", tuning$hcr),
+  `Information source` = tuning$estimator,
+  `Summary measure` = tuning$metric,
+  `Target catch` = show_number(tuning$target),
+  `Minimum catch` = show_number(tuning$min),
+  Limit = show_number(tuning$lim),
+  Trigger = show_number(tuning$trigger),
+  `Annual decrease limit` = show_number(tuning$dlow),
+  `Annual increase limit` = show_number(tuning$dupp),
+  check.names = FALSE
+)
+
+tuning_table$Rule <- tools::toTitleCase(tuning_table$Rule)
+knitr::kable(tuning_table, align = c("l", "l", "l", "l", rep("r", 6)))
+```
+
+## Robustness runs
+
+The robustness analysis applies MP29 and MP32 to nine alternative operating
+models. Each row below identifies one procedure–operating-model combination.
+
+```{r}
+#| label: tbl-robustness-controls
+#| tbl-cap: "MP29 and MP32 robustness runs by operating model."
+#| echo: false
+
+robustness <- read.csv("../robs_ctrl.csv", check.names = FALSE,
+                       na.strings = c("", "NA"))
+
+robustness_table <- data.frame(
+  `Run name` = robustness$run,
+  MP = robustness$label,
+  `Operating model` = robustness$om,
+  Rule = tools::toTitleCase(sub("\\.hcr$", "", robustness$hcr)),
+  `Information source` = robustness$estimator,
+  `Target catch` = show_number(robustness$target),
+  `Minimum catch` = show_number(robustness$min),
+  Limit = show_number(robustness$lim),
+  Trigger = show_number(robustness$trigger),
+  check.names = FALSE
+)
+
+knitr::kable(robustness_table,
+             align = c("l", "l", "l", "l", "l", rep("r", 4)))
+```
+
+## Reading the tables
+
+- **Rule** is the form of the harvest control rule.
+- **Information source** identifies the stock information supplied to the
+  rule. `all.idx` means that all specified abundance indices are combined.
+- **Limit** is the indicator value at or below which the minimum catch applies.
+- **Trigger** is the indicator value at or above which the target catch applies.
+- **Annual decrease and increase limits** are multipliers on the previous
+  year's catch advice. For example, 0.85 and 1.20 limit a change to a 15%
+  decrease or a 20% increase.
+- **Operating model** identifies the alternative description of stock dynamics
+  used for robustness testing. See the MSE analysis for the assumptions that
+  define each operating model.
+
+The detailed definitions of the two advanced candidates are on the
+[MP29](mp29.qmd) and [MP32](mp32.qmd) pages.
