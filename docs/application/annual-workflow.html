@@ -150,11 +150,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
         <li>
     <a class="dropdown-item" href="../cmp/components.html">
- <span class="dropdown-text">MP components</span></a>
+ <span class="dropdown-text">Parts of a CMP</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../cmp/specification-template.html">
- <span class="dropdown-text">Specification template</span></a>
+ <span class="dropdown-text">How to specify a CMP</span></a>
   </li>  
     </ul>
   </li>
@@ -168,7 +168,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../workflow/mse-flow.html"> 
-<span class="menu-text">MSE workflow</span></a>
+<span class="menu-text">How MSE fits</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../evidence/scw17-evidence.html"> 
@@ -176,7 +176,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../governance/traceability.html"> 
-<span class="menu-text">Traceability</span></a>
+<span class="menu-text">Sources &amp; changes</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -280,7 +280,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../workflow/mse-flow.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">MSE workflow</span></a>
+ <span class="menu-text">How the MSE work fits together</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -292,7 +292,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../governance/traceability.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Traceability and change control</span></a>
+ <span class="menu-text">Sources and record of changes</span></a>
   </div>
 </li>
     </ul>
@@ -305,10 +305,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#freeze-the-governing-specification" id="toc-freeze-the-governing-specification" class="nav-link active" data-scroll-target="#freeze-the-governing-specification"><span class="header-section-number">1</span> 1. Freeze the governing specification</a></li>
-  <li><a href="#archive-inputs" id="toc-archive-inputs" class="nav-link" data-scroll-target="#archive-inputs"><span class="header-section-number">2</span> 2. Archive inputs</a></li>
+  <li><a href="#record-which-cmp-is-being-used" id="toc-record-which-cmp-is-being-used" class="nav-link active" data-scroll-target="#record-which-cmp-is-being-used"><span class="header-section-number">1</span> 1. Record which CMP is being used</a></li>
+  <li><a href="#save-the-original-data" id="toc-save-the-original-data" class="nav-link" data-scroll-target="#save-the-original-data"><span class="header-section-number">2</span> 2. Save the original data</a></li>
   <li><a href="#validate-before-calculation" id="toc-validate-before-calculation" class="nav-link" data-scroll-target="#validate-before-calculation"><span class="header-section-number">3</span> 3. Validate before calculation</a></li>
-  <li><a href="#calculate-transparent-intermediates" id="toc-calculate-transparent-intermediates" class="nav-link" data-scroll-target="#calculate-transparent-intermediates"><span class="header-section-number">4</span> 4. Calculate transparent intermediates</a></li>
+  <li><a href="#save-every-important-step-in-the-calculation" id="toc-save-every-important-step-in-the-calculation" class="nav-link" data-scroll-target="#save-every-important-step-in-the-calculation"><span class="header-section-number">4</span> 4. Save every important step in the calculation</a></li>
   <li><a href="#cross-check" id="toc-cross-check" class="nav-link" data-scroll-target="#cross-check"><span class="header-section-number">5</span> 5. Cross-check</a></li>
   <li><a href="#exceptional-circumstances" id="toc-exceptional-circumstances" class="nav-link" data-scroll-target="#exceptional-circumstances"><span class="header-section-number">6</span> 6. Exceptional circumstances</a></li>
   <li><a href="#publish-the-calculation-record" id="toc-publish-the-calculation-record" class="nav-link" data-scroll-target="#publish-the-calculation-record"><span class="header-section-number">7</span> 7. Publish the calculation record</a></li>
@@ -346,50 +346,50 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
 </div>
 <div class="paper-title">
-Controlled Annual Application Workflow
+How to Apply a CMP Each Year
 </div>
-<p>This workflow describes how an adopted CMP should be applied as new data become available. Candidate dry runs should follow the same controls.</p>
+<p>This workflow describes how an adopted CMP should be applied as new data become available. Trial calculations for candidate CMPs should follow the same steps.</p>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
 <pre class="mermaid mermaid-js">flowchart TD
-  A["Freeze CMP version and code commit"] --&gt; B["Receive and archive annual data"]
-  B --&gt; C["Validate schema, units, completeness, and vintage"]
-  C --&gt;|fail| X["Stop and document exception"]
-  C --&gt;|pass| D["Calculate estimator and status metric"]
-  D --&gt; E["Apply HCR"]
-  E --&gt; F["Apply interannual and implementation constraints"]
-  F --&gt; G["Run independent or automated cross-check"]
-  G --&gt;|mismatch| X
-  G --&gt;|match| H["Review exceptional-circumstances indicators"]
-  H --&gt; I["Publish advice and complete calculation record"]
+  A["Record the approved CMP and software version"] --&gt; B["Receive and save the annual data"]
+  B --&gt; C["Check names, units, years, completeness, and revision status"]
+  C --&gt;|problem found| X["Stop and document the problem"]
+  C --&gt;|checks passed| D["Calculate the stock or index indicator"]
+  D --&gt; E["Apply the harvest control rule"]
+  E --&gt; F["Apply annual catch limits and allocation rules"]
+  F --&gt; G["Check the calculation independently"]
+  G --&gt;|results differ| X
+  G --&gt;|results agree| H["Review exceptional-circumstances indicators"]
+  H --&gt; I["Publish the advice and calculation record"]
 </pre>
 </div>
 <p></p></figure><p></p>
 </div>
 </div>
 </div>
-<section id="freeze-the-governing-specification" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="freeze-the-governing-specification"><span class="header-section-number">1</span> 1. Freeze the governing specification</h2>
-<p>Record the CMP identifier and version, repository commit, software environment, management year, analyst, reviewer, and decision record authorizing use.</p>
+<section id="record-which-cmp-is-being-used" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="record-which-cmp-is-being-used"><span class="header-section-number">1</span> 1. Record which CMP is being used</h2>
+<p>Record the CMP name and version, the exact saved version of the calculation code, the management year, the analyst and reviewer, and the decision that authorized its use.</p>
 </section>
-<section id="archive-inputs" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="archive-inputs"><span class="header-section-number">2</span> 2. Archive inputs</h2>
-<p>Store the received files unchanged. Record provider, receipt time, data vintage, and checksums. Create a separate validated copy only through a scripted, reviewable transformation.</p>
+<section id="save-the-original-data" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="save-the-original-data"><span class="header-section-number">2</span> 2. Save the original data</h2>
+<p>Keep the files exactly as received. Record who provided them, when they were received, and whether they are preliminary or final. Record a digital fingerprint (checksum) so the exact files can be identified later. If the data must be reformatted, keep the original and document every change.</p>
 </section>
 <section id="validate-before-calculation" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="validate-before-calculation"><span class="header-section-number">3</span> 3. Validate before calculation</h2>
-<p>Apply the <a href="../application/input-data.html">input data contract</a>. A failed required check stops the routine calculation. The failure and any subsequent authorized treatment become part of the permanent annual record.</p>
+<p>Apply the <a href="../application/input-data.html">annual data requirements</a>. A failed required check stops the routine calculation. The failure and any subsequent authorized treatment become part of the permanent annual record.</p>
 </section>
-<section id="calculate-transparent-intermediates" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="calculate-transparent-intermediates"><span class="header-section-number">4</span> 4. Calculate transparent intermediates</h2>
-<p>Save the transformed index values, reference-period values, combined metric, raw HCR recommendation, each constraint adjustment, allocation, rounding step, and final advice. Do not save only the final number.</p>
+<section id="save-every-important-step-in-the-calculation" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="save-every-important-step-in-the-calculation"><span class="header-section-number">4</span> 4. Save every important step in the calculation</h2>
+<p>Save the transformed index values, reference-period values, combined metric, initial HCR recommendation, each annual-limit adjustment, allocation, rounding step, and final advice. Do not save only the final number.</p>
 </section>
 <section id="cross-check" class="level2" data-number="5">
 <h2 data-number="5" class="anchored" data-anchor-id="cross-check"><span class="header-section-number">5</span> 5. Cross-check</h2>
-<p>Compare against a frozen worked example and, where feasible, an independent implementation. Differences outside the specification’s numerical tolerance must be resolved before advice is released.</p>
+<p>Compare against a saved worked example and, where feasible, a calculation made independently. Differences larger than the agreed numerical tolerance must be resolved before advice is released.</p>
 </section>
 <section id="exceptional-circumstances" class="level2" data-number="6">
 <h2 data-number="6" class="anchored" data-anchor-id="exceptional-circumstances"><span class="header-section-number">6</span> 6. Exceptional circumstances</h2>
@@ -397,7 +397,7 @@ Controlled Annual Application Workflow
 </section>
 <section id="publish-the-calculation-record" class="level2" data-number="7">
 <h2 data-number="7" class="anchored" data-anchor-id="publish-the-calculation-record"><span class="header-section-number">7</span> 7. Publish the calculation record</h2>
-<p>The record should contain inputs and checksums, validation results, intermediate calculations, final advice, software versions, warnings, analyst and reviewer sign-off, and links to any exception decision.</p>
+<p>The record should contain the input files and their digital fingerprints, data checks, intermediate calculations, final advice, software versions, warnings, analyst and reviewer sign-off, and links to any exceptional decision.</p>
 
 
 <!-- -->
@@ -879,65 +879,67 @@ Controlled Annual Application Workflow
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>{{&lt; include ../_includes/sprfmo-banner.qmd &gt;}}</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">"paper-title"</span><span class="dt">&gt;</span>Controlled Annual Application Workflow<span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">"paper-title"</span><span class="dt">&gt;</span>How to Apply a CMP Each Year<span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>This workflow describes how an adopted CMP should be applied as new data become</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>available. Candidate dry runs should follow the same controls.</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>available. Trial calculations for candidate CMPs should follow the same steps.</span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="in">```{mermaid}</span></span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>flowchart TD</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  A[<span class="ot">"</span><span class="st">Freeze CMP version and code commit</span><span class="ot">"</span>] --&gt; B[<span class="ot">"</span><span class="st">Receive and archive annual data</span><span class="ot">"</span>]</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  B --&gt; C[<span class="ot">"</span><span class="st">Validate schema, units, completeness, and vintage</span><span class="ot">"</span>]</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  C --&gt;|fail| X[<span class="ot">"</span><span class="st">Stop and document exception</span><span class="ot">"</span>]</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  C --&gt;|pass| D[<span class="ot">"</span><span class="st">Calculate estimator and status metric</span><span class="ot">"</span>]</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  D --&gt; E[<span class="ot">"</span><span class="st">Apply HCR</span><span class="ot">"</span>]</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  E --&gt; F[<span class="ot">"</span><span class="st">Apply interannual and implementation constraints</span><span class="ot">"</span>]</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  F --&gt; G[<span class="ot">"</span><span class="st">Run independent or automated cross-check</span><span class="ot">"</span>]</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  G --&gt;|mismatch| X</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  G --&gt;|match| H[<span class="ot">"</span><span class="st">Review exceptional-circumstances indicators</span><span class="ot">"</span>]</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  H --&gt; I[<span class="ot">"</span><span class="st">Publish advice and complete calculation record</span><span class="ot">"</span>]</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  A[<span class="ot">"</span><span class="st">Record the approved CMP and software version</span><span class="ot">"</span>] --&gt; B[<span class="ot">"</span><span class="st">Receive and save the annual data</span><span class="ot">"</span>]</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  B --&gt; C[<span class="ot">"</span><span class="st">Check names, units, years, completeness, and revision status</span><span class="ot">"</span>]</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  C --&gt;|problem found| X[<span class="ot">"</span><span class="st">Stop and document the problem</span><span class="ot">"</span>]</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  C --&gt;|checks passed| D[<span class="ot">"</span><span class="st">Calculate the stock or index indicator</span><span class="ot">"</span>]</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  D --&gt; E[<span class="ot">"</span><span class="st">Apply the harvest control rule</span><span class="ot">"</span>]</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  E --&gt; F[<span class="ot">"</span><span class="st">Apply annual catch limits and allocation rules</span><span class="ot">"</span>]</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  F --&gt; G[<span class="ot">"</span><span class="st">Check the calculation independently</span><span class="ot">"</span>]</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  G --&gt;|results differ| X</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  G --&gt;|results agree| H[<span class="ot">"</span><span class="st">Review exceptional-circumstances indicators</span><span class="ot">"</span>]</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  H --&gt; I[<span class="ot">"</span><span class="st">Publish the advice and calculation record</span><span class="ot">"</span>]</span>
 <span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="fu">## 1. Freeze the governing specification</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="fu">## 1. Record which CMP is being used</span></span>
 <span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>Record the CMP identifier and version, repository commit, software environment,</span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>management year, analyst, reviewer, and decision record authorizing use.</span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="fu">## 2. Archive inputs</span></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>Store the received files unchanged. Record provider, receipt time, data vintage,</span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>and checksums. Create a separate validated copy only through a scripted,</span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>reviewable transformation.</span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3. Validate before calculation</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>Record the CMP name and version, the exact saved version of the calculation</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>code, the management year, the analyst and reviewer, and the decision that</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>authorized its use.</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="fu">## 2. Save the original data</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>Keep the files exactly as received. Record who provided them, when they were</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>received, and whether they are preliminary or final. Record a digital</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>fingerprint (checksum) so the exact files can be identified later. If the data</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>must be reformatted, keep the original and document every change.</span>
 <span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>Apply the <span class="co">[</span><span class="ot">input data contract</span><span class="co">](input-data.qmd)</span>. A failed required check stops</span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>the routine calculation. The failure and any subsequent authorized treatment</span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>become part of the permanent annual record.</span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="fu">## 4. Calculate transparent intermediates</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3. Validate before calculation</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>Apply the <span class="co">[</span><span class="ot">annual data requirements</span><span class="co">](input-data.qmd)</span>. A failed required check stops</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>the routine calculation. The failure and any subsequent authorized treatment</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>become part of the permanent annual record.</span>
 <span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>Save the transformed index values, reference-period values, combined metric,</span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>raw HCR recommendation, each constraint adjustment, allocation, rounding step,</span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>and final advice. Do not save only the final number.</span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="fu">## 5. Cross-check</span></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="fu">## 4. Save every important step in the calculation</span></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>Save the transformed index values, reference-period values, combined metric,</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>initial HCR recommendation, each annual-limit adjustment, allocation, rounding step,</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>and final advice. Do not save only the final number.</span>
 <span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>Compare against a frozen worked example and, where feasible, an independent</span>
-<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>implementation. Differences outside the specification’s numerical tolerance</span>
-<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>must be resolved before advice is released.</span>
-<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a><span class="fu">## 6. Exceptional circumstances</span></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="fu">## 5. Cross-check</span></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>Compare against a saved worked example and, where feasible, a calculation made</span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>independently. Differences larger than the agreed numerical tolerance</span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>must be resolved before advice is released.</span>
 <span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>Run only the indicators and response process defined in the adopted</span>
-<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>specification. An exceptional-circumstances review may trigger additional</span>
-<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>scientific or management consideration; it must not silently rewrite the CMP.</span>
-<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a><span class="fu">## 7. Publish the calculation record</span></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a><span class="fu">## 6. Exceptional circumstances</span></span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>Run only the indicators and response process defined in the adopted</span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>specification. An exceptional-circumstances review may trigger additional</span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>scientific or management consideration; it must not silently rewrite the CMP.</span>
 <span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>The record should contain inputs and checksums, validation results, intermediate</span>
-<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>calculations, final advice, software versions, warnings, analyst and reviewer</span>
-<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>sign-off, and links to any exception decision.</span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a><span class="fu">## 7. Publish the calculation record</span></span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>The record should contain the input files and their digital fingerprints, data</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>checks, intermediate calculations, final advice, software versions, warnings,</span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>analyst and reviewer sign-off, and links to any exceptional decision.</span>
 </code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

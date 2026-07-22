@@ -6,24 +6,24 @@ title: "Management-procedure components"
 
 <div class="paper-title">Management-Procedure Components</div>
 
-This page reorganizes the architecture and inventory in SCW17/Paper-03. In
-`jmMSE`, a management procedure normally combines three controlled modules:
+This page summarizes the structure described in SCW17/Paper-03. In `jmMSE`, a
+management procedure normally has three parts:
 
 ```{mermaid}
 flowchart LR
-  D["Observed annual data"] --> E["Estimator: est"]
-  E --> S["Status or index metric"]
+  D["Observed annual data"] --> E["Calculate a stock or index indicator"]
+  E --> S["Indicator used by the rule"]
   S --> H["Harvest control rule: hcr"]
   H --> R["Catch recommendation"]
-  R --> I["Implementation system: isys"]
+  R --> I["Apply catch limits and allocation rules"]
   I --> A["Implemented catch by fishery or stock"]
 ```
 
-| Component | Role | Examples inventoried at SCW17 |
+| Part | Fisheries meaning | Function names used in the code |
 |---|---|---|
-| `est` | Converts observations or assessment output into the metric used by the rule. | `perfect.sa`, `shortcut.sa`, `cpue.ind`, `cpuescore.ind`, `meta.est`, `spict.sa` |
-| `hcr` | Converts that metric into a catch or effort recommendation. | `fixedC.hcr`, `hockeystick.hcr`, `buffer.hcr`, `bufferdelta.hcr`, `meta.hcr` |
-| `isys` | Allocates or modifies the recommendation for implementation. | `split.is`, `bank_borrow.is` |
+| Indicator calculation (`est`) | Converts observations or assessment results into the indicator used by the rule. | `perfect.sa`, `shortcut.sa`, `cpue.ind`, `cpuescore.ind`, `meta.est`, `spict.sa` |
+| Harvest control rule (`hcr`) | Converts the indicator into a catch or fishing-effort recommendation. | `fixedC.hcr`, `hockeystick.hcr`, `buffer.hcr`, `bufferdelta.hcr`, `meta.hcr` |
+| Catch limits and allocation (`isys`) | Applies annual limits or allocates the recommendation among fisheries or stocks. | `split.is`, `bank_borrow.is` |
 
 ## Families represented in the SCW17 inventory
 
@@ -36,6 +36,6 @@ flowchart LR
 | Multi-index/meta | Multiple index scores | Meta-HCR | Exploratory candidate |
 | Banking/borrowing | Existing estimator/HCR | Existing HCR plus modified `isys` | Implementation sensitivity |
 
-These families are an inventory, not a decision about which procedure should be
-selected. Exact CMP identity requires the module versions, full argument set,
-input definitions, and implementation rules recorded together.
+This is a list of approaches that were considered, not a decision about which
+procedure should be selected. A complete CMP definition must state the exact
+calculation methods, parameter values, input data, and catch-allocation rules.

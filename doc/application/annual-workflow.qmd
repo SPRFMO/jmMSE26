@@ -4,52 +4,54 @@ title: "Annual CMP application"
 
 {{< include ../_includes/sprfmo-banner.qmd >}}
 
-<div class="paper-title">Controlled Annual Application Workflow</div>
+<div class="paper-title">How to Apply a CMP Each Year</div>
 
 This workflow describes how an adopted CMP should be applied as new data become
-available. Candidate dry runs should follow the same controls.
+available. Trial calculations for candidate CMPs should follow the same steps.
 
 ```{mermaid}
 flowchart TD
-  A["Freeze CMP version and code commit"] --> B["Receive and archive annual data"]
-  B --> C["Validate schema, units, completeness, and vintage"]
-  C -->|fail| X["Stop and document exception"]
-  C -->|pass| D["Calculate estimator and status metric"]
-  D --> E["Apply HCR"]
-  E --> F["Apply interannual and implementation constraints"]
-  F --> G["Run independent or automated cross-check"]
-  G -->|mismatch| X
-  G -->|match| H["Review exceptional-circumstances indicators"]
-  H --> I["Publish advice and complete calculation record"]
+  A["Record the approved CMP and software version"] --> B["Receive and save the annual data"]
+  B --> C["Check names, units, years, completeness, and revision status"]
+  C -->|problem found| X["Stop and document the problem"]
+  C -->|checks passed| D["Calculate the stock or index indicator"]
+  D --> E["Apply the harvest control rule"]
+  E --> F["Apply annual catch limits and allocation rules"]
+  F --> G["Check the calculation independently"]
+  G -->|results differ| X
+  G -->|results agree| H["Review exceptional-circumstances indicators"]
+  H --> I["Publish the advice and calculation record"]
 ```
 
-## 1. Freeze the governing specification
+## 1. Record which CMP is being used
 
-Record the CMP identifier and version, repository commit, software environment,
-management year, analyst, reviewer, and decision record authorizing use.
+Record the CMP name and version, the exact saved version of the calculation
+code, the management year, the analyst and reviewer, and the decision that
+authorized its use.
 
-## 2. Archive inputs
+## 2. Save the original data
 
-Store the received files unchanged. Record provider, receipt time, data vintage,
-and checksums. Create a separate validated copy only through a scripted,
-reviewable transformation.
+Keep the files exactly as received. Record who provided them, when they were
+received, and whether they are preliminary or final. Record a digital
+fingerprint (checksum) so the exact files can be identified later. If the data
+must be reformatted, keep the original and document every change.
 
 ## 3. Validate before calculation
 
-Apply the [input data contract](input-data.qmd). A failed required check stops
+Apply the [annual data requirements](input-data.qmd). A failed required check stops
 the routine calculation. The failure and any subsequent authorized treatment
 become part of the permanent annual record.
 
-## 4. Calculate transparent intermediates
+## 4. Save every important step in the calculation
 
 Save the transformed index values, reference-period values, combined metric,
-raw HCR recommendation, each constraint adjustment, allocation, rounding step,
+initial HCR recommendation, each annual-limit adjustment, allocation, rounding step,
 and final advice. Do not save only the final number.
 
 ## 5. Cross-check
 
-Compare against a frozen worked example and, where feasible, an independent
-implementation. Differences outside the specification’s numerical tolerance
+Compare against a saved worked example and, where feasible, a calculation made
+independently. Differences larger than the agreed numerical tolerance
 must be resolved before advice is released.
 
 ## 6. Exceptional circumstances
@@ -60,6 +62,6 @@ scientific or management consideration; it must not silently rewrite the CMP.
 
 ## 7. Publish the calculation record
 
-The record should contain inputs and checksums, validation results, intermediate
-calculations, final advice, software versions, warnings, analyst and reviewer
-sign-off, and links to any exception decision.
+The record should contain the input files and their digital fingerprints, data
+checks, intermediate calculations, final advice, software versions, warnings,
+analyst and reviewer sign-off, and links to any exceptional decision.

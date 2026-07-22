@@ -4,31 +4,33 @@ title: "Load candidates into Slick"
 
 {{< include ../_includes/sprfmo-banner.qmd >}}
 
-<div class="paper-title">Load the MP29/MP32 Candidate Set into Slick</div>
+<div class="paper-title">Explore MP29 and MP32 Results in Slick</div>
 
-The project-local adapter `R/build_candidate_slick.R` converts current `jmMSE`
-performance outputs into a validated Slick object. It does not run the MSE and
-does not fabricate missing results.
+Slick is an interactive tool for exploring MSE results. The supplied conversion
+script prepares MP29 and MP32 results for Slick after the MSE runs have been
+completed. It does not run the MSE and it does not fill in missing results.
 
-## Required input
+## What is needed
 
-Use either:
+The conversion can use either:
 
-- a long performance `data.frame`/`data.table`; or
-- an `FLmses`-like S4 object with a populated `performance` slot.
+- the table of performance results produced by `jmMSE`; or
+- a saved `jmMSE` results object that already contains those performance results.
 
-The input must contain MP29 and MP32 runs and the columns `run`, `om`, `biol`,
-`statistic`, `year`, `iter`, and `data`. At minimum, statistics `SBMSY`, `FMSY`,
-and `C` must be present. `IACC` is included when available.
+The results must include MP29 and MP32, the operating-model and stock names,
+simulation year and replicate, and the calculated performance measures. At a
+minimum, the results must include spawning biomass relative to $SB_{MSY}$,
+fishing mortality relative to $F_{MSY}$, and catch. Interannual catch change
+(IACC) is included when available.
 
-The current checkout does not yet contain MP29/MP32 result artifacts in
+The current working folder does not yet contain saved MP29/MP32 results in
 `model/tune/` or `model/robustness/`; the available top-level tuning artifacts
-end at MP22. Run the current candidate/robustness workflow before attempting
-the production export.
+end at MP22. Run the current candidate and robustness analyses before attempting
+the final Slick export.
 
-## Build the Slick object
+## Prepare the Slick file
 
-From the `jmMSE26` repository root:
+From the main `jmMSE26` folder:
 
 ```{r}
 #| eval: false
@@ -40,15 +42,17 @@ slick <- build_candidate_slick(
 )
 ```
 
-The builder creates:
+The script organizes the results by:
 
-- `MPs()` metadata for MP29 and MP32 from the registry;
-- `OMs()` metadata for each OM/stock combination;
-- `Timeseries()` values ordered as iteration x OM x MP x indicator x year; and
-- `Kobe()` values for `SB/SBMSY` and `F/FMSY` over projection years.
+- management procedure (MP29 or MP32);
+- operating model and stock;
+- simulation replicate and year; and
+- performance measure, including Kobe-plot values for $SB/SB_{MSY}$ and
+  $F/F_{MSY}$.
 
-It calls `Check()` on the time-series, Kobe, and final Slick objects, calls
-`methods::validObject()`, and writes the `.slick` file only after validation.
+Before saving the Slick file, the script checks that the expected dimensions
+and labels agree. The technical checks are shown in the code for analysts who
+maintain the export.
 
 ## Inspect or launch
 
@@ -67,8 +71,8 @@ Design(slick)
 App(slick = slick)
 ```
 
-## Reproducibility record
+## What to save with the Slick file
 
-Archive the `.slick` file together with the source performance artifact, its
-checksum, the `jmMSE` commit, the `jmMSE26` commit, and the R package versions.
-
+Save the Slick file together with the original performance results, their
+digital fingerprint, the exact saved versions of `jmMSE` and `jmMSE26`, and the
+versions of the R packages used.

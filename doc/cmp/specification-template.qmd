@@ -6,54 +6,56 @@ title: "CMP specification template"
 
 <div class="paper-title">Normative CMP Specification Template</div>
 
-The Normative CMP Specification Template defines the information required to
-turn a candidate management procedure into an unambiguous and reproducible
-management rule. Once completed and approved, the normative specification
-governs implementation: it identifies the authorized inputs, calculations,
-parameter values, constraints, exceptional-circumstances provisions, and code
-version. Background explanations and MSE performance results support selection
-of the CMP but do not alter its operational definition. Where explanatory text
-and the approved normative specification differ, the normative specification
-takes precedence.
+Here, **normative** means that this is the authoritative definition of the CMP:
+it says what must be done. The template lists the information needed to turn a
+candidate procedure into a clear and repeatable management rule. Once completed
+and approved, it identifies the data, calculations, parameter values, catch
+limits, exceptional-circumstances provisions, and exact calculation method to
+use. Background explanations and MSE results help the Working Group choose a
+CMP, but they do not change how it operates. If background text differs from
+the approved specification, the approved specification takes precedence.
 
-Copy this structure for every shortlisted CMP. Text labelled normative governs
-implementation; explanatory evidence belongs in the evidence section.
+Use this structure for every shortlisted CMP. The approved specification tells
+analysts how to calculate the advice; supporting evidence belongs in the
+evidence section.
 
 ## Identity and authority
 
 | Field | Required value |
 |---|---|
-| CMP identifier | Stable identifier; never reused |
-| Version | Semantic or dated version |
+| CMP identifier | Permanent name or number that is never reused |
+| Version | Version number or date |
 | Status | Test, shortlisted, recommended, adopted, or retired |
 | Effective period | First and last management year, if applicable |
 | Decision record | Body, meeting, document, date, and paragraph |
-| Code reference | Repository, commit, file, and function/control name |
+| Calculation reference | Repository, exact saved version, file, and function or control name |
 
-## Normative inputs
+## Required input data
 
 For every input state the owner, series name, unit, spatial coverage, seasonal
 coverage, annual cutoff date, revision policy, missing-value rule, and
-transformation. Specify exactly which data vintages are eligible.
+calculation applied to it. Specify whether preliminary, revised, or final data
+may be used.
 
-## Normative calculation
+## Required calculation
 
 Document, in order:
 
-1. data validation and exclusions;
-2. estimator calculation;
-3. status metric and reference period;
+1. data checks and exclusions;
+2. calculation of the stock or index indicator;
+3. indicator and reference period used by the rule;
 4. HCR equation and every parameter;
 5. interannual constraints;
 6. rounding and numerical precision;
-7. implementation allocation; and
+7. allocation among fisheries or stocks; and
 8. exceptional-circumstances checks.
 
 ## Worked example
 
-Provide frozen input data, intermediate values, final advice, and a checksum or
-automated regression test. A reviewer must be able to reproduce the published
-answer without access to mutable external data.
+Provide a saved set of input data, intermediate values, and final advice. Add a
+repeat-calculation test or digital fingerprint where useful. A reviewer must be
+able to reproduce the published answer without relying on data that may later
+change.
 
 ## Evidence and limitations
 
@@ -62,6 +64,7 @@ known limitations. Evidence explains selection but does not redefine the CMP.
 
 ## Change history
 
-Every change must state whether it is editorial, implementation-equivalent, or
-scientifically material. Scientifically material changes require renewed MSE
-evaluation unless an approving decision explicitly states otherwise.
+For every change, state whether it only improves the wording, changes the code
+without changing the answer, or changes the scientific rule. A scientific
+change normally requires renewed MSE evaluation unless the approving decision
+explicitly states otherwise.

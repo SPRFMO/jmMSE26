@@ -1,45 +1,46 @@
 ---
-title: "MSE workflow"
+title: "How the MSE work fits together"
 ---
 
 {{< include ../_includes/sprfmo-banner.qmd >}}
 
-<div class="paper-title">From Assessment Conditioning to CMP Evidence</div>
+<div class="paper-title">How the Assessment, MSE, and CMP Documents Fit Together</div>
 
-This page condenses SCW17/Paper-04. It locates the documentation site within
-the broader analytical system without duplicating that system.
+This page condenses SCW17/Paper-04. It shows where this documentation site fits
+within the jack mackerel assessment and MSE work.
 
 ```{mermaid}
 flowchart LR
   J["JJM assessment configurations"] --> C["Condition operating models"]
-  C --> O["OM / OEM / IEM bundles"]
-  O --> M["Apply CMPs in jmMSE"]
+  C --> O["Operating models with observation and implementation uncertainty"]
+  O --> M["Test CMPs in jmMSE"]
   M --> P["Performance metrics and diagnostics"]
   P --> D["CMP comparison and decision"]
-  D --> S["Versioned specification in jmMSE26"]
-  S --> Y["Annual operational application"]
-  Y --> V["Archived inputs, calculations, and advice"]
+  D --> S["Approved written CMP definition in jmMSE26"]
+  S --> Y["Apply the CMP when new annual data arrive"]
+  Y --> V["Save the data, calculations, and advice"]
 ```
 
 | Layer | Responsibility |
 |---|---|
 | JJM | Assessment-conditioned stock and fishery dynamics |
-| `jjmR` / `FLjjm` | Reading JJM output and constructing FLR/MSE objects |
-| FLR / `mse` / `msemodules` | Projection objects and generic MP machinery |
-| `jmMSE` | OM definitions, CMP code, tuning, simulation, and performance |
+| `jjmR` / `FLjjm` | Transfer JJM assessment results into the MSE framework |
+| FLR / `mse` / `msemodules` | General software used to run projections and management procedures |
+| `jmMSE` | Defines operating models and CMPs, runs simulations, and calculates performance |
 | `jmMSE26` | Reviewed specifications, selection evidence, and application instructions |
 
 ## Separation of responsibilities
 
-`jmMSE26` must not become an independent fork of the MSE engine. Executable
-snippets here are conformance examples or thin wrappers pinned to a `jmMSE`
-commit. Operating models, recruitment assumptions, movement assumptions,
-reference points, and performance metrics remain governed by their scientific
-source repositories.
+`jmMSE26` is the documentation and application guide; it is not a separate MSE
+model. Any calculation examples here must point to an exact saved version of
+`jmMSE`. Operating models, recruitment and movement assumptions, reference
+points, and performance measures remain defined in their scientific source
+repositories.
 
 ## Reproducibility chain
 
-Every performance claim should identify the OM set, CMP version, random-seed
-policy, iteration count, projection period, metric definition, output artifact,
-and source commit. Every operational application should identify its input data
-vintage and the adopted CMP version.
+Every performance claim should identify the operating models, CMP version,
+number of simulation replicates, treatment of random variation, projection
+period, performance-measure definition, saved results, and exact analysis
+version. Every annual application should identify the data revision used and
+the adopted CMP version.

@@ -7,35 +7,38 @@ title: "CMP evidence and development history"
 <div class="paper-title">Current jmMSE Evidence and SCW17 Development History</div>
 
 ::: {.status-note}
-This is an evidence inventory, not an adoption decision. The current candidate
-interpretation comes from `jmMSE`; SCW17 material documents earlier development.
+This page summarizes the available evidence; it does not record an adoption
+decision. The current candidate interpretation comes from `jmMSE`, while the
+SCW17 papers describe earlier development.
 :::
 
 ## Current candidate evidence from jmMSE
 
-The current merged repository provides three mutually supporting signals:
+The current `jmMSE` analysis provides three reasons for carrying MP29 and MP32
+forward:
 
-1. `model_tune.R` defines and tunes MP29 and MP32 using the same five-index
-   empirical estimator, minimum catch, limit, and annual constraints.
+1. The tuning analysis defines MP29 and MP32 using the same five observed
+   indices, minimum catch, limit, and annual catch-change limits.
 2. The 25 July 2026 presentation identifies MP29 as the optimal hockeystick run,
    MP32 as the optimal powerramp run, and MP29 as a potentially good candidate
    after their direct trade-off comparison.
-3. `model_robustness.R` explicitly selects `tun29` and `tun32` for application
-   across the robustness OM set.
+3. The robustness analysis selects both procedures for testing across the
+   alternative operating models.
 
 The presentation also reports 500-iteration versions, MP41 and MP42, with
-slightly different retuned triggers. These are treated here as replication
-sensitivity checks rather than new operational candidates.
+slightly different retuned triggers. These test whether the number of
+simulation replicates affects the results; they are not treated as new CMPs.
 
-Numerical results should be regenerated or linked to immutable artifacts before
-they support a formal selection decision.
+Before the results support a formal selection decision, they should be
+repeatable from saved inputs and linked to saved output files that will not be
+changed.
 
 ## Paper-08 subset screen
 
-SCW17/Paper-08 documented a reproducible subset test of an empirical index
+SCW17/Paper-08 documented a repeatable subset test of an empirical index
 procedure using `Chile_CPUE` and `Offshore_CPUE`, `cpues.ind` with a mean
-combination, and `buffer.hcr`. Twelve Latin-hypercube design points varied the
-limit and lower/upper buffer parameters.
+combination, and `buffer.hcr`. A structured sample of 12 parameter combinations
+varied the limit and lower and upper buffer values.
 
 The paper reported that the subset spanned a wide range of Kobe-green
 performance and that higher green probability could coincide with lower catch
@@ -44,11 +47,11 @@ intended full parameter screen. That qualification is retained here.
 
 Evidence still needed before promotion:
 
-- immutable run and design artifacts;
+- saved run results and the table of tested parameter combinations;
 - confirmation against the merged `jmMSE` implementation;
 - evaluation across the agreed reference and robustness OMs;
 - the complete agreed performance-metric set;
-- convergence, failure, and reproducibility diagnostics; and
+- checks for model convergence, failed runs, and repeatability; and
 - a recorded working-group interpretation of trade-offs.
 
 ## Paper-09 hockeystick test set
@@ -57,9 +60,9 @@ SCW17/Paper-09 converted workshop proposals into a structured set of index-based
 hockeystick tests. It established several useful implementation controls:
 
 - use exact `jmMSE` index names;
-- define candidate rows in one table rather than hand-editing controls;
+- define all candidates in one table rather than changing each rule by hand;
 - stop when required indices are unavailable rather than substituting silently;
-- distinguish mean-index tests from loess smoothing sensitivities; and
+- distinguish tests based on a mean index from tests using loess smoothing; and
 - retain unavailable tests as unavailable until their methods exist.
 
 Those rows remain historical test proposals. They no longer seed the primary

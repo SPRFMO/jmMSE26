@@ -147,11 +147,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
         <li>
     <a class="dropdown-item" href="../cmp/components.html">
- <span class="dropdown-text">MP components</span></a>
+ <span class="dropdown-text">Parts of a CMP</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../cmp/specification-template.html">
- <span class="dropdown-text">Specification template</span></a>
+ <span class="dropdown-text">How to specify a CMP</span></a>
   </li>  
     </ul>
   </li>
@@ -165,7 +165,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../workflow/mse-flow.html"> 
-<span class="menu-text">MSE workflow</span></a>
+<span class="menu-text">How MSE fits</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../evidence/scw17-evidence.html"> 
@@ -173,7 +173,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../governance/traceability.html"> 
-<span class="menu-text">Traceability</span></a>
+<span class="menu-text">Sources &amp; changes</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -277,7 +277,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../workflow/mse-flow.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">MSE workflow</span></a>
+ <span class="menu-text">How the MSE work fits together</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -289,7 +289,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../governance/traceability.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Traceability and change control</span></a>
+ <span class="menu-text">Sources and record of changes</span></a>
   </div>
 </li>
     </ul>
@@ -303,8 +303,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#identity-and-authority" id="toc-identity-and-authority" class="nav-link active" data-scroll-target="#identity-and-authority"><span class="header-section-number">1</span> Identity and authority</a></li>
-  <li><a href="#normative-inputs" id="toc-normative-inputs" class="nav-link" data-scroll-target="#normative-inputs"><span class="header-section-number">2</span> Normative inputs</a></li>
-  <li><a href="#normative-calculation" id="toc-normative-calculation" class="nav-link" data-scroll-target="#normative-calculation"><span class="header-section-number">3</span> Normative calculation</a></li>
+  <li><a href="#required-input-data" id="toc-required-input-data" class="nav-link" data-scroll-target="#required-input-data"><span class="header-section-number">2</span> Required input data</a></li>
+  <li><a href="#required-calculation" id="toc-required-calculation" class="nav-link" data-scroll-target="#required-calculation"><span class="header-section-number">3</span> Required calculation</a></li>
   <li><a href="#worked-example" id="toc-worked-example" class="nav-link" data-scroll-target="#worked-example"><span class="header-section-number">4</span> Worked example</a></li>
   <li><a href="#evidence-and-limitations" id="toc-evidence-and-limitations" class="nav-link" data-scroll-target="#evidence-and-limitations"><span class="header-section-number">5</span> Evidence and limitations</a></li>
   <li><a href="#change-history" id="toc-change-history" class="nav-link" data-scroll-target="#change-history"><span class="header-section-number">6</span> Change history</a></li>
@@ -344,11 +344,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="paper-title">
 Normative CMP Specification Template
 </div>
-<p>The Normative CMP Specification Template defines the information required to turn a candidate management procedure into an unambiguous and reproducible management rule. Once completed and approved, the normative specification governs implementation: it identifies the authorized inputs, calculations, parameter values, constraints, exceptional-circumstances provisions, and code version. Background explanations and MSE performance results support selection of the CMP but do not alter its operational definition. Where explanatory text and the approved normative specification differ, the normative specification takes precedence.</p>
-<p>Copy this structure for every shortlisted CMP. Text labelled normative governs implementation; explanatory evidence belongs in the evidence section.</p>
+<p>Here, <strong>normative</strong> means that this is the authoritative definition of the CMP: it says what must be done. The template lists the information needed to turn a candidate procedure into a clear and repeatable management rule. Once completed and approved, it identifies the data, calculations, parameter values, catch limits, exceptional-circumstances provisions, and exact calculation method to use. Background explanations and MSE results help the Working Group choose a CMP, but they do not change how it operates. If background text differs from the approved specification, the approved specification takes precedence.</p>
+<p>Use this structure for every shortlisted CMP. The approved specification tells analysts how to calculate the advice; supporting evidence belongs in the evidence section.</p>
 <section id="identity-and-authority" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="identity-and-authority"><span class="header-section-number">1</span> Identity and authority</h2>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Field</th>
@@ -358,11 +362,11 @@ Normative CMP Specification Template
 <tbody>
 <tr class="odd">
 <td>CMP identifier</td>
-<td>Stable identifier; never reused</td>
+<td>Permanent name or number that is never reused</td>
 </tr>
 <tr class="even">
 <td>Version</td>
-<td>Semantic or dated version</td>
+<td>Version number or date</td>
 </tr>
 <tr class="odd">
 <td>Status</td>
@@ -377,33 +381,33 @@ Normative CMP Specification Template
 <td>Body, meeting, document, date, and paragraph</td>
 </tr>
 <tr class="even">
-<td>Code reference</td>
-<td>Repository, commit, file, and function/control name</td>
+<td>Calculation reference</td>
+<td>Repository, exact saved version, file, and function or control name</td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="normative-inputs" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="normative-inputs"><span class="header-section-number">2</span> Normative inputs</h2>
-<p>For every input state the owner, series name, unit, spatial coverage, seasonal coverage, annual cutoff date, revision policy, missing-value rule, and transformation. Specify exactly which data vintages are eligible.</p>
+<section id="required-input-data" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="required-input-data"><span class="header-section-number">2</span> Required input data</h2>
+<p>For every input state the owner, series name, unit, spatial coverage, seasonal coverage, annual cutoff date, revision policy, missing-value rule, and calculation applied to it. Specify whether preliminary, revised, or final data may be used.</p>
 </section>
-<section id="normative-calculation" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="normative-calculation"><span class="header-section-number">3</span> Normative calculation</h2>
+<section id="required-calculation" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="required-calculation"><span class="header-section-number">3</span> Required calculation</h2>
 <p>Document, in order:</p>
 <ol type="1">
-<li>data validation and exclusions;</li>
-<li>estimator calculation;</li>
-<li>status metric and reference period;</li>
+<li>data checks and exclusions;</li>
+<li>calculation of the stock or index indicator;</li>
+<li>indicator and reference period used by the rule;</li>
 <li>HCR equation and every parameter;</li>
 <li>interannual constraints;</li>
 <li>rounding and numerical precision;</li>
-<li>implementation allocation; and</li>
+<li>allocation among fisheries or stocks; and</li>
 <li>exceptional-circumstances checks.</li>
 </ol>
 </section>
 <section id="worked-example" class="level2" data-number="4">
 <h2 data-number="4" class="anchored" data-anchor-id="worked-example"><span class="header-section-number">4</span> Worked example</h2>
-<p>Provide frozen input data, intermediate values, final advice, and a checksum or automated regression test. A reviewer must be able to reproduce the published answer without access to mutable external data.</p>
+<p>Provide a saved set of input data, intermediate values, and final advice. Add a repeat-calculation test or digital fingerprint where useful. A reviewer must be able to reproduce the published answer without relying on data that may later change.</p>
 </section>
 <section id="evidence-and-limitations" class="level2" data-number="5">
 <h2 data-number="5" class="anchored" data-anchor-id="evidence-and-limitations"><span class="header-section-number">5</span> Evidence and limitations</h2>
@@ -411,7 +415,7 @@ Normative CMP Specification Template
 </section>
 <section id="change-history" class="level2" data-number="6">
 <h2 data-number="6" class="anchored" data-anchor-id="change-history"><span class="header-section-number">6</span> Change history</h2>
-<p>Every change must state whether it is editorial, implementation-equivalent, or scientifically material. Scientifically material changes require renewed MSE evaluation unless an approving decision explicitly states otherwise.</p>
+<p>For every change, state whether it only improves the wording, changes the code without changing the answer, or changes the scientific rule. A scientific change normally requires renewed MSE evaluation unless the approving decision explicitly states otherwise.</p>
 
 
 <!-- -->
@@ -895,65 +899,68 @@ Normative CMP Specification Template
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">"paper-title"</span><span class="dt">&gt;</span>Normative CMP Specification Template<span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>The Normative CMP Specification Template defines the information required to</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>turn a candidate management procedure into an unambiguous and reproducible</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>management rule. Once completed and approved, the normative specification</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>governs implementation: it identifies the authorized inputs, calculations,</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>parameter values, constraints, exceptional-circumstances provisions, and code</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>version. Background explanations and MSE performance results support selection</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>of the CMP but do not alter its operational definition. Where explanatory text</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>and the approved normative specification differ, the normative specification</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>takes precedence.</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>Copy this structure for every shortlisted CMP. Text labelled normative governs</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>implementation; explanatory evidence belongs in the evidence section.</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>Here, **normative** means that this is the authoritative definition of the CMP:</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>it says what must be done. The template lists the information needed to turn a</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>candidate procedure into a clear and repeatable management rule. Once completed</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>and approved, it identifies the data, calculations, parameter values, catch</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>limits, exceptional-circumstances provisions, and exact calculation method to</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>use. Background explanations and MSE results help the Working Group choose a</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>CMP, but they do not change how it operates. If background text differs from</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>the approved specification, the approved specification takes precedence.</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>Use this structure for every shortlisted CMP. The approved specification tells</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>analysts how to calculate the advice; supporting evidence belongs in the</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>evidence section.</span>
 <span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="fu">## Identity and authority</span></span>
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Field <span class="pp">|</span> Required value <span class="pp">|</span></span>
 <span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|</span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> CMP identifier <span class="pp">|</span> Stable identifier; never reused <span class="pp">|</span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Version <span class="pp">|</span> Semantic or dated version <span class="pp">|</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> CMP identifier <span class="pp">|</span> Permanent name or number that is never reused <span class="pp">|</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Version <span class="pp">|</span> Version number or date <span class="pp">|</span></span>
 <span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Status <span class="pp">|</span> Test, shortlisted, recommended, adopted, or retired <span class="pp">|</span></span>
 <span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Effective period <span class="pp">|</span> First and last management year, if applicable <span class="pp">|</span></span>
 <span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Decision record <span class="pp">|</span> Body, meeting, document, date, and paragraph <span class="pp">|</span></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Code reference <span class="pp">|</span> Repository, commit, file, and function/control name <span class="pp">|</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Calculation reference <span class="pp">|</span> Repository, exact saved version, file, and function or control name <span class="pp">|</span></span>
 <span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="fu">## Normative inputs</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="fu">## Required input data</span></span>
 <span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>For every input state the owner, series name, unit, spatial coverage, seasonal</span>
 <span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>coverage, annual cutoff date, revision policy, missing-value rule, and</span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>transformation. Specify exactly which data vintages are eligible.</span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="fu">## Normative calculation</span></span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>Document, in order:</span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>data validation and exclusions;</span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>estimator calculation;</span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>status metric and reference period;</span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>HCR equation and every parameter;</span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>interannual constraints;</span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>rounding and numerical precision;</span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="ss">7. </span>implementation allocation; and</span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a><span class="ss">8. </span>exceptional-circumstances checks.</span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="fu">## Worked example</span></span>
-<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>Provide frozen input data, intermediate values, final advice, and a checksum or</span>
-<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>automated regression test. A reviewer must be able to reproduce the published</span>
-<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>answer without access to mutable external data.</span>
-<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a><span class="fu">## Evidence and limitations</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>calculation applied to it. Specify whether preliminary, revised, or final data</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>may be used.</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="fu">## Required calculation</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>Document, in order:</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>data checks and exclusions;</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>calculation of the stock or index indicator;</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>indicator and reference period used by the rule;</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>HCR equation and every parameter;</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>interannual constraints;</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>rounding and numerical precision;</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a><span class="ss">7. </span>allocation among fisheries or stocks; and</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="ss">8. </span>exceptional-circumstances checks.</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="fu">## Worked example</span></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>Provide a saved set of input data, intermediate values, and final advice. Add a</span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>repeat-calculation test or digital fingerprint where useful. A reviewer must be</span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>able to reproduce the published answer without relying on data that may later</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>change.</span>
 <span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>Link to MSE runs, operating models, performance metrics, diagnostics, and</span>
-<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>known limitations. Evidence explains selection but does not redefine the CMP.</span>
-<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a><span class="fu">## Change history</span></span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a><span class="fu">## Evidence and limitations</span></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>Link to MSE runs, operating models, performance metrics, diagnostics, and</span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>known limitations. Evidence explains selection but does not redefine the CMP.</span>
 <span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>Every change must state whether it is editorial, implementation-equivalent, or</span>
-<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>scientifically material. Scientifically material changes require renewed MSE</span>
-<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>evaluation unless an approving decision explicitly states otherwise.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a><span class="fu">## Change history</span></span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>For every change, state whether it only improves the wording, changes the code</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>without changing the answer, or changes the scientific rule. A scientific</span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>change normally requires renewed MSE evaluation unless the approving decision</span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>explicitly states otherwise.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">

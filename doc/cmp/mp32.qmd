@@ -7,8 +7,8 @@ title: "MP32 powerramp candidate"
 <div class="paper-title">MP32: All-index Powerramp Candidate</div>
 
 ::: {.status-note}
-**Status:** advanced candidate in the current `jmMSE` workflow. MP32 is not
-documented here as adopted. This page reflects `jmMSE` commit
+**Status:** advanced candidate in the current `jmMSE` analysis. MP32 has not
+been adopted. This page reflects the exact `jmMSE` version
 `94d4d325ba46220f56097b3de90824c83b7cf3cd` and the 25 July 2026 presentation.
 :::
 
@@ -16,17 +16,17 @@ documented here as adopted. This page reflects `jmMSE` commit
 
 | Component | Current definition |
 |---|---|
-| `jmMSE` run | `tun32`, labelled MP32 |
-| Estimator | `cpues.ind` |
+| Name in the `jmMSE` analysis | `tun32`, labelled MP32 |
+| Stock/index indicator | `cpues.ind` |
 | Indices | `Chile_AcousN`, `Chile_CPUE`, `Peru_Artis`, `Peru_Ind`, `Offshore_CPUE` |
 | Reference years | 2019-2023 |
 | Recent-data window | 3 years |
-| Combination and metric | `combine = "mean"`, `metric = "mean"` |
-| HCR | `powerramp.hcr` |
+| How the indices are combined | Mean (`combine = "mean"`, `metric = "mean"`) |
+| Harvest control rule | Power ramp (`powerramp.hcr`) |
 | Output | Catch |
-| Implementation | `split.is`, using last-five-year catch proportions |
+| Catch allocation | Split among fisheries using their average catch proportions over the last five years (`split.is`) |
 
-## HCR parameters
+## Harvest control rule parameters
 
 | Parameter | Value |
 |---|---:|
@@ -40,14 +40,14 @@ documented here as adopted. This page reflects `jmMSE` commit
 
 ## Rule
 
-Let $I_t$ be the annual estimator metric and
+Let $I_t$ be the annual mean of the standardized index information and
 
 $$
 x_t = \frac{I_t-0.1}{1.42-0.1}.
 $$
 
-The current `jmMSE` `powerramp.hcr` calculates the unconstrained recommendation
-as
+Before applying the annual change limit, the current power-ramp rule calculates
+the catch recommendation as
 
 $$
 C_t^* =
@@ -59,15 +59,16 @@ C_t^* =
 $$
 
 Unlike a capped hockeystick, the upper branch continues to rise above the
-trigger. The annual constraint subsequently limits the result to 85%-120% of
-the previous recommendation; the first-year reference is 1385.
+trigger. The annual change rule then prevents the result from falling below 85%
+or rising above 120% of the previous recommendation. For the first application
+year, the reference value is 1385.
 
 ## Evidence status
 
 The July presentation identifies MP32 as the optimal powerramp minimum/limit
 run. The MP29-MP32 comparison reports broadly similar long-term catch and stock
-performance, with MP32 showing higher IACC than MP29. `model_robustness.R`
-advances it alongside MP29.
+performance, with MP32 showing more year-to-year catch variation (IACC) than
+MP29. The `jmMSE` robustness analysis carries both candidates forward.
 
 Primary sources: [`model_tune.R`](https://github.com/SPRFMO/jmMSE/blob/main/model_tune.R),
 [`model_robustness.R`](https://github.com/SPRFMO/jmMSE/blob/main/model_robustness.R),
@@ -76,7 +77,7 @@ and the [July presentation source](https://github.com/SPRFMO/jmMSE/blob/main/doc
 ## Annual application requirements still to resolve
 
 - authoritative provider and annual cutoff for each index;
-- precise standardization performed by `cpues.ind` and its package version;
+- precise index standardization performed by `cpues.ind` and the software version used;
 - treatment of missing or revised indices;
 - catch units and rounding;
 - approved catch-allocation update rule; and

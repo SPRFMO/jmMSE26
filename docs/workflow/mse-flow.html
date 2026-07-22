@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>MSE workflow – SPRFMO Jack Mackerel CMPs</title>
+<title>How the MSE work fits together – SPRFMO Jack Mackerel CMPs</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -150,11 +150,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
         <li>
     <a class="dropdown-item" href="../cmp/components.html">
- <span class="dropdown-text">MP components</span></a>
+ <span class="dropdown-text">Parts of a CMP</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../cmp/specification-template.html">
- <span class="dropdown-text">Specification template</span></a>
+ <span class="dropdown-text">How to specify a CMP</span></a>
   </li>  
     </ul>
   </li>
@@ -168,7 +168,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../workflow/mse-flow.html"> 
-<span class="menu-text">MSE workflow</span></a>
+<span class="menu-text">How MSE fits</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../evidence/scw17-evidence.html"> 
@@ -176,7 +176,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../governance/traceability.html"> 
-<span class="menu-text">Traceability</span></a>
+<span class="menu-text">Sources &amp; changes</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -189,7 +189,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../workflow/mse-flow.html">MSE workflow</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../workflow/mse-flow.html">How the MSE work fits together</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -280,7 +280,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../workflow/mse-flow.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">MSE workflow</span></a>
+ <span class="menu-text">How the MSE work fits together</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -292,7 +292,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../governance/traceability.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Traceability and change control</span></a>
+ <span class="menu-text">Sources and record of changes</span></a>
   </div>
 </li>
     </ul>
@@ -315,7 +315,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">MSE workflow</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<div class="quarto-title-block"><div><h1 class="title">How the MSE work fits together</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -341,9 +341,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
 </div>
 <div class="paper-title">
-From Assessment Conditioning to CMP Evidence
+How the Assessment, MSE, and CMP Documents Fit Together
 </div>
-<p>This page condenses SCW17/Paper-04. It locates the documentation site within the broader analytical system without duplicating that system.</p>
+<p>This page condenses SCW17/Paper-04. It shows where this documentation site fits within the jack mackerel assessment and MSE work.</p>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -351,13 +351,13 @@ From Assessment Conditioning to CMP Evidence
 <div>
 <pre class="mermaid mermaid-js">flowchart LR
   J["JJM assessment configurations"] --&gt; C["Condition operating models"]
-  C --&gt; O["OM / OEM / IEM bundles"]
-  O --&gt; M["Apply CMPs in jmMSE"]
+  C --&gt; O["Operating models with observation and implementation uncertainty"]
+  O --&gt; M["Test CMPs in jmMSE"]
   M --&gt; P["Performance metrics and diagnostics"]
   P --&gt; D["CMP comparison and decision"]
-  D --&gt; S["Versioned specification in jmMSE26"]
-  S --&gt; Y["Annual operational application"]
-  Y --&gt; V["Archived inputs, calculations, and advice"]
+  D --&gt; S["Approved written CMP definition in jmMSE26"]
+  S --&gt; Y["Apply the CMP when new annual data arrive"]
+  Y --&gt; V["Save the data, calculations, and advice"]
 </pre>
 </div>
 <p></p></figure><p></p>
@@ -382,15 +382,15 @@ From Assessment Conditioning to CMP Evidence
 </tr>
 <tr class="even">
 <td><code>jjmR</code> / <code>FLjjm</code></td>
-<td>Reading JJM output and constructing FLR/MSE objects</td>
+<td>Transfer JJM assessment results into the MSE framework</td>
 </tr>
 <tr class="odd">
 <td>FLR / <code>mse</code> / <code>msemodules</code></td>
-<td>Projection objects and generic MP machinery</td>
+<td>General software used to run projections and management procedures</td>
 </tr>
 <tr class="even">
 <td><code>jmMSE</code></td>
-<td>OM definitions, CMP code, tuning, simulation, and performance</td>
+<td>Defines operating models and CMPs, runs simulations, and calculates performance</td>
 </tr>
 <tr class="odd">
 <td><code>jmMSE26</code></td>
@@ -400,11 +400,11 @@ From Assessment Conditioning to CMP Evidence
 </table>
 <section id="separation-of-responsibilities" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="separation-of-responsibilities"><span class="header-section-number">1</span> Separation of responsibilities</h2>
-<p><code>jmMSE26</code> must not become an independent fork of the MSE engine. Executable snippets here are conformance examples or thin wrappers pinned to a <code>jmMSE</code> commit. Operating models, recruitment assumptions, movement assumptions, reference points, and performance metrics remain governed by their scientific source repositories.</p>
+<p><code>jmMSE26</code> is the documentation and application guide; it is not a separate MSE model. Any calculation examples here must point to an exact saved version of <code>jmMSE</code>. Operating models, recruitment and movement assumptions, reference points, and performance measures remain defined in their scientific source repositories.</p>
 </section>
 <section id="reproducibility-chain" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="reproducibility-chain"><span class="header-section-number">2</span> Reproducibility chain</h2>
-<p>Every performance claim should identify the OM set, CMP version, random-seed policy, iteration count, projection period, metric definition, output artifact, and source commit. Every operational application should identify its input data vintage and the adopted CMP version.</p>
+<p>Every performance claim should identify the operating models, CMP version, number of simulation replicates, treatment of random variation, projection period, performance-measure definition, saved results, and exact analysis version. Every annual application should identify the data revision used and the adopted CMP version.</p>
 
 
 <!-- -->
@@ -881,50 +881,51 @@ From Assessment Conditioning to CMP Evidence
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "MSE workflow"</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "How the MSE work fits together"</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>{{&lt; include ../_includes/sprfmo-banner.qmd &gt;}}</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">"paper-title"</span><span class="dt">&gt;</span>From Assessment Conditioning to CMP Evidence<span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">"paper-title"</span><span class="dt">&gt;</span>How the Assessment, MSE, and CMP Documents Fit Together<span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>This page condenses SCW17/Paper-04. It locates the documentation site within</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>the broader analytical system without duplicating that system.</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>This page condenses SCW17/Paper-04. It shows where this documentation site fits</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>within the jack mackerel assessment and MSE work.</span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="in">```{mermaid}</span></span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>flowchart LR</span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  J[<span class="ot">"</span><span class="st">JJM assessment configurations</span><span class="ot">"</span>] --&gt; C[<span class="ot">"</span><span class="st">Condition operating models</span><span class="ot">"</span>]</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  C --&gt; O[<span class="ot">"</span><span class="st">OM / OEM / IEM bundles</span><span class="ot">"</span>]</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  O --&gt; M[<span class="ot">"</span><span class="st">Apply CMPs in jmMSE</span><span class="ot">"</span>]</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  C --&gt; O[<span class="ot">"</span><span class="st">Operating models with observation and implementation uncertainty</span><span class="ot">"</span>]</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  O --&gt; M[<span class="ot">"</span><span class="st">Test CMPs in jmMSE</span><span class="ot">"</span>]</span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  M --&gt; P[<span class="ot">"</span><span class="st">Performance metrics and diagnostics</span><span class="ot">"</span>]</span>
 <span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  P --&gt; D[<span class="ot">"</span><span class="st">CMP comparison and decision</span><span class="ot">"</span>]</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  D --&gt; S[<span class="ot">"</span><span class="st">Versioned specification in jmMSE26</span><span class="ot">"</span>]</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  S --&gt; Y[<span class="ot">"</span><span class="st">Annual operational application</span><span class="ot">"</span>]</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  Y --&gt; V[<span class="ot">"</span><span class="st">Archived inputs, calculations, and advice</span><span class="ot">"</span>]</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  D --&gt; S[<span class="ot">"</span><span class="st">Approved written CMP definition in jmMSE26</span><span class="ot">"</span>]</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  S --&gt; Y[<span class="ot">"</span><span class="st">Apply the CMP when new annual data arrive</span><span class="ot">"</span>]</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  Y --&gt; V[<span class="ot">"</span><span class="st">Save the data, calculations, and advice</span><span class="ot">"</span>]</span>
 <span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Layer <span class="pp">|</span> Responsibility <span class="pp">|</span></span>
 <span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|</span></span>
 <span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> JJM <span class="pp">|</span> Assessment-conditioned stock and fishery dynamics <span class="pp">|</span></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`jjmR`</span> / <span class="in">`FLjjm`</span> <span class="pp">|</span> Reading JJM output and constructing FLR/MSE objects <span class="pp">|</span></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> FLR / <span class="in">`mse`</span> / <span class="in">`msemodules`</span> <span class="pp">|</span> Projection objects and generic MP machinery <span class="pp">|</span></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`jmMSE`</span> <span class="pp">|</span> OM definitions, CMP code, tuning, simulation, and performance <span class="pp">|</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`jjmR`</span> / <span class="in">`FLjjm`</span> <span class="pp">|</span> Transfer JJM assessment results into the MSE framework <span class="pp">|</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> FLR / <span class="in">`mse`</span> / <span class="in">`msemodules`</span> <span class="pp">|</span> General software used to run projections and management procedures <span class="pp">|</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`jmMSE`</span> <span class="pp">|</span> Defines operating models and CMPs, runs simulations, and calculates performance <span class="pp">|</span></span>
 <span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`jmMSE26`</span> <span class="pp">|</span> Reviewed specifications, selection evidence, and application instructions <span class="pp">|</span></span>
 <span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="fu">## Separation of responsibilities</span></span>
 <span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="in">`jmMSE26`</span> must not become an independent fork of the MSE engine. Executable</span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>snippets here are conformance examples or thin wrappers pinned to a <span class="in">`jmMSE`</span></span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>commit. Operating models, recruitment assumptions, movement assumptions,</span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>reference points, and performance metrics remain governed by their scientific</span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>source repositories.</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="in">`jmMSE26`</span> is the documentation and application guide; it is not a separate MSE</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>model. Any calculation examples here must point to an exact saved version of</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="in">`jmMSE`</span>. Operating models, recruitment and movement assumptions, reference</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>points, and performance measures remain defined in their scientific source</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>repositories.</span>
 <span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="fu">## Reproducibility chain</span></span>
 <span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>Every performance claim should identify the OM set, CMP version, random-seed</span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>policy, iteration count, projection period, metric definition, output artifact,</span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>and source commit. Every operational application should identify its input data</span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>vintage and the adopted CMP version.</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>Every performance claim should identify the operating models, CMP version,</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>number of simulation replicates, treatment of random variation, projection</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>period, performance-measure definition, saved results, and exact analysis</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>version. Every annual application should identify the data revision used and</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>the adopted CMP version.</span>
 </code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

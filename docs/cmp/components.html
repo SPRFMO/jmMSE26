@@ -150,11 +150,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
         <li>
     <a class="dropdown-item" href="../cmp/components.html">
- <span class="dropdown-text">MP components</span></a>
+ <span class="dropdown-text">Parts of a CMP</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../cmp/specification-template.html">
- <span class="dropdown-text">Specification template</span></a>
+ <span class="dropdown-text">How to specify a CMP</span></a>
   </li>  
     </ul>
   </li>
@@ -168,7 +168,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../workflow/mse-flow.html"> 
-<span class="menu-text">MSE workflow</span></a>
+<span class="menu-text">How MSE fits</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../evidence/scw17-evidence.html"> 
@@ -176,7 +176,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../governance/traceability.html"> 
-<span class="menu-text">Traceability</span></a>
+<span class="menu-text">Sources &amp; changes</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -280,7 +280,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../workflow/mse-flow.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">MSE workflow</span></a>
+ <span class="menu-text">How the MSE work fits together</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -292,7 +292,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../governance/traceability.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Traceability and change control</span></a>
+ <span class="menu-text">Sources and record of changes</span></a>
   </div>
 </li>
     </ul>
@@ -342,18 +342,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="paper-title">
 Management-Procedure Components
 </div>
-<p>This page reorganizes the architecture and inventory in SCW17/Paper-03. In <code>jmMSE</code>, a management procedure normally combines three controlled modules:</p>
+<p>This page summarizes the structure described in SCW17/Paper-03. In <code>jmMSE</code>, a management procedure normally has three parts:</p>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
 <pre class="mermaid mermaid-js">flowchart LR
-  D["Observed annual data"] --&gt; E["Estimator: est"]
-  E --&gt; S["Status or index metric"]
+  D["Observed annual data"] --&gt; E["Calculate a stock or index indicator"]
+  E --&gt; S["Indicator used by the rule"]
   S --&gt; H["Harvest control rule: hcr"]
   H --&gt; R["Catch recommendation"]
-  R --&gt; I["Implementation system: isys"]
+  R --&gt; I["Apply catch limits and allocation rules"]
   I --&gt; A["Implemented catch by fishery or stock"]
 </pre>
 </div>
@@ -369,25 +369,25 @@ Management-Procedure Components
 </colgroup>
 <thead>
 <tr class="header">
-<th>Component</th>
-<th>Role</th>
-<th>Examples inventoried at SCW17</th>
+<th>Part</th>
+<th>Fisheries meaning</th>
+<th>Function names used in the code</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>est</code></td>
-<td>Converts observations or assessment output into the metric used by the rule.</td>
+<td>Indicator calculation (<code>est</code>)</td>
+<td>Converts observations or assessment results into the indicator used by the rule.</td>
 <td><code>perfect.sa</code>, <code>shortcut.sa</code>, <code>cpue.ind</code>, <code>cpuescore.ind</code>, <code>meta.est</code>, <code>spict.sa</code></td>
 </tr>
 <tr class="even">
-<td><code>hcr</code></td>
-<td>Converts that metric into a catch or effort recommendation.</td>
+<td>Harvest control rule (<code>hcr</code>)</td>
+<td>Converts the indicator into a catch or fishing-effort recommendation.</td>
 <td><code>fixedC.hcr</code>, <code>hockeystick.hcr</code>, <code>buffer.hcr</code>, <code>bufferdelta.hcr</code>, <code>meta.hcr</code></td>
 </tr>
 <tr class="odd">
-<td><code>isys</code></td>
-<td>Allocates or modifies the recommendation for implementation.</td>
+<td>Catch limits and allocation (<code>isys</code>)</td>
+<td>Applies annual limits or allocates the recommendation among fisheries or stocks.</td>
 <td><code>split.is</code>, <code>bank_borrow.is</code></td>
 </tr>
 </tbody>
@@ -448,7 +448,7 @@ Management-Procedure Components
 </tr>
 </tbody>
 </table>
-<p>These families are an inventory, not a decision about which procedure should be selected. Exact CMP identity requires the module versions, full argument set, input definitions, and implementation rules recorded together.</p>
+<p>This is a list of approaches that were considered, not a decision about which procedure should be selected. A complete CMP definition must state the exact calculation methods, parameter values, input data, and catch-allocation rules.</p>
 
 
 <!-- -->
@@ -932,24 +932,24 @@ Management-Procedure Components
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">"paper-title"</span><span class="dt">&gt;</span>Management-Procedure Components<span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>This page reorganizes the architecture and inventory in SCW17/Paper-03. In</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="in">`jmMSE`</span>, a management procedure normally combines three controlled modules:</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>This page summarizes the structure described in SCW17/Paper-03. In <span class="in">`jmMSE`</span>, a</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>management procedure normally has three parts:</span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="in">```{mermaid}</span></span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>flowchart LR</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  D[<span class="ot">"</span><span class="st">Observed annual data</span><span class="ot">"</span>] --&gt; E[<span class="ot">"</span><span class="st">Estimator: est</span><span class="ot">"</span>]</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  E --&gt; S[<span class="ot">"</span><span class="st">Status or index metric</span><span class="ot">"</span>]</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  D[<span class="ot">"</span><span class="st">Observed annual data</span><span class="ot">"</span>] --&gt; E[<span class="ot">"</span><span class="st">Calculate a stock or index indicator</span><span class="ot">"</span>]</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  E --&gt; S[<span class="ot">"</span><span class="st">Indicator used by the rule</span><span class="ot">"</span>]</span>
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  S --&gt; H[<span class="ot">"</span><span class="st">Harvest control rule: hcr</span><span class="ot">"</span>]</span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  H --&gt; R[<span class="ot">"</span><span class="st">Catch recommendation</span><span class="ot">"</span>]</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  R --&gt; I[<span class="ot">"</span><span class="st">Implementation system: isys</span><span class="ot">"</span>]</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  R --&gt; I[<span class="ot">"</span><span class="st">Apply catch limits and allocation rules</span><span class="ot">"</span>]</span>
 <span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  I --&gt; A[<span class="ot">"</span><span class="st">Implemented catch by fishery or stock</span><span class="ot">"</span>]</span>
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Component <span class="pp">|</span> Role <span class="pp">|</span> Examples inventoried at SCW17 <span class="pp">|</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Part <span class="pp">|</span> Fisheries meaning <span class="pp">|</span> Function names used in the code <span class="pp">|</span></span>
 <span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|</span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`est`</span> <span class="pp">|</span> Converts observations or assessment output into the metric used by the rule. <span class="pp">|</span> <span class="in">`perfect.sa`</span>, <span class="in">`shortcut.sa`</span>, <span class="in">`cpue.ind`</span>, <span class="in">`cpuescore.ind`</span>, <span class="in">`meta.est`</span>, <span class="in">`spict.sa`</span> <span class="pp">|</span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`hcr`</span> <span class="pp">|</span> Converts that metric into a catch or effort recommendation. <span class="pp">|</span> <span class="in">`fixedC.hcr`</span>, <span class="in">`hockeystick.hcr`</span>, <span class="in">`buffer.hcr`</span>, <span class="in">`bufferdelta.hcr`</span>, <span class="in">`meta.hcr`</span> <span class="pp">|</span></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`isys`</span> <span class="pp">|</span> Allocates or modifies the recommendation for implementation. <span class="pp">|</span> <span class="in">`split.is`</span>, <span class="in">`bank_borrow.is`</span> <span class="pp">|</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Indicator calculation (<span class="in">`est`</span>) <span class="pp">|</span> Converts observations or assessment results into the indicator used by the rule. <span class="pp">|</span> <span class="in">`perfect.sa`</span>, <span class="in">`shortcut.sa`</span>, <span class="in">`cpue.ind`</span>, <span class="in">`cpuescore.ind`</span>, <span class="in">`meta.est`</span>, <span class="in">`spict.sa`</span> <span class="pp">|</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Harvest control rule (<span class="in">`hcr`</span>) <span class="pp">|</span> Converts the indicator into a catch or fishing-effort recommendation. <span class="pp">|</span> <span class="in">`fixedC.hcr`</span>, <span class="in">`hockeystick.hcr`</span>, <span class="in">`buffer.hcr`</span>, <span class="in">`bufferdelta.hcr`</span>, <span class="in">`meta.hcr`</span> <span class="pp">|</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Catch limits and allocation (<span class="in">`isys`</span>) <span class="pp">|</span> Applies annual limits or allocates the recommendation among fisheries or stocks. <span class="pp">|</span> <span class="in">`split.is`</span>, <span class="in">`bank_borrow.is`</span> <span class="pp">|</span></span>
 <span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="fu">## Families represented in the SCW17 inventory</span></span>
 <span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
@@ -962,9 +962,9 @@ Management-Procedure Components
 <span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Multi-index/meta <span class="pp">|</span> Multiple index scores <span class="pp">|</span> Meta-HCR <span class="pp">|</span> Exploratory candidate <span class="pp">|</span></span>
 <span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Banking/borrowing <span class="pp">|</span> Existing estimator/HCR <span class="pp">|</span> Existing HCR plus modified <span class="in">`isys`</span> <span class="pp">|</span> Implementation sensitivity <span class="pp">|</span></span>
 <span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>These families are an inventory, not a decision about which procedure should be</span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>selected. Exact CMP identity requires the module versions, full argument set,</span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>input definitions, and implementation rules recorded together.</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>This is a list of approaches that were considered, not a decision about which</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>procedure should be selected. A complete CMP definition must state the exact</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>calculation methods, parameter values, input data, and catch-allocation rules.</span>
 </code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

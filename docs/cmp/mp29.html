@@ -176,11 +176,11 @@ window.Quarto = {
   </li>  
         <li>
     <a class="dropdown-item" href="../cmp/components.html">
- <span class="dropdown-text">MP components</span></a>
+ <span class="dropdown-text">Parts of a CMP</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../cmp/specification-template.html">
- <span class="dropdown-text">Specification template</span></a>
+ <span class="dropdown-text">How to specify a CMP</span></a>
   </li>  
     </ul>
   </li>
@@ -194,7 +194,7 @@ window.Quarto = {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../workflow/mse-flow.html"> 
-<span class="menu-text">MSE workflow</span></a>
+<span class="menu-text">How MSE fits</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../evidence/scw17-evidence.html"> 
@@ -202,7 +202,7 @@ window.Quarto = {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../governance/traceability.html"> 
-<span class="menu-text">Traceability</span></a>
+<span class="menu-text">Sources &amp; changes</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -306,7 +306,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../workflow/mse-flow.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">MSE workflow</span></a>
+ <span class="menu-text">How the MSE work fits together</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -318,7 +318,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../governance/traceability.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Traceability and change control</span></a>
+ <span class="menu-text">Sources and record of changes</span></a>
   </div>
 </li>
     </ul>
@@ -332,7 +332,7 @@ window.Quarto = {
    
   <ul>
   <li><a href="#identity" id="toc-identity" class="nav-link active" data-scroll-target="#identity"><span class="header-section-number">1</span> Identity</a></li>
-  <li><a href="#hcr-parameters" id="toc-hcr-parameters" class="nav-link" data-scroll-target="#hcr-parameters"><span class="header-section-number">2</span> HCR parameters</a></li>
+  <li><a href="#harvest-control-rule-parameters" id="toc-harvest-control-rule-parameters" class="nav-link" data-scroll-target="#harvest-control-rule-parameters"><span class="header-section-number">2</span> Harvest control rule parameters</a></li>
   <li><a href="#rule" id="toc-rule" class="nav-link" data-scroll-target="#rule"><span class="header-section-number">3</span> Rule</a></li>
   <li><a href="#evidence-status" id="toc-evidence-status" class="nav-link" data-scroll-target="#evidence-status"><span class="header-section-number">4</span> Evidence status</a></li>
   <li><a href="#annual-application-requirements-still-to-resolve" id="toc-annual-application-requirements-still-to-resolve" class="nav-link" data-scroll-target="#annual-application-requirements-still-to-resolve"><span class="header-section-number">5</span> Annual application requirements still to resolve</a></li>
@@ -373,7 +373,7 @@ window.Quarto = {
 MP29: All-index Hockeystick Candidate
 </div>
 <div class="status-note">
-<p><strong>Status:</strong> advanced candidate in the current <code>jmMSE</code> workflow. MP29 is not documented here as adopted. This page reflects <code>jmMSE</code> commit <code>94d4d325ba46220f56097b3de90824c83b7cf3cd</code> and the 25 July 2026 presentation.</p>
+<p><strong>Status:</strong> advanced candidate in the current <code>jmMSE</code> analysis. MP29 has not been adopted. This page reflects the exact <code>jmMSE</code> version <code>94d4d325ba46220f56097b3de90824c83b7cf3cd</code> and the 25 July 2026 presentation.</p>
 </div>
 <section id="identity" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="identity"><span class="header-section-number">1</span> Identity</h2>
@@ -390,11 +390,11 @@ MP29: All-index Hockeystick Candidate
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>jmMSE</code> run</td>
+<td>Name in the <code>jmMSE</code> analysis</td>
 <td><code>tun29</code>, labelled MP29</td>
 </tr>
 <tr class="even">
-<td>Estimator</td>
+<td>Stock/index indicator</td>
 <td><code>cpues.ind</code></td>
 </tr>
 <tr class="odd">
@@ -410,26 +410,26 @@ MP29: All-index Hockeystick Candidate
 <td>3 years</td>
 </tr>
 <tr class="even">
-<td>Combination and metric</td>
-<td><code>combine = "mean"</code>, <code>metric = "mean"</code></td>
+<td>How the indices are combined</td>
+<td>Mean (<code>combine = "mean"</code>, <code>metric = "mean"</code>)</td>
 </tr>
 <tr class="odd">
-<td>HCR</td>
-<td><code>hockeystick.hcr</code>; <code>hockeystick.hcr_rob</code> in multi-stock robustness runs</td>
+<td>Harvest control rule</td>
+<td>Hockeystick (<code>hockeystick.hcr</code>); multi-stock testing uses an equivalent corrected function</td>
 </tr>
 <tr class="even">
 <td>Output</td>
 <td>Catch</td>
 </tr>
 <tr class="odd">
-<td>Implementation</td>
-<td><code>split.is</code>, using last-five-year catch proportions</td>
+<td>Catch allocation</td>
+<td>Split among fisheries using their average catch proportions over the last five years (<code>split.is</code>)</td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="hcr-parameters" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="hcr-parameters"><span class="header-section-number">2</span> HCR parameters</h2>
+<section id="harvest-control-rule-parameters" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="harvest-control-rule-parameters"><span class="header-section-number">2</span> Harvest control rule parameters</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -468,11 +468,11 @@ MP29: All-index Hockeystick Candidate
 </tr>
 </tbody>
 </table>
-<p>The trigger is the tuned value reported in the July presentation. Before formal use it should be read from a frozen control object or normative registry, not reconstructed by rerunning the tuner.</p>
+<p>The trigger is the value obtained during tuning and reported in the July presentation. Before formal use it should be copied from the approved CMP record, not recalculated by repeating the tuning exercise.</p>
 </section>
 <section id="rule" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="rule"><span class="header-section-number">3</span> Rule</h2>
-<p>Let <span class="math inline">\(I_t\)</span> be the annual <code>mean</code> metric returned by the specified estimator. The unconstrained catch recommendation <span class="math inline">\(C_t^*\)</span> is</p>
+<p>Let <span class="math inline">\(I_t\)</span> be the annual mean of the standardized index information calculated by the specified method. Before applying the annual change limit, the catch recommendation <span class="math inline">\(C_t^*\)</span> is</p>
 <p><span class="math display">\[
 C_t^* =
 \begin{cases}
@@ -481,18 +481,18 @@ C_t^* =
 2000, &amp; I_t \ge 2.12.
 \end{cases}
 \]</span></p>
-<p>The interannual constraint limits the recommendation to 85%-120% of the previous recommendation. In the first application year the current code uses 1385 as the previous value.</p>
+<p>The annual change rule then prevents the recommendation from falling below 85% or rising above 120% of the previous recommendation. For the first application year, the current calculation uses 1385 as the previous value.</p>
 </section>
 <section id="evidence-status" class="level2" data-number="4">
 <h2 data-number="4" class="anchored" data-anchor-id="evidence-status"><span class="header-section-number">4</span> Evidence status</h2>
-<p>The July presentation identifies MP29 as the optimal hockeystick minimum/limit run and reports lower IACC than MP32, with slightly higher short-term catches. <code>model_robustness.R</code> advances MP29 alongside MP32 across robustness OMs. Final adoption still requires complete, reproducible robustness results and an approved operational data contract.</p>
+<p>The July presentation identifies MP29 as the optimal hockeystick minimum/limit run and reports less year-to-year catch variation (IACC) than MP32, with slightly higher short-term catches. The <code>jmMSE</code> robustness analysis carries MP29 and MP32 forward across alternative operating models. Final adoption still requires complete, repeatable robustness results and approved annual data rules.</p>
 <p>Primary sources: <a href="https://github.com/SPRFMO/jmMSE/blob/main/model_tune.R"><code>model_tune.R</code></a>, <a href="https://github.com/SPRFMO/jmMSE/blob/main/model_robustness.R"><code>model_robustness.R</code></a>, and the <a href="https://github.com/SPRFMO/jmMSE/blob/main/doc/presentation/presentation_20260725.Rmd">July presentation source</a>.</p>
 </section>
 <section id="annual-application-requirements-still-to-resolve" class="level2" data-number="5">
 <h2 data-number="5" class="anchored" data-anchor-id="annual-application-requirements-still-to-resolve"><span class="header-section-number">5</span> Annual application requirements still to resolve</h2>
 <ul>
 <li>authoritative provider and annual cutoff for each index;</li>
-<li>precise standardization performed by <code>cpues.ind</code> and its package version;</li>
+<li>precise index standardization performed by <code>cpues.ind</code> and the software version used;</li>
 <li>treatment of missing or revised indices;</li>
 <li>catch units and rounding;</li>
 <li>approved catch-allocation update rule; and</li>
@@ -982,8 +982,8 @@ C_t^* =
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">"paper-title"</span><span class="dt">&gt;</span>MP29: All-index Hockeystick Candidate<span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>::: {.status-note}</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>**Status:** advanced candidate in the current <span class="in">`jmMSE`</span> workflow. MP29 is not</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>documented here as adopted. This page reflects <span class="in">`jmMSE`</span> commit</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>**Status:** advanced candidate in the current <span class="in">`jmMSE`</span> analysis. MP29 has not</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>been adopted. This page reflects the exact <span class="in">`jmMSE`</span> version</span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="in">`94d4d325ba46220f56097b3de90824c83b7cf3cd`</span> and the 25 July 2026 presentation.</span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
@@ -991,17 +991,17 @@ C_t^* =
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Component <span class="pp">|</span> Current definition <span class="pp">|</span></span>
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`jmMSE`</span> run <span class="pp">|</span> <span class="in">`tun29`</span>, labelled MP29 <span class="pp">|</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Estimator <span class="pp">|</span> <span class="in">`cpues.ind`</span> <span class="pp">|</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Name in the <span class="in">`jmMSE`</span> analysis <span class="pp">|</span> <span class="in">`tun29`</span>, labelled MP29 <span class="pp">|</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Stock/index indicator <span class="pp">|</span> <span class="in">`cpues.ind`</span> <span class="pp">|</span></span>
 <span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Indices <span class="pp">|</span> <span class="in">`Chile_AcousN`</span>, <span class="in">`Chile_CPUE`</span>, <span class="in">`Peru_Artis`</span>, <span class="in">`Peru_Ind`</span>, <span class="in">`Offshore_CPUE`</span> <span class="pp">|</span></span>
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Reference years <span class="pp">|</span> 2019-2023 <span class="pp">|</span></span>
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Recent-data window <span class="pp">|</span> 3 years <span class="pp">|</span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Combination and metric <span class="pp">|</span> <span class="in">`combine = "mean"`</span>, <span class="in">`metric = "mean"`</span> <span class="pp">|</span></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> HCR <span class="pp">|</span> <span class="in">`hockeystick.hcr`</span>; <span class="in">`hockeystick.hcr_rob`</span> in multi-stock robustness runs <span class="pp">|</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> How the indices are combined <span class="pp">|</span> Mean (<span class="in">`combine = "mean"`</span>, <span class="in">`metric = "mean"`</span>) <span class="pp">|</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Harvest control rule <span class="pp">|</span> Hockeystick (<span class="in">`hockeystick.hcr`</span>); multi-stock testing uses an equivalent corrected function <span class="pp">|</span></span>
 <span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Output <span class="pp">|</span> Catch <span class="pp">|</span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Implementation <span class="pp">|</span> <span class="in">`split.is`</span>, using last-five-year catch proportions <span class="pp">|</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Catch allocation <span class="pp">|</span> Split among fisheries using their average catch proportions over the last five years (<span class="in">`split.is`</span>) <span class="pp">|</span></span>
 <span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="fu">## HCR parameters</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="fu">## Harvest control rule parameters</span></span>
 <span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Parameter <span class="pp">|</span> Value <span class="pp">|</span></span>
 <span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---:|</span></span>
@@ -1013,48 +1013,49 @@ C_t^* =
 <span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Maximum annual decrease multiplier, <span class="in">`dlow`</span> <span class="pp">|</span> 0.85 <span class="pp">|</span></span>
 <span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Maximum annual increase multiplier, <span class="in">`dupp`</span> <span class="pp">|</span> 1.20 <span class="pp">|</span></span>
 <span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>The trigger is the tuned value reported in the July presentation. Before</span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>formal use it should be read from a frozen control object or normative registry,</span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>not reconstructed by rerunning the tuner.</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>The trigger is the value obtained during tuning and reported in the July</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>presentation. Before formal use it should be copied from the approved CMP</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>record, not recalculated by repeating the tuning exercise.</span>
 <span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="fu">## Rule</span></span>
 <span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>Let $I_t$ be the annual <span class="in">`mean`</span> metric returned by the specified estimator. The</span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>unconstrained catch recommendation $C_t^*$ is</span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>C_t^* =</span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>\begin{cases}</span>
-<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>270, &amp; I_t \le 0.1,<span class="sc">\\</span></span>
-<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>270 + (I_t-0.1)\dfrac{2000-270}{2.12-0.1}, &amp; 0.1 &lt; I_t &lt; 2.12,<span class="sc">\\</span></span>
-<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>2000, &amp; I_t \ge 2.12.</span>
-<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>\end{cases}</span>
-<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>The interannual constraint limits the recommendation to 85%-120% of the</span>
-<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>previous recommendation. In the first application year the current code uses</span>
-<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>1385 as the previous value.</span>
-<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a><span class="fu">## Evidence status</span></span>
-<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>The July presentation identifies MP29 as the optimal hockeystick minimum/limit</span>
-<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>run and reports lower IACC than MP32, with slightly higher short-term catches.</span>
-<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a><span class="in">`model_robustness.R`</span> advances MP29 alongside MP32 across robustness OMs. Final</span>
-<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>adoption still requires complete, reproducible robustness results and an</span>
-<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>approved operational data contract.</span>
-<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>Primary sources: <span class="co">[</span><span class="ot">`model_tune.R`</span><span class="co">](https://github.com/SPRFMO/jmMSE/blob/main/model_tune.R)</span>,</span>
-<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">`model_robustness.R`</span><span class="co">](https://github.com/SPRFMO/jmMSE/blob/main/model_robustness.R)</span>,</span>
-<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>and the <span class="co">[</span><span class="ot">July presentation source</span><span class="co">](https://github.com/SPRFMO/jmMSE/blob/main/doc/presentation/presentation_20260725.Rmd)</span>.</span>
-<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a><span class="fu">## Annual application requirements still to resolve</span></span>
-<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>authoritative provider and annual cutoff for each index;</span>
-<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>precise standardization performed by <span class="in">`cpues.ind`</span> and its package version;</span>
-<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>treatment of missing or revised indices;</span>
-<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>catch units and rounding;</span>
-<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>approved catch-allocation update rule; and</span>
-<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>exceptional-circumstances review and decision process.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>Let $I_t$ be the annual mean of the standardized index information calculated</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>by the specified method. Before applying the annual change limit, the catch</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>recommendation $C_t^*$ is</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>C_t^* =</span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>\begin{cases}</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>270, &amp; I_t \le 0.1,<span class="sc">\\</span></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>270 + (I_t-0.1)\dfrac{2000-270}{2.12-0.1}, &amp; 0.1 &lt; I_t &lt; 2.12,<span class="sc">\\</span></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>2000, &amp; I_t \ge 2.12.</span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>\end{cases}</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>The annual change rule then prevents the recommendation from falling below 85%</span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>or rising above 120% of the previous recommendation. For the first application</span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>year, the current calculation uses 1385 as the previous value.</span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a><span class="fu">## Evidence status</span></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>The July presentation identifies MP29 as the optimal hockeystick minimum/limit</span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>run and reports less year-to-year catch variation (IACC) than MP32, with</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>slightly higher short-term catches. The <span class="in">`jmMSE`</span> robustness analysis carries</span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>MP29 and MP32 forward across alternative operating models. Final adoption still</span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>requires complete, repeatable robustness results and approved annual data rules.</span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>Primary sources: <span class="co">[</span><span class="ot">`model_tune.R`</span><span class="co">](https://github.com/SPRFMO/jmMSE/blob/main/model_tune.R)</span>,</span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">`model_robustness.R`</span><span class="co">](https://github.com/SPRFMO/jmMSE/blob/main/model_robustness.R)</span>,</span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>and the <span class="co">[</span><span class="ot">July presentation source</span><span class="co">](https://github.com/SPRFMO/jmMSE/blob/main/doc/presentation/presentation_20260725.Rmd)</span>.</span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a><span class="fu">## Annual application requirements still to resolve</span></span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>authoritative provider and annual cutoff for each index;</span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>precise index standardization performed by <span class="in">`cpues.ind`</span> and the software version used;</span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>treatment of missing or revised indices;</span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>catch units and rounding;</span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>approved catch-allocation update rule; and</span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>exceptional-circumstances review and decision process.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">

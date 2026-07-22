@@ -17,12 +17,12 @@ endorsement or adoption.
 
 ## Purpose
 
-This site is the durable specification and implementation guide for candidate
-management procedures (CMPs) evaluated for South Pacific jack mackerel. It is
-derived primarily from the current `jmMSE` repository and brings together:
+This site describes the candidate management procedures (CMPs) being evaluated
+for South Pacific jack mackerel. It draws mainly on the current `jmMSE`
+analysis and brings together:
 
 1. the MP29 and MP32 candidate definitions advanced into robustness testing;
-2. the end-to-end MSE workflow;
+2. the full management strategy evaluation (MSE) process;
 3. evidence from tuning, trade-off, and robustness comparisons; and
 4. instructions for applying a selected procedure when new annual data become
    available.
@@ -30,10 +30,10 @@ derived primarily from the current `jmMSE` repository and brings together:
 SCW17 Papers 03, 04, 08, and 09 provide historical context and documentation
 structure, but they do not define the current candidate registry.
 
-The scientific simulation engine remains in
-[`SPRFMO/jmMSE`](https://github.com/SPRFMO/jmMSE). This repository records what
-a CMP is, why it remains under consideration, how it is applied, and which
-version of code and evidence supports it.
+The MSE calculations remain in
+[`SPRFMO/jmMSE`](https://github.com/SPRFMO/jmMSE). This site records what each
+CMP is, why it remains under consideration, how it would be applied, and which
+analysis supports it.
 
 ## Start here
 
@@ -41,20 +41,30 @@ version of code and evidence supports it.
   `jmMSE`, MP29 and MP32.
 - [MP29](cmp/mp29.qmd) and [MP32](cmp/mp32.qmd): candidate-specific rules and
   annual calculation details.
-- [Annual application](application/annual-workflow.qmd): controlled operational
-  sequence from new data to advice.
-- [Slick explorer](application/slick.qmd): validated conversion of MP29/MP32
-  performance outputs for interactive review.
-- [MSE workflow](workflow/mse-flow.qmd): where CMPs fit within the assessment
+- [Annual application](application/annual-workflow.qmd): steps from receiving
+  new data to producing advice.
+- [Slick explorer](application/slick.qmd): view and compare MP29 and MP32 MSE
+  results interactively.
+- [How the MSE work fits together](workflow/mse-flow.qmd): where CMPs fit within the assessment
   and simulation system.
 - [Evidence and history](evidence/scw17-evidence.qmd): current `jmMSE` evidence
   with SCW17 development context.
-- [Traceability](governance/traceability.qmd): source commits, review state, and
-  change control.
+- [Sources and record of changes](governance/traceability.qmd): sources, review status, and a
+  record of changes.
 
 ## Governing principle
 
-The normative CMP specification is separate from explanatory text and MSE
-results. A scientific result may change the status of a candidate, but it does
-not silently change the estimator, HCR, implementation system, parameter
-values, or exceptional-circumstances rules.
+The approved CMP specification is separate from background explanations and
+MSE results. New scientific results may change whether a candidate is retained,
+but they do not automatically change its data inputs, harvest control rule,
+parameter values, catch-allocation method, or exceptional-circumstances rules.
+
+## Terms used on this site
+
+| Term | Meaning |
+|---|---|
+| CMP | Candidate management procedure: the complete rule for turning agreed data into management advice. |
+| HCR | Harvest control rule: the part of a CMP that converts a stock or index indicator into a catch or fishing-effort recommendation. |
+| Operating model (OM) | A simulated description of the stock and fishery used to test a CMP. Alternative OMs represent different plausible assumptions. |
+| Performance measure | A quantity used to compare CMPs, such as catch, spawning biomass, biological risk, or year-to-year catch variation. |
+| IACC | Interannual catch change: a measure of how much catch changes from one year to the next. |

@@ -23,19 +23,19 @@ website:
           - href: cmp/mp32.qmd
             text: MP32 powerramp
           - href: cmp/components.qmd
-            text: MP components
+            text: Parts of a CMP
           - href: cmp/specification-template.qmd
-            text: Specification template
+            text: How to specify a CMP
       - href: application/annual-workflow.qmd
         text: Annual application
       - href: application/slick.qmd
         text: Slick explorer
       - href: workflow/mse-flow.qmd
-        text: MSE workflow
+        text: How MSE fits
       - href: evidence/scw17-evidence.qmd
         text: Evidence
       - href: governance/traceability.qmd
-        text: Traceability
+        text: Sources & changes
   sidebar:
     style: docked
     contents:

@@ -108,6 +108,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
@@ -147,11 +176,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
         <li>
     <a class="dropdown-item" href="../cmp/components.html">
- <span class="dropdown-text">MP components</span></a>
+ <span class="dropdown-text">Parts of a CMP</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../cmp/specification-template.html">
- <span class="dropdown-text">Specification template</span></a>
+ <span class="dropdown-text">How to specify a CMP</span></a>
   </li>  
     </ul>
   </li>
@@ -165,7 +194,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../workflow/mse-flow.html"> 
-<span class="menu-text">MSE workflow</span></a>
+<span class="menu-text">How MSE fits</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../evidence/scw17-evidence.html"> 
@@ -173,7 +202,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../governance/traceability.html"> 
-<span class="menu-text">Traceability</span></a>
+<span class="menu-text">Sources &amp; changes</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -277,7 +306,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../workflow/mse-flow.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">MSE workflow</span></a>
+ <span class="menu-text">How the MSE work fits together</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -289,7 +318,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../governance/traceability.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Traceability and change control</span></a>
+ <span class="menu-text">Sources and record of changes</span></a>
   </div>
 </li>
     </ul>
@@ -302,11 +331,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#status-vocabulary" id="toc-status-vocabulary" class="nav-link active" data-scroll-target="#status-vocabulary"><span class="header-section-number">1</span> Status vocabulary</a></li>
+  <li><a href="#meaning-of-the-status-labels" id="toc-meaning-of-the-status-labels" class="nav-link active" data-scroll-target="#meaning-of-the-status-labels"><span class="header-section-number">1</span> Meaning of the status labels</a></li>
   <li><a href="#candidate-pages" id="toc-candidate-pages" class="nav-link" data-scroll-target="#candidate-pages"><span class="header-section-number">2</span> Candidate pages</a></li>
-  <li><a href="#development-lineage" id="toc-development-lineage" class="nav-link" data-scroll-target="#development-lineage"><span class="header-section-number">3</span> Development lineage</a></li>
-  <li><a href="#interpretation-safeguards" id="toc-interpretation-safeguards" class="nav-link" data-scroll-target="#interpretation-safeguards"><span class="header-section-number">4</span> Interpretation safeguards</a></li>
-  <li><a href="#promotion-requirement" id="toc-promotion-requirement" class="nav-link" data-scroll-target="#promotion-requirement"><span class="header-section-number">5</span> Promotion requirement</a></li>
+  <li><a href="#how-these-candidates-were-developed" id="toc-how-these-candidates-were-developed" class="nav-link" data-scroll-target="#how-these-candidates-were-developed"><span class="header-section-number">3</span> How these candidates were developed</a></li>
+  <li><a href="#points-to-keep-in-mind" id="toc-points-to-keep-in-mind" class="nav-link" data-scroll-target="#points-to-keep-in-mind"><span class="header-section-number">4</span> Points to keep in mind</a></li>
+  <li><a href="#requirements-before-changing-a-candidates-status" id="toc-requirements-before-changing-a-candidates-status" class="nav-link" data-scroll-target="#requirements-before-changing-a-candidates-status"><span class="header-section-number">5</span> Requirements before changing a candidate’s status</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/SPRFMO/jmMSE26/blob/main/cmp/index.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/SPRFMO/jmMSE26/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -343,8 +372,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="paper-title">
 Candidate Management Procedure Registry
 </div>
-<section id="status-vocabulary" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="status-vocabulary"><span class="header-section-number">1</span> Status vocabulary</h2>
+<section id="meaning-of-the-status-labels" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="meaning-of-the-status-labels"><span class="header-section-number">1</span> Meaning of the status labels</h2>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 50%">
@@ -363,7 +392,7 @@ Candidate Management Procedure Registry
 </tr>
 <tr class="even">
 <td>Advanced candidate</td>
-<td>Selected in the current analytical workflow for robustness testing; formal status not yet confirmed.</td>
+<td>Selected in the current analysis for robustness testing; formal status not yet confirmed.</td>
 </tr>
 <tr class="odd">
 <td>Shortlisted</td>
@@ -379,11 +408,11 @@ Candidate Management Procedure Registry
 </tr>
 <tr class="even">
 <td>Retired</td>
-<td>Preserved for traceability but no longer under active consideration.</td>
+<td>Kept in the historical record but no longer under active consideration.</td>
 </tr>
 </tbody>
 </table>
-<p>The primary registry is derived from the merged <code>jmMSE</code> <code>main</code> branch. <code>model_robustness.R</code> selects <code>tun29</code> and <code>tun32</code> for robustness evaluation, and the 25 July 2026 presentation describes MP29 as a potentially good candidate and MP32 as the optimal powerramp run. They are <strong>advanced candidates</strong>, not adopted procedures.</p>
+<p>The primary registry comes from the current approved working version of <code>jmMSE</code>. Its robustness-testing script selects <code>tun29</code> and <code>tun32</code>, and the 25 July 2026 presentation describes MP29 as a potentially good candidate and MP32 as the optimal powerramp run. They are <strong>advanced candidates</strong>, not adopted procedures.</p>
 <div class="cell">
 <div id="tbl-cmp-registry" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
@@ -495,9 +524,9 @@ Table&nbsp;1: Current advanced candidates derived from jmMSE. Tuned trigger valu
 <li><a href="../cmp/mp32.html">MP32</a>: empirical all-index estimator plus power-ramp HCR.</li>
 </ul>
 </section>
-<section id="development-lineage" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="development-lineage"><span class="header-section-number">3</span> Development lineage</h2>
-<p>The <code>jmMSE</code> tuning sequence tested targets, minimum catches, limit values, HCR families, and estimator variants.</p>
+<section id="how-these-candidates-were-developed" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="how-these-candidates-were-developed"><span class="header-section-number">3</span> How these candidates were developed</h2>
+<p>The <code>jmMSE</code> analysis tested alternative target catches, minimum catches, limit values, harvest control rules, and ways of calculating the stock indicator.</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 33%">
@@ -535,29 +564,29 @@ Table&nbsp;1: Current advanced candidates derived from jmMSE. Tuned trigger valu
 <tr class="odd">
 <td>MP35-40</td>
 <td>CPUE-only, shortcut-assessment, and perfect-information variants</td>
-<td>Estimator sensitivity and diagnostic comparisons</td>
+<td>Tests of how the source of stock information affects results</td>
 </tr>
 <tr class="even">
 <td>MP41-42</td>
-<td>500-iteration versions of the MP29/MP32 designs</td>
-<td>Replication-count sensitivity, not distinct operational CMPs</td>
+<td>500-replicate versions of the MP29/MP32 designs</td>
+<td>Test of whether the number of simulation replicates affects results; not separate CMPs</td>
 </tr>
 </tbody>
 </table>
 <p>The earlier SCW17/Paper-09 rows are retained in source history as workshop test proposals. They are not the primary candidate list for this site.</p>
 </section>
-<section id="interpretation-safeguards" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="interpretation-safeguards"><span class="header-section-number">4</span> Interpretation safeguards</h2>
+<section id="points-to-keep-in-mind" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="points-to-keep-in-mind"><span class="header-section-number">4</span> Points to keep in mind</h2>
 <ul>
-<li><code>min</code>, <code>trigger</code>, <code>target</code>, and <code>initial</code> are catch quantities in the current code and presentation; final normative units must be stated before adoption.</li>
-<li><code>dlow</code> and <code>dupp</code> are interannual lower and upper multipliers where supplied.</li>
+<li><code>min</code>, <code>trigger</code>, <code>target</code>, and <code>initial</code> are catch quantities in the current code and presentation; final units must be stated before adoption.</li>
+<li><code>dlow</code> and <code>dupp</code> limit the decrease and increase in catch advice from one year to the next.</li>
 <li>Index names match <code>model_tune.R</code> exactly.</li>
-<li>The trigger was tuned to a 0.60 probability for <code>SB0green</code> over 2041-2050 on the reference setup. It is part of the candidate version and should not be silently retuned during annual application.</li>
+<li>The trigger was tuned so that the probability of being in the Kobe green zone (<code>SB0green</code>: spawning biomass above <span class="math inline">\(SB_{MSY}\)</span> and fishing mortality below <span class="math inline">\(F_{MSY}\)</span>) was 0.60 over 2041-2050 in the reference analysis. The resulting trigger is part of the candidate definition and should not be recalculated during annual application.</li>
 </ul>
 </section>
-<section id="promotion-requirement" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="promotion-requirement"><span class="header-section-number">5</span> Promotion requirement</h2>
-<p>A candidate can move beyond test status only when it has a completed <a href="../cmp/specification-template.html">specification</a>, reproducible performance evidence, an implementation test using frozen inputs, and a decision record identifying the approving body and date.</p>
+<section id="requirements-before-changing-a-candidates-status" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="requirements-before-changing-a-candidates-status"><span class="header-section-number">5</span> Requirements before changing a candidate’s status</h2>
+<p>A candidate can move beyond test status only when it has a completed <a href="../cmp/specification-template.html">specification</a>, repeatable performance results, a calculation test using saved inputs, and a decision record identifying the approving body and date.</p>
 
 
 <!-- -->
@@ -1041,19 +1070,19 @@ Table&nbsp;1: Current advanced candidates derived from jmMSE. Tuned trigger valu
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">"paper-title"</span><span class="dt">&gt;</span>Candidate Management Procedure Registry<span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">## Status vocabulary</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">## Meaning of the status labels</span></span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Status <span class="pp">|</span> Meaning <span class="pp">|</span></span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|</span></span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Test candidate <span class="pp">|</span> Defined sufficiently for testing; not shortlisted or adopted. <span class="pp">|</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Advanced candidate <span class="pp">|</span> Selected in the current analytical workflow for robustness testing; formal status not yet confirmed. <span class="pp">|</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Advanced candidate <span class="pp">|</span> Selected in the current analysis for robustness testing; formal status not yet confirmed. <span class="pp">|</span></span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Shortlisted <span class="pp">|</span> Retained by the working group for formal comparative evaluation. <span class="pp">|</span></span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Recommended <span class="pp">|</span> Supported by a documented working-group recommendation. <span class="pp">|</span></span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Adopted <span class="pp">|</span> Formally adopted through the applicable SPRFMO process. <span class="pp">|</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Retired <span class="pp">|</span> Preserved for traceability but no longer under active consideration. <span class="pp">|</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Retired <span class="pp">|</span> Kept in the historical record but no longer under active consideration. <span class="pp">|</span></span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>The primary registry is derived from the merged <span class="in">`jmMSE`</span> <span class="in">`main`</span> branch.</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="in">`model_robustness.R`</span> selects <span class="in">`tun29`</span> and <span class="in">`tun32`</span> for robustness evaluation, and</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>The primary registry comes from the current approved working version of</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="in">`jmMSE`</span>. Its robustness-testing script selects <span class="in">`tun29`</span> and <span class="in">`tun32`</span>, and</span>
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>the 25 July 2026 presentation describes MP29 as a potentially good candidate</span>
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>and MP32 as the optimal powerramp run. They are **advanced candidates**, not</span>
 <span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>adopted procedures.</span>
@@ -1072,10 +1101,10 @@ Table&nbsp;1: Current advanced candidates derived from jmMSE. Tuned trigger valu
 <span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">MP29</span><span class="co">](mp29.qmd)</span>: empirical all-index estimator plus hockeystick HCR.</span>
 <span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">MP32</span><span class="co">](mp32.qmd)</span>: empirical all-index estimator plus power-ramp HCR.</span>
 <span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="fu">## Development lineage</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="fu">## How these candidates were developed</span></span>
 <span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>The <span class="in">`jmMSE`</span> tuning sequence tested targets, minimum catches, limit values, HCR</span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>families, and estimator variants.</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>The <span class="in">`jmMSE`</span> analysis tested alternative target catches, minimum catches, limit</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>values, harvest control rules, and ways of calculating the stock indicator.</span>
 <span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Run <span class="pp">|</span> Role in development <span class="pp">|</span> July presentation interpretation <span class="pp">|</span></span>
 <span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|</span></span>
@@ -1083,28 +1112,31 @@ Table&nbsp;1: Current advanced candidates derived from jmMSE. Tuned trigger valu
 <span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> MP25 <span class="pp">|</span> Powerramp, target 1500, no minimum/limit <span class="pp">|</span> Potential candidate before minimum/limit refinement <span class="pp">|</span></span>
 <span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> MP29 <span class="pp">|</span> Hockeystick with minimum 270 and limit 0.1 <span class="pp">|</span> Optimal hockeystick run; advanced to robustness tests <span class="pp">|</span></span>
 <span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> MP32 <span class="pp">|</span> Powerramp with minimum 270 and limit 0.1 <span class="pp">|</span> Optimal powerramp run; advanced to robustness tests <span class="pp">|</span></span>
-<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> MP35-40 <span class="pp">|</span> CPUE-only, shortcut-assessment, and perfect-information variants <span class="pp">|</span> Estimator sensitivity and diagnostic comparisons <span class="pp">|</span></span>
-<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> MP41-42 <span class="pp">|</span> 500-iteration versions of the MP29/MP32 designs <span class="pp">|</span> Replication-count sensitivity, not distinct operational CMPs <span class="pp">|</span></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> MP35-40 <span class="pp">|</span> CPUE-only, shortcut-assessment, and perfect-information variants <span class="pp">|</span> Tests of how the source of stock information affects results <span class="pp">|</span></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> MP41-42 <span class="pp">|</span> 500-replicate versions of the MP29/MP32 designs <span class="pp">|</span> Test of whether the number of simulation replicates affects results; not separate CMPs <span class="pp">|</span></span>
 <span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>The earlier SCW17/Paper-09 rows are retained in source history as workshop test</span>
 <span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>proposals. They are not the primary candidate list for this site.</span>
 <span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a><span class="fu">## Interpretation safeguards</span></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a><span class="fu">## Points to keep in mind</span></span>
 <span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`min`</span>, <span class="in">`trigger`</span>, <span class="in">`target`</span>, and <span class="in">`initial`</span> are catch quantities in the current</span>
-<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>  code and presentation; final normative units must be stated before adoption.</span>
-<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`dlow`</span> and <span class="in">`dupp`</span> are interannual lower and upper multipliers where supplied.</span>
-<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Index names match <span class="in">`model_tune.R`</span> exactly.</span>
-<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The trigger was tuned to a 0.60 probability for <span class="in">`SB0green`</span> over 2041-2050 on</span>
-<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>  the reference setup. It is part of the candidate version and should not be</span>
-<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>  silently retuned during annual application.</span>
-<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a><span class="fu">## Promotion requirement</span></span>
-<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>A candidate can move beyond test status only when it has a completed</span>
-<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">specification</span><span class="co">](specification-template.qmd)</span>, reproducible performance evidence,</span>
-<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>an implementation test using frozen inputs, and a decision record identifying</span>
-<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>the approving body and date.</span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>  code and presentation; final units must be stated before adoption.</span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`dlow`</span> and <span class="in">`dupp`</span> limit the decrease and increase in catch advice from one</span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>  year to the next.</span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Index names match <span class="in">`model_tune.R`</span> exactly.</span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The trigger was tuned so that the probability of being in the Kobe green</span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>  zone (<span class="in">`SB0green`</span>: spawning biomass above $SB_{MSY}$ and fishing mortality</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>  below $F_{MSY}$) was 0.60 over 2041-2050 in the reference analysis. The</span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>  resulting trigger is part of the candidate definition and should not be</span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>  recalculated during annual application.</span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a><span class="fu">## Requirements before changing a candidate's status</span></span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>A candidate can move beyond test status only when it has a completed</span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">specification</span><span class="co">](specification-template.qmd)</span>, repeatable performance results,</span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a>a calculation test using saved inputs, and a decision record identifying</span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>the approving body and date.</span>
 </code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

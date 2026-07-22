@@ -108,6 +108,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
@@ -147,11 +176,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
         <li>
     <a class="dropdown-item" href="../cmp/components.html">
- <span class="dropdown-text">MP components</span></a>
+ <span class="dropdown-text">Parts of a CMP</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../cmp/specification-template.html">
- <span class="dropdown-text">Specification template</span></a>
+ <span class="dropdown-text">How to specify a CMP</span></a>
   </li>  
     </ul>
   </li>
@@ -165,7 +194,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../workflow/mse-flow.html"> 
-<span class="menu-text">MSE workflow</span></a>
+<span class="menu-text">How MSE fits</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../evidence/scw17-evidence.html"> 
@@ -173,7 +202,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../governance/traceability.html"> 
-<span class="menu-text">Traceability</span></a>
+<span class="menu-text">Sources &amp; changes</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -277,7 +306,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../workflow/mse-flow.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">MSE workflow</span></a>
+ <span class="menu-text">How the MSE work fits together</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -289,7 +318,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../governance/traceability.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Traceability and change control</span></a>
+ <span class="menu-text">Sources and record of changes</span></a>
   </div>
 </li>
     </ul>
@@ -302,10 +331,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#required-input" id="toc-required-input" class="nav-link active" data-scroll-target="#required-input"><span class="header-section-number">1</span> Required input</a></li>
-  <li><a href="#build-the-slick-object" id="toc-build-the-slick-object" class="nav-link" data-scroll-target="#build-the-slick-object"><span class="header-section-number">2</span> Build the Slick object</a></li>
+  <li><a href="#what-is-needed" id="toc-what-is-needed" class="nav-link active" data-scroll-target="#what-is-needed"><span class="header-section-number">1</span> What is needed</a></li>
+  <li><a href="#prepare-the-slick-file" id="toc-prepare-the-slick-file" class="nav-link" data-scroll-target="#prepare-the-slick-file"><span class="header-section-number">2</span> Prepare the Slick file</a></li>
   <li><a href="#inspect-or-launch" id="toc-inspect-or-launch" class="nav-link" data-scroll-target="#inspect-or-launch"><span class="header-section-number">3</span> Inspect or launch</a></li>
-  <li><a href="#reproducibility-record" id="toc-reproducibility-record" class="nav-link" data-scroll-target="#reproducibility-record"><span class="header-section-number">4</span> Reproducibility record</a></li>
+  <li><a href="#what-to-save-with-the-slick-file" id="toc-what-to-save-with-the-slick-file" class="nav-link" data-scroll-target="#what-to-save-with-the-slick-file"><span class="header-section-number">4</span> What to save with the Slick file</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/SPRFMO/jmMSE26/blob/main/application/slick.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/SPRFMO/jmMSE26/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -340,22 +369,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
 </div>
 <div class="paper-title">
-Load the MP29/MP32 Candidate Set into Slick
+Explore MP29 and MP32 Results in Slick
 </div>
-<p>The project-local adapter <code>R/build_candidate_slick.R</code> converts current <code>jmMSE</code> performance outputs into a validated Slick object. It does not run the MSE and does not fabricate missing results.</p>
-<section id="required-input" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="required-input"><span class="header-section-number">1</span> Required input</h2>
-<p>Use either:</p>
+<p>Slick is an interactive tool for exploring MSE results. The supplied conversion script prepares MP29 and MP32 results for Slick after the MSE runs have been completed. It does not run the MSE and it does not fill in missing results.</p>
+<section id="what-is-needed" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="what-is-needed"><span class="header-section-number">1</span> What is needed</h2>
+<p>The conversion can use either:</p>
 <ul>
-<li>a long performance <code>data.frame</code>/<code>data.table</code>; or</li>
-<li>an <code>FLmses</code>-like S4 object with a populated <code>performance</code> slot.</li>
+<li>the table of performance results produced by <code>jmMSE</code>; or</li>
+<li>a saved <code>jmMSE</code> results object that already contains those performance results.</li>
 </ul>
-<p>The input must contain MP29 and MP32 runs and the columns <code>run</code>, <code>om</code>, <code>biol</code>, <code>statistic</code>, <code>year</code>, <code>iter</code>, and <code>data</code>. At minimum, statistics <code>SBMSY</code>, <code>FMSY</code>, and <code>C</code> must be present. <code>IACC</code> is included when available.</p>
-<p>The current checkout does not yet contain MP29/MP32 result artifacts in <code>model/tune/</code> or <code>model/robustness/</code>; the available top-level tuning artifacts end at MP22. Run the current candidate/robustness workflow before attempting the production export.</p>
+<p>The results must include MP29 and MP32, the operating-model and stock names, simulation year and replicate, and the calculated performance measures. At a minimum, the results must include spawning biomass relative to <span class="math inline">\(SB_{MSY}\)</span>, fishing mortality relative to <span class="math inline">\(F_{MSY}\)</span>, and catch. Interannual catch change (IACC) is included when available.</p>
+<p>The current working folder does not yet contain saved MP29/MP32 results in <code>model/tune/</code> or <code>model/robustness/</code>; the available top-level tuning artifacts end at MP22. Run the current candidate and robustness analyses before attempting the final Slick export.</p>
 </section>
-<section id="build-the-slick-object" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="build-the-slick-object"><span class="header-section-number">2</span> Build the Slick object</h2>
-<p>From the <code>jmMSE26</code> repository root:</p>
+<section id="prepare-the-slick-file" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="prepare-the-slick-file"><span class="header-section-number">2</span> Prepare the Slick file</h2>
+<p>From the main <code>jmMSE26</code> folder:</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Show implementation detail</summary>
@@ -367,14 +396,14 @@ Load the MP29/MP32 Candidate Set into Slick
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<p>The builder creates:</p>
+<p>The script organizes the results by:</p>
 <ul>
-<li><code>MPs()</code> metadata for MP29 and MP32 from the registry;</li>
-<li><code>OMs()</code> metadata for each OM/stock combination;</li>
-<li><code>Timeseries()</code> values ordered as iteration x OM x MP x indicator x year; and</li>
-<li><code>Kobe()</code> values for <code>SB/SBMSY</code> and <code>F/FMSY</code> over projection years.</li>
+<li>management procedure (MP29 or MP32);</li>
+<li>operating model and stock;</li>
+<li>simulation replicate and year; and</li>
+<li>performance measure, including Kobe-plot values for <span class="math inline">\(SB/SB_{MSY}\)</span> and <span class="math inline">\(F/F_{MSY}\)</span>.</li>
 </ul>
-<p>It calls <code>Check()</code> on the time-series, Kobe, and final Slick objects, calls <code>methods::validObject()</code>, and writes the <code>.slick</code> file only after validation.</p>
+<p>Before saving the Slick file, the script checks that the expected dimensions and labels agree. The technical checks are shown in the code for analysts who maintain the export.</p>
 </section>
 <section id="inspect-or-launch" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="inspect-or-launch"><span class="header-section-number">3</span> Inspect or launch</h2>
@@ -395,9 +424,9 @@ Load the MP29/MP32 Candidate Set into Slick
 </details>
 </div>
 </section>
-<section id="reproducibility-record" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="reproducibility-record"><span class="header-section-number">4</span> Reproducibility record</h2>
-<p>Archive the <code>.slick</code> file together with the source performance artifact, its checksum, the <code>jmMSE</code> commit, the <code>jmMSE26</code> commit, and the R package versions.</p>
+<section id="what-to-save-with-the-slick-file" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="what-to-save-with-the-slick-file"><span class="header-section-number">4</span> What to save with the Slick file</h2>
+<p>Save the Slick file together with the original performance results, their digital fingerprint, the exact saved versions of <code>jmMSE</code> and <code>jmMSE26</code>, and the versions of the R packages used.</p>
 
 
 <!-- -->
@@ -868,8 +897,8 @@ Load the MP29/MP32 Candidate Set into Slick
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../workflow/mse-flow.html" class="pagination-link" aria-label="MSE workflow">
-        <span class="nav-page-text">MSE workflow</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../workflow/mse-flow.html" class="pagination-link" aria-label="How the MSE work fits together">
+        <span class="nav-page-text">How the MSE work fits together</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
@@ -879,73 +908,78 @@ Load the MP29/MP32 Candidate Set into Slick
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>{{&lt; include ../_includes/sprfmo-banner.qmd &gt;}}</span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">"paper-title"</span><span class="dt">&gt;</span>Load the MP29/MP32 Candidate Set into Slick<span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">"paper-title"</span><span class="dt">&gt;</span>Explore MP29 and MP32 Results in Slick<span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>The project-local adapter <span class="in">`R/build_candidate_slick.R`</span> converts current <span class="in">`jmMSE`</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>performance outputs into a validated Slick object. It does not run the MSE and</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>does not fabricate missing results.</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>Slick is an interactive tool for exploring MSE results. The supplied conversion</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>script prepares MP29 and MP32 results for Slick after the MSE runs have been</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>completed. It does not run the MSE and it does not fill in missing results.</span>
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="fu">## Required input</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="fu">## What is needed</span></span>
 <span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>Use either:</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>The conversion can use either:</span>
 <span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>a long performance <span class="in">`data.frame`</span>/<span class="in">`data.table`</span>; or</span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>an <span class="in">`FLmses`</span>-like S4 object with a populated <span class="in">`performance`</span> slot.</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>the table of performance results produced by <span class="in">`jmMSE`</span>; or</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>a saved <span class="in">`jmMSE`</span> results object that already contains those performance results.</span>
 <span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>The input must contain MP29 and MP32 runs and the columns <span class="in">`run`</span>, <span class="in">`om`</span>, <span class="in">`biol`</span>,</span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="in">`statistic`</span>, <span class="in">`year`</span>, <span class="in">`iter`</span>, and <span class="in">`data`</span>. At minimum, statistics <span class="in">`SBMSY`</span>, <span class="in">`FMSY`</span>,</span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>and <span class="in">`C`</span> must be present. <span class="in">`IACC`</span> is included when available.</span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>The current checkout does not yet contain MP29/MP32 result artifacts in</span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="in">`model/tune/`</span> or <span class="in">`model/robustness/`</span>; the available top-level tuning artifacts</span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>end at MP22. Run the current candidate/robustness workflow before attempting</span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>the production export.</span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a><span class="fu">## Build the Slick object</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>The results must include MP29 and MP32, the operating-model and stock names,</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>simulation year and replicate, and the calculated performance measures. At a</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>minimum, the results must include spawning biomass relative to $SB_{MSY}$,</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>fishing mortality relative to $F_{MSY}$, and catch. Interannual catch change</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>(IACC) is included when available.</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>The current working folder does not yet contain saved MP29/MP32 results in</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="in">`model/tune/`</span> or <span class="in">`model/robustness/`</span>; the available top-level tuning artifacts</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>end at MP22. Run the current candidate and robustness analyses before attempting</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>the final Slick export.</span>
 <span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>From the <span class="in">`jmMSE26`</span> repository root:</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a><span class="fu">## Prepare the Slick file</span></span>
 <span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"R/build_candidate_slick.R"</span>)</span>
-<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>slick <span class="ot">&lt;-</span> <span class="fu">build_candidate_slick</span>(</span>
-<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>  <span class="at">performance_file =</span> <span class="st">"../jmMSE/model/robustness/robs.rds"</span>,</span>
-<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>  <span class="at">out_file =</span> <span class="st">"output/jm_candidates.slick"</span></span>
-<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>The builder creates:</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>From the main <span class="in">`jmMSE26`</span> folder:</span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"R/build_candidate_slick.R"</span>)</span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>slick <span class="ot">&lt;-</span> <span class="fu">build_candidate_slick</span>(</span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>  <span class="at">performance_file =</span> <span class="st">"../jmMSE/model/robustness/robs.rds"</span>,</span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>  <span class="at">out_file =</span> <span class="st">"output/jm_candidates.slick"</span></span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`MPs()`</span> metadata for MP29 and MP32 from the registry;</span>
-<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`OMs()`</span> metadata for each OM/stock combination;</span>
-<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`Timeseries()`</span> values ordered as iteration x OM x MP x indicator x year; and</span>
-<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`Kobe()`</span> values for <span class="in">`SB/SBMSY`</span> and <span class="in">`F/FMSY`</span> over projection years.</span>
-<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a>It calls <span class="in">`Check()`</span> on the time-series, Kobe, and final Slick objects, calls</span>
-<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a><span class="in">`methods::validObject()`</span>, and writes the <span class="in">`.slick`</span> file only after validation.</span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a>The script organizes the results by:</span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>management procedure (MP29 or MP32);</span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>operating model and stock;</span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>simulation replicate and year; and</span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>performance measure, including Kobe-plot values for $SB/SB_{MSY}$ and</span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a>  $F/F_{MSY}$.</span>
 <span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a><span class="fu">## Inspect or launch</span></span>
-<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Slick)</span>
-<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a>slick <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"output/jm_candidates.slick"</span>)</span>
-<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a><span class="fu">Check</span>(slick)</span>
-<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a>methods<span class="sc">::</span><span class="fu">validObject</span>(slick)</span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a>Before saving the Slick file, the script checks that the expected dimensions</span>
+<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a>and labels agree. The technical checks are shown in the code for analysts who</span>
+<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a>maintain the export.</span>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a><span class="fu">## Inspect or launch</span></span>
+<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Slick)</span>
 <span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(<span class="fu">Value</span>(<span class="fu">Timeseries</span>(slick)))</span>
-<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a><span class="fu">Metadata</span>(<span class="fu">MPs</span>(slick))</span>
-<span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a><span class="fu">Design</span>(slick)</span>
+<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a>slick <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"output/jm_candidates.slick"</span>)</span>
+<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a><span class="fu">Check</span>(slick)</span>
+<span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a>methods<span class="sc">::</span><span class="fu">validObject</span>(slick)</span>
 <span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a><span class="fu">App</span>(<span class="at">slick =</span> slick)</span>
-<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a><span class="fu">## Reproducibility record</span></span>
-<span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a>Archive the <span class="in">`.slick`</span> file together with the source performance artifact, its</span>
-<span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a>checksum, the <span class="in">`jmMSE`</span> commit, the <span class="in">`jmMSE26`</span> commit, and the R package versions.</span>
+<span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(<span class="fu">Value</span>(<span class="fu">Timeseries</span>(slick)))</span>
+<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a><span class="fu">Metadata</span>(<span class="fu">MPs</span>(slick))</span>
+<span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a><span class="fu">Design</span>(slick)</span>
+<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a><span class="fu">App</span>(<span class="at">slick =</span> slick)</span>
+<span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-78"><a href="#cb3-78" aria-hidden="true" tabindex="-1"></a><span class="fu">## What to save with the Slick file</span></span>
+<span id="cb3-79"><a href="#cb3-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-80"><a href="#cb3-80" aria-hidden="true" tabindex="-1"></a>Save the Slick file together with the original performance results, their</span>
+<span id="cb3-81"><a href="#cb3-81" aria-hidden="true" tabindex="-1"></a>digital fingerprint, the exact saved versions of <span class="in">`jmMSE`</span> and <span class="in">`jmMSE26`</span>, and the</span>
+<span id="cb3-82"><a href="#cb3-82" aria-hidden="true" tabindex="-1"></a>versions of the R packages used.</span>
 </code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

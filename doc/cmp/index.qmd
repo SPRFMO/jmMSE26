@@ -6,19 +6,19 @@ title: "CMP registry"
 
 <div class="paper-title">Candidate Management Procedure Registry</div>
 
-## Status vocabulary
+## Meaning of the status labels
 
 | Status | Meaning |
 |---|---|
 | Test candidate | Defined sufficiently for testing; not shortlisted or adopted. |
-| Advanced candidate | Selected in the current analytical workflow for robustness testing; formal status not yet confirmed. |
+| Advanced candidate | Selected in the current analysis for robustness testing; formal status not yet confirmed. |
 | Shortlisted | Retained by the working group for formal comparative evaluation. |
 | Recommended | Supported by a documented working-group recommendation. |
 | Adopted | Formally adopted through the applicable SPRFMO process. |
-| Retired | Preserved for traceability but no longer under active consideration. |
+| Retired | Kept in the historical record but no longer under active consideration. |
 
-The primary registry is derived from the merged `jmMSE` `main` branch.
-`model_robustness.R` selects `tun29` and `tun32` for robustness evaluation, and
+The primary registry comes from the current approved working version of
+`jmMSE`. Its robustness-testing script selects `tun29` and `tun32`, and
 the 25 July 2026 presentation describes MP29 as a potentially good candidate
 and MP32 as the optimal powerramp run. They are **advanced candidates**, not
 adopted procedures.
@@ -37,10 +37,10 @@ knitr::kable(registry)
 - [MP29](mp29.qmd): empirical all-index estimator plus hockeystick HCR.
 - [MP32](mp32.qmd): empirical all-index estimator plus power-ramp HCR.
 
-## Development lineage
+## How these candidates were developed
 
-The `jmMSE` tuning sequence tested targets, minimum catches, limit values, HCR
-families, and estimator variants.
+The `jmMSE` analysis tested alternative target catches, minimum catches, limit
+values, harvest control rules, and ways of calculating the stock indicator.
 
 | Run | Role in development | July presentation interpretation |
 |---|---|---|
@@ -48,25 +48,28 @@ families, and estimator variants.
 | MP25 | Powerramp, target 1500, no minimum/limit | Potential candidate before minimum/limit refinement |
 | MP29 | Hockeystick with minimum 270 and limit 0.1 | Optimal hockeystick run; advanced to robustness tests |
 | MP32 | Powerramp with minimum 270 and limit 0.1 | Optimal powerramp run; advanced to robustness tests |
-| MP35-40 | CPUE-only, shortcut-assessment, and perfect-information variants | Estimator sensitivity and diagnostic comparisons |
-| MP41-42 | 500-iteration versions of the MP29/MP32 designs | Replication-count sensitivity, not distinct operational CMPs |
+| MP35-40 | CPUE-only, shortcut-assessment, and perfect-information variants | Tests of how the source of stock information affects results |
+| MP41-42 | 500-replicate versions of the MP29/MP32 designs | Test of whether the number of simulation replicates affects results; not separate CMPs |
 
 The earlier SCW17/Paper-09 rows are retained in source history as workshop test
 proposals. They are not the primary candidate list for this site.
 
-## Interpretation safeguards
+## Points to keep in mind
 
 - `min`, `trigger`, `target`, and `initial` are catch quantities in the current
-  code and presentation; final normative units must be stated before adoption.
-- `dlow` and `dupp` are interannual lower and upper multipliers where supplied.
+  code and presentation; final units must be stated before adoption.
+- `dlow` and `dupp` limit the decrease and increase in catch advice from one
+  year to the next.
 - Index names match `model_tune.R` exactly.
-- The trigger was tuned to a 0.60 probability for `SB0green` over 2041-2050 on
-  the reference setup. It is part of the candidate version and should not be
-  silently retuned during annual application.
+- The trigger was tuned so that the probability of being in the Kobe green
+  zone (`SB0green`: spawning biomass above $SB_{MSY}$ and fishing mortality
+  below $F_{MSY}$) was 0.60 over 2041-2050 in the reference analysis. The
+  resulting trigger is part of the candidate definition and should not be
+  recalculated during annual application.
 
-## Promotion requirement
+## Requirements before changing a candidate's status
 
 A candidate can move beyond test status only when it has a completed
-[specification](specification-template.qmd), reproducible performance evidence,
-an implementation test using frozen inputs, and a decision record identifying
+[specification](specification-template.qmd), repeatable performance results,
+a calculation test using saved inputs, and a decision record identifying
 the approving body and date.

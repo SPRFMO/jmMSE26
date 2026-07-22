@@ -4,15 +4,15 @@ title: "Annual input data"
 
 {{< include ../_includes/sprfmo-banner.qmd >}}
 
-<div class="paper-title">Annual Input Data Contract</div>
+<div class="paper-title">Annual Data Requirements</div>
 
 The adopted CMP specification must replace this template with exact series and
-rules. Until then, this page defines the minimum metadata required for each
-candidate test and annual dry run.
+rules. Until then, this page lists the minimum information that must accompany
+the data used in each candidate test or trial annual calculation.
 
 | Field | Requirement |
 |---|---|
-| Series identifier | Exact name used by the implementation |
+| Data-series name | Exact name used in the calculation |
 | Provider | Responsible institution and contact point |
 | Unit and scale | Including any thousands/millions convention |
 | Spatial and fleet coverage | Exact area, fleet, and aggregation |
@@ -21,17 +21,17 @@ candidate test and annual dry run.
 | Revision status | Preliminary, revised, or final |
 | Missing-data rule | Stop, carry forward, omit, or approved substitute |
 | Transformation | Standardization, smoothing, averaging, or rescaling |
-| Checksum | Hash of the archived input file |
+| Digital fingerprint | Checksum used to identify the exact saved file |
 
-## Validation classes
+## Checks to complete before calculation
 
-1. **Schema:** expected columns, types, names, years, and uniqueness.
-2. **Units:** expected magnitude and explicit conversion.
+1. **File structure:** expected columns, names, years, and one value per expected record.
+2. **Units:** expected scale and any unit conversion.
 3. **Completeness:** required years and indices are present.
 4. **Plausibility:** changes outside documented bounds are flagged, not
    automatically corrected.
-5. **Vintage:** the source date and revision state are recorded.
-6. **Identity:** the archived file checksum matches the calculation record.
+5. **Revision status:** the source date and whether the data are preliminary or final are recorded.
+6. **File identity:** the digital fingerprint matches the file named in the calculation record.
 
 Missing or revised data must follow the adopted specification. Analysts should
 not invent a replacement rule during the annual calculation.

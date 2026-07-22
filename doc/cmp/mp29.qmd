@@ -7,8 +7,8 @@ title: "MP29 hockeystick candidate"
 <div class="paper-title">MP29: All-index Hockeystick Candidate</div>
 
 ::: {.status-note}
-**Status:** advanced candidate in the current `jmMSE` workflow. MP29 is not
-documented here as adopted. This page reflects `jmMSE` commit
+**Status:** advanced candidate in the current `jmMSE` analysis. MP29 has not
+been adopted. This page reflects the exact `jmMSE` version
 `94d4d325ba46220f56097b3de90824c83b7cf3cd` and the 25 July 2026 presentation.
 :::
 
@@ -16,17 +16,17 @@ documented here as adopted. This page reflects `jmMSE` commit
 
 | Component | Current definition |
 |---|---|
-| `jmMSE` run | `tun29`, labelled MP29 |
-| Estimator | `cpues.ind` |
+| Name in the `jmMSE` analysis | `tun29`, labelled MP29 |
+| Stock/index indicator | `cpues.ind` |
 | Indices | `Chile_AcousN`, `Chile_CPUE`, `Peru_Artis`, `Peru_Ind`, `Offshore_CPUE` |
 | Reference years | 2019-2023 |
 | Recent-data window | 3 years |
-| Combination and metric | `combine = "mean"`, `metric = "mean"` |
-| HCR | `hockeystick.hcr`; `hockeystick.hcr_rob` in multi-stock robustness runs |
+| How the indices are combined | Mean (`combine = "mean"`, `metric = "mean"`) |
+| Harvest control rule | Hockeystick (`hockeystick.hcr`); multi-stock testing uses an equivalent corrected function |
 | Output | Catch |
-| Implementation | `split.is`, using last-five-year catch proportions |
+| Catch allocation | Split among fisheries using their average catch proportions over the last five years (`split.is`) |
 
-## HCR parameters
+## Harvest control rule parameters
 
 | Parameter | Value |
 |---|---:|
@@ -38,14 +38,15 @@ documented here as adopted. This page reflects `jmMSE` commit
 | Maximum annual decrease multiplier, `dlow` | 0.85 |
 | Maximum annual increase multiplier, `dupp` | 1.20 |
 
-The trigger is the tuned value reported in the July presentation. Before
-formal use it should be read from a frozen control object or normative registry,
-not reconstructed by rerunning the tuner.
+The trigger is the value obtained during tuning and reported in the July
+presentation. Before formal use it should be copied from the approved CMP
+record, not recalculated by repeating the tuning exercise.
 
 ## Rule
 
-Let $I_t$ be the annual `mean` metric returned by the specified estimator. The
-unconstrained catch recommendation $C_t^*$ is
+Let $I_t$ be the annual mean of the standardized index information calculated
+by the specified method. Before applying the annual change limit, the catch
+recommendation $C_t^*$ is
 
 $$
 C_t^* =
@@ -56,17 +57,17 @@ C_t^* =
 \end{cases}
 $$
 
-The interannual constraint limits the recommendation to 85%-120% of the
-previous recommendation. In the first application year the current code uses
-1385 as the previous value.
+The annual change rule then prevents the recommendation from falling below 85%
+or rising above 120% of the previous recommendation. For the first application
+year, the current calculation uses 1385 as the previous value.
 
 ## Evidence status
 
 The July presentation identifies MP29 as the optimal hockeystick minimum/limit
-run and reports lower IACC than MP32, with slightly higher short-term catches.
-`model_robustness.R` advances MP29 alongside MP32 across robustness OMs. Final
-adoption still requires complete, reproducible robustness results and an
-approved operational data contract.
+run and reports less year-to-year catch variation (IACC) than MP32, with
+slightly higher short-term catches. The `jmMSE` robustness analysis carries
+MP29 and MP32 forward across alternative operating models. Final adoption still
+requires complete, repeatable robustness results and approved annual data rules.
 
 Primary sources: [`model_tune.R`](https://github.com/SPRFMO/jmMSE/blob/main/model_tune.R),
 [`model_robustness.R`](https://github.com/SPRFMO/jmMSE/blob/main/model_robustness.R),
@@ -75,7 +76,7 @@ and the [July presentation source](https://github.com/SPRFMO/jmMSE/blob/main/doc
 ## Annual application requirements still to resolve
 
 - authoritative provider and annual cutoff for each index;
-- precise standardization performed by `cpues.ind` and its package version;
+- precise index standardization performed by `cpues.ind` and the software version used;
 - treatment of missing or revised indices;
 - catch units and rounding;
 - approved catch-allocation update rule; and

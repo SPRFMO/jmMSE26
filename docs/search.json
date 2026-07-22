@@ -4,7 +4,7 @@
     "href": "application/input-data.html",
     "title": "Annual input data",
     "section": "",
-    "text": "South Pacific Regional Fisheries Management Organisation\n    \n    Jack Mackerel Candidate Management Procedures\nThe adopted CMP specification must replace this template with exact series and rules. Until then, this page defines the minimum metadata required for each candidate test and annual dry run.",
+    "text": "South Pacific Regional Fisheries Management Organisation\n    \n    Jack Mackerel Candidate Management Procedures\nThe adopted CMP specification must replace this template with exact series and rules. Until then, this page lists the minimum information that must accompany the data used in each candidate test or trial annual calculation.",
     "crumbs": [
       "Home",
       "Applying a CMP",
@@ -12,11 +12,11 @@
     ]
   },
   {
-    "objectID": "application/input-data.html#validation-classes",
-    "href": "application/input-data.html#validation-classes",
+    "objectID": "application/input-data.html#checks-to-complete-before-calculation",
+    "href": "application/input-data.html#checks-to-complete-before-calculation",
     "title": "Annual input data",
-    "section": "1 Validation classes",
-    "text": "1 Validation classes\n\nSchema: expected columns, types, names, years, and uniqueness.\nUnits: expected magnitude and explicit conversion.\nCompleteness: required years and indices are present.\nPlausibility: changes outside documented bounds are flagged, not automatically corrected.\nVintage: the source date and revision state are recorded.\nIdentity: the archived file checksum matches the calculation record.\n\nMissing or revised data must follow the adopted specification. Analysts should not invent a replacement rule during the annual calculation.",
+    "section": "1 Checks to complete before calculation",
+    "text": "1 Checks to complete before calculation\n\nFile structure: expected columns, names, years, and one value per expected record.\nUnits: expected scale and any unit conversion.\nCompleteness: required years and indices are present.\nPlausibility: changes outside documented bounds are flagged, not automatically corrected.\nRevision status: the source date and whether the data are preliminary or final are recorded.\nFile identity: the digital fingerprint matches the file named in the calculation record.\n\nMissing or revised data must follow the adopted specification. Analysts should not invent a replacement rule during the annual calculation.",
     "crumbs": [
       "Home",
       "Applying a CMP",
@@ -28,7 +28,7 @@
     "href": "application/annual-workflow.html",
     "title": "Annual CMP application",
     "section": "",
-    "text": "South Pacific Regional Fisheries Management Organisation\n    \n    Jack Mackerel Candidate Management Procedures\nThis workflow describes how an adopted CMP should be applied as new data become available. Candidate dry runs should follow the same controls.\nflowchart TD\n  A[\"Freeze CMP version and code commit\"] --&gt; B[\"Receive and archive annual data\"]\n  B --&gt; C[\"Validate schema, units, completeness, and vintage\"]\n  C --&gt;|fail| X[\"Stop and document exception\"]\n  C --&gt;|pass| D[\"Calculate estimator and status metric\"]\n  D --&gt; E[\"Apply HCR\"]\n  E --&gt; F[\"Apply interannual and implementation constraints\"]\n  F --&gt; G[\"Run independent or automated cross-check\"]\n  G --&gt;|mismatch| X\n  G --&gt;|match| H[\"Review exceptional-circumstances indicators\"]\n  H --&gt; I[\"Publish advice and complete calculation record\"]",
+    "text": "South Pacific Regional Fisheries Management Organisation\n    \n    Jack Mackerel Candidate Management Procedures\nThis workflow describes how an adopted CMP should be applied as new data become available. Trial calculations for candidate CMPs should follow the same steps.\nflowchart TD\n  A[\"Record the approved CMP and software version\"] --&gt; B[\"Receive and save the annual data\"]\n  B --&gt; C[\"Check names, units, years, completeness, and revision status\"]\n  C --&gt;|problem found| X[\"Stop and document the problem\"]\n  C --&gt;|checks passed| D[\"Calculate the stock or index indicator\"]\n  D --&gt; E[\"Apply the harvest control rule\"]\n  E --&gt; F[\"Apply annual catch limits and allocation rules\"]\n  F --&gt; G[\"Check the calculation independently\"]\n  G --&gt;|results differ| X\n  G --&gt;|results agree| H[\"Review exceptional-circumstances indicators\"]\n  H --&gt; I[\"Publish the advice and calculation record\"]",
     "crumbs": [
       "Home",
       "Applying a CMP",
@@ -36,11 +36,11 @@
     ]
   },
   {
-    "objectID": "application/annual-workflow.html#freeze-the-governing-specification",
-    "href": "application/annual-workflow.html#freeze-the-governing-specification",
+    "objectID": "application/annual-workflow.html#record-which-cmp-is-being-used",
+    "href": "application/annual-workflow.html#record-which-cmp-is-being-used",
     "title": "Annual CMP application",
-    "section": "1 1. Freeze the governing specification",
-    "text": "1 1. Freeze the governing specification\nRecord the CMP identifier and version, repository commit, software environment, management year, analyst, reviewer, and decision record authorizing use.",
+    "section": "1 1. Record which CMP is being used",
+    "text": "1 1. Record which CMP is being used\nRecord the CMP name and version, the exact saved version of the calculation code, the management year, the analyst and reviewer, and the decision that authorized its use.",
     "crumbs": [
       "Home",
       "Applying a CMP",
@@ -48,11 +48,11 @@
     ]
   },
   {
-    "objectID": "application/annual-workflow.html#archive-inputs",
-    "href": "application/annual-workflow.html#archive-inputs",
+    "objectID": "application/annual-workflow.html#save-the-original-data",
+    "href": "application/annual-workflow.html#save-the-original-data",
     "title": "Annual CMP application",
-    "section": "2 2. Archive inputs",
-    "text": "2 2. Archive inputs\nStore the received files unchanged. Record provider, receipt time, data vintage, and checksums. Create a separate validated copy only through a scripted, reviewable transformation.",
+    "section": "2 2. Save the original data",
+    "text": "2 2. Save the original data\nKeep the files exactly as received. Record who provided them, when they were received, and whether they are preliminary or final. Record a digital fingerprint (checksum) so the exact files can be identified later. If the data must be reformatted, keep the original and document every change.",
     "crumbs": [
       "Home",
       "Applying a CMP",
@@ -64,7 +64,7 @@
     "href": "application/annual-workflow.html#validate-before-calculation",
     "title": "Annual CMP application",
     "section": "3 3. Validate before calculation",
-    "text": "3 3. Validate before calculation\nApply the input data contract. A failed required check stops the routine calculation. The failure and any subsequent authorized treatment become part of the permanent annual record.",
+    "text": "3 3. Validate before calculation\nApply the annual data requirements. A failed required check stops the routine calculation. The failure and any subsequent authorized treatment become part of the permanent annual record.",
     "crumbs": [
       "Home",
       "Applying a CMP",
@@ -72,11 +72,11 @@
     ]
   },
   {
-    "objectID": "application/annual-workflow.html#calculate-transparent-intermediates",
-    "href": "application/annual-workflow.html#calculate-transparent-intermediates",
+    "objectID": "application/annual-workflow.html#save-every-important-step-in-the-calculation",
+    "href": "application/annual-workflow.html#save-every-important-step-in-the-calculation",
     "title": "Annual CMP application",
-    "section": "4 4. Calculate transparent intermediates",
-    "text": "4 4. Calculate transparent intermediates\nSave the transformed index values, reference-period values, combined metric, raw HCR recommendation, each constraint adjustment, allocation, rounding step, and final advice. Do not save only the final number.",
+    "section": "4 4. Save every important step in the calculation",
+    "text": "4 4. Save every important step in the calculation\nSave the transformed index values, reference-period values, combined metric, initial HCR recommendation, each annual-limit adjustment, allocation, rounding step, and final advice. Do not save only the final number.",
     "crumbs": [
       "Home",
       "Applying a CMP",
@@ -88,7 +88,7 @@
     "href": "application/annual-workflow.html#cross-check",
     "title": "Annual CMP application",
     "section": "5 5. Cross-check",
-    "text": "5 5. Cross-check\nCompare against a frozen worked example and, where feasible, an independent implementation. Differences outside the specification’s numerical tolerance must be resolved before advice is released.",
+    "text": "5 5. Cross-check\nCompare against a saved worked example and, where feasible, a calculation made independently. Differences larger than the agreed numerical tolerance must be resolved before advice is released.",
     "crumbs": [
       "Home",
       "Applying a CMP",
@@ -112,7 +112,7 @@
     "href": "application/annual-workflow.html#publish-the-calculation-record",
     "title": "Annual CMP application",
     "section": "7 7. Publish the calculation record",
-    "text": "7 7. Publish the calculation record\nThe record should contain inputs and checksums, validation results, intermediate calculations, final advice, software versions, warnings, analyst and reviewer sign-off, and links to any exception decision.",
+    "text": "7 7. Publish the calculation record\nThe record should contain the input files and their digital fingerprints, data checks, intermediate calculations, final advice, software versions, warnings, analyst and reviewer sign-off, and links to any exceptional decision.",
     "crumbs": [
       "Home",
       "Applying a CMP",
@@ -122,34 +122,34 @@
   {
     "objectID": "workflow/mse-flow.html",
     "href": "workflow/mse-flow.html",
-    "title": "MSE workflow",
+    "title": "How the MSE work fits together",
     "section": "",
-    "text": "South Pacific Regional Fisheries Management Organisation\n    \n    Jack Mackerel Candidate Management Procedures\nThis page condenses SCW17/Paper-04. It locates the documentation site within the broader analytical system without duplicating that system.\nflowchart LR\n  J[\"JJM assessment configurations\"] --&gt; C[\"Condition operating models\"]\n  C --&gt; O[\"OM / OEM / IEM bundles\"]\n  O --&gt; M[\"Apply CMPs in jmMSE\"]\n  M --&gt; P[\"Performance metrics and diagnostics\"]\n  P --&gt; D[\"CMP comparison and decision\"]\n  D --&gt; S[\"Versioned specification in jmMSE26\"]\n  S --&gt; Y[\"Annual operational application\"]\n  Y --&gt; V[\"Archived inputs, calculations, and advice\"]",
+    "text": "South Pacific Regional Fisheries Management Organisation\n    \n    Jack Mackerel Candidate Management Procedures\nThis page condenses SCW17/Paper-04. It shows where this documentation site fits within the jack mackerel assessment and MSE work.\nflowchart LR\n  J[\"JJM assessment configurations\"] --&gt; C[\"Condition operating models\"]\n  C --&gt; O[\"Operating models with observation and implementation uncertainty\"]\n  O --&gt; M[\"Test CMPs in jmMSE\"]\n  M --&gt; P[\"Performance metrics and diagnostics\"]\n  P --&gt; D[\"CMP comparison and decision\"]\n  D --&gt; S[\"Approved written CMP definition in jmMSE26\"]\n  S --&gt; Y[\"Apply the CMP when new annual data arrive\"]\n  Y --&gt; V[\"Save the data, calculations, and advice\"]",
     "crumbs": [
       "Home",
-      "MSE workflow"
+      "How the MSE work fits together"
     ]
   },
   {
     "objectID": "workflow/mse-flow.html#separation-of-responsibilities",
     "href": "workflow/mse-flow.html#separation-of-responsibilities",
-    "title": "MSE workflow",
+    "title": "How the MSE work fits together",
     "section": "1 Separation of responsibilities",
-    "text": "1 Separation of responsibilities\njmMSE26 must not become an independent fork of the MSE engine. Executable snippets here are conformance examples or thin wrappers pinned to a jmMSE commit. Operating models, recruitment assumptions, movement assumptions, reference points, and performance metrics remain governed by their scientific source repositories.",
+    "text": "1 Separation of responsibilities\njmMSE26 is the documentation and application guide; it is not a separate MSE model. Any calculation examples here must point to an exact saved version of jmMSE. Operating models, recruitment and movement assumptions, reference points, and performance measures remain defined in their scientific source repositories.",
     "crumbs": [
       "Home",
-      "MSE workflow"
+      "How the MSE work fits together"
     ]
   },
   {
     "objectID": "workflow/mse-flow.html#reproducibility-chain",
     "href": "workflow/mse-flow.html#reproducibility-chain",
-    "title": "MSE workflow",
+    "title": "How the MSE work fits together",
     "section": "2 Reproducibility chain",
-    "text": "2 Reproducibility chain\nEvery performance claim should identify the OM set, CMP version, random-seed policy, iteration count, projection period, metric definition, output artifact, and source commit. Every operational application should identify its input data vintage and the adopted CMP version.",
+    "text": "2 Reproducibility chain\nEvery performance claim should identify the operating models, CMP version, number of simulation replicates, treatment of random variation, projection period, performance-measure definition, saved results, and exact analysis version. Every annual application should identify the data revision used and the adopted CMP version.",
     "crumbs": [
       "Home",
-      "MSE workflow"
+      "How the MSE work fits together"
     ]
   },
   {
@@ -168,7 +168,7 @@
     "href": "evidence/scw17-evidence.html#current-candidate-evidence-from-jmmse",
     "title": "CMP evidence and development history",
     "section": "1 Current candidate evidence from jmMSE",
-    "text": "1 Current candidate evidence from jmMSE\nThe current merged repository provides three mutually supporting signals:\n\nmodel_tune.R defines and tunes MP29 and MP32 using the same five-index empirical estimator, minimum catch, limit, and annual constraints.\nThe 25 July 2026 presentation identifies MP29 as the optimal hockeystick run, MP32 as the optimal powerramp run, and MP29 as a potentially good candidate after their direct trade-off comparison.\nmodel_robustness.R explicitly selects tun29 and tun32 for application across the robustness OM set.\n\nThe presentation also reports 500-iteration versions, MP41 and MP42, with slightly different retuned triggers. These are treated here as replication sensitivity checks rather than new operational candidates.\nNumerical results should be regenerated or linked to immutable artifacts before they support a formal selection decision.",
+    "text": "1 Current candidate evidence from jmMSE\nThe current jmMSE analysis provides three reasons for carrying MP29 and MP32 forward:\n\nThe tuning analysis defines MP29 and MP32 using the same five observed indices, minimum catch, limit, and annual catch-change limits.\nThe 25 July 2026 presentation identifies MP29 as the optimal hockeystick run, MP32 as the optimal powerramp run, and MP29 as a potentially good candidate after their direct trade-off comparison.\nThe robustness analysis selects both procedures for testing across the alternative operating models.\n\nThe presentation also reports 500-iteration versions, MP41 and MP42, with slightly different retuned triggers. These test whether the number of simulation replicates affects the results; they are not treated as new CMPs.\nBefore the results support a formal selection decision, they should be repeatable from saved inputs and linked to saved output files that will not be changed.",
     "crumbs": [
       "Home",
       "CMP evidence and development history"
@@ -179,7 +179,7 @@
     "href": "evidence/scw17-evidence.html#paper-08-subset-screen",
     "title": "CMP evidence and development history",
     "section": "2 Paper-08 subset screen",
-    "text": "2 Paper-08 subset screen\nSCW17/Paper-08 documented a reproducible subset test of an empirical index procedure using Chile_CPUE and Offshore_CPUE, cpues.ind with a mean combination, and buffer.hcr. Twelve Latin-hypercube design points varied the limit and lower/upper buffer parameters.\nThe paper reported that the subset spanned a wide range of Kobe-green performance and that higher green probability could coincide with lower catch over the tuning window. It explicitly cautioned that this subset was not the intended full parameter screen. That qualification is retained here.\nEvidence still needed before promotion:\n\nimmutable run and design artifacts;\nconfirmation against the merged jmMSE implementation;\nevaluation across the agreed reference and robustness OMs;\nthe complete agreed performance-metric set;\nconvergence, failure, and reproducibility diagnostics; and\na recorded working-group interpretation of trade-offs.",
+    "text": "2 Paper-08 subset screen\nSCW17/Paper-08 documented a repeatable subset test of an empirical index procedure using Chile_CPUE and Offshore_CPUE, cpues.ind with a mean combination, and buffer.hcr. A structured sample of 12 parameter combinations varied the limit and lower and upper buffer values.\nThe paper reported that the subset spanned a wide range of Kobe-green performance and that higher green probability could coincide with lower catch over the tuning window. It explicitly cautioned that this subset was not the intended full parameter screen. That qualification is retained here.\nEvidence still needed before promotion:\n\nsaved run results and the table of tested parameter combinations;\nconfirmation against the merged jmMSE implementation;\nevaluation across the agreed reference and robustness OMs;\nthe complete agreed performance-metric set;\nchecks for model convergence, failed runs, and repeatability; and\na recorded working-group interpretation of trade-offs.",
     "crumbs": [
       "Home",
       "CMP evidence and development history"
@@ -190,7 +190,7 @@
     "href": "evidence/scw17-evidence.html#paper-09-hockeystick-test-set",
     "title": "CMP evidence and development history",
     "section": "3 Paper-09 hockeystick test set",
-    "text": "3 Paper-09 hockeystick test set\nSCW17/Paper-09 converted workshop proposals into a structured set of index-based hockeystick tests. It established several useful implementation controls:\n\nuse exact jmMSE index names;\ndefine candidate rows in one table rather than hand-editing controls;\nstop when required indices are unavailable rather than substituting silently;\ndistinguish mean-index tests from loess smoothing sensitivities; and\nretain unavailable tests as unavailable until their methods exist.\n\nThose rows remain historical test proposals. They no longer seed the primary CMP registry, which is based on the current jmMSE code.",
+    "text": "3 Paper-09 hockeystick test set\nSCW17/Paper-09 converted workshop proposals into a structured set of index-based hockeystick tests. It established several useful implementation controls:\n\nuse exact jmMSE index names;\ndefine all candidates in one table rather than changing each rule by hand;\nstop when required indices are unavailable rather than substituting silently;\ndistinguish tests based on a mean index from tests using loess smoothing; and\nretain unavailable tests as unavailable until their methods exist.\n\nThose rows remain historical test proposals. They no longer seed the primary CMP registry, which is based on the current jmMSE code.",
     "crumbs": [
       "Home",
       "CMP evidence and development history"
@@ -224,7 +224,7 @@
     "href": "cmp/mp29.html#identity",
     "title": "MP29 hockeystick candidate",
     "section": "1 Identity",
-    "text": "1 Identity\n\n\n\n\n\n\n\nComponent\nCurrent definition\n\n\n\n\njmMSE run\ntun29, labelled MP29\n\n\nEstimator\ncpues.ind\n\n\nIndices\nChile_AcousN, Chile_CPUE, Peru_Artis, Peru_Ind, Offshore_CPUE\n\n\nReference years\n2019-2023\n\n\nRecent-data window\n3 years\n\n\nCombination and metric\ncombine = \"mean\", metric = \"mean\"\n\n\nHCR\nhockeystick.hcr; hockeystick.hcr_rob in multi-stock robustness runs\n\n\nOutput\nCatch\n\n\nImplementation\nsplit.is, using last-five-year catch proportions",
+    "text": "1 Identity\n\n\n\n\n\n\n\nComponent\nCurrent definition\n\n\n\n\nName in the jmMSE analysis\ntun29, labelled MP29\n\n\nStock/index indicator\ncpues.ind\n\n\nIndices\nChile_AcousN, Chile_CPUE, Peru_Artis, Peru_Ind, Offshore_CPUE\n\n\nReference years\n2019-2023\n\n\nRecent-data window\n3 years\n\n\nHow the indices are combined\nMean (combine = \"mean\", metric = \"mean\")\n\n\nHarvest control rule\nHockeystick (hockeystick.hcr); multi-stock testing uses an equivalent corrected function\n\n\nOutput\nCatch\n\n\nCatch allocation\nSplit among fisheries using their average catch proportions over the last five years (split.is)",
     "crumbs": [
       "Home",
       "Candidate management procedures",
@@ -232,11 +232,11 @@
     ]
   },
   {
-    "objectID": "cmp/mp29.html#hcr-parameters",
-    "href": "cmp/mp29.html#hcr-parameters",
+    "objectID": "cmp/mp29.html#harvest-control-rule-parameters",
+    "href": "cmp/mp29.html#harvest-control-rule-parameters",
     "title": "MP29 hockeystick candidate",
-    "section": "2 HCR parameters",
-    "text": "2 HCR parameters\n\n\n\nParameter\nValue\n\n\n\n\nMinimum catch, min\n270\n\n\nLimit metric, lim\n0.1\n\n\nTrigger metric\n2.12\n\n\nTarget catch\n2000\n\n\nInitial catch for constraints\n1385\n\n\nMaximum annual decrease multiplier, dlow\n0.85\n\n\nMaximum annual increase multiplier, dupp\n1.20\n\n\n\nThe trigger is the tuned value reported in the July presentation. Before formal use it should be read from a frozen control object or normative registry, not reconstructed by rerunning the tuner.",
+    "section": "2 Harvest control rule parameters",
+    "text": "2 Harvest control rule parameters\n\n\n\nParameter\nValue\n\n\n\n\nMinimum catch, min\n270\n\n\nLimit metric, lim\n0.1\n\n\nTrigger metric\n2.12\n\n\nTarget catch\n2000\n\n\nInitial catch for constraints\n1385\n\n\nMaximum annual decrease multiplier, dlow\n0.85\n\n\nMaximum annual increase multiplier, dupp\n1.20\n\n\n\nThe trigger is the value obtained during tuning and reported in the July presentation. Before formal use it should be copied from the approved CMP record, not recalculated by repeating the tuning exercise.",
     "crumbs": [
       "Home",
       "Candidate management procedures",
@@ -248,7 +248,7 @@
     "href": "cmp/mp29.html#rule",
     "title": "MP29 hockeystick candidate",
     "section": "3 Rule",
-    "text": "3 Rule\nLet \\(I_t\\) be the annual mean metric returned by the specified estimator. The unconstrained catch recommendation \\(C_t^*\\) is\n\\[\nC_t^* =\n\\begin{cases}\n270, & I_t \\le 0.1,\\\\\n270 + (I_t-0.1)\\dfrac{2000-270}{2.12-0.1}, & 0.1 &lt; I_t &lt; 2.12,\\\\\n2000, & I_t \\ge 2.12.\n\\end{cases}\n\\]\nThe interannual constraint limits the recommendation to 85%-120% of the previous recommendation. In the first application year the current code uses 1385 as the previous value.",
+    "text": "3 Rule\nLet \\(I_t\\) be the annual mean of the standardized index information calculated by the specified method. Before applying the annual change limit, the catch recommendation \\(C_t^*\\) is\n\\[\nC_t^* =\n\\begin{cases}\n270, & I_t \\le 0.1,\\\\\n270 + (I_t-0.1)\\dfrac{2000-270}{2.12-0.1}, & 0.1 &lt; I_t &lt; 2.12,\\\\\n2000, & I_t \\ge 2.12.\n\\end{cases}\n\\]\nThe annual change rule then prevents the recommendation from falling below 85% or rising above 120% of the previous recommendation. For the first application year, the current calculation uses 1385 as the previous value.",
     "crumbs": [
       "Home",
       "Candidate management procedures",
@@ -260,7 +260,7 @@
     "href": "cmp/mp29.html#evidence-status",
     "title": "MP29 hockeystick candidate",
     "section": "4 Evidence status",
-    "text": "4 Evidence status\nThe July presentation identifies MP29 as the optimal hockeystick minimum/limit run and reports lower IACC than MP32, with slightly higher short-term catches. model_robustness.R advances MP29 alongside MP32 across robustness OMs. Final adoption still requires complete, reproducible robustness results and an approved operational data contract.\nPrimary sources: model_tune.R, model_robustness.R, and the July presentation source.",
+    "text": "4 Evidence status\nThe July presentation identifies MP29 as the optimal hockeystick minimum/limit run and reports less year-to-year catch variation (IACC) than MP32, with slightly higher short-term catches. The jmMSE robustness analysis carries MP29 and MP32 forward across alternative operating models. Final adoption still requires complete, repeatable robustness results and approved annual data rules.\nPrimary sources: model_tune.R, model_robustness.R, and the July presentation source.",
     "crumbs": [
       "Home",
       "Candidate management procedures",
@@ -272,7 +272,7 @@
     "href": "cmp/mp29.html#annual-application-requirements-still-to-resolve",
     "title": "MP29 hockeystick candidate",
     "section": "5 Annual application requirements still to resolve",
-    "text": "5 Annual application requirements still to resolve\n\nauthoritative provider and annual cutoff for each index;\nprecise standardization performed by cpues.ind and its package version;\ntreatment of missing or revised indices;\ncatch units and rounding;\napproved catch-allocation update rule; and\nexceptional-circumstances review and decision process.",
+    "text": "5 Annual application requirements still to resolve\n\nauthoritative provider and annual cutoff for each index;\nprecise index standardization performed by cpues.ind and the software version used;\ntreatment of missing or revised indices;\ncatch units and rounding;\napproved catch-allocation update rule; and\nexceptional-circumstances review and decision process.",
     "crumbs": [
       "Home",
       "Candidate management procedures",
@@ -296,7 +296,7 @@
     "href": "cmp/mp32.html#identity",
     "title": "MP32 powerramp candidate",
     "section": "1 Identity",
-    "text": "1 Identity\n\n\n\n\n\n\n\nComponent\nCurrent definition\n\n\n\n\njmMSE run\ntun32, labelled MP32\n\n\nEstimator\ncpues.ind\n\n\nIndices\nChile_AcousN, Chile_CPUE, Peru_Artis, Peru_Ind, Offshore_CPUE\n\n\nReference years\n2019-2023\n\n\nRecent-data window\n3 years\n\n\nCombination and metric\ncombine = \"mean\", metric = \"mean\"\n\n\nHCR\npowerramp.hcr\n\n\nOutput\nCatch\n\n\nImplementation\nsplit.is, using last-five-year catch proportions",
+    "text": "1 Identity\n\n\n\n\n\n\n\nComponent\nCurrent definition\n\n\n\n\nName in the jmMSE analysis\ntun32, labelled MP32\n\n\nStock/index indicator\ncpues.ind\n\n\nIndices\nChile_AcousN, Chile_CPUE, Peru_Artis, Peru_Ind, Offshore_CPUE\n\n\nReference years\n2019-2023\n\n\nRecent-data window\n3 years\n\n\nHow the indices are combined\nMean (combine = \"mean\", metric = \"mean\")\n\n\nHarvest control rule\nPower ramp (powerramp.hcr)\n\n\nOutput\nCatch\n\n\nCatch allocation\nSplit among fisheries using their average catch proportions over the last five years (split.is)",
     "crumbs": [
       "Home",
       "Candidate management procedures",
@@ -304,11 +304,11 @@
     ]
   },
   {
-    "objectID": "cmp/mp32.html#hcr-parameters",
-    "href": "cmp/mp32.html#hcr-parameters",
+    "objectID": "cmp/mp32.html#harvest-control-rule-parameters",
+    "href": "cmp/mp32.html#harvest-control-rule-parameters",
     "title": "MP32 powerramp candidate",
-    "section": "2 HCR parameters",
-    "text": "2 HCR parameters\n\n\n\nParameter\nValue\n\n\n\n\nMinimum catch, min\n270\n\n\nLimit metric, lim\n0.1\n\n\nTrigger metric\n1.42\n\n\nTarget catch\n1500\n\n\nInitial catch for constraints\n1385\n\n\nMaximum annual decrease multiplier, dlow\n0.85\n\n\nMaximum annual increase multiplier, dupp\n1.20",
+    "section": "2 Harvest control rule parameters",
+    "text": "2 Harvest control rule parameters\n\n\n\nParameter\nValue\n\n\n\n\nMinimum catch, min\n270\n\n\nLimit metric, lim\n0.1\n\n\nTrigger metric\n1.42\n\n\nTarget catch\n1500\n\n\nInitial catch for constraints\n1385\n\n\nMaximum annual decrease multiplier, dlow\n0.85\n\n\nMaximum annual increase multiplier, dupp\n1.20",
     "crumbs": [
       "Home",
       "Candidate management procedures",
@@ -320,7 +320,7 @@
     "href": "cmp/mp32.html#rule",
     "title": "MP32 powerramp candidate",
     "section": "3 Rule",
-    "text": "3 Rule\nLet \\(I_t\\) be the annual estimator metric and\n\\[\nx_t = \\frac{I_t-0.1}{1.42-0.1}.\n\\]\nThe current jmMSE powerramp.hcr calculates the unconstrained recommendation as\n\\[\nC_t^* =\n\\begin{cases}\n270, & I_t \\le 0.1,\\\\\n270 + (1500-270)x_t^{2.5}, & 0.1 &lt; I_t &lt; 1.42,\\\\\n1500(0.2+0.8x_t)^{0.6}, & I_t \\ge 1.42.\n\\end{cases}\n\\]\nUnlike a capped hockeystick, the upper branch continues to rise above the trigger. The annual constraint subsequently limits the result to 85%-120% of the previous recommendation; the first-year reference is 1385.",
+    "text": "3 Rule\nLet \\(I_t\\) be the annual mean of the standardized index information and\n\\[\nx_t = \\frac{I_t-0.1}{1.42-0.1}.\n\\]\nBefore applying the annual change limit, the current power-ramp rule calculates the catch recommendation as\n\\[\nC_t^* =\n\\begin{cases}\n270, & I_t \\le 0.1,\\\\\n270 + (1500-270)x_t^{2.5}, & 0.1 &lt; I_t &lt; 1.42,\\\\\n1500(0.2+0.8x_t)^{0.6}, & I_t \\ge 1.42.\n\\end{cases}\n\\]\nUnlike a capped hockeystick, the upper branch continues to rise above the trigger. The annual change rule then prevents the result from falling below 85% or rising above 120% of the previous recommendation. For the first application year, the reference value is 1385.",
     "crumbs": [
       "Home",
       "Candidate management procedures",
@@ -332,7 +332,7 @@
     "href": "cmp/mp32.html#evidence-status",
     "title": "MP32 powerramp candidate",
     "section": "4 Evidence status",
-    "text": "4 Evidence status\nThe July presentation identifies MP32 as the optimal powerramp minimum/limit run. The MP29-MP32 comparison reports broadly similar long-term catch and stock performance, with MP32 showing higher IACC than MP29. model_robustness.R advances it alongside MP29.\nPrimary sources: model_tune.R, model_robustness.R, and the July presentation source.",
+    "text": "4 Evidence status\nThe July presentation identifies MP32 as the optimal powerramp minimum/limit run. The MP29-MP32 comparison reports broadly similar long-term catch and stock performance, with MP32 showing more year-to-year catch variation (IACC) than MP29. The jmMSE robustness analysis carries both candidates forward.\nPrimary sources: model_tune.R, model_robustness.R, and the July presentation source.",
     "crumbs": [
       "Home",
       "Candidate management procedures",
@@ -344,7 +344,7 @@
     "href": "cmp/mp32.html#annual-application-requirements-still-to-resolve",
     "title": "MP32 powerramp candidate",
     "section": "5 Annual application requirements still to resolve",
-    "text": "5 Annual application requirements still to resolve\n\nauthoritative provider and annual cutoff for each index;\nprecise standardization performed by cpues.ind and its package version;\ntreatment of missing or revised indices;\ncatch units and rounding;\napproved catch-allocation update rule; and\nexceptional-circumstances review and decision process.",
+    "text": "5 Annual application requirements still to resolve\n\nauthoritative provider and annual cutoff for each index;\nprecise index standardization performed by cpues.ind and the software version used;\ntreatment of missing or revised indices;\ncatch units and rounding;\napproved catch-allocation update rule; and\nexceptional-circumstances review and decision process.",
     "crumbs": [
       "Home",
       "Candidate management procedures",
@@ -356,7 +356,7 @@
     "href": "cmp/specification-template.html",
     "title": "CMP specification template",
     "section": "",
-    "text": "South Pacific Regional Fisheries Management Organisation\n    \n    Jack Mackerel Candidate Management Procedures\nThe Normative CMP Specification Template defines the information required to turn a candidate management procedure into an unambiguous and reproducible management rule. Once completed and approved, the normative specification governs implementation: it identifies the authorized inputs, calculations, parameter values, constraints, exceptional-circumstances provisions, and code version. Background explanations and MSE performance results support selection of the CMP but do not alter its operational definition. Where explanatory text and the approved normative specification differ, the normative specification takes precedence.\nCopy this structure for every shortlisted CMP. Text labelled normative governs implementation; explanatory evidence belongs in the evidence section.",
+    "text": "South Pacific Regional Fisheries Management Organisation\n    \n    Jack Mackerel Candidate Management Procedures\nHere, normative means that this is the authoritative definition of the CMP: it says what must be done. The template lists the information needed to turn a candidate procedure into a clear and repeatable management rule. Once completed and approved, it identifies the data, calculations, parameter values, catch limits, exceptional-circumstances provisions, and exact calculation method to use. Background explanations and MSE results help the Working Group choose a CMP, but they do not change how it operates. If background text differs from the approved specification, the approved specification takes precedence.\nUse this structure for every shortlisted CMP. The approved specification tells analysts how to calculate the advice; supporting evidence belongs in the evidence section.",
     "crumbs": [
       "Home",
       "Candidate management procedures",
@@ -368,7 +368,7 @@
     "href": "cmp/specification-template.html#identity-and-authority",
     "title": "CMP specification template",
     "section": "1 Identity and authority",
-    "text": "1 Identity and authority\n\n\n\nField\nRequired value\n\n\n\n\nCMP identifier\nStable identifier; never reused\n\n\nVersion\nSemantic or dated version\n\n\nStatus\nTest, shortlisted, recommended, adopted, or retired\n\n\nEffective period\nFirst and last management year, if applicable\n\n\nDecision record\nBody, meeting, document, date, and paragraph\n\n\nCode reference\nRepository, commit, file, and function/control name",
+    "text": "1 Identity and authority\n\n\n\n\n\n\n\nField\nRequired value\n\n\n\n\nCMP identifier\nPermanent name or number that is never reused\n\n\nVersion\nVersion number or date\n\n\nStatus\nTest, shortlisted, recommended, adopted, or retired\n\n\nEffective period\nFirst and last management year, if applicable\n\n\nDecision record\nBody, meeting, document, date, and paragraph\n\n\nCalculation reference\nRepository, exact saved version, file, and function or control name",
     "crumbs": [
       "Home",
       "Candidate management procedures",
@@ -376,11 +376,11 @@
     ]
   },
   {
-    "objectID": "cmp/specification-template.html#normative-inputs",
-    "href": "cmp/specification-template.html#normative-inputs",
+    "objectID": "cmp/specification-template.html#required-input-data",
+    "href": "cmp/specification-template.html#required-input-data",
     "title": "CMP specification template",
-    "section": "2 Normative inputs",
-    "text": "2 Normative inputs\nFor every input state the owner, series name, unit, spatial coverage, seasonal coverage, annual cutoff date, revision policy, missing-value rule, and transformation. Specify exactly which data vintages are eligible.",
+    "section": "2 Required input data",
+    "text": "2 Required input data\nFor every input state the owner, series name, unit, spatial coverage, seasonal coverage, annual cutoff date, revision policy, missing-value rule, and calculation applied to it. Specify whether preliminary, revised, or final data may be used.",
     "crumbs": [
       "Home",
       "Candidate management procedures",
@@ -388,11 +388,11 @@
     ]
   },
   {
-    "objectID": "cmp/specification-template.html#normative-calculation",
-    "href": "cmp/specification-template.html#normative-calculation",
+    "objectID": "cmp/specification-template.html#required-calculation",
+    "href": "cmp/specification-template.html#required-calculation",
     "title": "CMP specification template",
-    "section": "3 Normative calculation",
-    "text": "3 Normative calculation\nDocument, in order:\n\ndata validation and exclusions;\nestimator calculation;\nstatus metric and reference period;\nHCR equation and every parameter;\ninterannual constraints;\nrounding and numerical precision;\nimplementation allocation; and\nexceptional-circumstances checks.",
+    "section": "3 Required calculation",
+    "text": "3 Required calculation\nDocument, in order:\n\ndata checks and exclusions;\ncalculation of the stock or index indicator;\nindicator and reference period used by the rule;\nHCR equation and every parameter;\ninterannual constraints;\nrounding and numerical precision;\nallocation among fisheries or stocks; and\nexceptional-circumstances checks.",
     "crumbs": [
       "Home",
       "Candidate management procedures",
@@ -404,7 +404,7 @@
     "href": "cmp/specification-template.html#worked-example",
     "title": "CMP specification template",
     "section": "4 Worked example",
-    "text": "4 Worked example\nProvide frozen input data, intermediate values, final advice, and a checksum or automated regression test. A reviewer must be able to reproduce the published answer without access to mutable external data.",
+    "text": "4 Worked example\nProvide a saved set of input data, intermediate values, and final advice. Add a repeat-calculation test or digital fingerprint where useful. A reviewer must be able to reproduce the published answer without relying on data that may later change.",
     "crumbs": [
       "Home",
       "Candidate management procedures",
@@ -428,7 +428,7 @@
     "href": "cmp/specification-template.html#change-history",
     "title": "CMP specification template",
     "section": "6 Change history",
-    "text": "6 Change history\nEvery change must state whether it is editorial, implementation-equivalent, or scientifically material. Scientifically material changes require renewed MSE evaluation unless an approving decision explicitly states otherwise.",
+    "text": "6 Change history\nFor every change, state whether it only improves the wording, changes the code without changing the answer, or changes the scientific rule. A scientific change normally requires renewed MSE evaluation unless the approving decision explicitly states otherwise.",
     "crumbs": [
       "Home",
       "Candidate management procedures",
@@ -448,11 +448,11 @@
     ]
   },
   {
-    "objectID": "cmp/index.html#status-vocabulary",
-    "href": "cmp/index.html#status-vocabulary",
+    "objectID": "cmp/index.html#meaning-of-the-status-labels",
+    "href": "cmp/index.html#meaning-of-the-status-labels",
     "title": "CMP registry",
-    "section": "1 Status vocabulary",
-    "text": "1 Status vocabulary\n\n\n\n\n\n\n\nStatus\nMeaning\n\n\n\n\nTest candidate\nDefined sufficiently for testing; not shortlisted or adopted.\n\n\nAdvanced candidate\nSelected in the current analytical workflow for robustness testing; formal status not yet confirmed.\n\n\nShortlisted\nRetained by the working group for formal comparative evaluation.\n\n\nRecommended\nSupported by a documented working-group recommendation.\n\n\nAdopted\nFormally adopted through the applicable SPRFMO process.\n\n\nRetired\nPreserved for traceability but no longer under active consideration.\n\n\n\nThe primary registry is derived from the merged jmMSE main branch. model_robustness.R selects tun29 and tun32 for robustness evaluation, and the 25 July 2026 presentation describes MP29 as a potentially good candidate and MP32 as the optimal powerramp run. They are advanced candidates, not adopted procedures.\n\n\n\n\nTable 1: Current advanced candidates derived from jmMSE. Tuned trigger values are those reported in the 25 July 2026 presentation.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ncmp_id\nlabel\nstatus\nestimator\nhcr\nindices\nreference_years\nwindow_years\nmetric\noutput\nmin\nlim\ntrigger\ntarget\ninitial\ndlow\ndupp\nimplementation\nprimary_source\n\n\n\n\nMP29\nMP29\nadvanced candidate\ncpues.ind\nhockeystick.hcr\nChile_AcousN + Chile_CPUE + Peru_Artis + Peru_Ind + Offshore_CPUE\n2019-2023\n3\nmean\ncatch\n270\n0.1\n2.12\n2000\n1385\n0.85\n1.2\nsplit.is using last-5-year catch proportions\njmMSE model_tune.R and model_robustness.R\n\n\nMP32\nMP32\nadvanced candidate\ncpues.ind\npowerramp.hcr\nChile_AcousN + Chile_CPUE + Peru_Artis + Peru_Ind + Offshore_CPUE\n2019-2023\n3\nmean\ncatch\n270\n0.1\n1.42\n1500\n1385\n0.85\n1.2\nsplit.is using last-5-year catch proportions\njmMSE model_tune.R and model_robustness.R",
+    "section": "1 Meaning of the status labels",
+    "text": "1 Meaning of the status labels\n\n\n\n\n\n\n\nStatus\nMeaning\n\n\n\n\nTest candidate\nDefined sufficiently for testing; not shortlisted or adopted.\n\n\nAdvanced candidate\nSelected in the current analysis for robustness testing; formal status not yet confirmed.\n\n\nShortlisted\nRetained by the working group for formal comparative evaluation.\n\n\nRecommended\nSupported by a documented working-group recommendation.\n\n\nAdopted\nFormally adopted through the applicable SPRFMO process.\n\n\nRetired\nKept in the historical record but no longer under active consideration.\n\n\n\nThe primary registry comes from the current approved working version of jmMSE. Its robustness-testing script selects tun29 and tun32, and the 25 July 2026 presentation describes MP29 as a potentially good candidate and MP32 as the optimal powerramp run. They are advanced candidates, not adopted procedures.\n\n\n\n\nTable 1: Current advanced candidates derived from jmMSE. Tuned trigger values are those reported in the 25 July 2026 presentation.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ncmp_id\nlabel\nstatus\nestimator\nhcr\nindices\nreference_years\nwindow_years\nmetric\noutput\nmin\nlim\ntrigger\ntarget\ninitial\ndlow\ndupp\nimplementation\nprimary_source\n\n\n\n\nMP29\nMP29\nadvanced candidate\ncpues.ind\nhockeystick.hcr\nChile_AcousN + Chile_CPUE + Peru_Artis + Peru_Ind + Offshore_CPUE\n2019-2023\n3\nmean\ncatch\n270\n0.1\n2.12\n2000\n1385\n0.85\n1.2\nsplit.is using last-5-year catch proportions\njmMSE model_tune.R and model_robustness.R\n\n\nMP32\nMP32\nadvanced candidate\ncpues.ind\npowerramp.hcr\nChile_AcousN + Chile_CPUE + Peru_Artis + Peru_Ind + Offshore_CPUE\n2019-2023\n3\nmean\ncatch\n270\n0.1\n1.42\n1500\n1385\n0.85\n1.2\nsplit.is using last-5-year catch proportions\njmMSE model_tune.R and model_robustness.R",
     "crumbs": [
       "Home",
       "Candidate management procedures",
@@ -472,11 +472,11 @@
     ]
   },
   {
-    "objectID": "cmp/index.html#development-lineage",
-    "href": "cmp/index.html#development-lineage",
+    "objectID": "cmp/index.html#how-these-candidates-were-developed",
+    "href": "cmp/index.html#how-these-candidates-were-developed",
     "title": "CMP registry",
-    "section": "3 Development lineage",
-    "text": "3 Development lineage\nThe jmMSE tuning sequence tested targets, minimum catches, limit values, HCR families, and estimator variants.\n\n\n\n\n\n\n\n\nRun\nRole in development\nJuly presentation interpretation\n\n\n\n\nMP16\nHockeystick, target 2000, no minimum/limit\nPotential candidate before minimum/limit refinement\n\n\nMP25\nPowerramp, target 1500, no minimum/limit\nPotential candidate before minimum/limit refinement\n\n\nMP29\nHockeystick with minimum 270 and limit 0.1\nOptimal hockeystick run; advanced to robustness tests\n\n\nMP32\nPowerramp with minimum 270 and limit 0.1\nOptimal powerramp run; advanced to robustness tests\n\n\nMP35-40\nCPUE-only, shortcut-assessment, and perfect-information variants\nEstimator sensitivity and diagnostic comparisons\n\n\nMP41-42\n500-iteration versions of the MP29/MP32 designs\nReplication-count sensitivity, not distinct operational CMPs\n\n\n\nThe earlier SCW17/Paper-09 rows are retained in source history as workshop test proposals. They are not the primary candidate list for this site.",
+    "section": "3 How these candidates were developed",
+    "text": "3 How these candidates were developed\nThe jmMSE analysis tested alternative target catches, minimum catches, limit values, harvest control rules, and ways of calculating the stock indicator.\n\n\n\n\n\n\n\n\nRun\nRole in development\nJuly presentation interpretation\n\n\n\n\nMP16\nHockeystick, target 2000, no minimum/limit\nPotential candidate before minimum/limit refinement\n\n\nMP25\nPowerramp, target 1500, no minimum/limit\nPotential candidate before minimum/limit refinement\n\n\nMP29\nHockeystick with minimum 270 and limit 0.1\nOptimal hockeystick run; advanced to robustness tests\n\n\nMP32\nPowerramp with minimum 270 and limit 0.1\nOptimal powerramp run; advanced to robustness tests\n\n\nMP35-40\nCPUE-only, shortcut-assessment, and perfect-information variants\nTests of how the source of stock information affects results\n\n\nMP41-42\n500-replicate versions of the MP29/MP32 designs\nTest of whether the number of simulation replicates affects results; not separate CMPs\n\n\n\nThe earlier SCW17/Paper-09 rows are retained in source history as workshop test proposals. They are not the primary candidate list for this site.",
     "crumbs": [
       "Home",
       "Candidate management procedures",
@@ -484,11 +484,11 @@
     ]
   },
   {
-    "objectID": "cmp/index.html#interpretation-safeguards",
-    "href": "cmp/index.html#interpretation-safeguards",
+    "objectID": "cmp/index.html#points-to-keep-in-mind",
+    "href": "cmp/index.html#points-to-keep-in-mind",
     "title": "CMP registry",
-    "section": "4 Interpretation safeguards",
-    "text": "4 Interpretation safeguards\n\nmin, trigger, target, and initial are catch quantities in the current code and presentation; final normative units must be stated before adoption.\ndlow and dupp are interannual lower and upper multipliers where supplied.\nIndex names match model_tune.R exactly.\nThe trigger was tuned to a 0.60 probability for SB0green over 2041-2050 on the reference setup. It is part of the candidate version and should not be silently retuned during annual application.",
+    "section": "4 Points to keep in mind",
+    "text": "4 Points to keep in mind\n\nmin, trigger, target, and initial are catch quantities in the current code and presentation; final units must be stated before adoption.\ndlow and dupp limit the decrease and increase in catch advice from one year to the next.\nIndex names match model_tune.R exactly.\nThe trigger was tuned so that the probability of being in the Kobe green zone (SB0green: spawning biomass above \\(SB_{MSY}\\) and fishing mortality below \\(F_{MSY}\\)) was 0.60 over 2041-2050 in the reference analysis. The resulting trigger is part of the candidate definition and should not be recalculated during annual application.",
     "crumbs": [
       "Home",
       "Candidate management procedures",
@@ -496,11 +496,11 @@
     ]
   },
   {
-    "objectID": "cmp/index.html#promotion-requirement",
-    "href": "cmp/index.html#promotion-requirement",
+    "objectID": "cmp/index.html#requirements-before-changing-a-candidates-status",
+    "href": "cmp/index.html#requirements-before-changing-a-candidates-status",
     "title": "CMP registry",
-    "section": "5 Promotion requirement",
-    "text": "5 Promotion requirement\nA candidate can move beyond test status only when it has a completed specification, reproducible performance evidence, an implementation test using frozen inputs, and a decision record identifying the approving body and date.",
+    "section": "5 Requirements before changing a candidate’s status",
+    "text": "5 Requirements before changing a candidate’s status\nA candidate can move beyond test status only when it has a completed specification, repeatable performance results, a calculation test using saved inputs, and a decision record identifying the approving body and date.",
     "crumbs": [
       "Home",
       "Candidate management procedures",
@@ -512,7 +512,7 @@
     "href": "cmp/components.html",
     "title": "Management-procedure components",
     "section": "",
-    "text": "South Pacific Regional Fisheries Management Organisation\n    \n    Jack Mackerel Candidate Management Procedures\nThis page reorganizes the architecture and inventory in SCW17/Paper-03. In jmMSE, a management procedure normally combines three controlled modules:\nflowchart LR\n  D[\"Observed annual data\"] --&gt; E[\"Estimator: est\"]\n  E --&gt; S[\"Status or index metric\"]\n  S --&gt; H[\"Harvest control rule: hcr\"]\n  H --&gt; R[\"Catch recommendation\"]\n  R --&gt; I[\"Implementation system: isys\"]\n  I --&gt; A[\"Implemented catch by fishery or stock\"]",
+    "text": "South Pacific Regional Fisheries Management Organisation\n    \n    Jack Mackerel Candidate Management Procedures\nThis page summarizes the structure described in SCW17/Paper-03. In jmMSE, a management procedure normally has three parts:\nflowchart LR\n  D[\"Observed annual data\"] --&gt; E[\"Calculate a stock or index indicator\"]\n  E --&gt; S[\"Indicator used by the rule\"]\n  S --&gt; H[\"Harvest control rule: hcr\"]\n  H --&gt; R[\"Catch recommendation\"]\n  R --&gt; I[\"Apply catch limits and allocation rules\"]\n  I --&gt; A[\"Implemented catch by fishery or stock\"]",
     "crumbs": [
       "Home",
       "Candidate management procedures",
@@ -524,7 +524,7 @@
     "href": "cmp/components.html#families-represented-in-the-scw17-inventory",
     "title": "Management-procedure components",
     "section": "1 Families represented in the SCW17 inventory",
-    "text": "1 Families represented in the SCW17 inventory\n\n\n\n\n\n\n\n\n\nFamily\nTypical estimator\nTypical HCR\nRole at SCW17\n\n\n\n\nFixed catch reference\nPerfect information\nFixed catch\nDiagnostic baseline\n\n\nShortcut assessment\nDepletion estimate\nHockeystick or buffer\nAssessment-based comparison\n\n\nEmpirical index\nCPUE/index aggregate\nBuffer or hockeystick\nMain CMP development family\n\n\nSPiCT assessment\nSPiCT biomass/status\nBuffer\nModel-based candidate\n\n\nMulti-index/meta\nMultiple index scores\nMeta-HCR\nExploratory candidate\n\n\nBanking/borrowing\nExisting estimator/HCR\nExisting HCR plus modified isys\nImplementation sensitivity\n\n\n\nThese families are an inventory, not a decision about which procedure should be selected. Exact CMP identity requires the module versions, full argument set, input definitions, and implementation rules recorded together.",
+    "text": "1 Families represented in the SCW17 inventory\n\n\n\n\n\n\n\n\n\nFamily\nTypical estimator\nTypical HCR\nRole at SCW17\n\n\n\n\nFixed catch reference\nPerfect information\nFixed catch\nDiagnostic baseline\n\n\nShortcut assessment\nDepletion estimate\nHockeystick or buffer\nAssessment-based comparison\n\n\nEmpirical index\nCPUE/index aggregate\nBuffer or hockeystick\nMain CMP development family\n\n\nSPiCT assessment\nSPiCT biomass/status\nBuffer\nModel-based candidate\n\n\nMulti-index/meta\nMultiple index scores\nMeta-HCR\nExploratory candidate\n\n\nBanking/borrowing\nExisting estimator/HCR\nExisting HCR plus modified isys\nImplementation sensitivity\n\n\n\nThis is a list of approaches that were considered, not a decision about which procedure should be selected. A complete CMP definition must state the exact calculation methods, parameter values, input data, and catch-allocation rules.",
     "crumbs": [
       "Home",
       "Candidate management procedures",
@@ -547,7 +547,7 @@
     "href": "index.html#purpose",
     "title": "SPRFMO Jack Mackerel Candidate Management Procedures",
     "section": "Purpose",
-    "text": "Purpose\nThis site is the durable specification and implementation guide for candidate management procedures (CMPs) evaluated for South Pacific jack mackerel. It is derived primarily from the current jmMSE repository and brings together:\n\nthe MP29 and MP32 candidate definitions advanced into robustness testing;\nthe end-to-end MSE workflow;\nevidence from tuning, trade-off, and robustness comparisons; and\ninstructions for applying a selected procedure when new annual data become available.\n\nSCW17 Papers 03, 04, 08, and 09 provide historical context and documentation structure, but they do not define the current candidate registry.\nThe scientific simulation engine remains in SPRFMO/jmMSE. This repository records what a CMP is, why it remains under consideration, how it is applied, and which version of code and evidence supports it.",
+    "text": "Purpose\nThis site describes the candidate management procedures (CMPs) being evaluated for South Pacific jack mackerel. It draws mainly on the current jmMSE analysis and brings together:\n\nthe MP29 and MP32 candidate definitions advanced into robustness testing;\nthe full management strategy evaluation (MSE) process;\nevidence from tuning, trade-off, and robustness comparisons; and\ninstructions for applying a selected procedure when new annual data become available.\n\nSCW17 Papers 03, 04, 08, and 09 provide historical context and documentation structure, but they do not define the current candidate registry.\nThe MSE calculations remain in SPRFMO/jmMSE. This site records what each CMP is, why it remains under consideration, how it would be applied, and which analysis supports it.",
     "crumbs": [
       "Home",
       "SPRFMO Jack Mackerel Candidate Management Procedures"
@@ -558,7 +558,7 @@
     "href": "index.html#start-here",
     "title": "SPRFMO Jack Mackerel Candidate Management Procedures",
     "section": "Start here",
-    "text": "Start here\n\nCMP registry: the two candidates currently advanced by jmMSE, MP29 and MP32.\nMP29 and MP32: candidate-specific rules and annual calculation details.\nAnnual application: controlled operational sequence from new data to advice.\nSlick explorer: validated conversion of MP29/MP32 performance outputs for interactive review.\nMSE workflow: where CMPs fit within the assessment and simulation system.\nEvidence and history: current jmMSE evidence with SCW17 development context.\nTraceability: source commits, review state, and change control.",
+    "text": "Start here\n\nCMP registry: the two candidates currently advanced by jmMSE, MP29 and MP32.\nMP29 and MP32: candidate-specific rules and annual calculation details.\nAnnual application: steps from receiving new data to producing advice.\nSlick explorer: view and compare MP29 and MP32 MSE results interactively.\nHow the MSE work fits together: where CMPs fit within the assessment and simulation system.\nEvidence and history: current jmMSE evidence with SCW17 development context.\nSources and record of changes: sources, review status, and a record of changes.",
     "crumbs": [
       "Home",
       "SPRFMO Jack Mackerel Candidate Management Procedures"
@@ -569,7 +569,18 @@
     "href": "index.html#governing-principle",
     "title": "SPRFMO Jack Mackerel Candidate Management Procedures",
     "section": "Governing principle",
-    "text": "Governing principle\nThe normative CMP specification is separate from explanatory text and MSE results. A scientific result may change the status of a candidate, but it does not silently change the estimator, HCR, implementation system, parameter values, or exceptional-circumstances rules.",
+    "text": "Governing principle\nThe approved CMP specification is separate from background explanations and MSE results. New scientific results may change whether a candidate is retained, but they do not automatically change its data inputs, harvest control rule, parameter values, catch-allocation method, or exceptional-circumstances rules.",
+    "crumbs": [
+      "Home",
+      "SPRFMO Jack Mackerel Candidate Management Procedures"
+    ]
+  },
+  {
+    "objectID": "index.html#terms-used-on-this-site",
+    "href": "index.html#terms-used-on-this-site",
+    "title": "SPRFMO Jack Mackerel Candidate Management Procedures",
+    "section": "Terms used on this site",
+    "text": "Terms used on this site\n\n\n\n\n\n\n\nTerm\nMeaning\n\n\n\n\nCMP\nCandidate management procedure: the complete rule for turning agreed data into management advice.\n\n\nHCR\nHarvest control rule: the part of a CMP that converts a stock or index indicator into a catch or fishing-effort recommendation.\n\n\nOperating model (OM)\nA simulated description of the stock and fishery used to test a CMP. Alternative OMs represent different plausible assumptions.\n\n\nPerformance measure\nA quantity used to compare CMPs, such as catch, spawning biomass, biological risk, or year-to-year catch variation.\n\n\nIACC\nInterannual catch change: a measure of how much catch changes from one year to the next.",
     "crumbs": [
       "Home",
       "SPRFMO Jack Mackerel Candidate Management Procedures"
@@ -578,56 +589,56 @@
   {
     "objectID": "governance/traceability.html",
     "href": "governance/traceability.html",
-    "title": "Traceability and change control",
+    "title": "Sources and record of changes",
     "section": "",
     "text": "South Pacific Regional Fisheries Management Organisation\n    \n    Jack Mackerel Candidate Management Procedures",
     "crumbs": [
       "Home",
-      "Traceability and change control"
+      "Sources and record of changes"
     ]
   },
   {
-    "objectID": "governance/traceability.html#seed-provenance",
-    "href": "governance/traceability.html#seed-provenance",
-    "title": "Traceability and change control",
-    "section": "1 Seed provenance",
-    "text": "1 Seed provenance\n\n\n\n\n\n\n\n\nSource\nCommit used for scaffold\nReorganized material\n\n\n\n\nSPRFMO/jmMSE\n94d4d325ba46220f56097b3de90824c83b7cf3cd\nPrimary source: MP29/MP32 controls, robustness selection, HCR implementation, and July presentation\n\n\nSPRFMO/scw17\n0eb97c9c0329f5ec3338e3cf885f6e1f184c4780\nSecondary source: Papers 03, 04, 08, and 09 plus Quarto conventions\n\n\n\nThe current registry derives from jmMSE, not the SCW17 test table. It does not assert that MP29 or MP32 has been formally recommended or adopted.",
+    "objectID": "governance/traceability.html#sources-used-to-create-this-site",
+    "href": "governance/traceability.html#sources-used-to-create-this-site",
+    "title": "Sources and record of changes",
+    "section": "1 Sources used to create this site",
+    "text": "1 Sources used to create this site\n\n\n\n\n\n\n\n\nSource\nExact saved version used\nMaterial used here\n\n\n\n\nSPRFMO/jmMSE\n94d4d325ba46220f56097b3de90824c83b7cf3cd\nPrimary source: MP29/MP32 controls, robustness selection, HCR implementation, and July presentation\n\n\nSPRFMO/scw17\n0eb97c9c0329f5ec3338e3cf885f6e1f184c4780\nSecondary source: Papers 03, 04, 08, and 09 plus Quarto conventions\n\n\n\nThe current registry derives from jmMSE, not the SCW17 test table. It does not assert that MP29 or MP32 has been formally recommended or adopted.",
     "crumbs": [
       "Home",
-      "Traceability and change control"
+      "Sources and record of changes"
     ]
   },
   {
-    "objectID": "governance/traceability.html#required-traceability-for-a-cmp",
-    "href": "governance/traceability.html#required-traceability-for-a-cmp",
-    "title": "Traceability and change control",
-    "section": "2 Required traceability for a CMP",
-    "text": "2 Required traceability for a CMP\nEvery CMP version must link to:\n\nits estimator, HCR, and implementation-system source;\nthe exact argument set and input-data contract;\nthe jmMSE commit used for evaluation;\nOM and robustness scenario definitions;\nperformance metric definitions and output artifacts;\nreview findings and known limitations; and\nthe decision that changed its status.",
+    "objectID": "governance/traceability.html#information-that-must-accompany-each-cmp",
+    "href": "governance/traceability.html#information-that-must-accompany-each-cmp",
+    "title": "Sources and record of changes",
+    "section": "2 Information that must accompany each CMP",
+    "text": "2 Information that must accompany each CMP\nEvery CMP version must link to:\n\nthe method used to calculate its indicator, harvest control rule, and catch allocation;\nall parameter values and annual data requirements;\nthe exact saved version of jmMSE used for evaluation;\nOM and robustness scenario definitions;\ndefinitions of the performance measures and links to the saved results;\nreview findings and known limitations; and\nthe decision that changed its status.",
     "crumbs": [
       "Home",
-      "Traceability and change control"
+      "Sources and record of changes"
     ]
   },
   {
-    "objectID": "governance/traceability.html#change-classes",
-    "href": "governance/traceability.html#change-classes",
-    "title": "Traceability and change control",
-    "section": "3 Change classes",
-    "text": "3 Change classes\n\n\n\n\n\n\n\n\nClass\nExamples\nRequired review\n\n\n\n\nEditorial\nSpelling, navigation, clearer non-normative explanation\nDocumentation review\n\n\nImplementation-equivalent\nRefactor proven to return identical results\nCode review plus regression test\n\n\nScientific\nParameter, index, window, HCR, constraint, allocation, or fallback change\nRenewed scientific review and normally MSE evaluation\n\n\nStatus\nTest to shortlist, recommendation, adoption, or retirement\nCited decision record",
+    "objectID": "governance/traceability.html#types-of-change",
+    "href": "governance/traceability.html#types-of-change",
+    "title": "Sources and record of changes",
+    "section": "3 Types of change",
+    "text": "3 Types of change\n\n\n\n\n\n\n\n\nClass\nExamples\nRequired review\n\n\n\n\nWording only\nSpelling, navigation, or clearer background explanation\nDocumentation review\n\n\nSame calculation, revised code\nSoftware change shown to give the same answers\nCode review plus a repeat-calculation test\n\n\nScientific\nParameter, index, window, HCR, constraint, allocation, or fallback change\nRenewed scientific review and normally MSE evaluation\n\n\nStatus\nTest to shortlist, recommendation, adoption, or retirement\nCited decision record",
     "crumbs": [
       "Home",
-      "Traceability and change control"
+      "Sources and record of changes"
     ]
   },
   {
-    "objectID": "governance/traceability.html#open-items-at-scaffold-time",
-    "href": "governance/traceability.html#open-items-at-scaffold-time",
-    "title": "Traceability and change control",
-    "section": "4 Open items at scaffold time",
-    "text": "4 Open items at scaffold time\n\nConfirm the formal working-group status and stable identifiers for MP29 and MP32.\nReconcile the 100-iteration MP29/MP32 tuned triggers with the 500-iteration MP41/MP42 sensitivity values before freezing a normative version.\nPopulate immutable evidence artifacts from agreed jmMSE runs.\nComplete normative units, annual cutoffs, missing-data rules, rounding, and exceptional-circumstances provisions.\nAdd frozen worked examples and automated conformance tests.",
+    "objectID": "governance/traceability.html#work-still-needed",
+    "href": "governance/traceability.html#work-still-needed",
+    "title": "Sources and record of changes",
+    "section": "4 Work still needed",
+    "text": "4 Work still needed\n\nConfirm the formal working-group status and stable identifiers for MP29 and MP32.\nReconcile the 100-iteration MP29/MP32 tuned triggers with the 500-iteration MP41/MP42 sensitivity values before approving a final version.\nAdd the saved results from the agreed jmMSE runs.\nComplete the required units, annual cutoffs, missing-data rules, rounding, and exceptional-circumstances provisions.\nAdd saved worked examples and automatic repeat-calculation checks.",
     "crumbs": [
       "Home",
-      "Traceability and change control"
+      "Sources and record of changes"
     ]
   },
   {
@@ -635,7 +646,7 @@
     "href": "application/slick.html",
     "title": "Load candidates into Slick",
     "section": "",
-    "text": "South Pacific Regional Fisheries Management Organisation\n    \n    Jack Mackerel Candidate Management Procedures\nThe project-local adapter R/build_candidate_slick.R converts current jmMSE performance outputs into a validated Slick object. It does not run the MSE and does not fabricate missing results.",
+    "text": "South Pacific Regional Fisheries Management Organisation\n    \n    Jack Mackerel Candidate Management Procedures\nSlick is an interactive tool for exploring MSE results. The supplied conversion script prepares MP29 and MP32 results for Slick after the MSE runs have been completed. It does not run the MSE and it does not fill in missing results.",
     "crumbs": [
       "Home",
       "Applying a CMP",
@@ -643,11 +654,11 @@
     ]
   },
   {
-    "objectID": "application/slick.html#required-input",
-    "href": "application/slick.html#required-input",
+    "objectID": "application/slick.html#what-is-needed",
+    "href": "application/slick.html#what-is-needed",
     "title": "Load candidates into Slick",
-    "section": "1 Required input",
-    "text": "1 Required input\nUse either:\n\na long performance data.frame/data.table; or\nan FLmses-like S4 object with a populated performance slot.\n\nThe input must contain MP29 and MP32 runs and the columns run, om, biol, statistic, year, iter, and data. At minimum, statistics SBMSY, FMSY, and C must be present. IACC is included when available.\nThe current checkout does not yet contain MP29/MP32 result artifacts in model/tune/ or model/robustness/; the available top-level tuning artifacts end at MP22. Run the current candidate/robustness workflow before attempting the production export.",
+    "section": "1 What is needed",
+    "text": "1 What is needed\nThe conversion can use either:\n\nthe table of performance results produced by jmMSE; or\na saved jmMSE results object that already contains those performance results.\n\nThe results must include MP29 and MP32, the operating-model and stock names, simulation year and replicate, and the calculated performance measures. At a minimum, the results must include spawning biomass relative to \\(SB_{MSY}\\), fishing mortality relative to \\(F_{MSY}\\), and catch. Interannual catch change (IACC) is included when available.\nThe current working folder does not yet contain saved MP29/MP32 results in model/tune/ or model/robustness/; the available top-level tuning artifacts end at MP22. Run the current candidate and robustness analyses before attempting the final Slick export.",
     "crumbs": [
       "Home",
       "Applying a CMP",
@@ -655,11 +666,11 @@
     ]
   },
   {
-    "objectID": "application/slick.html#build-the-slick-object",
-    "href": "application/slick.html#build-the-slick-object",
+    "objectID": "application/slick.html#prepare-the-slick-file",
+    "href": "application/slick.html#prepare-the-slick-file",
     "title": "Load candidates into Slick",
-    "section": "2 Build the Slick object",
-    "text": "2 Build the Slick object\nFrom the jmMSE26 repository root:\n\n\nShow implementation detail\nsource(\"R/build_candidate_slick.R\")\n\nslick &lt;- build_candidate_slick(\n  performance_file = \"../jmMSE/model/robustness/robs.rds\",\n  out_file = \"output/jm_candidates.slick\"\n)\n\n\nThe builder creates:\n\nMPs() metadata for MP29 and MP32 from the registry;\nOMs() metadata for each OM/stock combination;\nTimeseries() values ordered as iteration x OM x MP x indicator x year; and\nKobe() values for SB/SBMSY and F/FMSY over projection years.\n\nIt calls Check() on the time-series, Kobe, and final Slick objects, calls methods::validObject(), and writes the .slick file only after validation.",
+    "section": "2 Prepare the Slick file",
+    "text": "2 Prepare the Slick file\nFrom the main jmMSE26 folder:\n\n\nShow implementation detail\nsource(\"R/build_candidate_slick.R\")\n\nslick &lt;- build_candidate_slick(\n  performance_file = \"../jmMSE/model/robustness/robs.rds\",\n  out_file = \"output/jm_candidates.slick\"\n)\n\n\nThe script organizes the results by:\n\nmanagement procedure (MP29 or MP32);\noperating model and stock;\nsimulation replicate and year; and\nperformance measure, including Kobe-plot values for \\(SB/SB_{MSY}\\) and \\(F/F_{MSY}\\).\n\nBefore saving the Slick file, the script checks that the expected dimensions and labels agree. The technical checks are shown in the code for analysts who maintain the export.",
     "crumbs": [
       "Home",
       "Applying a CMP",
@@ -679,11 +690,11 @@
     ]
   },
   {
-    "objectID": "application/slick.html#reproducibility-record",
-    "href": "application/slick.html#reproducibility-record",
+    "objectID": "application/slick.html#what-to-save-with-the-slick-file",
+    "href": "application/slick.html#what-to-save-with-the-slick-file",
     "title": "Load candidates into Slick",
-    "section": "4 Reproducibility record",
-    "text": "4 Reproducibility record\nArchive the .slick file together with the source performance artifact, its checksum, the jmMSE commit, the jmMSE26 commit, and the R package versions.",
+    "section": "4 What to save with the Slick file",
+    "text": "4 What to save with the Slick file\nSave the Slick file together with the original performance results, their digital fingerprint, the exact saved versions of jmMSE and jmMSE26, and the versions of the R packages used.",
     "crumbs": [
       "Home",
       "Applying a CMP",
