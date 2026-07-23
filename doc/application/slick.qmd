@@ -176,8 +176,14 @@ in `jmMSE`:
   catch-stability measures directly.
 
 Kobe quadrant probabilities are calculated from $SB/SB_{MSY}$ and $F/F_{MSY}$.
-Non-finite ratios, which can occur when a stock component approaches zero, are
-treated as missing rather than replaced with invented values.
+When $F_{MSY}$ is zero, $F/F_{MSY}$ is undefined and is treated as missing.
+Finite $F/F_{MSY}$ values above 4 are shown at 4 so that a small number of
+post-collapse numerical values do not make the plots unreadable. This is a
+display rule only: the original `jmMSE` performance tables are not changed.
+
+The OM metadata is kept in exactly the same order as the OM dimension in each
+Slick value array. This ensures that Northern and Southern stock results retain
+the correct labels in the two-stock operating models.
 
 Before saving the Slick file, the script checks that the expected dimensions
 and labels agree. The technical checks are shown in the code for analysts who

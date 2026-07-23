@@ -39,7 +39,7 @@ candidate_run_map <- function(perf, candidate_codes) {
 }
 
 performance_matrix <- function(perf, statistic_code, run_code, biol_code,
-                               years, iters) {
+                               years, iters, display_cap = Inf) {
   x <- perf[run == run_code & biol == biol_code &
     statistic == statistic_code & year %in% years & iter %in% iters,
     .(data = mean(data, na.rm = TRUE)), by = .(iter, year)]
@@ -52,6 +52,7 @@ performance_matrix <- function(perf, statistic_code, run_code, biol_code,
   }
   out <- as.matrix(wide[, as.character(years), with = FALSE])
   out[!is.finite(out)] <- NA_real_
+  if (is.finite(display_cap)) out <- pmin(out, display_cap)
   out
 }
 
@@ -158,12 +159,15 @@ mean_catch_reduction <- function(catch_matrix) {
   finite_mean(reduction)
 }
 
-make_om_metadata <- function(run_map, source_file) {
+make_om_metadata <- function(run_map, source_file,
+                             om_codes = unique(run_map$OM)) {
   design <- unique(run_map[, .(
     OM, Model = om_code, Stock = biol, SourceOM = source_om,
     Source = basename(source_file)
   )])
-  setorder(design, Model, Stock)
+  design <- design[match(om_codes, OM)]
+  if (anyNA(design$OM)) stop(
+    "OM metadata could not be matched to the Slick value-array order")
   factors <- rbindlist(lapply(names(design), function(nm) data.table(
     Factor = nm,
     Level = unique(as.character(design[[nm]])),
@@ -228,8 +232,14 @@ build_candidate_slick <- function(
     "tun23", "tun35", "tun36"),
   time_now = 2025L,
   historical_om_files = NULL,
-  historical_start = 1970L
+  historical_start = 1970L,
+  f_fmsy_display_cap = 4
 ) {
+  if (length(f_fmsy_display_cap) != 1L ||
+      !is.finite(f_fmsy_display_cap) || f_fmsy_display_cap <= 0) {
+    stop("f_fmsy_display_cap must be one positive, finite number")
+  }
+  f_fmsy_cap_label <- format(f_fmsy_display_cap, trim = TRUE)
   perf <- read_performance(performance_file)
   setDT(perf)
   perf[, `:=`(
@@ -266,7 +276,9 @@ build_candidate_slick <- function(
   if (!length(years)) stop("No common years across candidate runs")
   iters <- sort(unique(perf[run %in% run_map$run & statistic == "C", iter]))
 
-  om_codes <- unique(run_map$OM)
+  om_order <- unique(run_map[, .(OM, om_code, biol)])
+  setorder(om_order, om_code, biol)
+  om_codes <- om_order$OM
   mp_codes <- candidate_codes[candidate_codes %in% run_map$mp]
   pi_meta <- data.frame(
     Code = available,
@@ -274,7 +286,10 @@ build_candidate_slick <- function(
       IACC = "IACC")[available],
     Description = c(
       SBMSY = "Spawning biomass relative to SBMSY.",
-      FMSY = "Fishing mortality relative to FMSY.",
+      FMSY = paste0(
+        "Fishing mortality relative to FMSY. Ratios are undefined when ",
+        "FMSY is zero; values above ", f_fmsy_cap_label,
+        " are shown at the display cap."),
       C = "Catch.",
       IACC = "Interannual catch change."
     )[available],
@@ -295,7 +310,9 @@ build_candidate_slick <- function(
     if (is.na(mp_i)) next
     for (pi_i in seq_along(available)) {
       Value(ts)[, om_i, mp_i, pi_i, ] <- performance_matrix(
-        perf, available[pi_i], run_map$run[i], run_map$biol[i], years, iters)
+        perf, available[pi_i], run_map$run[i], run_map$biol[i], years, iters,
+        display_cap = if (available[pi_i] == "FMSY")
+          f_fmsy_display_cap else Inf)
     }
   }
   Target(ts) <- ifelse(available %in% c("SBMSY", "FMSY"), 1, NA_real_)
@@ -305,8 +322,8 @@ build_candidate_slick <- function(
   kobe <- Kobe(
     Code = c("SB/SBMSY", "F/FMSY"),
     Label = c("SB/SBMSY", "F/FMSY"),
-    Description = c("Spawning biomass relative to SBMSY.",
-      "Fishing mortality relative to FMSY.")
+    Description = pi_meta$Description[
+      match(c("SBMSY", "FMSY"), pi_meta$Code)]
   )
   projection <- years > time_now
   Time(kobe) <- years[projection]
@@ -325,7 +342,8 @@ build_candidate_slick <- function(
       SBMSY = paste("Terminal-year", terminal_year,
         "spawning biomass relative to SBMSY."),
       FMSY = paste("Terminal-year", terminal_year,
-        "fishing mortality relative to FMSY."),
+        "fishing mortality relative to FMSY, displayed with a cap of",
+        paste0(f_fmsy_cap_label, ".")),
       C = paste("Terminal-year", terminal_year, "catch."),
       IACC = paste("Terminal-year", terminal_year,
         "interannual percentage change in catch.")
@@ -361,7 +379,8 @@ build_candidate_slick <- function(
     "Catch reduction", "SB/SBMSY", "F/FMSY", "IACC")
   summary_labels <- c("P(green)", "P(yellow)", "P(orange)", "P(red)",
     "P(catch below 270)", "Short-term catch", "Mean catch",
-    "Mean catch reduction", "Mean SB/SBMSY", "Mean F/FMSY", "Mean IACC")
+    "Mean catch reduction", "Mean SB/SBMSY",
+    paste0("Mean F/FMSY (cap ", f_fmsy_cap_label, ")"), "Mean IACC")
   summary_descriptions <- c(
     "Probability of Kobe green status over 2036-2040.",
     "Probability of Kobe yellow status over 2036-2040.",
@@ -372,7 +391,8 @@ build_candidate_slick <- function(
     "Mean catch over 2036-2040.",
     "Mean annual percentage catch reduction over 2026-2050.",
     "Mean spawning biomass relative to SBMSY over 2036-2040.",
-    "Mean fishing mortality relative to FMSY over 2036-2040.",
+    paste0("Mean fishing mortality relative to FMSY over 2036-2040, ",
+      "using the display cap of ", f_fmsy_cap_label, "."),
     "Mean interannual percentage change in catch over 2036-2040."
   )
   summaries <- array(NA_real_,
@@ -428,10 +448,14 @@ build_candidate_slick <- function(
   Institution(slick) <- "SPRFMO"
   Introduction(slick) <- paste(
     "Candidate MP performance exported from", basename(performance_file),
-    "using explicit iteration x OM x MP x indicator x year dimensions."
+    "using explicit iteration x OM x MP x indicator x year dimensions.",
+    "F/FMSY is missing when FMSY is zero and is capped at",
+    f_fmsy_cap_label, "for display."
   )
   MPs(slick) <- make_mp_metadata(mp_codes, registry_file)
-  OMs(slick) <- make_om_metadata(run_map, performance_file)
+  OMs(slick) <- make_om_metadata(run_map, performance_file, om_codes)
+  if (!identical(as.character(Design(OMs(slick))$OM), om_codes)) stop(
+    "OM metadata order does not match the Slick value-array order")
   Boxplot(slick) <- boxplot
   Quilt(slick) <- quilt
   Timeseries(slick) <- ts
@@ -552,6 +576,9 @@ build_combined_candidate_slick <- function(
   }
 
   combined <- reference_slick
+  f_fmsy_description <- Metadata(Timeseries(reference_slick))
+  f_fmsy_description <- f_fmsy_description[
+    f_fmsy_description$Code == "FMSY", "Description"]
   Title(combined) <- "SPRFMO Jack Mackerel Candidate MPs"
   Subtitle(combined) <- paste(
     "Eight CMP comparison cases across reference and robustness operating models"
@@ -559,7 +586,8 @@ build_combined_candidate_slick <- function(
   Introduction(combined) <- paste(
     "This file combines the om11 reference operating model with the",
     "single-stock and two-stock robustness sets. Use the Set filter to",
-    "switch among Reference, Robustness CJM, and Robustness 2-stock."
+    "switch among Reference, Robustness CJM, and Robustness 2-stock.",
+    f_fmsy_description
   )
   OMs(combined) <- make_combined_candidate_oms(reference_slick,
     robustness_slick)

@@ -41,6 +41,9 @@ procedure unless its registry status and decision record say so.
 The validated file is
 [`output/jm_candidates.slick`](output/jm_candidates.slick). It contains eight
 CMP comparison cases across the reference and robustness operating models.
+Northern and Southern stock components retain their source labels. For readable
+plots, F/FMSY is missing where FMSY is zero and finite F/FMSY values above 4
+are displayed at 4; the original `jmMSE` performance tables are unchanged.
 
 ### Use the hosted Slick app
 
