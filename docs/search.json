@@ -72,11 +72,35 @@
     ]
   },
   {
+    "objectID": "application/tac-2027.html#worked-retrospective-2025-advice-using-data-through-2024",
+    "href": "application/tac-2027.html#worked-retrospective-2025-advice-using-data-through-2024",
+    "title": "Illustrative 2027 TAC calculation",
+    "section": "6 Worked retrospective: 2025 advice using data through 2024",
+    "text": "6 Worked retrospective: 2025 advice using data through 2024\nFor this retrospective, the advice year is labelled as the year immediately after the last data year: 2024 observations produce illustrative 2025 advice. This simply backs the calendar labels up one year while retaining the candidate index calculations, harvest rules, and initial comparison value of 1385.\nThis remains an illustration rather than advice adopted by SPRFMO. The result is a total catch quantity in the analysis units, before an approved rounding rule or allocation among fisheries.\n\n6.1 Historical inputs\nThe table contains the observations from the updated assessment data associated with input/0.15.dat. The two Peruvian series are retained separately as Peru_Artis and Peru_Ind. Each reference mean is calculated over the available observations in 2019–2023. The northern acoustic series has no 2022 value.\n\n\n\n\nTable 1: Historical observations used for the retrospective calculation. A dash means that no value is stored.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSeries\n2019–2023 mean\n2022\n2023\n2024\n2025\n\n\n\n\n1\nChile_AcousN\n1896.963\n—\n2502.157\n2788.465\n3058.843\n\n\n2\nChile_CPUE\n96.249\n90.157\n98.162\n82.478\n97.287\n\n\n4\nPeru_Artis\n0.507\n0.571\n0.617\n0.672\n0.495\n\n\n5\nPeru_Ind\n0.686\n0.736\n0.683\n0.656\n0.630\n\n\n3\nOffshore_CPUE\n937.613\n1339.693\n1169.402\n428.054\n—\n\n\n\n\n\n\n\n\n\n\n6.2 Indicators for the 2025 calculation\nThe all-index annual values are 1.141 for 2022, 1.159 for 2023, and 1.013 for 2024. Their three-year mean is 1.104. The corresponding CPUE/fishery-index mean is 1.053. MP23 uses five years and has an indicator of 1.039.\n\n\n\n\nTable 2: Relative-index values supplied to the candidate harvest rules for the retrospective 2025 calculation.\n\n\n\n\n\n\n\n\n\n\n\n\nUsed by\nIndex set\nYears averaged\nIndicator\n\n\n\n\nMP18, MP24, MP29, MP31, MP32\nAll five indices\n2022–2024\n1.104\n\n\nMP23\nAll five indices\n2020–2024\n1.039\n\n\nMP35, MP36\nFour CPUE/fishery indices\n2022–2024\n1.053\n\n\n\n\n\n\n\n\n\n\n6.3 Result by candidate\nWith 1385 as the initial comparison value, a 15% decrease cannot fall below 1177.25. That floor determines the result for seven candidates. MP24 produces 1277.85 before rounding and is not changed by the annual limit.\n\n\n\n\nTable 3: Illustrative 2025 total catch advice using observations through 2024 and an initial comparison value of 1385.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCMP\nIndex years\nIndicator\nPreliminary advice\nAdjustment\nResult after annual limit\n\n\n\n\nMP18\n2022–2024\n1.104\n952.603\n15% decrease floor\n1177.250\n\n\nMP23\n2020–2024\n1.039\n854.254\n15% decrease floor\n1177.250\n\n\nMP24\n2022–2024\n1.104\n1277.846\nNone\n1277.846\n\n\nMP29\n2022–2024\n1.104\n1128.100\n15% decrease floor\n1177.250\n\n\nMP31\n2022–2024\n1.104\n1096.213\n15% decrease floor\n1177.250\n\n\nMP32\n2022–2024\n1.104\n889.044\n15% decrease floor\n1177.250\n\n\nMP35\n2022–2024\n1.053\n746.909\n15% decrease floor\n1177.250\n\n\nMP36\n2022–2024\n1.053\n1048.173\n15% decrease floor\n1177.250\n\n\n\n\n\n\n\n\nThese values should not be interpreted as eight equally supported recommendations: MP29 and MP32 are the advanced candidates, while the other six are comparison cases. The table is useful for checking that every rule can be reproduced from one shared set of observations.",
+    "crumbs": [
+      "Home",
+      "Applying a CMP",
+      "Illustrative 2027 TAC calculation"
+    ]
+  },
+  {
+    "objectID": "application/tac-2027.html#why-this-example-stops-with-2024-observations",
+    "href": "application/tac-2027.html#why-this-example-stops-with-2024-observations",
+    "title": "Illustrative 2027 TAC calculation",
+    "section": "7 Why this example stops with 2024 observations",
+    "text": "7 Why this example stops with 2024 observations\nThe updated data contain both Peruvian series through 2025, but the 2025 offshore CPUE is absent. Rather than silently omit that series or invent a replacement, the worked calculation backs off one year and uses the complete set available through 2024. Once the missing-data rule and 2025 offshore CPUE status are settled, the same calculation can be advanced one year to produce an illustrative 2026 result.",
+    "crumbs": [
+      "Home",
+      "Applying a CMP",
+      "Illustrative 2027 TAC calculation"
+    ]
+  },
+  {
     "objectID": "application/tac-2027.html#complete-and-record-the-recommendation",
     "href": "application/tac-2027.html#complete-and-record-the-recommendation",
     "title": "Illustrative 2027 TAC calculation",
-    "section": "6 Complete and record the recommendation",
-    "text": "6 Complete and record the recommendation\nFor each CMP, save:\n\nthe original data files and their units;\nthe 2019–2023 average for each index;\nevery annual relative index (R_{j,y});\nthe combined annual indices (A_y);\nthe recent-year indicator (I);\nthe preliminary harvest-rule result (C^*);\nthe previous-advice value and annual-change adjustment;\nthe unrounded and rounded total recommendation;\nany allocation calculation; and\nall missing-data, revision, or exceptional-circumstances warnings.\n\nThe current simulations divide the total catch among fisheries using their average catch shares over the previous five years. The Scientific Committee should confirm whether that calculation is part of the CMP or a separate allocation decision.",
+    "section": "8 Complete and record the recommendation",
+    "text": "8 Complete and record the recommendation\nFor each CMP, save:\n\nthe original data files and their units;\nthe 2019–2023 average for each index;\nevery annual relative index (R_{j,y});\nthe combined annual indices (A_y);\nthe recent-year indicator (I);\nthe preliminary harvest-rule result (C^*);\nthe previous-advice value and annual-change adjustment;\nthe unrounded and rounded total recommendation;\nany allocation calculation; and\nall missing-data, revision, or exceptional-circumstances warnings.\n\nThe current simulations divide the total catch among fisheries using their average catch shares over the previous five years. The Scientific Committee should confirm whether that calculation is part of the CMP or a separate allocation decision.",
     "crumbs": [
       "Home",
       "Applying a CMP",
@@ -87,8 +111,8 @@
     "objectID": "application/tac-2027.html#what-can-be-concluded-from-the-currently-reported-value",
     "href": "application/tac-2027.html#what-can-be-concluded-from-the-currently-reported-value",
     "title": "Illustrative 2027 TAC calculation",
-    "section": "7 What can be concluded from the currently reported value",
-    "text": "7 What can be concluded from the currently reported value\nThe approximately 630 kt acoustic estimate alone is not sufficient to calculate a TAC:\n\nit is outside the tested data window for a 2027 recommendation;\nit must be expressed relative to the 2019–2023 average for the same survey;\nthe other required indices are needed for the all-index CMPs; and\nMP35 and MP36 do not use the acoustic survey.\n\nOnce the complete annual data table and the agreed previous-advice value are available, the calculations above can be run side by side to show the recommendation produced by every candidate.",
+    "section": "9 What can be concluded from the currently reported value",
+    "text": "9 What can be concluded from the currently reported value\nThe approximately 630 kt acoustic estimate alone is not sufficient to calculate a TAC:\n\nit is outside the tested data window for a 2027 recommendation;\nit must be expressed relative to the 2019–2023 average for the same survey;\nthe other required indices are needed for the all-index CMPs; and\nMP35 and MP36 do not use the acoustic survey.\n\nOnce the complete annual data table and the agreed previous-advice value are available, the calculations above can be run side by side to show the recommendation produced by every candidate.",
     "crumbs": [
       "Home",
       "Applying a CMP",
@@ -99,8 +123,8 @@
     "objectID": "application/tac-2027.html#implementation-basis",
     "href": "application/tac-2027.html#implementation-basis",
     "title": "Illustrative 2027 TAC calculation",
-    "section": "8 Implementation basis",
-    "text": "8 Implementation basis\nThis calculation plan is based on the controls saved by the jmMSE candidate runner on branch devel, commit be080e7. The main implementation sources are run_candidate_mps.R and model_tune.R. If the data delays, recent-year windows, combined-index calculation, or annual change rule are revised, this page and the MSE tests must be updated together.",
+    "section": "10 Implementation basis",
+    "text": "10 Implementation basis\nThis calculation plan is based on the controls saved by the jmMSE candidate runner on branch devel, commit be080e7. The historical index extract used in the worked calculation is saved as cmp-historical-indices.csv. It was extracted from the updated h1_0.16 assessment output associated with input/0.15.dat, retaining both Peruvian index series. The main implementation sources are run_candidate_mps.R and model_tune.R. If the data delays, recent-year windows, combined-index calculation, or annual change rule are revised, this page and the MSE tests must be updated together.",
     "crumbs": [
       "Home",
       "Applying a CMP",

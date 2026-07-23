@@ -169,6 +169,238 @@ should not automatically be treated as \(C_{2026}\). The operational
 specification must say whether the annual limit is based on the previous TAC,
 the previous CMP recommendation, or another approved quantity.
 
+## Worked retrospective: 2025 advice using data through 2024
+
+For this retrospective, the advice year is labelled as the year immediately
+after the last data year: 2024 observations produce illustrative 2025 advice.
+This simply backs the calendar labels up one year while retaining the candidate
+index calculations, harvest rules, and initial comparison value of 1385.
+
+This remains an illustration rather than advice adopted by SPRFMO. The result
+is a total catch quantity in the analysis units, before an approved rounding
+rule or allocation among fisheries.
+
+```{r}
+#| label: worked-calculation-setup
+#| include: false
+
+historical_indices <- read.csv(
+  "../data/cmp-historical-indices.csv",
+  na.strings = c("", "NA"),
+  check.names = FALSE
+)
+
+all_indices <- c(
+  "Chile_AcousN", "Chile_CPUE", "Peru_Artis", "Peru_Ind",
+  "Offshore_CPUE"
+)
+cpue_indices <- setdiff(all_indices, "Chile_AcousN")
+
+reference_means <- aggregate(
+  value ~ index,
+  historical_indices[historical_indices$year %in% 2019:2023, ],
+  function(x) mean(x, na.rm = TRUE)
+)
+names(reference_means)[2] <- "reference_mean"
+
+relative_indices <- merge(
+  historical_indices, reference_means, by = "index", all.x = TRUE
+)
+relative_indices$relative <-
+  relative_indices$value / relative_indices$reference_mean
+
+annual_relative <- function(indices) {
+  selected <- relative_indices[relative_indices$index %in% indices, ]
+  annual <- aggregate(
+    relative ~ year, selected, function(x) mean(x, na.rm = TRUE)
+  )
+  annual$n_available <- vapply(annual$year, function(y) {
+    sum(selected$year == y & !is.na(selected$value))
+  }, integer(1))
+  annual
+}
+
+recent_indicator <- function(end_year, n_years, indices) {
+  annual <- annual_relative(indices)
+  years <- seq(end_year - n_years + 1, end_year)
+  mean(annual$relative[annual$year %in% years])
+}
+
+controls <- read.csv("../tuns_ctrl.csv", check.names = FALSE)
+selected_mps <- c("MP18", "MP23", "MP24", "MP29",
+                  "MP31", "MP32", "MP35", "MP36")
+controls <- controls[match(selected_mps, controls$label), ]
+
+calculate_advice <- function(control_row, end_year, previous = 1385) {
+  indices <- if (control_row$estimator == "all.idx") {
+    all_indices
+  } else {
+    cpue_indices
+  }
+  n_years <- if (control_row$label == "MP23") 5 else 3
+  indicator <- recent_indicator(end_year, n_years, indices)
+
+  if (control_row$hcr == "hockeystick") {
+    preliminary <- if (indicator <= control_row$lim) {
+      control_row$min
+    } else if (indicator < control_row$trigger) {
+      control_row$min +
+        (indicator - control_row$lim) *
+        (control_row$target - control_row$min) /
+        (control_row$trigger - control_row$lim)
+    } else {
+      control_row$target
+    }
+  } else if (control_row$hcr == "slope") {
+    preliminary <- if (indicator <= control_row$lim) {
+      control_row$min
+    } else {
+      indicator * control_row$slope
+    }
+  } else if (control_row$hcr == "powerramp") {
+    x <- (indicator - control_row$lim) /
+      (control_row$trigger - control_row$lim)
+    preliminary <- if (indicator <= control_row$lim) {
+      control_row$min
+    } else if (indicator < control_row$trigger) {
+      control_row$min +
+        (control_row$target - control_row$min) * x^2.5
+    } else {
+      control_row$target * (0.2 + 0.8 * x)^0.6
+    }
+  }
+
+  lower <- 0.85 * previous
+  upper <- 1.20 * previous
+  adjusted <- max(lower, min(preliminary, upper))
+  adjustment <- if (preliminary < lower) {
+    "15% decrease floor"
+  } else if (preliminary > upper) {
+    "20% increase ceiling"
+  } else {
+    "None"
+  }
+
+  data.frame(
+    CMP = control_row$label,
+    `Index years` = paste0(end_year - n_years + 1, "–", end_year),
+    Indicator = indicator,
+    `Preliminary advice` = preliminary,
+    Adjustment = adjustment,
+    `Result after annual limit` = adjusted,
+    check.names = FALSE
+  )
+}
+
+advice_for_year <- function(end_year) {
+  do.call(rbind, lapply(seq_len(nrow(controls)), function(i) {
+    calculate_advice(controls[i, ], end_year = end_year)
+  }))
+}
+
+advice_2024 <- advice_for_year(2024)
+```
+
+### Historical inputs
+
+The table contains the observations from the updated assessment data associated
+with `input/0.15.dat`. The two Peruvian series are retained separately as
+`Peru_Artis` and `Peru_Ind`. Each reference mean is calculated over the
+available observations in 2019–2023. The northern acoustic series has no 2022
+value.
+
+```{r}
+#| label: tbl-retrospective-inputs
+#| tbl-cap: "Historical observations used for the retrospective calculation. A dash means that no value is stored."
+#| echo: false
+
+recent_inputs <- historical_indices[
+  historical_indices$year %in% 2022:2025, ]
+wide_inputs <- reshape(
+  recent_inputs,
+  idvar = "index",
+  timevar = "year",
+  direction = "wide"
+)
+names(wide_inputs) <- sub("^value\\.", "", names(wide_inputs))
+input_table <- merge(reference_means, wide_inputs, by = "index", all.x = TRUE)
+input_table <- input_table[
+  match(all_indices, input_table$index),
+  c("index", "reference_mean", "2022", "2023", "2024", "2025")
+]
+names(input_table) <- c(
+  "Series", "2019–2023 mean", "2022", "2023", "2024", "2025"
+)
+
+old_na <- getOption("knitr.kable.NA")
+options(knitr.kable.NA = "—")
+knitr::kable(input_table, digits = 3)
+options(knitr.kable.NA = old_na)
+```
+
+### Indicators for the 2025 calculation
+
+The all-index annual values are 1.141 for 2022, 1.159 for 2023, and
+1.013 for 2024. Their three-year mean is 1.104. The corresponding
+CPUE/fishery-index mean is 1.053. MP23 uses five years and has an indicator of
+1.039.
+
+```{r}
+#| label: tbl-retrospective-indicators
+#| tbl-cap: "Relative-index values supplied to the candidate harvest rules for the retrospective 2025 calculation."
+#| echo: false
+
+indicator_table <- data.frame(
+  `Used by` = c(
+    "MP18, MP24, MP29, MP31, MP32",
+    "MP23",
+    "MP35, MP36"
+  ),
+  `Index set` = c(
+    "All five indices",
+    "All five indices",
+    "Four CPUE/fishery indices"
+  ),
+  `Years averaged` = c("2022–2024", "2020–2024", "2022–2024"),
+  Indicator = c(
+    recent_indicator(2024, 3, all_indices),
+    recent_indicator(2024, 5, all_indices),
+    recent_indicator(2024, 3, cpue_indices)
+  ),
+  check.names = FALSE
+)
+
+knitr::kable(indicator_table, digits = 3)
+```
+
+### Result by candidate
+
+With 1385 as the initial comparison value, a 15% decrease cannot fall below
+1177.25. That floor determines the result for seven candidates. MP24 produces
+1277.85 before rounding and is not changed by the annual limit.
+
+```{r}
+#| label: tbl-retrospective-advice
+#| tbl-cap: "Illustrative 2025 total catch advice using observations through 2024 and an initial comparison value of 1385."
+#| echo: false
+
+knitr::kable(advice_2024, digits = 3)
+```
+
+These values should not be interpreted as eight equally supported
+recommendations: MP29 and MP32 are the advanced candidates, while the other
+six are comparison cases. The table is useful for checking that every rule
+can be reproduced from one shared set of observations.
+
+## Why this example stops with 2024 observations
+
+The updated data contain both Peruvian series through 2025, but the 2025
+offshore CPUE is absent. Rather than silently omit that series or invent a
+replacement, the worked calculation backs off one year and uses the complete
+set available through 2024. Once the missing-data rule and 2025 offshore CPUE
+status are settled, the same calculation can be advanced one year to produce
+an illustrative 2026 result.
+
 ## Complete and record the recommendation
 
 For each CMP, save:
@@ -208,6 +440,10 @@ recommendation produced by every candidate.
 This calculation plan is based on the controls saved by the `jmMSE` candidate
 runner on branch `devel`, commit
 [`be080e7`](https://github.com/SPRFMO/jmMSE/commit/be080e7dbc2438577922d29833fa6394db90e44c).
+The historical index extract used in the worked calculation is saved as
+[`cmp-historical-indices.csv`](../data/cmp-historical-indices.csv). It was
+extracted from the updated `h1_0.16` assessment output associated with
+`input/0.15.dat`, retaining both Peruvian index series.
 The main implementation sources are
 [`run_candidate_mps.R`](https://github.com/SPRFMO/jmMSE/blob/devel/run_candidate_mps.R)
 and
