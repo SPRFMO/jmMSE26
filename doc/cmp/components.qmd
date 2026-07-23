@@ -10,7 +10,7 @@ This page summarizes the structure described in SCW17/Paper-03. In `jmMSE`, a
 management procedure normally has three parts:
 
 ```{mermaid}
-flowchart LR
+flowchart TD
   D["Observed annual data"] --> E["Calculate a stock or index indicator"]
   E --> S["Indicator used by the rule"]
   S --> H["Harvest control rule: hcr"]

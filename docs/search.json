@@ -560,7 +560,7 @@
     "href": "cmp/components.html",
     "title": "Management-procedure components",
     "section": "",
-    "text": "South Pacific Regional Fisheries Management Organisation\n    \n    Jack Mackerel Candidate Management Procedures\nThis page summarizes the structure described in SCW17/Paper-03. In jmMSE, a management procedure normally has three parts:\nflowchart LR\n  D[\"Observed annual data\"] --&gt; E[\"Calculate a stock or index indicator\"]\n  E --&gt; S[\"Indicator used by the rule\"]\n  S --&gt; H[\"Harvest control rule: hcr\"]\n  H --&gt; R[\"Catch recommendation\"]\n  R --&gt; I[\"Apply catch limits and allocation rules\"]\n  I --&gt; A[\"Implemented catch by fishery or stock\"]",
+    "text": "South Pacific Regional Fisheries Management Organisation\n    \n    Jack Mackerel Candidate Management Procedures\nThis page summarizes the structure described in SCW17/Paper-03. In jmMSE, a management procedure normally has three parts:\nflowchart TD\n  D[\"Observed annual data\"] --&gt; E[\"Calculate a stock or index indicator\"]\n  E --&gt; S[\"Indicator used by the rule\"]\n  S --&gt; H[\"Harvest control rule: hcr\"]\n  H --&gt; R[\"Catch recommendation\"]\n  R --&gt; I[\"Apply catch limits and allocation rules\"]\n  I --&gt; A[\"Implemented catch by fishery or stock\"]",
     "crumbs": [
       "Home",
       "Candidate management procedures",
