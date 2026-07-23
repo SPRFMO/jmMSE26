@@ -66,8 +66,9 @@ proposals. They are not the primary candidate list for this site.
 
 ## Points to keep in mind
 
-- `min`, `trigger`, `target`, and `initial` are catch quantities in the current
-  code and presentation; final units must be stated before adoption.
+- `min`, `target`, and `initial` are catch quantities in the current code and
+  presentation. `lim` and `trigger` are values on the relative-index scale.
+  Final catch units must be stated before adoption.
 - `dlow` and `dupp` limit the decrease and increase in catch advice from one
   year to the next.
 - Index names match `model_tune.R` exactly.

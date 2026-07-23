@@ -1,0 +1,216 @@
+---
+title: "Illustrative 2027 TAC calculation"
+---
+
+{{< include ../_includes/sprfmo-banner.qmd >}}
+
+<div class="paper-title">How the Candidate Procedures Would Produce 2027 Advice</div>
+
+::: {.status-note}
+**This is a calculation plan, not a 2027 TAC recommendation.** None of the
+candidate management procedures (CMPs) has been adopted. A numerical
+recommendation cannot be produced until the complete annual index data, the
+previous catch-advice value, and the rules for data timing, missing values,
+rounding, and allocation have been confirmed.
+:::
+
+This page shows how the data available for the 2027 decision would be passed
+through each CMP. It also identifies where the approximately 630 kt estimate
+from the 2026 northern Chile acoustic survey could, and could not, be used.
+
+## First settle which data year applies
+
+The current MSE runs use a one-year data delay and a one-year management delay.
+Under that tested timing:
+
+1. the CMP calculation made in 2026 produces catch advice for 2027;
+2. the most recent observations used are from 2025;
+3. the three-year CMPs use 2023–2025 data; and
+4. MP23 uses 2021–2025 data because its current comparison run has a five-year
+   averaging window.
+
+The 2026 northern Chile acoustic estimate therefore **does not enter the 2027
+calculation as it was tested in the MSE**. It would first enter the following
+annual calculation, for 2028 advice.
+
+Using observations from 2026 for the 2027 TAC would require a same-year data
+rule. That would change the timing assumed in the tested CMP and should be
+specified, coded, and checked before it is used. Under such a revised rule, the
+three-year window would be 2024–2026 and the MP23 window would be 2022–2026.
+
+## Data required
+
+Six CMPs use all five indices. Two use the four CPUE and fishery indices and
+exclude the acoustic survey.
+
+| CMPs | Annual series required | Is the northern Chile acoustic survey used? |
+|---|---|---|
+| MP18, MP23, MP24, MP29, MP31, MP32 | Northern Chile acoustic survey (`Chile_AcousN`), Chile CPUE, Peru artisanal index, Peru industrial index, and offshore CPUE | Yes, when its data year falls within the approved window |
+| MP35, MP36 | Chile CPUE, Peru artisanal index, Peru industrial index, and offshore CPUE | No |
+
+For every series, retain the value, unit, survey or fleet coverage, source,
+revision status, and date received. Values must be comparable with those used
+in the 2019–2023 reference period.
+
+## Turn the observations into the CMP indicator
+
+The raw indices are on different scales, so they cannot be averaged directly.
+The current procedure performs the following calculation.
+
+### Express each series relative to its reference-period average
+
+For index \(j\) in year \(y\),
+
+$$
+R_{j,y} =
+\frac{\text{index }j\text{ in year }y}
+{\text{mean of index }j\text{ over 2019--2023}}.
+$$
+
+A value of 1 means that the observation equals its own 2019–2023 average. A
+value of 1.25 means it is 25% above that average.
+
+The reported acoustic estimate of about 630 kt cannot be entered directly into
+the harvest rule. If its year is eligible, it must first be checked against the
+same northern Chile acoustic series and converted to
+
+$$
+R_{\text{acoustic},2026} =
+\frac{630\text{ kt}}
+{\text{mean northern Chile acoustic biomass over 2019--2023}}.
+$$
+
+The reference-period mean is not recorded on this site, so this contribution
+cannot yet be calculated here.
+
+### Combine the available series within each year
+
+For each year, average the relative values for the indices required by the
+CMP. This gives one combined annual index \(A_y\).
+
+The analysis code averages the non-missing series. Before an operational
+calculation, the Scientific Committee should decide whether a missing required
+series may be omitted or whether it stops the calculation. A missing value
+should never be omitted without being reported.
+
+### Average across the recent years
+
+The indicator supplied to the harvest rule is:
+
+$$
+I = \text{mean of the combined annual indices over the approved recent years}.
+$$
+
+For the tested 2027 timing, use 2023–2025 for all CMPs except MP23, which uses
+2021–2025. Calculate two versions of \(I\): an all-index value for MP18, MP23,
+MP24, MP29, MP31, and MP32, and a CPUE/fishery-index value for MP35 and MP36.
+
+## Apply each harvest rule
+
+The table gives the current settings. Catch quantities use the units of the
+`jmMSE` analysis; those units and the final rounding convention must be
+confirmed before providing formal advice.
+
+| CMP | Information | Rule | Minimum | Limit | Trigger | Target or slope |
+|---|---|---|---:|---:|---:|---:|
+| MP18 | All five indices, 3 years | Hockeystick | 0 | 0 | 5.796875 | Target 5000 |
+| MP23 | All five indices, 5 years | Straight slope | 0 | 0 | — | Slope 821.875 |
+| MP24 | All five indices, 3 years | Hockeystick | 0 | 0 | 1.5125 | Target 1750 |
+| MP29 | All five indices, 3 years | Hockeystick | 270 | 0.1 | 2.125 | Target 2000 |
+| MP31 | All five indices, 3 years | Hockeystick | 270 | 0.3 | 1.984375 | Target 2000 |
+| MP32 | All five indices, 3 years | Power ramp | 270 | 0.1 | 1.421875 | Target 1500 |
+| MP35 | Four CPUE/fishery indices, 3 years | Power ramp | 270 | 0.1 | 1.4921875 | Target 1500 |
+| MP36 | Four CPUE/fishery indices, 3 years | Hockeystick | 270 | 0.1 | 2.21875 | Target 2000 |
+
+For a hockeystick CMP, the preliminary catch advice is the minimum at or below
+the limit, rises in a straight line between the limit and trigger, and equals
+the target at or above the trigger.
+
+For MP23, the preliminary advice is \(821.875 \times I\) when \(I\) is above
+zero.
+
+For MP32 and MP35, let
+
+$$
+x = \frac{I-\text{limit}}{\text{trigger}-\text{limit}}.
+$$
+
+The preliminary advice is the minimum when \(I\) is at or below the limit. It
+is
+
+$$
+\text{minimum} + (\text{target}-\text{minimum})x^{2.5}
+$$
+
+between the limit and trigger, and
+
+$$
+\text{target}(0.2+0.8x)^{0.6}
+$$
+
+at or above the trigger. Unlike the hockeystick, the power-ramp advice can
+continue to rise above its stated target.
+
+## Apply the annual change limit
+
+Every CMP in this comparison limits the change from the previous year's catch
+advice to a 15% decrease or a 20% increase. If \(C^*\) is the preliminary
+advice and \(C_{2026}\) is the agreed previous advice value, the 2027 value
+before rounding is
+
+$$
+C_{2027} =
+\max\left(0.85C_{2026},
+\min\left(C^*,1.20C_{2026}\right)\right).
+$$
+
+The value 1385 appears as the initial value in the simulation controls. It
+should not automatically be treated as \(C_{2026}\). The operational
+specification must say whether the annual limit is based on the previous TAC,
+the previous CMP recommendation, or another approved quantity.
+
+## Complete and record the recommendation
+
+For each CMP, save:
+
+1. the original data files and their units;
+2. the 2019–2023 average for each index;
+3. every annual relative index \(R_{j,y}\);
+4. the combined annual indices \(A_y\);
+5. the recent-year indicator \(I\);
+6. the preliminary harvest-rule result \(C^*\);
+7. the previous-advice value and annual-change adjustment;
+8. the unrounded and rounded total recommendation;
+9. any allocation calculation; and
+10. all missing-data, revision, or exceptional-circumstances warnings.
+
+The current simulations divide the total catch among fisheries using their
+average catch shares over the previous five years. The Scientific Committee
+should confirm whether that calculation is part of the CMP or a separate
+allocation decision.
+
+## What can be concluded from the currently reported value
+
+The approximately 630 kt acoustic estimate alone is not sufficient to
+calculate a TAC:
+
+- it is outside the tested data window for a 2027 recommendation;
+- it must be expressed relative to the 2019–2023 average for the same survey;
+- the other required indices are needed for the all-index CMPs; and
+- MP35 and MP36 do not use the acoustic survey.
+
+Once the complete annual data table and the agreed previous-advice value are
+available, the calculations above can be run side by side to show the
+recommendation produced by every candidate.
+
+## Implementation basis
+
+This calculation plan is based on the controls saved by the `jmMSE` candidate
+runner on branch `devel`, commit
+[`be080e7`](https://github.com/SPRFMO/jmMSE/commit/be080e7dbc2438577922d29833fa6394db90e44c).
+The main implementation sources are
+[`run_candidate_mps.R`](https://github.com/SPRFMO/jmMSE/blob/devel/run_candidate_mps.R)
+and
+[`model_tune.R`](https://github.com/SPRFMO/jmMSE/blob/devel/model_tune.R).
+If the data delays, recent-year windows, combined-index calculation, or annual
+change rule are revised, this page and the MSE tests must be updated together.

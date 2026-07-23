@@ -53,6 +53,7 @@ website:
       - section: "Applying a CMP"
         contents:
           - application/annual-workflow.qmd
+          - application/tac-2027.qmd
           - application/input-data.qmd
           - application/slick.qmd
       - workflow/mse-flow.qmd

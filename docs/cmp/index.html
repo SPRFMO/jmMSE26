@@ -301,6 +301,12 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../application/tac-2027.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Illustrative 2027 TAC calculation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../application/input-data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Annual input data</span></a>
   </div>
@@ -720,7 +726,7 @@ Table&nbsp;1: Advanced candidates and comparison cases derived from jmMSE.
 <section id="points-to-keep-in-mind" class="level2" data-number="4">
 <h2 data-number="4" class="anchored" data-anchor-id="points-to-keep-in-mind"><span class="header-section-number">4</span> Points to keep in mind</h2>
 <ul>
-<li><code>min</code>, <code>trigger</code>, <code>target</code>, and <code>initial</code> are catch quantities in the current code and presentation; final units must be stated before adoption.</li>
+<li><code>min</code>, <code>target</code>, and <code>initial</code> are catch quantities in the current code and presentation. <code>lim</code> and <code>trigger</code> are values on the relative-index scale. Final catch units must be stated before adoption.</li>
 <li><code>dlow</code> and <code>dupp</code> limit the decrease and increase in catch advice from one year to the next.</li>
 <li>Index names match <code>model_tune.R</code> exactly.</li>
 <li>The trigger was tuned so that the probability of being in the Kobe green zone (<code>SB0green</code>: spawning biomass above <span class="math inline">\(SB_{MSY}\)</span> and fishing mortality below <span class="math inline">\(F_{MSY}\)</span>) was 0.60 over 2041-2050 in the reference analysis. The resulting trigger is part of the candidate definition and should not be recalculated during annual application.</li>
@@ -1272,23 +1278,24 @@ Table&nbsp;1: Advanced candidates and comparison cases derived from jmMSE.
 <span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a><span class="fu">## Points to keep in mind</span></span>
 <span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`min`</span>, <span class="in">`trigger`</span>, <span class="in">`target`</span>, and <span class="in">`initial`</span> are catch quantities in the current</span>
-<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>  code and presentation; final units must be stated before adoption.</span>
-<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`dlow`</span> and <span class="in">`dupp`</span> limit the decrease and increase in catch advice from one</span>
-<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>  year to the next.</span>
-<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Index names match <span class="in">`model_tune.R`</span> exactly.</span>
-<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The trigger was tuned so that the probability of being in the Kobe green</span>
-<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>  zone (<span class="in">`SB0green`</span>: spawning biomass above $SB_{MSY}$ and fishing mortality</span>
-<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a>  below $F_{MSY}$) was 0.60 over 2041-2050 in the reference analysis. The</span>
-<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>  resulting trigger is part of the candidate definition and should not be</span>
-<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a>  recalculated during annual application.</span>
-<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a><span class="fu">## Requirements before changing a candidate's status</span></span>
-<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a>A candidate can move beyond test status only when it has a completed</span>
-<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">specification</span><span class="co">](specification-template.qmd)</span>, repeatable performance results,</span>
-<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a>a calculation test using saved inputs, and a decision record identifying</span>
-<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a>the approving body and date.</span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`min`</span>, <span class="in">`target`</span>, and <span class="in">`initial`</span> are catch quantities in the current code and</span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>  presentation. <span class="in">`lim`</span> and <span class="in">`trigger`</span> are values on the relative-index scale.</span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>  Final catch units must be stated before adoption.</span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`dlow`</span> and <span class="in">`dupp`</span> limit the decrease and increase in catch advice from one</span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>  year to the next.</span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Index names match <span class="in">`model_tune.R`</span> exactly.</span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The trigger was tuned so that the probability of being in the Kobe green</span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a>  zone (<span class="in">`SB0green`</span>: spawning biomass above $SB_{MSY}$ and fishing mortality</span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>  below $F_{MSY}$) was 0.60 over 2041-2050 in the reference analysis. The</span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a>  resulting trigger is part of the candidate definition and should not be</span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a>  recalculated during annual application.</span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a><span class="fu">## Requirements before changing a candidate's status</span></span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a>A candidate can move beyond test status only when it has a completed</span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">specification</span><span class="co">](specification-template.qmd)</span>, repeatable performance results,</span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a>a calculation test using saved inputs, and a decision record identifying</span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a>the approving body and date.</span>
 </code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

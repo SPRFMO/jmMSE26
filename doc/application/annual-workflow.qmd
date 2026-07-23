@@ -8,6 +8,8 @@ title: "Annual CMP application"
 
 This workflow describes how an adopted CMP should be applied as new data become
 available. Trial calculations for candidate CMPs should follow the same steps.
+For a year-specific example, see the
+[illustrative 2027 TAC calculation](tac-2027.qmd).
 
 ```{mermaid}
 flowchart TD
