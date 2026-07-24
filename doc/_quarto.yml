@@ -36,6 +36,8 @@ website:
         text: How MSE fits
       - href: evidence/scw17-evidence.qmd
         text: Evidence
+      - href: evidence/sc14-mse-report.qmd
+        text: SC14 MSE report
       - href: governance/traceability.qmd
         text: Sources & changes
   sidebar:
@@ -58,6 +60,7 @@ website:
           - application/slick.qmd
       - workflow/mse-flow.qmd
       - evidence/scw17-evidence.qmd
+      - evidence/sc14-mse-report.qmd
       - governance/traceability.qmd
   page-footer:
     left: "SPRFMO Jack Mackerel Working Group"

@@ -26,6 +26,8 @@ outputs/
 *.rds
 *.RData
 *.zip
+!output/candidate-performance/
+!output/candidate-performance/**/*.rds
 
 
 /.quarto/
