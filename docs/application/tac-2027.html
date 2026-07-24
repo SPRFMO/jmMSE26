@@ -361,7 +361,8 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#historical-inputs" id="toc-historical-inputs" class="nav-link" data-scroll-target="#historical-inputs"><span class="header-section-number">6.1</span> Historical inputs</a></li>
   <li><a href="#indicators-for-the-2025-calculation" id="toc-indicators-for-the-2025-calculation" class="nav-link" data-scroll-target="#indicators-for-the-2025-calculation"><span class="header-section-number">6.2</span> Indicators for the 2025 calculation</a></li>
-  <li><a href="#result-by-candidate" id="toc-result-by-candidate" class="nav-link" data-scroll-target="#result-by-candidate"><span class="header-section-number">6.3</span> Result by candidate</a></li>
+  <li><a href="#turn-the-indicator-into-preliminary-advice" id="toc-turn-the-indicator-into-preliminary-advice" class="nav-link" data-scroll-target="#turn-the-indicator-into-preliminary-advice"><span class="header-section-number">6.3</span> Turn the indicator into preliminary advice</a></li>
+  <li><a href="#apply-the-annual-change-limit-1" id="toc-apply-the-annual-change-limit-1" class="nav-link" data-scroll-target="#apply-the-annual-change-limit-1"><span class="header-section-number">6.4</span> Apply the annual change limit</a></li>
   </ul></li>
   <li><a href="#why-this-example-stops-with-2024-observations" id="toc-why-this-example-stops-with-2024-observations" class="nav-link" data-scroll-target="#why-this-example-stops-with-2024-observations"><span class="header-section-number">7</span> Why this example stops with 2024 observations</a></li>
   <li><a href="#complete-and-record-the-recommendation" id="toc-complete-and-record-the-recommendation" class="nav-link" data-scroll-target="#complete-and-record-the-recommendation"><span class="header-section-number">8</span> Complete and record the recommendation</a></li>
@@ -752,32 +753,137 @@ Table&nbsp;2: Relative-index values supplied to the candidate harvest rules for 
 </div>
 </div>
 </section>
-<section id="result-by-candidate" class="level3" data-number="6.3">
-<h3 data-number="6.3" class="anchored" data-anchor-id="result-by-candidate"><span class="header-section-number">6.3</span> Result by candidate</h3>
-<p>With 1385 as the initial comparison value, a 15% decrease cannot fall below 1177.25. That floor determines the result for seven candidates. MP24 produces 1277.85 before rounding and is not changed by the annual limit.</p>
+<section id="turn-the-indicator-into-preliminary-advice" class="level3" data-number="6.3">
+<h3 data-number="6.3" class="anchored" data-anchor-id="turn-the-indicator-into-preliminary-advice"><span class="header-section-number">6.3</span> Turn the indicator into preliminary advice</h3>
+<p>The indicator is a relative measure, not a catch quantity. A value of 1 means that the recent indices are, on average, equal to their 2019–2023 reference levels. A value above 1 means they are higher; a value below 1 means they are lower.</p>
+<p>Each candidate then puts its indicator into its own harvest-control rule. The rule converts the relative indicator into a catch quantity. Because the candidates have different limits, triggers, targets, and rule shapes, the same indicator can produce different preliminary advice.</p>
+<p>We write this preliminary catch advice as <span class="math inline">\(C^*\)</span>. Here, <span class="math inline">\(C\)</span> means catch advice and the star means <strong>provisional</strong>: it is the harvest-control-rule result before the annual change limit is applied. The star is not another calculation.</p>
+<p>The table shows the substitution explicitly. Values displayed in the calculation are rounded to three decimal places; the code uses the unrounded values.</p>
+<div class="cell">
+<div id="tbl-indicator-to-advice" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-indicator-to-advice-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3: How each candidate converts its indicator into preliminary catch advice (C*).
+</figcaption>
+<div aria-describedby="tbl-indicator-to-advice-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="cell caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 3%">
+<col style="width: 6%">
+<col style="width: 10%">
+<col style="width: 64%">
+<col style="width: 15%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">CMP</th>
+<th style="text-align: right;">Indicator</th>
+<th style="text-align: left;">Rule</th>
+<th style="text-align: left;">Substitute the indicator in the rule</th>
+<th style="text-align: right;">C* before annual limit</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">MP18</td>
+<td style="text-align: right;">1.104</td>
+<td style="text-align: left;">Hockeystick</td>
+<td style="text-align: left;">0.000 + (1.104 − 0.000) × (5000.000 − 0.000) ÷ (5.797 − 0.000)</td>
+<td style="text-align: right;">952.603</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">MP23</td>
+<td style="text-align: right;">1.039</td>
+<td style="text-align: left;">Straight slope</td>
+<td style="text-align: left;">821.875 × 1.039</td>
+<td style="text-align: right;">854.254</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">MP24</td>
+<td style="text-align: right;">1.104</td>
+<td style="text-align: left;">Hockeystick</td>
+<td style="text-align: left;">0.000 + (1.104 − 0.000) × (1750.000 − 0.000) ÷ (1.512 − 0.000)</td>
+<td style="text-align: right;">1277.846</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">MP29</td>
+<td style="text-align: right;">1.104</td>
+<td style="text-align: left;">Hockeystick</td>
+<td style="text-align: left;">270.000 + (1.104 − 0.100) × (2000.000 − 270.000) ÷ (2.125 − 0.100)</td>
+<td style="text-align: right;">1128.100</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">MP31</td>
+<td style="text-align: right;">1.104</td>
+<td style="text-align: left;">Hockeystick</td>
+<td style="text-align: left;">270.000 + (1.104 − 0.300) × (2000.000 − 270.000) ÷ (1.984 − 0.300)</td>
+<td style="text-align: right;">1096.213</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">MP32</td>
+<td style="text-align: right;">1.104</td>
+<td style="text-align: left;">Power ramp</td>
+<td style="text-align: left;">x = (1.104 − 0.100) ÷ (1.422 − 0.100) = 0.760; 270.000 + (1500.000 − 270.000) × x raised to 2.5</td>
+<td style="text-align: right;">889.044</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">MP35</td>
+<td style="text-align: right;">1.053</td>
+<td style="text-align: left;">Power ramp</td>
+<td style="text-align: left;">x = (1.053 − 0.100) ÷ (1.492 − 0.100) = 0.685; 270.000 + (1500.000 − 270.000) × x raised to 2.5</td>
+<td style="text-align: right;">746.909</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">MP36</td>
+<td style="text-align: right;">1.053</td>
+<td style="text-align: left;">Hockeystick</td>
+<td style="text-align: left;">270.000 + (1.053 − 0.100) × (2000.000 − 270.000) ÷ (2.219 − 0.100)</td>
+<td style="text-align: right;">1048.173</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p>For example, MP29 uses the hockeystick rule:</p>
+<p><span class="math display">\[
+C^* =
+270 +
+\frac{(1.104-0.100)(2000-270)}
+     {(2.125-0.100)}
+= 1128.10.
+\]</span></p>
+<p>The value 1128.10 is therefore MP29’s harvest-rule result. It is not yet the final value because the annual change limit must still be applied.</p>
+</section>
+<section id="apply-the-annual-change-limit-1" class="level3" data-number="6.4">
+<h3 data-number="6.4" class="anchored" data-anchor-id="apply-the-annual-change-limit-1"><span class="header-section-number">6.4</span> Apply the annual change limit</h3>
+<p>With 1385 as the initial comparison value, a 15% decrease cannot fall below 0.85 × 1385 = 1177.25, while a 20% increase cannot exceed 1.20 × 1385 = 1662.00. Each <span class="math inline">\(C^*\)</span> is restricted to that range. The lower bound determines the result for seven candidates. MP24 produces 1277.85 before rounding and is already within the allowed range.</p>
 <div class="cell">
 <div id="tbl-retrospective-advice" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-retrospective-advice-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;3: Illustrative 2025 total catch advice using observations through 2024 and an initial comparison value of 1385.
+Table&nbsp;4: Illustrative 2025 total catch advice using observations through 2024 and an initial comparison value of 1385.
 </figcaption>
 <div aria-describedby="tbl-retrospective-advice-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
 <table class="cell caption-top table table-sm table-striped small">
 <colgroup>
 <col style="width: 5%">
-<col style="width: 13%">
+<col style="width: 12%">
 <col style="width: 10%">
+<col style="width: 24%">
 <col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 28%">
+<col style="width: 27%">
 </colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;">CMP</th>
 <th style="text-align: left;">Index years</th>
 <th style="text-align: right;">Indicator</th>
-<th style="text-align: right;">Preliminary advice</th>
+<th style="text-align: right;">C* before annual limit</th>
 <th style="text-align: left;">Adjustment</th>
 <th style="text-align: right;">Result after annual limit</th>
 </tr>
@@ -1654,7 +1760,7 @@ Table&nbsp;3: Illustrative 2025 total catch advice using observations through 20
 <span id="cb1-287"><a href="#cb1-287" aria-hidden="true" tabindex="-1"></a>    <span class="at">CMP =</span> control_row<span class="sc">$</span>label,</span>
 <span id="cb1-288"><a href="#cb1-288" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">Index years</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">paste0</span>(end_year <span class="sc">-</span> n_years <span class="sc">+</span> <span class="dv">1</span>, <span class="st">"–"</span>, end_year),</span>
 <span id="cb1-289"><a href="#cb1-289" aria-hidden="true" tabindex="-1"></a>    <span class="at">Indicator =</span> indicator,</span>
-<span id="cb1-290"><a href="#cb1-290" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">Preliminary advice</span><span class="st">`</span> <span class="ot">=</span> preliminary,</span>
+<span id="cb1-290"><a href="#cb1-290" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">C* before annual limit</span><span class="st">`</span> <span class="ot">=</span> preliminary,</span>
 <span id="cb1-291"><a href="#cb1-291" aria-hidden="true" tabindex="-1"></a>    <span class="at">Adjustment =</span> adjustment,</span>
 <span id="cb1-292"><a href="#cb1-292" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">Result after annual limit</span><span class="st">`</span> <span class="ot">=</span> adjusted,</span>
 <span id="cb1-293"><a href="#cb1-293" aria-hidden="true" tabindex="-1"></a>    <span class="at">check.names =</span> <span class="cn">FALSE</span></span>
@@ -1668,157 +1774,269 @@ Table&nbsp;3: Illustrative 2025 total catch advice using observations through 20
 <span id="cb1-301"><a href="#cb1-301" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb1-302"><a href="#cb1-302" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-303"><a href="#cb1-303" aria-hidden="true" tabindex="-1"></a>advice_2024 <span class="ot">&lt;-</span> <span class="fu">advice_for_year</span>(<span class="dv">2024</span>)</span>
-<span id="cb1-304"><a href="#cb1-304" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb1-305"><a href="#cb1-305" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-306"><a href="#cb1-306" aria-hidden="true" tabindex="-1"></a><span class="fu">### Historical inputs</span></span>
+<span id="cb1-304"><a href="#cb1-304" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-305"><a href="#cb1-305" aria-hidden="true" tabindex="-1"></a>calculation_text <span class="ot">&lt;-</span> <span class="cf">function</span>(control_row, indicator) {</span>
+<span id="cb1-306"><a href="#cb1-306" aria-hidden="true" tabindex="-1"></a>  fmt <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="fu">formatC</span>(x, <span class="at">digits =</span> <span class="dv">3</span>, <span class="at">format =</span> <span class="st">"f"</span>)</span>
 <span id="cb1-307"><a href="#cb1-307" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-308"><a href="#cb1-308" aria-hidden="true" tabindex="-1"></a>The table contains the observations from the updated assessment data associated</span>
-<span id="cb1-309"><a href="#cb1-309" aria-hidden="true" tabindex="-1"></a>with <span class="in">`input/0.15.dat`</span>. The two Peruvian series are retained separately as</span>
-<span id="cb1-310"><a href="#cb1-310" aria-hidden="true" tabindex="-1"></a><span class="in">`Peru_Artis`</span> and <span class="in">`Peru_Ind`</span>. Each reference mean is calculated over the</span>
-<span id="cb1-311"><a href="#cb1-311" aria-hidden="true" tabindex="-1"></a>available observations in 2019–2023. The northern acoustic series has no 2022</span>
-<span id="cb1-312"><a href="#cb1-312" aria-hidden="true" tabindex="-1"></a>value.</span>
+<span id="cb1-308"><a href="#cb1-308" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (control_row<span class="sc">$</span>hcr <span class="sc">==</span> <span class="st">"slope"</span>) {</span>
+<span id="cb1-309"><a href="#cb1-309" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(<span class="fu">paste0</span>(</span>
+<span id="cb1-310"><a href="#cb1-310" aria-hidden="true" tabindex="-1"></a>      <span class="fu">fmt</span>(control_row<span class="sc">$</span>slope), <span class="st">" × "</span>, <span class="fu">fmt</span>(indicator)</span>
+<span id="cb1-311"><a href="#cb1-311" aria-hidden="true" tabindex="-1"></a>    ))</span>
+<span id="cb1-312"><a href="#cb1-312" aria-hidden="true" tabindex="-1"></a>  }</span>
 <span id="cb1-313"><a href="#cb1-313" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-316"><a href="#cb1-316" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb1-317"><a href="#cb1-317" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-retrospective-inputs</span></span>
-<span id="cb1-318"><a href="#cb1-318" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Historical observations used for the retrospective calculation. A dash means that no value is stored."</span></span>
-<span id="cb1-319"><a href="#cb1-319" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb1-314"><a href="#cb1-314" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (indicator <span class="sc">&lt;=</span> control_row<span class="sc">$</span>lim) {</span>
+<span id="cb1-315"><a href="#cb1-315" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(<span class="fu">paste0</span>(</span>
+<span id="cb1-316"><a href="#cb1-316" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Indicator is at or below the limit; use minimum "</span>,</span>
+<span id="cb1-317"><a href="#cb1-317" aria-hidden="true" tabindex="-1"></a>      <span class="fu">fmt</span>(control_row<span class="sc">$</span>min)</span>
+<span id="cb1-318"><a href="#cb1-318" aria-hidden="true" tabindex="-1"></a>    ))</span>
+<span id="cb1-319"><a href="#cb1-319" aria-hidden="true" tabindex="-1"></a>  }</span>
 <span id="cb1-320"><a href="#cb1-320" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-321"><a href="#cb1-321" aria-hidden="true" tabindex="-1"></a>recent_inputs <span class="ot">&lt;-</span> historical_indices[</span>
-<span id="cb1-322"><a href="#cb1-322" aria-hidden="true" tabindex="-1"></a>  historical_indices<span class="sc">$</span>year <span class="sc">%in%</span> <span class="dv">2022</span><span class="sc">:</span><span class="dv">2025</span>, ]</span>
-<span id="cb1-323"><a href="#cb1-323" aria-hidden="true" tabindex="-1"></a>wide_inputs <span class="ot">&lt;-</span> <span class="fu">reshape</span>(</span>
-<span id="cb1-324"><a href="#cb1-324" aria-hidden="true" tabindex="-1"></a>  recent_inputs,</span>
-<span id="cb1-325"><a href="#cb1-325" aria-hidden="true" tabindex="-1"></a>  <span class="at">idvar =</span> <span class="st">"index"</span>,</span>
-<span id="cb1-326"><a href="#cb1-326" aria-hidden="true" tabindex="-1"></a>  <span class="at">timevar =</span> <span class="st">"year"</span>,</span>
-<span id="cb1-327"><a href="#cb1-327" aria-hidden="true" tabindex="-1"></a>  <span class="at">direction =</span> <span class="st">"wide"</span></span>
-<span id="cb1-328"><a href="#cb1-328" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-329"><a href="#cb1-329" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(wide_inputs) <span class="ot">&lt;-</span> <span class="fu">sub</span>(<span class="st">"^value</span><span class="sc">\\</span><span class="st">."</span>, <span class="st">""</span>, <span class="fu">names</span>(wide_inputs))</span>
-<span id="cb1-330"><a href="#cb1-330" aria-hidden="true" tabindex="-1"></a>input_table <span class="ot">&lt;-</span> <span class="fu">merge</span>(reference_means, wide_inputs, <span class="at">by =</span> <span class="st">"index"</span>, <span class="at">all.x =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb1-331"><a href="#cb1-331" aria-hidden="true" tabindex="-1"></a>input_table <span class="ot">&lt;-</span> input_table[</span>
-<span id="cb1-332"><a href="#cb1-332" aria-hidden="true" tabindex="-1"></a>  <span class="fu">match</span>(all_indices, input_table<span class="sc">$</span>index),</span>
-<span id="cb1-333"><a href="#cb1-333" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="st">"index"</span>, <span class="st">"reference_mean"</span>, <span class="st">"2022"</span>, <span class="st">"2023"</span>, <span class="st">"2024"</span>, <span class="st">"2025"</span>)</span>
-<span id="cb1-334"><a href="#cb1-334" aria-hidden="true" tabindex="-1"></a>]</span>
-<span id="cb1-335"><a href="#cb1-335" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(input_table) <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
-<span id="cb1-336"><a href="#cb1-336" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Series"</span>, <span class="st">"2019–2023 mean"</span>, <span class="st">"2022"</span>, <span class="st">"2023"</span>, <span class="st">"2024"</span>, <span class="st">"2025"</span></span>
-<span id="cb1-337"><a href="#cb1-337" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-338"><a href="#cb1-338" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-339"><a href="#cb1-339" aria-hidden="true" tabindex="-1"></a>old_na <span class="ot">&lt;-</span> <span class="fu">getOption</span>(<span class="st">"knitr.kable.NA"</span>)</span>
-<span id="cb1-340"><a href="#cb1-340" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">knitr.kable.NA =</span> <span class="st">"—"</span>)</span>
-<span id="cb1-341"><a href="#cb1-341" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(input_table, <span class="at">digits =</span> <span class="dv">3</span>)</span>
-<span id="cb1-342"><a href="#cb1-342" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">knitr.kable.NA =</span> old_na)</span>
-<span id="cb1-343"><a href="#cb1-343" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb1-344"><a href="#cb1-344" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-345"><a href="#cb1-345" aria-hidden="true" tabindex="-1"></a><span class="fu">### Indicators for the 2025 calculation</span></span>
-<span id="cb1-346"><a href="#cb1-346" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-347"><a href="#cb1-347" aria-hidden="true" tabindex="-1"></a>The all-index annual values are 1.141 for 2022, 1.159 for 2023, and</span>
-<span id="cb1-348"><a href="#cb1-348" aria-hidden="true" tabindex="-1"></a>1.013 for 2024. Their three-year mean is 1.104. The corresponding</span>
-<span id="cb1-349"><a href="#cb1-349" aria-hidden="true" tabindex="-1"></a>CPUE/fishery-index mean is 1.053. MP23 uses five years and has an indicator of</span>
-<span id="cb1-350"><a href="#cb1-350" aria-hidden="true" tabindex="-1"></a>1.039.</span>
-<span id="cb1-351"><a href="#cb1-351" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-354"><a href="#cb1-354" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb1-355"><a href="#cb1-355" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-retrospective-indicators</span></span>
-<span id="cb1-356"><a href="#cb1-356" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Relative-index values supplied to the candidate harvest rules for the retrospective 2025 calculation."</span></span>
-<span id="cb1-357"><a href="#cb1-357" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb1-358"><a href="#cb1-358" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-359"><a href="#cb1-359" aria-hidden="true" tabindex="-1"></a>indicator_table <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb1-360"><a href="#cb1-360" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Used by</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">c</span>(</span>
-<span id="cb1-361"><a href="#cb1-361" aria-hidden="true" tabindex="-1"></a>    <span class="st">"MP18, MP24, MP29, MP31, MP32"</span>,</span>
-<span id="cb1-362"><a href="#cb1-362" aria-hidden="true" tabindex="-1"></a>    <span class="st">"MP23"</span>,</span>
-<span id="cb1-363"><a href="#cb1-363" aria-hidden="true" tabindex="-1"></a>    <span class="st">"MP35, MP36"</span></span>
-<span id="cb1-364"><a href="#cb1-364" aria-hidden="true" tabindex="-1"></a>  ),</span>
-<span id="cb1-365"><a href="#cb1-365" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Index set</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">c</span>(</span>
-<span id="cb1-366"><a href="#cb1-366" aria-hidden="true" tabindex="-1"></a>    <span class="st">"All five indices"</span>,</span>
-<span id="cb1-367"><a href="#cb1-367" aria-hidden="true" tabindex="-1"></a>    <span class="st">"All five indices"</span>,</span>
-<span id="cb1-368"><a href="#cb1-368" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Four CPUE/fishery indices"</span></span>
-<span id="cb1-369"><a href="#cb1-369" aria-hidden="true" tabindex="-1"></a>  ),</span>
-<span id="cb1-370"><a href="#cb1-370" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Years averaged</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"2022–2024"</span>, <span class="st">"2020–2024"</span>, <span class="st">"2022–2024"</span>),</span>
-<span id="cb1-371"><a href="#cb1-371" aria-hidden="true" tabindex="-1"></a>  <span class="at">Indicator =</span> <span class="fu">c</span>(</span>
-<span id="cb1-372"><a href="#cb1-372" aria-hidden="true" tabindex="-1"></a>    <span class="fu">recent_indicator</span>(<span class="dv">2024</span>, <span class="dv">3</span>, all_indices),</span>
-<span id="cb1-373"><a href="#cb1-373" aria-hidden="true" tabindex="-1"></a>    <span class="fu">recent_indicator</span>(<span class="dv">2024</span>, <span class="dv">5</span>, all_indices),</span>
-<span id="cb1-374"><a href="#cb1-374" aria-hidden="true" tabindex="-1"></a>    <span class="fu">recent_indicator</span>(<span class="dv">2024</span>, <span class="dv">3</span>, cpue_indices)</span>
-<span id="cb1-375"><a href="#cb1-375" aria-hidden="true" tabindex="-1"></a>  ),</span>
-<span id="cb1-376"><a href="#cb1-376" aria-hidden="true" tabindex="-1"></a>  <span class="at">check.names =</span> <span class="cn">FALSE</span></span>
-<span id="cb1-377"><a href="#cb1-377" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-378"><a href="#cb1-378" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-379"><a href="#cb1-379" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(indicator_table, <span class="at">digits =</span> <span class="dv">3</span>)</span>
-<span id="cb1-380"><a href="#cb1-380" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb1-381"><a href="#cb1-381" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-382"><a href="#cb1-382" aria-hidden="true" tabindex="-1"></a><span class="fu">### Result by candidate</span></span>
-<span id="cb1-383"><a href="#cb1-383" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-384"><a href="#cb1-384" aria-hidden="true" tabindex="-1"></a>With 1385 as the initial comparison value, a 15% decrease cannot fall below</span>
-<span id="cb1-385"><a href="#cb1-385" aria-hidden="true" tabindex="-1"></a>1177.25. That floor determines the result for seven candidates. MP24 produces</span>
-<span id="cb1-386"><a href="#cb1-386" aria-hidden="true" tabindex="-1"></a>1277.85 before rounding and is not changed by the annual limit.</span>
-<span id="cb1-387"><a href="#cb1-387" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-390"><a href="#cb1-390" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb1-391"><a href="#cb1-391" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-retrospective-advice</span></span>
-<span id="cb1-392"><a href="#cb1-392" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Illustrative 2025 total catch advice using observations through 2024 and an initial comparison value of 1385."</span></span>
-<span id="cb1-393"><a href="#cb1-393" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb1-394"><a href="#cb1-394" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-395"><a href="#cb1-395" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(advice_2024, <span class="at">digits =</span> <span class="dv">3</span>)</span>
-<span id="cb1-396"><a href="#cb1-396" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb1-397"><a href="#cb1-397" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-398"><a href="#cb1-398" aria-hidden="true" tabindex="-1"></a>These values should not be interpreted as eight equally supported</span>
-<span id="cb1-399"><a href="#cb1-399" aria-hidden="true" tabindex="-1"></a>recommendations: MP29 and MP32 are the advanced candidates, while the other</span>
-<span id="cb1-400"><a href="#cb1-400" aria-hidden="true" tabindex="-1"></a>six are comparison cases. The table is useful for checking that every rule</span>
-<span id="cb1-401"><a href="#cb1-401" aria-hidden="true" tabindex="-1"></a>can be reproduced from one shared set of observations.</span>
-<span id="cb1-402"><a href="#cb1-402" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-403"><a href="#cb1-403" aria-hidden="true" tabindex="-1"></a><span class="fu">## Why this example stops with 2024 observations</span></span>
-<span id="cb1-404"><a href="#cb1-404" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-405"><a href="#cb1-405" aria-hidden="true" tabindex="-1"></a>The updated data contain both Peruvian series through 2025, but the 2025</span>
-<span id="cb1-406"><a href="#cb1-406" aria-hidden="true" tabindex="-1"></a>offshore CPUE is absent. Rather than silently omit that series or invent a</span>
-<span id="cb1-407"><a href="#cb1-407" aria-hidden="true" tabindex="-1"></a>replacement, the worked calculation backs off one year and uses the complete</span>
-<span id="cb1-408"><a href="#cb1-408" aria-hidden="true" tabindex="-1"></a>set available through 2024. Once the missing-data rule and 2025 offshore CPUE</span>
-<span id="cb1-409"><a href="#cb1-409" aria-hidden="true" tabindex="-1"></a>status are settled, the same calculation can be advanced one year to produce</span>
-<span id="cb1-410"><a href="#cb1-410" aria-hidden="true" tabindex="-1"></a>an illustrative 2026 result.</span>
-<span id="cb1-411"><a href="#cb1-411" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-412"><a href="#cb1-412" aria-hidden="true" tabindex="-1"></a><span class="fu">## Complete and record the recommendation</span></span>
+<span id="cb1-321"><a href="#cb1-321" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (control_row<span class="sc">$</span>hcr <span class="sc">==</span> <span class="st">"hockeystick"</span>) {</span>
+<span id="cb1-322"><a href="#cb1-322" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (indicator <span class="sc">&gt;=</span> control_row<span class="sc">$</span>trigger) {</span>
+<span id="cb1-323"><a href="#cb1-323" aria-hidden="true" tabindex="-1"></a>      <span class="fu">return</span>(<span class="fu">paste0</span>(</span>
+<span id="cb1-324"><a href="#cb1-324" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Indicator is at or above the trigger; use target "</span>,</span>
+<span id="cb1-325"><a href="#cb1-325" aria-hidden="true" tabindex="-1"></a>        <span class="fu">fmt</span>(control_row<span class="sc">$</span>target)</span>
+<span id="cb1-326"><a href="#cb1-326" aria-hidden="true" tabindex="-1"></a>      ))</span>
+<span id="cb1-327"><a href="#cb1-327" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb1-328"><a href="#cb1-328" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(<span class="fu">paste0</span>(</span>
+<span id="cb1-329"><a href="#cb1-329" aria-hidden="true" tabindex="-1"></a>      <span class="fu">fmt</span>(control_row<span class="sc">$</span>min), <span class="st">" + ("</span>, <span class="fu">fmt</span>(indicator), <span class="st">" − "</span>,</span>
+<span id="cb1-330"><a href="#cb1-330" aria-hidden="true" tabindex="-1"></a>      <span class="fu">fmt</span>(control_row<span class="sc">$</span>lim), <span class="st">") × ("</span>, <span class="fu">fmt</span>(control_row<span class="sc">$</span>target), <span class="st">" − "</span>,</span>
+<span id="cb1-331"><a href="#cb1-331" aria-hidden="true" tabindex="-1"></a>      <span class="fu">fmt</span>(control_row<span class="sc">$</span>min), <span class="st">") ÷ ("</span>, <span class="fu">fmt</span>(control_row<span class="sc">$</span>trigger), <span class="st">" − "</span>,</span>
+<span id="cb1-332"><a href="#cb1-332" aria-hidden="true" tabindex="-1"></a>      <span class="fu">fmt</span>(control_row<span class="sc">$</span>lim), <span class="st">")"</span></span>
+<span id="cb1-333"><a href="#cb1-333" aria-hidden="true" tabindex="-1"></a>    ))</span>
+<span id="cb1-334"><a href="#cb1-334" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb1-335"><a href="#cb1-335" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-336"><a href="#cb1-336" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> (indicator <span class="sc">-</span> control_row<span class="sc">$</span>lim) <span class="sc">/</span></span>
+<span id="cb1-337"><a href="#cb1-337" aria-hidden="true" tabindex="-1"></a>    (control_row<span class="sc">$</span>trigger <span class="sc">-</span> control_row<span class="sc">$</span>lim)</span>
+<span id="cb1-338"><a href="#cb1-338" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (indicator <span class="sc">&lt;</span> control_row<span class="sc">$</span>trigger) {</span>
+<span id="cb1-339"><a href="#cb1-339" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(<span class="fu">paste0</span>(</span>
+<span id="cb1-340"><a href="#cb1-340" aria-hidden="true" tabindex="-1"></a>      <span class="st">"x = ("</span>, <span class="fu">fmt</span>(indicator), <span class="st">" − "</span>, <span class="fu">fmt</span>(control_row<span class="sc">$</span>lim), <span class="st">") ÷ ("</span>,</span>
+<span id="cb1-341"><a href="#cb1-341" aria-hidden="true" tabindex="-1"></a>      <span class="fu">fmt</span>(control_row<span class="sc">$</span>trigger), <span class="st">" − "</span>, <span class="fu">fmt</span>(control_row<span class="sc">$</span>lim), <span class="st">") = "</span>,</span>
+<span id="cb1-342"><a href="#cb1-342" aria-hidden="true" tabindex="-1"></a>      <span class="fu">fmt</span>(x), <span class="st">"; "</span>, <span class="fu">fmt</span>(control_row<span class="sc">$</span>min), <span class="st">" + ("</span>,</span>
+<span id="cb1-343"><a href="#cb1-343" aria-hidden="true" tabindex="-1"></a>      <span class="fu">fmt</span>(control_row<span class="sc">$</span>target), <span class="st">" − "</span>, <span class="fu">fmt</span>(control_row<span class="sc">$</span>min),</span>
+<span id="cb1-344"><a href="#cb1-344" aria-hidden="true" tabindex="-1"></a>      <span class="st">") × x raised to 2.5"</span></span>
+<span id="cb1-345"><a href="#cb1-345" aria-hidden="true" tabindex="-1"></a>    ))</span>
+<span id="cb1-346"><a href="#cb1-346" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb1-347"><a href="#cb1-347" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-348"><a href="#cb1-348" aria-hidden="true" tabindex="-1"></a>  <span class="fu">paste0</span>(</span>
+<span id="cb1-349"><a href="#cb1-349" aria-hidden="true" tabindex="-1"></a>    <span class="st">"x = ("</span>, <span class="fu">fmt</span>(indicator), <span class="st">" − "</span>, <span class="fu">fmt</span>(control_row<span class="sc">$</span>lim), <span class="st">") ÷ ("</span>,</span>
+<span id="cb1-350"><a href="#cb1-350" aria-hidden="true" tabindex="-1"></a>    <span class="fu">fmt</span>(control_row<span class="sc">$</span>trigger), <span class="st">" − "</span>, <span class="fu">fmt</span>(control_row<span class="sc">$</span>lim), <span class="st">") = "</span>,</span>
+<span id="cb1-351"><a href="#cb1-351" aria-hidden="true" tabindex="-1"></a>    <span class="fu">fmt</span>(x), <span class="st">"; "</span>, <span class="fu">fmt</span>(control_row<span class="sc">$</span>target),</span>
+<span id="cb1-352"><a href="#cb1-352" aria-hidden="true" tabindex="-1"></a>    <span class="st">" × (0.2 + 0.8 × x) raised to 0.6"</span></span>
+<span id="cb1-353"><a href="#cb1-353" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-354"><a href="#cb1-354" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-355"><a href="#cb1-355" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-356"><a href="#cb1-356" aria-hidden="true" tabindex="-1"></a>rule_names <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb1-357"><a href="#cb1-357" aria-hidden="true" tabindex="-1"></a>  <span class="at">hockeystick =</span> <span class="st">"Hockeystick"</span>,</span>
+<span id="cb1-358"><a href="#cb1-358" aria-hidden="true" tabindex="-1"></a>  <span class="at">slope =</span> <span class="st">"Straight slope"</span>,</span>
+<span id="cb1-359"><a href="#cb1-359" aria-hidden="true" tabindex="-1"></a>  <span class="at">powerramp =</span> <span class="st">"Power ramp"</span></span>
+<span id="cb1-360"><a href="#cb1-360" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-361"><a href="#cb1-361" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-362"><a href="#cb1-362" aria-hidden="true" tabindex="-1"></a>conversion_table <span class="ot">&lt;-</span> <span class="fu">do.call</span>(rbind, <span class="fu">lapply</span>(<span class="fu">seq_len</span>(<span class="fu">nrow</span>(controls)), <span class="cf">function</span>(i) {</span>
+<span id="cb1-363"><a href="#cb1-363" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(</span>
+<span id="cb1-364"><a href="#cb1-364" aria-hidden="true" tabindex="-1"></a>    <span class="at">CMP =</span> controls<span class="sc">$</span>label[i],</span>
+<span id="cb1-365"><a href="#cb1-365" aria-hidden="true" tabindex="-1"></a>    <span class="at">Indicator =</span> advice_2024<span class="sc">$</span>Indicator[i],</span>
+<span id="cb1-366"><a href="#cb1-366" aria-hidden="true" tabindex="-1"></a>    <span class="at">Rule =</span> <span class="fu">unname</span>(rule_names[controls<span class="sc">$</span>hcr[i]]),</span>
+<span id="cb1-367"><a href="#cb1-367" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">Substitute the indicator in the rule</span><span class="st">`</span> <span class="ot">=</span></span>
+<span id="cb1-368"><a href="#cb1-368" aria-hidden="true" tabindex="-1"></a>      <span class="fu">calculation_text</span>(controls[i, ], advice_2024<span class="sc">$</span>Indicator[i]),</span>
+<span id="cb1-369"><a href="#cb1-369" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">C* before annual limit</span><span class="st">`</span> <span class="ot">=</span> advice_2024<span class="sc">$</span><span class="st">`</span><span class="at">C* before annual limit</span><span class="st">`</span>[i],</span>
+<span id="cb1-370"><a href="#cb1-370" aria-hidden="true" tabindex="-1"></a>    <span class="at">check.names =</span> <span class="cn">FALSE</span></span>
+<span id="cb1-371"><a href="#cb1-371" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-372"><a href="#cb1-372" aria-hidden="true" tabindex="-1"></a>}))</span>
+<span id="cb1-373"><a href="#cb1-373" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-374"><a href="#cb1-374" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-375"><a href="#cb1-375" aria-hidden="true" tabindex="-1"></a><span class="fu">### Historical inputs</span></span>
+<span id="cb1-376"><a href="#cb1-376" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-377"><a href="#cb1-377" aria-hidden="true" tabindex="-1"></a>The table contains the observations from the updated assessment data associated</span>
+<span id="cb1-378"><a href="#cb1-378" aria-hidden="true" tabindex="-1"></a>with <span class="in">`input/0.15.dat`</span>. The two Peruvian series are retained separately as</span>
+<span id="cb1-379"><a href="#cb1-379" aria-hidden="true" tabindex="-1"></a><span class="in">`Peru_Artis`</span> and <span class="in">`Peru_Ind`</span>. Each reference mean is calculated over the</span>
+<span id="cb1-380"><a href="#cb1-380" aria-hidden="true" tabindex="-1"></a>available observations in 2019–2023. The northern acoustic series has no 2022</span>
+<span id="cb1-381"><a href="#cb1-381" aria-hidden="true" tabindex="-1"></a>value.</span>
+<span id="cb1-382"><a href="#cb1-382" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-385"><a href="#cb1-385" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-386"><a href="#cb1-386" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-retrospective-inputs</span></span>
+<span id="cb1-387"><a href="#cb1-387" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Historical observations used for the retrospective calculation. A dash means that no value is stored."</span></span>
+<span id="cb1-388"><a href="#cb1-388" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb1-389"><a href="#cb1-389" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-390"><a href="#cb1-390" aria-hidden="true" tabindex="-1"></a>recent_inputs <span class="ot">&lt;-</span> historical_indices[</span>
+<span id="cb1-391"><a href="#cb1-391" aria-hidden="true" tabindex="-1"></a>  historical_indices<span class="sc">$</span>year <span class="sc">%in%</span> <span class="dv">2022</span><span class="sc">:</span><span class="dv">2025</span>, ]</span>
+<span id="cb1-392"><a href="#cb1-392" aria-hidden="true" tabindex="-1"></a>wide_inputs <span class="ot">&lt;-</span> <span class="fu">reshape</span>(</span>
+<span id="cb1-393"><a href="#cb1-393" aria-hidden="true" tabindex="-1"></a>  recent_inputs,</span>
+<span id="cb1-394"><a href="#cb1-394" aria-hidden="true" tabindex="-1"></a>  <span class="at">idvar =</span> <span class="st">"index"</span>,</span>
+<span id="cb1-395"><a href="#cb1-395" aria-hidden="true" tabindex="-1"></a>  <span class="at">timevar =</span> <span class="st">"year"</span>,</span>
+<span id="cb1-396"><a href="#cb1-396" aria-hidden="true" tabindex="-1"></a>  <span class="at">direction =</span> <span class="st">"wide"</span></span>
+<span id="cb1-397"><a href="#cb1-397" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-398"><a href="#cb1-398" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(wide_inputs) <span class="ot">&lt;-</span> <span class="fu">sub</span>(<span class="st">"^value</span><span class="sc">\\</span><span class="st">."</span>, <span class="st">""</span>, <span class="fu">names</span>(wide_inputs))</span>
+<span id="cb1-399"><a href="#cb1-399" aria-hidden="true" tabindex="-1"></a>input_table <span class="ot">&lt;-</span> <span class="fu">merge</span>(reference_means, wide_inputs, <span class="at">by =</span> <span class="st">"index"</span>, <span class="at">all.x =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-400"><a href="#cb1-400" aria-hidden="true" tabindex="-1"></a>input_table <span class="ot">&lt;-</span> input_table[</span>
+<span id="cb1-401"><a href="#cb1-401" aria-hidden="true" tabindex="-1"></a>  <span class="fu">match</span>(all_indices, input_table<span class="sc">$</span>index),</span>
+<span id="cb1-402"><a href="#cb1-402" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="st">"index"</span>, <span class="st">"reference_mean"</span>, <span class="st">"2022"</span>, <span class="st">"2023"</span>, <span class="st">"2024"</span>, <span class="st">"2025"</span>)</span>
+<span id="cb1-403"><a href="#cb1-403" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb1-404"><a href="#cb1-404" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(input_table) <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb1-405"><a href="#cb1-405" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Series"</span>, <span class="st">"2019–2023 mean"</span>, <span class="st">"2022"</span>, <span class="st">"2023"</span>, <span class="st">"2024"</span>, <span class="st">"2025"</span></span>
+<span id="cb1-406"><a href="#cb1-406" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-407"><a href="#cb1-407" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-408"><a href="#cb1-408" aria-hidden="true" tabindex="-1"></a>old_na <span class="ot">&lt;-</span> <span class="fu">getOption</span>(<span class="st">"knitr.kable.NA"</span>)</span>
+<span id="cb1-409"><a href="#cb1-409" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">knitr.kable.NA =</span> <span class="st">"—"</span>)</span>
+<span id="cb1-410"><a href="#cb1-410" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(input_table, <span class="at">digits =</span> <span class="dv">3</span>)</span>
+<span id="cb1-411"><a href="#cb1-411" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">knitr.kable.NA =</span> old_na)</span>
+<span id="cb1-412"><a href="#cb1-412" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb1-413"><a href="#cb1-413" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-414"><a href="#cb1-414" aria-hidden="true" tabindex="-1"></a>For each CMP, save:</span>
+<span id="cb1-414"><a href="#cb1-414" aria-hidden="true" tabindex="-1"></a><span class="fu">### Indicators for the 2025 calculation</span></span>
 <span id="cb1-415"><a href="#cb1-415" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-416"><a href="#cb1-416" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>the original data files and their units;</span>
-<span id="cb1-417"><a href="#cb1-417" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>the 2019–2023 average for each index;</span>
-<span id="cb1-418"><a href="#cb1-418" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>every annual relative index $R_{j,y}$;</span>
-<span id="cb1-419"><a href="#cb1-419" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>the combined annual indices $A_y$;</span>
-<span id="cb1-420"><a href="#cb1-420" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>the recent-year indicator $I$;</span>
-<span id="cb1-421"><a href="#cb1-421" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>the preliminary harvest-rule result $C^*$;</span>
-<span id="cb1-422"><a href="#cb1-422" aria-hidden="true" tabindex="-1"></a><span class="ss">7. </span>the previous-advice value and annual-change adjustment;</span>
-<span id="cb1-423"><a href="#cb1-423" aria-hidden="true" tabindex="-1"></a><span class="ss">8. </span>the unrounded and rounded total recommendation;</span>
-<span id="cb1-424"><a href="#cb1-424" aria-hidden="true" tabindex="-1"></a><span class="ss">9. </span>any allocation calculation; and</span>
-<span id="cb1-425"><a href="#cb1-425" aria-hidden="true" tabindex="-1"></a><span class="ss">10. </span>all missing-data, revision, or exceptional-circumstances warnings.</span>
-<span id="cb1-426"><a href="#cb1-426" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-427"><a href="#cb1-427" aria-hidden="true" tabindex="-1"></a>The current simulations divide the total catch among fisheries using their</span>
-<span id="cb1-428"><a href="#cb1-428" aria-hidden="true" tabindex="-1"></a>average catch shares over the previous five years. The Scientific Committee</span>
-<span id="cb1-429"><a href="#cb1-429" aria-hidden="true" tabindex="-1"></a>should confirm whether that calculation is part of the CMP or a separate</span>
-<span id="cb1-430"><a href="#cb1-430" aria-hidden="true" tabindex="-1"></a>allocation decision.</span>
-<span id="cb1-431"><a href="#cb1-431" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-432"><a href="#cb1-432" aria-hidden="true" tabindex="-1"></a><span class="fu">## What can be concluded from the currently reported value</span></span>
-<span id="cb1-433"><a href="#cb1-433" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-434"><a href="#cb1-434" aria-hidden="true" tabindex="-1"></a>The approximately 630 kt acoustic estimate alone is not sufficient to</span>
-<span id="cb1-435"><a href="#cb1-435" aria-hidden="true" tabindex="-1"></a>calculate a TAC:</span>
-<span id="cb1-436"><a href="#cb1-436" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-437"><a href="#cb1-437" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>it is outside the tested data window for a 2027 recommendation;</span>
-<span id="cb1-438"><a href="#cb1-438" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>it must be expressed relative to the 2019–2023 average for the same survey;</span>
-<span id="cb1-439"><a href="#cb1-439" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>the other required indices are needed for the all-index CMPs; and</span>
-<span id="cb1-440"><a href="#cb1-440" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>MP35 and MP36 do not use the acoustic survey.</span>
-<span id="cb1-441"><a href="#cb1-441" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-442"><a href="#cb1-442" aria-hidden="true" tabindex="-1"></a>Once the complete annual data table and the agreed previous-advice value are</span>
-<span id="cb1-443"><a href="#cb1-443" aria-hidden="true" tabindex="-1"></a>available, the calculations above can be run side by side to show the</span>
-<span id="cb1-444"><a href="#cb1-444" aria-hidden="true" tabindex="-1"></a>recommendation produced by every candidate.</span>
-<span id="cb1-445"><a href="#cb1-445" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-446"><a href="#cb1-446" aria-hidden="true" tabindex="-1"></a><span class="fu">## Implementation basis</span></span>
+<span id="cb1-416"><a href="#cb1-416" aria-hidden="true" tabindex="-1"></a>The all-index annual values are 1.141 for 2022, 1.159 for 2023, and</span>
+<span id="cb1-417"><a href="#cb1-417" aria-hidden="true" tabindex="-1"></a>1.013 for 2024. Their three-year mean is 1.104. The corresponding</span>
+<span id="cb1-418"><a href="#cb1-418" aria-hidden="true" tabindex="-1"></a>CPUE/fishery-index mean is 1.053. MP23 uses five years and has an indicator of</span>
+<span id="cb1-419"><a href="#cb1-419" aria-hidden="true" tabindex="-1"></a>1.039.</span>
+<span id="cb1-420"><a href="#cb1-420" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-423"><a href="#cb1-423" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-424"><a href="#cb1-424" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-retrospective-indicators</span></span>
+<span id="cb1-425"><a href="#cb1-425" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Relative-index values supplied to the candidate harvest rules for the retrospective 2025 calculation."</span></span>
+<span id="cb1-426"><a href="#cb1-426" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb1-427"><a href="#cb1-427" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-428"><a href="#cb1-428" aria-hidden="true" tabindex="-1"></a>indicator_table <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb1-429"><a href="#cb1-429" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Used by</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">c</span>(</span>
+<span id="cb1-430"><a href="#cb1-430" aria-hidden="true" tabindex="-1"></a>    <span class="st">"MP18, MP24, MP29, MP31, MP32"</span>,</span>
+<span id="cb1-431"><a href="#cb1-431" aria-hidden="true" tabindex="-1"></a>    <span class="st">"MP23"</span>,</span>
+<span id="cb1-432"><a href="#cb1-432" aria-hidden="true" tabindex="-1"></a>    <span class="st">"MP35, MP36"</span></span>
+<span id="cb1-433"><a href="#cb1-433" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb1-434"><a href="#cb1-434" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Index set</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">c</span>(</span>
+<span id="cb1-435"><a href="#cb1-435" aria-hidden="true" tabindex="-1"></a>    <span class="st">"All five indices"</span>,</span>
+<span id="cb1-436"><a href="#cb1-436" aria-hidden="true" tabindex="-1"></a>    <span class="st">"All five indices"</span>,</span>
+<span id="cb1-437"><a href="#cb1-437" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Four CPUE/fishery indices"</span></span>
+<span id="cb1-438"><a href="#cb1-438" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb1-439"><a href="#cb1-439" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Years averaged</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"2022–2024"</span>, <span class="st">"2020–2024"</span>, <span class="st">"2022–2024"</span>),</span>
+<span id="cb1-440"><a href="#cb1-440" aria-hidden="true" tabindex="-1"></a>  <span class="at">Indicator =</span> <span class="fu">c</span>(</span>
+<span id="cb1-441"><a href="#cb1-441" aria-hidden="true" tabindex="-1"></a>    <span class="fu">recent_indicator</span>(<span class="dv">2024</span>, <span class="dv">3</span>, all_indices),</span>
+<span id="cb1-442"><a href="#cb1-442" aria-hidden="true" tabindex="-1"></a>    <span class="fu">recent_indicator</span>(<span class="dv">2024</span>, <span class="dv">5</span>, all_indices),</span>
+<span id="cb1-443"><a href="#cb1-443" aria-hidden="true" tabindex="-1"></a>    <span class="fu">recent_indicator</span>(<span class="dv">2024</span>, <span class="dv">3</span>, cpue_indices)</span>
+<span id="cb1-444"><a href="#cb1-444" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb1-445"><a href="#cb1-445" aria-hidden="true" tabindex="-1"></a>  <span class="at">check.names =</span> <span class="cn">FALSE</span></span>
+<span id="cb1-446"><a href="#cb1-446" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb1-447"><a href="#cb1-447" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-448"><a href="#cb1-448" aria-hidden="true" tabindex="-1"></a>This calculation plan is based on the controls saved by the <span class="in">`jmMSE`</span> candidate</span>
-<span id="cb1-449"><a href="#cb1-449" aria-hidden="true" tabindex="-1"></a>runner on branch <span class="in">`devel`</span>, commit</span>
-<span id="cb1-450"><a href="#cb1-450" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">`be080e7`</span><span class="co">](https://github.com/SPRFMO/jmMSE/commit/be080e7dbc2438577922d29833fa6394db90e44c)</span>.</span>
-<span id="cb1-451"><a href="#cb1-451" aria-hidden="true" tabindex="-1"></a>The historical index extract used in the worked calculation is saved as</span>
-<span id="cb1-452"><a href="#cb1-452" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">`cmp-historical-indices.csv`</span><span class="co">](../data/cmp-historical-indices.csv)</span>. It was</span>
-<span id="cb1-453"><a href="#cb1-453" aria-hidden="true" tabindex="-1"></a>extracted from the updated <span class="in">`h1_0.16`</span> assessment output associated with</span>
-<span id="cb1-454"><a href="#cb1-454" aria-hidden="true" tabindex="-1"></a><span class="in">`input/0.15.dat`</span>, retaining both Peruvian index series.</span>
-<span id="cb1-455"><a href="#cb1-455" aria-hidden="true" tabindex="-1"></a>The main implementation sources are</span>
-<span id="cb1-456"><a href="#cb1-456" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">`run_candidate_mps.R`</span><span class="co">](https://github.com/SPRFMO/jmMSE/blob/devel/run_candidate_mps.R)</span></span>
-<span id="cb1-457"><a href="#cb1-457" aria-hidden="true" tabindex="-1"></a>and</span>
-<span id="cb1-458"><a href="#cb1-458" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">`model_tune.R`</span><span class="co">](https://github.com/SPRFMO/jmMSE/blob/devel/model_tune.R)</span>.</span>
-<span id="cb1-459"><a href="#cb1-459" aria-hidden="true" tabindex="-1"></a>If the data delays, recent-year windows, combined-index calculation, or annual</span>
-<span id="cb1-460"><a href="#cb1-460" aria-hidden="true" tabindex="-1"></a>change rule are revised, this page and the MSE tests must be updated together.</span>
+<span id="cb1-448"><a href="#cb1-448" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(indicator_table, <span class="at">digits =</span> <span class="dv">3</span>)</span>
+<span id="cb1-449"><a href="#cb1-449" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-450"><a href="#cb1-450" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-451"><a href="#cb1-451" aria-hidden="true" tabindex="-1"></a><span class="fu">### Turn the indicator into preliminary advice</span></span>
+<span id="cb1-452"><a href="#cb1-452" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-453"><a href="#cb1-453" aria-hidden="true" tabindex="-1"></a>The indicator is a relative measure, not a catch quantity. A value of 1 means</span>
+<span id="cb1-454"><a href="#cb1-454" aria-hidden="true" tabindex="-1"></a>that the recent indices are, on average, equal to their 2019–2023 reference</span>
+<span id="cb1-455"><a href="#cb1-455" aria-hidden="true" tabindex="-1"></a>levels. A value above 1 means they are higher; a value below 1 means they are</span>
+<span id="cb1-456"><a href="#cb1-456" aria-hidden="true" tabindex="-1"></a>lower.</span>
+<span id="cb1-457"><a href="#cb1-457" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-458"><a href="#cb1-458" aria-hidden="true" tabindex="-1"></a>Each candidate then puts its indicator into its own harvest-control rule. The</span>
+<span id="cb1-459"><a href="#cb1-459" aria-hidden="true" tabindex="-1"></a>rule converts the relative indicator into a catch quantity. Because the</span>
+<span id="cb1-460"><a href="#cb1-460" aria-hidden="true" tabindex="-1"></a>candidates have different limits, triggers, targets, and rule shapes, the same</span>
+<span id="cb1-461"><a href="#cb1-461" aria-hidden="true" tabindex="-1"></a>indicator can produce different preliminary advice.</span>
+<span id="cb1-462"><a href="#cb1-462" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-463"><a href="#cb1-463" aria-hidden="true" tabindex="-1"></a>We write this preliminary catch advice as $C^*$. Here, $C$ means catch advice</span>
+<span id="cb1-464"><a href="#cb1-464" aria-hidden="true" tabindex="-1"></a>and the star means **provisional**: it is the harvest-control-rule result before</span>
+<span id="cb1-465"><a href="#cb1-465" aria-hidden="true" tabindex="-1"></a>the annual change limit is applied. The star is not another calculation.</span>
+<span id="cb1-466"><a href="#cb1-466" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-467"><a href="#cb1-467" aria-hidden="true" tabindex="-1"></a>The table shows the substitution explicitly. Values displayed in the</span>
+<span id="cb1-468"><a href="#cb1-468" aria-hidden="true" tabindex="-1"></a>calculation are rounded to three decimal places; the code uses the unrounded</span>
+<span id="cb1-469"><a href="#cb1-469" aria-hidden="true" tabindex="-1"></a>values.</span>
+<span id="cb1-470"><a href="#cb1-470" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-473"><a href="#cb1-473" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-474"><a href="#cb1-474" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-indicator-to-advice</span></span>
+<span id="cb1-475"><a href="#cb1-475" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "How each candidate converts its indicator into preliminary catch advice (C*)."</span></span>
+<span id="cb1-476"><a href="#cb1-476" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb1-477"><a href="#cb1-477" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-478"><a href="#cb1-478" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(conversion_table, <span class="at">digits =</span> <span class="dv">3</span>)</span>
+<span id="cb1-479"><a href="#cb1-479" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-480"><a href="#cb1-480" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-481"><a href="#cb1-481" aria-hidden="true" tabindex="-1"></a>For example, MP29 uses the hockeystick rule:</span>
+<span id="cb1-482"><a href="#cb1-482" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-483"><a href="#cb1-483" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-484"><a href="#cb1-484" aria-hidden="true" tabindex="-1"></a>C^* =</span>
+<span id="cb1-485"><a href="#cb1-485" aria-hidden="true" tabindex="-1"></a>270 +</span>
+<span id="cb1-486"><a href="#cb1-486" aria-hidden="true" tabindex="-1"></a>\frac{(1.104-0.100)(2000-270)}</span>
+<span id="cb1-487"><a href="#cb1-487" aria-hidden="true" tabindex="-1"></a>     {(2.125-0.100)}</span>
+<span id="cb1-488"><a href="#cb1-488" aria-hidden="true" tabindex="-1"></a>= 1128.10.</span>
+<span id="cb1-489"><a href="#cb1-489" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-490"><a href="#cb1-490" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-491"><a href="#cb1-491" aria-hidden="true" tabindex="-1"></a>The value 1128.10 is therefore MP29's harvest-rule result. It is not yet the</span>
+<span id="cb1-492"><a href="#cb1-492" aria-hidden="true" tabindex="-1"></a>final value because the annual change limit must still be applied.</span>
+<span id="cb1-493"><a href="#cb1-493" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-494"><a href="#cb1-494" aria-hidden="true" tabindex="-1"></a><span class="fu">### Apply the annual change limit</span></span>
+<span id="cb1-495"><a href="#cb1-495" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-496"><a href="#cb1-496" aria-hidden="true" tabindex="-1"></a>With 1385 as the initial comparison value, a 15% decrease cannot fall below</span>
+<span id="cb1-497"><a href="#cb1-497" aria-hidden="true" tabindex="-1"></a>0.85 × 1385 = 1177.25, while a 20% increase cannot exceed</span>
+<span id="cb1-498"><a href="#cb1-498" aria-hidden="true" tabindex="-1"></a>1.20 × 1385 = 1662.00. Each $C^*$ is restricted to that range. The lower bound</span>
+<span id="cb1-499"><a href="#cb1-499" aria-hidden="true" tabindex="-1"></a>determines the result for seven candidates. MP24 produces 1277.85 before</span>
+<span id="cb1-500"><a href="#cb1-500" aria-hidden="true" tabindex="-1"></a>rounding and is already within the allowed range.</span>
+<span id="cb1-501"><a href="#cb1-501" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-504"><a href="#cb1-504" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-505"><a href="#cb1-505" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-retrospective-advice</span></span>
+<span id="cb1-506"><a href="#cb1-506" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Illustrative 2025 total catch advice using observations through 2024 and an initial comparison value of 1385."</span></span>
+<span id="cb1-507"><a href="#cb1-507" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb1-508"><a href="#cb1-508" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-509"><a href="#cb1-509" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(advice_2024, <span class="at">digits =</span> <span class="dv">3</span>)</span>
+<span id="cb1-510"><a href="#cb1-510" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-511"><a href="#cb1-511" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-512"><a href="#cb1-512" aria-hidden="true" tabindex="-1"></a>These values should not be interpreted as eight equally supported</span>
+<span id="cb1-513"><a href="#cb1-513" aria-hidden="true" tabindex="-1"></a>recommendations: MP29 and MP32 are the advanced candidates, while the other</span>
+<span id="cb1-514"><a href="#cb1-514" aria-hidden="true" tabindex="-1"></a>six are comparison cases. The table is useful for checking that every rule</span>
+<span id="cb1-515"><a href="#cb1-515" aria-hidden="true" tabindex="-1"></a>can be reproduced from one shared set of observations.</span>
+<span id="cb1-516"><a href="#cb1-516" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-517"><a href="#cb1-517" aria-hidden="true" tabindex="-1"></a><span class="fu">## Why this example stops with 2024 observations</span></span>
+<span id="cb1-518"><a href="#cb1-518" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-519"><a href="#cb1-519" aria-hidden="true" tabindex="-1"></a>The updated data contain both Peruvian series through 2025, but the 2025</span>
+<span id="cb1-520"><a href="#cb1-520" aria-hidden="true" tabindex="-1"></a>offshore CPUE is absent. Rather than silently omit that series or invent a</span>
+<span id="cb1-521"><a href="#cb1-521" aria-hidden="true" tabindex="-1"></a>replacement, the worked calculation backs off one year and uses the complete</span>
+<span id="cb1-522"><a href="#cb1-522" aria-hidden="true" tabindex="-1"></a>set available through 2024. Once the missing-data rule and 2025 offshore CPUE</span>
+<span id="cb1-523"><a href="#cb1-523" aria-hidden="true" tabindex="-1"></a>status are settled, the same calculation can be advanced one year to produce</span>
+<span id="cb1-524"><a href="#cb1-524" aria-hidden="true" tabindex="-1"></a>an illustrative 2026 result.</span>
+<span id="cb1-525"><a href="#cb1-525" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-526"><a href="#cb1-526" aria-hidden="true" tabindex="-1"></a><span class="fu">## Complete and record the recommendation</span></span>
+<span id="cb1-527"><a href="#cb1-527" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-528"><a href="#cb1-528" aria-hidden="true" tabindex="-1"></a>For each CMP, save:</span>
+<span id="cb1-529"><a href="#cb1-529" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-530"><a href="#cb1-530" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>the original data files and their units;</span>
+<span id="cb1-531"><a href="#cb1-531" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>the 2019–2023 average for each index;</span>
+<span id="cb1-532"><a href="#cb1-532" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>every annual relative index $R_{j,y}$;</span>
+<span id="cb1-533"><a href="#cb1-533" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>the combined annual indices $A_y$;</span>
+<span id="cb1-534"><a href="#cb1-534" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>the recent-year indicator $I$;</span>
+<span id="cb1-535"><a href="#cb1-535" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>the preliminary harvest-rule result $C^*$;</span>
+<span id="cb1-536"><a href="#cb1-536" aria-hidden="true" tabindex="-1"></a><span class="ss">7. </span>the previous-advice value and annual-change adjustment;</span>
+<span id="cb1-537"><a href="#cb1-537" aria-hidden="true" tabindex="-1"></a><span class="ss">8. </span>the unrounded and rounded total recommendation;</span>
+<span id="cb1-538"><a href="#cb1-538" aria-hidden="true" tabindex="-1"></a><span class="ss">9. </span>any allocation calculation; and</span>
+<span id="cb1-539"><a href="#cb1-539" aria-hidden="true" tabindex="-1"></a><span class="ss">10. </span>all missing-data, revision, or exceptional-circumstances warnings.</span>
+<span id="cb1-540"><a href="#cb1-540" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-541"><a href="#cb1-541" aria-hidden="true" tabindex="-1"></a>The current simulations divide the total catch among fisheries using their</span>
+<span id="cb1-542"><a href="#cb1-542" aria-hidden="true" tabindex="-1"></a>average catch shares over the previous five years. The Scientific Committee</span>
+<span id="cb1-543"><a href="#cb1-543" aria-hidden="true" tabindex="-1"></a>should confirm whether that calculation is part of the CMP or a separate</span>
+<span id="cb1-544"><a href="#cb1-544" aria-hidden="true" tabindex="-1"></a>allocation decision.</span>
+<span id="cb1-545"><a href="#cb1-545" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-546"><a href="#cb1-546" aria-hidden="true" tabindex="-1"></a><span class="fu">## What can be concluded from the currently reported value</span></span>
+<span id="cb1-547"><a href="#cb1-547" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-548"><a href="#cb1-548" aria-hidden="true" tabindex="-1"></a>The approximately 630 kt acoustic estimate alone is not sufficient to</span>
+<span id="cb1-549"><a href="#cb1-549" aria-hidden="true" tabindex="-1"></a>calculate a TAC:</span>
+<span id="cb1-550"><a href="#cb1-550" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-551"><a href="#cb1-551" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>it is outside the tested data window for a 2027 recommendation;</span>
+<span id="cb1-552"><a href="#cb1-552" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>it must be expressed relative to the 2019–2023 average for the same survey;</span>
+<span id="cb1-553"><a href="#cb1-553" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>the other required indices are needed for the all-index CMPs; and</span>
+<span id="cb1-554"><a href="#cb1-554" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>MP35 and MP36 do not use the acoustic survey.</span>
+<span id="cb1-555"><a href="#cb1-555" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-556"><a href="#cb1-556" aria-hidden="true" tabindex="-1"></a>Once the complete annual data table and the agreed previous-advice value are</span>
+<span id="cb1-557"><a href="#cb1-557" aria-hidden="true" tabindex="-1"></a>available, the calculations above can be run side by side to show the</span>
+<span id="cb1-558"><a href="#cb1-558" aria-hidden="true" tabindex="-1"></a>recommendation produced by every candidate.</span>
+<span id="cb1-559"><a href="#cb1-559" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-560"><a href="#cb1-560" aria-hidden="true" tabindex="-1"></a><span class="fu">## Implementation basis</span></span>
+<span id="cb1-561"><a href="#cb1-561" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-562"><a href="#cb1-562" aria-hidden="true" tabindex="-1"></a>This calculation plan is based on the controls saved by the <span class="in">`jmMSE`</span> candidate</span>
+<span id="cb1-563"><a href="#cb1-563" aria-hidden="true" tabindex="-1"></a>runner on branch <span class="in">`devel`</span>, commit</span>
+<span id="cb1-564"><a href="#cb1-564" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">`be080e7`</span><span class="co">](https://github.com/SPRFMO/jmMSE/commit/be080e7dbc2438577922d29833fa6394db90e44c)</span>.</span>
+<span id="cb1-565"><a href="#cb1-565" aria-hidden="true" tabindex="-1"></a>The historical index extract used in the worked calculation is saved as</span>
+<span id="cb1-566"><a href="#cb1-566" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">`cmp-historical-indices.csv`</span><span class="co">](../data/cmp-historical-indices.csv)</span>. It was</span>
+<span id="cb1-567"><a href="#cb1-567" aria-hidden="true" tabindex="-1"></a>extracted from the updated <span class="in">`h1_0.16`</span> assessment output associated with</span>
+<span id="cb1-568"><a href="#cb1-568" aria-hidden="true" tabindex="-1"></a><span class="in">`input/0.15.dat`</span>, retaining both Peruvian index series.</span>
+<span id="cb1-569"><a href="#cb1-569" aria-hidden="true" tabindex="-1"></a>The main implementation sources are</span>
+<span id="cb1-570"><a href="#cb1-570" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">`run_candidate_mps.R`</span><span class="co">](https://github.com/SPRFMO/jmMSE/blob/devel/run_candidate_mps.R)</span></span>
+<span id="cb1-571"><a href="#cb1-571" aria-hidden="true" tabindex="-1"></a>and</span>
+<span id="cb1-572"><a href="#cb1-572" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">`model_tune.R`</span><span class="co">](https://github.com/SPRFMO/jmMSE/blob/devel/model_tune.R)</span>.</span>
+<span id="cb1-573"><a href="#cb1-573" aria-hidden="true" tabindex="-1"></a>If the data delays, recent-year windows, combined-index calculation, or annual</span>
+<span id="cb1-574"><a href="#cb1-574" aria-hidden="true" tabindex="-1"></a>change rule are revised, this page and the MSE tests must be updated together.</span>
 </code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

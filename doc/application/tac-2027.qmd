@@ -285,7 +285,7 @@ calculate_advice <- function(control_row, end_year, previous = 1385) {
     CMP = control_row$label,
     `Index years` = paste0(end_year - n_years + 1, "–", end_year),
     Indicator = indicator,
-    `Preliminary advice` = preliminary,
+    `C* before annual limit` = preliminary,
     Adjustment = adjustment,
     `Result after annual limit` = adjusted,
     check.names = FALSE
@@ -299,6 +299,75 @@ advice_for_year <- function(end_year) {
 }
 
 advice_2024 <- advice_for_year(2024)
+
+calculation_text <- function(control_row, indicator) {
+  fmt <- function(x) formatC(x, digits = 3, format = "f")
+
+  if (control_row$hcr == "slope") {
+    return(paste0(
+      fmt(control_row$slope), " × ", fmt(indicator)
+    ))
+  }
+
+  if (indicator <= control_row$lim) {
+    return(paste0(
+      "Indicator is at or below the limit; use minimum ",
+      fmt(control_row$min)
+    ))
+  }
+
+  if (control_row$hcr == "hockeystick") {
+    if (indicator >= control_row$trigger) {
+      return(paste0(
+        "Indicator is at or above the trigger; use target ",
+        fmt(control_row$target)
+      ))
+    }
+    return(paste0(
+      fmt(control_row$min), " + (", fmt(indicator), " − ",
+      fmt(control_row$lim), ") × (", fmt(control_row$target), " − ",
+      fmt(control_row$min), ") ÷ (", fmt(control_row$trigger), " − ",
+      fmt(control_row$lim), ")"
+    ))
+  }
+
+  x <- (indicator - control_row$lim) /
+    (control_row$trigger - control_row$lim)
+  if (indicator < control_row$trigger) {
+    return(paste0(
+      "x = (", fmt(indicator), " − ", fmt(control_row$lim), ") ÷ (",
+      fmt(control_row$trigger), " − ", fmt(control_row$lim), ") = ",
+      fmt(x), "; ", fmt(control_row$min), " + (",
+      fmt(control_row$target), " − ", fmt(control_row$min),
+      ") × x raised to 2.5"
+    ))
+  }
+
+  paste0(
+    "x = (", fmt(indicator), " − ", fmt(control_row$lim), ") ÷ (",
+    fmt(control_row$trigger), " − ", fmt(control_row$lim), ") = ",
+    fmt(x), "; ", fmt(control_row$target),
+    " × (0.2 + 0.8 × x) raised to 0.6"
+  )
+}
+
+rule_names <- c(
+  hockeystick = "Hockeystick",
+  slope = "Straight slope",
+  powerramp = "Power ramp"
+)
+
+conversion_table <- do.call(rbind, lapply(seq_len(nrow(controls)), function(i) {
+  data.frame(
+    CMP = controls$label[i],
+    Indicator = advice_2024$Indicator[i],
+    Rule = unname(rule_names[controls$hcr[i]]),
+    `Substitute the indicator in the rule` =
+      calculation_text(controls[i, ], advice_2024$Indicator[i]),
+    `C* before annual limit` = advice_2024$`C* before annual limit`[i],
+    check.names = FALSE
+  )
+}))
 ```
 
 ### Historical inputs
@@ -373,11 +442,54 @@ indicator_table <- data.frame(
 knitr::kable(indicator_table, digits = 3)
 ```
 
-### Result by candidate
+### Turn the indicator into preliminary advice
+
+The indicator is a relative measure, not a catch quantity. A value of 1 means
+that the recent indices are, on average, equal to their 2019–2023 reference
+levels. A value above 1 means they are higher; a value below 1 means they are
+lower.
+
+Each candidate then puts its indicator into its own harvest-control rule. The
+rule converts the relative indicator into a catch quantity. Because the
+candidates have different limits, triggers, targets, and rule shapes, the same
+indicator can produce different preliminary advice.
+
+We write this preliminary catch advice as $C^*$. Here, $C$ means catch advice
+and the star means **provisional**: it is the harvest-control-rule result before
+the annual change limit is applied. The star is not another calculation.
+
+The table shows the substitution explicitly. Values displayed in the
+calculation are rounded to three decimal places; the code uses the unrounded
+values.
+
+```{r}
+#| label: tbl-indicator-to-advice
+#| tbl-cap: "How each candidate converts its indicator into preliminary catch advice (C*)."
+#| echo: false
+
+knitr::kable(conversion_table, digits = 3)
+```
+
+For example, MP29 uses the hockeystick rule:
+
+$$
+C^* =
+270 +
+\frac{(1.104-0.100)(2000-270)}
+     {(2.125-0.100)}
+= 1128.10.
+$$
+
+The value 1128.10 is therefore MP29's harvest-rule result. It is not yet the
+final value because the annual change limit must still be applied.
+
+### Apply the annual change limit
 
 With 1385 as the initial comparison value, a 15% decrease cannot fall below
-1177.25. That floor determines the result for seven candidates. MP24 produces
-1277.85 before rounding and is not changed by the annual limit.
+0.85 × 1385 = 1177.25, while a 20% increase cannot exceed
+1.20 × 1385 = 1662.00. Each $C^*$ is restricted to that range. The lower bound
+determines the result for seven candidates. MP24 produces 1277.85 before
+rounding and is already within the allowed range.
 
 ```{r}
 #| label: tbl-retrospective-advice
