@@ -333,8 +333,8 @@ under the reference OM. Annual values were averaged over 2041--2050 within each
 simulation iteration; cell labels are medians of those iteration means. Color
 is normalized independently within each metric across the eight variants.
 
-Dark purple means higher relative preference and white means lower relative
-preference. Higher
+Purple means lower relative preference and light lavender means higher relative
+preference (0 is darkest; 1 is lightest). Higher
 $SB/SB_{\mathrm{MSY}}$, catch, $VB/VB_{2025}$, and
 $VB/VB_{\mathrm{MSY}}$ are treated as better; lower
 $F/F_{\mathrm{MSY}}$ and lower IACC are treated as better. Lower
@@ -342,14 +342,14 @@ $F/F_{\mathrm{MSY}}$ represents lower fishing pressure, while catch is shown
 separately. The within-column color scale is not an absolute biological or
 management threshold and must not be interpreted as a rank or recommendation.
 
-![Reference-OM candidate performance quilt for the eight naming-convention variants. Cell labels are median 2041--2050 values. Dark purple indicates higher relative preference and white indicates lower relative preference within each metric.](../figures/candidates/candidate_quilt_reference.png){#fig-candidate-quilt fig-align="center" width="95%"}
+![Reference-OM candidate performance quilt for the eight naming-convention variants. Cell labels are median 2041--2050 values. Purple indicates lower relative preference and light lavender indicates higher relative preference within each metric (0 is darkest; 1 is lightest).](../figures/candidates/candidate_quilt_reference.png){#fig-candidate-quilt fig-align="center" width="95%"}
 
 The underlying values, preferred directions, metric ranges, and normalized
 scores are saved in
 [`candidate_quilt_reference_summary.csv`](../data/candidates/candidate_quilt_reference_summary.csv).
 An editable scorecard input layer is saved in
 [`candidate_scorecard_input_reference.csv`](../data/candidates/candidate_scorecard_input_reference.csv).
-It converts quilt badness to a 0--100 benefit score, records the preferred
+It converts quilt relative preference to a 0--100 benefit score, records the preferred
 direction and raw value, and supplies editable `include` and `weight` columns.
 The default weight is one for every metric, but no weighted total is calculated
 in this export. Changing weights or aggregating scores remains an explicit

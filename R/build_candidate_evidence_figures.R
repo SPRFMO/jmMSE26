@@ -341,7 +341,7 @@ quilt_plot <- ggplot(quilt, aes(metric, mp, fill = relative_preference)) +
   geom_tile(colour = "grey80", linewidth = 0.35) +
   geom_text(aes(label = display_value), size = 4.2) +
   scale_fill_gradient(
-    low = "white", high = "#5B1A8E", limits = c(0, 1),
+    low = "#7952A8", high = "#F4EFF8", limits = c(0, 1),
     name = "Relative\npreference"
   ) +
   labs(
@@ -352,7 +352,7 @@ quilt_plot <- ggplot(quilt, aes(metric, mp, fill = relative_preference)) +
     ),
     x = NULL, y = NULL,
     caption = paste(
-      "White = lower and dark purple = higher relative preference.",
+      "Purple = lower and light lavender = higher relative preference.",
       "This is not an absolute acceptability score."
     )
   ) +
