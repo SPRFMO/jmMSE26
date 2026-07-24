@@ -14,7 +14,7 @@ Slick file.
 
 ### In the hosted app
 
-1. [Download the current `jm_candidates.slick`](https://raw.githubusercontent.com/SPRFMO/jmMSE26/main/output/jm_candidates.slick?version=2026-07-23-mp43-mp44).
+1. [Download the current `jm_candidates.slick`](https://raw.githubusercontent.com/SPRFMO/jmMSE26/b15efd357d5f20f055d8f1634e5cd3b28379f038/output/jm_candidates.slick).
 2. Open the [Blue Matter Slick app](https://shiny.bluematterscience.com/app/slick).
 3. If the app has stopped, select **Restart app**.
 4. Under **Load your MSE Results**, select the downloaded `.slick` file.
@@ -40,7 +40,8 @@ library(Slick)
 
 url <- paste0(
   "https://raw.githubusercontent.com/SPRFMO/jmMSE26/",
-  "main/output/jm_candidates.slick?version=2026-07-23-mp43-mp44"
+  "b15efd357d5f20f055d8f1634e5cd3b28379f038/",
+  "output/jm_candidates.slick"
 )
 file <- tempfile(fileext = ".slick")
 download.file(url, file, mode = "wb")
