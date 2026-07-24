@@ -14,11 +14,12 @@ files.
 ## Tuning trials
 
 These are the procedure designs examined during tuning. MP29 and MP32 were
-subsequently carried forward for robustness testing.
+subsequently carried forward as advanced candidates. MP43 and MP44 are
+retuned comparison cases with different annual change limits.
 
 ```{r}
 #| label: tbl-tuning-controls
-#| tbl-cap: "Settings for the 27 tuning trials. A dash means that the setting does not apply to that rule."
+#| tbl-cap: "Settings for the 29 tuning trials. A dash means that the setting does not apply to that rule."
 #| echo: false
 
 tuning <- read.csv("../tuns_ctrl.csv", check.names = FALSE,
@@ -50,12 +51,14 @@ knitr::kable(tuning_table, align = c("l", "l", "l", "l", rep("r", 6)))
 
 ## Robustness runs
 
-The robustness analysis applies MP29 and MP32 to nine alternative operating
-models. Each row below identifies one procedure–operating-model combination.
+The focused control table applies MP29, MP32, MP43, and MP44 to nine
+alternative operating models. Each row below identifies one
+procedure–operating-model combination. The combined Slick file also includes
+the other six comparison cases across these operating models.
 
 ```{r}
 #| label: tbl-robustness-controls
-#| tbl-cap: "MP29 and MP32 robustness runs by operating model."
+#| tbl-cap: "MP29, MP32, MP43, and MP44 robustness runs by operating model."
 #| echo: false
 
 robustness <- read.csv("../robs_ctrl.csv", check.names = FALSE,

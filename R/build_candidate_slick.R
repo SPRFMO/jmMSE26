@@ -180,15 +180,20 @@ make_mp_metadata <- function(candidate_codes, registry_file) {
   registry <- fread(registry_file)
   registry <- registry[cmp_id %in% sub("^tun", "MP", candidate_codes)]
   catalog <- data.table(
-    cmp_id = c("MP29", "MP32", "MP18", "MP24", "MP31", "MP23", "MP35",
-      "MP36"),
-    slick_label = c("MP29 — optimal HS", "MP32 — alternative PR",
+    cmp_id = c("MP29", "MP43", "MP32", "MP44", "MP18", "MP24", "MP31",
+      "MP23", "MP35", "MP36"),
+    slick_label = c("MP29 — optimal HS",
+      "MP43 — MP29 with -20%/+15%",
+      "MP32 — alternative PR",
+      "MP44 — MP32 with -20%/+15%",
       "MP18 — high target", "MP24 — low target", "MP31 — higher limit",
       "MP23 — slope rule", "MP35 — CPUE-only PR",
       "MP36 — CPUE-only HS"),
     slick_description = c(
       "Optimal comparison case: hockeystick rule, target catch 2000, limit 0.1, using all selected indices.",
+      "Tuned annual-limit sensitivity based on MP29: hockeystick rule, target catch 2000, with a maximum 20% decrease and 15% increase each year.",
       "Alternative comparison case: powerramp rule, target catch 1500, limit 0.1, using all selected indices.",
+      "Tuned annual-limit sensitivity based on MP32: powerramp rule, target catch 1500, with a maximum 20% decrease and 15% increase each year.",
       "Extreme high-target contrast: hockeystick rule with target catch 5000, included to show how a much higher target affects long-term biomass.",
       "Low-target contrast: hockeystick rule with target catch 1750 and limit 0. In the current analysis this setup had lower short-term SB0green performance.",
       "Alternative-limit contrast: hockeystick rule with target catch 2000 and limit 0.3. This isolates the limit value; the current analysis found only a small effect on IACC.",
@@ -212,6 +217,10 @@ make_mp_metadata <- function(candidate_codes, registry_file) {
   mp_rows <- function(codes) which(meta$code %in% codes)
   presets <- list(
     `Advanced candidates` = mp_rows(c("tun29", "tun32")),
+    `Annual-limit comparison` = mp_rows(c("tun29", "tun43", "tun32",
+      "tun44")),
+    `MP29 annual limits` = mp_rows(c("tun29", "tun43")),
+    `MP32 annual limits` = mp_rows(c("tun32", "tun44")),
     `Target contrasts` = mp_rows(c("tun29", "tun18", "tun24")),
     `Limit contrast` = mp_rows(c("tun29", "tun31")),
     `Rule-shape contrast` = mp_rows(c("tun29", "tun32", "tun23")),
@@ -228,8 +237,8 @@ build_candidate_slick <- function(
   performance_file,
   out_file = file.path("output", "jm_candidates.slick"),
   registry_file = file.path("doc", "data", "cmp-registry.csv"),
-  candidate_codes = c("tun29", "tun32", "tun18", "tun24", "tun31",
-    "tun23", "tun35", "tun36"),
+  candidate_codes = c("tun29", "tun43", "tun32", "tun44", "tun18",
+    "tun24", "tun31", "tun23", "tun35", "tun36"),
   time_now = 2025L,
   historical_om_files = NULL,
   historical_start = 1970L,
@@ -581,7 +590,7 @@ build_combined_candidate_slick <- function(
     f_fmsy_description$Code == "FMSY", "Description"]
   Title(combined) <- "SPRFMO Jack Mackerel Candidate MPs"
   Subtitle(combined) <- paste(
-    "Eight CMP comparison cases across reference and robustness operating models"
+    "Ten CMP comparison cases across reference and robustness operating models"
   )
   Introduction(combined) <- paste(
     "This file combines the om11 reference operating model with the",

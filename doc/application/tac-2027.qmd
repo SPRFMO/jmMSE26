@@ -40,12 +40,12 @@ three-year window would be 2024–2026 and the MP23 window would be 2022–2026.
 
 ## Data required
 
-Six CMPs use all five indices. Two use the four CPUE and fishery indices and
+Eight CMPs use all five indices. Two use the four CPUE and fishery indices and
 exclude the acoustic survey.
 
 | CMPs | Annual series required | Is the northern Chile acoustic survey used? |
 |---|---|---|
-| MP18, MP23, MP24, MP29, MP31, MP32 | Northern Chile acoustic survey (`Chile_AcousN`), Chile CPUE, Peru artisanal index, Peru industrial index, and offshore CPUE | Yes, when its data year falls within the approved window |
+| MP18, MP23, MP24, MP29, MP31, MP32, MP43, MP44 | Northern Chile acoustic survey (`Chile_AcousN`), Chile CPUE, Peru artisanal index, Peru industrial index, and offshore CPUE | Yes, when its data year falls within the approved window |
 | MP35, MP36 | Chile CPUE, Peru artisanal index, Peru industrial index, and offshore CPUE | No |
 
 For every series, retain the value, unit, survey or fleet coverage, source,
@@ -103,7 +103,8 @@ $$
 
 For the tested 2027 timing, use 2023–2025 for all CMPs except MP23, which uses
 2021–2025. Calculate two versions of $I$: an all-index value for MP18, MP23,
-MP24, MP29, MP31, and MP32, and a CPUE/fishery-index value for MP35 and MP36.
+MP24, MP29, MP31, MP32, MP43, and MP44, and a CPUE/fishery-index value for
+MP35 and MP36.
 
 ## Apply each harvest rule
 
@@ -117,8 +118,10 @@ confirmed before providing formal advice.
 | MP23 | All five indices, 5 years | Straight slope | 0 | 0 | — | Slope 821.875 |
 | MP24 | All five indices, 3 years | Hockeystick | 0 | 0 | 1.5125 | Target 1750 |
 | MP29 | All five indices, 3 years | Hockeystick | 270 | 0.1 | 2.125 | Target 2000 |
+| MP43 | All five indices, 3 years | Hockeystick | 270 | 0.1 | 3.0625 | Target 2000 |
 | MP31 | All five indices, 3 years | Hockeystick | 270 | 0.3 | 1.984375 | Target 2000 |
 | MP32 | All five indices, 3 years | Power ramp | 270 | 0.1 | 1.421875 | Target 1500 |
+| MP44 | All five indices, 3 years | Power ramp | 270 | 0.1 | 1.9140625 | Target 1500 |
 | MP35 | Four CPUE/fishery indices, 3 years | Power ramp | 270 | 0.1 | 1.4921875 | Target 1500 |
 | MP36 | Four CPUE/fishery indices, 3 years | Hockeystick | 270 | 0.1 | 2.21875 | Target 2000 |
 
@@ -129,7 +132,7 @@ the target at or above the trigger.
 For MP23, the preliminary advice is $821.875 \times I$ when $I$ is above
 zero.
 
-For MP32 and MP35, let
+For MP32, MP35, and MP44, let
 
 $$
 x = \frac{I-\text{limit}}{\text{trigger}-\text{limit}}.
@@ -153,16 +156,29 @@ continue to rise above its stated target.
 
 ## Apply the annual change limit
 
-Every CMP in this comparison limits the change from the previous year's catch
-advice to a 15% decrease or a 20% increase. If $C^*$ is the preliminary
-advice and $C_{2026}$ is the agreed previous advice value, the 2027 value
-before rounding is
+MP18, MP23, MP24, MP29, MP31, MP32, MP35, and MP36 limit the change from the
+previous year's catch advice to a 15% decrease or a 20% increase. If $C^*$ is
+the preliminary advice and $C_{2026}$ is the agreed previous advice value, the
+2027 value before rounding for those CMPs is
 
 $$
 C_{2027} =
 \max\left(0.85C_{2026},
 \min\left(C^*,1.20C_{2026}\right)\right).
 $$
+
+MP43 and MP44 instead allow a 20% decrease and a 15% increase:
+
+$$
+C_{2027} =
+\max\left(0.80C_{2026},
+\min\left(C^*,1.15C_{2026}\right)\right).
+$$
+
+These two cases were retuned after changing the annual limits. Under reference
+OM11, their mean probabilities of being in the dynamic Kobe green zone over
+2041–2050 were 0.606 for MP43 and 0.603 for MP44, within the 0.01 tuning
+tolerance around the 0.60 objective.
 
 The value 1385 appears as the initial value in the simulation controls. It
 should not automatically be treated as $C_{2026}$. The operational
@@ -227,8 +243,10 @@ recent_indicator <- function(end_year, n_years, indices) {
 }
 
 controls <- read.csv("../tuns_ctrl.csv", check.names = FALSE)
-selected_mps <- c("MP18", "MP23", "MP24", "MP29",
-                  "MP31", "MP32", "MP35", "MP36")
+selected_mps <- c(
+  "MP29", "MP43", "MP32", "MP44", "MP18",
+  "MP24", "MP31", "MP23", "MP35", "MP36"
+)
 controls <- controls[match(selected_mps, controls$label), ]
 
 calculate_advice <- function(control_row, end_year, previous = 1385) {
@@ -270,13 +288,13 @@ calculate_advice <- function(control_row, end_year, previous = 1385) {
     }
   }
 
-  lower <- 0.85 * previous
-  upper <- 1.20 * previous
+  lower <- control_row$dlow * previous
+  upper <- control_row$dupp * previous
   adjusted <- max(lower, min(preliminary, upper))
   adjustment <- if (preliminary < lower) {
-    "15% decrease floor"
+    paste0(round(100 * (1 - control_row$dlow)), "% decrease floor")
   } else if (preliminary > upper) {
-    "20% increase ceiling"
+    paste0(round(100 * (control_row$dupp - 1)), "% increase ceiling")
   } else {
     "None"
   }
@@ -421,7 +439,7 @@ CPUE/fishery-index mean is 1.053. MP23 uses five years and has an indicator of
 
 indicator_table <- data.frame(
   `Used by` = c(
-    "MP18, MP24, MP29, MP31, MP32",
+    "MP18, MP24, MP29, MP31, MP32, MP43, MP44",
     "MP23",
     "MP35, MP36"
   ),
@@ -485,11 +503,11 @@ final value because the annual change limit must still be applied.
 
 ### Apply the annual change limit
 
-With 1385 as the initial comparison value, a 15% decrease cannot fall below
-0.85 × 1385 = 1177.25, while a 20% increase cannot exceed
-1.20 × 1385 = 1662.00. Each $C^*$ is restricted to that range. The lower bound
-determines the result for seven candidates. MP24 produces 1277.85 before
-rounding and is already within the allowed range.
+With 1385 as the initial comparison value, the original annual limits give a
+range from 0.85 × 1385 = 1177.25 to 1.20 × 1385 = 1662.00. MP43 and MP44
+instead use a range from 0.80 × 1385 = 1108.00 to
+1.15 × 1385 = 1592.75. The table applies the appropriate range to each
+candidate. MP24's preliminary result is already within its allowed range.
 
 ```{r}
 #| label: tbl-retrospective-advice
@@ -499,10 +517,11 @@ rounding and is already within the allowed range.
 knitr::kable(advice_2024, digits = 3)
 ```
 
-These values should not be interpreted as eight equally supported
+These values should not be interpreted as ten equally supported
 recommendations: MP29 and MP32 are the advanced candidates, while the other
-six are comparison cases. The table is useful for checking that every rule
-can be reproduced from one shared set of observations.
+eight are comparison cases. MP43 and MP44 specifically test a different pair
+of annual change limits after retuning. The table is useful for checking that
+every rule can be reproduced from one shared set of observations.
 
 ## Why this example stops with 2024 observations
 
@@ -551,7 +570,7 @@ recommendation produced by every candidate.
 
 This calculation plan is based on the controls saved by the `jmMSE` candidate
 runner on branch `devel`, commit
-[`be080e7`](https://github.com/SPRFMO/jmMSE/commit/be080e7dbc2438577922d29833fa6394db90e44c).
+[`278c309`](https://github.com/SPRFMO/jmMSE/commit/278c309888c03d241c0aa42967200351ffaa3b05).
 The historical index extract used in the worked calculation is saved as
 [`cmp-historical-indices.csv`](../data/cmp-historical-indices.csv). It was
 extracted from the updated `h1_0.16` assessment output associated with
@@ -559,6 +578,6 @@ extracted from the updated `h1_0.16` assessment output associated with
 The main implementation sources are
 [`run_candidate_mps.R`](https://github.com/SPRFMO/jmMSE/blob/devel/run_candidate_mps.R)
 and
-[`model_tune.R`](https://github.com/SPRFMO/jmMSE/blob/devel/model_tune.R).
+[`tune_candidate_change_limits.R`](https://github.com/SPRFMO/jmMSE/blob/devel/tune_candidate_change_limits.R).
 If the data delays, recent-year windows, combined-index calculation, or annual
 change rule are revised, this page and the MSE tests must be updated together.

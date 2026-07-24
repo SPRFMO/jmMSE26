@@ -22,7 +22,8 @@ for South Pacific jack mackerel. It draws mainly on the current `jmMSE`
 analysis and brings together:
 
 1. the MP29 and MP32 candidate definitions advanced into robustness testing;
-2. six additional CMP comparison cases that isolate important choices;
+2. two retuned annual-limit variants and six other CMP comparison cases that
+   isolate important choices;
 3. the full management strategy evaluation (MSE) process;
 4. evidence from tuning, trade-off, and robustness comparisons; and
 5. instructions for applying a selected procedure when new annual data become
@@ -38,13 +39,13 @@ analysis supports it.
 
 ## Start here
 
-- [CMP registry](cmp/index.qmd): MP29 and MP32, plus six clearly labelled
+- [CMP registry](cmp/index.qmd): MP29 and MP32, plus eight clearly labelled
   comparison cases.
 - [MP29](cmp/mp29.qmd) and [MP32](cmp/mp32.qmd): candidate-specific rules and
   annual calculation details.
 - [Annual application](application/annual-workflow.qmd): steps from receiving
   new data to producing advice.
-- [Slick explorer](application/slick.qmd): compare all eight MSE cases
+- [Slick explorer](application/slick.qmd): compare all ten MSE cases
   interactively.
 - [How the MSE work fits together](workflow/mse-flow.qmd): where CMPs fit within the assessment
   and simulation system.

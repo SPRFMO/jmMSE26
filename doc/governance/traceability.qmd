@@ -10,13 +10,15 @@ title: "Sources and record of changes"
 
 | Source | Exact saved version used | Material used here |
 |---|---|---|
-| `SPRFMO/jmMSE` | `be080e7dbc2438577922d29833fa6394db90e44c` | Primary source: the eight CMP controls, seeded candidate runner, robustness selection, HCR implementations, and July presentation |
+| `SPRFMO/jmMSE` | `278c309888c03d241c0aa42967200351ffaa3b05` | Primary source: the ten CMP controls, seeded candidate runner, robustness selection, HCR implementations, repeatable MP43/MP44 tuning, and July presentation |
 | `SPRFMO/scw17` | `0eb97c9c0329f5ec3338e3cf885f6e1f184c4780` | Secondary source: Papers 03, 04, 08, and 09 plus Quarto conventions |
-| `output/jm_candidates.slick` | SHA-256 `2a93abf30fc5fa8381fe2eb232231a1589a09fd19d6829fab4311c364533e333` | Combined reference and robustness results for the eight CMP comparison cases |
+| `output/jm_candidates.slick` | SHA-256 `9792af66bec94bc9ff979b80aa26fc4c404458e5178a9907a89c47d5bf13c317` | Combined reference and robustness results for MP29, MP32, and eight CMP comparison cases |
 
 The current registry derives from `jmMSE`, not the SCW17 test table. It does not
-assert that MP29 or MP32 has been formally recommended or adopted. The six
-additional CMPs are comparison cases, not advanced candidates.
+assert that MP29 or MP32 has been formally recommended or adopted. The eight
+additional CMPs are comparison cases, not advanced candidates. MP43 and MP44
+retain the MP29 and MP32 structures but use a 20% maximum annual decrease and
+15% maximum annual increase; their triggers were retuned before evaluation.
 
 ## Information that must accompany each CMP
 
@@ -43,6 +45,8 @@ Every CMP version must link to:
 
 - Confirm the formal working-group status and stable identifiers for MP29 and
   MP32.
+- Confirm whether MP43 and MP44 should remain annual-limit sensitivity cases
+  or be considered in any later shortlist.
 - Reconcile the 100-iteration MP29/MP32 tuned triggers with the 500-iteration
   MP41/MP42 sensitivity values before approving a final version.
 - Archive the full jmMSE run objects alongside the published Slick file and its
