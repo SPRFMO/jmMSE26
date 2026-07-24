@@ -216,6 +216,7 @@ make_mp_metadata <- function(candidate_codes, registry_file) {
       estimator, hcr, target, trigger, min, lim)))]
   mp_rows <- function(codes) which(meta$code %in% codes)
   presets <- list(
+    `All CMPs` = seq_len(nrow(meta)),
     `Advanced candidates` = mp_rows(c("tun29", "tun32")),
     `Annual-limit comparison` = mp_rows(c("tun29", "tun43", "tun32",
       "tun44")),
@@ -224,8 +225,7 @@ make_mp_metadata <- function(candidate_codes, registry_file) {
     `Target contrasts` = mp_rows(c("tun29", "tun18", "tun24")),
     `Limit contrast` = mp_rows(c("tun29", "tun31")),
     `Rule-shape contrast` = mp_rows(c("tun29", "tun32", "tun23")),
-    `CPUE-only contrasts` = mp_rows(c("tun29", "tun32", "tun35", "tun36")),
-    `All CMPs` = seq_len(nrow(meta))
+    `CPUE-only contrasts` = mp_rows(c("tun29", "tun32", "tun35", "tun36"))
   )
   presets <- c(presets, setNames(lapply(meta$code, mp_rows),
     sub("^tun", "MP", meta$code)))
@@ -590,7 +590,8 @@ build_combined_candidate_slick <- function(
     f_fmsy_description$Code == "FMSY", "Description"]
   Title(combined) <- "SPRFMO Jack Mackerel Candidate MPs"
   Subtitle(combined) <- paste(
-    "Ten CMP comparison cases across reference and robustness operating models"
+    "Ten CMP comparison cases, including MP43 and MP44, across reference and",
+    "robustness operating models"
   )
   Introduction(combined) <- paste(
     "This file combines the om11 reference operating model with the",
