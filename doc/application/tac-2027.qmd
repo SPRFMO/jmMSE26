@@ -59,7 +59,7 @@ The current procedure performs the following calculation.
 
 ### Express each series relative to its reference-period average
 
-For index \(j\) in year \(y\),
+For index $j$ in year $y$,
 
 $$
 R_{j,y} =
@@ -86,7 +86,7 @@ cannot yet be calculated here.
 ### Combine the available series within each year
 
 For each year, average the relative values for the indices required by the
-CMP. This gives one combined annual index \(A_y\).
+CMP. This gives one combined annual index $A_y$.
 
 The analysis code averages the non-missing series. Before an operational
 calculation, the Scientific Committee should decide whether a missing required
@@ -102,7 +102,7 @@ I = \text{mean of the combined annual indices over the approved recent years}.
 $$
 
 For the tested 2027 timing, use 2023–2025 for all CMPs except MP23, which uses
-2021–2025. Calculate two versions of \(I\): an all-index value for MP18, MP23,
+2021–2025. Calculate two versions of $I$: an all-index value for MP18, MP23,
 MP24, MP29, MP31, and MP32, and a CPUE/fishery-index value for MP35 and MP36.
 
 ## Apply each harvest rule
@@ -126,7 +126,7 @@ For a hockeystick CMP, the preliminary catch advice is the minimum at or below
 the limit, rises in a straight line between the limit and trigger, and equals
 the target at or above the trigger.
 
-For MP23, the preliminary advice is \(821.875 \times I\) when \(I\) is above
+For MP23, the preliminary advice is $821.875 \times I$ when $I$ is above
 zero.
 
 For MP32 and MP35, let
@@ -135,7 +135,7 @@ $$
 x = \frac{I-\text{limit}}{\text{trigger}-\text{limit}}.
 $$
 
-The preliminary advice is the minimum when \(I\) is at or below the limit. It
+The preliminary advice is the minimum when $I$ is at or below the limit. It
 is
 
 $$
@@ -154,8 +154,8 @@ continue to rise above its stated target.
 ## Apply the annual change limit
 
 Every CMP in this comparison limits the change from the previous year's catch
-advice to a 15% decrease or a 20% increase. If \(C^*\) is the preliminary
-advice and \(C_{2026}\) is the agreed previous advice value, the 2027 value
+advice to a 15% decrease or a 20% increase. If $C^*$ is the preliminary
+advice and $C_{2026}$ is the agreed previous advice value, the 2027 value
 before rounding is
 
 $$
@@ -165,7 +165,7 @@ C_{2027} =
 $$
 
 The value 1385 appears as the initial value in the simulation controls. It
-should not automatically be treated as \(C_{2026}\). The operational
+should not automatically be treated as $C_{2026}$. The operational
 specification must say whether the annual limit is based on the previous TAC,
 the previous CMP recommendation, or another approved quantity.
 
@@ -407,10 +407,10 @@ For each CMP, save:
 
 1. the original data files and their units;
 2. the 2019–2023 average for each index;
-3. every annual relative index \(R_{j,y}\);
-4. the combined annual indices \(A_y\);
-5. the recent-year indicator \(I\);
-6. the preliminary harvest-rule result \(C^*\);
+3. every annual relative index $R_{j,y}$;
+4. the combined annual indices $A_y$;
+5. the recent-year indicator $I$;
+6. the preliminary harvest-rule result $C^*$;
 7. the previous-advice value and annual-change adjustment;
 8. the unrounded and rounded total recommendation;
 9. any allocation calculation; and

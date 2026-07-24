@@ -455,7 +455,7 @@ How the Candidate Procedures Would Produce 2027 Advice
 <p>The raw indices are on different scales, so they cannot be averaged directly. The current procedure performs the following calculation.</p>
 <section id="express-each-series-relative-to-its-reference-period-average" class="level3" data-number="3.1">
 <h3 data-number="3.1" class="anchored" data-anchor-id="express-each-series-relative-to-its-reference-period-average"><span class="header-section-number">3.1</span> Express each series relative to its reference-period average</h3>
-<p>For index (j) in year (y),</p>
+<p>For index <span class="math inline">\(j\)</span> in year <span class="math inline">\(y\)</span>,</p>
 <p><span class="math display">\[
 R_{j,y} =
 \frac{\text{index }j\text{ in year }y}
@@ -472,7 +472,7 @@ R_{\text{acoustic},2026} =
 </section>
 <section id="combine-the-available-series-within-each-year" class="level3" data-number="3.2">
 <h3 data-number="3.2" class="anchored" data-anchor-id="combine-the-available-series-within-each-year"><span class="header-section-number">3.2</span> Combine the available series within each year</h3>
-<p>For each year, average the relative values for the indices required by the CMP. This gives one combined annual index (A_y).</p>
+<p>For each year, average the relative values for the indices required by the CMP. This gives one combined annual index <span class="math inline">\(A_y\)</span>.</p>
 <p>The analysis code averages the non-missing series. Before an operational calculation, the Scientific Committee should decide whether a missing required series may be omitted or whether it stops the calculation. A missing value should never be omitted without being reported.</p>
 </section>
 <section id="average-across-the-recent-years" class="level3" data-number="3.3">
@@ -481,7 +481,7 @@ R_{\text{acoustic},2026} =
 <p><span class="math display">\[
 I = \text{mean of the combined annual indices over the approved recent years}.
 \]</span></p>
-<p>For the tested 2027 timing, use 2023–2025 for all CMPs except MP23, which uses 2021–2025. Calculate two versions of (I): an all-index value for MP18, MP23, MP24, MP29, MP31, and MP32, and a CPUE/fishery-index value for MP35 and MP36.</p>
+<p>For the tested 2027 timing, use 2023–2025 for all CMPs except MP23, which uses 2021–2025. Calculate two versions of <span class="math inline">\(I\)</span>: an all-index value for MP18, MP23, MP24, MP29, MP31, and MP32, and a CPUE/fishery-index value for MP35 and MP36.</p>
 </section>
 </section>
 <section id="apply-each-harvest-rule" class="level2" data-number="4">
@@ -584,12 +584,12 @@ I = \text{mean of the combined annual indices over the approved recent years}.
 </tbody>
 </table>
 <p>For a hockeystick CMP, the preliminary catch advice is the minimum at or below the limit, rises in a straight line between the limit and trigger, and equals the target at or above the trigger.</p>
-<p>For MP23, the preliminary advice is (821.875 I) when (I) is above zero.</p>
+<p>For MP23, the preliminary advice is <span class="math inline">\(821.875 \times I\)</span> when <span class="math inline">\(I\)</span> is above zero.</p>
 <p>For MP32 and MP35, let</p>
 <p><span class="math display">\[
 x = \frac{I-\text{limit}}{\text{trigger}-\text{limit}}.
 \]</span></p>
-<p>The preliminary advice is the minimum when (I) is at or below the limit. It is</p>
+<p>The preliminary advice is the minimum when <span class="math inline">\(I\)</span> is at or below the limit. It is</p>
 <p><span class="math display">\[
 \text{minimum} + (\text{target}-\text{minimum})x^{2.5}
 \]</span></p>
@@ -601,13 +601,13 @@ x = \frac{I-\text{limit}}{\text{trigger}-\text{limit}}.
 </section>
 <section id="apply-the-annual-change-limit" class="level2" data-number="5">
 <h2 data-number="5" class="anchored" data-anchor-id="apply-the-annual-change-limit"><span class="header-section-number">5</span> Apply the annual change limit</h2>
-<p>Every CMP in this comparison limits the change from the previous year’s catch advice to a 15% decrease or a 20% increase. If (C^*) is the preliminary advice and (C_{2026}) is the agreed previous advice value, the 2027 value before rounding is</p>
+<p>Every CMP in this comparison limits the change from the previous year’s catch advice to a 15% decrease or a 20% increase. If <span class="math inline">\(C^*\)</span> is the preliminary advice and <span class="math inline">\(C_{2026}\)</span> is the agreed previous advice value, the 2027 value before rounding is</p>
 <p><span class="math display">\[
 C_{2027} =
 \max\left(0.85C_{2026},
 \min\left(C^*,1.20C_{2026}\right)\right).
 \]</span></p>
-<p>The value 1385 appears as the initial value in the simulation controls. It should not automatically be treated as (C_{2026}). The operational specification must say whether the annual limit is based on the previous TAC, the previous CMP recommendation, or another approved quantity.</p>
+<p>The value 1385 appears as the initial value in the simulation controls. It should not automatically be treated as <span class="math inline">\(C_{2026}\)</span>. The operational specification must say whether the annual limit is based on the previous TAC, the previous CMP recommendation, or another approved quantity.</p>
 </section>
 <section id="worked-retrospective-2025-advice-using-data-through-2024" class="level2" data-number="6">
 <h2 data-number="6" class="anchored" data-anchor-id="worked-retrospective-2025-advice-using-data-through-2024"><span class="header-section-number">6</span> Worked retrospective: 2025 advice using data through 2024</h2>
@@ -867,10 +867,10 @@ Table&nbsp;3: Illustrative 2025 total catch advice using observations through 20
 <ol type="1">
 <li>the original data files and their units;</li>
 <li>the 2019–2023 average for each index;</li>
-<li>every annual relative index (R_{j,y});</li>
-<li>the combined annual indices (A_y);</li>
-<li>the recent-year indicator (I);</li>
-<li>the preliminary harvest-rule result (C^*);</li>
+<li>every annual relative index <span class="math inline">\(R_{j,y}\)</span>;</li>
+<li>the combined annual indices <span class="math inline">\(A_y\)</span>;</li>
+<li>the recent-year indicator <span class="math inline">\(I\)</span>;</li>
+<li>the preliminary harvest-rule result <span class="math inline">\(C^*\)</span>;</li>
 <li>the previous-advice value and annual-change adjustment;</li>
 <li>the unrounded and rounded total recommendation;</li>
 <li>any allocation calculation; and</li>
@@ -1428,7 +1428,7 @@ Table&nbsp;3: Illustrative 2025 total catch advice using observations through 20
 <span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a><span class="fu">### Express each series relative to its reference-period average</span></span>
 <span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>For index <span class="sc">\(</span>j<span class="sc">\)</span> in year <span class="sc">\(</span>y<span class="sc">\)</span>,</span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>For index $j$ in year $y$,</span>
 <span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>R_{j,y} =</span>
@@ -1455,7 +1455,7 @@ Table&nbsp;3: Illustrative 2025 total catch advice using observations through 20
 <span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a><span class="fu">### Combine the available series within each year</span></span>
 <span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a>For each year, average the relative values for the indices required by the</span>
-<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a>CMP. This gives one combined annual index <span class="sc">\(</span>A_y<span class="sc">\)</span>.</span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a>CMP. This gives one combined annual index $A_y$.</span>
 <span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a>The analysis code averages the non-missing series. Before an operational</span>
 <span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a>calculation, the Scientific Committee should decide whether a missing required</span>
@@ -1471,7 +1471,7 @@ Table&nbsp;3: Illustrative 2025 total catch advice using observations through 20
 <span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a>For the tested 2027 timing, use 2023–2025 for all CMPs except MP23, which uses</span>
-<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a>2021–2025. Calculate two versions of <span class="sc">\(</span>I<span class="sc">\)</span>: an all-index value for MP18, MP23,</span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a>2021–2025. Calculate two versions of $I$: an all-index value for MP18, MP23,</span>
 <span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a>MP24, MP29, MP31, and MP32, and a CPUE/fishery-index value for MP35 and MP36.</span>
 <span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a><span class="fu">## Apply each harvest rule</span></span>
@@ -1495,7 +1495,7 @@ Table&nbsp;3: Illustrative 2025 total catch advice using observations through 20
 <span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a>the limit, rises in a straight line between the limit and trigger, and equals</span>
 <span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a>the target at or above the trigger.</span>
 <span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a>For MP23, the preliminary advice is <span class="sc">\(</span>821.875 \times I<span class="sc">\)</span> when <span class="sc">\(</span>I<span class="sc">\)</span> is above</span>
+<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a>For MP23, the preliminary advice is $821.875 \times I$ when $I$ is above</span>
 <span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a>zero.</span>
 <span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a>For MP32 and MP35, let</span>
@@ -1504,7 +1504,7 @@ Table&nbsp;3: Illustrative 2025 total catch advice using observations through 20
 <span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a>x = \frac{I-\text{limit}}{\text{trigger}-\text{limit}}.</span>
 <span id="cb1-136"><a href="#cb1-136" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb1-137"><a href="#cb1-137" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-138"><a href="#cb1-138" aria-hidden="true" tabindex="-1"></a>The preliminary advice is the minimum when <span class="sc">\(</span>I<span class="sc">\)</span> is at or below the limit. It</span>
+<span id="cb1-138"><a href="#cb1-138" aria-hidden="true" tabindex="-1"></a>The preliminary advice is the minimum when $I$ is at or below the limit. It</span>
 <span id="cb1-139"><a href="#cb1-139" aria-hidden="true" tabindex="-1"></a>is</span>
 <span id="cb1-140"><a href="#cb1-140" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a>$$</span>
@@ -1523,8 +1523,8 @@ Table&nbsp;3: Illustrative 2025 total catch advice using observations through 20
 <span id="cb1-154"><a href="#cb1-154" aria-hidden="true" tabindex="-1"></a><span class="fu">## Apply the annual change limit</span></span>
 <span id="cb1-155"><a href="#cb1-155" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-156"><a href="#cb1-156" aria-hidden="true" tabindex="-1"></a>Every CMP in this comparison limits the change from the previous year's catch</span>
-<span id="cb1-157"><a href="#cb1-157" aria-hidden="true" tabindex="-1"></a>advice to a 15% decrease or a 20% increase. If <span class="sc">\(</span>C^*<span class="sc">\)</span> is the preliminary</span>
-<span id="cb1-158"><a href="#cb1-158" aria-hidden="true" tabindex="-1"></a>advice and <span class="sc">\(</span>C_{2026}<span class="sc">\)</span> is the agreed previous advice value, the 2027 value</span>
+<span id="cb1-157"><a href="#cb1-157" aria-hidden="true" tabindex="-1"></a>advice to a 15% decrease or a 20% increase. If $C^*$ is the preliminary</span>
+<span id="cb1-158"><a href="#cb1-158" aria-hidden="true" tabindex="-1"></a>advice and $C_{2026}$ is the agreed previous advice value, the 2027 value</span>
 <span id="cb1-159"><a href="#cb1-159" aria-hidden="true" tabindex="-1"></a>before rounding is</span>
 <span id="cb1-160"><a href="#cb1-160" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-161"><a href="#cb1-161" aria-hidden="true" tabindex="-1"></a>$$</span>
@@ -1534,7 +1534,7 @@ Table&nbsp;3: Illustrative 2025 total catch advice using observations through 20
 <span id="cb1-165"><a href="#cb1-165" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb1-166"><a href="#cb1-166" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-167"><a href="#cb1-167" aria-hidden="true" tabindex="-1"></a>The value 1385 appears as the initial value in the simulation controls. It</span>
-<span id="cb1-168"><a href="#cb1-168" aria-hidden="true" tabindex="-1"></a>should not automatically be treated as <span class="sc">\(</span>C_{2026}<span class="sc">\)</span>. The operational</span>
+<span id="cb1-168"><a href="#cb1-168" aria-hidden="true" tabindex="-1"></a>should not automatically be treated as $C_{2026}$. The operational</span>
 <span id="cb1-169"><a href="#cb1-169" aria-hidden="true" tabindex="-1"></a>specification must say whether the annual limit is based on the previous TAC,</span>
 <span id="cb1-170"><a href="#cb1-170" aria-hidden="true" tabindex="-1"></a>the previous CMP recommendation, or another approved quantity.</span>
 <span id="cb1-171"><a href="#cb1-171" aria-hidden="true" tabindex="-1"></a></span>
@@ -1776,10 +1776,10 @@ Table&nbsp;3: Illustrative 2025 total catch advice using observations through 20
 <span id="cb1-415"><a href="#cb1-415" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-416"><a href="#cb1-416" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>the original data files and their units;</span>
 <span id="cb1-417"><a href="#cb1-417" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>the 2019–2023 average for each index;</span>
-<span id="cb1-418"><a href="#cb1-418" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>every annual relative index <span class="sc">\(</span>R_{j,y}<span class="sc">\)</span>;</span>
-<span id="cb1-419"><a href="#cb1-419" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>the combined annual indices <span class="sc">\(</span>A_y<span class="sc">\)</span>;</span>
-<span id="cb1-420"><a href="#cb1-420" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>the recent-year indicator <span class="sc">\(</span>I<span class="sc">\)</span>;</span>
-<span id="cb1-421"><a href="#cb1-421" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>the preliminary harvest-rule result <span class="sc">\(</span>C^*<span class="sc">\)</span>;</span>
+<span id="cb1-418"><a href="#cb1-418" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>every annual relative index $R_{j,y}$;</span>
+<span id="cb1-419"><a href="#cb1-419" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>the combined annual indices $A_y$;</span>
+<span id="cb1-420"><a href="#cb1-420" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>the recent-year indicator $I$;</span>
+<span id="cb1-421"><a href="#cb1-421" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>the preliminary harvest-rule result $C^*$;</span>
 <span id="cb1-422"><a href="#cb1-422" aria-hidden="true" tabindex="-1"></a><span class="ss">7. </span>the previous-advice value and annual-change adjustment;</span>
 <span id="cb1-423"><a href="#cb1-423" aria-hidden="true" tabindex="-1"></a><span class="ss">8. </span>the unrounded and rounded total recommendation;</span>
 <span id="cb1-424"><a href="#cb1-424" aria-hidden="true" tabindex="-1"></a><span class="ss">9. </span>any allocation calculation; and</span>
