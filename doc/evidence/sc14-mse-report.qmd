@@ -354,9 +354,7 @@ Each iteration has its own line color, and the same iteration uses the same
 color in both panels.
 HS-20 is MP43 (`tun43`), with annual limits of -20%/+15%; HS+20 is MP29
 (`tun29`), with limits of -15%/+20%. The vertically stacked panels share a
-common catch scale. The selected IDs and a presence check for both runs are
-saved in
-[`catch_spaghetti_reference_iterations.csv`](../data/candidates/catch_spaghetti_reference_iterations.csv).
+common catch scale.
 
 ![Projected catch trajectories for the same 30 simulation iteration IDs under both hockey-stick MPs in the reference operating model. Each iteration retains the same line color in both panels so matching trajectories can be traced through time and across MPs.](../figures/candidates/catch_spaghetti_hs_reference.png){#fig-catch-spaghetti fig-align="center" width="95%"}
 
