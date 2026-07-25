@@ -13,6 +13,10 @@ format:
 
 {{< include ../_includes/sprfmo-banner.qmd >}}
 
+<!-- Editorial TODO: This report needs a focused restructuring pass so the
+section sequence, hierarchy, and transitions provide a clearer narrative flow.
+Preserve the technical content and traceability while consolidating repetition. -->
+
 <div class="paper-title">Jack Mackerel Management Strategy Evaluation: Synthesis for SC14</div>
 
 ::: {.status-note}
