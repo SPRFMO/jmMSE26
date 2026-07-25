@@ -57,7 +57,8 @@ only procedures examined in detail. Six retuned annual-limit variants were
 also evaluated under the reference and robustness OMs: **HS-20**, **HSsym**,
 **HS-30**, **PR-20**, **PRsym**, and **PR-30**. They test reverse-asymmetric,
 symmetric, and larger-decrease constraints around the two central HCR
-families.
+families. The paired catch trajectories for HS+20 and HS-20 illustrate one
+such annual-limit contrast in @fig-catch-spaghetti.
 
 Both were tuned under the reference OM to an approximately 60% mean probability
 of dynamic Kobe-green status during 2041--2050. In the comparisons reviewed on
@@ -66,6 +67,8 @@ catch variability, whereas PR+20 responded more quickly to declining indices
 and showed comparatively stronger recovery under the recruitment-crash and
 cyclic-recruitment scenarios. Differences were often modest, depended on the
 OM and performance measure, and do not establish a preferred or "optimal" CMP.
+Reference-OM vulnerable-biomass performance across the evaluated variants is
+summarized in @fig-vb-reference.
 
 The most consequential robustness finding came from the two-stock hypotheses.
 Without movement, the southern component passed the agreed benchmark while the
