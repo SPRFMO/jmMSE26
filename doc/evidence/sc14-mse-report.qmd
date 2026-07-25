@@ -677,30 +677,64 @@ circumstances. A protocol should specify the observations, data timing,
 triggering evidence, review authority, possible responses, and return-to-rule
 conditions before operational use.
 
-## Matters for Scientific Committee consideration
+## Summary and conclusions
 
-The Scientific Committee may wish to:
+This MSE combines the operating-model development and management-procedure
+design undertaken before and during SCW17 with the subsequent implementation,
+tuning, robustness testing, and performance evaluation. The candidate
+procedures apply transparent hockey-stick and power-ramp HCRs to a combined
+indicator constructed from five standardized abundance series. A distinctive
+feature is that the OMs simulate uncertainty, temporal autocorrelation, and
+cross-correlation among those series, rather than treating multiple indicators
+as independent confirmations of stock change.
 
-1. Confirm whether HS+20 and PR+20 provide an adequate central comparison of HCR
-   shape and management responsiveness.
-2. Identify the annual TAC-change variants that merit final higher-replication
-   evaluation, with a clear rationale from Commission requests and recorded
-   management preferences.
-3. Confirm the role of all five indices and the complementary value of the
-   fishery-independent acoustic series.
-4. Require separate presentation and annual tracking of northern and southern
-   indicators alongside the combined CMP indicator.
-5. Determine how the two-stock robustness results should inform evaluation of
-   the southern component given separate northern monitoring and management.
-6. Confirm that final candidate comparisons will use the completed
-   500-replicate tuning and evaluation set.
-7. Review banking-and-borrowing results and implementation-feasibility
-   diagnostics when available.
-8. Endorse development of a formal exceptional-circumstances protocol,
-   including detection performance and pre-agreed responses.
-9. Review and record the full performance-metric set and any weighting process,
-   while retaining underlying outcomes rather than relying on a composite
-   score alone.
+The analysis narrows the broader workshop set to two central rule families and
+reasonable annual TAC-change variants. Candidate performance is evaluated
+against a reference OM and a structured robustness set spanning productivity,
+recruitment stress, selectivity, stock structure, movement, and spatial catch
+distribution. The results demonstrate trade-offs among biological condition,
+catch, stability, and responsiveness rather than identifying a single CMP that
+dominates every objective. The performance quilt and worked scorecards provide
+transparent summaries, but the underlying distributions, metric definitions,
+weights, and robustness results remain necessary for interpretation.
+
+The available work supports taking a reduced subset of CMPs forward for
+Commission selection, accompanied by annual monitoring and a formal
+exceptional-circumstances process. Because this synthesis contains
+result-dependent statements, scores, and conclusions, **this section must be
+updated dynamically in future report versions whenever simulation results,
+candidate definitions, performance metrics, or agreed weights change.**
+
+The Scientific Committee is asked to consider the following:
+
+**Noting**
+
+- that the approaches provide valid combinations of the available information
+  for application in the tested HCRs;
+- that the work identifies reasonable annual TAC-change variants informed by
+  polling of Commission members;
+- that the results satisfy the Commission requests and recorded management
+  preferences;
+- the use of all five indices and the complementary value of the
+  fishery-independent acoustic series;
+- that northern and southern indicators should continue to be tracked
+  separately, as in the past, alongside the combined CMP indicator and
+  monitored through the annual assessment process, including when evaluating
+  whether exceptional circumstances may be occurring;
+- that the available banking-and-borrowing results and implementation appear
+  feasible within the levels investigated; and
+- that the robustness tests provide plausible scenarios for testing the CMPs.
+
+**Endorsing**
+
+- the analytical work as satisfying the request from the Commission;
+- adoption of a subset of the CMPs presented, with the subset to be selected by
+  the Commission;
+- development of a formal exceptional-circumstances protocol, including
+  evaluation of detection performance and pre-agreed responses; and
+- review and documentation of the full performance-metric set and any weighting
+  process, while retaining the underlying outcomes rather than relying on a
+  composite score alone.
 
 ## Work required before final advice
 
