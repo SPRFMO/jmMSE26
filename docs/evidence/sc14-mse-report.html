@@ -2805,7 +2805,77 @@ Figure 4: Reference-OM candidate performance quilt for the eight naming-convent
 </section>
 <section id="extensible-weighted-scorecard-method" class="level3" data-number="5.3">
 <h3 data-number="5.3" class="anchored" data-anchor-id="extensible-weighted-scorecard-method"><span class="header-section-number">5.3</span> Extensible weighted-scorecard method</h3>
-<p>The draft Excel scorecard demonstrates one transparent multi-criteria method: for each included CMP and metric, observed values are rescaled from 0 to 100 according to whether higher or lower values are preferred; each normalized value is multiplied by an editable weight; and the weighted values are summed and divided by total weight. Equal-weight and biological-status-only views provide simple sensitivity checks.</p>
+<p>The Figure 4 quilt now supplies a reproducible worked scorecard for the eight candidate variants under the reference OM. Let <span class="math inline">\(x_{jm}\)</span> be the value for CMP <span class="math inline">\(j\)</span> and metric <span class="math inline">\(m\)</span>, and let <span class="math inline">\(x_m^{\min}\)</span> and <span class="math inline">\(x_m^{\max}\)</span> be the minimum and maximum across the included CMPs. The directionally normalized preference score <span class="math inline">\(p_{jm}\)</span> is</p>
+<p><span class="math display">\[
+p_{jm} =
+\begin{cases}
+\dfrac{x_{jm}-x_m^{\min}}{x_m^{\max}-x_m^{\min}},
+&amp; \text{if higher values are preferred},\\[6pt]
+\dfrac{x_m^{\max}-x_{jm}}{x_m^{\max}-x_m^{\min}},
+&amp; \text{if lower values are preferred}.
+\end{cases}
+\]</span></p>
+<p>Thus <span class="math inline">\(p_{jm}=0\)</span> is the least preferred observed value and <span class="math inline">\(p_{jm}=1\)</span> is the most preferred observed value for that metric and comparison set. If all CMPs have the same value for a metric, they are tied at <span class="math inline">\(p_{jm}=1\)</span>. With inclusion indicator <span class="math inline">\(I_m\)</span> and non-negative weight <span class="math inline">\(w_m\)</span>, the aggregate score is</p>
+<p><span class="math display">\[
+S_j =
+100\,
+\frac{\sum_m I_m w_m p_{jm}}
+     {\sum_m I_m w_m}.
+\]</span></p>
+<p>The contribution of metric <span class="math inline">\(m\)</span> to the total is <span class="math inline">\(C_{jm}=100 I_m w_m p_{jm}/\sum_m I_m w_m\)</span>, so <span class="math inline">\(S_j=\sum_m C_{jm}\)</span>. The <a href="https://github.com/sprfmo/jmMSE26/blob/main/R/build_candidate_scorecard.R">R implementation</a> reads the editable Figure 4 input, checks that every CMP has one value for every included metric, and writes both the totals and metric-level contributions.</p>
+<p>For the worked result below, all six Figure 4 metrics are included with equal weight (<span class="math inline">\(I_m=1\)</span>, <span class="math inline">\(w_m=1\)</span>): spawning biomass, fishing pressure, catch, IACC, vulnerable biomass relative to 2025, and vulnerable biomass relative to its MSY-stock-level reference. All inputs use the reference OM and the 2041–2050 summary window used in Figure 4.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: right;">Relative order</th>
+<th style="text-align: left;">CMP</th>
+<th style="text-align: right;">Equal-weight score (0–100)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">HS-20 (MP43)</td>
+<td style="text-align: right;">81.65</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">HSsym (MP45)</td>
+<td style="text-align: right;">78.02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">PRsym (MP46)</td>
+<td style="text-align: right;">77.69</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">PR-20 (MP44)</td>
+<td style="text-align: right;">76.70</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td style="text-align: left;">HS-30 (MP47)</td>
+<td style="text-align: right;">76.61</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">6</td>
+<td style="text-align: left;">PR-30 (MP48)</td>
+<td style="text-align: right;">62.01</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">7</td>
+<td style="text-align: left;">HS+20 (MP29)</td>
+<td style="text-align: right;">36.29</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">8</td>
+<td style="text-align: left;">PR+20 (MP32)</td>
+<td style="text-align: right;">20.93</td>
+</tr>
+</tbody>
+</table>
+<p>The machine-readable totals are in <a href="../data/candidates/candidate_scorecard_result_reference.csv"><code>candidate_scorecard_result_reference.csv</code></a>, and the individual weighted contributions are in <a href="../data/candidates/candidate_scorecard_contributions_reference.csv"><code>candidate_scorecard_contributions_reference.csv</code></a>. These values are a reproducible calculation, but their order is still <strong>illustrative rather than a management ranking</strong>: equal weights are a neutral starting point, not agreed priorities, and the scores are relative to this candidate set.</p>
 <p>The current workbook is an <strong>illustrative framework</strong>, not the final scorecard. Its example contains four CMPs and six performance columns because those values were available when it was prepared. Both dimensions are expected to change:</p>
 <ul>
 <li>candidate rows can be added, removed, or replaced as the shortlist evolves;</li>

@@ -433,12 +433,65 @@ user decision under the method below.
 
 ### Extensible weighted-scorecard method
 
-The draft Excel scorecard demonstrates one transparent multi-criteria method:
-for each included CMP and metric, observed values are rescaled from 0 to 100
-according to whether higher or lower values are preferred; each normalized
-value is multiplied by an editable weight; and the weighted values are summed
-and divided by total weight. Equal-weight and biological-status-only views
-provide simple sensitivity checks.
+The Figure 4 quilt now supplies a reproducible worked scorecard for the eight
+candidate variants under the reference OM. Let $x_{jm}$ be the value for CMP
+$j$ and metric $m$, and let $x_m^{\min}$ and $x_m^{\max}$ be the minimum and
+maximum across the included CMPs. The directionally normalized preference
+score $p_{jm}$ is
+
+$$
+p_{jm} =
+\begin{cases}
+\dfrac{x_{jm}-x_m^{\min}}{x_m^{\max}-x_m^{\min}},
+& \text{if higher values are preferred},\\[6pt]
+\dfrac{x_m^{\max}-x_{jm}}{x_m^{\max}-x_m^{\min}},
+& \text{if lower values are preferred}.
+\end{cases}
+$$
+
+Thus $p_{jm}=0$ is the least preferred observed value and $p_{jm}=1$ is the
+most preferred observed value for that metric and comparison set. If all CMPs
+have the same value for a metric, they are tied at $p_{jm}=1$. With inclusion
+indicator $I_m$ and non-negative weight $w_m$, the aggregate score is
+
+$$
+S_j =
+100\,
+\frac{\sum_m I_m w_m p_{jm}}
+     {\sum_m I_m w_m}.
+$$
+
+The contribution of metric $m$ to the total is
+$C_{jm}=100 I_m w_m p_{jm}/\sum_m I_m w_m$, so
+$S_j=\sum_m C_{jm}$. The
+[R implementation](https://github.com/sprfmo/jmMSE26/blob/main/R/build_candidate_scorecard.R)
+reads the editable Figure 4 input, checks that every CMP has one value for every
+included metric, and writes both the totals and metric-level contributions.
+
+For the worked result below, all six Figure 4 metrics are included with equal
+weight ($I_m=1$, $w_m=1$): spawning biomass, fishing pressure, catch, IACC,
+vulnerable biomass relative to 2025, and vulnerable biomass relative to its
+MSY-stock-level reference. All inputs use the reference OM and the 2041--2050
+summary window used in Figure 4.
+
+```{=latex}
+\begingroup\small
+```
+
+{{< include ../data/candidates/candidate_scorecard_result_reference.md >}}
+
+```{=latex}
+\endgroup
+```
+
+The machine-readable totals are in
+[`candidate_scorecard_result_reference.csv`](../data/candidates/candidate_scorecard_result_reference.csv),
+and the individual weighted contributions are in
+[`candidate_scorecard_contributions_reference.csv`](../data/candidates/candidate_scorecard_contributions_reference.csv).
+These values are a reproducible calculation, but their order is still
+**illustrative rather than a management ranking**: equal weights are a neutral
+starting point, not agreed priorities, and the scores are relative to this
+candidate set.
 
 The current workbook is an **illustrative framework**, not the final scorecard.
 Its example contains four CMPs and six performance columns because those values
