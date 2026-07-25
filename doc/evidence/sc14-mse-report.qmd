@@ -117,7 +117,8 @@ and the post-workshop analysis summarized in the
 and 25 July progress presentation. The preparation site preceded SCW17 and
 provided the detailed model specifications, diagnostics, working papers, and
 technical discussions needed to update the operating models used at SCW17 and
-in subsequent MSE work. The sources have different roles:
+in subsequent MSE work. Their different roles are summarized in
+@tbl-source-roles.
 
 | Source | Role in this synthesis |
 |---|---|
@@ -127,6 +128,8 @@ in subsequent MSE work. The sources have different roles:
 | Task-team meeting, 24 July 2026 | Interpretation of results, wording cautions, issues for SC14, and agreed follow-up. |
 | Progress presentation dated 25 July 2026 | Detailed tuning sequence, OM contrasts, and graphical robustness diagnostics available at the time of review. |
 | Draft weighted scorecard, 23 July 2026 | Example of an editable multi-criteria comparison method; not an exhaustive candidate list, metric list, or decision. |
+
+: Source materials and their roles in this synthesis. {#tbl-source-roles}
 
 The Scientific Committee provides scientific advice and the Commission weighs
 management trade-offs and makes management decisions. A shortlist in an MSE
@@ -176,7 +179,8 @@ procedure across management objectives.
 
 The current grid centers on the one-stock benchmark model `h1_0.16` with
 steepness 0.65. Robustness OMs test major structural and parametric
-uncertainties rather than assigning probability to one forecast.
+uncertainties rather than assigning probability to one forecast
+(@tbl-om-set).
 
 | OM label | Main contrast | Analytical role |
 |---|---|---|
@@ -190,6 +194,8 @@ uncertainties rather than assigning probability to one forecast.
 | om21_1 | Two stocks with movement | Spatial redistribution and indicator-conflict robustness |
 | om22 | Two stocks, steepness 0.8 | Two-stock productivity robustness |
 | om23 | Two stocks, model 1.14 configuration | Two-stock assessment/configuration robustness |
+
+: Reference and robustness operating-model set. {#tbl-om-set}
 
 The OM set (reference and robustness) is not a declaration that all states are
 equally plausible. Its purpose is to expose CMP sensitivity to assumptions
@@ -270,6 +276,7 @@ asymmetry with a 20% maximum decrease, `sym` identifies symmetric 15% limits,
 and `-30` identifies a 30% maximum decrease. These labels should be used in
 figures and interpretive prose. The legacy MP identifiers remain in the table
 only to preserve the link to code, saved outputs, and earlier documents.
+The complete mapping is given in @tbl-candidate-variants.
 
 ### Central rule-shape comparison
 
@@ -278,7 +285,9 @@ three-year averaging window, 270-kt minimum catch, 0.1 index limit, and
 1,385-kt initial simulated catch. The six non-base variants were retuned under
 the reference OM after changing the annual constraint.
 
-::: {.content-visible when-format="html"}
+```{=latex}
+\begingroup\small
+```
 
 | Working label | Legacy ID | HCR family | Target or breakpoint (kt) | Tuned trigger | Annual decrease/increase limits |
 |---|---|---|---:|---:|---:|
@@ -291,30 +300,10 @@ the reference OM after changing the annual constraint.
 | PRsym | MP46 | Power ramp | 1,500 | 1.9375 | -15% / +15% |
 | PR-30 | MP48 | Power ramp | 1,500 | 1.890625 | -30% / +20% |
 
-:::
+: Naming convention, legacy identifiers, and definitions of the eight candidate variants. {#tbl-candidate-variants}
 
 ```{=latex}
-\begin{samepage}
-\begin{center}
-\small
-\setlength{\tabcolsep}{5pt}
-\begin{tabular}{lllrll}
-\hline
-\textbf{Working label} & \textbf{Legacy ID} & \textbf{HCR family} &
-\textbf{Target (kt)} & \textbf{Trigger} & \textbf{Annual limits} \\
-\hline
-HS+20 & MP29 & Hockey-stick & 2,000 & 2.125 & -15\% / +20\% \\
-HS-20 & MP43 & Hockey-stick & 2,000 & 3.0625 & -20\% / +15\% \\
-HSsym & MP45 & Hockey-stick & 2,000 & 3.0625 & -15\% / +15\% \\
-HS-30 & MP47 & Hockey-stick & 2,000 & 3.0625 & -30\% / +20\% \\
-PR+20 & MP32 & Power ramp & 1,500 & 1.421875 & -15\% / +20\% \\
-PR-20 & MP44 & Power ramp & 1,500 & 1.9140625 & -20\% / +15\% \\
-PRsym & MP46 & Power ramp & 1,500 & 1.9375 & -15\% / +15\% \\
-PR-30 & MP48 & Power ramp & 1,500 & 1.890625 & -30\% / +20\% \\
-\hline
-\end{tabular}
-\end{center}
-\end{samepage}
+\endgroup
 ```
 
 The hockey-stick increases advice linearly between the limit and trigger and
@@ -333,12 +322,14 @@ should use the completed 500-replicate results when available.
 
 The base CMPs limit annual advice to a 15% decrease and a 20% increase. The
 task team identified a limited set of alternatives for retuning and
-comparison:
+comparison, summarized in @tbl-annual-limit-variants.
 
 | HCR family | Base | Reverse asymmetry | Symmetric | Larger decrease |
 |---|---|---|---|---|
 | Hockey-stick | HS+20: -15%/+20% | HS-20: -20%/+15% | HSsym: -15%/+15% | HS-30: -30%/+20% |
 | Power ramp | PR+20: -15%/+20% | PR-20: -20%/+15% | PRsym: -15%/+15% | PR-30: -30%/+20% |
+
+: Annual TAC-change-limit variants by HCR family. {#tbl-annual-limit-variants}
 
 The variants change both management responsiveness and the tuned trigger.
 They should therefore be compared as complete, retuned CMPs. The available
@@ -354,7 +345,7 @@ Each iteration has its own line color, and the same iteration uses the same
 color in both panels.
 HS-20 is MP43 (`tun43`), with annual limits of -20%/+15%; HS+20 is MP29
 (`tun29`), with limits of -15%/+20%. The vertically stacked panels share a
-common catch scale.
+common catch scale, as shown in @fig-catch-spaghetti.
 
 ![Projected catch trajectories for the same 30 simulation iteration IDs under both hockey-stick MPs in the reference operating model. Each iteration retains the same line color in both panels so matching trajectories can be traced through time and across MPs.](../figures/candidates/catch_spaghetti_hs_reference.png){#fig-catch-spaghetti fig-align="center" width="95%"}
 
@@ -395,19 +386,21 @@ technical annex and interactive outputs.
 The augmented candidate exports include vulnerable biomass relative to its
 2025 level and relative to equilibrium vulnerable biomass at the fishing
 mortality that produces MSY. The latter is a biomass-to-biomass ratio; it does
-not divide vulnerable biomass by MSY catch.
+not divide vulnerable biomass by MSY catch. Reference-OM results are shown in
+@fig-vb-reference and the corresponding robustness results in
+@fig-vb-robustness.
 
 ![Vulnerable-biomass performance for the reference operating model.](../figures/candidates/vb_reference.png){#fig-vb-reference fig-align="center" width="90%"}
 
 ![Vulnerable-biomass performance across the robustness operating models.](../figures/candidates/vb_robustness.png){#fig-vb-robustness fig-align="center" width="90%"}
 
-### Candidate performance quilt
+### Performance metrics by CMPs
 
-The quilt below is an unweighted comparison of the eight annual-change
-variants listed in the **Naming convention and candidate variants** table
-under the reference OM. Annual values were averaged over 2041--2050 within each
-simulation iteration; cell labels are medians of those iteration means. Color
-is normalized independently within each metric across the eight variants.
+The quilt in @fig-candidate-quilt is an unweighted comparison of the eight
+annual-change variants listed in @tbl-candidate-variants under the reference
+OM. Annual values were averaged over 2041--2050 within each simulation
+iteration; cell labels are medians of those iteration means. Color is
+normalized independently within each metric across the eight variants.
 
 Purple means lower relative preference and light lavender means higher relative
 preference (0 is darkest; 1 is lightest). Higher
@@ -433,11 +426,11 @@ user decision under the method below.
 
 ### Extensible weighted-scorecard method
 
-The Figure 4 quilt now supplies a reproducible worked scorecard for the eight
-candidate variants under the reference OM. Let $x_{jm}$ be the value for CMP
-$j$ and metric $m$, and let $x_m^{\min}$ and $x_m^{\max}$ be the minimum and
-maximum across the included CMPs. The directionally normalized preference
-score $p_{jm}$ is
+The performance quilt in @fig-candidate-quilt now supplies a reproducible
+worked scorecard for the eight candidate variants under the reference OM. Let
+$x_{jm}$ be the value for CMP $j$ and metric $m$, and let $x_m^{\min}$ and
+$x_m^{\max}$ be the minimum and maximum across the included CMPs. The
+directionally normalized preference score $p_{jm}$ is
 
 $$
 p_{jm} =
@@ -465,17 +458,21 @@ The contribution of metric $m$ to the total is
 $C_{jm}=100 I_m w_m p_{jm}/\sum_m I_m w_m$, so
 $S_j=\sum_m C_{jm}$. The
 [R implementation](https://github.com/sprfmo/jmMSE26/blob/main/R/build_candidate_scorecard.R)
-reads the editable Figure 4 input, checks that every CMP has one value for every
-included metric, and writes both the totals and metric-level contributions.
+reads the editable @fig-candidate-quilt input, checks that every CMP has one
+value for every included metric, and writes both the totals and metric-level
+contributions.
 
-For the worked result below, all six Figure 4 metrics are included with equal
-weight ($I_m=1$, $w_m=1$): spawning biomass, fishing pressure, catch, IACC,
-vulnerable biomass relative to 2025, and vulnerable biomass relative to its
-MSY-stock-level reference. All inputs use the reference OM and the 2041--2050
-summary window used in Figure 4.
+The worked results in @tbl-scorecard-results include all six metrics from
+@fig-candidate-quilt. The equal-weight view assigns one-sixth to every metric.
+The balanced view assigns half the total weight to fishing performance---25%
+each to Catch and IACC---and half to stock condition---12.5% each to
+$SB/SB_{\mathrm{MSY}}$, $F/F_{\mathrm{MSY}}$, $VB/VB_{2025}$, and
+$VB/VB_{\mathrm{MSY}}$. All inputs use the reference OM and the 2041--2050
+summary window used in @fig-candidate-quilt.
 
 ```{=latex}
 \begingroup\small
+\setlength{\tabcolsep}{9pt}
 ```
 
 {{< include ../data/candidates/candidate_scorecard_result_reference.md >}}
@@ -488,10 +485,10 @@ The machine-readable totals are in
 [`candidate_scorecard_result_reference.csv`](../data/candidates/candidate_scorecard_result_reference.csv),
 and the individual weighted contributions are in
 [`candidate_scorecard_contributions_reference.csv`](../data/candidates/candidate_scorecard_contributions_reference.csv).
-These values are a reproducible calculation, but their order is still
-**illustrative rather than a management ranking**: equal weights are a neutral
-starting point, not agreed priorities, and the scores are relative to this
-candidate set.
+These values are a reproducible calculation, but both orders remain
+**illustrative rather than management rankings**: neither weighting scheme is
+an agreed statement of management priorities, and the scores are relative to
+this candidate set.
 
 The current workbook is an **illustrative framework**, not the final scorecard.
 Its example contains four CMPs and six performance columns because those values
@@ -533,14 +530,18 @@ Under the reference comparison reviewed by the task team:
 
 The near-term comparison uses mean annual catch and mean
 $VB/VB_{\mathrm{MSY}}$ over 2026--2035. Points are MP medians and bars are
-marginal 5th--95th percentiles.
+marginal 5th--95th percentiles. The reference and robustness comparisons are
+shown in @fig-catch-vbmsy-reference and @fig-catch-vbmsy-robustness,
+respectively.
 
 ![Near-term catch versus VB/VBMSY for the reference operating model, 2026--2035.](../figures/candidates/catch_vbmsy_reference.png){#fig-catch-vbmsy-reference fig-align="center" width="90%"}
 
 ![Near-term catch versus VB/VBMSY across robustness operating models, 2026--2035.](../figures/candidates/catch_vbmsy_robustness.png){#fig-catch-vbmsy-robustness fig-align="center" width="90%"}
 
 The long-term comparison uses mean annual catch and mean $VB/VB_{2025}$ over
-2041--2050, with the same aggregation.
+2041--2050, with the same aggregation. The corresponding reference and
+robustness comparisons are shown in @fig-catch-vb2025-reference and
+@fig-catch-vb2025-robustness.
 
 ![Long-term catch versus VB/VB2025 for the reference operating model, 2041--2050.](../figures/candidates/catch_vb2025_reference.png){#fig-catch-vb2025-reference fig-align="center" width="90%"}
 
@@ -703,6 +704,9 @@ The Scientific Committee may wish to:
 
 ## Work required before final advice
 
+The remaining analytical and documentation tasks are summarized in
+@tbl-work-required.
+
 | Work item | Why it matters | Current status in source material |
 |---|---|---|
 | Complete final 500-replicate tuning and reduced-set evaluation | Stabilizes final reported triggers and performance distributions | Requested; 100-versus-500 checks showed small differences |
@@ -714,6 +718,8 @@ The Scientific Committee may wish to:
 | Expand and sensitivity-test the scorecard | Allows changing CMP and metric sets without implying a fixed ranking | Draft framework available |
 | Specify exceptional-circumstances protocol | Defines detection, authority, response, and return to the CMP | Proof-of-concept stage |
 | Freeze reproducible inputs and outputs | Supports independent review and exact reruns | Run records exist; final archive still required |
+
+: Work required before final scientific advice. {#tbl-work-required}
 
 ## Source, terminology, and interpretation notes
 

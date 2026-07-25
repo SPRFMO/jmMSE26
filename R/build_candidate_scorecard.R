@@ -84,45 +84,80 @@ if (total_weight <= 0) {
   stop("The total included metric weight must be positive.")
 }
 
-included$weighted_contribution <-
-  included$normalized_score * included$weight / total_weight
-
 cmp_order <- unique(included$mp)
-score <- vapply(
-  cmp_order,
-  function(candidate) {
-    rows <- included[included$mp == candidate, , drop = FALSE]
-    if (nrow(rows) != nrow(metric_settings) ||
-        !setequal(rows$metric, metric_settings$metric)) {
-      stop("Every CMP must contain exactly one row for every included metric: ",
-           candidate)
-    }
-    sum(rows$weighted_contribution)
-  },
-  numeric(1)
+expected_metrics <- c(
+  "SB / SB[MSY]", "F / F[MSY]", "Catch", "IACC",
+  "VB / VB[2025]", "VB / VB[MSY]"
+)
+if (!setequal(metric_settings$metric, expected_metrics)) {
+  stop(
+    "The balanced example requires exactly these six metrics: ",
+    paste(expected_metrics, collapse = ", ")
+  )
+}
+
+weight_schemes <- list(
+  equal = setNames(rep(1 / 6, 6), expected_metrics),
+  balanced = setNames(
+    c(0.125, 0.125, 0.25, 0.25, 0.125, 0.125),
+    expected_metrics
+  )
+)
+
+calculate_scheme <- function(scheme_name, scheme_weights) {
+  rows <- included
+  rows$weight_scheme <- scheme_name
+  rows$scheme_weight <- unname(scheme_weights[rows$metric])
+  rows$weighted_contribution <-
+    rows$normalized_score * rows$scheme_weight
+  scores <- vapply(
+    cmp_order,
+    function(candidate) {
+      candidate_rows <- rows[rows$mp == candidate, , drop = FALSE]
+      if (nrow(candidate_rows) != length(scheme_weights) ||
+          !setequal(candidate_rows$metric, names(scheme_weights))) {
+        stop(
+          "Every CMP must contain exactly one row for every included metric: ",
+          candidate
+        )
+      }
+      sum(candidate_rows$weighted_contribution)
+    },
+    numeric(1)
+  )
+  list(rows = rows, scores = scores)
+}
+
+equal <- calculate_scheme("Equal weights", weight_schemes$equal)
+balanced <- calculate_scheme(
+  "Balanced: 50% fishing performance / 50% stock condition",
+  weight_schemes$balanced
 )
 
 result <- data.frame(
-  rank = rank(-score, ties.method = "min"),
   mp = cmp_order,
-  weighted_score = unname(score),
-  included_metrics = nrow(metric_settings),
-  total_weight = total_weight,
-  weight_scheme = if (length(unique(metric_settings$weight)) == 1L) {
-    "Equal weights"
-  } else {
-    "User-specified weights"
-  },
+  equal_weight_rank = rank(-equal$scores, ties.method = "min"),
+  equal_weight_score = unname(equal$scores),
+  balanced_rank = rank(-balanced$scores, ties.method = "min"),
+  balanced_score = unname(balanced$scores),
+  included_metrics = length(expected_metrics),
   years = paste(sort(unique(included$years)), collapse = "; "),
   stringsAsFactors = FALSE
 )
-result <- result[order(result$rank, result$mp), , drop = FALSE]
-result$weighted_score <- round(result$weighted_score, 2)
+result <- result[order(result$equal_weight_rank, result$mp), , drop = FALSE]
+result[c("equal_weight_score", "balanced_score")] <-
+  round(result[c("equal_weight_score", "balanced_score")], 2)
 
-contributions <- included[
-  order(match(included$mp, result$mp), included$metric),
-  c("mp", "metric", "raw_value", "preferred_direction", "normalized_score",
-    "include", "weight", "weighted_contribution", "years", "summary")
+contributions <- rbind(equal$rows, balanced$rows)
+contributions <- contributions[
+  order(
+    contributions$weight_scheme,
+    match(contributions$mp, result$mp),
+    match(contributions$metric, expected_metrics)
+  ),
+  c("weight_scheme", "mp", "metric", "raw_value",
+    "preferred_direction", "normalized_score", "include", "scheme_weight",
+    "weighted_contribution", "years", "summary")
 ]
 contributions$normalized_score <- round(contributions$normalized_score, 4)
 contributions$weighted_contribution <-
@@ -133,14 +168,18 @@ write.csv(result, output_path, row.names = FALSE, na = "")
 write.csv(contributions, contribution_path, row.names = FALSE, na = "")
 
 table_lines <- c(
-  "| Relative order | CMP | Equal-weight score (0--100) |",
-  "|---:|:---|---:|",
+  "| Equal-weight rank | CMP | Equal-weight score | Balanced score | Balanced rank |",
+  "|---:|:---|---:|---:|---:|",
   sprintf(
-    "| %d | %s | %.2f |",
-    result$rank,
+    "| %d | %s | %.2f | %.2f | %d |",
+    result$equal_weight_rank,
     result$mp,
-    result$weighted_score
-  )
+    result$equal_weight_score,
+    result$balanced_score,
+    result$balanced_rank
+  ),
+  "",
+  ": Equal-weight and balanced scorecard results for the eight performance-metric-quilt CMPs under the reference OM, 2041--2050. The balanced score assigns 25% each to Catch and IACC and 12.5% each to SB/SBMSY, F/FMSY, VB/VB[2025], and VB/VB[MSY]. {#tbl-scorecard-results}"
 )
 writeLines(table_lines, table_path)
 

@@ -2357,7 +2357,7 @@ window.Quarto = {
   <li><a href="#performance-evaluation-and-the-draft-scorecard" id="toc-performance-evaluation-and-the-draft-scorecard" class="nav-link" data-scroll-target="#performance-evaluation-and-the-draft-scorecard"><span class="header-section-number">5</span> Performance evaluation and the draft scorecard</a>
   <ul class="collapse">
   <li><a href="#performance-framework" id="toc-performance-framework" class="nav-link" data-scroll-target="#performance-framework"><span class="header-section-number">5.1</span> Performance framework</a></li>
-  <li><a href="#candidate-performance-quilt" id="toc-candidate-performance-quilt" class="nav-link" data-scroll-target="#candidate-performance-quilt"><span class="header-section-number">5.2</span> Candidate performance quilt</a></li>
+  <li><a href="#performance-metrics-by-cmps" id="toc-performance-metrics-by-cmps" class="nav-link" data-scroll-target="#performance-metrics-by-cmps"><span class="header-section-number">5.2</span> Performance metrics by CMPs</a></li>
   <li><a href="#extensible-weighted-scorecard-method" id="toc-extensible-weighted-scorecard-method" class="nav-link" data-scroll-target="#extensible-weighted-scorecard-method"><span class="header-section-number">5.3</span> Extensible weighted-scorecard method</a></li>
   </ul></li>
   <li><a href="#main-performance-and-robustness-findings" id="toc-main-performance-and-robustness-findings" class="nav-link" data-scroll-target="#main-performance-and-robustness-findings"><span class="header-section-number">6</span> Main performance and robustness findings</a>
@@ -2441,7 +2441,13 @@ Jack Mackerel Management Strategy Evaluation: Synthesis for SC14
 <section id="purpose-scope-and-decision-status" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="purpose-scope-and-decision-status"><span class="header-section-number">1</span> Purpose, scope, and decision status</h2>
 <p>The MSE is intended to compare complete management procedures in a closed-loop simulation before one is considered for implementation. Each CMP converts agreed observations into annual catch advice; each OM represents a plausible description of stock and fishery dynamics against which the CMP is tested. Performance measures describe biological outcomes, yield, stability, and fishery feasibility over specified periods.</p>
-<p>This report melds the technical foundation assembled in the <a href="https://sprfmo.github.io/JM_SCW_prep/">benchmark-preparation and MSE-planning materials</a>, the design record from the <a href="https://sprfmo.github.io/scw17/SCW17-MSE-Workshop-report.html">SCW17 MSE Workshop report</a>, and the post-workshop analysis summarized in the <a href="https://sprfmo.github.io/jmMSE26/outputs/meeting-report-20260724/SC14_JM_MSE_meeting_report_2026-07-24.pdf">24 July task-team meeting report</a> and 25 July progress presentation. The preparation site preceded SCW17 and provided the detailed model specifications, diagnostics, working papers, and technical discussions needed to update the operating models used at SCW17 and in subsequent MSE work. The sources have different roles:</p>
+<p>This report melds the technical foundation assembled in the <a href="https://sprfmo.github.io/JM_SCW_prep/">benchmark-preparation and MSE-planning materials</a>, the design record from the <a href="https://sprfmo.github.io/scw17/SCW17-MSE-Workshop-report.html">SCW17 MSE Workshop report</a>, and the post-workshop analysis summarized in the <a href="https://sprfmo.github.io/jmMSE26/outputs/meeting-report-20260724/SC14_JM_MSE_meeting_report_2026-07-24.pdf">24 July task-team meeting report</a> and 25 July progress presentation. The preparation site preceded SCW17 and provided the detailed model specifications, diagnostics, working papers, and technical discussions needed to update the operating models used at SCW17 and in subsequent MSE work. Their different roles are summarized in <a href="#tbl-source-roles" class="quarto-xref">Table 1</a>.</p>
+<div id="tbl-source-roles" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-source-roles-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table 1: Source materials and their roles in this synthesis.
+</figcaption>
+<div aria-describedby="tbl-source-roles-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -2476,6 +2482,9 @@ Jack Mackerel Management Strategy Evaluation: Synthesis for SC14
 </tr>
 </tbody>
 </table>
+</div>
+</figure>
+</div>
 <p>The Scientific Committee provides scientific advice and the Commission weighs management trade-offs and makes management decisions. A shortlist in an MSE analysis is not an adoption decision.</p>
 </section>
 <section id="development-from-scw17-to-the-current-analysis" class="level2" data-number="2">
@@ -2498,7 +2507,13 @@ Jack Mackerel Management Strategy Evaluation: Synthesis for SC14
 <h2 data-number="3" class="anchored" data-anchor-id="operating-models-and-simulation-methods"><span class="header-section-number">3</span> Operating models and simulation methods</h2>
 <section id="reference-and-robustness-set" class="level3" data-number="3.1">
 <h3 data-number="3.1" class="anchored" data-anchor-id="reference-and-robustness-set"><span class="header-section-number">3.1</span> Reference and robustness set</h3>
-<p>The current grid centers on the one-stock benchmark model <code>h1_0.16</code> with steepness 0.65. Robustness OMs test major structural and parametric uncertainties rather than assigning probability to one forecast.</p>
+<p>The current grid centers on the one-stock benchmark model <code>h1_0.16</code> with steepness 0.65. Robustness OMs test major structural and parametric uncertainties rather than assigning probability to one forecast (<a href="#tbl-om-set" class="quarto-xref">Table 2</a>).</p>
+<div id="tbl-om-set" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-om-set-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table 2: Reference and robustness operating-model set.
+</figcaption>
+<div aria-describedby="tbl-om-set-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
 <colgroup>
 <col style="width: 33%">
@@ -2565,6 +2580,9 @@ Jack Mackerel Management Strategy Evaluation: Synthesis for SC14
 </tr>
 </tbody>
 </table>
+</div>
+</figure>
+</div>
 <p>The OM set (reference and robustness) is not a declaration that all states are equally plausible. Its purpose is to expose CMP sensitivity to assumptions that could matter to management outcomes. Any later OM weighting should be explicit and documented.</p>
 </section>
 <section id="recruitment-observation-and-implementation-uncertainty" class="level3" data-number="3.2">
@@ -2601,11 +2619,17 @@ Jack Mackerel Management Strategy Evaluation: Synthesis for SC14
 </section>
 <section id="naming-convention-and-candidate-variants" class="level3" data-number="4.2">
 <h3 data-number="4.2" class="anchored" data-anchor-id="naming-convention-and-candidate-variants"><span class="header-section-number">4.2</span> Naming convention and candidate variants</h3>
-<p>The working labels encode the HCR family and the most distinguishing annual TAC-change constraint. <code>HS</code> means hockey-stick and <code>PR</code> means power ramp. <code>+20</code> identifies the base 20% maximum increase, <code>-20</code> identifies the reverse asymmetry with a 20% maximum decrease, <code>sym</code> identifies symmetric 15% limits, and <code>-30</code> identifies a 30% maximum decrease. These labels should be used in figures and interpretive prose. The legacy MP identifiers remain in the table only to preserve the link to code, saved outputs, and earlier documents.</p>
+<p>The working labels encode the HCR family and the most distinguishing annual TAC-change constraint. <code>HS</code> means hockey-stick and <code>PR</code> means power ramp. <code>+20</code> identifies the base 20% maximum increase, <code>-20</code> identifies the reverse asymmetry with a 20% maximum decrease, <code>sym</code> identifies symmetric 15% limits, and <code>-30</code> identifies a 30% maximum decrease. These labels should be used in figures and interpretive prose. The legacy MP identifiers remain in the table only to preserve the link to code, saved outputs, and earlier documents. The complete mapping is given in <a href="#tbl-candidate-variants" class="quarto-xref">Table 3</a>.</p>
 </section>
 <section id="central-rule-shape-comparison" class="level3" data-number="4.3">
 <h3 data-number="4.3" class="anchored" data-anchor-id="central-rule-shape-comparison"><span class="header-section-number">4.3</span> Central rule-shape comparison</h3>
 <p>All eight CMPs use the same five-index mean, 2019–2023 reference period, three-year averaging window, 270-kt minimum catch, 0.1 index limit, and 1,385-kt initial simulated catch. The six non-base variants were retuned under the reference OM after changing the annual constraint.</p>
+<div id="tbl-candidate-variants" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-candidate-variants-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table 3: Naming convention, legacy identifiers, and definitions of the eight candidate variants.
+</figcaption>
+<div aria-describedby="tbl-candidate-variants-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
 <colgroup>
 <col style="width: 14%">
@@ -2692,12 +2716,21 @@ Jack Mackerel Management Strategy Evaluation: Synthesis for SC14
 </tr>
 </tbody>
 </table>
+</div>
+</figure>
+</div>
 <p>The hockey-stick increases advice linearly between the limit and trigger and then reaches a plateau. The power ramp reduces catch more quickly when the indicator is below its trigger and can continue to increase above its stated breakpoint according to the implemented rule. These structural differences, not the labels alone, create the main responsiveness-versus-stability contrast.</p>
 <p>The progress presentation also reported separate 500-replicate tuning checks for the central HS and PR configurations. Their triggers were close to the 100-replicate results, and the reported performance differences were small. They are replication checks, not new conceptual CMPs. Final candidate summaries should use the completed 500-replicate results when available.</p>
 </section>
 <section id="annual-tac-change-variants" class="level3" data-number="4.4">
 <h3 data-number="4.4" class="anchored" data-anchor-id="annual-tac-change-variants"><span class="header-section-number">4.4</span> Annual TAC-change variants</h3>
-<p>The base CMPs limit annual advice to a 15% decrease and a 20% increase. The task team identified a limited set of alternatives for retuning and comparison:</p>
+<p>The base CMPs limit annual advice to a 15% decrease and a 20% increase. The task team identified a limited set of alternatives for retuning and comparison, summarized in <a href="#tbl-annual-limit-variants" class="quarto-xref">Table 4</a>.</p>
+<div id="tbl-annual-limit-variants" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-annual-limit-variants-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table 4: Annual TAC-change-limit variants by HCR family.
+</figcaption>
+<div aria-describedby="tbl-annual-limit-variants-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
 <colgroup>
 <col style="width: 20%">
@@ -2732,8 +2765,11 @@ Jack Mackerel Management Strategy Evaluation: Synthesis for SC14
 </tr>
 </tbody>
 </table>
+</div>
+</figure>
+</div>
 <p>The variants change both management responsiveness and the tuned trigger. They should therefore be compared as complete, retuned CMPs. The available 100-replicate reference and nine-OM robustness runs support exploratory comparison; they do not replace final higher-replication evaluation of the reduced set.</p>
-<p>The following reference-OM plot shows 30 reproducibly selected simulation iterations for the two hockey-stick asymmetry cases over 2025–2050. Iteration IDs are paired exactly across panels: for example, iteration 6 would be shown for both MPs if selected, and every selected ID occurs once in each panel. Each iteration has its own line color, and the same iteration uses the same color in both panels. HS-20 is MP43 (<code>tun43</code>), with annual limits of -20%/+15%; HS+20 is MP29 (<code>tun29</code>), with limits of -15%/+20%. The vertically stacked panels share a common catch scale.</p>
+<p>The following reference-OM plot shows 30 reproducibly selected simulation iterations for the two hockey-stick asymmetry cases over 2025–2050. Iteration IDs are paired exactly across panels: for example, iteration 6 would be shown for both MPs if selected, and every selected ID occurs once in each panel. Each iteration has its own line color, and the same iteration uses the same color in both panels. HS-20 is MP43 (<code>tun43</code>), with annual limits of -20%/+15%; HS+20 is MP29 (<code>tun29</code>), with limits of -15%/+20%. The vertically stacked panels share a common catch scale, as shown in <a href="#fig-catch-spaghetti" class="quarto-xref">Figure 1</a>.</p>
 <div id="fig-catch-spaghetti" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-catch-spaghetti-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -2765,7 +2801,7 @@ Figure 1: Projected catch trajectories for the same 30 simulation iteration IDs
 <li>robustness measures across individual OMs and stress tests.</li>
 </ul>
 <p>A short headline table can aid Scientific Committee review, but the complete metric set and underlying distributions should remain available in the technical annex and interactive outputs.</p>
-<p>The augmented candidate exports include vulnerable biomass relative to its 2025 level and relative to equilibrium vulnerable biomass at the fishing mortality that produces MSY. The latter is a biomass-to-biomass ratio; it does not divide vulnerable biomass by MSY catch.</p>
+<p>The augmented candidate exports include vulnerable biomass relative to its 2025 level and relative to equilibrium vulnerable biomass at the fishing mortality that produces MSY. The latter is a biomass-to-biomass ratio; it does not divide vulnerable biomass by MSY catch. Reference-OM results are shown in <a href="#fig-vb-reference" class="quarto-xref">Figure 2</a> and the corresponding robustness results in <a href="#fig-vb-robustness" class="quarto-xref">Figure 3</a>.</p>
 <div id="fig-vb-reference" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-vb-reference-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -2787,9 +2823,9 @@ Figure 3: Vulnerable-biomass performance across the robustness operating models
 </figure>
 </div>
 </section>
-<section id="candidate-performance-quilt" class="level3" data-number="5.2">
-<h3 data-number="5.2" class="anchored" data-anchor-id="candidate-performance-quilt"><span class="header-section-number">5.2</span> Candidate performance quilt</h3>
-<p>The quilt below is an unweighted comparison of the eight annual-change variants listed in the <strong>Naming convention and candidate variants</strong> table under the reference OM. Annual values were averaged over 2041–2050 within each simulation iteration; cell labels are medians of those iteration means. Color is normalized independently within each metric across the eight variants.</p>
+<section id="performance-metrics-by-cmps" class="level3" data-number="5.2">
+<h3 data-number="5.2" class="anchored" data-anchor-id="performance-metrics-by-cmps"><span class="header-section-number">5.2</span> Performance metrics by CMPs</h3>
+<p>The quilt in <a href="#fig-candidate-quilt" class="quarto-xref">Figure 4</a> is an unweighted comparison of the eight annual-change variants listed in <a href="#tbl-candidate-variants" class="quarto-xref">Table 3</a> under the reference OM. Annual values were averaged over 2041–2050 within each simulation iteration; cell labels are medians of those iteration means. Color is normalized independently within each metric across the eight variants.</p>
 <p>Purple means lower relative preference and light lavender means higher relative preference (0 is darkest; 1 is lightest). Higher <span class="math inline">\(SB/SB_{\mathrm{MSY}}\)</span>, catch, <span class="math inline">\(VB/VB_{2025}\)</span>, and <span class="math inline">\(VB/VB_{\mathrm{MSY}}\)</span> are treated as better; lower <span class="math inline">\(F/F_{\mathrm{MSY}}\)</span> and lower IACC are treated as better. Lower <span class="math inline">\(F/F_{\mathrm{MSY}}\)</span> represents lower fishing pressure, while catch is shown separately. The within-column color scale is not an absolute biological or management threshold and must not be interpreted as a rank or recommendation.</p>
 <div id="fig-candidate-quilt" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
@@ -2805,7 +2841,7 @@ Figure 4: Reference-OM candidate performance quilt for the eight naming-convent
 </section>
 <section id="extensible-weighted-scorecard-method" class="level3" data-number="5.3">
 <h3 data-number="5.3" class="anchored" data-anchor-id="extensible-weighted-scorecard-method"><span class="header-section-number">5.3</span> Extensible weighted-scorecard method</h3>
-<p>The Figure 4 quilt now supplies a reproducible worked scorecard for the eight candidate variants under the reference OM. Let <span class="math inline">\(x_{jm}\)</span> be the value for CMP <span class="math inline">\(j\)</span> and metric <span class="math inline">\(m\)</span>, and let <span class="math inline">\(x_m^{\min}\)</span> and <span class="math inline">\(x_m^{\max}\)</span> be the minimum and maximum across the included CMPs. The directionally normalized preference score <span class="math inline">\(p_{jm}\)</span> is</p>
+<p>The performance quilt in <a href="#fig-candidate-quilt" class="quarto-xref">Figure 4</a> now supplies a reproducible worked scorecard for the eight candidate variants under the reference OM. Let <span class="math inline">\(x_{jm}\)</span> be the value for CMP <span class="math inline">\(j\)</span> and metric <span class="math inline">\(m\)</span>, and let <span class="math inline">\(x_m^{\min}\)</span> and <span class="math inline">\(x_m^{\max}\)</span> be the minimum and maximum across the included CMPs. The directionally normalized preference score <span class="math inline">\(p_{jm}\)</span> is</p>
 <p><span class="math display">\[
 p_{jm} =
 \begin{cases}
@@ -2822,14 +2858,29 @@ S_j =
 \frac{\sum_m I_m w_m p_{jm}}
      {\sum_m I_m w_m}.
 \]</span></p>
-<p>The contribution of metric <span class="math inline">\(m\)</span> to the total is <span class="math inline">\(C_{jm}=100 I_m w_m p_{jm}/\sum_m I_m w_m\)</span>, so <span class="math inline">\(S_j=\sum_m C_{jm}\)</span>. The <a href="https://github.com/sprfmo/jmMSE26/blob/main/R/build_candidate_scorecard.R">R implementation</a> reads the editable Figure 4 input, checks that every CMP has one value for every included metric, and writes both the totals and metric-level contributions.</p>
-<p>For the worked result below, all six Figure 4 metrics are included with equal weight (<span class="math inline">\(I_m=1\)</span>, <span class="math inline">\(w_m=1\)</span>): spawning biomass, fishing pressure, catch, IACC, vulnerable biomass relative to 2025, and vulnerable biomass relative to its MSY-stock-level reference. All inputs use the reference OM and the 2041–2050 summary window used in Figure 4.</p>
+<p>The contribution of metric <span class="math inline">\(m\)</span> to the total is <span class="math inline">\(C_{jm}=100 I_m w_m p_{jm}/\sum_m I_m w_m\)</span>, so <span class="math inline">\(S_j=\sum_m C_{jm}\)</span>. The <a href="https://github.com/sprfmo/jmMSE26/blob/main/R/build_candidate_scorecard.R">R implementation</a> reads the editable <a href="#fig-candidate-quilt" class="quarto-xref">Figure 4</a> input, checks that every CMP has one value for every included metric, and writes both the totals and metric-level contributions.</p>
+<p>The worked results in <a href="#tbl-scorecard-results" class="quarto-xref">Table 5</a> include all six metrics from <a href="#fig-candidate-quilt" class="quarto-xref">Figure 4</a>. The equal-weight view assigns one-sixth to every metric. The balanced view assigns half the total weight to fishing performance—25% each to Catch and IACC—and half to stock condition—12.5% each to <span class="math inline">\(SB/SB_{\mathrm{MSY}}\)</span>, <span class="math inline">\(F/F_{\mathrm{MSY}}\)</span>, <span class="math inline">\(VB/VB_{2025}\)</span>, and <span class="math inline">\(VB/VB_{\mathrm{MSY}}\)</span>. All inputs use the reference OM and the 2041–2050 summary window used in <a href="#fig-candidate-quilt" class="quarto-xref">Figure 4</a>.</p>
+<div id="tbl-scorecard-results" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-scorecard-results-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table 5: Equal-weight and balanced scorecard results for the eight performance-metric-quilt CMPs under the reference OM, 2041–2050. The balanced score assigns 25% each to Catch and IACC and 12.5% each to SB/SBMSY, F/FMSY, VB/VB[2025], and VB/VB[MSY].
+</figcaption>
+<div aria-describedby="tbl-scorecard-results-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: right;">Relative order</th>
+<th style="text-align: right;">Equal-weight rank</th>
 <th style="text-align: left;">CMP</th>
-<th style="text-align: right;">Equal-weight score (0–100)</th>
+<th style="text-align: right;">Equal-weight score</th>
+<th style="text-align: right;">Balanced score</th>
+<th style="text-align: right;">Balanced rank</th>
 </tr>
 </thead>
 <tbody>
@@ -2837,45 +2888,64 @@ S_j =
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">HS-20 (MP43)</td>
 <td style="text-align: right;">81.65</td>
+<td style="text-align: right;">73.75</td>
+<td style="text-align: right;">1</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">2</td>
 <td style="text-align: left;">HSsym (MP45)</td>
 <td style="text-align: right;">78.02</td>
+<td style="text-align: right;">70.77</td>
+<td style="text-align: right;">3</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">3</td>
 <td style="text-align: left;">PRsym (MP46)</td>
 <td style="text-align: right;">77.69</td>
+<td style="text-align: right;">71.42</td>
+<td style="text-align: right;">2</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">4</td>
 <td style="text-align: left;">PR-20 (MP44)</td>
 <td style="text-align: right;">76.70</td>
+<td style="text-align: right;">68.79</td>
+<td style="text-align: right;">4</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">5</td>
 <td style="text-align: left;">HS-30 (MP47)</td>
 <td style="text-align: right;">76.61</td>
+<td style="text-align: right;">68.52</td>
+<td style="text-align: right;">5</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">6</td>
 <td style="text-align: left;">PR-30 (MP48)</td>
 <td style="text-align: right;">62.01</td>
+<td style="text-align: right;">53.66</td>
+<td style="text-align: right;">6</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">7</td>
 <td style="text-align: left;">HS+20 (MP29)</td>
 <td style="text-align: right;">36.29</td>
+<td style="text-align: right;">51.28</td>
+<td style="text-align: right;">7</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">8</td>
 <td style="text-align: left;">PR+20 (MP32)</td>
 <td style="text-align: right;">20.93</td>
+<td style="text-align: right;">28.20</td>
+<td style="text-align: right;">8</td>
 </tr>
 </tbody>
 </table>
-<p>The machine-readable totals are in <a href="../data/candidates/candidate_scorecard_result_reference.csv"><code>candidate_scorecard_result_reference.csv</code></a>, and the individual weighted contributions are in <a href="../data/candidates/candidate_scorecard_contributions_reference.csv"><code>candidate_scorecard_contributions_reference.csv</code></a>. These values are a reproducible calculation, but their order is still <strong>illustrative rather than a management ranking</strong>: equal weights are a neutral starting point, not agreed priorities, and the scores are relative to this candidate set.</p>
+</div>
+</figure>
+</div>
+<p>The machine-readable totals are in <a href="../data/candidates/candidate_scorecard_result_reference.csv"><code>candidate_scorecard_result_reference.csv</code></a>, and the individual weighted contributions are in <a href="../data/candidates/candidate_scorecard_contributions_reference.csv"><code>candidate_scorecard_contributions_reference.csv</code></a>. These values are a reproducible calculation, but both orders remain <strong>illustrative rather than management rankings</strong>: neither weighting scheme is an agreed statement of management priorities, and the scores are relative to this candidate set.</p>
 <p>The current workbook is an <strong>illustrative framework</strong>, not the final scorecard. Its example contains four CMPs and six performance columns because those values were available when it was prepared. Both dimensions are expected to change:</p>
 <ul>
 <li>candidate rows can be added, removed, or replaced as the shortlist evolves;</li>
@@ -2901,7 +2971,7 @@ S_j =
 </section>
 <section id="catch-and-vulnerable-biomass-trade-offs" class="level3" data-number="6.2">
 <h3 data-number="6.2" class="anchored" data-anchor-id="catch-and-vulnerable-biomass-trade-offs"><span class="header-section-number">6.2</span> Catch and vulnerable-biomass trade-offs</h3>
-<p>The near-term comparison uses mean annual catch and mean <span class="math inline">\(VB/VB_{\mathrm{MSY}}\)</span> over 2026–2035. Points are MP medians and bars are marginal 5th–95th percentiles.</p>
+<p>The near-term comparison uses mean annual catch and mean <span class="math inline">\(VB/VB_{\mathrm{MSY}}\)</span> over 2026–2035. Points are MP medians and bars are marginal 5th–95th percentiles. The reference and robustness comparisons are shown in <a href="#fig-catch-vbmsy-reference" class="quarto-xref">Figure 5</a> and <a href="#fig-catch-vbmsy-robustness" class="quarto-xref">Figure 6</a>, respectively.</p>
 <div id="fig-catch-vbmsy-reference" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-catch-vbmsy-reference-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -2922,7 +2992,7 @@ Figure 6: Near-term catch versus VB/VBMSY across robustness operating models, 2
 </figcaption>
 </figure>
 </div>
-<p>The long-term comparison uses mean annual catch and mean <span class="math inline">\(VB/VB_{2025}\)</span> over 2041–2050, with the same aggregation.</p>
+<p>The long-term comparison uses mean annual catch and mean <span class="math inline">\(VB/VB_{2025}\)</span> over 2041–2050, with the same aggregation. The corresponding reference and robustness comparisons are shown in <a href="#fig-catch-vb2025-reference" class="quarto-xref">Figure 7</a> and <a href="#fig-catch-vb2025-robustness" class="quarto-xref">Figure 8</a>.</p>
 <div id="fig-catch-vb2025-reference" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-catch-vb2025-reference-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -3039,6 +3109,13 @@ Figure 12: Preliminary component-level trade-offs across the four two-stock rob
 </section>
 <section id="work-required-before-final-advice" class="level2" data-number="10">
 <h2 data-number="10" class="anchored" data-anchor-id="work-required-before-final-advice"><span class="header-section-number">10</span> Work required before final advice</h2>
+<p>The remaining analytical and documentation tasks are summarized in <a href="#tbl-work-required" class="quarto-xref">Table 6</a>.</p>
+<div id="tbl-work-required" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-work-required-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table 6: Work required before final scientific advice.
+</figcaption>
+<div aria-describedby="tbl-work-required-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
 <colgroup>
 <col style="width: 33%">
@@ -3100,6 +3177,9 @@ Figure 12: Preliminary component-level trade-offs across the four two-stock rob
 </tr>
 </tbody>
 </table>
+</div>
+</figure>
+</div>
 </section>
 <section id="source-terminology-and-interpretation-notes" class="level2" data-number="11">
 <h2 data-number="11" class="anchored" data-anchor-id="source-terminology-and-interpretation-notes"><span class="header-section-number">11</span> Source, terminology, and interpretation notes</h2>
