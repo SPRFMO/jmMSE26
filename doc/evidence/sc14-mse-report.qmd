@@ -89,8 +89,9 @@ fishery feasibility over specified periods.
 
 This report melds the design record from the
 [SCW17 MSE Workshop report](https://sprfmo.github.io/scw17/SCW17-MSE-Workshop-report.html)
-with the post-workshop analysis summarized in the 24 July task-team meeting
-report and 25 July progress presentation. The sources have different roles:
+with the post-workshop analysis summarized in the
+[24 July task-team meeting report](https://sprfmo.github.io/jmMSE26/outputs/meeting-report-20260724/SC14_JM_MSE_meeting_report_2026-07-24.pdf)
+and 25 July progress presentation. The sources have different roles:
 
 | Source | Role in this synthesis |
 |---|---|
