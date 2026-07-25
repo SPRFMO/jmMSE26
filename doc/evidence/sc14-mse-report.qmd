@@ -52,6 +52,13 @@ Two CMPs provide the central comparison:
   indicator, and a more responsive reduction in advice as the indicator
   declines.
 
+These two CMPs anchor the central rule-shape comparison, but they were not the
+only procedures examined in detail. Six retuned annual-limit variants were
+also evaluated under the reference and robustness OMs: **HS-20**, **HSsym**,
+**HS-30**, **PR-20**, **PRsym**, and **PR-30**. They test reverse-asymmetric,
+symmetric, and larger-decrease constraints around the two central HCR
+families.
+
 Both were tuned under the reference OM to an approximately 60% mean probability
 of dynamic Kobe-green status during 2041--2050. In the comparisons reviewed on
 24 July, HS+20 generally provided higher short-term catch and lower interannual
