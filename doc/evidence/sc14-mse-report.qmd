@@ -108,14 +108,20 @@ description of stock and fishery dynamics against which the CMP is tested.
 Performance measures describe biological outcomes, yield, stability, and
 fishery feasibility over specified periods.
 
-This report melds the design record from the
-[SCW17 MSE Workshop report](https://sprfmo.github.io/scw17/SCW17-MSE-Workshop-report.html)
-with the post-workshop analysis summarized in the
+This report melds the technical foundation assembled in the
+[benchmark-preparation and MSE-planning materials](https://sprfmo.github.io/JM_SCW_prep/),
+the design record from the
+[SCW17 MSE Workshop report](https://sprfmo.github.io/scw17/SCW17-MSE-Workshop-report.html),
+and the post-workshop analysis summarized in the
 [24 July task-team meeting report](https://sprfmo.github.io/jmMSE26/outputs/meeting-report-20260724/SC14_JM_MSE_meeting_report_2026-07-24.pdf)
-and 25 July progress presentation. The sources have different roles:
+and 25 July progress presentation. The preparation site preceded SCW17 and
+provided the detailed model specifications, diagnostics, working papers, and
+technical discussions needed to update the operating models used at SCW17 and
+in subsequent MSE work. The sources have different roles:
 
 | Source | Role in this synthesis |
 |---|---|
+| [Benchmark preparation and MSE planning](https://sprfmo.github.io/JM_SCW_prep/) | Pre-SCW17 benchmark papers, OM specifications, diagnostics, index analyses, and preparatory meeting records that supported updates to the OMs used at SCW17 and beyond. |
 | SCW17 workshop report, 15--19 June 2026 | Agreed MSE design, OM and CMP principles, reference-point approach, performance framework, and planned robustness work. |
 | Post-workshop `jmMSE` analysis | Implemented CMP definitions, tuning runs, reference and robustness simulation outputs, and reproducibility records. |
 | Task-team meeting, 24 July 2026 | Interpretation of results, wording cautions, issues for SC14, and agreed follow-up. |
@@ -128,11 +134,18 @@ analysis is not an adoption decision.
 
 ## Development from SCW17 to the current analysis
 
-SCW17 continued work begun at SCW15 and the 2026 benchmark. It aimed to prepare
-an OM set, trial CMPs, performance statistics, robustness scenarios, and
-documentation for SC14. The workshop favored simple empirical rules because
-they are transparent, reproducible, and can be locked before use. Trial CMPs
-were used to learn about rule behavior and were not final recommendations.
+SCW17 continued work begun at SCW15 and the 2026 benchmark. The
+[benchmark-preparation and MSE-planning site](https://sprfmo.github.io/JM_SCW_prep/)
+preserves the detailed model specifications, diagnostics, index working
+papers, and preparatory meeting discussions that preceded SCW17. That record
+provided the technical basis for updating the operating models taken into the
+workshop and used in subsequent MSE analyses.
+
+SCW17 aimed to prepare an OM set, trial CMPs, performance statistics,
+robustness scenarios, and documentation for SC14. The workshop favored simple
+empirical rules because they are transparent, reproducible, and can be locked
+before use. Trial CMPs were used to learn about rule behavior and were not
+final recommendations.
 
 Post-workshop work made the following material advances:
 
