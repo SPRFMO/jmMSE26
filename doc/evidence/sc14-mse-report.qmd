@@ -218,34 +218,51 @@ and `-30` identifies a 30% maximum decrease. These labels should be used in
 figures and interpretive prose. The legacy MP identifiers remain in the table
 only to preserve the link to code, saved outputs, and earlier documents.
 
-| Working label | HCR family | Maximum decrease | Maximum increase | Catch target or breakpoint (kt) | Tuned trigger | Legacy ID |
-|---|---|---:|---:|---:|---:|---|
-| HS+20 | Hockey-stick | 15% | 20% | 2,000 | 2.125 | MP29 |
-| HS-20 | Hockey-stick | 20% | 15% | 2,000 | 3.0625 | MP43 |
-| HSsym | Hockey-stick | 15% | 15% | 2,000 | 3.0625 | MP45 |
-| HS-30 | Hockey-stick | 30% | 20% | 2,000 | 3.0625 | MP47 |
-| PR+20 | Power ramp | 15% | 20% | 1,500 | 1.421875 | MP32 |
-| PR-20 | Power ramp | 20% | 15% | 1,500 | 1.9140625 | MP44 |
-| PRsym | Power ramp | 15% | 15% | 1,500 | 1.9375 | MP46 |
-| PR-30 | Power ramp | 30% | 20% | 1,500 | 1.890625 | MP48 |
-
-All eight rows use the same five-index mean, 2019--2023 reference period,
-three-year averaging window, 270-kt minimum catch, 0.1 index limit, and 1,385-kt
-initial simulated catch. The six non-base variants were retuned under the
-reference OM after changing the annual constraint.
-
 ### Central rule-shape comparison
 
-| Feature | HS+20 | PR+20 |
-|---|---:|---:|
-| HCR family | Hockey-stick | Power ramp |
-| Catch target/breakpoint (kt) | 2,000 | 1,500 |
-| Minimum catch (kt) | 270 | 270 |
-| Index limit | 0.1 | 0.1 |
-| Tuned trigger in 100-replicate comparison | 2.125 | 1.421875 |
-| Maximum annual decrease | 15% | 15% |
-| Maximum annual increase | 20% | 20% |
-| Indices | All five | All five |
+All eight CMPs use the same five-index mean, 2019--2023 reference period,
+three-year averaging window, 270-kt minimum catch, 0.1 index limit, and
+1,385-kt initial simulated catch. The six non-base variants were retuned under
+the reference OM after changing the annual constraint.
+
+::: {.content-visible when-format="html"}
+
+| Working label | Legacy ID | HCR family | Target or breakpoint (kt) | Tuned trigger | Annual decrease/increase limits |
+|---|---|---|---:|---:|---:|
+| HS+20 | MP29 | Hockey-stick | 2,000 | 2.125 | -15% / +20% |
+| HS-20 | MP43 | Hockey-stick | 2,000 | 3.0625 | -20% / +15% |
+| HSsym | MP45 | Hockey-stick | 2,000 | 3.0625 | -15% / +15% |
+| HS-30 | MP47 | Hockey-stick | 2,000 | 3.0625 | -30% / +20% |
+| PR+20 | MP32 | Power ramp | 1,500 | 1.421875 | -15% / +20% |
+| PR-20 | MP44 | Power ramp | 1,500 | 1.9140625 | -20% / +15% |
+| PRsym | MP46 | Power ramp | 1,500 | 1.9375 | -15% / +15% |
+| PR-30 | MP48 | Power ramp | 1,500 | 1.890625 | -30% / +20% |
+
+:::
+
+```{=latex}
+\begin{samepage}
+\begin{center}
+\small
+\setlength{\tabcolsep}{5pt}
+\begin{tabular}{lllrll}
+\hline
+\textbf{Working label} & \textbf{Legacy ID} & \textbf{HCR family} &
+\textbf{Target (kt)} & \textbf{Trigger} & \textbf{Annual limits} \\
+\hline
+HS+20 & MP29 & Hockey-stick & 2,000 & 2.125 & -15\% / +20\% \\
+HS-20 & MP43 & Hockey-stick & 2,000 & 3.0625 & -20\% / +15\% \\
+HSsym & MP45 & Hockey-stick & 2,000 & 3.0625 & -15\% / +15\% \\
+HS-30 & MP47 & Hockey-stick & 2,000 & 3.0625 & -30\% / +20\% \\
+PR+20 & MP32 & Power ramp & 1,500 & 1.421875 & -15\% / +20\% \\
+PR-20 & MP44 & Power ramp & 1,500 & 1.9140625 & -20\% / +15\% \\
+PRsym & MP46 & Power ramp & 1,500 & 1.9375 & -15\% / +15\% \\
+PR-30 & MP48 & Power ramp & 1,500 & 1.890625 & -30\% / +20\% \\
+\hline
+\end{tabular}
+\end{center}
+\end{samepage}
+```
 
 The hockey-stick increases advice linearly between the limit and trigger and
 then reaches a plateau. The power ramp reduces catch more quickly when the
