@@ -121,7 +121,7 @@ in subsequent MSE work. Their different roles are summarized in
 @tbl-source-roles.
 
 | Source | Role in this synthesis |
-|---|---|
+|:---|:---|
 | [Benchmark preparation and MSE planning](https://sprfmo.github.io/JM_SCW_prep/) | Pre-SCW17 benchmark papers, OM specifications, diagnostics, index analyses, and preparatory meeting records that supported updates to the OMs used at SCW17 and beyond. |
 | SCW17 workshop report, 15--19 June 2026 | Agreed MSE design, OM and CMP principles, reference-point approach, performance framework, and planned robustness work. |
 | Post-workshop `jmMSE` analysis | Implemented CMP definitions, tuning runs, reference and robustness simulation outputs, and reproducibility records. |
@@ -183,7 +183,7 @@ uncertainties rather than assigning probability to one forecast
 (@tbl-om-set).
 
 | OM label | Main contrast | Analytical role |
-|---|---|---|
+|:---|:---|:---|
 | om11 | One stock, model 0.16, steepness 0.65 | Reference OM for current tuning |
 | om11_1 | Alternative selectivity | Younger/smaller fish exposed to greater fishing pressure |
 | om11_2 | One-year recruitment crash | Acute recruitment stress |
