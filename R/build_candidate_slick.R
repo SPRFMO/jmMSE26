@@ -182,13 +182,6 @@ make_mp_metadata <- function(candidate_codes, registry_file) {
   catalog <- data.table(
     cmp_id = c("MP29", "MP43", "MP32", "MP44", "MP18", "MP24", "MP31",
       "MP23", "MP35", "MP36"),
-    slick_label = c("MP29 — optimal HS",
-      "MP43 — MP29 with -20%/+15%",
-      "MP32 — alternative PR",
-      "MP44 — MP32 with -20%/+15%",
-      "MP18 — high target", "MP24 — low target", "MP31 — higher limit",
-      "MP23 — slope rule", "MP35 — CPUE-only PR",
-      "MP36 — CPUE-only HS"),
     slick_description = c(
       "Optimal comparison case: hockeystick rule, target catch 2000, limit 0.1, using all selected indices.",
       "Tuned annual-limit sensitivity based on MP29: hockeystick rule, target catch 2000, with a maximum 20% decrease and 15% increase each year.",
@@ -207,8 +200,9 @@ make_mp_metadata <- function(candidate_codes, registry_file) {
   meta <- merge(meta, registry, by = "cmp_id", all.x = TRUE, sort = FALSE)
   meta <- merge(meta, catalog, by = "cmp_id", all.x = TRUE, sort = FALSE)
   meta <- meta[match(candidate_codes, code)]
-  meta[, Label := fifelse(is.na(slick_label),
-    fifelse(is.na(label), cmp_id, label), slick_label)]
+  # Registry labels are authoritative. CMPs without a working-label
+  # convention retain their stable legacy identifier (for example, MP18).
+  meta[, Label := fifelse(is.na(label) | !nzchar(label), cmp_id, label)]
   meta[, Description := fifelse(!is.na(slick_description), slick_description,
     fifelse(is.na(hcr),
     paste("jmMSE candidate", cmp_id),
@@ -220,15 +214,15 @@ make_mp_metadata <- function(candidate_codes, registry_file) {
     `Advanced candidates` = mp_rows(c("tun29", "tun32")),
     `Annual-limit comparison` = mp_rows(c("tun29", "tun43", "tun32",
       "tun44")),
-    `MP29 annual limits` = mp_rows(c("tun29", "tun43")),
-    `MP32 annual limits` = mp_rows(c("tun32", "tun44")),
+    `HS annual limits` = mp_rows(c("tun29", "tun43")),
+    `PR annual limits` = mp_rows(c("tun32", "tun44")),
     `Target contrasts` = mp_rows(c("tun29", "tun18", "tun24")),
     `Limit contrast` = mp_rows(c("tun29", "tun31")),
     `Rule-shape contrast` = mp_rows(c("tun29", "tun32", "tun23")),
     `CPUE-only contrasts` = mp_rows(c("tun29", "tun32", "tun35", "tun36"))
   )
   presets <- c(presets, setNames(lapply(meta$code, mp_rows),
-    sub("^tun", "MP", meta$code)))
+    meta$Label))
   MPs(Code = meta$code, Label = meta$Label,
     Description = meta$Description, Preset = presets)
 }
@@ -590,7 +584,7 @@ build_combined_candidate_slick <- function(
     f_fmsy_description$Code == "FMSY", "Description"]
   Title(combined) <- "SPRFMO Jack Mackerel Candidate MPs"
   Subtitle(combined) <- paste(
-    "Ten CMP comparison cases, including MP43 and MP44, across reference and",
+    "Ten CMP comparison cases, including HS-20 and PR-20, across reference and",
     "robustness operating models"
   )
   Introduction(combined) <- paste(
