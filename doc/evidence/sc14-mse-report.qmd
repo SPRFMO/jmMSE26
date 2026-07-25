@@ -191,9 +191,10 @@ uncertainties rather than assigning probability to one forecast.
 | om22 | Two stocks, steepness 0.8 | Two-stock productivity robustness |
 | om23 | Two stocks, model 1.14 configuration | Two-stock assessment/configuration robustness |
 
-The OM grid is not a declaration that all states are equally plausible. Its
-purpose is to expose CMP sensitivity to assumptions that could matter to
-management outcomes. Any later OM weighting should be explicit and documented.
+The OM set (reference and robustness) is not a declaration that all states are
+equally plausible. Its purpose is to expose CMP sensitivity to assumptions
+that could matter to management outcomes. Any later OM weighting should be
+explicit and documented.
 
 ### Recruitment, observation, and implementation uncertainty
 
