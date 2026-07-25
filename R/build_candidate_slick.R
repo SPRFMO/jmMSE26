@@ -236,7 +236,8 @@ build_candidate_slick <- function(
   time_now = 2025L,
   historical_om_files = NULL,
   historical_start = 1970L,
-  f_fmsy_display_cap = 4
+  f_fmsy_display_cap = 4,
+  require_vb = FALSE
 ) {
   if (length(f_fmsy_display_cap) != 1L ||
       !is.finite(f_fmsy_display_cap) || f_fmsy_display_cap <= 0) {
@@ -261,13 +262,18 @@ build_candidate_slick <- function(
       seq.int(historical_start, time_now))
     perf <- rbindlist(list(
       history,
-      perf[year > time_now]
+      perf[year > time_now | statistic %in% c("VB2025", "VBMSY")]
     ), fill = TRUE, use.names = TRUE)
   }
-  available <- intersect(c("SBMSY", "FMSY", "C", "IACC"),
+  available <- intersect(c("SBMSY", "FMSY", "C", "IACC",
+    "VB2025", "VBMSY"),
     unique(perf$statistic))
   if (!all(c("SBMSY", "FMSY", "C") %in% available)) {
     stop("Slick export requires SBMSY, FMSY, and C performance statistics")
+  }
+  if (require_vb &&
+      !all(c("VB2025", "VBMSY") %in% available)) {
+    stop("Slick VB export requires VB2025 and VBMSY performance statistics")
   }
 
   core_statistics <- c("SBMSY", "FMSY", "C")
@@ -286,7 +292,8 @@ build_candidate_slick <- function(
   pi_meta <- data.frame(
     Code = available,
     Label = c(SBMSY = "SB/SBMSY", FMSY = "F/FMSY", C = "Catch",
-      IACC = "IACC")[available],
+      IACC = "IACC", VB2025 = "VB/VB[2025]",
+      VBMSY = "VB/VB[MSY]")[available],
     Description = c(
       SBMSY = "Spawning biomass relative to SBMSY.",
       FMSY = paste0(
@@ -294,7 +301,14 @@ build_candidate_slick <- function(
         "FMSY is zero; values above ", f_fmsy_cap_label,
         " are shown at the display cap."),
       C = "Catch.",
-      IACC = "Interannual catch change."
+      IACC = "Interannual catch change.",
+      VB2025 = paste(
+        "Vulnerable biomass relative to its 2025 level.",
+        "Values before 2024 are unavailable."),
+      VBMSY = paste(
+        "Vulnerable biomass relative to equilibrium vulnerable biomass",
+        "at the fishing mortality that produces MSY.",
+        "Values before 2024 are unavailable.")
     )[available],
     stringsAsFactors = FALSE
   )
@@ -318,7 +332,8 @@ build_candidate_slick <- function(
           f_fmsy_display_cap else Inf)
     }
   }
-  Target(ts) <- ifelse(available %in% c("SBMSY", "FMSY"), 1, NA_real_)
+  Target(ts) <- ifelse(available %in% c("SBMSY", "FMSY", "VBMSY"),
+    1, NA_real_)
   Limit(ts) <- ifelse(available == "SBMSY", 0.5, NA_real_)
   Check(ts)
 
@@ -349,7 +364,12 @@ build_candidate_slick <- function(
         paste0(f_fmsy_cap_label, ".")),
       C = paste("Terminal-year", terminal_year, "catch."),
       IACC = paste("Terminal-year", terminal_year,
-        "interannual percentage change in catch.")
+        "interannual percentage change in catch."),
+      VB2025 = paste("Terminal-year", terminal_year,
+        "vulnerable biomass relative to its 2025 level."),
+      VBMSY = paste("Terminal-year", terminal_year,
+        "vulnerable biomass relative to equilibrium vulnerable biomass",
+        "at the fishing mortality that produces MSY.")
     )[available],
     stringsAsFactors = FALSE
   )
@@ -376,14 +396,18 @@ build_candidate_slick <- function(
   f_i <- match("FMSY", available)
   catch_i <- match("C", available)
   iacc_i <- match("IACC", available)
+  vb2025_i <- match("VB2025", available)
+  vbmsy_i <- match("VBMSY", available)
 
   summary_codes <- c("P(green)", "P(yellow)", "P(orange)", "P(red)",
     "P(<270)", "Catch 2026-2030", "Catch 2036-2040",
-    "Catch reduction", "SB/SBMSY", "F/FMSY", "IACC")
+    "Catch reduction", "SB/SBMSY", "F/FMSY", "IACC",
+    "VB/VB[2025]", "VB/VB[MSY]")
   summary_labels <- c("P(green)", "P(yellow)", "P(orange)", "P(red)",
     "P(catch below 270)", "Short-term catch", "Mean catch",
     "Mean catch reduction", "Mean SB/SBMSY",
-    paste0("Mean F/FMSY (cap ", f_fmsy_cap_label, ")"), "Mean IACC")
+    paste0("Mean F/FMSY (cap ", f_fmsy_cap_label, ")"), "Mean IACC",
+    "Mean VB/VB[2025]", "Mean VB/VB[MSY]")
   summary_descriptions <- c(
     "Probability of Kobe green status over 2036-2040.",
     "Probability of Kobe yellow status over 2036-2040.",
@@ -396,7 +420,11 @@ build_candidate_slick <- function(
     "Mean spawning biomass relative to SBMSY over 2036-2040.",
     paste0("Mean fishing mortality relative to FMSY over 2036-2040, ",
       "using the display cap of ", f_fmsy_cap_label, "."),
-    "Mean interannual percentage change in catch over 2036-2040."
+    "Mean interannual percentage change in catch over 2036-2040.",
+    "Mean vulnerable biomass relative to its 2025 level over 2036-2040.",
+    paste(
+      "Mean vulnerable biomass relative to equilibrium vulnerable biomass",
+      "at the fishing mortality that produces MSY over 2036-2040.")
   )
   summaries <- array(NA_real_,
     dim = c(length(om_codes), length(mp_codes), length(summary_codes)))
@@ -412,6 +440,12 @@ build_candidate_slick <- function(
       iacc_long <- if (is.na(iacc_i)) matrix(NA_real_, nrow = length(iters),
         ncol = length(long_i)) else
         timeseries_matrix(ts, om_i, mp_i, iacc_i, long_i)
+      vb2025_long <- if (is.na(vb2025_i))
+        matrix(NA_real_, nrow = length(iters), ncol = length(long_i)) else
+        timeseries_matrix(ts, om_i, mp_i, vb2025_i, long_i)
+      vbmsy_long <- if (is.na(vbmsy_i))
+        matrix(NA_real_, nrow = length(iters), ncol = length(long_i)) else
+        timeseries_matrix(ts, om_i, mp_i, vbmsy_i, long_i)
       valid_kobe <- is.finite(sb_long) & is.finite(f_long)
       summaries[om_i, mp_i, ] <- c(
         finite_mean(ifelse(valid_kobe, sb_long >= 1 & f_long <= 1, NA)),
@@ -424,7 +458,9 @@ build_candidate_slick <- function(
         mean_catch_reduction(catch_projection),
         finite_mean(sb_long),
         finite_mean(f_long),
-        finite_mean(iacc_long)
+        finite_mean(iacc_long),
+        finite_mean(vb2025_long),
+        finite_mean(vbmsy_long)
       )
     }
   }
@@ -435,7 +471,8 @@ build_candidate_slick <- function(
   Check(quilt)
 
   tradeoff_codes <- c("P(green)", "P(red)", "Catch 2026-2030",
-    "Catch 2036-2040", "Catch reduction", "SB/SBMSY", "F/FMSY", "IACC")
+    "Catch 2036-2040", "Catch reduction", "SB/SBMSY", "F/FMSY", "IACC",
+    "VB/VB[2025]", "VB/VB[MSY]")
   tradeoff_i <- match(tradeoff_codes, summary_codes)
   tradeoff <- Tradeoff(Code = tradeoff_codes,
     Label = summary_labels[tradeoff_i],

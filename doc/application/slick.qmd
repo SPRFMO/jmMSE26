@@ -26,7 +26,7 @@ If only HS+20 and PR+20 appear, open the **MPs** filter and select **All CMPs**.
 That indicates either that the **Advanced candidates** preset is active or
 that an older copy of the same-named file was loaded. The current file contains
 ten MPs and has SHA-256 fingerprint
-`15e621d47ec4cfd61749de53592d56437fc6af034205140a08499fc09a5b2878`.
+`6b17b0b0bb5483611f82f97c9d368dddcf2a69934ec2fd2bb110129b32685a8f`.
 
 The hosted app accepts file uploads but does not currently provide a field for
 loading a file directly from a GitHub URL.
@@ -72,14 +72,21 @@ The results must include the ten CMPs listed below, the operating-model and stoc
 simulation year and replicate, and the calculated performance measures. At a
 minimum, the results must include spawning biomass relative to $SB_{MSY}$,
 fishing mortality relative to $F_{MSY}$, and catch. Interannual catch change
-(IACC) is included when available.
+(IACC) is included when available. The published Slick file also requires
+vulnerable biomass relative to its 2025 level and relative to equilibrium
+vulnerable biomass at the fishing mortality that produces MSY.
 
 The current reference comparison has been completed for ten CMPs with 100
 simulation replicates through 2050. It is stored locally in `jmMSE` as:
 
 - `model/candidates/reference/runs.rds`: the complete simulation object; and
-- `model/candidates/reference/performance.rds`: the smaller table used for
-  Slick.
+- `model/candidates/reference/performance.rds`: the original four-metric
+  performance table.
+
+The augmented six-metric tables used for the published Slick file are retained
+in this repository as
+`output/candidate-performance/reference/performance_with_vb.rds` and
+`output/candidate-performance/robustness/performance_with_vb.rds`.
 
 These are reference-operating-model results. They are suitable for checking the
 candidate calculations and comparing the rule and data contrasts, but they are not a
@@ -169,9 +176,11 @@ From the main `jmMSE26` folder:
 source("R/build_candidate_slick.R")
 
 reference_slick <- build_candidate_slick(
-  performance_file = "../jmMSE/model/candidates/reference/performance.rds",
+  performance_file =
+    "output/candidate-performance/reference/performance_with_vb.rds",
   out_file = NULL,
-  historical_om_files = candidate_reference_om_files("../jmMSE")
+  historical_om_files = candidate_reference_om_files("../jmMSE"),
+  require_vb = TRUE
 )
 ```
 
@@ -181,7 +190,7 @@ The script organizes the results by:
 - operating model and stock;
 - simulation replicate and year; and
 - performance measure, including Kobe-plot values for $SB/SB_{MSY}$ and
-  $F/F_{MSY}$.
+  $F/F_{MSY}$, plus $VB/VB_{2025}$ and $VB/VB_{\mathrm{MSY}}$.
 
 It also prepares three summary views using the comparison periods already used
 in `jmMSE`:
@@ -189,10 +198,16 @@ in `jmMSE`:
 - **Boxplots** show the distribution among simulation replicates in the final
   year, 2050.
 - **Quilts** compare stock status, fishing pressure, catch, and catch stability
-  among operating models and MPs. Long-term results use 2036–2040; short-term
-  catch uses 2026–2030.
+  among operating models and MPs. They also include both vulnerable-biomass
+  ratios. Long-term results use 2036–2040; short-term catch uses 2026–2030.
 - **Trade-off plots** use the same periods to compare conservation, catch, and
-  catch-stability measures directly.
+  catch-stability measures directly, including both vulnerable-biomass ratios.
+
+The vulnerable-biomass time series are available from 2024 through 2050;
+earlier years are intentionally missing. `VB/VB[2025]` uses each simulated
+stock's 2025 vulnerable biomass as its denominator. `VB/VB[MSY]` uses
+equilibrium vulnerable biomass at the fishing mortality that produces MSY,
+not MSY catch.
 
 Kobe quadrant probabilities are calculated from $SB/SB_{MSY}$ and $F/F_{MSY}$.
 When $F_{MSY}$ is zero, $F/F_{MSY}$ is undefined and is treated as missing.
@@ -231,9 +246,11 @@ Then build the robustness component and combine it with the reference:
 source("R/build_candidate_slick.R")
 
 robustness_slick <- build_candidate_slick(
-  performance_file = "../jmMSE/model/candidates/robustness/performance.rds",
+  performance_file =
+    "output/candidate-performance/robustness/performance_with_vb.rds",
   out_file = NULL,
-  historical_om_files = candidate_robustness_om_files("../jmMSE")
+  historical_om_files = candidate_robustness_om_files("../jmMSE"),
+  require_vb = TRUE
 )
 
 slick <- build_combined_candidate_slick(
@@ -262,9 +279,11 @@ OMs, and each individual alternative OM. Selecting a two-stock OM includes both
 its Southern and Northern rows.
 
 The dimensions are 100 simulations, 14 OM–stock series, ten management
-procedures, four performance measures, and 81 annual values from 1970 through
-2050. Each series uses its own conditioned history through 2025; projections
-under the ten CMPs begin in 2026.
+procedures, six performance measures, and 81 annual values from 1970 through
+2050. The six measures are $SB/SB_{MSY}$, $F/F_{MSY}$, catch, IACC,
+$VB/VB_{2025}$, and $VB/VB_{\mathrm{MSY}}$. Each series uses its own
+conditioned history through 2025; projections under the ten CMPs begin in
+2026.
 
 Do not combine results produced under different package sets without first
 confirming that the candidate calculations are equivalent.

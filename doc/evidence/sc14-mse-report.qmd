@@ -36,6 +36,13 @@ extended the implementation, tuned the leading rule families, and examined
 their performance under one-stock and two-stock hypotheses, recruitment
 stress, movement, selectivity, and alternative annual TAC-change limits.
 
+Among the dozens of MPs evaluated at the SCW17 workshop, the analysts concluded
+that the hockey-stick and power-ramp designs represented by these two CMPs,
+together with reasonable variants of those designs, were suitable to carry
+forward as proposals for consideration at SC14. This analytical conclusion
+identifies a focused set for Scientific Committee consideration; it is not a
+formal recommendation or adoption decision.
+
 Two CMPs provide the central comparison:
 
 - **HS+20** uses a hockey-stick harvest control rule (HCR), a 2,000-kt catch
