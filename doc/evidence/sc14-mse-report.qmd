@@ -40,6 +40,13 @@ extended the implementation, tuned the leading rule families, and examined
 their performance under one-stock and two-stock hypotheses, recruitment
 stress, movement, selectivity, and alternative annual TAC-change limits.
 
+A novel feature of this MSE is its treatment of the five abundance indicators
+as related observations rather than independent pieces of evidence. The OMs
+simulate their observation errors jointly using historical estimates of each
+series' uncertainty, temporal autocorrelation, and cross-correlation. This
+allows the evaluation to represent shared movements among indicators,
+including correlation that may arise when the population shifts spatially.
+
 Among the dozens of MPs evaluated at the SCW17 workshop, the analysts concluded
 that the hockey-stick and power-ramp designs represented by these two CMPs,
 together with reasonable variants of those designs, were suitable to carry
@@ -214,6 +221,24 @@ Chilean CPUE, Peruvian artisanal and industrial indices, and offshore CPUE.
 Each series is expressed relative to its 2019--2023 mean. The standardized
 values are combined with equal weights within each year, and the CMP uses a
 three-year recent average.
+
+::: {.callout-important title="Novel treatment of correlated indicators"}
+The combined indicator does not assume that five series provide five
+independent confirmations of stock change. In each OM iteration, projected
+index errors are generated jointly from the historical index deviations:
+series-specific log-scale standard deviations describe uncertainty, lag-1
+parameters preserve temporal autocorrelation, and an iteration-specific
+correlation matrix preserves cross-correlation among indices. These
+relationships matter because common environmental effects, fleet behavior,
+and spatial redistribution of the population can cause several indices to
+rise or fall together.
+
+The resulting closed-loop test therefore exposes the CMP to realistic
+combinations of agreement, redundancy, and divergence among indicators. The
+novelty lies in evaluating the simple, transparent equal-weight composite
+under this estimated multivariate observation process; equal weighting itself
+is not covariance weighting and does not mathematically remove correlation.
+:::
 
 Most data are assumed to arrive with a one-year lag, while offshore CPUE has a
 two-year lag. Under the tested timing, a calculation during 2026 for 2027

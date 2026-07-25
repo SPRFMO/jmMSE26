@@ -2414,6 +2414,9 @@ window.Quarto = {
     <div class="sprfmo-group">Jack Mackerel Candidate Management Procedures</div>
   </div>
 </div>
+<!-- Editorial TODO: This report needs a focused restructuring pass so the
+section sequence, hierarchy, and transitions provide a clearer narrative flow.
+Preserve the technical content and traceability while consolidating repetition. -->
 <div class="paper-title">
 Jack Mackerel Management Strategy Evaluation: Synthesis for SC14
 </div>
@@ -2423,6 +2426,7 @@ Jack Mackerel Management Strategy Evaluation: Synthesis for SC14
 <section id="executive-summary" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="executive-summary">Executive summary</h2>
 <p>The jack mackerel MSE has progressed from a broad workshop design into a narrower comparison of candidate management procedures (CMPs) tested against a reference operating model (OM) and a structured set of robustness OMs. SCW17 established the principal design choices: simple and interpretable empirical rules, simulation of correlated index errors, dynamic reference points, explicit robustness testing, a broad performance-measure set, and development of an exceptional-circumstances protocol. Post-workshop work corrected and extended the implementation, tuned the leading rule families, and examined their performance under one-stock and two-stock hypotheses, recruitment stress, movement, selectivity, and alternative annual TAC-change limits.</p>
+<p>A novel feature of this MSE is its treatment of the five abundance indicators as related observations rather than independent pieces of evidence. The OMs simulate their observation errors jointly using historical estimates of each series’ uncertainty, temporal autocorrelation, and cross-correlation. This allows the evaluation to represent shared movements among indicators, including correlation that may arise when the population shifts spatially.</p>
 <p>Among the dozens of MPs evaluated at the SCW17 workshop, the analysts concluded that the hockey-stick and power-ramp designs represented by these two CMPs, together with reasonable variants of those designs, were suitable to carry forward as proposals for consideration at SC14. This analytical conclusion identifies a focused set for Scientific Committee consideration; it is not a formal recommendation or adoption decision.</p>
 <p>Two CMPs provide the central comparison:</p>
 <ul>
@@ -2578,6 +2582,20 @@ Jack Mackerel Management Strategy Evaluation: Synthesis for SC14
 <section id="common-indicator-and-annual-calculation" class="level3" data-number="4.1">
 <h3 data-number="4.1" class="anchored" data-anchor-id="common-indicator-and-annual-calculation"><span class="header-section-number">4.1</span> Common indicator and annual calculation</h3>
 <p>The central CMPs use five observed series: northern Chile acoustic biomass, Chilean CPUE, Peruvian artisanal and industrial indices, and offshore CPUE. Each series is expressed relative to its 2019–2023 mean. The standardized values are combined with equal weights within each year, and the CMP uses a three-year recent average.</p>
+<div class="callout callout-style-default callout-important callout-titled" title="Novel treatment of correlated indicators">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Novel treatment of correlated indicators
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The combined indicator does not assume that five series provide five independent confirmations of stock change. In each OM iteration, projected index errors are generated jointly from the historical index deviations: series-specific log-scale standard deviations describe uncertainty, lag-1 parameters preserve temporal autocorrelation, and an iteration-specific correlation matrix preserves cross-correlation among indices. These relationships matter because common environmental effects, fleet behavior, and spatial redistribution of the population can cause several indices to rise or fall together.</p>
+<p>The resulting closed-loop test therefore exposes the CMP to realistic combinations of agreement, redundancy, and divergence among indicators. The novelty lies in evaluating the simple, transparent equal-weight composite under this estimated multivariate observation process; equal weighting itself is not covariance weighting and does not mathematically remove correlation.</p>
+</div>
+</div>
 <p>Most data are assumed to arrive with a one-year lag, while offshore CPUE has a two-year lag. Under the tested timing, a calculation during 2026 for 2027 advice would use 2025 values for the acoustic, Chilean CPUE, and Peruvian indices, and the 2024 offshore CPUE value. Same-year 2026 observations do not enter that tested 2027 calculation unless the timing rule is explicitly changed and re-evaluated.</p>
 </section>
 <section id="naming-convention-and-candidate-variants" class="level3" data-number="4.2">
