@@ -728,8 +728,8 @@ The Scientific Committee is asked to consider the following:
 **Endorsing**
 
 - the analytical work as satisfying the request from the Commission;
-- adoption of a subset of the CMPs presented, with the subset to be selected by
-  the Commission;
+- adoption of a subset of the CMPs presented so that the Commission may select
+  one among them to satisfy the trade-offs it may consider;
 - development of a formal exceptional-circumstances protocol, including
   evaluation of detection performance and pre-agreed responses; and
 - review and documentation of the full performance-metric set and any weighting
@@ -737,6 +737,8 @@ The Scientific Committee is asked to consider the following:
   composite score alone.
 
 ## Work required before final advice
+
+::: {.callout-note}
 
 The remaining analytical and documentation tasks are summarized in
 @tbl-work-required.
@@ -754,6 +756,8 @@ The remaining analytical and documentation tasks are summarized in
 | Freeze reproducible inputs and outputs | Supports independent review and exact reruns | Run records exist; final archive still required |
 
 : Work required before final scientific advice. {#tbl-work-required}
+
+:::
 
 ## Source, terminology, and interpretation notes
 
