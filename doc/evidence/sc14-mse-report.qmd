@@ -517,14 +517,20 @@ probability metric.
 
 ### Reference comparison
 
-Under the reference comparison reviewed by the task team:
+The preliminary reference-OM scorecard in @tbl-scorecard-results provides the
+current eight-CMP comparison. HS-20 ranks first under both the equal-weight and
+balanced schemes. HSsym and PRsym form the next group: HSsym ranks second with
+equal weights, while PRsym ranks second when Catch and IACC jointly receive
+half of the total weight. PR-20 and HS-30 follow closely under both schemes,
+then PR-30. The two base variants, HS+20 and PR+20, receive lower composite
+scores because their relatively strong catch or stability outcomes are offset
+by weaker values for several stock-condition metrics.
 
-- HS+20 generally produced higher short-term catch and lower interannual catch
-  variability.
-- PR+20 reduced advice more quickly as the index declined.
-- Long-term differences were frequently smaller than the contrasts suggested
-  by the HCR shapes alone.
-- Neither CMP dominated across all biological, yield, and stability measures.
+This ordering is preliminary and relative to the CMPs, metrics, directions,
+2041--2050 window, and weights included in the scorecard. It does not mean that
+one CMP dominates every biological, yield, stability, and responsiveness
+objective. The underlying values and trade-off figures should therefore remain
+the basis for interpreting why the order changes with management priorities.
 
 ### Catch and vulnerable-biomass trade-offs
 
