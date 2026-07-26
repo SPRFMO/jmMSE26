@@ -532,33 +532,23 @@ one CMP dominates every biological, yield, stability, and responsiveness
 objective. The underlying values and trade-off figures should therefore remain
 the basis for interpreting why the order changes with management priorities.
 
-### Catch and vulnerable-biomass trade-offs
+### Reference set trade-offs
 
-The near-term comparison uses mean annual catch and mean
-$VB/VB_{\mathrm{MSY}}$ over 2026--2035. Points are MP medians and bars are
-marginal 5th--95th percentiles. The reference and robustness comparisons are
-shown in @fig-catch-vbmsy-reference and @fig-catch-vbmsy-robustness,
-respectively.
+**Vulnerable biomass.** The near-term reference comparison uses mean annual
+catch and mean $VB/VB_{\mathrm{MSY}}$ over 2026--2035
+(@fig-catch-vbmsy-reference). Points are CMP medians and bars are marginal
+5th--95th percentiles.
 
 ![Near-term catch versus VB/VBMSY for the reference operating model, 2026--2035.](../figures/candidates/catch_vbmsy_reference.png){#fig-catch-vbmsy-reference fig-align="center" width="90%"}
 
-![Near-term catch versus VB/VBMSY across robustness operating models, 2026--2035.](../figures/candidates/catch_vbmsy_robustness.png){#fig-catch-vbmsy-robustness fig-align="center" width="90%"}
-
-The long-term comparison uses mean annual catch and mean $VB/VB_{2025}$ over
-2041--2050, with the same aggregation. The corresponding reference and
-robustness comparisons are shown in @fig-catch-vb2025-reference and
-@fig-catch-vb2025-robustness.
+The long-term reference comparison uses mean annual catch and mean
+$VB/VB_{2025}$ over 2041--2050 with the same aggregation
+(@fig-catch-vb2025-reference).
 
 ![Long-term catch versus VB/VB2025 for the reference operating model, 2041--2050.](../figures/candidates/catch_vb2025_reference.png){#fig-catch-vb2025-reference fig-align="center" width="90%"}
 
-![Long-term catch versus VB/VB2025 across robustness operating models, 2041--2050.](../figures/candidates/catch_vb2025_robustness.png){#fig-catch-vb2025-robustness fig-align="center" width="90%"}
-
-### Preliminary catch--spawning-biomass trade-offs
-
-The available saved results support a trial view of yield and spawning-biomass
-trade-offs for the eight labelled annual-change configurations. The horizontal
-axis is mean catch during 2026--2030. The vertical axis is the available
-standardized spawning-biomass measure, mean $SB/SB_{\mathrm{MSY}}$ during
+**Spawning biomass.** The reference-set yield--spawning-biomass comparison uses
+mean catch during 2026--2030 and mean $SB/SB_{\mathrm{MSY}}$ during
 2036--2040. Points show means among 100 replicates, and horizontal and vertical
 bars show the separate 10th--90th percentile ranges for the two measures.
 
@@ -584,35 +574,9 @@ the separate 10th--90th percentile ranges of the replicate-level period means.
 As in @fig-tradeoff-reference, overlap is substantial and the marginal bars do
 not show within-replicate covariance.
 
-![Preliminary trade-offs across the five single-stock robustness OMs.](../figures/sc14-tradeoff-single-stock-robustness.png){#fig-tradeoff-single fig-alt="Five panels show near-term catch and later spawning biomass relative to SBMSY for eight HS and PR configurations under single-stock robustness operating models."}
+### Trade-offs under robustness cases
 
-The same broad direction is visible across the single-stock robustness cases
-(@fig-tradeoff-single), but the location and separation of configurations
-changes by OM. Recruitment stress reduces later biomass and changes the
-apparent trade-off, while productivity and assessment-configuration
-alternatives move both axes.
-
-![Preliminary component-level trade-offs across the four two-stock robustness OMs.](../figures/sc14-tradeoff-two-stock-robustness.png){#fig-tradeoff-two fig-alt="A grid of panels shows near-term component catch and later spawning biomass relative to SBMSY for northern and southern components under four two-stock operating models."}
-
-For the two-stock cases (@fig-tradeoff-two), each row is a biological component
-and the horizontal axis is **component catch**, not total catch. The plots
-therefore diagnose stock-specific consequences and must not be interpreted as
-an allocation comparison. They reinforce the need to keep northern and
-southern outcomes separate.
-
-These figures are preliminary for four reasons. First, they use the completed
-100-replicate runs, not the planned final higher-replication comparison.
-Second, the x and y uncertainty bars are marginal percentiles and do not show
-the within-replicate covariance between plotted measures. Third, spawning
-biomass is shown as a standardized dynamic-reference-point ratio rather than
-in tonnes. Fourth, these views cover only selected yield, biological, and catch
-stability periods; they do not include fishing pressure, Kobe-green
-probability, low-catch risk, feasibility, or the other performance measures
-needed for a decision. The plotted summary values are saved in
-`doc/data/sc14-preliminary-tradeoffs.csv` and can be regenerated with
-`R/plot_sc14_tradeoffs.R`.
-
-### Recruitment stress
+#### Recruitment stress
 
 The discrete recruitment crash and seven-year cyclic reduction lowered
 long-term catch and increased catch variability for both central CMPs. PR+20
@@ -621,7 +585,7 @@ in these tests, while HS+20 retained the relative stability advantages seen in
 the reference case. These are robustness contrasts, not forecasts that either
 recruitment path will occur.
 
-### Alternative selectivity
+#### Alternative selectivity
 
 The alternative-selectivity OM exposed younger and smaller fish to greater
 fishing pressure. Similar catch levels could then occur with lower spawning
@@ -629,7 +593,7 @@ biomass and poorer Kobe performance. HS+20 showed a somewhat better long-term
 trade-off than PR+20 in the presented results, but differences were modest and
 were affected by the changed $F_{\mathrm{MSY}}$ reference point.
 
-### Two-stock hypotheses and catch distribution
+#### Two-stock hypotheses and catch distribution
 
 In the two-stock OM without movement, the southern component remained above
 the agreed benchmark while the northern component did not. An exploratory
@@ -646,6 +610,50 @@ resolved the long-term benchmark for both components. The test is deliberately
 stressful and does not establish that this movement process is occurring.
 It does establish a management-relevant warning signal: persistent divergence
 between northern and southern indices.
+
+**Vulnerable biomass.** The near-term catch and
+$VB/VB_{\mathrm{MSY}}$ comparison across robustness OMs is shown in
+@fig-catch-vbmsy-robustness. It uses the same 2026--2035 period, CMP medians,
+and marginal 5th--95th percentiles as the reference comparison.
+
+![Near-term catch versus VB/VBMSY across robustness operating models, 2026--2035.](../figures/candidates/catch_vbmsy_robustness.png){#fig-catch-vbmsy-robustness fig-align="center" width="90%"}
+
+The long-term robustness comparison in @fig-catch-vb2025-robustness uses mean
+annual catch and mean $VB/VB_{2025}$ over 2041--2050.
+
+![Long-term catch versus VB/VB2025 across robustness operating models, 2041--2050.](../figures/candidates/catch_vb2025_robustness.png){#fig-catch-vb2025-robustness fig-align="center" width="90%"}
+
+**Spawning biomass.** The saved results also support preliminary
+yield--spawning-biomass comparisons across the single-stock and two-stock
+robustness cases.
+
+![Preliminary trade-offs across the five single-stock robustness OMs.](../figures/sc14-tradeoff-single-stock-robustness.png){#fig-tradeoff-single fig-alt="Five panels show near-term catch and later spawning biomass relative to SBMSY for eight HS and PR configurations under single-stock robustness operating models."}
+
+The same broad direction is visible across the single-stock robustness cases
+(@fig-tradeoff-single), but the location and separation of configurations
+changes by OM. Recruitment stress reduces later biomass and changes the
+apparent trade-off, while productivity and assessment-configuration
+alternatives move both axes.
+
+![Preliminary component-level trade-offs across the four two-stock robustness OMs.](../figures/sc14-tradeoff-two-stock-robustness.png){#fig-tradeoff-two fig-alt="A grid of panels shows near-term component catch and later spawning biomass relative to SBMSY for northern and southern components under four two-stock operating models."}
+
+For the two-stock cases (@fig-tradeoff-two), each row is a biological component
+and the horizontal axis is **component catch**, not total catch. The plots
+therefore diagnose stock-specific consequences and must not be interpreted as
+an allocation comparison. They reinforce the need to keep northern and
+southern outcomes separate.
+
+The spawning-biomass figures in Sections 6.2 and 6.3 are preliminary for four
+reasons. First, they use the completed 100-replicate runs, not the planned final
+higher-replication comparison. Second, the x and y uncertainty bars are
+marginal percentiles and do not show the within-replicate covariance between
+plotted measures. Third, spawning biomass is shown as a standardized
+dynamic-reference-point ratio rather than in tonnes. Fourth, these views cover
+only selected yield, biological, and catch-stability periods; they do not
+include fishing pressure, Kobe-green probability, low-catch risk, feasibility,
+or the other performance measures needed for a decision. The plotted summary
+values are saved in `doc/data/sc14-preliminary-tradeoffs.csv` and can be
+regenerated with `R/plot_sc14_tradeoffs.R`.
 
 ## Banking, borrowing, and implementation constraints
 
