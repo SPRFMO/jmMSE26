@@ -697,6 +697,10 @@ catch, stability, and responsiveness rather than identifying a single CMP that
 dominates every objective. The performance quilt and worked scorecards provide
 transparent summaries, but the underlying distributions, metric definitions,
 weights, and robustness results remain necessary for interpretation.
+For example, MP43 and MP45 (HS-20 and HSsym) perform well under the reference
+OM and remain comparatively strong across the robustness set, although their
+relative performance still depends on the metric, weighting, and robustness
+scenario considered.
 
 The available work supports taking a reduced subset of CMPs forward for
 Commission selection, accompanied by annual monitoring and a formal
