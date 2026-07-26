@@ -2,6 +2,8 @@
 title: "Jack mackerel management strategy evaluation for SC14"
 subtitle: "Operating models, candidate management procedures, robustness tests, and matters for Scientific Committee consideration"
 date: "24 July 2026"
+header-includes:
+  - \newenvironment{hangingrefs}{\setlength{\leftskip}{2em}\setlength{\parindent}{-2em}\setlength{\parskip}{0.6\baselineskip}}{}
 format:
   html:
     toc: true
@@ -796,18 +798,39 @@ against formal submissions.
 
 ## Sources
 
-- SPRFMO Jack Mackerel Working Group. 2026.
-  [Report of the Jack Mackerel Management Strategy Evaluation Workshop -
-  SCW17](https://sprfmo.github.io/scw17/SCW17-MSE-Workshop-report.html),
-  15--19 June 2026, updated 7 July 2026.
-- SPRFMO Jack Mackerel MSE Task Team. 2026. *Meeting report: Candidate
-  management procedures, robustness testing, and SC14 preparation*, meeting
-  held 24 July 2026. Draft for member review.
-- Mosqueira, I., and B. Bergès. 2026. *Management Strategy Evaluation (MSE)
-  for SPRFMO jack mackerel: Progress since SCW17*. Presentation dated 25 July
-  2026.
-- `jmMSE` candidate definitions, run settings, performance tables, and saved
-  reference and robustness runs used by the current candidate documentation.
-- *Candidate Management Procedure Weighted Scorecard*, draft workbook dated
-  23 July 2026. Illustrative and extensible; candidate and metric coverage is
-  incomplete.
+<style>
+.hanging-sources p {
+  margin-left: 2em;
+  text-indent: -2em;
+}
+</style>
+
+::: {.hanging-sources}
+
+```{=latex}
+\begin{hangingrefs}
+```
+
+SPRFMO Jack Mackerel Working Group. 2026.
+[Report of the Jack Mackerel Management Strategy Evaluation Workshop -
+SCW17](https://sprfmo.github.io/scw17/SCW17-MSE-Workshop-report.html),
+15--19 June 2026, updated 7 July 2026.
+
+SPRFMO Jack Mackerel MSE Task Team. 2026. *Meeting report: Candidate
+management procedures, robustness testing, and SC14 preparation*, meeting
+held 24 July 2026. Draft for member review.
+
+Mosqueira, I., and B. Bergès. 2026. *Management Strategy Evaluation (MSE)
+for SPRFMO jack mackerel: Progress since SCW17*. Presentation dated 25 July
+2026.
+
+SPRFMO. 2026. [Jack mackerel MSE 2026 project
+site](https://sprfmo.github.io/jmMSE26/). Source for candidate definitions,
+analysis components, performance outputs, supporting materials, and report
+artifacts used in the current MSE documentation.
+
+```{=latex}
+\end{hangingrefs}
+```
+
+:::
