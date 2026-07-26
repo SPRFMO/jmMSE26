@@ -2,8 +2,6 @@
 title: "Jack mackerel management strategy evaluation for SC14"
 subtitle: "Operating models, candidate management procedures, robustness tests, and matters for Scientific Committee consideration"
 date: "24 July 2026"
-header-includes:
-  - \newenvironment{hangingrefs}{\setlength{\leftskip}{2em}\setlength{\parindent}{-2em}\setlength{\parskip}{0.6\baselineskip}}{}
 format:
   html:
     toc: true
@@ -11,9 +9,17 @@ format:
     number-sections: true
     embed-resources: true
     lightbox: true
+    format-links: false
+  pdf:
+    header-includes:
+      - \newenvironment{hangingrefs}{\setlength{\leftskip}{2em}\setlength{\parindent}{-2em}\setlength{\parskip}{0.6\baselineskip}}{}
 ---
 
 {{< include ../_includes/sprfmo-banner.qmd >}}
+
+::: {.content-visible when-format="html"}
+[Download the PDF version](sc14-mse-report.pdf){.btn .btn-primary}
+:::
 
 <!-- Editorial TODO: This report needs a focused restructuring pass so the
 section sequence, hierarchy, and transitions provide a clearer narrative flow.
