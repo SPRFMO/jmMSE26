@@ -385,10 +385,11 @@ technical annex and interactive outputs.
 
 The augmented candidate exports include vulnerable biomass relative to its
 2025 level and relative to equilibrium vulnerable biomass at the fishing
-mortality that produces MSY. The latter is a biomass-to-biomass ratio; it does
-not divide vulnerable biomass by MSY catch. Reference-OM results are shown in
-@fig-vb-reference and the corresponding robustness results in
-@fig-vb-robustness.
+mortality that produces MSY. Vulnerable biomass was selected to provide a
+performance measure related to the fish available to the fishing fleet under
+the modeled selectivity, complementing spawning-biomass measures of biological
+stock condition. Reference-OM results are shown in @fig-vb-reference and the
+corresponding robustness results in @fig-vb-robustness.
 
 ![Vulnerable-biomass performance for the reference operating model.](../figures/candidates/vb_reference.png){#fig-vb-reference fig-align="center" width="90%"}
 
