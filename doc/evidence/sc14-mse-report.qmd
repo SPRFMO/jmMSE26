@@ -490,9 +490,11 @@ These values are a reproducible calculation, but both orders remain
 an agreed statement of management priorities, and the scores are relative to
 this candidate set.
 
-The current workbook is an **illustrative framework**, not the final scorecard.
-Its example contains four CMPs and six performance columns because those values
-were available when it was prepared. Both dimensions are expected to change:
+The current Figure 4--based worked scorecard is an **illustrative framework**,
+not the final scorecard. It contains eight CMPs and six performance metrics.
+The earlier Excel prototype contained only four CMPs, but it has been
+superseded for this report by the eight-CMP calculation shown above. Both
+dimensions are expected to change:
 
 - candidate rows can be added, removed, or replaced as the shortlist evolves;
 - performance columns can be added as further safety, yield, stability,
