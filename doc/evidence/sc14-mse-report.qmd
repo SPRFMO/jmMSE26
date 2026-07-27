@@ -59,7 +59,13 @@ forward as proposals for consideration at SC14. This analytical conclusion
 identifies a focused set for Scientific Committee consideration; it is not a
 formal recommendation or adoption decision.
 
-Two CMPs provide the central comparison:
+Two CMPs provide the central comparison. They are described as central because
+they anchor the initial rule-shape comparison, not because the current results
+rank them highest. The **+20** variants were specified in response to an
+initial request arising from early feedback from Chile's internal MSE research
+project; the 20% maximum annual TAC increase was not selected from the later
+Commission poll. That poll subsequently helped inform the broader set of
+annual TAC-change variants examined in this report.
 
 - **HS+20** uses a hockey-stick harvest control rule (HCR), a 2,000-kt catch
   target, a 270-kt minimum, and a combined indicator from five standardized
@@ -75,6 +81,15 @@ also evaluated under the reference and robustness OMs: **HS-20**, **HSsym**,
 symmetric, and larger-decrease constraints around the two central HCR
 families. The paired catch trajectories for HS+20 and HS-20 illustrate one
 such annual-limit contrast in @fig-catch-spaghetti.
+
+This distinction matters for interpreting the preliminary scorecard. The six
+retuned variants rank above the two initial **+20** configurations in
+@tbl-scorecard-results under both illustrative weighting schemes. Four of the
+six included metrics describe stock condition, so equal weighting assigns
+two-thirds of the composite weight to those measures; the balanced scheme
+assigns them half. Thus the scorecard ordering reflects the later retuning and
+the selected metric set and weights, whereas the prominence of HS+20 and PR+20
+reflects their role as the initial design anchors.
 
 Both were tuned under the reference OM to an approximately 60% mean probability
 of dynamic Kobe-green status during 2041--2050. In the comparisons reviewed on
