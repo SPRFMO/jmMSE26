@@ -722,6 +722,30 @@ OM and remain comparatively strong across the robustness set, although their
 relative performance still depends on the metric, weighting, and robustness
 scenario considered.
 
+The [external experts invited to
+SCW17](https://sprfmo.github.io/scw17/SCW17-MSE-Workshop-report.html#appendix-d.-comments-from-external-experts)
+supported progressing the MSE. Tom Carruthers considered the framework suitable
+for testing CMPs, with a defensible reference OM, a comprehensive robustness
+set, relevant performance measures, and empirical CMPs comparable with
+procedures used in other fisheries. He concluded that the work was sufficiently
+advanced to support shortlisting defensible CMPs for Scientific Committee
+consideration and that the improvements still identified were not substantial
+enough to delay adoption of a robust management procedure. He also emphasized
+that MSE is an ongoing, iterative process in which the framework can be refined
+after an MP is adopted and applied.
+
+David Miller and Rosana Ourens likewise viewed the benchmark assessment as a
+strong basis for the reference OM, the robustness set as covering important
+uncertainties, and the use of dynamic reference points and simple empirical
+index-based rules as sensible. Their comments support moving the MSE forward
+while also identifying priorities for continued development: accurately
+representing historical cross-correlation among indices, exploring alternative
+index combinations, improving the staging of future decisions, and establishing
+a formal exceptional-circumstances framework. Taken together, the external
+review supports applying the MSE as a living management process, with monitoring
+and agreed revisions continuing after initial adoption rather than treating the
+current analysis as a one-time exercise.
+
 The available work supports taking a reduced subset of CMPs forward for
 Commission selection, accompanied by annual monitoring and a formal
 exceptional-circumstances process. Because this synthesis contains
