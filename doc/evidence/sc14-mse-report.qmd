@@ -103,8 +103,8 @@ summarized in @fig-vb-reference.
 
 The most consequential robustness finding came from the two-stock hypotheses.
 Without movement, the southern component passed the agreed benchmark while the
-northern component required an exploratory change of about 3.07 percentage
-points in simulated catch distribution from north to south to reach the same
+northern component required an exploratory change of ~3% in simulated catch
+distribution from north to south to reach the same
 benchmark. This is a sensitivity result, not an allocation recommendation.
 With movement, no tested fixed catch distribution achieved the long-term
 benchmark for both components. Equal weighting of indices could also mask a
@@ -325,6 +325,27 @@ the reference OM after changing the annual constraint.
 ```{=latex}
 \endgroup
 ```
+
+::: {.callout-caution title="Trigger values require a common-resolution check"}
+The identical 3.0625 triggers for HS-20, HSsym, and HS-30 were produced by
+separate tuning runs; the saved traces do not indicate that one value was
+carried across candidates. Each bisection began with the same interval and
+stopped at the first tested trigger whose simulated Kobe-green probability was
+within 0.01 of the 0.60 objective. At 3.0625, the three probabilities were
+0.606, 0.604, and 0.606, respectively. Their probabilities were also nearly
+identical at the preceding bisection points. The shared displayed trigger
+therefore reflects the tuning tolerance and resolution of these 100-replicate
+runs; it does not demonstrate that the three exact trigger values are
+identical.
+
+The contrast with HS+20 remains important: its reported trigger is 2.125,
+whereas the retuned hockey-stick variants first met the stated tolerance at
+3.0625. Because that direction is not intuitively implied by the annual
+TAC-change constraints alone, the reduced candidate set should be retuned and
+the trigger--objective relationship explicitly profiled using one frozen OM,
+software configuration, random-number design, and higher replication before
+the triggers are treated as final.
+:::
 
 The hockey-stick increases advice linearly between the limit and trigger and
 then reaches a plateau. The power ramp reduces catch more quickly when the
@@ -618,8 +639,8 @@ were affected by the changed $F_{\mathrm{MSY}}$ reference point.
 
 In the two-stock OM without movement, the southern component remained above
 the agreed benchmark while the northern component did not. An exploratory
-shift of approximately 3.07 percentage points in simulated catch distribution
-from north to south brought both components to the 60% long-term benchmark.
+shift of ~3% in simulated catch distribution from north to south brought both
+components to the 60% long-term benchmark.
 This illustrates sensitivity to spatial exploitation; it is not an allocation
 or catch-distribution recommendation.
 
@@ -816,7 +837,7 @@ The remaining analytical and documentation tasks are summarized in
 
 | Work item | Why it matters | Current status in source material |
 |---|---|---|
-| Complete final 500-replicate tuning and reduced-set evaluation | Stabilizes final reported triggers and performance distributions | Requested; 100-versus-500 checks showed small differences |
+| Retune the reduced set at higher replication and profile each trigger objective | Stabilizes final triggers and resolves the HS+20 versus retuned-HS discrepancy and the shared 3.0625 stopping value | Required under one frozen OM, software, and random-number configuration |
 | Finalize TAC-change comparison | Tests responsiveness and stability under management-relevant constraints | Retuned 100-replicate reference and robustness variants available |
 | Complete banking-and-borrowing sensitivity | Tests an implementation provision outside the HCR | Pending at 24 July meeting |
 | Add index-error parameter distributions | Makes observation uncertainty auditable | Requested for technical annex |

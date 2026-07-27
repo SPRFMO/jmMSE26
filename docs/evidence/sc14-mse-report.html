@@ -2434,7 +2434,7 @@ Jack Mackerel Management Strategy Evaluation: Synthesis for SC14
 <p>These two CMPs anchor the central rule-shape comparison, but they were not the only procedures examined in detail. Six retuned annual-limit variants were also evaluated under the reference and robustness OMs: <strong>HS-20</strong>, <strong>HSsym</strong>, <strong>HS-30</strong>, <strong>PR-20</strong>, <strong>PRsym</strong>, and <strong>PR-30</strong>. They test reverse-asymmetric, symmetric, and larger-decrease constraints around the two central HCR families. The paired catch trajectories for HS+20 and HS-20 illustrate one such annual-limit contrast in <a href="#fig-catch-spaghetti" class="quarto-xref">Figure 1</a>.</p>
 <p>This distinction matters for interpreting the preliminary scorecard. The six retuned variants rank above the two initial <strong>+20</strong> configurations in <a href="#tbl-scorecard-results" class="quarto-xref">Table 5</a> under both illustrative weighting schemes. Four of the six included metrics describe stock condition, so equal weighting assigns two-thirds of the composite weight to those measures; the balanced scheme assigns them half. Thus the scorecard ordering reflects the later retuning and the selected metric set and weights, whereas the prominence of HS+20 and PR+20 reflects their role as the initial design anchors.</p>
 <p>Both were tuned under the reference OM to an approximately 60% mean probability of dynamic Kobe-green status during 2041–2050. In the comparisons reviewed on 24 July, HS+20 generally provided higher short-term catch and lower interannual catch variability, whereas PR+20 responded more quickly to declining indices and showed comparatively stronger recovery under the recruitment-crash and cyclic-recruitment scenarios. Differences were often modest, depended on the OM and performance measure, and do not establish a preferred or “optimal” CMP. Reference-OM vulnerable-biomass performance across the evaluated variants is summarized in <a href="#fig-vb-reference" class="quarto-xref">Figure 2</a>.</p>
-<p>The most consequential robustness finding came from the two-stock hypotheses. Without movement, the southern component passed the agreed benchmark while the northern component required an exploratory change of about 3.07 percentage points in simulated catch distribution from north to south to reach the same benchmark. This is a sensitivity result, not an allocation recommendation. With movement, no tested fixed catch distribution achieved the long-term benchmark for both components. Equal weighting of indices could also mask a declining southern component when northern indices increased. Separate annual tracking of northern and southern indices is therefore an important candidate element of exceptional-circumstances monitoring.</p>
+<p>The most consequential robustness finding came from the two-stock hypotheses. Without movement, the southern component passed the agreed benchmark while the northern component required an exploratory change of ~3% in simulated catch distribution from north to south to reach the same benchmark. This is a sensitivity result, not an allocation recommendation. With movement, no tested fixed catch distribution achieved the long-term benchmark for both components. Equal weighting of indices could also mask a declining southern component when northern indices increased. Separate annual tracking of northern and southern indices is therefore an important candidate element of exceptional-circumstances monitoring.</p>
 <p>The Scientific Committee is asked to consider the adequacy of HS+20 and PR+20 as the central rule-shape comparison; the annual TAC-change variants to retain; the role of all five indices, including the only fishery-independent series; the interpretation of two-stock robustness; the use of final 500-replicate runs; and the work needed to complete banking-and-borrowing and exceptional-circumstances evaluation.</p>
 </section>
 <section id="purpose-scope-and-decision-status" class="level2" data-number="1">
@@ -2717,6 +2717,20 @@ Table 3: Naming convention, legacy identifiers, and definitions of the eight ca
 </table>
 </div>
 </figure>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled" title="Trigger values require a common-resolution check">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Caution</span>Trigger values require a common-resolution check
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The identical 3.0625 triggers for HS-20, HSsym, and HS-30 were produced by separate tuning runs; the saved traces do not indicate that one value was carried across candidates. Each bisection began with the same interval and stopped at the first tested trigger whose simulated Kobe-green probability was within 0.01 of the 0.60 objective. At 3.0625, the three probabilities were 0.606, 0.604, and 0.606, respectively. Their probabilities were also nearly identical at the preceding bisection points. The shared displayed trigger therefore reflects the tuning tolerance and resolution of these 100-replicate runs; it does not demonstrate that the three exact trigger values are identical.</p>
+<p>The contrast with HS+20 remains important: its reported trigger is 2.125, whereas the retuned hockey-stick variants first met the stated tolerance at 3.0625. Because that direction is not intuitively implied by the annual TAC-change constraints alone, the reduced candidate set should be retuned and the trigger–objective relationship explicitly profiled using one frozen OM, software configuration, random-number design, and higher replication before the triggers are treated as final.</p>
+</div>
 </div>
 <p>The hockey-stick increases advice linearly between the limit and trigger and then reaches a plateau. The power ramp reduces catch more quickly when the indicator is below its trigger and can continue to increase above its stated breakpoint according to the implemented rule. These structural differences, not the labels alone, create the main responsiveness-versus-stability contrast.</p>
 <p>The progress presentation also reported separate 500-replicate tuning checks for the central HS and PR configurations. Their triggers were close to the 100-replicate results, and the reported performance differences were small. They are replication checks, not new conceptual CMPs. Final candidate summaries should use the completed 500-replicate results when available.</p>
@@ -3023,7 +3037,7 @@ Figure 8: Preliminary reference-OM spawning-biomass and interannual-catch-varia
 </section>
 <section id="two-stock-hypotheses-and-catch-distribution" class="level4" data-number="6.3.3">
 <h4 data-number="6.3.3" class="anchored" data-anchor-id="two-stock-hypotheses-and-catch-distribution"><span class="header-section-number">6.3.3</span> Two-stock hypotheses and catch distribution</h4>
-<p>In the two-stock OM without movement, the southern component remained above the agreed benchmark while the northern component did not. An exploratory shift of approximately 3.07 percentage points in simulated catch distribution from north to south brought both components to the 60% long-term benchmark. This illustrates sensitivity to spatial exploitation; it is not an allocation or catch-distribution recommendation.</p>
+<p>In the two-stock OM without movement, the southern component remained above the agreed benchmark while the northern component did not. An exploratory shift of ~3% in simulated catch distribution from north to south brought both components to the 60% long-term benchmark. This illustrates sensitivity to spatial exploitation; it is not an allocation or catch-distribution recommendation.</p>
 <p>In the movement OM, biomass transferred from the southern to the northern component. Because the five indices were combined with equal weights, increasing northern indices could raise the overall indicator while southern spawning biomass declined. No tested time-invariant catch distribution resolved the long-term benchmark for both components. The test is deliberately stressful and does not establish that this movement process is occurring. It does establish a management-relevant warning signal: persistent divergence between northern and southern indices.</p>
 <p><strong>Vulnerable biomass.</strong> The near-term catch and <span class="math inline">\(VB/VB_{\mathrm{MSY}}\)</span> comparison across robustness OMs is shown in <a href="#fig-catch-vbmsy-robustness" class="quarto-xref">Figure 9</a>. It uses the same 2026–2035 period, CMP medians, and marginal 5th–95th percentiles as the reference comparison.</p>
 <div id="fig-catch-vbmsy-robustness" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
@@ -3150,9 +3164,9 @@ Table 6: Work required before final scientific advice.
 </thead>
 <tbody>
 <tr class="odd">
-<td>Complete final 500-replicate tuning and reduced-set evaluation</td>
-<td>Stabilizes final reported triggers and performance distributions</td>
-<td>Requested; 100-versus-500 checks showed small differences</td>
+<td>Retune the reduced set at higher replication and profile each trigger objective</td>
+<td>Stabilizes final triggers and resolves the HS+20 versus retuned-HS discrepancy and the shared 3.0625 stopping value</td>
+<td>Required under one frozen OM, software, and random-number configuration</td>
 </tr>
 <tr class="even">
 <td>Finalize TAC-change comparison</td>
