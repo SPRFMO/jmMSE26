@@ -737,14 +737,22 @@ after an MP is adopted and applied.
 David Miller and Rosana Ourens likewise viewed the benchmark assessment as a
 strong basis for the reference OM, the robustness set as covering important
 uncertainties, and the use of dynamic reference points and simple empirical
-index-based rules as sensible. Their comments support moving the MSE forward
-while also identifying priorities for continued development: accurately
-representing historical cross-correlation among indices, exploring alternative
-index combinations, improving the staging of future decisions, and establishing
-a formal exceptional-circumstances framework. Taken together, the external
-review supports applying the MSE as a living management process, with monitoring
-and agreed revisions continuing after initial adoption rather than treating the
-current analysis as a one-time exercise.
+index-based rules as sensible. Their comments were made at a particular stage
+of the workshop process and should not be read as a complete account of
+stakeholder engagement. Commission participants and other stakeholders had
+received several presentations and opportunities to provide input before and
+during the MSE process, including input on management preferences and annual
+TAC-change limits. Suggestions for further engagement are therefore best
+understood as support for continuing and documenting that involvement, not as
+an indication that stakeholder input was absent.
+
+The technically relevant priorities identified by the experts include
+accurately representing historical cross-correlation among indices, exploring
+alternative index combinations, and establishing a formal
+exceptional-circumstances framework. Taken together, the external review
+supports applying the MSE as a living management process, with monitoring,
+stakeholder input, and agreed revisions continuing after initial adoption
+rather than treating the current analysis as a one-time exercise.
 
 The available work supports taking a reduced subset of CMPs forward for
 Commission selection, accompanied by annual monitoring and a formal
