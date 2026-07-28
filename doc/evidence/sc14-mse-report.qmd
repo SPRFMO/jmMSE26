@@ -230,13 +230,6 @@ uncertainty, while discrete crash and cyclical-reduction cases act as stress
 tests. SCW17 treated ENSO and climate effects as robustness questions at this
 stage rather than embedding a single climate forecast in the core OM.
 
-Each CMP receives simulated abundance indices rather than true stock status.
-Projected index deviations include autocorrelation and cross-correlation so
-that the observation model better represents the historical behavior of
-multiple surveys and CPUE series. Simulation diagnostics should show the
-distributions of index-error standard deviations, autocorrelation parameters,
-and correlations used.
-
 ### Dynamic reference points
 
 Environmental recruitment variability can make static reference points
@@ -252,17 +245,15 @@ $F/F_{\mathrm{MSY}}$ even when biomass and catch trajectories are similar.
 Interpretation should separate changes caused by reference-point definitions
 from changes in underlying CMP behavior.
 
-## Candidate management procedures
+### Generating OM data indices
 
-### Common indicator and annual calculation
+Each CMP receives simulated abundance indices rather than true stock status.
+Projected index deviations include autocorrelation and cross-correlation so
+that the observation model better represents the historical behavior of
+multiple surveys and CPUE series. Simulation diagnostics should show the
+distributions of index-error standard deviations, autocorrelation parameters,
+and correlations used.
 
-The central CMPs use five observed series: northern Chile acoustic biomass,
-Chilean CPUE, Peruvian artisanal and industrial indices, and offshore CPUE.
-Each series is expressed relative to its 2019--2023 mean. The standardized
-values are combined with equal weights within each year, and the CMP uses a
-three-year recent average.
-
-::: {.callout-important title="Novel treatment of correlated indicators"}
 The combined indicator does not assume that five series provide five
 independent confirmations of stock change. In each OM iteration, projected
 index errors are generated jointly from the historical index deviations:
@@ -278,7 +269,21 @@ combinations of agreement, redundancy, and divergence among indicators. The
 novelty lies in evaluating the simple, transparent equal-weight composite
 under this estimated multivariate observation process; equal weighting itself
 is not covariance weighting and does not mathematically remove correlation.
-:::
+This approach is consistent with the MSE best-practice principle that
+management procedures should be tested using simulated management data that
+represent observation uncertainty rather than receiving true stock status
+([Punt et al., *Management strategy evaluation: best
+practices*](https://openknowledge.fao.org/server/api/core/bitstreams/fb724507-a400-459f-a24f-dbfdf4c76aec/content)).
+
+## Candidate management procedures
+
+### Common indicator and annual calculation
+
+The central CMPs use five observed series: northern Chile acoustic biomass,
+Chilean CPUE, Peruvian artisanal and industrial indices, and offshore CPUE.
+Each series is expressed relative to its 2019--2023 mean. The standardized
+values are combined with equal weights within each year, and the CMP uses a
+three-year recent average.
 
 Most data are assumed to arrive with a one-year lag, while offshore CPUE has a
 two-year lag. Under the tested timing, a calculation during 2026 for 2027

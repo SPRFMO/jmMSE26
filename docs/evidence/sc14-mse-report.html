@@ -2345,6 +2345,7 @@ window.Quarto = {
   <li><a href="#reference-and-robustness-set" id="toc-reference-and-robustness-set" class="nav-link" data-scroll-target="#reference-and-robustness-set"><span class="header-section-number">3.1</span> Reference and robustness set</a></li>
   <li><a href="#recruitment-observation-and-implementation-uncertainty" id="toc-recruitment-observation-and-implementation-uncertainty" class="nav-link" data-scroll-target="#recruitment-observation-and-implementation-uncertainty"><span class="header-section-number">3.2</span> Recruitment, observation, and implementation uncertainty</a></li>
   <li><a href="#dynamic-reference-points" id="toc-dynamic-reference-points" class="nav-link" data-scroll-target="#dynamic-reference-points"><span class="header-section-number">3.3</span> Dynamic reference points</a></li>
+  <li><a href="#generating-om-data-indices" id="toc-generating-om-data-indices" class="nav-link" data-scroll-target="#generating-om-data-indices"><span class="header-section-number">3.4</span> Generating OM data indices</a></li>
   </ul></li>
   <li><a href="#candidate-management-procedures" id="toc-candidate-management-procedures" class="nav-link" data-scroll-target="#candidate-management-procedures"><span class="header-section-number">4</span> Candidate management procedures</a>
   <ul class="collapse">
@@ -2587,12 +2588,17 @@ Table 2: Reference and robustness operating-model set.
 <section id="recruitment-observation-and-implementation-uncertainty" class="level3" data-number="3.2">
 <h3 data-number="3.2" class="anchored" data-anchor-id="recruitment-observation-and-implementation-uncertainty"><span class="header-section-number">3.2</span> Recruitment, observation, and implementation uncertainty</h3>
 <p>Recruitment variability strongly influences stock trajectories and dynamic reference points. The core simulations therefore retain recruitment uncertainty, while discrete crash and cyclical-reduction cases act as stress tests. SCW17 treated ENSO and climate effects as robustness questions at this stage rather than embedding a single climate forecast in the core OM.</p>
-<p>Each CMP receives simulated abundance indices rather than true stock status. Projected index deviations include autocorrelation and cross-correlation so that the observation model better represents the historical behavior of multiple surveys and CPUE series. Simulation diagnostics should show the distributions of index-error standard deviations, autocorrelation parameters, and correlations used.</p>
 </section>
 <section id="dynamic-reference-points" class="level3" data-number="3.3">
 <h3 data-number="3.3" class="anchored" data-anchor-id="dynamic-reference-points"><span class="header-section-number">3.3</span> Dynamic reference points</h3>
 <p>Environmental recruitment variability can make static reference points misleading. SCW17 strongly recommended calculating the ratio <span class="math inline">\(B_{\mathrm{MSY}}/B_0\)</span> within each MCMC draw, multiplying it by the corresponding dynamic <span class="math inline">\(B_0\)</span>, and evaluating spawning biomass relative to that dynamic <span class="math inline">\(B_{\mathrm{MSY}}\)</span>. The current tuning objective uses a dynamic Kobe-green measure that combines biomass and fishing-pressure status.</p>
 <p>Reference-point choices remain consequential. In particular, alternative selectivity can change <span class="math inline">\(F_{\mathrm{MSY}}\)</span> and therefore <span class="math inline">\(F/F_{\mathrm{MSY}}\)</span> even when biomass and catch trajectories are similar. Interpretation should separate changes caused by reference-point definitions from changes in underlying CMP behavior.</p>
+</section>
+<section id="generating-om-data-indices" class="level3" data-number="3.4">
+<h3 data-number="3.4" class="anchored" data-anchor-id="generating-om-data-indices"><span class="header-section-number">3.4</span> Generating OM data indices</h3>
+<p>Each CMP receives simulated abundance indices rather than true stock status. Projected index deviations include autocorrelation and cross-correlation so that the observation model better represents the historical behavior of multiple surveys and CPUE series. Simulation diagnostics should show the distributions of index-error standard deviations, autocorrelation parameters, and correlations used.</p>
+<p>The combined indicator does not assume that five series provide five independent confirmations of stock change. In each OM iteration, projected index errors are generated jointly from the historical index deviations: series-specific log-scale standard deviations describe uncertainty, lag-1 parameters preserve temporal autocorrelation, and an iteration-specific correlation matrix preserves cross-correlation among indices. These relationships matter because common environmental effects, fleet behavior, and spatial redistribution of the population can cause several indices to rise or fall together.</p>
+<p>The resulting closed-loop test therefore exposes the CMP to realistic combinations of agreement, redundancy, and divergence among indicators. The novelty lies in evaluating the simple, transparent equal-weight composite under this estimated multivariate observation process; equal weighting itself is not covariance weighting and does not mathematically remove correlation. This approach is consistent with the MSE best-practice principle that management procedures should be tested using simulated management data that represent observation uncertainty rather than receiving true stock status (<a href="https://openknowledge.fao.org/server/api/core/bitstreams/fb724507-a400-459f-a24f-dbfdf4c76aec/content">Punt et al., <em>Management strategy evaluation: best practices</em></a>).</p>
 </section>
 </section>
 <section id="candidate-management-procedures" class="level2" data-number="4">
@@ -2600,20 +2606,6 @@ Table 2: Reference and robustness operating-model set.
 <section id="common-indicator-and-annual-calculation" class="level3" data-number="4.1">
 <h3 data-number="4.1" class="anchored" data-anchor-id="common-indicator-and-annual-calculation"><span class="header-section-number">4.1</span> Common indicator and annual calculation</h3>
 <p>The central CMPs use five observed series: northern Chile acoustic biomass, Chilean CPUE, Peruvian artisanal and industrial indices, and offshore CPUE. Each series is expressed relative to its 2019–2023 mean. The standardized values are combined with equal weights within each year, and the CMP uses a three-year recent average.</p>
-<div class="callout callout-style-default callout-important callout-titled" title="Novel treatment of correlated indicators">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Novel treatment of correlated indicators
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The combined indicator does not assume that five series provide five independent confirmations of stock change. In each OM iteration, projected index errors are generated jointly from the historical index deviations: series-specific log-scale standard deviations describe uncertainty, lag-1 parameters preserve temporal autocorrelation, and an iteration-specific correlation matrix preserves cross-correlation among indices. These relationships matter because common environmental effects, fleet behavior, and spatial redistribution of the population can cause several indices to rise or fall together.</p>
-<p>The resulting closed-loop test therefore exposes the CMP to realistic combinations of agreement, redundancy, and divergence among indicators. The novelty lies in evaluating the simple, transparent equal-weight composite under this estimated multivariate observation process; equal weighting itself is not covariance weighting and does not mathematically remove correlation.</p>
-</div>
-</div>
 <p>Most data are assumed to arrive with a one-year lag, while offshore CPUE has a two-year lag. Under the tested timing, a calculation during 2026 for 2027 advice would use 2025 values for the acoustic, Chilean CPUE, and Peruvian indices, and the 2024 offshore CPUE value. Same-year 2026 observations do not enter that tested 2027 calculation unless the timing rule is explicitly changed and re-evaluated.</p>
 </section>
 <section id="naming-convention-and-candidate-variants" class="level3" data-number="4.2">
