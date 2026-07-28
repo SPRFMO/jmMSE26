@@ -21,7 +21,26 @@ ul.task-list li input[type="checkbox"] {
 width: 0.8em;
 margin: 0 0.8em 0.2em -1em;  vertical-align: middle;
 }
-</style>
+
+div.csl-bib-body { }
+div.csl-entry {
+clear: both;
+}
+.hanging-indent div.csl-entry {
+margin-left:2em;
+text-indent:-2em;
+}
+div.csl-left-margin {
+min-width:2em;
+float:left;
+}
+div.csl-right-inline {
+margin-left:2em;
+padding-left:1em;
+}
+div.csl-indent {
+margin-left: 2em;
+}</style>
 
 
 <script>/*!
@@ -2598,7 +2617,7 @@ Table 2: Reference and robustness operating-model set.
 <h3 data-number="3.4" class="anchored" data-anchor-id="generating-om-data-indices"><span class="header-section-number">3.4</span> Generating OM data indices</h3>
 <p>Each CMP receives simulated abundance indices rather than true stock status. Projected index deviations include autocorrelation and cross-correlation so that the observation model better represents the historical behavior of multiple surveys and CPUE series. Simulation diagnostics should show the distributions of index-error standard deviations, autocorrelation parameters, and correlations used.</p>
 <p>The combined indicator does not assume that five series provide five independent confirmations of stock change. In each OM iteration, projected index errors are generated jointly from the historical index deviations: series-specific log-scale standard deviations describe uncertainty, lag-1 parameters preserve temporal autocorrelation, and an iteration-specific correlation matrix preserves cross-correlation among indices. These relationships matter because common environmental effects, fleet behavior, and spatial redistribution of the population can cause several indices to rise or fall together.</p>
-<p>The resulting closed-loop test therefore exposes the CMP to realistic combinations of agreement, redundancy, and divergence among indicators. The novelty lies in evaluating the simple, transparent equal-weight composite under this estimated multivariate observation process; equal weighting itself is not covariance weighting and does not mathematically remove correlation. This approach is consistent with the MSE best-practice principle that management procedures should be tested using simulated management data that represent observation uncertainty rather than receiving true stock status (<a href="https://openknowledge.fao.org/server/api/core/bitstreams/fb724507-a400-459f-a24f-dbfdf4c76aec/content">Punt et al., <em>Management strategy evaluation: best practices</em></a>).</p>
+<p>The resulting closed-loop test therefore exposes the CMP to realistic combinations of agreement, redundancy, and divergence among indicators. The novelty lies in evaluating the simple, transparent equal-weight composite under this estimated multivariate observation process; equal weighting itself is not covariance weighting and does not mathematically remove correlation. This approach is consistent with the MSE best-practice principle that management procedures should be tested using simulated management data that represent observation uncertainty rather than receiving true stock status <span class="citation" data-cites="punt2016mse">(<a href="#ref-punt2016mse" role="doc-biblioref">Punt et al. 2016</a>)</span>.</p>
 </section>
 </section>
 <section id="candidate-management-procedures" class="level2" data-number="4">
@@ -3226,6 +3245,11 @@ text-indent: -2em;
 <p>SPRFMO Jack Mackerel MSE Task Team. 2026. <em>Meeting report: Candidate management procedures, robustness testing, and SC14 preparation</em>, meeting held 24 July 2026. Draft for member review.</p>
 <p>Mosqueira, I., and B. Bergès. 2026. <em>Management Strategy Evaluation (MSE) for SPRFMO jack mackerel: Progress since SCW17</em>. Presentation dated 25 July 2026.</p>
 <p>SPRFMO. 2026. <a href="https://sprfmo.github.io/jmMSE26/">Jack mackerel MSE 2026 project site</a>. Source for candidate definitions, analysis components, performance outputs, supporting materials, and report artifacts used in the current MSE documentation.</p>
+</div>
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-punt2016mse" class="csl-entry" role="listitem">
+Punt, André E., Doug S. Butterworth, Carryn L. de Moor, José A. A. De Oliveira, and Malcolm Haddon. 2016. <span>“Management Strategy Evaluation: Best Practices.”</span> <em>Fish and Fisheries</em> 17 (2): 303–34. <a href="https://doi.org/10.1111/faf.12104">https://doi.org/10.1111/faf.12104</a>.
+</div>
 </div>
 </section>
 

@@ -2,6 +2,7 @@
 title: "Jack mackerel management strategy evaluation for SC14"
 subtitle: "Operating models, candidate management procedures, robustness tests, and matters for Scientific Committee consideration"
 date: "24 July 2026"
+bibliography: sc14-mse-report.bib
 format:
   html:
     toc: true
@@ -272,8 +273,7 @@ is not covariance weighting and does not mathematically remove correlation.
 This approach is consistent with the MSE best-practice principle that
 management procedures should be tested using simulated management data that
 represent observation uncertainty rather than receiving true stock status
-([Punt et al., *Management strategy evaluation: best
-practices*](https://openknowledge.fao.org/server/api/core/bitstreams/fb724507-a400-459f-a24f-dbfdf4c76aec/content)).
+[@punt2016mse].
 
 ## Candidate management procedures
 
@@ -909,4 +909,7 @@ artifacts used in the current MSE documentation.
 \end{hangingrefs}
 ```
 
+:::
+
+::: {#refs}
 :::
