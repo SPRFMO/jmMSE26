@@ -3,6 +3,8 @@ title: "Jack mackerel management strategy evaluation for SC14"
 subtitle: "Operating models, candidate management procedures, robustness tests, and matters for Scientific Committee consideration"
 date: "24 July 2026"
 bibliography: sc14-mse-report.bib
+nocite: |
+  @*
 format:
   html:
     toc: true
@@ -11,9 +13,7 @@ format:
     embed-resources: true
     lightbox: true
     format-links: false
-  pdf:
-    header-includes:
-      - \newenvironment{hangingrefs}{\setlength{\leftskip}{2em}\setlength{\parindent}{-2em}\setlength{\parskip}{0.6\baselineskip}}{}
+  pdf: default
 ---
 
 {{< include ../_includes/sprfmo-banner.qmd >}}
@@ -873,43 +873,6 @@ automated meeting summary; preliminary oral information requires confirmation
 against formal submissions.
 
 ## Sources
-
-<style>
-.hanging-sources p {
-  margin-left: 2em;
-  text-indent: -2em;
-}
-</style>
-
-::: {.hanging-sources}
-
-```{=latex}
-\begin{hangingrefs}
-```
-
-SPRFMO Jack Mackerel Working Group. 2026.
-[Report of the Jack Mackerel Management Strategy Evaluation Workshop -
-SCW17](https://sprfmo.github.io/scw17/SCW17-MSE-Workshop-report.html),
-15--19 June 2026, updated 7 July 2026.
-
-SPRFMO Jack Mackerel MSE Task Team. 2026. *Meeting report: Candidate
-management procedures, robustness testing, and SC14 preparation*, meeting
-held 24 July 2026. Draft for member review.
-
-Mosqueira, I., and B. Bergès. 2026. *Management Strategy Evaluation (MSE)
-for SPRFMO jack mackerel: Progress since SCW17*. Presentation dated 25 July
-2026.
-
-SPRFMO. 2026. [Jack mackerel MSE 2026 project
-site](https://sprfmo.github.io/jmMSE26/). Source for candidate definitions,
-analysis components, performance outputs, supporting materials, and report
-artifacts used in the current MSE documentation.
-
-```{=latex}
-\end{hangingrefs}
-```
-
-:::
 
 ::: {#refs}
 :::
