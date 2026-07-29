@@ -1,63 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://sprfmo.github.io/jmMSE26/workflow/mse-flow.html</loc>
-    <lastmod>2026-07-24T21:04:01.880Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sprfmo.github.io/jmMSE26/governance/traceability.html</loc>
-    <lastmod>2026-07-25T02:13:17.051Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sprfmo.github.io/jmMSE26/evidence/sc14-mse-report.html</loc>
-    <lastmod>2026-07-25T02:13:43.120Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sprfmo.github.io/jmMSE26/cmp/mp32.html</loc>
-    <lastmod>2026-07-24T21:04:01.877Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sprfmo.github.io/jmMSE26/cmp/index.html</loc>
-    <lastmod>2026-07-25T00:26:34.110Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sprfmo.github.io/jmMSE26/cmp/components.html</loc>
-    <lastmod>2026-07-24T21:04:01.876Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sprfmo.github.io/jmMSE26/application/slick.html</loc>
-    <lastmod>2026-07-25T02:13:17.051Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sprfmo.github.io/jmMSE26/application/annual-workflow.html</loc>
-    <lastmod>2026-07-24T21:04:01.875Z</lastmod>
+    <loc>https://sprfmo.github.io/jmMSE26/data/candidates/candidate_scorecard_result_reference.html</loc>
+    <lastmod>2026-07-29T22:39:17.355Z</lastmod>
   </url>
   <url>
     <loc>https://sprfmo.github.io/jmMSE26/application/input-data.html</loc>
-    <lastmod>2026-07-24T21:04:01.876Z</lastmod>
+    <lastmod>2026-07-27T20:21:06.506Z</lastmod>
   </url>
   <url>
-    <loc>https://sprfmo.github.io/jmMSE26/application/tac-2027.html</loc>
-    <lastmod>2026-07-24T21:04:01.876Z</lastmod>
+    <loc>https://sprfmo.github.io/jmMSE26/application/annual-workflow.html</loc>
+    <lastmod>2026-07-27T20:21:06.506Z</lastmod>
   </url>
   <url>
-    <loc>https://sprfmo.github.io/jmMSE26/cmp/control-reference.html</loc>
-    <lastmod>2026-07-24T21:04:01.876Z</lastmod>
+    <loc>https://sprfmo.github.io/jmMSE26/workflow/mse-flow.html</loc>
+    <lastmod>2026-07-27T20:21:06.517Z</lastmod>
   </url>
   <url>
-    <loc>https://sprfmo.github.io/jmMSE26/cmp/mp29.html</loc>
-    <lastmod>2026-07-24T21:04:01.877Z</lastmod>
+    <loc>https://sprfmo.github.io/jmMSE26/evidence/sc14-mse-report.html</loc>
+    <lastmod>2026-07-29T22:55:50.939Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sprfmo.github.io/jmMSE26/cmp/components.html</loc>
+    <lastmod>2026-07-27T20:21:06.506Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sprfmo.github.io/jmMSE26/cmp/index.html</loc>
+    <lastmod>2026-07-27T20:21:06.507Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sprfmo.github.io/jmMSE26/cmp/mp32.html</loc>
+    <lastmod>2026-07-27T20:21:06.507Z</lastmod>
   </url>
   <url>
     <loc>https://sprfmo.github.io/jmMSE26/cmp/specification-template.html</loc>
-    <lastmod>2026-07-24T21:04:01.877Z</lastmod>
+    <lastmod>2026-07-27T20:21:06.507Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sprfmo.github.io/jmMSE26/cmp/control-reference.html</loc>
+    <lastmod>2026-07-29T22:51:28.707Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sprfmo.github.io/jmMSE26/cmp/mp29.html</loc>
+    <lastmod>2026-07-27T20:21:06.507Z</lastmod>
   </url>
   <url>
     <loc>https://sprfmo.github.io/jmMSE26/evidence/scw17-evidence.html</loc>
-    <lastmod>2026-07-24T21:04:01.878Z</lastmod>
+    <lastmod>2026-07-27T20:21:06.509Z</lastmod>
   </url>
   <url>
     <loc>https://sprfmo.github.io/jmMSE26/index.html</loc>
-    <lastmod>2026-07-25T00:30:23.798Z</lastmod>
+    <lastmod>2026-07-29T22:37:28.972Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sprfmo.github.io/jmMSE26/governance/traceability.html</loc>
+    <lastmod>2026-07-29T22:54:20.602Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sprfmo.github.io/jmMSE26/application/slick.html</loc>
+    <lastmod>2026-07-29T22:47:46.069Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sprfmo.github.io/jmMSE26/application/tac-2027.html</loc>
+    <lastmod>2026-07-27T20:21:06.506Z</lastmod>
   </url>
 </urlset>

@@ -30,7 +30,7 @@ Rendered files are written to `docs/` for GitHub Pages.
 - `R/build_candidate_slick.R`: validated eight-CMP performance-to-Slick adapter.
 - `output/jm_candidates.slick`: the single validated eight-CMP review file,
   combining the om11 reference with the single-stock and two-stock robustness
-  sets (100 simulations, 1970–2050), with Set, OM, and Stock filters and
+  sets (500 posterior iterations, 1970–2050), with Set, OM, and Stock filters and
   one-click OM presets.
 
 Candidate status is explicit. A test candidate is not an adopted management

@@ -385,8 +385,8 @@ Sources, Review Status, and Record of Changes
 <tbody>
 <tr class="odd">
 <td><code>SPRFMO/jmMSE</code></td>
-<td><code>278c309888c03d241c0aa42967200351ffaa3b05</code></td>
-<td>Primary source: the ten CMP controls, seeded candidate runner, robustness selection, HCR implementations, repeatable MP43/MP44 tuning, and July presentation</td>
+<td>branch <code>codex/500-iteration-tuning</code> based on <code>278c309888c03d241c0aa42967200351ffaa3b05</code></td>
+<td>Primary source: 500-posterior controls for MP16–MP48 and the eight-CMP reference and nine-OM robustness runs</td>
 </tr>
 <tr class="even">
 <td><code>SPRFMO/scw17</code></td>
@@ -395,12 +395,12 @@ Sources, Review Status, and Record of Changes
 </tr>
 <tr class="odd">
 <td><code>output/jm_candidates.slick</code></td>
-<td>SHA-256 <code>6b17b0b0bb5483611f82f97c9d368dddcf2a69934ec2fd2bb110129b32685a8f</code></td>
-<td>Combined reference and robustness results for ten CMP comparison cases with six annual metrics, including VB/VB[2025] and VB/VB[MSY]</td>
+<td>SHA-256 <code>0e18d665c2a70f953d6727b805cbc47ad22063021ef306bc5a250d977a748a9c</code></td>
+<td>Combined reference and robustness results for eight CMPs with six annual metrics, including VB/VB[2025] and VB/VB[MSY]</td>
 </tr>
 </tbody>
 </table>
-<p>The current registry derives from <code>jmMSE</code>, not the SCW17 test table. It does not assert that MP29 or MP32 has been formally recommended or adopted. The eight additional CMPs are comparison cases, not advanced candidates. MP43 and MP44 retain the MP29 and MP32 structures but use a 20% maximum annual decrease and 15% maximum annual increase; their triggers were retuned before evaluation.</p>
+<p>The current registry derives from <code>jmMSE</code>, not the SCW17 test table. It does not assert that MP29 or MP32 has been formally recommended or adopted. The six annual-limit variants are comparison cases, not adopted procedures. MP43–MP48 retain the MP29 or MP32 rule family but alter annual decrease/increase limits; all eight procedures were retuned before the 500-posterior evaluation.</p>
 </section>
 <section id="information-that-must-accompany-each-cmp" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="information-that-must-accompany-each-cmp"><span class="header-section-number">2</span> Information that must accompany each CMP</h2>
@@ -459,7 +459,7 @@ Sources, Review Status, and Record of Changes
 <ul>
 <li>Confirm the formal working-group status and stable identifiers for MP29 and MP32.</li>
 <li>Confirm whether MP43 and MP44 should remain annual-limit sensitivity cases or be considered in any later shortlist.</li>
-<li>Reconcile the 100-iteration MP29/MP32 tuned triggers with the 500-iteration MP41/MP42 sensitivity values before approving a final version.</li>
+<li>Profile the tuning objective locally around each selected trigger to quantify sensitivity to the bisection tolerance.</li>
 <li>Archive the full jmMSE run objects alongside the published Slick file and its digital fingerprint.</li>
 <li>Complete the required units, annual cutoffs, missing-data rules, rounding, and exceptional-circumstances provisions.</li>
 <li>Add saved worked examples and automatic repeat-calculation checks.</li>
@@ -948,15 +948,15 @@ Sources, Review Status, and Record of Changes
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Source <span class="pp">|</span> Exact saved version used <span class="pp">|</span> Material used here <span class="pp">|</span></span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`SPRFMO/jmMSE`</span> <span class="pp">|</span> <span class="in">`278c309888c03d241c0aa42967200351ffaa3b05`</span> <span class="pp">|</span> Primary source: the ten CMP controls, seeded candidate runner, robustness selection, HCR implementations, repeatable MP43/MP44 tuning, and July presentation <span class="pp">|</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`SPRFMO/jmMSE`</span> <span class="pp">|</span> branch <span class="in">`codex/500-iteration-tuning`</span> based on <span class="in">`278c309888c03d241c0aa42967200351ffaa3b05`</span> <span class="pp">|</span> Primary source: 500-posterior controls for MP16--MP48 and the eight-CMP reference and nine-OM robustness runs <span class="pp">|</span></span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`SPRFMO/scw17`</span> <span class="pp">|</span> <span class="in">`0eb97c9c0329f5ec3338e3cf885f6e1f184c4780`</span> <span class="pp">|</span> Secondary source: Papers 03, 04, 08, and 09 plus Quarto conventions <span class="pp">|</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`output/jm_candidates.slick`</span> <span class="pp">|</span> SHA-256 <span class="in">`6b17b0b0bb5483611f82f97c9d368dddcf2a69934ec2fd2bb110129b32685a8f`</span> <span class="pp">|</span> Combined reference and robustness results for ten CMP comparison cases with six annual metrics, including VB/VB<span class="co">[</span><span class="ot">2025</span><span class="co">]</span> and VB/VB<span class="co">[</span><span class="ot">MSY</span><span class="co">]</span> <span class="pp">|</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`output/jm_candidates.slick`</span> <span class="pp">|</span> SHA-256 <span class="in">`0e18d665c2a70f953d6727b805cbc47ad22063021ef306bc5a250d977a748a9c`</span> <span class="pp">|</span> Combined reference and robustness results for eight CMPs with six annual metrics, including VB/VB<span class="co">[</span><span class="ot">2025</span><span class="co">]</span> and VB/VB<span class="co">[</span><span class="ot">MSY</span><span class="co">]</span> <span class="pp">|</span></span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>The current registry derives from <span class="in">`jmMSE`</span>, not the SCW17 test table. It does not</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>assert that MP29 or MP32 has been formally recommended or adopted. The eight</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>additional CMPs are comparison cases, not advanced candidates. MP43 and MP44</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>retain the MP29 and MP32 structures but use a 20% maximum annual decrease and</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>15% maximum annual increase; their triggers were retuned before evaluation.</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>assert that MP29 or MP32 has been formally recommended or adopted. The six</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>annual-limit variants are comparison cases, not adopted procedures. MP43--MP48</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>retain the MP29 or MP32 rule family but alter annual decrease/increase limits;</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>all eight procedures were retuned before the 500-posterior evaluation.</span>
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="fu">## Information that must accompany each CMP</span></span>
 <span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
@@ -985,8 +985,8 @@ Sources, Review Status, and Record of Changes
 <span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>  MP32.</span>
 <span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Confirm whether MP43 and MP44 should remain annual-limit sensitivity cases</span>
 <span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>  or be considered in any later shortlist.</span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Reconcile the 100-iteration MP29/MP32 tuned triggers with the 500-iteration</span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>  MP41/MP42 sensitivity values before approving a final version.</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Profile the tuning objective locally around each selected trigger to quantify</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>  sensitivity to the bisection tolerance.</span>
 <span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Archive the full jmMSE run objects alongside the published Slick file and its</span>
 <span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>  digital fingerprint.</span>
 <span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Complete the required units, annual cutoffs, missing-data rules, rounding, and</span>
