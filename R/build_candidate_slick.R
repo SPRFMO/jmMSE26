@@ -180,19 +180,17 @@ make_mp_metadata <- function(candidate_codes, registry_file) {
   registry <- fread(registry_file)
   registry <- registry[cmp_id %in% sub("^tun", "MP", candidate_codes)]
   catalog <- data.table(
-    cmp_id = c("MP29", "MP43", "MP32", "MP44", "MP18", "MP24", "MP31",
-      "MP23", "MP35", "MP36"),
+    cmp_id = c("MP29", "MP43", "MP45", "MP47",
+      "MP32", "MP44", "MP46", "MP48"),
     slick_description = c(
-      "Optimal comparison case: hockeystick rule, target catch 2000, limit 0.1, using all selected indices.",
-      "Tuned annual-limit sensitivity based on MP29: hockeystick rule, target catch 2000, with a maximum 20% decrease and 15% increase each year.",
-      "Alternative comparison case: powerramp rule, target catch 1500, limit 0.1, using all selected indices.",
-      "Tuned annual-limit sensitivity based on MP32: powerramp rule, target catch 1500, with a maximum 20% decrease and 15% increase each year.",
-      "Extreme high-target contrast: hockeystick rule with target catch 5000, included to show how a much higher target affects long-term biomass.",
-      "Low-target contrast: hockeystick rule with target catch 1750 and limit 0. In the current analysis this setup had lower short-term SB0green performance.",
-      "Alternative-limit contrast: hockeystick rule with target catch 2000 and limit 0.3. This isolates the limit value; the current analysis found only a small effect on IACC.",
-      "Alternative rule-shape contrast: slope rule using all selected indices and the original five-year averaging window. Because MP29 uses three years, this is not a shape-only contrast.",
-      "Data-input and rule-shape contrast: powerramp rule with target catch 1500 and limit 0.1, using CPUE indices only.",
-      "Data-input contrast: hockeystick rule using CPUE indices only. In the current analysis it was more responsive, with higher IACC and lower short-term catch."
+      "HS+20: hockeystick rule with annual advice limits of -15% and +20%.",
+      "HS-20: hockeystick rule with annual advice limits of -20% and +15%.",
+      "HSsym: hockeystick rule with symmetric annual advice limits of -15% and +15%.",
+      "HS-30: hockeystick rule with annual advice limits of -30% and +20%.",
+      "PR+20: power-ramp rule with annual advice limits of -15% and +20%.",
+      "PR-20: power-ramp rule with annual advice limits of -20% and +15%.",
+      "PRsym: power-ramp rule with symmetric annual advice limits of -15% and +15%.",
+      "PR-30: power-ramp rule with annual advice limits of -30% and +20%."
     )
   )
   meta <- data.table(code = candidate_codes)
@@ -211,15 +209,12 @@ make_mp_metadata <- function(candidate_codes, registry_file) {
   mp_rows <- function(codes) which(meta$code %in% codes)
   presets <- list(
     `All CMPs` = seq_len(nrow(meta)),
-    `Advanced candidates` = mp_rows(c("tun29", "tun32")),
-    `Annual-limit comparison` = mp_rows(c("tun29", "tun43", "tun32",
-      "tun44")),
-    `HS annual limits` = mp_rows(c("tun29", "tun43")),
-    `PR annual limits` = mp_rows(c("tun32", "tun44")),
-    `Target contrasts` = mp_rows(c("tun29", "tun18", "tun24")),
-    `Limit contrast` = mp_rows(c("tun29", "tun31")),
-    `Rule-shape contrast` = mp_rows(c("tun29", "tun32", "tun23")),
-    `CPUE-only contrasts` = mp_rows(c("tun29", "tun32", "tun35", "tun36"))
+    `Central rule-shape comparison` = mp_rows(c("tun29", "tun32")),
+    `HS annual limits` = mp_rows(c("tun29", "tun43", "tun45", "tun47")),
+    `PR annual limits` = mp_rows(c("tun32", "tun44", "tun46", "tun48")),
+    `Reverse-asymmetric limits` = mp_rows(c("tun43", "tun44")),
+    `Symmetric limits` = mp_rows(c("tun45", "tun46")),
+    `30% decrease limits` = mp_rows(c("tun47", "tun48"))
   )
   presets <- c(presets, setNames(lapply(meta$code, mp_rows),
     meta$Label))
@@ -231,8 +226,8 @@ build_candidate_slick <- function(
   performance_file,
   out_file = file.path("output", "jm_candidates.slick"),
   registry_file = file.path("doc", "data", "cmp-registry.csv"),
-  candidate_codes = c("tun29", "tun43", "tun32", "tun44", "tun18",
-    "tun24", "tun31", "tun23", "tun35", "tun36"),
+  candidate_codes = c("tun29", "tun43", "tun45", "tun47",
+    "tun32", "tun44", "tun46", "tun48"),
   time_now = 2025L,
   historical_om_files = NULL,
   historical_start = 1970L,
@@ -621,7 +616,7 @@ build_combined_candidate_slick <- function(
     f_fmsy_description$Code == "FMSY", "Description"]
   Title(combined) <- "SPRFMO Jack Mackerel Candidate MPs"
   Subtitle(combined) <- paste(
-    "Ten CMP comparison cases, including HS-20 and PR-20, across reference and",
+    "Eight CMP comparison cases across reference and",
     "robustness operating models"
   )
   Introduction(combined) <- paste(
@@ -661,7 +656,7 @@ build_combined_candidate_slick <- function(
   Check(combined)
   methods::validObject(combined)
   dir.create(dirname(out_file), recursive = TRUE, showWarnings = FALSE)
-  saveRDS(combined, out_file)
+  saveRDS(combined, out_file, compress = "xz")
   message("Wrote combined Slick object: ", out_file)
   invisible(combined)
 }

@@ -81,7 +81,7 @@ candidate_vb_plot <- function(mode) {
     by = .(om, biol, mp, statistic, iter)
   ]
   near_term[, mp := factor(sub("^tun", "MP", sub("_.*$", "", mp)),
-    levels = paste0("MP", c(29, 43, 32, 44, 18, 24, 23, 31, 35, 36)))]
+    levels = paste0("MP", c(29, 43, 45, 47, 32, 44, 46, 48)))]
   paired <- dcast(near_term, om + biol + mp + iter ~ statistic,
     value.var = "data")
   tradeoff <- paired[, .(
@@ -128,7 +128,7 @@ candidate_vb_plot <- function(mode) {
     by = .(om, biol, mp, statistic, iter)
   ]
   long_term[, mp := factor(sub("^tun", "MP", sub("_.*$", "", mp)),
-    levels = paste0("MP", c(29, 43, 32, 44, 18, 24, 23, 31, 35, 36)))]
+    levels = paste0("MP", c(29, 43, 45, 47, 32, 44, 46, 48)))]
   paired_long <- dcast(long_term, om + biol + mp + iter ~ statistic,
     value.var = "data")
   long_tradeoff <- paired_long[, .(
@@ -242,18 +242,10 @@ ggsave(file.path(output_dir, "catch_spaghetti_hs_reference.png"),
 # Long-term reference-set quilt. Scores are normalized independently within
 # each metric and show relative performance among the eight annual-change
 # variants listed in the report's naming-convention table.
-additional_reference_file <- file.path(
-  "output", "candidate-performance", "additional-change-limits", "reference",
-  "performance_with_vb.rds"
-)
-if (!file.exists(additional_reference_file)) {
-  stop("Missing additional-variant results: ", additional_reference_file)
-}
-additional_reference_perf <- as.data.table(readRDS(additional_reference_file))
-quilt_perf <- rbindlist(list(
-  reference_perf[mp %in% c("tun29", "tun43", "tun32", "tun44")],
-  additional_reference_perf[mp %in% c("tun45", "tun47", "tun46", "tun48")]
-), use.names = TRUE)
+quilt_perf <- reference_perf[
+  mp %in% c("tun29", "tun43", "tun45", "tun47",
+    "tun32", "tun44", "tun46", "tun48")
+]
 
 metric_definitions <- data.table(
   statistic = c("SBMSY", "FMSY", "C", "IACC", "VB2025", "VBMSY"),

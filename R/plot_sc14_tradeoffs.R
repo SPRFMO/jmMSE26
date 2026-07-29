@@ -1,8 +1,6 @@
 #!/usr/bin/env Rscript
 
-# Preliminary SC14 trade-off figures for the annual-change candidate set.
-# The figures intentionally use the completed 100-replicate comparison runs;
-# they are not a substitute for the planned final higher-replication analysis.
+# SC14 trade-off figures for the 500-iteration annual-change candidate set.
 
 suppressPackageStartupMessages({
   library(data.table)
@@ -16,19 +14,11 @@ out_dir <- file.path("doc", "figures")
 dir.create(out_dir, recursive = TRUE, showWarnings = FALSE)
 
 source_files <- list(
-  reference_base = file.path(
-    jm_root, "model/candidates/reference/performance.rds"
+  reference = file.path(
+    "output", "candidate-performance", "reference", "performance_with_vb.rds"
   ),
-  reference_additional = file.path(
-    jm_root,
-    "model/candidates/additional-change-limits/reference/performance.rds"
-  ),
-  robustness_base = file.path(
-    jm_root, "model/candidates/robustness/performance.rds"
-  ),
-  robustness_additional = file.path(
-    jm_root,
-    "model/candidates/additional-change-limits/robustness/performance.rds"
+  robustness = file.path(
+    "output", "candidate-performance", "robustness", "performance_with_vb.rds"
   )
 )
 
@@ -111,16 +101,12 @@ summarize_tradeoff <- function(dat) {
   ans[]
 }
 
-reference <- summarize_tradeoff(read_results(
-  c("reference_base", "reference_additional")
-))
-robustness <- summarize_tradeoff(read_results(
-  c("robustness_base", "robustness_additional")
-))
+reference <- summarize_tradeoff(read_results("reference"))
+robustness <- summarize_tradeoff(read_results("robustness"))
 tradeoff <- rbind(reference, robustness, use.names = TRUE)
 
-if (any(tradeoff$n_replicates != 100L)) {
-  stop("Expected 100 replicates in every preliminary trade-off summary")
+if (any(tradeoff$n_replicates != 500L)) {
+  stop("Expected 500 iterations in every SC14 trade-off summary")
 }
 
 fwrite(
@@ -164,8 +150,8 @@ tradeoff_plot <- function(dat, facet = NULL, x_label = NULL) {
       colour = "HCR family",
       shape = "HCR family",
       caption = paste(
-        "Points are means; bars show 10th-90th percentiles among 100",
-        "simulation replicates. Dashed line: SB/SBMSY = 1."
+        "Points are means; bars show 10th-90th percentiles among 500",
+        "posterior iterations. Dashed line: SB/SBMSY = 1."
       )
     ) +
     ggthemes::theme_few(base_size = 10) +
@@ -216,8 +202,8 @@ biomass_iacc_plot <- ggplot(
     shape = "HCR family",
     caption = paste(
       "IACC is the absolute year-to-year percentage change in catch.",
-      "\nPoints are means; bars show 10th-90th percentiles among 100",
-      "simulation replicates. Dashed line: SB/SBMSY = 1."
+      "\nPoints are means; bars show 10th-90th percentiles among 500",
+      "posterior iterations. Dashed line: SB/SBMSY = 1."
     )
   ) +
   ggthemes::theme_few(base_size = 10) +
