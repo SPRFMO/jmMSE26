@@ -22,6 +22,15 @@ format:
 [Download the PDF version](sc14-mse-report.pdf){.btn .btn-primary}
 :::
 
+::: {.callout-warning}
+## Incomplete results — 30 July 2026
+
+The results in this report are incomplete and provisional as of 30 July 2026.
+The current figures and tables use the restored 100-sample candidate results.
+Please check back after all CMPs have been tuned and evaluated against the 500
+posterior samples and the report outputs have been rebuilt and validated.
+:::
+
 <!-- Editorial TODO: This report needs a focused restructuring pass so the
 section sequence, hierarchy, and transitions provide a clearer narrative flow.
 Preserve the technical content and traceability while consolidating repetition. -->
