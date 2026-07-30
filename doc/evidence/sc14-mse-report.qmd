@@ -61,6 +61,8 @@ simulate their observation errors jointly using historical estimates of each
 series' uncertainty, temporal autocorrelation, and cross-correlation. This
 allows the evaluation to represent shared movements among indicators,
 including correlation that may arise when the population shifts spatially.
+The estimated correlation structure used for the reference OM is illustrated
+in @fig-om11-index-error-correlations.
 
 Among the dozens of MPs evaluated at the SCW17 workshop, the analysts concluded
 that the hockey-stick and power-ramp designs represented by these two CMPs,
@@ -279,6 +281,16 @@ correlation matrix preserves cross-correlation among indices. These
 relationships matter because common environmental effects, fleet behavior,
 and spatial redistribution of the population can cause several indices to
 rise or fall together.
+
+![OM11 index observation-error correlations. Each cell gives the mean correlation across posterior iterations, with its between-iteration standard deviation in parentheses. Positive values indicate index errors that tend to move together; negative values indicate opposing movements.](../figures/om11-index-observation-error-correlations.png){#fig-om11-index-error-correlations fig-align="center" width="88%" fig-alt="Correlation-matrix heat map for the five OM11 abundance indices. Cells show the posterior-iteration mean correlation and standard deviation. The largest positive off-diagonal correlation is 0.54 between the Peru artisanal and Peru industrial indices."}
+
+As shown in @fig-om11-index-error-correlations, the estimated relationships are
+neither uniformly positive nor interchangeable. For example, the Peru
+artisanal and industrial indices have the strongest positive mean
+cross-correlation (0.54), whereas several relationships involving the offshore
+CPUE series are weakly negative. The standard deviations in parentheses show
+that the observation-error correlation matrix also varies among OM
+iterations.
 
 The resulting closed-loop test therefore exposes the CMP to realistic
 combinations of agreement, redundancy, and divergence among indicators. The
