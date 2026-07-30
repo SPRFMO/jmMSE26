@@ -60,6 +60,11 @@ forward as proposals for consideration at SC14. This analytical conclusion
 identifies a focused set for Scientific Committee consideration; it is not a
 formal recommendation or adoption decision.
 
+The [main Jack Mackerel MSE resource
+page](https://sprfmo.github.io/jmMSE26/) describes the naming conventions and
+how the MSE components fit together, and provides the CMP and OM registries and
+translation tables linking the labels used across analyses and reports.
+
 Two CMPs provide the central comparison. They are described as central because
 they anchor the initial rule-shape comparison, not because the current results
 rank them highest. The **+20** variants were specified in response to an
@@ -574,6 +579,15 @@ objective. The underlying values and trade-off figures should therefore remain
 the basis for interpreting why the order changes with management priorities.
 
 ### Reference set trade-offs
+
+**Kobe status.** @fig-kobe-reference-periods provides the direct reference-OM
+comparison of fishing pressure and spawning-biomass status for the near-term
+(2026--2035) and long-term (2041--2050) periods. Within each posterior
+iteration, each ratio is averaged over the stated period; points are the
+medians of those period means across the 500 iterations. The vertical and
+horizontal lines at 1 define the conventional Kobe quadrants.
+
+![Near- and long-term Kobe plots for the eight CMPs under the reference operating model.](../figures/candidates/kobe_reference_periods.png){#fig-kobe-reference-periods fig-align="center" width="95%" fig-alt="Two Kobe panels compare eight candidate management procedures. Fishing mortality relative to FMSY is on the horizontal axis and spawning biomass relative to SBMSY is on the vertical axis. Panels show 2026 to 2035 and 2041 to 2050."}
 
 **Vulnerable biomass.** The near-term reference comparison uses mean annual
 catch and mean $VB/VB_{\mathrm{MSY}}$ over 2026--2035

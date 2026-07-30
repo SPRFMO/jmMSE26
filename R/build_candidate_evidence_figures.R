@@ -180,6 +180,95 @@ candidate_vb_plot("robustness")
 reference_file <- file.path("output", "candidate-performance", "reference",
   "performance_with_vb.rds")
 reference_perf <- as.data.table(readRDS(reference_file))
+
+# Reference-OM Kobe plots for the near- and long-term reporting periods.
+kobe_mps <- c(
+  "tun29", "tun43", "tun45", "tun47",
+  "tun32", "tun44", "tun46", "tun48"
+)
+kobe_labels <- c(
+  tun29 = "HS+20", tun43 = "HS-20", tun45 = "HSsym", tun47 = "HS-30",
+  tun32 = "PR+20", tun44 = "PR-20", tun46 = "PRsym", tun48 = "PR-30"
+)
+kobe_periods <- rbindlist(list(
+  reference_perf[
+    mp %in% kobe_mps & statistic %in% c("SBMSY", "FMSY") &
+      year %in% 2026:2035,
+    .(data = mean(data, na.rm = TRUE)),
+    by = .(mp, iter, statistic)
+  ][, period := "Near term (2026-2035)"],
+  reference_perf[
+    mp %in% kobe_mps & statistic %in% c("SBMSY", "FMSY") &
+      year %in% 2041:2050,
+    .(data = mean(data, na.rm = TRUE)),
+    by = .(mp, iter, statistic)
+  ][, period := "Long term (2041-2050)"]
+))
+kobe_wide <- dcast(kobe_periods, mp + iter + period ~ statistic,
+  value.var = "data")
+kobe_summary <- kobe_wide[, .(
+  f_fmsy = median(FMSY, na.rm = TRUE),
+  sb_sbmsy = median(SBMSY, na.rm = TRUE),
+  n = sum(is.finite(FMSY) & is.finite(SBMSY))
+), by = .(mp, period)]
+kobe_summary[, cmp := factor(kobe_labels[mp],
+  levels = unname(kobe_labels[kobe_mps]))]
+kobe_summary[, period := factor(period,
+  levels = c("Near term (2026-2035)", "Long term (2041-2050)"))]
+fwrite(kobe_summary,
+  file.path(summary_dir, "kobe_reference_periods_summary.csv"))
+
+kobe_quadrants <- CJ(
+  period = levels(kobe_summary$period),
+  quadrant = c("Green", "Yellow", "Orange", "Red")
+)
+kobe_quadrants[, period := factor(period, levels = levels(kobe_summary$period))]
+kobe_quadrants[, `:=`(
+  xmin = c(0, 1, 0, 1),
+  xmax = c(1, Inf, 1, Inf),
+  ymin = c(1, 1, -Inf, -Inf),
+  ymax = c(Inf, Inf, 1, 1),
+  fill = c("#8BCB88", "#F2D46F", "#E7A35B", "#D97B72")
+), by = period]
+
+kobe_plot <- ggplot() +
+  geom_rect(
+    data = kobe_quadrants,
+    aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax, fill = fill),
+    alpha = 0.16, inherit.aes = FALSE
+  ) +
+  scale_fill_identity() +
+  geom_vline(xintercept = 1, colour = "grey35", linewidth = 0.45) +
+  geom_hline(yintercept = 1, colour = "grey35", linewidth = 0.45) +
+  geom_point(
+    data = kobe_summary,
+    aes(f_fmsy, sb_sbmsy, colour = cmp),
+    size = 2.8
+  ) +
+  geom_text_repel(
+    data = kobe_summary,
+    aes(f_fmsy, sb_sbmsy, label = cmp, colour = cmp),
+    seed = 12000, size = 3, min.segment.length = 0,
+    max.overlaps = Inf, show.legend = FALSE
+  ) +
+  facet_wrap(~period, nrow = 1) +
+  coord_cartesian(xlim = c(0, 1.35), ylim = c(0, 1.9), expand = FALSE) +
+  labs(
+    title = "Reference-OM Kobe status by candidate management procedure",
+    subtitle = paste(
+      "Points are medians across 500 posterior iterations of each",
+      "iteration's period mean"
+    ),
+    x = "Fishing mortality relative to F[MSY]",
+    y = "Spawning biomass relative to SB[MSY]",
+    colour = "CMP"
+  ) +
+  ggthemes::theme_few(base_size = 10) +
+  theme(legend.position = "none")
+
+ggsave(file.path(output_dir, "kobe_reference_periods.png"),
+  kobe_plot, width = 9, height = 4.8, dpi = 160)
+
 catch_trajectories <- reference_perf[
   statistic == "C" & mp %in% c("tun43", "tun29") & year %in% 2025:2050
 ]
