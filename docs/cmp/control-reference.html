@@ -172,7 +172,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">How MSE fits</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../evidence/scw17-evidence.html"> 
+    <a class="nav-link" href="../evidence/scw17-evidence.qmd"> 
 <span class="menu-text">Evidence</span></a>
   </li>  
   <li class="nav-item">
@@ -301,11 +301,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
 </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../evidence/scw17-evidence.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">CMP evidence and development history</span></a>
-  </div>
-</li>
+ <span class="menu-text">evidence/scw17-evidence.qmd</span>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../evidence/sc14-mse-report.html" class="sidebar-item-text sidebar-link">
@@ -370,12 +367,12 @@ Cross-reference for CMP Trial and Robustness Runs
 <p>This page provides a quick reference to the procedure settings recorded in <code>tuns_ctrl.csv</code> and <code>robs_ctrl.csv</code>. The tables are rebuilt from those files when the website is rendered, so they remain aligned with the analysis control files.</p>
 <section id="tuning-trials" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="tuning-trials"><span class="header-section-number">1</span> Tuning trials</h2>
-<p>These are the procedure designs examined during 500-posterior tuning. MP29 and MP32 anchor the central rule-shape comparison; MP43–MP48 are retuned annual change-limit variants.</p>
+<p>These are the procedure designs examined during tuning. MP29 and MP32 were subsequently carried forward as advanced candidates. MP43 and MP44 are retuned comparison cases with different annual change limits.</p>
 <div class="cell">
 <div id="tbl-tuning-controls" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-tuning-controls-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;1: Settings for the 33 tuning trials. A dash means that the setting does not apply to that rule.
+Table&nbsp;1: Settings for the 29 tuning trials. A dash means that the setting does not apply to that rule.
 </figcaption>
 <div aria-describedby="tbl-tuning-controls-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
@@ -415,7 +412,7 @@ Table&nbsp;1: Settings for the 33 tuning trials. A dash means that the setting d
 <td style="text-align: right;">2000</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0.0</td>
-<td style="text-align: right;">2.0937500</td>
+<td style="text-align: right;">2.0117188</td>
 <td style="text-align: right;">0.85</td>
 <td style="text-align: right;">1.20</td>
 </tr>
@@ -427,7 +424,7 @@ Table&nbsp;1: Settings for the 33 tuning trials. A dash means that the setting d
 <td style="text-align: right;">3500</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0.0</td>
-<td style="text-align: right;">5.1015625</td>
+<td style="text-align: right;">4.0156250</td>
 <td style="text-align: right;">0.85</td>
 <td style="text-align: right;">1.20</td>
 </tr>
@@ -439,7 +436,7 @@ Table&nbsp;1: Settings for the 33 tuning trials. A dash means that the setting d
 <td style="text-align: right;">5000</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0.0</td>
-<td style="text-align: right;">7.6718750</td>
+<td style="text-align: right;">5.7968750</td>
 <td style="text-align: right;">0.85</td>
 <td style="text-align: right;">1.20</td>
 </tr>
@@ -451,7 +448,7 @@ Table&nbsp;1: Settings for the 33 tuning trials. A dash means that the setting d
 <td style="text-align: right;">1750</td>
 <td style="text-align: right;">270</td>
 <td style="text-align: right;">0.1</td>
-<td style="text-align: right;">1.6437500</td>
+<td style="text-align: right;">1.6000000</td>
 <td style="text-align: right;">0.85</td>
 <td style="text-align: right;">1.20</td>
 </tr>
@@ -475,7 +472,7 @@ Table&nbsp;1: Settings for the 33 tuning trials. A dash means that the setting d
 <td style="text-align: right;">2000</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0.0</td>
-<td style="text-align: right;">2.1250000</td>
+<td style="text-align: right;">2.0000000</td>
 <td style="text-align: right;">0.80</td>
 <td style="text-align: right;">1.15</td>
 </tr>
@@ -487,7 +484,7 @@ Table&nbsp;1: Settings for the 33 tuning trials. A dash means that the setting d
 <td style="text-align: right;">1500</td>
 <td style="text-align: right;">270</td>
 <td style="text-align: right;">0.0</td>
-<td style="text-align: right;">1.6562500</td>
+<td style="text-align: right;">1.4062500</td>
 <td style="text-align: right;">0.85</td>
 <td style="text-align: right;">1.20</td>
 </tr>
@@ -523,7 +520,7 @@ Table&nbsp;1: Settings for the 33 tuning trials. A dash means that the setting d
 <td style="text-align: right;">1500</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0.0</td>
-<td style="text-align: right;">1.6562500</td>
+<td style="text-align: right;">1.3750000</td>
 <td style="text-align: right;">0.85</td>
 <td style="text-align: right;">1.20</td>
 </tr>
@@ -535,7 +532,7 @@ Table&nbsp;1: Settings for the 33 tuning trials. A dash means that the setting d
 <td style="text-align: right;">1750</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0.0</td>
-<td style="text-align: right;">2.1015625</td>
+<td style="text-align: right;">1.7031250</td>
 <td style="text-align: right;">0.85</td>
 <td style="text-align: right;">1.20</td>
 </tr>
@@ -547,7 +544,7 @@ Table&nbsp;1: Settings for the 33 tuning trials. A dash means that the setting d
 <td style="text-align: right;">2000</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0.0</td>
-<td style="text-align: right;">2.5468750</td>
+<td style="text-align: right;">2.1250000</td>
 <td style="text-align: right;">0.85</td>
 <td style="text-align: right;">1.20</td>
 </tr>
@@ -559,7 +556,7 @@ Table&nbsp;1: Settings for the 33 tuning trials. A dash means that the setting d
 <td style="text-align: right;">3500</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0.0</td>
-<td style="text-align: right;">4.1718750</td>
+<td style="text-align: right;">3.6718750</td>
 <td style="text-align: right;">0.85</td>
 <td style="text-align: right;">1.20</td>
 </tr>
@@ -571,7 +568,7 @@ Table&nbsp;1: Settings for the 33 tuning trials. A dash means that the setting d
 <td style="text-align: right;">2000</td>
 <td style="text-align: right;">270</td>
 <td style="text-align: right;">0.1</td>
-<td style="text-align: right;">2.3125000</td>
+<td style="text-align: right;">2.1250000</td>
 <td style="text-align: right;">0.85</td>
 <td style="text-align: right;">1.20</td>
 </tr>
@@ -583,7 +580,7 @@ Table&nbsp;1: Settings for the 33 tuning trials. A dash means that the setting d
 <td style="text-align: right;">2000</td>
 <td style="text-align: right;">270</td>
 <td style="text-align: right;">0.2</td>
-<td style="text-align: right;">2.2187500</td>
+<td style="text-align: right;">2.0546875</td>
 <td style="text-align: right;">0.85</td>
 <td style="text-align: right;">1.20</td>
 </tr>
@@ -595,7 +592,7 @@ Table&nbsp;1: Settings for the 33 tuning trials. A dash means that the setting d
 <td style="text-align: right;">2000</td>
 <td style="text-align: right;">270</td>
 <td style="text-align: right;">0.3</td>
-<td style="text-align: right;">2.1250000</td>
+<td style="text-align: right;">1.9843750</td>
 <td style="text-align: right;">0.85</td>
 <td style="text-align: right;">1.20</td>
 </tr>
@@ -607,7 +604,7 @@ Table&nbsp;1: Settings for the 33 tuning trials. A dash means that the setting d
 <td style="text-align: right;">1500</td>
 <td style="text-align: right;">270</td>
 <td style="text-align: right;">0.1</td>
-<td style="text-align: right;">1.7031250</td>
+<td style="text-align: right;">1.4218750</td>
 <td style="text-align: right;">0.85</td>
 <td style="text-align: right;">1.20</td>
 </tr>
@@ -619,7 +616,7 @@ Table&nbsp;1: Settings for the 33 tuning trials. A dash means that the setting d
 <td style="text-align: right;">1500</td>
 <td style="text-align: right;">270</td>
 <td style="text-align: right;">0.2</td>
-<td style="text-align: right;">1.7500000</td>
+<td style="text-align: right;">1.4453125</td>
 <td style="text-align: right;">0.85</td>
 <td style="text-align: right;">1.20</td>
 </tr>
@@ -631,7 +628,7 @@ Table&nbsp;1: Settings for the 33 tuning trials. A dash means that the setting d
 <td style="text-align: right;">1500</td>
 <td style="text-align: right;">270</td>
 <td style="text-align: right;">0.3</td>
-<td style="text-align: right;">1.7734375</td>
+<td style="text-align: right;">1.4687500</td>
 <td style="text-align: right;">0.85</td>
 <td style="text-align: right;">1.20</td>
 </tr>
@@ -643,7 +640,7 @@ Table&nbsp;1: Settings for the 33 tuning trials. A dash means that the setting d
 <td style="text-align: right;">1500</td>
 <td style="text-align: right;">270</td>
 <td style="text-align: right;">0.1</td>
-<td style="text-align: right;">1.7968750</td>
+<td style="text-align: right;">1.4921875</td>
 <td style="text-align: right;">0.85</td>
 <td style="text-align: right;">1.20</td>
 </tr>
@@ -655,7 +652,7 @@ Table&nbsp;1: Settings for the 33 tuning trials. A dash means that the setting d
 <td style="text-align: right;">2000</td>
 <td style="text-align: right;">270</td>
 <td style="text-align: right;">0.1</td>
-<td style="text-align: right;">2.3125000</td>
+<td style="text-align: right;">2.2187500</td>
 <td style="text-align: right;">0.85</td>
 <td style="text-align: right;">1.20</td>
 </tr>
@@ -667,7 +664,7 @@ Table&nbsp;1: Settings for the 33 tuning trials. A dash means that the setting d
 <td style="text-align: right;">1500</td>
 <td style="text-align: right;">270</td>
 <td style="text-align: right;">0.1</td>
-<td style="text-align: right;">0.3700195</td>
+<td style="text-align: right;">0.3410889</td>
 <td style="text-align: right;">0.85</td>
 <td style="text-align: right;">1.20</td>
 </tr>
@@ -679,7 +676,7 @@ Table&nbsp;1: Settings for the 33 tuning trials. A dash means that the setting d
 <td style="text-align: right;">2000</td>
 <td style="text-align: right;">270</td>
 <td style="text-align: right;">0.1</td>
-<td style="text-align: right;">0.4703125</td>
+<td style="text-align: right;">0.4548828</td>
 <td style="text-align: right;">0.85</td>
 <td style="text-align: right;">1.20</td>
 </tr>
@@ -691,7 +688,7 @@ Table&nbsp;1: Settings for the 33 tuning trials. A dash means that the setting d
 <td style="text-align: right;">1500</td>
 <td style="text-align: right;">270</td>
 <td style="text-align: right;">0.1</td>
-<td style="text-align: right;">0.3700195</td>
+<td style="text-align: right;">0.3353027</td>
 <td style="text-align: right;">0.85</td>
 <td style="text-align: right;">1.20</td>
 </tr>
@@ -703,7 +700,7 @@ Table&nbsp;1: Settings for the 33 tuning trials. A dash means that the setting d
 <td style="text-align: right;">2000</td>
 <td style="text-align: right;">270</td>
 <td style="text-align: right;">0.1</td>
-<td style="text-align: right;">0.4703125</td>
+<td style="text-align: right;">0.4625977</td>
 <td style="text-align: right;">0.85</td>
 <td style="text-align: right;">1.20</td>
 </tr>
@@ -715,7 +712,7 @@ Table&nbsp;1: Settings for the 33 tuning trials. A dash means that the setting d
 <td style="text-align: right;">2000</td>
 <td style="text-align: right;">270</td>
 <td style="text-align: right;">0.1</td>
-<td style="text-align: right;">2.2500000</td>
+<td style="text-align: right;">2.0937500</td>
 <td style="text-align: right;">0.85</td>
 <td style="text-align: right;">1.20</td>
 </tr>
@@ -727,7 +724,7 @@ Table&nbsp;1: Settings for the 33 tuning trials. A dash means that the setting d
 <td style="text-align: right;">1500</td>
 <td style="text-align: right;">270</td>
 <td style="text-align: right;">0.1</td>
-<td style="text-align: right;">1.7031250</td>
+<td style="text-align: right;">1.3750000</td>
 <td style="text-align: right;">0.85</td>
 <td style="text-align: right;">1.20</td>
 </tr>
@@ -739,7 +736,7 @@ Table&nbsp;1: Settings for the 33 tuning trials. A dash means that the setting d
 <td style="text-align: right;">2000</td>
 <td style="text-align: right;">270</td>
 <td style="text-align: right;">0.1</td>
-<td style="text-align: right;">2.3125000</td>
+<td style="text-align: right;">3.0625000</td>
 <td style="text-align: right;">0.80</td>
 <td style="text-align: right;">1.15</td>
 </tr>
@@ -751,57 +748,9 @@ Table&nbsp;1: Settings for the 33 tuning trials. A dash means that the setting d
 <td style="text-align: right;">1500</td>
 <td style="text-align: right;">270</td>
 <td style="text-align: right;">0.1</td>
-<td style="text-align: right;">1.6562500</td>
+<td style="text-align: right;">1.9140625</td>
 <td style="text-align: right;">0.80</td>
 <td style="text-align: right;">1.15</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">MP45</td>
-<td style="text-align: left;">Hockeystick</td>
-<td style="text-align: left;">all.idx</td>
-<td style="text-align: left;">mean</td>
-<td style="text-align: right;">2000</td>
-<td style="text-align: right;">270</td>
-<td style="text-align: right;">0.1</td>
-<td style="text-align: right;">2.3125000</td>
-<td style="text-align: right;">0.85</td>
-<td style="text-align: right;">1.15</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">MP46</td>
-<td style="text-align: left;">Powerramp</td>
-<td style="text-align: left;">all.idx</td>
-<td style="text-align: left;">mean</td>
-<td style="text-align: right;">1500</td>
-<td style="text-align: right;">270</td>
-<td style="text-align: right;">0.1</td>
-<td style="text-align: right;">1.6796875</td>
-<td style="text-align: right;">0.85</td>
-<td style="text-align: right;">1.15</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">MP47</td>
-<td style="text-align: left;">Hockeystick</td>
-<td style="text-align: left;">all.idx</td>
-<td style="text-align: left;">mean</td>
-<td style="text-align: right;">2000</td>
-<td style="text-align: right;">270</td>
-<td style="text-align: right;">0.1</td>
-<td style="text-align: right;">2.3125000</td>
-<td style="text-align: right;">0.70</td>
-<td style="text-align: right;">1.20</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">MP48</td>
-<td style="text-align: left;">Powerramp</td>
-<td style="text-align: left;">all.idx</td>
-<td style="text-align: left;">mean</td>
-<td style="text-align: right;">1500</td>
-<td style="text-align: right;">270</td>
-<td style="text-align: right;">0.1</td>
-<td style="text-align: right;">1.6093750</td>
-<td style="text-align: right;">0.70</td>
-<td style="text-align: right;">1.20</td>
 </tr>
 </tbody>
 </table>
@@ -813,12 +762,12 @@ Table&nbsp;1: Settings for the 33 tuning trials. A dash means that the setting d
 </section>
 <section id="robustness-runs" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="robustness-runs"><span class="header-section-number">2</span> Robustness runs</h2>
-<p>The focused control table applies the eight current CMPs to nine alternative operating models. Each row below identifies one procedure–operating-model combination.</p>
+<p>The focused control table applies MP29, MP32, MP43, and MP44 to nine alternative operating models. Each row below identifies one procedure–operating-model combination. The combined Slick file also includes the other six comparison cases across these operating models.</p>
 <div class="cell">
 <div id="tbl-robustness-controls" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-robustness-controls-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;2: Eight-CMP robustness runs by operating model.
+Table&nbsp;2: MP29, MP32, MP43, and MP44 robustness runs by operating model.
 </figcaption>
 <div aria-describedby="tbl-robustness-controls-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
@@ -849,72 +798,6 @@ Table&nbsp;2: Eight-CMP robustness runs by operating model.
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">tun29_om12</td>
-<td style="text-align: left;">MP29</td>
-<td style="text-align: left;">om12</td>
-<td style="text-align: left;">Hockeystick</td>
-<td style="text-align: left;">all.idx</td>
-<td style="text-align: right;">2000</td>
-<td style="text-align: right;">270</td>
-<td style="text-align: right;">0.1</td>
-<td style="text-align: right;">2.312500</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">tun29_om13</td>
-<td style="text-align: left;">MP29</td>
-<td style="text-align: left;">om13</td>
-<td style="text-align: left;">Hockeystick</td>
-<td style="text-align: left;">all.idx</td>
-<td style="text-align: right;">2000</td>
-<td style="text-align: right;">270</td>
-<td style="text-align: right;">0.1</td>
-<td style="text-align: right;">2.312500</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">tun29_om21</td>
-<td style="text-align: left;">MP29</td>
-<td style="text-align: left;">om21</td>
-<td style="text-align: left;">Hockeystick</td>
-<td style="text-align: left;">all.idx</td>
-<td style="text-align: right;">2000</td>
-<td style="text-align: right;">270</td>
-<td style="text-align: right;">0.1</td>
-<td style="text-align: right;">2.312500</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">tun29_om22</td>
-<td style="text-align: left;">MP29</td>
-<td style="text-align: left;">om22</td>
-<td style="text-align: left;">Hockeystick</td>
-<td style="text-align: left;">all.idx</td>
-<td style="text-align: right;">2000</td>
-<td style="text-align: right;">270</td>
-<td style="text-align: right;">0.1</td>
-<td style="text-align: right;">2.312500</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">tun29_om23</td>
-<td style="text-align: left;">MP29</td>
-<td style="text-align: left;">om23</td>
-<td style="text-align: left;">Hockeystick</td>
-<td style="text-align: left;">all.idx</td>
-<td style="text-align: right;">2000</td>
-<td style="text-align: right;">270</td>
-<td style="text-align: right;">0.1</td>
-<td style="text-align: right;">2.312500</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">tun29_om21_1</td>
-<td style="text-align: left;">MP29</td>
-<td style="text-align: left;">om21_1</td>
-<td style="text-align: left;">Hockeystick</td>
-<td style="text-align: left;">all.idx</td>
-<td style="text-align: right;">2000</td>
-<td style="text-align: right;">270</td>
-<td style="text-align: right;">0.1</td>
-<td style="text-align: right;">2.312500</td>
-</tr>
-<tr class="odd">
 <td style="text-align: left;">tun29_om11_1</td>
 <td style="text-align: left;">MP29</td>
 <td style="text-align: left;">om11_1</td>
@@ -923,95 +806,7 @@ Table&nbsp;2: Eight-CMP robustness runs by operating model.
 <td style="text-align: right;">2000</td>
 <td style="text-align: right;">270</td>
 <td style="text-align: right;">0.1</td>
-<td style="text-align: right;">2.312500</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">tun29_om11_2</td>
-<td style="text-align: left;">MP29</td>
-<td style="text-align: left;">om11_2</td>
-<td style="text-align: left;">Hockeystick</td>
-<td style="text-align: left;">all.idx</td>
-<td style="text-align: right;">2000</td>
-<td style="text-align: right;">270</td>
-<td style="text-align: right;">0.1</td>
-<td style="text-align: right;">2.312500</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">tun29_om11_3</td>
-<td style="text-align: left;">MP29</td>
-<td style="text-align: left;">om11_3</td>
-<td style="text-align: left;">Hockeystick</td>
-<td style="text-align: left;">all.idx</td>
-<td style="text-align: right;">2000</td>
-<td style="text-align: right;">270</td>
-<td style="text-align: right;">0.1</td>
-<td style="text-align: right;">2.312500</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">tun32_om12</td>
-<td style="text-align: left;">MP32</td>
-<td style="text-align: left;">om12</td>
-<td style="text-align: left;">Powerramp</td>
-<td style="text-align: left;">all.idx</td>
-<td style="text-align: right;">1500</td>
-<td style="text-align: right;">270</td>
-<td style="text-align: right;">0.1</td>
-<td style="text-align: right;">1.703125</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">tun32_om13</td>
-<td style="text-align: left;">MP32</td>
-<td style="text-align: left;">om13</td>
-<td style="text-align: left;">Powerramp</td>
-<td style="text-align: left;">all.idx</td>
-<td style="text-align: right;">1500</td>
-<td style="text-align: right;">270</td>
-<td style="text-align: right;">0.1</td>
-<td style="text-align: right;">1.703125</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">tun32_om21</td>
-<td style="text-align: left;">MP32</td>
-<td style="text-align: left;">om21</td>
-<td style="text-align: left;">Powerramp</td>
-<td style="text-align: left;">all.idx</td>
-<td style="text-align: right;">1500</td>
-<td style="text-align: right;">270</td>
-<td style="text-align: right;">0.1</td>
-<td style="text-align: right;">1.703125</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">tun32_om22</td>
-<td style="text-align: left;">MP32</td>
-<td style="text-align: left;">om22</td>
-<td style="text-align: left;">Powerramp</td>
-<td style="text-align: left;">all.idx</td>
-<td style="text-align: right;">1500</td>
-<td style="text-align: right;">270</td>
-<td style="text-align: right;">0.1</td>
-<td style="text-align: right;">1.703125</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">tun32_om23</td>
-<td style="text-align: left;">MP32</td>
-<td style="text-align: left;">om23</td>
-<td style="text-align: left;">Powerramp</td>
-<td style="text-align: left;">all.idx</td>
-<td style="text-align: right;">1500</td>
-<td style="text-align: right;">270</td>
-<td style="text-align: right;">0.1</td>
-<td style="text-align: right;">1.703125</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">tun32_om21_1</td>
-<td style="text-align: left;">MP32</td>
-<td style="text-align: left;">om21_1</td>
-<td style="text-align: left;">Powerramp</td>
-<td style="text-align: left;">all.idx</td>
-<td style="text-align: right;">1500</td>
-<td style="text-align: right;">270</td>
-<td style="text-align: right;">0.1</td>
-<td style="text-align: right;">1.703125</td>
+<td style="text-align: right;">2.125000</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">tun32_om11_1</td>
@@ -1022,9 +817,20 @@ Table&nbsp;2: Eight-CMP robustness runs by operating model.
 <td style="text-align: right;">1500</td>
 <td style="text-align: right;">270</td>
 <td style="text-align: right;">0.1</td>
-<td style="text-align: right;">1.703125</td>
+<td style="text-align: right;">1.421875</td>
 </tr>
 <tr class="odd">
+<td style="text-align: left;">tun29_om11_2</td>
+<td style="text-align: left;">MP29</td>
+<td style="text-align: left;">om11_2</td>
+<td style="text-align: left;">Hockeystick</td>
+<td style="text-align: left;">all.idx</td>
+<td style="text-align: right;">2000</td>
+<td style="text-align: right;">270</td>
+<td style="text-align: right;">0.1</td>
+<td style="text-align: right;">2.125000</td>
+</tr>
+<tr class="even">
 <td style="text-align: left;">tun32_om11_2</td>
 <td style="text-align: left;">MP32</td>
 <td style="text-align: left;">om11_2</td>
@@ -1033,7 +839,18 @@ Table&nbsp;2: Eight-CMP robustness runs by operating model.
 <td style="text-align: right;">1500</td>
 <td style="text-align: right;">270</td>
 <td style="text-align: right;">0.1</td>
-<td style="text-align: right;">1.703125</td>
+<td style="text-align: right;">1.421875</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">tun29_om11_3</td>
+<td style="text-align: left;">MP29</td>
+<td style="text-align: left;">om11_3</td>
+<td style="text-align: left;">Hockeystick</td>
+<td style="text-align: left;">all.idx</td>
+<td style="text-align: right;">2000</td>
+<td style="text-align: right;">270</td>
+<td style="text-align: right;">0.1</td>
+<td style="text-align: right;">2.125000</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">tun32_om11_3</td>
@@ -1044,73 +861,139 @@ Table&nbsp;2: Eight-CMP robustness runs by operating model.
 <td style="text-align: right;">1500</td>
 <td style="text-align: right;">270</td>
 <td style="text-align: right;">0.1</td>
-<td style="text-align: right;">1.703125</td>
+<td style="text-align: right;">1.421875</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">tun43_om12</td>
-<td style="text-align: left;">MP43</td>
+<td style="text-align: left;">tun29_om12</td>
+<td style="text-align: left;">MP29</td>
 <td style="text-align: left;">om12</td>
 <td style="text-align: left;">Hockeystick</td>
 <td style="text-align: left;">all.idx</td>
 <td style="text-align: right;">2000</td>
 <td style="text-align: right;">270</td>
 <td style="text-align: right;">0.1</td>
-<td style="text-align: right;">2.312500</td>
+<td style="text-align: right;">2.125000</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">tun43_om13</td>
-<td style="text-align: left;">MP43</td>
+<td style="text-align: left;">tun32_om12</td>
+<td style="text-align: left;">MP32</td>
+<td style="text-align: left;">om12</td>
+<td style="text-align: left;">Powerramp</td>
+<td style="text-align: left;">all.idx</td>
+<td style="text-align: right;">1500</td>
+<td style="text-align: right;">270</td>
+<td style="text-align: right;">0.1</td>
+<td style="text-align: right;">1.421875</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">tun29_om13</td>
+<td style="text-align: left;">MP29</td>
 <td style="text-align: left;">om13</td>
 <td style="text-align: left;">Hockeystick</td>
 <td style="text-align: left;">all.idx</td>
 <td style="text-align: right;">2000</td>
 <td style="text-align: right;">270</td>
 <td style="text-align: right;">0.1</td>
-<td style="text-align: right;">2.312500</td>
+<td style="text-align: right;">2.125000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">tun32_om13</td>
+<td style="text-align: left;">MP32</td>
+<td style="text-align: left;">om13</td>
+<td style="text-align: left;">Powerramp</td>
+<td style="text-align: left;">all.idx</td>
+<td style="text-align: right;">1500</td>
+<td style="text-align: right;">270</td>
+<td style="text-align: right;">0.1</td>
+<td style="text-align: right;">1.421875</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">tun43_om21</td>
-<td style="text-align: left;">MP43</td>
+<td style="text-align: left;">tun29_om21</td>
+<td style="text-align: left;">MP29</td>
 <td style="text-align: left;">om21</td>
 <td style="text-align: left;">Hockeystick</td>
 <td style="text-align: left;">all.idx</td>
 <td style="text-align: right;">2000</td>
 <td style="text-align: right;">270</td>
 <td style="text-align: right;">0.1</td>
-<td style="text-align: right;">2.312500</td>
+<td style="text-align: right;">2.125000</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">tun43_om22</td>
-<td style="text-align: left;">MP43</td>
-<td style="text-align: left;">om22</td>
-<td style="text-align: left;">Hockeystick</td>
+<td style="text-align: left;">tun32_om21</td>
+<td style="text-align: left;">MP32</td>
+<td style="text-align: left;">om21</td>
+<td style="text-align: left;">Powerramp</td>
 <td style="text-align: left;">all.idx</td>
-<td style="text-align: right;">2000</td>
+<td style="text-align: right;">1500</td>
 <td style="text-align: right;">270</td>
 <td style="text-align: right;">0.1</td>
-<td style="text-align: right;">2.312500</td>
+<td style="text-align: right;">1.421875</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">tun43_om23</td>
-<td style="text-align: left;">MP43</td>
-<td style="text-align: left;">om23</td>
-<td style="text-align: left;">Hockeystick</td>
-<td style="text-align: left;">all.idx</td>
-<td style="text-align: right;">2000</td>
-<td style="text-align: right;">270</td>
-<td style="text-align: right;">0.1</td>
-<td style="text-align: right;">2.312500</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">tun43_om21_1</td>
-<td style="text-align: left;">MP43</td>
+<td style="text-align: left;">tun29_om21_1</td>
+<td style="text-align: left;">MP29</td>
 <td style="text-align: left;">om21_1</td>
 <td style="text-align: left;">Hockeystick</td>
 <td style="text-align: left;">all.idx</td>
 <td style="text-align: right;">2000</td>
 <td style="text-align: right;">270</td>
 <td style="text-align: right;">0.1</td>
-<td style="text-align: right;">2.312500</td>
+<td style="text-align: right;">2.125000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">tun32_om21_1</td>
+<td style="text-align: left;">MP32</td>
+<td style="text-align: left;">om21_1</td>
+<td style="text-align: left;">Powerramp</td>
+<td style="text-align: left;">all.idx</td>
+<td style="text-align: right;">1500</td>
+<td style="text-align: right;">270</td>
+<td style="text-align: right;">0.1</td>
+<td style="text-align: right;">1.421875</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">tun29_om22</td>
+<td style="text-align: left;">MP29</td>
+<td style="text-align: left;">om22</td>
+<td style="text-align: left;">Hockeystick</td>
+<td style="text-align: left;">all.idx</td>
+<td style="text-align: right;">2000</td>
+<td style="text-align: right;">270</td>
+<td style="text-align: right;">0.1</td>
+<td style="text-align: right;">2.125000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">tun32_om22</td>
+<td style="text-align: left;">MP32</td>
+<td style="text-align: left;">om22</td>
+<td style="text-align: left;">Powerramp</td>
+<td style="text-align: left;">all.idx</td>
+<td style="text-align: right;">1500</td>
+<td style="text-align: right;">270</td>
+<td style="text-align: right;">0.1</td>
+<td style="text-align: right;">1.421875</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">tun29_om23</td>
+<td style="text-align: left;">MP29</td>
+<td style="text-align: left;">om23</td>
+<td style="text-align: left;">Hockeystick</td>
+<td style="text-align: left;">all.idx</td>
+<td style="text-align: right;">2000</td>
+<td style="text-align: right;">270</td>
+<td style="text-align: right;">0.1</td>
+<td style="text-align: right;">2.125000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">tun32_om23</td>
+<td style="text-align: left;">MP32</td>
+<td style="text-align: left;">om23</td>
+<td style="text-align: left;">Powerramp</td>
+<td style="text-align: left;">all.idx</td>
+<td style="text-align: right;">1500</td>
+<td style="text-align: right;">270</td>
+<td style="text-align: right;">0.1</td>
+<td style="text-align: right;">1.421875</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">tun43_om11_1</td>
@@ -1121,95 +1004,7 @@ Table&nbsp;2: Eight-CMP robustness runs by operating model.
 <td style="text-align: right;">2000</td>
 <td style="text-align: right;">270</td>
 <td style="text-align: right;">0.1</td>
-<td style="text-align: right;">2.312500</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">tun43_om11_2</td>
-<td style="text-align: left;">MP43</td>
-<td style="text-align: left;">om11_2</td>
-<td style="text-align: left;">Hockeystick</td>
-<td style="text-align: left;">all.idx</td>
-<td style="text-align: right;">2000</td>
-<td style="text-align: right;">270</td>
-<td style="text-align: right;">0.1</td>
-<td style="text-align: right;">2.312500</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">tun43_om11_3</td>
-<td style="text-align: left;">MP43</td>
-<td style="text-align: left;">om11_3</td>
-<td style="text-align: left;">Hockeystick</td>
-<td style="text-align: left;">all.idx</td>
-<td style="text-align: right;">2000</td>
-<td style="text-align: right;">270</td>
-<td style="text-align: right;">0.1</td>
-<td style="text-align: right;">2.312500</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">tun44_om12</td>
-<td style="text-align: left;">MP44</td>
-<td style="text-align: left;">om12</td>
-<td style="text-align: left;">Powerramp</td>
-<td style="text-align: left;">all.idx</td>
-<td style="text-align: right;">1500</td>
-<td style="text-align: right;">270</td>
-<td style="text-align: right;">0.1</td>
-<td style="text-align: right;">1.656250</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">tun44_om13</td>
-<td style="text-align: left;">MP44</td>
-<td style="text-align: left;">om13</td>
-<td style="text-align: left;">Powerramp</td>
-<td style="text-align: left;">all.idx</td>
-<td style="text-align: right;">1500</td>
-<td style="text-align: right;">270</td>
-<td style="text-align: right;">0.1</td>
-<td style="text-align: right;">1.656250</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">tun44_om21</td>
-<td style="text-align: left;">MP44</td>
-<td style="text-align: left;">om21</td>
-<td style="text-align: left;">Powerramp</td>
-<td style="text-align: left;">all.idx</td>
-<td style="text-align: right;">1500</td>
-<td style="text-align: right;">270</td>
-<td style="text-align: right;">0.1</td>
-<td style="text-align: right;">1.656250</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">tun44_om22</td>
-<td style="text-align: left;">MP44</td>
-<td style="text-align: left;">om22</td>
-<td style="text-align: left;">Powerramp</td>
-<td style="text-align: left;">all.idx</td>
-<td style="text-align: right;">1500</td>
-<td style="text-align: right;">270</td>
-<td style="text-align: right;">0.1</td>
-<td style="text-align: right;">1.656250</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">tun44_om23</td>
-<td style="text-align: left;">MP44</td>
-<td style="text-align: left;">om23</td>
-<td style="text-align: left;">Powerramp</td>
-<td style="text-align: left;">all.idx</td>
-<td style="text-align: right;">1500</td>
-<td style="text-align: right;">270</td>
-<td style="text-align: right;">0.1</td>
-<td style="text-align: right;">1.656250</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">tun44_om21_1</td>
-<td style="text-align: left;">MP44</td>
-<td style="text-align: left;">om21_1</td>
-<td style="text-align: left;">Powerramp</td>
-<td style="text-align: left;">all.idx</td>
-<td style="text-align: right;">1500</td>
-<td style="text-align: right;">270</td>
-<td style="text-align: right;">0.1</td>
-<td style="text-align: right;">1.656250</td>
+<td style="text-align: right;">3.062500</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">tun44_om11_1</td>
@@ -1220,9 +1015,20 @@ Table&nbsp;2: Eight-CMP robustness runs by operating model.
 <td style="text-align: right;">1500</td>
 <td style="text-align: right;">270</td>
 <td style="text-align: right;">0.1</td>
-<td style="text-align: right;">1.656250</td>
+<td style="text-align: right;">1.914062</td>
 </tr>
 <tr class="odd">
+<td style="text-align: left;">tun43_om11_2</td>
+<td style="text-align: left;">MP43</td>
+<td style="text-align: left;">om11_2</td>
+<td style="text-align: left;">Hockeystick</td>
+<td style="text-align: left;">all.idx</td>
+<td style="text-align: right;">2000</td>
+<td style="text-align: right;">270</td>
+<td style="text-align: right;">0.1</td>
+<td style="text-align: right;">3.062500</td>
+</tr>
+<tr class="even">
 <td style="text-align: left;">tun44_om11_2</td>
 <td style="text-align: left;">MP44</td>
 <td style="text-align: left;">om11_2</td>
@@ -1231,7 +1037,18 @@ Table&nbsp;2: Eight-CMP robustness runs by operating model.
 <td style="text-align: right;">1500</td>
 <td style="text-align: right;">270</td>
 <td style="text-align: right;">0.1</td>
-<td style="text-align: right;">1.656250</td>
+<td style="text-align: right;">1.914062</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">tun43_om11_3</td>
+<td style="text-align: left;">MP43</td>
+<td style="text-align: left;">om11_3</td>
+<td style="text-align: left;">Hockeystick</td>
+<td style="text-align: left;">all.idx</td>
+<td style="text-align: right;">2000</td>
+<td style="text-align: right;">270</td>
+<td style="text-align: right;">0.1</td>
+<td style="text-align: right;">3.062500</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">tun44_om11_3</td>
@@ -1242,403 +1059,139 @@ Table&nbsp;2: Eight-CMP robustness runs by operating model.
 <td style="text-align: right;">1500</td>
 <td style="text-align: right;">270</td>
 <td style="text-align: right;">0.1</td>
-<td style="text-align: right;">1.656250</td>
+<td style="text-align: right;">1.914062</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">tun45_om12</td>
-<td style="text-align: left;">MP45</td>
+<td style="text-align: left;">tun43_om12</td>
+<td style="text-align: left;">MP43</td>
 <td style="text-align: left;">om12</td>
 <td style="text-align: left;">Hockeystick</td>
 <td style="text-align: left;">all.idx</td>
 <td style="text-align: right;">2000</td>
 <td style="text-align: right;">270</td>
 <td style="text-align: right;">0.1</td>
-<td style="text-align: right;">2.312500</td>
+<td style="text-align: right;">3.062500</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">tun45_om13</td>
-<td style="text-align: left;">MP45</td>
-<td style="text-align: left;">om13</td>
-<td style="text-align: left;">Hockeystick</td>
-<td style="text-align: left;">all.idx</td>
-<td style="text-align: right;">2000</td>
-<td style="text-align: right;">270</td>
-<td style="text-align: right;">0.1</td>
-<td style="text-align: right;">2.312500</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">tun45_om21</td>
-<td style="text-align: left;">MP45</td>
-<td style="text-align: left;">om21</td>
-<td style="text-align: left;">Hockeystick</td>
-<td style="text-align: left;">all.idx</td>
-<td style="text-align: right;">2000</td>
-<td style="text-align: right;">270</td>
-<td style="text-align: right;">0.1</td>
-<td style="text-align: right;">2.312500</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">tun45_om22</td>
-<td style="text-align: left;">MP45</td>
-<td style="text-align: left;">om22</td>
-<td style="text-align: left;">Hockeystick</td>
-<td style="text-align: left;">all.idx</td>
-<td style="text-align: right;">2000</td>
-<td style="text-align: right;">270</td>
-<td style="text-align: right;">0.1</td>
-<td style="text-align: right;">2.312500</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">tun45_om23</td>
-<td style="text-align: left;">MP45</td>
-<td style="text-align: left;">om23</td>
-<td style="text-align: left;">Hockeystick</td>
-<td style="text-align: left;">all.idx</td>
-<td style="text-align: right;">2000</td>
-<td style="text-align: right;">270</td>
-<td style="text-align: right;">0.1</td>
-<td style="text-align: right;">2.312500</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">tun45_om21_1</td>
-<td style="text-align: left;">MP45</td>
-<td style="text-align: left;">om21_1</td>
-<td style="text-align: left;">Hockeystick</td>
-<td style="text-align: left;">all.idx</td>
-<td style="text-align: right;">2000</td>
-<td style="text-align: right;">270</td>
-<td style="text-align: right;">0.1</td>
-<td style="text-align: right;">2.312500</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">tun45_om11_1</td>
-<td style="text-align: left;">MP45</td>
-<td style="text-align: left;">om11_1</td>
-<td style="text-align: left;">Hockeystick</td>
-<td style="text-align: left;">all.idx</td>
-<td style="text-align: right;">2000</td>
-<td style="text-align: right;">270</td>
-<td style="text-align: right;">0.1</td>
-<td style="text-align: right;">2.312500</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">tun45_om11_2</td>
-<td style="text-align: left;">MP45</td>
-<td style="text-align: left;">om11_2</td>
-<td style="text-align: left;">Hockeystick</td>
-<td style="text-align: left;">all.idx</td>
-<td style="text-align: right;">2000</td>
-<td style="text-align: right;">270</td>
-<td style="text-align: right;">0.1</td>
-<td style="text-align: right;">2.312500</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">tun45_om11_3</td>
-<td style="text-align: left;">MP45</td>
-<td style="text-align: left;">om11_3</td>
-<td style="text-align: left;">Hockeystick</td>
-<td style="text-align: left;">all.idx</td>
-<td style="text-align: right;">2000</td>
-<td style="text-align: right;">270</td>
-<td style="text-align: right;">0.1</td>
-<td style="text-align: right;">2.312500</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">tun46_om12</td>
-<td style="text-align: left;">MP46</td>
+<td style="text-align: left;">tun44_om12</td>
+<td style="text-align: left;">MP44</td>
 <td style="text-align: left;">om12</td>
 <td style="text-align: left;">Powerramp</td>
 <td style="text-align: left;">all.idx</td>
 <td style="text-align: right;">1500</td>
 <td style="text-align: right;">270</td>
 <td style="text-align: right;">0.1</td>
-<td style="text-align: right;">1.679688</td>
+<td style="text-align: right;">1.914062</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">tun46_om13</td>
-<td style="text-align: left;">MP46</td>
-<td style="text-align: left;">om13</td>
-<td style="text-align: left;">Powerramp</td>
-<td style="text-align: left;">all.idx</td>
-<td style="text-align: right;">1500</td>
-<td style="text-align: right;">270</td>
-<td style="text-align: right;">0.1</td>
-<td style="text-align: right;">1.679688</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">tun46_om21</td>
-<td style="text-align: left;">MP46</td>
-<td style="text-align: left;">om21</td>
-<td style="text-align: left;">Powerramp</td>
-<td style="text-align: left;">all.idx</td>
-<td style="text-align: right;">1500</td>
-<td style="text-align: right;">270</td>
-<td style="text-align: right;">0.1</td>
-<td style="text-align: right;">1.679688</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">tun46_om22</td>
-<td style="text-align: left;">MP46</td>
-<td style="text-align: left;">om22</td>
-<td style="text-align: left;">Powerramp</td>
-<td style="text-align: left;">all.idx</td>
-<td style="text-align: right;">1500</td>
-<td style="text-align: right;">270</td>
-<td style="text-align: right;">0.1</td>
-<td style="text-align: right;">1.679688</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">tun46_om23</td>
-<td style="text-align: left;">MP46</td>
-<td style="text-align: left;">om23</td>
-<td style="text-align: left;">Powerramp</td>
-<td style="text-align: left;">all.idx</td>
-<td style="text-align: right;">1500</td>
-<td style="text-align: right;">270</td>
-<td style="text-align: right;">0.1</td>
-<td style="text-align: right;">1.679688</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">tun46_om21_1</td>
-<td style="text-align: left;">MP46</td>
-<td style="text-align: left;">om21_1</td>
-<td style="text-align: left;">Powerramp</td>
-<td style="text-align: left;">all.idx</td>
-<td style="text-align: right;">1500</td>
-<td style="text-align: right;">270</td>
-<td style="text-align: right;">0.1</td>
-<td style="text-align: right;">1.679688</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">tun46_om11_1</td>
-<td style="text-align: left;">MP46</td>
-<td style="text-align: left;">om11_1</td>
-<td style="text-align: left;">Powerramp</td>
-<td style="text-align: left;">all.idx</td>
-<td style="text-align: right;">1500</td>
-<td style="text-align: right;">270</td>
-<td style="text-align: right;">0.1</td>
-<td style="text-align: right;">1.679688</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">tun46_om11_2</td>
-<td style="text-align: left;">MP46</td>
-<td style="text-align: left;">om11_2</td>
-<td style="text-align: left;">Powerramp</td>
-<td style="text-align: left;">all.idx</td>
-<td style="text-align: right;">1500</td>
-<td style="text-align: right;">270</td>
-<td style="text-align: right;">0.1</td>
-<td style="text-align: right;">1.679688</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">tun46_om11_3</td>
-<td style="text-align: left;">MP46</td>
-<td style="text-align: left;">om11_3</td>
-<td style="text-align: left;">Powerramp</td>
-<td style="text-align: left;">all.idx</td>
-<td style="text-align: right;">1500</td>
-<td style="text-align: right;">270</td>
-<td style="text-align: right;">0.1</td>
-<td style="text-align: right;">1.679688</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">tun47_om12</td>
-<td style="text-align: left;">MP47</td>
-<td style="text-align: left;">om12</td>
-<td style="text-align: left;">Hockeystick</td>
-<td style="text-align: left;">all.idx</td>
-<td style="text-align: right;">2000</td>
-<td style="text-align: right;">270</td>
-<td style="text-align: right;">0.1</td>
-<td style="text-align: right;">2.312500</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">tun47_om13</td>
-<td style="text-align: left;">MP47</td>
+<td style="text-align: left;">tun43_om13</td>
+<td style="text-align: left;">MP43</td>
 <td style="text-align: left;">om13</td>
 <td style="text-align: left;">Hockeystick</td>
 <td style="text-align: left;">all.idx</td>
 <td style="text-align: right;">2000</td>
 <td style="text-align: right;">270</td>
 <td style="text-align: right;">0.1</td>
-<td style="text-align: right;">2.312500</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">tun47_om21</td>
-<td style="text-align: left;">MP47</td>
-<td style="text-align: left;">om21</td>
-<td style="text-align: left;">Hockeystick</td>
-<td style="text-align: left;">all.idx</td>
-<td style="text-align: right;">2000</td>
-<td style="text-align: right;">270</td>
-<td style="text-align: right;">0.1</td>
-<td style="text-align: right;">2.312500</td>
+<td style="text-align: right;">3.062500</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">tun47_om22</td>
-<td style="text-align: left;">MP47</td>
-<td style="text-align: left;">om22</td>
-<td style="text-align: left;">Hockeystick</td>
-<td style="text-align: left;">all.idx</td>
-<td style="text-align: right;">2000</td>
-<td style="text-align: right;">270</td>
-<td style="text-align: right;">0.1</td>
-<td style="text-align: right;">2.312500</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">tun47_om23</td>
-<td style="text-align: left;">MP47</td>
-<td style="text-align: left;">om23</td>
-<td style="text-align: left;">Hockeystick</td>
-<td style="text-align: left;">all.idx</td>
-<td style="text-align: right;">2000</td>
-<td style="text-align: right;">270</td>
-<td style="text-align: right;">0.1</td>
-<td style="text-align: right;">2.312500</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">tun47_om21_1</td>
-<td style="text-align: left;">MP47</td>
-<td style="text-align: left;">om21_1</td>
-<td style="text-align: left;">Hockeystick</td>
-<td style="text-align: left;">all.idx</td>
-<td style="text-align: right;">2000</td>
-<td style="text-align: right;">270</td>
-<td style="text-align: right;">0.1</td>
-<td style="text-align: right;">2.312500</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">tun47_om11_1</td>
-<td style="text-align: left;">MP47</td>
-<td style="text-align: left;">om11_1</td>
-<td style="text-align: left;">Hockeystick</td>
-<td style="text-align: left;">all.idx</td>
-<td style="text-align: right;">2000</td>
-<td style="text-align: right;">270</td>
-<td style="text-align: right;">0.1</td>
-<td style="text-align: right;">2.312500</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">tun47_om11_2</td>
-<td style="text-align: left;">MP47</td>
-<td style="text-align: left;">om11_2</td>
-<td style="text-align: left;">Hockeystick</td>
-<td style="text-align: left;">all.idx</td>
-<td style="text-align: right;">2000</td>
-<td style="text-align: right;">270</td>
-<td style="text-align: right;">0.1</td>
-<td style="text-align: right;">2.312500</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">tun47_om11_3</td>
-<td style="text-align: left;">MP47</td>
-<td style="text-align: left;">om11_3</td>
-<td style="text-align: left;">Hockeystick</td>
-<td style="text-align: left;">all.idx</td>
-<td style="text-align: right;">2000</td>
-<td style="text-align: right;">270</td>
-<td style="text-align: right;">0.1</td>
-<td style="text-align: right;">2.312500</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">tun48_om12</td>
-<td style="text-align: left;">MP48</td>
-<td style="text-align: left;">om12</td>
-<td style="text-align: left;">Powerramp</td>
-<td style="text-align: left;">all.idx</td>
-<td style="text-align: right;">1500</td>
-<td style="text-align: right;">270</td>
-<td style="text-align: right;">0.1</td>
-<td style="text-align: right;">1.609375</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">tun48_om13</td>
-<td style="text-align: left;">MP48</td>
+<td style="text-align: left;">tun44_om13</td>
+<td style="text-align: left;">MP44</td>
 <td style="text-align: left;">om13</td>
 <td style="text-align: left;">Powerramp</td>
 <td style="text-align: left;">all.idx</td>
 <td style="text-align: right;">1500</td>
 <td style="text-align: right;">270</td>
 <td style="text-align: right;">0.1</td>
-<td style="text-align: right;">1.609375</td>
+<td style="text-align: right;">1.914062</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">tun43_om21</td>
+<td style="text-align: left;">MP43</td>
+<td style="text-align: left;">om21</td>
+<td style="text-align: left;">Hockeystick</td>
+<td style="text-align: left;">all.idx</td>
+<td style="text-align: right;">2000</td>
+<td style="text-align: right;">270</td>
+<td style="text-align: right;">0.1</td>
+<td style="text-align: right;">3.062500</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">tun48_om21</td>
-<td style="text-align: left;">MP48</td>
+<td style="text-align: left;">tun44_om21</td>
+<td style="text-align: left;">MP44</td>
 <td style="text-align: left;">om21</td>
 <td style="text-align: left;">Powerramp</td>
 <td style="text-align: left;">all.idx</td>
 <td style="text-align: right;">1500</td>
 <td style="text-align: right;">270</td>
 <td style="text-align: right;">0.1</td>
-<td style="text-align: right;">1.609375</td>
+<td style="text-align: right;">1.914062</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">tun48_om22</td>
-<td style="text-align: left;">MP48</td>
-<td style="text-align: left;">om22</td>
-<td style="text-align: left;">Powerramp</td>
+<td style="text-align: left;">tun43_om21_1</td>
+<td style="text-align: left;">MP43</td>
+<td style="text-align: left;">om21_1</td>
+<td style="text-align: left;">Hockeystick</td>
 <td style="text-align: left;">all.idx</td>
-<td style="text-align: right;">1500</td>
+<td style="text-align: right;">2000</td>
 <td style="text-align: right;">270</td>
 <td style="text-align: right;">0.1</td>
-<td style="text-align: right;">1.609375</td>
+<td style="text-align: right;">3.062500</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">tun48_om23</td>
-<td style="text-align: left;">MP48</td>
-<td style="text-align: left;">om23</td>
-<td style="text-align: left;">Powerramp</td>
-<td style="text-align: left;">all.idx</td>
-<td style="text-align: right;">1500</td>
-<td style="text-align: right;">270</td>
-<td style="text-align: right;">0.1</td>
-<td style="text-align: right;">1.609375</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">tun48_om21_1</td>
-<td style="text-align: left;">MP48</td>
+<td style="text-align: left;">tun44_om21_1</td>
+<td style="text-align: left;">MP44</td>
 <td style="text-align: left;">om21_1</td>
 <td style="text-align: left;">Powerramp</td>
 <td style="text-align: left;">all.idx</td>
 <td style="text-align: right;">1500</td>
 <td style="text-align: right;">270</td>
 <td style="text-align: right;">0.1</td>
-<td style="text-align: right;">1.609375</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">tun48_om11_1</td>
-<td style="text-align: left;">MP48</td>
-<td style="text-align: left;">om11_1</td>
-<td style="text-align: left;">Powerramp</td>
-<td style="text-align: left;">all.idx</td>
-<td style="text-align: right;">1500</td>
-<td style="text-align: right;">270</td>
-<td style="text-align: right;">0.1</td>
-<td style="text-align: right;">1.609375</td>
+<td style="text-align: right;">1.914062</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">tun48_om11_2</td>
-<td style="text-align: left;">MP48</td>
-<td style="text-align: left;">om11_2</td>
-<td style="text-align: left;">Powerramp</td>
+<td style="text-align: left;">tun43_om22</td>
+<td style="text-align: left;">MP43</td>
+<td style="text-align: left;">om22</td>
+<td style="text-align: left;">Hockeystick</td>
 <td style="text-align: left;">all.idx</td>
-<td style="text-align: right;">1500</td>
+<td style="text-align: right;">2000</td>
 <td style="text-align: right;">270</td>
 <td style="text-align: right;">0.1</td>
-<td style="text-align: right;">1.609375</td>
+<td style="text-align: right;">3.062500</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">tun48_om11_3</td>
-<td style="text-align: left;">MP48</td>
-<td style="text-align: left;">om11_3</td>
+<td style="text-align: left;">tun44_om22</td>
+<td style="text-align: left;">MP44</td>
+<td style="text-align: left;">om22</td>
 <td style="text-align: left;">Powerramp</td>
 <td style="text-align: left;">all.idx</td>
 <td style="text-align: right;">1500</td>
 <td style="text-align: right;">270</td>
 <td style="text-align: right;">0.1</td>
-<td style="text-align: right;">1.609375</td>
+<td style="text-align: right;">1.914062</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">tun43_om23</td>
+<td style="text-align: left;">MP43</td>
+<td style="text-align: left;">om23</td>
+<td style="text-align: left;">Hockeystick</td>
+<td style="text-align: left;">all.idx</td>
+<td style="text-align: right;">2000</td>
+<td style="text-align: right;">270</td>
+<td style="text-align: right;">0.1</td>
+<td style="text-align: right;">3.062500</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">tun44_om23</td>
+<td style="text-align: left;">MP44</td>
+<td style="text-align: left;">om23</td>
+<td style="text-align: left;">Powerramp</td>
+<td style="text-align: left;">all.idx</td>
+<td style="text-align: right;">1500</td>
+<td style="text-align: right;">270</td>
+<td style="text-align: right;">0.1</td>
+<td style="text-align: right;">1.914062</td>
 </tr>
 </tbody>
 </table>
@@ -2149,13 +1702,13 @@ Table&nbsp;2: Eight-CMP robustness runs by operating model.
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">## Tuning trials</span></span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>These are the procedure designs examined during 500-posterior tuning. MP29 and</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>MP32 anchor the central rule-shape comparison; MP43--MP48 are retuned annual</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>change-limit variants.</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>These are the procedure designs examined during tuning. MP29 and MP32 were</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>subsequently carried forward as advanced candidates. MP43 and MP44 are</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>retuned comparison cases with different annual change limits.</span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-tuning-controls</span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Settings for the 33 tuning trials. A dash means that the setting does not apply to that rule."</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Settings for the 29 tuning trials. A dash means that the setting does not apply to that rule."</span></span>
 <span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
 <span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>tuning <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"../tuns_ctrl.csv"</span>, <span class="at">check.names =</span> <span class="cn">FALSE</span>,</span>
@@ -2187,51 +1740,52 @@ Table&nbsp;2: Eight-CMP robustness runs by operating model.
 <span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a><span class="fu">## Robustness runs</span></span>
 <span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>The focused control table applies the eight current CMPs to nine</span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>The focused control table applies MP29, MP32, MP43, and MP44 to nine</span>
 <span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>alternative operating models. Each row below identifies one</span>
-<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>procedure–operating-model combination.</span>
-<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-robustness-controls</span></span>
-<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Eight-CMP robustness runs by operating model."</span></span>
-<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>robustness <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"../robs_ctrl.csv"</span>, <span class="at">check.names =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>                       <span class="at">na.strings =</span> <span class="fu">c</span>(<span class="st">""</span>, <span class="st">"NA"</span>))</span>
-<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>robustness_table <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Run name</span><span class="st">`</span> <span class="ot">=</span> robustness<span class="sc">$</span>run,</span>
-<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>  <span class="at">MP =</span> robustness<span class="sc">$</span>label,</span>
-<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Operating model</span><span class="st">`</span> <span class="ot">=</span> robustness<span class="sc">$</span>om,</span>
-<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>  <span class="at">Rule =</span> tools<span class="sc">::</span><span class="fu">toTitleCase</span>(<span class="fu">sub</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">.hcr$"</span>, <span class="st">""</span>, robustness<span class="sc">$</span>hcr)),</span>
-<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Information source</span><span class="st">`</span> <span class="ot">=</span> robustness<span class="sc">$</span>estimator,</span>
-<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Target catch</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">show_number</span>(robustness<span class="sc">$</span>target),</span>
-<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Minimum catch</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">show_number</span>(robustness<span class="sc">$</span>min),</span>
-<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a>  <span class="at">Limit =</span> <span class="fu">show_number</span>(robustness<span class="sc">$</span>lim),</span>
-<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>  <span class="at">Trigger =</span> <span class="fu">show_number</span>(robustness<span class="sc">$</span>trigger),</span>
-<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a>  <span class="at">check.names =</span> <span class="cn">FALSE</span></span>
-<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(robustness_table,</span>
-<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a>             <span class="at">align =</span> <span class="fu">c</span>(<span class="st">"l"</span>, <span class="st">"l"</span>, <span class="st">"l"</span>, <span class="st">"l"</span>, <span class="st">"l"</span>, <span class="fu">rep</span>(<span class="st">"r"</span>, <span class="dv">4</span>)))</span>
-<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a><span class="fu">## Reading the tables</span></span>
-<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Rule** is the form of the harvest control rule.</span>
-<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Information source** identifies the stock information supplied to the</span>
-<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a>  rule. <span class="in">`all.idx`</span> means that all specified abundance indices are combined.</span>
-<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Limit** is the indicator value at or below which the minimum catch applies.</span>
-<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Trigger** is the indicator value at or above which the target catch applies.</span>
-<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Annual decrease and increase limits** are multipliers on the previous</span>
-<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a>  year's catch advice. For example, 0.85 and 1.20 limit a change to a 15%</span>
-<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a>  decrease or a 20% increase.</span>
-<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Operating model** identifies the alternative description of stock dynamics</span>
-<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a>  used for robustness testing. See the MSE analysis for the assumptions that</span>
-<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a>  define each operating model.</span>
-<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a>The detailed definitions of the two advanced candidates are on the</span>
-<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">MP29</span><span class="co">](mp29.qmd)</span> and <span class="co">[</span><span class="ot">MP32</span><span class="co">](mp32.qmd)</span> pages.</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>procedure–operating-model combination. The combined Slick file also includes</span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>the other six comparison cases across these operating models.</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-robustness-controls</span></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "MP29, MP32, MP43, and MP44 robustness runs by operating model."</span></span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>robustness <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"../robs_ctrl.csv"</span>, <span class="at">check.names =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>                       <span class="at">na.strings =</span> <span class="fu">c</span>(<span class="st">""</span>, <span class="st">"NA"</span>))</span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>robustness_table <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Run name</span><span class="st">`</span> <span class="ot">=</span> robustness<span class="sc">$</span>run,</span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>  <span class="at">MP =</span> robustness<span class="sc">$</span>label,</span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Operating model</span><span class="st">`</span> <span class="ot">=</span> robustness<span class="sc">$</span>om,</span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>  <span class="at">Rule =</span> tools<span class="sc">::</span><span class="fu">toTitleCase</span>(<span class="fu">sub</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">.hcr$"</span>, <span class="st">""</span>, robustness<span class="sc">$</span>hcr)),</span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Information source</span><span class="st">`</span> <span class="ot">=</span> robustness<span class="sc">$</span>estimator,</span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Target catch</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">show_number</span>(robustness<span class="sc">$</span>target),</span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Minimum catch</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">show_number</span>(robustness<span class="sc">$</span>min),</span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>  <span class="at">Limit =</span> <span class="fu">show_number</span>(robustness<span class="sc">$</span>lim),</span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a>  <span class="at">Trigger =</span> <span class="fu">show_number</span>(robustness<span class="sc">$</span>trigger),</span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a>  <span class="at">check.names =</span> <span class="cn">FALSE</span></span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(robustness_table,</span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a>             <span class="at">align =</span> <span class="fu">c</span>(<span class="st">"l"</span>, <span class="st">"l"</span>, <span class="st">"l"</span>, <span class="st">"l"</span>, <span class="st">"l"</span>, <span class="fu">rep</span>(<span class="st">"r"</span>, <span class="dv">4</span>)))</span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a><span class="fu">## Reading the tables</span></span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Rule** is the form of the harvest control rule.</span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Information source** identifies the stock information supplied to the</span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a>  rule. <span class="in">`all.idx`</span> means that all specified abundance indices are combined.</span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Limit** is the indicator value at or below which the minimum catch applies.</span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Trigger** is the indicator value at or above which the target catch applies.</span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Annual decrease and increase limits** are multipliers on the previous</span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a>  year's catch advice. For example, 0.85 and 1.20 limit a change to a 15%</span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a>  decrease or a 20% increase.</span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Operating model** identifies the alternative description of stock dynamics</span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a>  used for robustness testing. See the MSE analysis for the assumptions that</span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a>  define each operating model.</span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a>The detailed definitions of the two advanced candidates are on the</span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">MP29</span><span class="co">](mp29.qmd)</span> and <span class="co">[</span><span class="ot">MP32</span><span class="co">](mp32.qmd)</span> pages.</span>
 </code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

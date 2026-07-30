@@ -33,7 +33,7 @@ candidate_vb_plot <- function(mode) {
   periods[, metric := factor(statistic, levels = needed,
     labels = c("VB / VB[2025]", "VB / VB[MSY]"))]
   periods[, mp := factor(sub("^tun", "MP", sub("_.*$", "", mp)),
-    levels = paste0("MP", c(29, 43, 32, 44, 18, 24, 23, 31, 35, 36)))]
+    levels = paste0("MP", c(29, 43, 45, 47, 32, 44, 46, 48)))]
 
   summary <- periods[, .(
     median = median(data),
@@ -80,9 +80,14 @@ candidate_vb_plot <- function(mode) {
     .(data = mean(data)),
     by = .(om, biol, mp, statistic, iter)
   ]
+  near_term[, scenario := fifelse(
+    grepl("^tun[0-9]+_", mp),
+    sub("^tun[0-9]+_", "", mp),
+    "reference"
+  )]
   near_term[, mp := factor(sub("^tun", "MP", sub("_.*$", "", mp)),
     levels = paste0("MP", c(29, 43, 45, 47, 32, 44, 46, 48)))]
-  paired <- dcast(near_term, om + biol + mp + iter ~ statistic,
+  paired <- dcast(near_term, scenario + om + biol + mp + iter ~ statistic,
     value.var = "data")
   tradeoff <- paired[, .(
     catch = median(C),
@@ -127,9 +132,16 @@ candidate_vb_plot <- function(mode) {
     .(data = mean(data)),
     by = .(om, biol, mp, statistic, iter)
   ]
+  long_term[, scenario := fifelse(
+    grepl("^tun[0-9]+_", mp),
+    sub("^tun[0-9]+_", "", mp),
+    "reference"
+  )]
   long_term[, mp := factor(sub("^tun", "MP", sub("_.*$", "", mp)),
     levels = paste0("MP", c(29, 43, 45, 47, 32, 44, 46, 48)))]
-  paired_long <- dcast(long_term, om + biol + mp + iter ~ statistic,
+  paired_long <- dcast(
+    long_term,
+    scenario + om + biol + mp + iter ~ statistic,
     value.var = "data")
   long_tradeoff <- paired_long[, .(
     catch = median(C),
@@ -182,6 +194,7 @@ reference_file <- file.path("output", "candidate-performance", "reference",
 reference_perf <- as.data.table(readRDS(reference_file))
 
 # Reference-OM Kobe plots for the near- and long-term reporting periods.
+# Kobe convention: biomass status is horizontal and fishing pressure vertical.
 kobe_mps <- c(
   "tun29", "tun43", "tun45", "tun47",
   "tun32", "tun44", "tun46", "tun48"
@@ -218,18 +231,19 @@ kobe_summary[, period := factor(period,
 fwrite(kobe_summary,
   file.path(summary_dir, "kobe_reference_periods_summary.csv"))
 
-kobe_quadrants <- CJ(
-  period = levels(kobe_summary$period),
-  quadrant = c("Green", "Yellow", "Orange", "Red")
-)
+kobe_quadrants <- rbindlist(lapply(
+  levels(kobe_summary$period),
+  function(period_name) data.table(
+    period = period_name,
+    quadrant = c("Green", "Yellow", "Orange", "Red"),
+    xmin = c(1, 1, 0, 0),
+    xmax = c(Inf, Inf, 1, 1),
+    ymin = c(0, 1, 0, 1),
+    ymax = c(1, Inf, 1, Inf),
+    fill = c("#8BCB88", "#F2D46F", "#E7A35B", "#D97B72")
+  )
+))
 kobe_quadrants[, period := factor(period, levels = levels(kobe_summary$period))]
-kobe_quadrants[, `:=`(
-  xmin = c(0, 1, 0, 1),
-  xmax = c(1, Inf, 1, Inf),
-  ymin = c(1, 1, -Inf, -Inf),
-  ymax = c(Inf, Inf, 1, 1),
-  fill = c("#8BCB88", "#F2D46F", "#E7A35B", "#D97B72")
-), by = period]
 
 kobe_plot <- ggplot() +
   geom_rect(
@@ -242,25 +256,25 @@ kobe_plot <- ggplot() +
   geom_hline(yintercept = 1, colour = "grey35", linewidth = 0.45) +
   geom_point(
     data = kobe_summary,
-    aes(f_fmsy, sb_sbmsy, colour = cmp),
+    aes(sb_sbmsy, f_fmsy, colour = cmp),
     size = 2.8
   ) +
   geom_text_repel(
     data = kobe_summary,
-    aes(f_fmsy, sb_sbmsy, label = cmp, colour = cmp),
+    aes(sb_sbmsy, f_fmsy, label = cmp, colour = cmp),
     seed = 12000, size = 3, min.segment.length = 0,
     max.overlaps = Inf, show.legend = FALSE
   ) +
   facet_wrap(~period, nrow = 1) +
-  coord_cartesian(xlim = c(0, 1.35), ylim = c(0, 1.9), expand = FALSE) +
+  coord_cartesian(xlim = c(0, 1.9), ylim = c(0, 1.35), expand = FALSE) +
   labs(
     title = "Reference-OM Kobe status by candidate management procedure",
     subtitle = paste(
-      "Points are medians across 500 posterior iterations of each",
+      "Points are medians across 100 posterior iterations of each",
       "iteration's period mean"
     ),
-    x = "Fishing mortality relative to F[MSY]",
-    y = "Spawning biomass relative to SB[MSY]",
+    x = "Spawning biomass relative to SB[MSY]",
+    y = "Fishing mortality relative to F[MSY]",
     colour = "CMP"
   ) +
   ggthemes::theme_few(base_size = 10) +
@@ -331,10 +345,18 @@ ggsave(file.path(output_dir, "catch_spaghetti_hs_reference.png"),
 # Long-term reference-set quilt. Scores are normalized independently within
 # each metric and show relative performance among the eight annual-change
 # variants listed in the report's naming-convention table.
-quilt_perf <- reference_perf[
-  mp %in% c("tun29", "tun43", "tun45", "tun47",
-    "tun32", "tun44", "tun46", "tun48")
-]
+additional_reference_file <- file.path(
+  "output", "candidate-performance", "additional-change-limits", "reference",
+  "performance_with_vb.rds"
+)
+if (!file.exists(additional_reference_file)) {
+  stop("Missing additional-variant results: ", additional_reference_file)
+}
+additional_reference_perf <- as.data.table(readRDS(additional_reference_file))
+quilt_perf <- rbindlist(list(
+  reference_perf[mp %in% c("tun29", "tun43", "tun32", "tun44")],
+  additional_reference_perf[mp %in% c("tun45", "tun47", "tun46", "tun48")]
+), use.names = TRUE)
 
 metric_definitions <- data.table(
   statistic = c("SBMSY", "FMSY", "C", "IACC", "VB2025", "VBMSY"),

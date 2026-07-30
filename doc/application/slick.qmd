@@ -77,12 +77,12 @@ fishing mortality relative to $F_{MSY}$, and catch. Interannual catch change
 vulnerable biomass relative to its 2025 level and relative to equilibrium
 vulnerable biomass at the fishing mortality that produces MSY.
 
-The current reference comparison has been completed for eight CMPs with 500
-posterior iterations through 2050. It is stored locally in `jmMSE` as:
+The current published comparison uses the completed 100-posterior-iteration
+runs through 2050. The eight CMPs are retained locally in `jmMSE` across:
 
-- `model/candidates/reference_500/runs.rds`: the complete simulation object; and
-- `model/candidates/reference_500/performance.rds`: the original four-metric
-  performance table.
+- `model/candidates/reference/`: HS+20, HS-20, PR+20, and PR-20; and
+- `model/candidates/additional-change-limits/reference/`: HSsym, HS-30,
+  PRsym, and PR-30.
 
 The augmented six-metric tables used for the published Slick file are retained
 in this repository as
@@ -93,9 +93,11 @@ These are reference-operating-model results. They are suitable for checking the
 candidate calculations and comparing the rule and data contrasts, but they are not a
 substitute for robustness testing across the full set of operating models.
 
-The nine-OM robustness set has also been completed and is stored locally in
-`jmMSE/model/candidates/robustness_500/`. It contains all eight CMPs, 500
-posterior iterations, and annual results through 2050 for every operating model.
+The corresponding nine-OM robustness results are stored in
+`jmMSE/model/candidates/robustness/` and
+`jmMSE/model/candidates/additional-change-limits/robustness/`. Together they
+contain all eight CMPs, 100 posterior iterations, and annual results through
+2050 for every operating model.
 
 ## CMPs included
 
@@ -105,23 +107,23 @@ constraints within the same two HCR families.
 
 | CMP | Role in the comparison |
 |---|---|
-| HS+20 (MP29) | Hockey-stick; -15%/+20% annual limits; trigger 2.3125. |
-| HS-20 (MP43) | Hockey-stick; -20%/+15% annual limits; trigger 2.3125. |
-| HSsym (MP45) | Hockey-stick; -15%/+15% annual limits; trigger 2.3125. |
-| HS-30 (MP47) | Hockey-stick; -30%/+20% annual limits; trigger 2.3125. |
-| PR+20 (MP32) | Power ramp; -15%/+20% annual limits; trigger 1.703125. |
-| PR-20 (MP44) | Power ramp; -20%/+15% annual limits; trigger 1.65625. |
-| PRsym (MP46) | Power ramp; -15%/+15% annual limits; trigger 1.6796875. |
-| PR-30 (MP48) | Power ramp; -30%/+20% annual limits; trigger 1.609375. |
+| HS+20 (MP29) | Hockey-stick; -15%/+20% annual limits; trigger 2.125. |
+| HS-20 (MP43) | Hockey-stick; -20%/+15% annual limits; trigger 3.0625. |
+| HSsym (MP45) | Hockey-stick; -15%/+15% annual limits; trigger 3.0625. |
+| HS-30 (MP47) | Hockey-stick; -30%/+20% annual limits; trigger 3.0625. |
+| PR+20 (MP32) | Power ramp; -15%/+20% annual limits; trigger 1.421875. |
+| PR-20 (MP44) | Power ramp; -20%/+15% annual limits; trigger 1.9140625. |
+| PRsym (MP46) | Power ramp; -15%/+15% annual limits; trigger 1.9375. |
+| PR-30 (MP48) | Power ramp; -30%/+20% annual limits; trigger 1.890625. |
 
 The MP filter includes one-click selections for the central rule-shape pair,
 each HCR family, each annual-limit design, all CMPs, and each individual CMP.
 All eight were tuned under reference OM11 to a mean dynamic Kobe-green
-probability of 0.60 over 2041–2050 using 500 posterior iterations.
+probability of 0.60 over 2041–2050 using 100 posterior iterations.
 
 ## Run or extend the reference comparison
 
-From the `jmMSE` folder on branch `codex/500-iteration-tuning`:
+From the `jmMSE` folder on branch `dev_jim`:
 
 ```sh
 Rscript run_candidate_mps.R \
@@ -216,7 +218,7 @@ in the OM metadata for traceability.
 ### Add the robustness sets
 
 The robustness operating models and candidate runs can be reproduced from
-`jmMSE` branch `codex/500-iteration-tuning` with:
+the recorded 100-iteration workflow on the `jmMSE` `dev_jim` branch.
 
 ```sh
 Rscript prepare_candidate_robustness_oms.R
@@ -265,7 +267,7 @@ all CJM cases, the CJM robustness cases, the two-stock robustness cases, all
 OMs, and each individual alternative OM. Selecting a two-stock OM includes both
 its Southern and Northern rows.
 
-The dimensions are 500 posterior iterations, 14 OM–stock series, eight management
+The dimensions are 100 posterior iterations, 14 OM–stock series, eight management
 procedures, six performance measures, and 81 annual values from 1970 through
 2050. The six measures are $SB/SB_{MSY}$, $F/F_{MSY}$, catch, IACC,
 $VB/VB_{2025}$, and $VB/VB_{\mathrm{MSY}}$. Each series uses its own

@@ -45,7 +45,7 @@ analysis supports it.
   annual calculation details.
 - [Annual application](application/annual-workflow.qmd): steps from receiving
   new data to producing advice.
-- [Slick explorer](application/slick.qmd): compare all eight current CMPs
+- [Slick explorer](application/slick.qmd): compare all ten MSE cases
   interactively.
 - [How the MSE work fits together](workflow/mse-flow.qmd): where CMPs fit within the assessment
   and simulation system.
