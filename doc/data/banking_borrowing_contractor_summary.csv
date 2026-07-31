@@ -1,0 +1,7 @@
+scenario,cmp,without_banking_borrowing,with_banking_borrowing,source
+Reference OM,HS+20,0.603,0.589,Contractor summary
+Reference OM,PR+20,0.607,0.585,Contractor summary
+Low recruitment,HS+20,NA,0.530,Contractor summary
+Low recruitment,PR+20,NA,0.617,Contractor summary
+Cyclic recruitment,HS+20,NA,0.419,Contractor summary
+Cyclic recruitment,PR+20,NA,0.539,Contractor summary

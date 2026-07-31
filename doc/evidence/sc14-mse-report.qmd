@@ -134,7 +134,7 @@ the central rule-shape comparison; the annual TAC-change variants to retain;
 the role of all five indices, including the only fishery-independent series;
 the interpretation of two-stock robustness; the restored 100-replicate
 results pending a validated higher-replication refinement; and the work needed
-to complete banking-and-borrowing and
+to validate and complete banking-and-borrowing and
 exceptional-circumstances evaluation.
 
 ## Purpose, scope, and decision status
@@ -742,10 +742,55 @@ regenerated with `R/plot_sc14_tradeoffs.R`.
 ## Banking, borrowing, and implementation constraints
 
 SCW17 treated banking and borrowing as a sensitivity to apply to the final CMP
-set rather than as feedback within the HCR. Ten-percent banking-and-borrowing
-runs were still in progress at the 24 July meeting. The technical annex should
-state whether the provision materially changes catch, stability, or biological
-performance and whether its effect differs among CMPs.
+set rather than as feedback within the HCR. Preliminary 100-iteration results
+are now available for HS+20 and PR+20 under the reference, low-recruitment, and
+cyclic-recruitment OMs. The tested implementation used a 10% banking or
+borrowing amount when unconstrained HCR advice changed by at least 15%, subject
+to the CMP-specific healthy-rule condition. These runs did **not** retain the
+annual TAC-change limits, so they do not isolate banking and borrowing from the
+effect of removing those limits.
+
+The contractor-reported long-term results are summarized in
+@tbl-bb-sb0green. Under the reference OM, mean SB0green during 2041--2050
+declined from 0.603 to 0.589 for HS+20 and from 0.607 to 0.585 for PR+20. The
+reported banking-and-borrowing values under low recruitment were 0.530 and
+0.617, respectively, and under cyclic recruitment were 0.419 and 0.539.
+
+| OM | CMP | Without B&B | With B&B |
+|:---|:---|---:|---:|
+| Reference OM | HS+20 | 0.603 | 0.589 |
+| Reference OM | PR+20 | 0.607 | 0.585 |
+| Low recruitment | HS+20 | -- | 0.530 |
+| Low recruitment | PR+20 | -- | 0.617 |
+| Cyclic recruitment | HS+20 | -- | 0.419 |
+| Cyclic recruitment | PR+20 | -- | 0.539 |
+
+: Contractor-reported mean SB0green during 2041--2050 for the preliminary
+100-iteration banking-and-borrowing sensitivity. A dash indicates that the
+corresponding no-B&B comparison was not supplied in the contractor summary.
+{#tbl-bb-sb0green}
+
+The transferred run archive requires an implementation check before these
+values are treated as final. Recalculation from the supplied `babs.rds` gives
+some different SB0green values, and its saved `banking.isys` and
+`borrowing.isys` tracking fields contain no non-zero transactions. Inspection
+of the archived implementation shows that the intended previous HCR advice is
+retrieved for the current year, which makes the transaction test compare the
+current value with itself. @fig-bb-eligibility therefore shows **reconstructed
+eligibility events**, based on the intended comparison with the preceding
+year's HCR advice; it must not be interpreted as a count of transactions
+actually applied in the archived runs.
+
+::: {.content-visible when-format="pdf"}
+\newpage
+:::
+
+![Reconstructed annual eligibility for banking and borrowing in the preliminary 100-iteration runs. Circles denote iterations eligible for banking and triangles denote iterations eligible for borrowing.](../figures/banking-borrowing-eligibility.png){#fig-bb-eligibility fig-align="center" fig-pos="H" width="95%" fig-alt="Six-panel plot of reconstructed banking and borrowing eligibility counts by year. Rows show the reference, low-recruitment, and cyclic-recruitment OMs; columns show HS plus 20 and PR plus 20. Banking eligibility is more frequent for PR plus 20, while borrowing eligibility is relatively uncommon."}
+
+Final advice should use a corrected rerun that retains explicit transaction
+tracking and, if the intent is to estimate the incremental effect of banking
+and borrowing, includes a matched comparison with the same TAC-change-limit
+treatment.
 
 Effort feasibility is another implementation constraint. A TAC can be
 mathematically available but difficult to catch when fish distribution or
@@ -855,8 +900,9 @@ The Scientific Committee is asked to consider the following:
   separately, as in the past, alongside the combined CMP indicator and
   monitored through the annual assessment process, including when evaluating
   whether exceptional circumstances may be occurring;
-- that the available banking-and-borrowing results and implementation appear
-  feasible within the levels investigated; and
+- that the preliminary banking-and-borrowing results suggest effects of a
+  manageable magnitude at the investigated levels, but require a corrected,
+  matched rerun before implementation conclusions are drawn; and
 - that the robustness tests provide plausible scenarios for testing the CMPs.
 
 **Endorsing**
@@ -881,7 +927,7 @@ The remaining analytical and documentation tasks are summarized in
 |---|---|---|
 | Retune the reduced set at higher replication and profile each trigger objective | Stabilizes final triggers and resolves the HS+20 versus retuned-HS discrepancy and the shared 3.0625 stopping value | Required under one frozen OM, software, and random-number configuration |
 | Finalize TAC-change comparison | Tests responsiveness and stability under management-relevant constraints | Retuned 100-replicate reference and robustness variants available |
-| Complete banking-and-borrowing sensitivity | Tests an implementation provision outside the HCR | Pending at 24 July meeting |
+| Validate and complete banking-and-borrowing sensitivity | Tests an implementation provision outside the HCR | Preliminary contractor results available; transferred archive records no transactions and requires a corrected, matched rerun |
 | Add index-error parameter distributions | Makes observation uncertainty auditable | Requested for technical annex |
 | Improve index and HCR diagnostics | Clarifies responsiveness and the acoustic survey's role | Requested for technical annex |
 | Finalize metric definitions and periods | Prevents ambiguous or directionally incorrect scoring | Full framework still being assembled |
