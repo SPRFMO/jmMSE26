@@ -118,8 +118,14 @@ constraints within the same two HCR families.
 
 The MP filter includes one-click selections for the central rule-shape pair,
 each HCR family, each annual-limit design, all CMPs, and each individual CMP.
-All eight were tuned under reference OM11 to a mean dynamic Kobe-green
-probability of 0.60 over 2041–2050 using 100 posterior iterations.
+The six annual-limit variants were retuned under reference OM11 toward a mean
+dynamic Kobe-green probability of 0.60 over 2041–2050 using 100 posterior
+iterations. Recalculation from the archived run objects gives 0.262 for HS+20
+and 0.273 for PR+20, so those two initial configurations are not equally tuned
+to the six variants in this 100-draw export. A separate completed 500-draw
+refinement reaches 0.60 (within 0.01) for all eight CMPs, but should replace
+this file only when its corresponding reference and robustness performance
+artifacts are adopted together.
 
 ## Run or extend the reference comparison
 
@@ -178,8 +184,9 @@ The script organizes the results by:
 - management procedure (one of the eight CMP comparison cases);
 - operating model and stock;
 - simulation replicate and year; and
-- performance measure, including Kobe-plot values for $SB/SB_{MSY}$ and
-  $F/F_{MSY}$, plus $VB/VB_{2025}$ and $VB/VB_{\mathrm{MSY}}$.
+- performance measure, including conventional $SB/SB_{MSY}$, the dynamic
+  spawning-biomass ratio used for tuning, $F/F_{MSY}$, plus
+  $VB/VB_{2025}$ and $VB/VB_{\mathrm{MSY}}$.
 
 It also prepares three summary views using the comparison periods already used
 in `jmMSE`:
@@ -188,7 +195,8 @@ in `jmMSE`:
   year, 2050.
 - **Quilts** compare stock status, fishing pressure, catch, and catch stability
   among operating models and MPs. They also include both vulnerable-biomass
-  ratios. Long-term results use 2036–2040; short-term catch uses 2026–2030.
+  ratios. Long-term results use the SC14 tuning window, 2041–2050;
+  short-term catch uses 2026–2030.
 - **Trade-off plots** use the same periods to compare conservation, catch, and
   catch-stability measures directly, including both vulnerable-biomass ratios.
 
@@ -198,7 +206,11 @@ stock's 2025 vulnerable biomass as its denominator. `VB/VB[MSY]` uses
 equilibrium vulnerable biomass at the fishing mortality that produces MSY,
 not MSY catch.
 
-Kobe quadrant probabilities are calculated from $SB/SB_{MSY}$ and $F/F_{MSY}$.
+Kobe quadrant probabilities are calculated from the dynamic spawning-biomass
+ratio and $F/F_{MSY}$. The dynamic denominator applies the equilibrium
+$SB_{MSY}/SB_0$ fraction to projected unfished spawning biomass in each year
+and iteration, matching the SC14 tuning statistic. Conventional
+$SB/SB_{MSY}$ remains available as a separate time series and boxplot metric.
 When $F_{MSY}$ is zero, $F/F_{MSY}$ is undefined and is treated as missing.
 Finite $F/F_{MSY}$ values above 4 are shown at 4 so that a small number of
 post-collapse numerical values do not make the plots unreadable. This is a
@@ -268,9 +280,9 @@ OMs, and each individual alternative OM. Selecting a two-stock OM includes both
 its Southern and Northern rows.
 
 The dimensions are 100 posterior iterations, 14 OM–stock series, eight management
-procedures, six performance measures, and 81 annual values from 1970 through
-2050. The six measures are $SB/SB_{MSY}$, $F/F_{MSY}$, catch, IACC,
-$VB/VB_{2025}$, and $VB/VB_{\mathrm{MSY}}$. Each series uses its own
+procedures, seven performance measures, and 81 annual values from 1970 through
+2050. The seven measures are $SB/SB_{MSY}$, dynamic $SB/SB_{MSY}$,
+$F/F_{MSY}$, catch, IACC, $VB/VB_{2025}$, and $VB/VB_{\mathrm{MSY}}$. Each series uses its own
 conditioned history through 2025; projections under the eight CMPs begin in
 2026.
 

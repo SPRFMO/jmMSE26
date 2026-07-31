@@ -358,27 +358,93 @@ quilt_perf <- rbindlist(list(
   additional_reference_perf[mp %in% c("tun45", "tun47", "tun46", "tun48")]
 ), use.names = TRUE)
 
+# Recover the dynamic Kobe statistic used for tuning directly from the saved
+# FLmse runs.  SBMSY in the flat performance table uses the equilibrium
+# reference point; tuning instead scales it by projected unfished biomass.
+candidate_runs <- c(
+  readRDS(file.path("..", "jmMSE", "model", "candidates", "reference",
+    "runs.rds"))[c("tun29", "tun43", "tun32", "tun44")]@.Data,
+  readRDS(file.path("..", "jmMSE", "model", "candidates",
+    "additional-change-limits", "reference", "runs.rds"))[
+      c("tun45", "tun47", "tun46", "tun48")]@.Data
+)
+names(candidate_runs) <- c(
+  "tun29", "tun43", "tun32", "tun44",
+  "tun45", "tun47", "tun46", "tun48"
+)
+unfished_ssb <- readRDS(file.path("..", "jmMSE", "data",
+  "om11_h1_0.16_065.rds"))$unfishedSSB
+
+dynamic_kobe <- rbindlist(lapply(names(candidate_runs), function(run_code) {
+  projected_om <- mse::om(candidate_runs[[run_code]])
+  metric <- FLCore::metrics(projected_om)$CJM
+  rp <- FLCore::refpts(projected_om)
+  years <- as.character(2041:2050)
+  sb0msy <- metric$SB[, years] /
+    ((rp["SBMSY", ] / rp["SB0", ]) * unfished_ssb$CJM[, years])
+  ffmsy <- metric$F[, years] / rp["FMSY", ]
+  data.table(
+    mp = run_code,
+    statistic = c("SB0green", "SB0red"),
+    value = c(
+      mean(as.numeric(sb0msy >= 1 & ffmsy <= 1), na.rm = TRUE),
+      mean(as.numeric(sb0msy < 1 & ffmsy > 1), na.rm = TRUE)
+    )
+  )
+}))
+
+catch_diagnostics <- quilt_perf[
+  statistic == "C" & year %in% 2026:2050,
+  .(catch = mean(data, na.rm = TRUE)),
+  by = .(mp, iter, year)
+][order(mp, iter, year)]
+catch_diagnostics[, previous_catch := shift(catch), by = .(mp, iter)]
+catch_diagnostics[, catch_reduction := fifelse(
+  is.finite(previous_catch) & previous_catch > 0,
+  pmax((previous_catch - catch) / previous_catch, 0) * 100,
+  NA_real_
+)]
+catch_summary <- rbindlist(list(
+  quilt_perf[statistic == "C" & year %in% 2041:2050,
+    .(iteration_mean = mean(data < 270, na.rm = TRUE)), by = .(mp, iter)][
+      , .(value = median(iteration_mean, na.rm = TRUE)), by = mp][
+        , statistic := "PC270"],
+  catch_diagnostics[year %in% 2026:2050,
+    .(iteration_mean = mean(catch_reduction, na.rm = TRUE)), by = .(mp, iter)][
+      , .(value = median(iteration_mean, na.rm = TRUE)), by = mp][
+        , statistic := "Creduction"]
+), use.names = TRUE)
+
 metric_definitions <- data.table(
-  statistic = c("SBMSY", "FMSY", "C", "IACC", "VB2025", "VBMSY"),
+  statistic = c(
+    "SBMSY", "FMSY", "C", "IACC", "VB2025", "VBMSY",
+    "SB0green", "SB0red", "PC270", "Creduction"
+  ),
   metric = c(
     "SB / SB[MSY]", "F / F[MSY]", "Catch", "IACC",
-    "VB / VB[2025]", "VB / VB[MSY]"
+    "VB / VB[2025]", "VB / VB[MSY]", "P(Kobe green)",
+    "P(Kobe red)", "P(catch < 270 kt)", "Mean catch reduction"
   ),
   direction = c(
     "higher is better", "lower is better", "higher is better",
-    "lower is better", "higher is better", "higher is better"
+    "lower is better", "higher is better", "higher is better",
+    "higher is better", "lower is better", "lower is better",
+    "lower is better"
   ),
-  higher_is_better = c(TRUE, FALSE, TRUE, FALSE, TRUE, TRUE)
+  higher_is_better = c(TRUE, FALSE, TRUE, FALSE, TRUE, TRUE,
+    TRUE, FALSE, FALSE, FALSE)
 )
 
-quilt <- quilt_perf[
+base_quilt <- quilt_perf[
   year %in% 2041:2050,
   .(iteration_mean = mean(data, na.rm = TRUE)),
   by = .(mp, statistic, iter)
 ][
   , .(value = median(iteration_mean, na.rm = TRUE)),
   by = .(mp, statistic)
-][metric_definitions, on = "statistic"]
+]
+quilt <- rbindlist(list(base_quilt, dynamic_kobe, catch_summary),
+  use.names = TRUE, fill = TRUE)[metric_definitions, on = "statistic"]
 
 quilt[, `:=`(
   metric_min = min(value),
@@ -412,9 +478,11 @@ quilt[, `:=`(
 )]
 quilt[, display_value := fifelse(
   statistic == "C", sprintf("%.0f", value),
-  fifelse(statistic == "IACC", sprintf("%.1f", value),
+  fifelse(statistic %in% c("IACC", "Creduction"), sprintf("%.1f", value),
+  fifelse(statistic %in% c("SB0green", "SB0red", "PC270"),
+    sprintf("%.1f%%", 100 * value),
     sprintf("%.2f", value))
-)]
+))]
 quilt[, relative_preference := 1 - relative_badness]
 
 fwrite(quilt[, .(
@@ -432,7 +500,10 @@ scorecard_input <- quilt[, .(
   raw_value = value,
   preferred_direction = direction,
   normalized_score = 100 * relative_preference,
-  include = TRUE,
+  # Preserve the report's established six-metric illustrative weighting.
+  # The four new diagnostics remain editable but are not silently added to
+  # the composite score, where they would partly duplicate existing metrics.
+  include = statistic %in% c("SBMSY", "FMSY", "C", "IACC", "VB2025", "VBMSY"),
   weight = 1,
   years,
   summary
@@ -448,7 +519,7 @@ quilt_plot <- ggplot(quilt, aes(metric, mp, fill = relative_preference)) +
     name = "Relative\npreference"
   ) +
   labs(
-    title = "Long-term candidate performance quilt: reference OM",
+    title = "Long-term candidate performance metrics: reference OM",
     subtitle = paste(
       "Cell labels are median 2041-2050 values; color is normalized",
       "within each metric across MPs"
@@ -473,4 +544,4 @@ quilt_plot <- ggplot(quilt, aes(metric, mp, fill = relative_preference)) +
   )
 
 ggsave(file.path(output_dir, "candidate_quilt_reference.png"),
-  quilt_plot, width = 10, height = 7.2, dpi = 160)
+  quilt_plot, width = 15, height = 7.2, dpi = 160)

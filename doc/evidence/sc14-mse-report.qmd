@@ -99,8 +99,16 @@ assigns them half. Thus the scorecard ordering reflects the later retuning and
 the selected metric set and weights, whereas the prominence of HS+20 and PR+20
 reflects their role as the initial design anchors.
 
-Both were tuned under the reference OM to an approximately 60% mean probability
-of dynamic Kobe-green status during 2041--2050. In the comparisons reviewed on
+The original tuning record describes both as targeting an approximately 60%
+mean probability of dynamic Kobe-green status during 2041--2050. However,
+recalculation from the currently published 100-draw run objects gives 26.2%
+for HS+20 and 27.3% for PR+20, compared with approximately 56--59% for the six
+retuned variants. These archived **+20** runs are therefore not equally tuned
+to the variants and should not be interpreted as a like-for-like tuned
+comparison. A completed 500-draw refinement brings all eight candidates within
+one percentage point of the 60% target; the report outputs should move to that
+set only when its reference and robustness performance artifacts are adopted
+together. In the comparisons reviewed on
 24 July, HS+20 generally provided higher short-term catch and lower interannual
 catch variability, whereas PR+20 responded more quickly to declining indices
 and showed comparatively stronger recovery under the recruitment-crash and
@@ -471,13 +479,24 @@ normalized independently within each metric across the eight variants.
 Purple means lower relative preference and light lavender means higher relative
 preference (0 is darkest; 1 is lightest). Higher
 $SB/SB_{\mathrm{MSY}}$, catch, $VB/VB_{2025}$, and
-$VB/VB_{\mathrm{MSY}}$ are treated as better; lower
-$F/F_{\mathrm{MSY}}$ and lower IACC are treated as better. Lower
+$VB/VB_{\mathrm{MSY}}$, and dynamic Kobe-green probability are treated as
+better; lower $F/F_{\mathrm{MSY}}$, IACC, dynamic Kobe-red probability,
+probability of catch below 270 kt, and mean annual catch reduction are treated
+as better. Lower
 $F/F_{\mathrm{MSY}}$ represents lower fishing pressure, while catch is shown
 separately. The within-column color scale is not an absolute biological or
 management threshold and must not be interpreted as a rank or recommendation.
 
-![Reference-OM candidate performance quilt for the eight naming-convention variants. Cell labels are median 2041--2050 values. Purple indicates lower relative preference and light lavender indicates higher relative preference within each metric (0 is darkest; 1 is lightest).](../figures/candidates/candidate_quilt_reference.png){#fig-candidate-quilt fig-align="center" width="95%"}
+The Kobe probabilities use the same dynamic biomass denominator as the tuning
+objective: the equilibrium $SB_{\mathrm{MSY}}/SB_0$ fraction is applied to
+projected unfished spawning biomass in each year and iteration. The low-catch
+probability uses 2041--2050; mean catch reduction averages positive annual
+percentage reductions during 2026--2050. These four diagnostics are displayed
+in the quilt but are not automatically added to the illustrative composite
+score below, avoiding an undocumented change in weights and partial
+double-counting of stock status, fishing pressure, catch, and IACC.
+
+![Reference-OM candidate performance metrics for the eight naming-convention variants. Cell labels are median iteration summaries, except the dynamic Kobe probabilities, which are means over all iteration-years. Purple indicates lower relative preference and light lavender indicates higher relative preference within each metric (0 is darkest; 1 is lightest).](../figures/candidates/candidate_quilt_reference.png){#fig-candidate-quilt fig-align="center" width="100%"}
 
 The underlying values, preferred directions, metric ranges, and normalized
 scores are saved in
@@ -528,8 +547,10 @@ reads the editable @fig-candidate-quilt input, checks that every CMP has one
 value for every included metric, and writes both the totals and metric-level
 contributions.
 
-The worked results in @tbl-scorecard-results include all six metrics from
-@fig-candidate-quilt. The equal-weight view assigns one-sixth to every metric.
+The worked results in @tbl-scorecard-results include the established six
+scorecard metrics from @fig-candidate-quilt; the four added diagnostic columns
+are visible inputs with `include = FALSE` until their inclusion and weights are
+reviewed. The equal-weight view assigns one-sixth to every included metric.
 The balanced view assigns half the total weight to fishing performance---25%
 each to Catch and IACC---and half to stock condition---12.5% each to
 $SB/SB_{\mathrm{MSY}}$, $F/F_{\mathrm{MSY}}$, $VB/VB_{2025}$, and
@@ -557,7 +578,8 @@ an agreed statement of management priorities, and the scores are relative to
 this candidate set.
 
 The current Figure 4--based worked scorecard is an **illustrative framework**,
-not the final scorecard. It contains eight CMPs and six performance metrics.
+not the final scorecard. It contains eight CMPs and ten displayed performance
+metrics, six of which are included in the worked composite scores.
 Please note:
 
 - candidate rows can be added, removed, or replaced as the shortlist evolves;
