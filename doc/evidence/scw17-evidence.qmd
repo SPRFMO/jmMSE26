@@ -9,29 +9,49 @@ title: "CMP evidence and development history"
 ::: {.status-note}
 This page summarizes the available evidence; it does not record an adoption
 decision. The current candidate interpretation comes from `jmMSE`, while the
-SCW17 papers describe earlier development.
+SCW17 papers describe earlier development. The published candidate results are
+the restored 100-sample set and remain provisional while the complete
+500-sample analysis is being validated.
 :::
 
 ## Current candidate evidence from jmMSE
 
-The current `jmMSE` analysis provides three reasons for carrying MP29 and MP32
-forward:
+The current evidence set contains eight CMPs from two empirical rule families:
+HS+20 (MP29), HS-20 (MP43), HSsym (MP45), HS-30 (MP47), PR+20 (MP32), PR-20
+(MP44), PRsym (MP46), and PR-30 (MP48). MP29 and MP32 are the initial
+hockey-stick and power-ramp design anchors; their prominence does not mean that
+they rank highest in the preliminary scorecard.
 
-1. The tuning analysis defines MP29 and MP32 using the same five observed
-   indices, minimum catch, limit, and annual catch-change limits.
-2. The 25 July 2026 presentation identifies MP29 as the optimal hockeystick run,
-   MP32 as the optimal powerramp run, and MP29 as a potentially good candidate
-   after their direct trade-off comparison.
-3. The robustness analysis selects both procedures for testing across the
-   alternative operating models.
+The eight-CMP comparison provides the following evidence:
 
-The presentation also reports 500-iteration versions, MP41 and MP42, with
-slightly different retuned triggers. These test whether the number of
-simulation replicates affects the results; they are not treated as new CMPs.
+1. All CMPs use the same five observed abundance indices and transparent
+   empirical HCR structures, while the variants isolate alternative annual
+   TAC-change constraints.
+2. The restored analysis contains 100 posterior samples for the reference OM
+   and nine robustness OMs, with spawning biomass, fishing pressure, catch,
+   IACC, VB/VB[2025], and VB/VB[MSY] outputs.
+3. The OMs simulate index uncertainty, temporal autocorrelation, and
+   cross-correlation rather than treating the five indices as independent
+   confirmations of stock change.
+4. Reference and robustness results show trade-offs among stock condition,
+   catch, stability, and responsiveness; no CMP dominates every measure and
+   OM.
+5. The preliminary scorecard places HS-20 and HSsym among the stronger results
+   under the included metrics, but the ordering depends on metric selection,
+   direction, and weighting and is not an acceptability decision.
 
-Before the results support a formal selection decision, they should be
-repeatable from saved inputs and linked to saved output files that will not be
-changed.
+The [SC14 MSE report](sc14-mse-report.qmd) presents the current synthesis and
+the [Slick explorer](../application/slick.qmd) provides the saved comparison
+file. Both currently use the restored 100-sample outputs. Reference-OM tuning
+against 500 posterior samples has been completed separately, but the full
+500-sample robustness and publication stack is not yet complete. The 100- and
+500-sample outputs must not be mixed in one performance comparison.
+
+Preliminary banking-and-borrowing results have also been supplied for HS+20 and
+PR+20. The transferred archive requires a corrected, matched rerun because its
+saved transaction fields contain no applied banking or borrowing events. See
+the banking-and-borrowing section of the SC14 report for the reported results,
+eligibility reconstruction, and implementation caveat.
 
 ## Paper-08 subset screen
 
@@ -45,7 +65,10 @@ performance and that higher green probability could coincide with lower catch
 over the tuning window. It explicitly cautioned that this subset was not the
 intended full parameter screen. That qualification is retained here.
 
-Evidence still needed before promotion:
+Evidence retained from this screen includes the lesson that performance must
+be interpreted across biological and fishery outcomes rather than from a
+single tuning measure. Evidence still needed before relying on any historical
+screen includes:
 
 - saved run results and the table of tested parameter combinations;
 - confirmation against the merged `jmMSE` implementation;
@@ -65,8 +88,23 @@ hockeystick tests. It established several useful implementation controls:
 - distinguish tests based on a mean index from tests using loess smoothing; and
 - retain unavailable tests as unavailable until their methods exist.
 
-Those rows remain historical test proposals. They no longer seed the primary
-[CMP registry](../cmp/index.qmd), which is based on the current `jmMSE` code.
+Those rows remain historical test proposals. They no longer define the primary
+[CMP registry](../cmp/index.qmd), which is based on the current `jmMSE` code and
+retains legacy MP identifiers alongside the current HS/PR working labels.
+
+## Current interpretation
+
+SCW17 narrowed dozens of exploratory MPs to simple hockey-stick and power-ramp
+families and reasonable variants for continued evaluation. Subsequent work
+expanded robustness testing, corrected implementations, added vulnerable
+biomass metrics, documented the observation-error correlation structure, and
+developed reproducible trade-off and scorecard views.
+
+The current evidence supports carrying a reduced subset forward for Scientific
+Committee and Commission consideration. It does not by itself select an
+adopted CMP. Final advice requires the completed 500-sample results, a frozen
+and reviewed metric set, sensitivity to any weighting scheme, corrected
+banking-and-borrowing tests, and a formal exceptional-circumstances protocol.
 
 ## Evidence promotion checklist
 
@@ -75,8 +113,10 @@ Those rows remain historical test proposals. They no longer seed the primary
 | Exact CMP specification | Yes | Yes |
 | Reproducible reference-OM runs | Yes | Yes |
 | Agreed robustness set | Planned or complete | Complete |
-| Full performance metrics | Yes | Yes |
+| Complete 500-sample comparison | Desirable | Yes |
+| Full performance metrics and definitions | Yes | Yes |
 | Failure and warning audit | Yes | Yes |
 | Frozen worked example | Desirable | Yes |
 | Independent implementation review | Desirable | Yes |
+| Exceptional-circumstances protocol | Planned | Yes |
 | Formal decision record | Yes | Yes |
