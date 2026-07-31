@@ -1,7 +1,8 @@
 ---
 title: "Jack mackerel management strategy evaluation for SC14"
 subtitle: "Operating models, candidate management procedures, robustness tests, and matters for Scientific Committee consideration"
-date: "24 July 2026"
+date: now
+date-format: "D MMMM YYYY, h:mm A z"
 bibliography: sc14-mse-report.bib
 nocite: |
   @*
