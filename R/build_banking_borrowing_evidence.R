@@ -87,6 +87,55 @@ plot <- ggplot(event_counts,
 out_plot <- file.path("doc", "figures", "banking-borrowing-eligibility.png")
 ggsave(out_plot, plot, width = 9, height = 7, dpi = 180)
 
+# Summarize spawning biomass for the same six B&B runs. Each plotted value is
+# an iteration-level mean over a reporting period, rather than an annual value.
+perf <- mse::performance(runs)
+sb_period <- as.data.table(perf)[statistic == "SBMSY" & year %in% 2026:2050]
+sb_period[, `:=`(
+  scenario = fcase(
+    grepl("om11_2", as.character(mp)), "Low recruitment",
+    grepl("om11_3", as.character(mp)), "Cyclic recruitment",
+    default = "Reference OM"
+  ),
+  cmp = fifelse(grepl("tun29", as.character(mp)), "HS+20", "PR+20"),
+  period = fifelse(year %in% 2026:2035, "Near term (2026–2035)",
+    fifelse(year %in% 2041:2050, "Long term (2041–2050)", NA_character_))
+)]
+sb_period <- sb_period[!is.na(period), .(
+  mean_sb_sbmsy = mean(data, na.rm = TRUE)
+), by = .(scenario, cmp, period, iter)]
+sb_period[, scenario := factor(scenario,
+  levels = c("Reference OM", "Low recruitment", "Cyclic recruitment"))]
+sb_period[, cmp := factor(cmp, levels = c("HS+20", "PR+20"))]
+sb_period[, period := factor(period,
+  levels = c("Near term (2026–2035)", "Long term (2041–2050)"))]
+
+out_sb_data <- file.path("doc", "data",
+  "banking_borrowing_sbmsy_period_summary.csv")
+fwrite(sb_period, out_sb_data)
+
+sb_plot <- ggplot(sb_period, aes(scenario, mean_sb_sbmsy, fill = cmp)) +
+  geom_hline(yintercept = 1, linewidth = 0.5, linetype = 2,
+    colour = "grey40") +
+  geom_boxplot(position = position_dodge(width = 0.75), width = 0.62,
+    outlier.alpha = 0.35) +
+  facet_wrap(~period, ncol = 2) +
+  scale_fill_manual(values = c("HS+20" = "#4C78A8", "PR+20" = "#7A5195")) +
+  labs(
+    x = NULL,
+    y = "Mean spawning biomass / SBMSY",
+    fill = "CMP"
+  ) +
+  theme_few(base_size = 11) +
+  theme(
+    legend.position = "bottom",
+    axis.text.x = element_text(angle = 20, hjust = 1)
+  )
+
+out_sb_plot <- file.path("doc", "figures",
+  "banking-borrowing-sbmsy-periods.png")
+ggsave(out_sb_plot, sb_plot, width = 9, height = 4.8, dpi = 180)
+
 # The transferred run archive currently contains no non-zero recorded
 # transactions. Keep this check explicit so eligibility is not mislabeled as
 # implemented banking or borrowing.
@@ -99,4 +148,5 @@ recorded <- rbindlist(lapply(seq_along(runs), function(i) {
 if (any(recorded$nonzero != 0L))
   warning("The archive contains non-zero recorded transactions; review caption")
 
-message("Wrote ", out_data, " and ", out_plot)
+message("Wrote ", paste(c(out_data, out_plot, out_sb_data, out_sb_plot),
+  collapse = ", "))

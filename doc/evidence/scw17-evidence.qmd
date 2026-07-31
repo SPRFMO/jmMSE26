@@ -53,9 +53,10 @@ saved transaction fields contain no applied banking or borrowing events. See
 the banking-and-borrowing section of the SC14 report for the reported results,
 eligibility reconstruction, and implementation caveat.
 
-## Paper-08 subset screen
+## [Paper-08 subset screen](https://sprfmo.github.io/scw17/SCW17-Paper-08-MP-tests.html)
 
-SCW17/Paper-08 documented a repeatable subset test of an empirical index
+[SCW17/Paper-08](https://sprfmo.github.io/scw17/SCW17-Paper-08-MP-tests.html)
+documented a repeatable subset test of an empirical index
 procedure using `Chile_CPUE` and `Offshore_CPUE`, `cpues.ind` with a mean
 combination, and `buffer.hcr`. A structured sample of 12 parameter combinations
 varied the limit and lower and upper buffer values.
@@ -77,9 +78,10 @@ screen includes:
 - checks for model convergence, failed runs, and repeatability; and
 - a recorded working-group interpretation of trade-offs.
 
-## Paper-09 hockeystick test set
+## [Paper-09 hockeystick test set](https://sprfmo.github.io/scw17/SCW17-Paper-09-CMP-test-instructions.html)
 
-SCW17/Paper-09 converted workshop proposals into a structured set of index-based
+[SCW17/Paper-09](https://sprfmo.github.io/scw17/SCW17-Paper-09-CMP-test-instructions.html)
+converted workshop proposals into a structured set of index-based
 hockeystick tests. It established several useful implementation controls:
 
 - use exact `jmMSE` index names;

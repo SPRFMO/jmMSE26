@@ -22,15 +22,6 @@ format:
 [Download the PDF version](sc14-mse-report.pdf){.btn .btn-primary}
 :::
 
-::: {.callout-warning}
-## Incomplete results — 30 July 2026
-
-The results in this report are incomplete and provisional as of 30 July 2026.
-The current figures and tables use the restored 100-sample candidate results.
-Please check back after all CMPs have been tuned and evaluated against the 500
-posterior samples and the report outputs have been rebuilt and validated.
-:::
-
 <!-- Editorial TODO: This report needs a focused restructuring pass so the
 section sequence, hierarchy, and transitions provide a clearer narrative flow.
 Preserve the technical content and traceability while consolidating repetition. -->
@@ -151,7 +142,7 @@ This report melds the technical foundation assembled in the
 the design record from the
 [SCW17 MSE Workshop report](https://sprfmo.github.io/scw17/SCW17-MSE-Workshop-report.html),
 and the post-workshop analysis summarized in the
-[24 July task-team meeting report](https://sprfmo.github.io/jmMSE26/outputs/meeting-report-20260724/SC14_JM_MSE_meeting_report_2026-07-24.pdf)
+[final 24 July task-team meeting report](https://sprfmo.github.io/jmMSE26/outputs/meeting-report-20260724/SC14_JM_MSE_meeting_report_2026-07-24.pdf)
 and 25 July progress presentation. The preparation site preceded SCW17 and
 provided the detailed model specifications, diagnostics, working papers, and
 technical discussions needed to update the operating models used at SCW17 and
@@ -746,9 +737,19 @@ set rather than as feedback within the HCR. Preliminary 100-iteration results
 are now available for HS+20 and PR+20 under the reference, low-recruitment, and
 cyclic-recruitment OMs. The tested implementation used a 10% banking or
 borrowing amount when unconstrained HCR advice changed by at least 15%, subject
-to the CMP-specific healthy-rule condition. These runs did **not** retain the
-annual TAC-change limits, so they do not isolate banking and borrowing from the
-effect of removing those limits.
+to the CMP-specific healthy-rule condition. In operational terms, a decline of
+more than 15% made an iteration eligible to **borrow** 10% of the new advice
+(adding it to the current TAC and deducting it subsequently), while an increase
+of more than 15% made it eligible to **bank** 10% (deducting it from the current
+TAC and making it available subsequently). Eligibility was restricted to years
+in which the combined abundance indicator was in the upper, or ``healthy'',
+branch of the applicable HCR. For HS+20 this is rule 3: the indicator is at or
+above the hockey-stick trigger and the unconstrained advice is on the constant
+target branch. For PR+20 this is rule 2: the indicator is at or above the
+power-ramp trigger and advice is on its upper branch. Thus, a change exceeding
+15% was necessary but was not by itself sufficient. These runs did **not**
+retain the annual TAC-change limits, so they do not isolate banking and
+borrowing from the effect of removing those limits.
 
 The contractor-reported long-term results are summarized in
 @tbl-bb-sb0green. Under the reference OM, mean SB0green during 2041--2050
@@ -769,6 +770,16 @@ reported banking-and-borrowing values under low recruitment were 0.530 and
 100-iteration banking-and-borrowing sensitivity. A dash indicates that the
 corresponding no-B&B comparison was not supplied in the contractor summary.
 {#tbl-bb-sb0green}
+
+The spawning-biomass distributions for the six banking-and-borrowing runs in
+@tbl-bb-sb0green are shown in @fig-bb-sbmsy-periods. Each boxplot summarizes
+the distribution across 100 iterations after first averaging SB/SBMSY within
+each iteration over the stated period. This is a stock-status ratio, whereas
+SB0green in @tbl-bb-sb0green is the probability of being in the dynamic Kobe
+green quadrant; the two summaries are complementary and should not be read as
+the same performance measure. The dashed line marks SB/SBMSY = 1.
+
+![Spawning biomass relative to SBMSY in the preliminary banking-and-borrowing runs, for the near-term (2026--2035) and long-term (2041--2050) periods.](../figures/banking-borrowing-sbmsy-periods.png){#fig-bb-sbmsy-periods fig-align="center" width="95%" fig-alt="Two boxplot panels show iteration-level mean spawning biomass relative to SBMSY for HS plus 20 and PR plus 20 under the reference, low-recruitment, and cyclic-recruitment operating models. The left panel covers 2026 to 2035 and the right panel covers 2041 to 2050. A dashed horizontal line marks one."}
 
 The transferred run archive requires an implementation check before these
 values are treated as final. Recalculation from the supplied `babs.rds` gives
