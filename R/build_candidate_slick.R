@@ -262,7 +262,8 @@ make_mp_metadata <- function(candidate_codes, registry_file) {
   mp_rows <- function(codes) which(meta$code %in% codes)
   presets <- list(
     `All CMPs` = seq_len(nrow(meta)),
-    `Central rule-shape comparison` = mp_rows(c("tun29", "tun32")),
+    `Focal cases (HS-20 and PR-20)` = mp_rows(c("tun43", "tun44")),
+    `Sensitivity cases (HS+20 and PR+20)` = mp_rows(c("tun29", "tun32")),
     `HS annual limits` = mp_rows(c("tun29", "tun43", "tun45", "tun47")),
     `PR annual limits` = mp_rows(c("tun32", "tun44", "tun46", "tun48")),
     `Reverse-asymmetric limits` = mp_rows(c("tun43", "tun44")),
@@ -528,6 +529,62 @@ build_candidate_slick <- function(
   Value(quilt) <- summaries
   Check(quilt)
 
+  # Radar/spider inputs use the same six metrics as the report scorecard.
+  # Normalize within each OM across CMPs, orient every axis so higher values
+  # mean greater relative preference, and retain raw values in the quilt and
+  # trade-off objects. These are relative comparisons, not acceptability scores.
+  spider_source_codes <- c(
+    "SB/SBMSY", "F/FMSY", "Catch 2041-2050", "IACC",
+    "VB/VB[2025]", "VB/VB[MSY]"
+  )
+  spider_codes <- c(
+    "Rel SB", "Rel low F", "Rel catch", "Rel stability",
+    "Rel VB2025", "Rel VBMSY"
+  )
+  spider_labels <- c(
+    "SB/SBMSY", "Lower F/FMSY", "Catch", "Lower IACC",
+    "VB/VB[2025]", "VB/VB[MSY]"
+  )
+  spider_descriptions <- paste(
+    "Within-OM relative preference across CMPs for",
+    c(
+      "mean spawning biomass relative to SBMSY over 2041-2050.",
+      "mean fishing mortality relative to FMSY over 2041-2050; lower is better.",
+      "mean catch over 2041-2050.",
+      "mean interannual catch change over 2041-2050; lower is better.",
+      "mean vulnerable biomass relative to 2025 over 2041-2050.",
+      paste("mean vulnerable biomass relative to equilibrium vulnerable",
+        "biomass at MSY fishing mortality over 2041-2050.")
+    ),
+    "Values span 0 (least preferred observed CMP) to 1 (most preferred);",
+    "they are not absolute acceptability scores."
+  )
+  spider_i <- match(spider_source_codes, summary_codes)
+  spider_raw <- summaries[, , spider_i, drop = FALSE]
+  spider_value <- array(NA_real_, dim = dim(spider_raw))
+  higher_is_better <- c(TRUE, FALSE, TRUE, FALSE, TRUE, TRUE)
+  for (om_i in seq_along(om_codes)) {
+    for (pi_i in seq_along(spider_i)) {
+      values <- spider_raw[om_i, , pi_i]
+      finite <- is.finite(values)
+      if (!any(finite)) next
+      value_range <- diff(range(values[finite]))
+      if (value_range == 0) {
+        spider_value[om_i, finite, pi_i] <- 1
+      } else if (higher_is_better[[pi_i]]) {
+        spider_value[om_i, finite, pi_i] <-
+          (values[finite] - min(values[finite])) / value_range
+      } else {
+        spider_value[om_i, finite, pi_i] <-
+          (max(values[finite]) - values[finite]) / value_range
+      }
+    }
+  }
+  spider <- Spider(Code = spider_codes, Label = spider_labels,
+    Description = spider_descriptions)
+  Value(spider) <- spider_value
+  Check(spider)
+
   tradeoff_codes <- c("P(green)", "P(red)", "Catch 2026-2030",
     "Catch 2041-2050", "Catch reduction", "SB/SBMSY", "F/FMSY", "IACC",
     "VB/VB[2025]", "VB/VB[MSY]")
@@ -558,6 +615,7 @@ build_candidate_slick <- function(
     "OM metadata order does not match the Slick value-array order")
   Boxplot(slick) <- boxplot
   Quilt(slick) <- quilt
+  Spider(slick) <- spider
   Timeseries(slick) <- ts
   Kobe(slick) <- kobe
   Tradeoff(slick) <- tradeoff
@@ -714,6 +772,11 @@ build_combined_candidate_slick <- function(
   Value(quilt) <- bind_slick_om_arrays(
     Value(Quilt(reference_slick)), Value(Quilt(robustness_slick)), 1L)
   Quilt(combined) <- quilt
+
+  spider <- Spider(reference_slick)
+  Value(spider) <- bind_slick_om_arrays(
+    Value(Spider(reference_slick)), Value(Spider(robustness_slick)), 1L)
+  Spider(combined) <- spider
 
   tradeoff <- Tradeoff(reference_slick)
   Value(tradeoff) <- bind_slick_om_arrays(

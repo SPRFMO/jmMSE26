@@ -14,7 +14,7 @@ Slick file.
 
 ### In the hosted app
 
-1. [Download the current `jm_candidates.slick`](https://raw.githubusercontent.com/SPRFMO/jmMSE26/main/output/jm_candidates.slick).
+1. [Download the current 500-draw `jm_candidates_500.slick`](https://raw.githubusercontent.com/SPRFMO/jmMSE26/main/output/jm_candidates_500.slick).
 2. Open the [Blue Matter Slick app](https://shiny.bluematterscience.com/app/slick).
 3. If the app has stopped, select **Restart app**.
 4. Under **Load your MSE Results**, select the downloaded `.slick` file.
@@ -24,7 +24,7 @@ Slick file.
    be visible immediately.
 
 If only HS+20 and PR+20 appear, open the **MPs** filter and select **All CMPs**.
-That indicates either that the **Central rule-shape comparison** preset is active or
+That indicates either that the **Sensitivity cases (HS+20 and PR+20)** preset is active or
 that an older copy of the same-named file was loaded. The current file contains
 eight CMPs. Its SHA-256 fingerprint is recorded in the traceability page for
 the published branch.
@@ -42,7 +42,7 @@ library(Slick)
 url <- paste0(
   "https://raw.githubusercontent.com/SPRFMO/jmMSE26/",
   "main/",
-  "output/jm_candidates.slick"
+  "output/jm_candidates_500.slick"
 )
 file <- tempfile(fileext = ".slick")
 download.file(url, file, mode = "wb")
@@ -77,8 +77,9 @@ fishing mortality relative to $F_{MSY}$, and catch. Interannual catch change
 vulnerable biomass relative to its 2025 level and relative to equilibrium
 vulnerable biomass at the fishing mortality that produces MSY.
 
-The current published comparison uses the completed 100-posterior-iteration
-runs through 2050. The eight CMPs are retained locally in `jmMSE` across:
+The current published comparison uses the completed 500-posterior-draw runs
+through 2050. The eight CMPs are retained across the refinement and robustness
+archives.
 
 - `model/candidates/reference/`: HS+20, HS-20, PR+20, and PR-20; and
 - `model/candidates/additional-change-limits/reference/`: HSsym, HS-30,
@@ -86,8 +87,8 @@ runs through 2050. The eight CMPs are retained locally in `jmMSE` across:
 
 The augmented six-metric tables used for the published Slick file are retained
 in this repository as
-`output/candidate-performance/reference/performance_with_vb.rds` and
-`output/candidate-performance/robustness/performance_with_vb.rds`.
+`output/candidate-performance-500/reference/performance_with_vb.rds` and
+`output/candidate-performance-500/robustness/performance_with_vb.rds`.
 
 These are reference-operating-model results. They are suitable for checking the
 candidate calculations and comparing the rule and data contrasts, but they are not a
@@ -96,36 +97,31 @@ substitute for robustness testing across the full set of operating models.
 The corresponding nine-OM robustness results are stored in
 `jmMSE/model/candidates/robustness/` and
 `jmMSE/model/candidates/additional-change-limits/robustness/`. Together they
-contain all eight CMPs, 100 posterior iterations, and annual results through
+contain all eight CMPs, 500 posterior draws, and annual results through
 2050 for every operating model.
 
 ## CMPs included
 
-HS+20 (MP29) and PR+20 (MP32) anchor the rule-shape comparison. Six retuned
-annual-limit variants test reverse-asymmetric, symmetric, and 30%-decrease
-constraints within the same two HCR families.
+HS-20 (MP43) and PR-20 (MP44) are the focal cases. HS+20 (MP29) and PR+20
+(MP32) are retained as sensitivity cases, and four additional variants test
+symmetric and 30%-decrease constraints within the same two HCR families.
 
 | CMP | Role in the comparison |
 |---|---|
-| HS+20 (MP29) | Hockey-stick; -15%/+20% annual limits; trigger 2.125. |
-| HS-20 (MP43) | Hockey-stick; -20%/+15% annual limits; trigger 3.0625. |
-| HSsym (MP45) | Hockey-stick; -15%/+15% annual limits; trigger 3.0625. |
-| HS-30 (MP47) | Hockey-stick; -30%/+20% annual limits; trigger 3.0625. |
-| PR+20 (MP32) | Power ramp; -15%/+20% annual limits; trigger 1.421875. |
-| PR-20 (MP44) | Power ramp; -20%/+15% annual limits; trigger 1.9140625. |
-| PRsym (MP46) | Power ramp; -15%/+15% annual limits; trigger 1.9375. |
-| PR-30 (MP48) | Power ramp; -30%/+20% annual limits; trigger 1.890625. |
+| HS+20 (MP29) | Sensitivity; hockey-stick; -15%/+20% annual limits; trigger 2.125. |
+| HS-20 (MP43) | **Focal**; hockey-stick; -20%/+15% annual limits; trigger 1.9375. |
+| HSsym (MP45) | Comparison; hockey-stick; -15%/+15% annual limits; trigger 2.0625. |
+| HS-30 (MP47) | Comparison; hockey-stick; -30%/+20% annual limits; trigger 2.0000. |
+| PR+20 (MP32) | Sensitivity; power ramp; -15%/+20% annual limits; trigger 1.640625. |
+| PR-20 (MP44) | **Focal**; power ramp; -20%/+15% annual limits; trigger 1.6015625. |
+| PRsym (MP46) | Comparison; power ramp; -15%/+15% annual limits; trigger 1.6250. |
+| PR-30 (MP48) | Comparison; power ramp; -30%/+20% annual limits; trigger 1.578125. |
 
-The MP filter includes one-click selections for the central rule-shape pair,
+The MP filter includes one-click selections for the focal pair, the +20 sensitivity pair,
 each HCR family, each annual-limit design, all CMPs, and each individual CMP.
-The six annual-limit variants were retuned under reference OM11 toward a mean
-dynamic Kobe-green probability of 0.60 over 2041–2050 using 100 posterior
-iterations. Recalculation from the archived run objects gives 0.262 for HS+20
-and 0.273 for PR+20, so those two initial configurations are not equally tuned
-to the six variants in this 100-draw export. A separate completed 500-draw
-refinement reaches 0.60 (within 0.01) for all eight CMPs, but should replace
-this file only when its corresponding reference and robustness performance
-artifacts are adopted together.
+All eight CMPs were refined under reference OM11 toward a mean dynamic
+Kobe-green probability of 0.60 over 2041–2050 using the same 500 posterior
+draws. The resulting probabilities range from 0.592 to 0.610.
 
 ## Run or extend the reference comparison
 
@@ -172,7 +168,7 @@ source("R/build_candidate_slick.R")
 
 reference_slick <- build_candidate_slick(
   performance_file =
-    "output/candidate-performance/reference/performance_with_vb.rds",
+    "output/candidate-performance-500/reference/performance_with_vb.rds",
   out_file = NULL,
   historical_om_files = candidate_reference_om_files("../jmMSE"),
   require_vb = TRUE
@@ -229,8 +225,8 @@ in the OM metadata for traceability.
 
 ### Add the robustness sets
 
-The robustness operating models and candidate runs can be reproduced from
-the recorded 100-iteration workflow on the `jmMSE` `dev_jim` branch.
+The robustness operating models and candidate runs can be reproduced from the
+recorded 500-draw refinement controls and robustness workflow.
 
 ```sh
 Rscript prepare_candidate_robustness_oms.R
@@ -248,7 +244,7 @@ source("R/build_candidate_slick.R")
 
 robustness_slick <- build_candidate_slick(
   performance_file =
-    "output/candidate-performance/robustness/performance_with_vb.rds",
+    "output/candidate-performance-500/robustness/performance_with_vb.rds",
   out_file = NULL,
   historical_om_files = candidate_robustness_om_files("../jmMSE"),
   require_vb = TRUE
@@ -257,7 +253,7 @@ robustness_slick <- build_candidate_slick(
 slick <- build_combined_candidate_slick(
   reference_slick = reference_slick,
   robustness_slick = robustness_slick,
-  out_file = "output/jm_candidates.slick"
+  out_file = "output/jm_candidates_500.slick"
 )
 ```
 
@@ -279,7 +275,7 @@ all CJM cases, the CJM robustness cases, the two-stock robustness cases, all
 OMs, and each individual alternative OM. Selecting a two-stock OM includes both
 its Southern and Northern rows.
 
-The dimensions are 100 posterior iterations, 14 OM–stock series, eight management
+The dimensions are 500 posterior draws, 14 OM–stock series, eight management
 procedures, seven performance measures, and 81 annual values from 1970 through
 2050. The seven measures are $SB/SB_{MSY}$, dynamic $SB/SB_{MSY}$,
 $F/F_{MSY}$, catch, IACC, $VB/VB_{2025}$, and $VB/VB_{\mathrm{MSY}}$. Each series uses its own
@@ -295,7 +291,7 @@ confirming that the candidate calculations are equivalent.
 #| eval: false
 library(Slick)
 
-slick <- readRDS("output/jm_candidates.slick")
+slick <- readRDS("output/jm_candidates_500.slick")
 Check(slick)
 methods::validObject(slick)
 

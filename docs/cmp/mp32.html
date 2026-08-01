@@ -167,12 +167,20 @@ window.Quarto = {
  <span class="dropdown-text">CMP registry</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="../cmp/mp43.html">
+ <span class="dropdown-text">MP43 focal hockeystick</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../cmp/mp44.html">
+ <span class="dropdown-text">MP44 focal power ramp</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../cmp/mp29.html">
- <span class="dropdown-text">MP29 hockeystick</span></a>
+ <span class="dropdown-text">MP29 sensitivity</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../cmp/mp32.html">
- <span class="dropdown-text">MP32 powerramp</span></a>
+ <span class="dropdown-text">MP32 sensitivity</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../cmp/control-reference.html">
@@ -254,6 +262,18 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="../cmp/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">CMP registry</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../cmp/mp43.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">MP43 focal hockeystick case</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../cmp/mp44.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">MP44 focal power-ramp case</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -399,7 +419,7 @@ window.Quarto = {
 MP32: All-index Powerramp Candidate
 </div>
 <div class="status-note">
-<p><strong>Status:</strong> advanced candidate in the current <code>jmMSE</code> analysis. MP32 has not been adopted. This page reflects the exact <code>jmMSE</code> version <code>94d4d325ba46220f56097b3de90824c83b7cf3cd</code> and the 25 July 2026 presentation.</p>
+<p><strong>Status:</strong> sensitivity case in the current <code>jmMSE</code> analysis. MP32 preserves the earlier +20 annual-increase specification and has not been adopted. This page reflects the exact <code>jmMSE</code> version <code>94d4d325ba46220f56097b3de90824c83b7cf3cd</code> and the 25 July 2026 presentation.</p>
 </div>
 <section id="identity" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="identity"><span class="header-section-number">1</span> Identity</h2>
@@ -514,8 +534,8 @@ C_t^* =
 </section>
 <section id="evidence-status" class="level2" data-number="4">
 <h2 data-number="4" class="anchored" data-anchor-id="evidence-status"><span class="header-section-number">4</span> Evidence status</h2>
-<p>The July presentation identifies MP32 as the optimal powerramp minimum/limit run. The MP29-MP32 comparison reports broadly similar long-term catch and stock performance, with MP32 showing more year-to-year catch variation (IACC) than MP29. The <code>jmMSE</code> robustness analysis carries both candidates forward.</p>
-<p>Primary sources: <a href="https://github.com/SPRFMO/jmMSE/blob/main/model_tune.R"><code>model_tune.R</code></a>, <a href="https://github.com/SPRFMO/jmMSE/blob/main/model_robustness.R"><code>model_robustness.R</code></a>, and the <a href="https://github.com/SPRFMO/jmMSE/blob/main/doc/presentation/presentation_20260725.Rmd">July presentation source</a>.</p>
+<p>The July WUR presentation identifies MP32 as the optimal powerramp minimum/limit run. The MP29-MP32 comparison reports broadly similar long-term catch and stock performance, with MP32 showing more year-to-year catch variation (IACC) than MP29. The current analysis retains MP29 and MP32 as sensitivities to focal MP43 and MP44.</p>
+<p>Primary sources: <a href="https://github.com/SPRFMO/jmMSE/blob/main/model_tune.R"><code>model_tune.R</code></a>, <a href="https://github.com/SPRFMO/jmMSE/blob/main/model_robustness.R"><code>model_robustness.R</code></a>, and the <a href="../evidence/presentation_20260725.pdf">July WUR presentation</a>.</p>
 </section>
 <section id="annual-application-requirements-still-to-resolve" class="level2" data-number="5">
 <h2 data-number="5" class="anchored" data-anchor-id="annual-application-requirements-still-to-resolve"><span class="header-section-number">5</span> Annual application requirements still to resolve</h2>
@@ -1011,81 +1031,83 @@ C_t^* =
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">"paper-title"</span><span class="dt">&gt;</span>MP32: All-index Powerramp Candidate<span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>::: {.status-note}</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>**Status:** advanced candidate in the current <span class="in">`jmMSE`</span> analysis. MP32 has not</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>been adopted. This page reflects the exact <span class="in">`jmMSE`</span> version</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="in">`94d4d325ba46220f56097b3de90824c83b7cf3cd`</span> and the 25 July 2026 presentation.</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="fu">## Identity</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Component <span class="pp">|</span> Current definition <span class="pp">|</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Name in the <span class="in">`jmMSE`</span> analysis <span class="pp">|</span> <span class="in">`tun32`</span>, labelled MP32 <span class="pp">|</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Stock/index indicator <span class="pp">|</span> <span class="in">`cpues.ind`</span> <span class="pp">|</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Indices <span class="pp">|</span> <span class="in">`Chile_AcousN`</span>, <span class="in">`Chile_CPUE`</span>, <span class="in">`Peru_Artis`</span>, <span class="in">`Peru_Ind`</span>, <span class="in">`Offshore_CPUE`</span> <span class="pp">|</span></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Reference years <span class="pp">|</span> 2019-2023 <span class="pp">|</span></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Recent-data window <span class="pp">|</span> 3 years <span class="pp">|</span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> How the indices are combined <span class="pp">|</span> Mean (<span class="in">`combine = "mean"`</span>, <span class="in">`metric = "mean"`</span>) <span class="pp">|</span></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Harvest control rule <span class="pp">|</span> Power ramp (<span class="in">`powerramp.hcr`</span>) <span class="pp">|</span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Output <span class="pp">|</span> Catch <span class="pp">|</span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Catch allocation <span class="pp">|</span> Split among fisheries using their average catch proportions over the last five years (<span class="in">`split.is`</span>) <span class="pp">|</span></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="fu">## Harvest control rule parameters</span></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Parameter <span class="pp">|</span> Value <span class="pp">|</span></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---:|</span></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Minimum catch, <span class="in">`min`</span> <span class="pp">|</span> 270 <span class="pp">|</span></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Limit metric, <span class="in">`lim`</span> <span class="pp">|</span> 0.1 <span class="pp">|</span></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Trigger metric <span class="pp">|</span> 1.42 <span class="pp">|</span></span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Target catch <span class="pp">|</span> 1500 <span class="pp">|</span></span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Initial catch for constraints <span class="pp">|</span> 1385 <span class="pp">|</span></span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Maximum annual decrease multiplier, <span class="in">`dlow`</span> <span class="pp">|</span> 0.85 <span class="pp">|</span></span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Maximum annual increase multiplier, <span class="in">`dupp`</span> <span class="pp">|</span> 1.20 <span class="pp">|</span></span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="fu">## Rule</span></span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>Let $I_t$ be the annual mean of the standardized index information and</span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>x_t = \frac{I_t-0.1}{1.42-0.1}.</span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>Before applying the annual change limit, the current power-ramp rule calculates</span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>the catch recommendation as</span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>C_t^* =</span>
-<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>\begin{cases}</span>
-<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>270, &amp; I_t \le 0.1,<span class="sc">\\</span></span>
-<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>270 + (1500-270)x_t^{2.5}, &amp; 0.1 &lt; I_t &lt; 1.42,<span class="sc">\\</span></span>
-<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>1500(0.2+0.8x_t)^{0.6}, &amp; I_t \ge 1.42.</span>
-<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>\end{cases}</span>
-<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>Unlike a capped hockeystick, the upper branch continues to rise above the</span>
-<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>trigger. The annual change rule then prevents the result from falling below 85%</span>
-<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>or rising above 120% of the previous recommendation. For the first application</span>
-<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>year, the reference value is 1385.</span>
-<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a><span class="fu">## Evidence status</span></span>
-<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>The July presentation identifies MP32 as the optimal powerramp minimum/limit</span>
-<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>run. The MP29-MP32 comparison reports broadly similar long-term catch and stock</span>
-<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>performance, with MP32 showing more year-to-year catch variation (IACC) than</span>
-<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>MP29. The <span class="in">`jmMSE`</span> robustness analysis carries both candidates forward.</span>
-<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>Primary sources: <span class="co">[</span><span class="ot">`model_tune.R`</span><span class="co">](https://github.com/SPRFMO/jmMSE/blob/main/model_tune.R)</span>,</span>
-<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">`model_robustness.R`</span><span class="co">](https://github.com/SPRFMO/jmMSE/blob/main/model_robustness.R)</span>,</span>
-<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>and the <span class="co">[</span><span class="ot">July presentation source</span><span class="co">](https://github.com/SPRFMO/jmMSE/blob/main/doc/presentation/presentation_20260725.Rmd)</span>.</span>
-<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a><span class="fu">## Annual application requirements still to resolve</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>**Status:** sensitivity case in the current <span class="in">`jmMSE`</span> analysis. MP32 preserves</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>the earlier +20 annual-increase specification and has not been adopted. This</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>page reflects the exact <span class="in">`jmMSE`</span> version</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="in">`94d4d325ba46220f56097b3de90824c83b7cf3cd`</span> and the 25 July 2026 presentation.</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">## Identity</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Component <span class="pp">|</span> Current definition <span class="pp">|</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Name in the <span class="in">`jmMSE`</span> analysis <span class="pp">|</span> <span class="in">`tun32`</span>, labelled MP32 <span class="pp">|</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Stock/index indicator <span class="pp">|</span> <span class="in">`cpues.ind`</span> <span class="pp">|</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Indices <span class="pp">|</span> <span class="in">`Chile_AcousN`</span>, <span class="in">`Chile_CPUE`</span>, <span class="in">`Peru_Artis`</span>, <span class="in">`Peru_Ind`</span>, <span class="in">`Offshore_CPUE`</span> <span class="pp">|</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Reference years <span class="pp">|</span> 2019-2023 <span class="pp">|</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Recent-data window <span class="pp">|</span> 3 years <span class="pp">|</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> How the indices are combined <span class="pp">|</span> Mean (<span class="in">`combine = "mean"`</span>, <span class="in">`metric = "mean"`</span>) <span class="pp">|</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Harvest control rule <span class="pp">|</span> Power ramp (<span class="in">`powerramp.hcr`</span>) <span class="pp">|</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Output <span class="pp">|</span> Catch <span class="pp">|</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Catch allocation <span class="pp">|</span> Split among fisheries using their average catch proportions over the last five years (<span class="in">`split.is`</span>) <span class="pp">|</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="fu">## Harvest control rule parameters</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Parameter <span class="pp">|</span> Value <span class="pp">|</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---:|</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Minimum catch, <span class="in">`min`</span> <span class="pp">|</span> 270 <span class="pp">|</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Limit metric, <span class="in">`lim`</span> <span class="pp">|</span> 0.1 <span class="pp">|</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Trigger metric <span class="pp">|</span> 1.42 <span class="pp">|</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Target catch <span class="pp">|</span> 1500 <span class="pp">|</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Initial catch for constraints <span class="pp">|</span> 1385 <span class="pp">|</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Maximum annual decrease multiplier, <span class="in">`dlow`</span> <span class="pp">|</span> 0.85 <span class="pp">|</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Maximum annual increase multiplier, <span class="in">`dupp`</span> <span class="pp">|</span> 1.20 <span class="pp">|</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="fu">## Rule</span></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>Let $I_t$ be the annual mean of the standardized index information and</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>x_t = \frac{I_t-0.1}{1.42-0.1}.</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>Before applying the annual change limit, the current power-ramp rule calculates</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>the catch recommendation as</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>C_t^* =</span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>\begin{cases}</span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>270, &amp; I_t \le 0.1,<span class="sc">\\</span></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>270 + (1500-270)x_t^{2.5}, &amp; 0.1 &lt; I_t &lt; 1.42,<span class="sc">\\</span></span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>1500(0.2+0.8x_t)^{0.6}, &amp; I_t \ge 1.42.</span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>\end{cases}</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>Unlike a capped hockeystick, the upper branch continues to rise above the</span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>trigger. The annual change rule then prevents the result from falling below 85%</span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>or rising above 120% of the previous recommendation. For the first application</span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>year, the reference value is 1385.</span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a><span class="fu">## Evidence status</span></span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>The July WUR presentation identifies MP32 as the optimal powerramp minimum/limit</span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>run. The MP29-MP32 comparison reports broadly similar long-term catch and stock</span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>performance, with MP32 showing more year-to-year catch variation (IACC) than</span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>MP29. The current analysis retains MP29 and MP32 as sensitivities to focal</span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>MP43 and MP44.</span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>Primary sources: <span class="co">[</span><span class="ot">`model_tune.R`</span><span class="co">](https://github.com/SPRFMO/jmMSE/blob/main/model_tune.R)</span>,</span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">`model_robustness.R`</span><span class="co">](https://github.com/SPRFMO/jmMSE/blob/main/model_robustness.R)</span>,</span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>and the <span class="co">[</span><span class="ot">July WUR presentation</span><span class="co">](../evidence/presentation_20260725.pdf)</span>.</span>
 <span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>authoritative provider and annual cutoff for each index;</span>
-<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>precise index standardization performed by <span class="in">`cpues.ind`</span> and the software version used;</span>
-<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>treatment of missing or revised indices;</span>
-<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>catch units and rounding;</span>
-<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>approved catch-allocation update rule; and</span>
-<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>exceptional-circumstances review and decision process.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a><span class="fu">## Annual application requirements still to resolve</span></span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>authoritative provider and annual cutoff for each index;</span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>precise index standardization performed by <span class="in">`cpues.ind`</span> and the software version used;</span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>treatment of missing or revised indices;</span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>catch units and rounding;</span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>approved catch-allocation update rule; and</span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>exceptional-circumstances review and decision process.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">

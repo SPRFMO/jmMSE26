@@ -138,12 +138,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="dropdown-text">CMP registry</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="../cmp/mp43.html">
+ <span class="dropdown-text">MP43 focal hockeystick</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../cmp/mp44.html">
+ <span class="dropdown-text">MP44 focal power ramp</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../cmp/mp29.html">
- <span class="dropdown-text">MP29 hockeystick</span></a>
+ <span class="dropdown-text">MP29 sensitivity</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../cmp/mp32.html">
- <span class="dropdown-text">MP32 powerramp</span></a>
+ <span class="dropdown-text">MP32 sensitivity</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../cmp/control-reference.html">
@@ -229,6 +237,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../cmp/mp43.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">MP43 focal hockeystick case</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../cmp/mp44.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">MP44 focal power-ramp case</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../cmp/mp29.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">MP29 hockeystick candidate</span></a>
   </div>
@@ -301,8 +321,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
 </li>
         <li class="sidebar-item">
- <span class="menu-text">evidence/scw17-evidence.qmd</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="../evidence/scw17-evidence.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">CMP evidence and development history</span></a>
+  </div>
+</li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../evidence/sc14-mse-report.html" class="sidebar-item-text sidebar-link">
@@ -367,7 +390,7 @@ Cross-reference for CMP Trial and Robustness Runs
 <p>This page provides a quick reference to the procedure settings recorded in <code>tuns_ctrl.csv</code> and <code>robs_ctrl.csv</code>. The tables are rebuilt from those files when the website is rendered, so they remain aligned with the analysis control files.</p>
 <section id="tuning-trials" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="tuning-trials"><span class="header-section-number">1</span> Tuning trials</h2>
-<p>These are the procedure designs examined during tuning. MP29 and MP32 were subsequently carried forward as advanced candidates. MP43 and MP44 are retuned comparison cases with different annual change limits.</p>
+<p>These are the procedure designs examined during tuning. MP43 and MP44 are the current focal cases. MP29 and MP32 preserve the earlier +20 annual-limit specification as sensitivity cases.</p>
 <div class="cell">
 <div id="tbl-tuning-controls" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
@@ -762,7 +785,7 @@ Table&nbsp;1: Settings for the 29 tuning trials. A dash means that the setting d
 </section>
 <section id="robustness-runs" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="robustness-runs"><span class="header-section-number">2</span> Robustness runs</h2>
-<p>The focused control table applies MP29, MP32, MP43, and MP44 to nine alternative operating models. Each row below identifies one procedure–operating-model combination. The combined Slick file also includes the other six comparison cases across these operating models.</p>
+<p>The focused control table applies focal MP43/MP44 and sensitivity MP29/MP32 to nine alternative operating models. Each row below identifies one procedure–operating-model combination. The combined Slick file also includes the other six comparison cases across these operating models.</p>
 <div class="cell">
 <div id="tbl-robustness-controls" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
@@ -1211,7 +1234,7 @@ Table&nbsp;2: MP29, MP32, MP43, and MP44 robustness runs by operating model.
 <li><strong>Annual decrease and increase limits</strong> are multipliers on the previous year’s catch advice. For example, 0.85 and 1.20 limit a change to a 15% decrease or a 20% increase.</li>
 <li><strong>Operating model</strong> identifies the alternative description of stock dynamics used for robustness testing. See the MSE analysis for the assumptions that define each operating model.</li>
 </ul>
-<p>The detailed definitions of the two advanced candidates are on the <a href="../cmp/mp29.html">MP29</a> and <a href="../cmp/mp32.html">MP32</a> pages.</p>
+<p>The <a href="../cmp/mp29.html">MP29</a> and <a href="../cmp/mp32.html">MP32</a> pages document the earlier +20 sensitivity specifications. The registry and SC14 report record the focal MP43/MP44 controls and their completed 500-draw refinement.</p>
 
 
 <!-- -->
@@ -1702,9 +1725,9 @@ Table&nbsp;2: MP29, MP32, MP43, and MP44 robustness runs by operating model.
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">## Tuning trials</span></span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>These are the procedure designs examined during tuning. MP29 and MP32 were</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>subsequently carried forward as advanced candidates. MP43 and MP44 are</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>retuned comparison cases with different annual change limits.</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>These are the procedure designs examined during tuning. MP43 and MP44 are the</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>current focal cases. MP29 and MP32 preserve the earlier +20 annual-limit</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>specification as sensitivity cases.</span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-tuning-controls</span></span>
@@ -1740,7 +1763,7 @@ Table&nbsp;2: MP29, MP32, MP43, and MP44 robustness runs by operating model.
 <span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a><span class="fu">## Robustness runs</span></span>
 <span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>The focused control table applies MP29, MP32, MP43, and MP44 to nine</span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>The focused control table applies focal MP43/MP44 and sensitivity MP29/MP32 to nine</span>
 <span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>alternative operating models. Each row below identifies one</span>
 <span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>procedure–operating-model combination. The combined Slick file also includes</span>
 <span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>the other six comparison cases across these operating models.</span>
@@ -1784,8 +1807,9 @@ Table&nbsp;2: MP29, MP32, MP43, and MP44 robustness runs by operating model.
 <span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a>  used for robustness testing. See the MSE analysis for the assumptions that</span>
 <span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a>  define each operating model.</span>
 <span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a>The detailed definitions of the two advanced candidates are on the</span>
-<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">MP29</span><span class="co">](mp29.qmd)</span> and <span class="co">[</span><span class="ot">MP32</span><span class="co">](mp32.qmd)</span> pages.</span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a>The <span class="co">[</span><span class="ot">MP29</span><span class="co">](mp29.qmd)</span> and <span class="co">[</span><span class="ot">MP32</span><span class="co">](mp32.qmd)</span> pages document the earlier +20</span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a>sensitivity specifications. The registry and SC14 report record the focal</span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a>MP43/MP44 controls and their completed 500-draw refinement.</span>
 </code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

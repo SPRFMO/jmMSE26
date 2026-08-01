@@ -117,13 +117,17 @@ confirmed before providing formal advice.
 | MP18 | All five indices, 3 years | Hockeystick | 0 | 0 | 5.796875 | Target 5000 |
 | MP23 | All five indices, 5 years | Straight slope | 0 | 0 | — | Slope 821.875 |
 | MP24 | All five indices, 3 years | Hockeystick | 0 | 0 | 1.5125 | Target 1750 |
-| MP29 | All five indices, 3 years | Hockeystick | 270 | 0.1 | 2.125 | Target 2000 |
-| MP43 | All five indices, 3 years | Hockeystick | 270 | 0.1 | 3.0625 | Target 2000 |
+| MP29 (HS+20) | All five indices, 3 years | Hockeystick | 270 | 0.1 | 2.125 | Target 2000 |
+| MP43 (HS-20) | All five indices, 3 years | Hockeystick | 270 | 0.1 | 3.0625 | Target 2000 |
 | MP31 | All five indices, 3 years | Hockeystick | 270 | 0.3 | 1.984375 | Target 2000 |
-| MP32 | All five indices, 3 years | Power ramp | 270 | 0.1 | 1.421875 | Target 1500 |
-| MP44 | All five indices, 3 years | Power ramp | 270 | 0.1 | 1.9140625 | Target 1500 |
+| MP32 (PR+20) | All five indices, 3 years | Power ramp | 270 | 0.1 | 1.421875 | Target 1500 |
+| MP44 (PR-20) | All five indices, 3 years | Power ramp | 270 | 0.1 | 1.9140625 | Target 1500 |
 | MP35 | Four CPUE/fishery indices, 3 years | Power ramp | 270 | 0.1 | 1.4921875 | Target 1500 |
 | MP36 | Four CPUE/fishery indices, 3 years | Hockeystick | 270 | 0.1 | 2.21875 | Target 2000 |
+
+In the new short-label convention, **HS** means hockeystick and **PR** means
+power ramp. **+20** identifies a 20% maximum annual increase, while **-20**
+identifies a 20% maximum annual decrease.
 
 For a hockeystick CMP, the preliminary catch advice is the minimum at or below
 the limit, rises in a straight line between the limit and trigger, and equals
@@ -518,9 +522,8 @@ knitr::kable(advice_2024, digits = 3)
 ```
 
 These values should not be interpreted as ten equally supported
-recommendations: MP29 and MP32 are the advanced candidates, while the other
-eight are comparison cases. MP43 and MP44 specifically test a different pair
-of annual change limits after retuning. The table is useful for checking that
+recommendations: MP43 and MP44 are the focal cases, MP29 and MP32 are
+sensitivity cases, and the other six are comparison cases. The table is useful for checking that
 every rule can be reproduced from one shared set of observations.
 
 ## Why this example stops with 2024 observations

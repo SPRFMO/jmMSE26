@@ -1,0 +1,52 @@
+---
+title: "MP43 focal hockeystick case"
+---
+
+{{< include ../_includes/sprfmo-banner.qmd >}}
+
+<div class="paper-title">MP43 (HS-20): Focal Hockeystick Case</div>
+
+::: {.status-note}
+**Status:** focal case in the current analysis; not formally recommended or
+adopted. MP29 (HS+20) is retained as its annual-limit sensitivity case.
+:::
+
+## Identity and controls
+
+| Component | Current 500-draw definition |
+|---|---|
+| Analysis code and label | `tun43`; MP43; HS-20 |
+| Stock/index indicator | `cpues.ind`; mean of the five standardized indices |
+| Reference and recent windows | 2019--2023 reference; 3-year recent average |
+| Harvest control rule | Hockey-stick (`hockeystick.hcr`) |
+| Minimum and target catch | 270 and 2,000 kt |
+| Limit and refined trigger | 0.1 and 1.9375 |
+| Annual decrease/increase limits | -20% / +15% (`dlow = 0.80`, `dupp = 1.15`) |
+| Initial simulated catch | 1,385 kt |
+
+## Rule
+
+Let $I_t$ be the combined recent index. Before the annual change limit, the
+catch recommendation is
+
+$$
+C_t^* =
+\begin{cases}
+270, & I_t \le 0.1,\\
+270 + (I_t-0.1)\dfrac{2000-270}{1.9375-0.1}, & 0.1 < I_t < 1.9375,\\
+2000, & I_t \ge 1.9375.
+\end{cases}
+$$
+
+The annual constraint then limits advice to 80%--115% of the previous advice.
+
+## Evidence status
+
+MP43 was refined from the earlier 100-draw control using the same 500
+posterior draws and tuning years (2041--2050) as the other seven CMPs. Its
+realized mean dynamic Kobe-green probability was 0.5918 against the 0.60
+objective. The completed reference and nine-OM robustness results are included
+in the SC14 report and current Slick file.
+
+Operational units, annual cutoffs, missing-data and rounding rules, and the
+formal exceptional-circumstances protocol still require approval before use.

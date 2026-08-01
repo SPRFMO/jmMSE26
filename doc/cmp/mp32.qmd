@@ -7,8 +7,9 @@ title: "MP32 powerramp candidate"
 <div class="paper-title">MP32: All-index Powerramp Candidate</div>
 
 ::: {.status-note}
-**Status:** advanced candidate in the current `jmMSE` analysis. MP32 has not
-been adopted. This page reflects the exact `jmMSE` version
+**Status:** sensitivity case in the current `jmMSE` analysis. MP32 preserves
+the earlier +20 annual-increase specification and has not been adopted. This
+page reflects the exact `jmMSE` version
 `94d4d325ba46220f56097b3de90824c83b7cf3cd` and the 25 July 2026 presentation.
 :::
 
@@ -65,14 +66,15 @@ year, the reference value is 1385.
 
 ## Evidence status
 
-The July presentation identifies MP32 as the optimal powerramp minimum/limit
+The July WUR presentation identifies MP32 as the optimal powerramp minimum/limit
 run. The MP29-MP32 comparison reports broadly similar long-term catch and stock
 performance, with MP32 showing more year-to-year catch variation (IACC) than
-MP29. The `jmMSE` robustness analysis carries both candidates forward.
+MP29. The current analysis retains MP29 and MP32 as sensitivities to focal
+MP43 and MP44.
 
 Primary sources: [`model_tune.R`](https://github.com/SPRFMO/jmMSE/blob/main/model_tune.R),
 [`model_robustness.R`](https://github.com/SPRFMO/jmMSE/blob/main/model_robustness.R),
-and the [July presentation source](https://github.com/SPRFMO/jmMSE/blob/main/doc/presentation/presentation_20260725.Rmd).
+and the [July WUR presentation](../evidence/presentation_20260725.pdf).
 
 ## Annual application requirements still to resolve
 

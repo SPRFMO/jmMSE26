@@ -13,9 +13,9 @@ files.
 
 ## Tuning trials
 
-These are the procedure designs examined during tuning. MP29 and MP32 were
-subsequently carried forward as advanced candidates. MP43 and MP44 are
-retuned comparison cases with different annual change limits.
+These are the procedure designs examined during tuning. MP43 and MP44 are the
+current focal cases. MP29 and MP32 preserve the earlier +20 annual-limit
+specification as sensitivity cases.
 
 ```{r}
 #| label: tbl-tuning-controls
@@ -51,7 +51,7 @@ knitr::kable(tuning_table, align = c("l", "l", "l", "l", rep("r", 6)))
 
 ## Robustness runs
 
-The focused control table applies MP29, MP32, MP43, and MP44 to nine
+The focused control table applies focal MP43/MP44 and sensitivity MP29/MP32 to nine
 alternative operating models. Each row below identifies one
 procedure–operating-model combination. The combined Slick file also includes
 the other six comparison cases across these operating models.
@@ -95,5 +95,6 @@ knitr::kable(robustness_table,
   used for robustness testing. See the MSE analysis for the assumptions that
   define each operating model.
 
-The detailed definitions of the two advanced candidates are on the
-[MP29](mp29.qmd) and [MP32](mp32.qmd) pages.
+The [MP29](mp29.qmd) and [MP32](mp32.qmd) pages document the earlier +20
+sensitivity specifications. The registry and SC14 report record the focal
+MP43/MP44 controls and their completed 500-draw refinement.

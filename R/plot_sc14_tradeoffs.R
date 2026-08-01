@@ -1,8 +1,6 @@
 #!/usr/bin/env Rscript
 
-# Preliminary SC14 trade-off figures for the annual-change candidate set.
-# The figures intentionally use the completed 100-replicate comparison runs;
-# they are not a substitute for the planned final higher-replication analysis.
+# SC14 trade-off figures for the common 500-draw annual-change candidate set.
 
 suppressPackageStartupMessages({
   library(data.table)
@@ -11,25 +9,14 @@ suppressPackageStartupMessages({
   library(ggthemes)
 })
 
-jm_root <- Sys.getenv("JMMSE_ROOT", "/Users/jim/_mymods/sprfmo/jmMSE")
+performance_root <- Sys.getenv("JMMSE_PERFORMANCE_ROOT",
+  file.path("output", "candidate-performance-500"))
 out_dir <- file.path("doc", "figures")
 dir.create(out_dir, recursive = TRUE, showWarnings = FALSE)
 
 source_files <- list(
-  reference_base = file.path(
-    jm_root, "model/candidates/reference/performance.rds"
-  ),
-  reference_additional = file.path(
-    jm_root,
-    "model/candidates/additional-change-limits/reference/performance.rds"
-  ),
-  robustness_base = file.path(
-    jm_root, "model/candidates/robustness/performance.rds"
-  ),
-  robustness_additional = file.path(
-    jm_root,
-    "model/candidates/additional-change-limits/robustness/performance.rds"
-  )
+  reference = file.path(performance_root, "reference", "performance_with_vb.rds"),
+  robustness = file.path(performance_root, "robustness", "performance_with_vb.rds")
 )
 
 missing_files <- names(source_files)[!file.exists(unlist(source_files))]
@@ -111,16 +98,12 @@ summarize_tradeoff <- function(dat) {
   ans[]
 }
 
-reference <- summarize_tradeoff(read_results(
-  c("reference_base", "reference_additional")
-))
-robustness <- summarize_tradeoff(read_results(
-  c("robustness_base", "robustness_additional")
-))
+reference <- summarize_tradeoff(read_results("reference"))
+robustness <- summarize_tradeoff(read_results("robustness"))
 tradeoff <- rbind(reference, robustness, use.names = TRUE)
 
-if (any(tradeoff$n_replicates != 100L)) {
-  stop("Expected 100 replicates in every preliminary trade-off summary")
+if (any(tradeoff$n_replicates != 500L)) {
+  stop("Expected 500 posterior draws in every trade-off summary")
 }
 
 fwrite(
@@ -164,8 +147,8 @@ tradeoff_plot <- function(dat, facet = NULL, x_label = NULL) {
       colour = "HCR family",
       shape = "HCR family",
       caption = paste(
-        "Points are means; bars show 10th-90th percentiles among 100",
-        "simulation replicates. Dashed line: SB/SBMSY = 1."
+        "Points are means; bars show 10th-90th percentiles among 500",
+        "posterior draws. Dashed line: SB/SBMSY = 1."
       )
     ) +
     ggthemes::theme_few(base_size = 10) +
@@ -216,8 +199,8 @@ biomass_iacc_plot <- ggplot(
     shape = "HCR family",
     caption = paste(
       "IACC is the absolute year-to-year percentage change in catch.",
-      "\nPoints are means; bars show 10th-90th percentiles among 100",
-      "simulation replicates. Dashed line: SB/SBMSY = 1."
+      "\nPoints are means; bars show 10th-90th percentiles among 500",
+      "posterior draws. Dashed line: SB/SBMSY = 1."
     )
   ) +
   ggthemes::theme_few(base_size = 10) +

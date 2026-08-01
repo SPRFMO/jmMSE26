@@ -18,10 +18,14 @@ website:
         menu:
           - href: cmp/index.qmd
             text: CMP registry
+          - href: cmp/mp43.qmd
+            text: MP43 focal hockeystick
+          - href: cmp/mp44.qmd
+            text: MP44 focal power ramp
           - href: cmp/mp29.qmd
-            text: MP29 hockeystick
+            text: MP29 sensitivity
           - href: cmp/mp32.qmd
-            text: MP32 powerramp
+            text: MP32 sensitivity
           - href: cmp/control-reference.qmd
             text: Trial & robustness runs
           - href: cmp/components.qmd
@@ -47,6 +51,8 @@ website:
       - section: "Candidate management procedures"
         contents:
           - cmp/index.qmd
+          - cmp/mp43.qmd
+          - cmp/mp44.qmd
           - cmp/mp29.qmd
           - cmp/mp32.qmd
           - cmp/control-reference.qmd

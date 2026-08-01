@@ -23,10 +23,6 @@ format:
 [Download the PDF version](sc14-mse-report.pdf){.btn .btn-primary}
 :::
 
-<!-- Editorial TODO: This report needs a focused restructuring pass so the
-section sequence, hierarchy, and transitions provide a clearer narrative flow.
-Preserve the technical content and traceability while consolidating repetition. -->
-
 <div class="paper-title">Jack Mackerel Management Strategy Evaluation: Synthesis for SC14</div>
 
 ::: {.status-note}
@@ -68,55 +64,47 @@ page](https://sprfmo.github.io/jmMSE26/) describes the naming conventions and
 how the MSE components fit together, and provides the CMP and OM registries and
 translation tables linking the labels used across analyses and reports.
 
-Two CMPs provide the central comparison. They are described as central because
-they anchor the initial rule-shape comparison, not because the current results
-rank them highest. The **+20** variants were specified in response to an
-initial request arising from early feedback from Chile's internal MSE research
-project; the 20% maximum annual TAC increase was not selected from the later
-Commission poll. That poll subsequently helped inform the broader set of
-annual TAC-change variants examined in this report.
+Two CMPs are the focal cases for the current comparison:
 
-- **HS+20** uses a hockey-stick harvest control rule (HCR), a 2,000-kt catch
-  target, a 270-kt minimum, and a combined indicator from five standardized
-  abundance indices.
-- **PR+20** uses a power-ramp HCR, a 1,500-kt catch target, the same minimum and
-  indicator, and a more responsive reduction in advice as the indicator
-  declines.
+- **HS-20 (MP43)** uses a hockey-stick harvest control rule (HCR), a 2,000-kt
+  catch target, a 270-kt minimum, and annual limits of a 20% decrease and 15%
+  increase.
+- **PR-20 (MP44)** uses a power-ramp HCR, a 1,500-kt catch target, the same
+  minimum, and the same annual limits, with a more responsive reduction in
+  advice as the indicator declines.
 
-These two CMPs anchor the central rule-shape comparison, but they were not the
-only procedures examined in detail. Six retuned annual-limit variants were
-also evaluated under the reference and robustness OMs: **HS-20**, **HSsym**,
-**HS-30**, **PR-20**, **PRsym**, and **PR-30**. They test reverse-asymmetric,
-symmetric, and larger-decrease constraints around the two central HCR
-families. The paired catch trajectories for HS+20 and HS-20 illustrate one
-such annual-limit contrast in @fig-catch-spaghetti.
+Both use the combined indicator from five standardized abundance indices.
+The earlier **HS+20 (MP29)** and **PR+20 (MP32)** specifications are retained
+as sensitivity cases. They arose from an initial request informed by early
+feedback from Chile's internal MSE research project; their 20% maximum annual
+TAC increase was not selected from the later Commission poll. That poll helped
+inform the broader set of annual TAC-change variants examined here. The
+remaining **HSsym**, **HS-30**, **PRsym**, and **PR-30** procedures are
+additional comparison cases. The paired catch trajectories for focal HS-20
+and sensitivity HS+20 illustrate one annual-limit contrast in
+@fig-catch-spaghetti.
 
-This distinction matters for interpreting the preliminary scorecard. The six
-retuned variants rank above the two initial **+20** configurations in
-@tbl-scorecard-results under both illustrative weighting schemes. Four of the
-six included metrics describe stock condition, so equal weighting assigns
-two-thirds of the composite weight to those measures; the balanced scheme
-assigns them half. Thus the scorecard ordering reflects the later retuning and
-the selected metric set and weights, whereas the prominence of HS+20 and PR+20
-reflects their role as the initial design anchors.
+This distinction matters for interpreting the illustrative scorecard. With all
+eight CMPs now tuned on the same 500 draws, HS+20 ranks first under both shown
+weighting schemes, while PR+20 ranks seventh; the six variants occupy positions
+throughout the ordering. That order is a relative trade-off result, not an
+acceptability test. It depends on the selected metrics, directions, scaling,
+and weights, and should be read alongside the raw outcomes and uncertainty.
+The scorecard ordering does not determine which cases are focal: focal status
+records the present analytical emphasis, whereas the scorecard summarizes
+relative trade-offs under selected metrics and weights.
 
-The original tuning record describes both as targeting an approximately 60%
-mean probability of dynamic Kobe-green status during 2041--2050. However,
-recalculation from the currently published 100-draw run objects gives 26.2%
-for HS+20 and 27.3% for PR+20, compared with approximately 56--59% for the six
-retuned variants. These archived **+20** runs are therefore not equally tuned
-to the variants and should not be interpreted as a like-for-like tuned
-comparison. A completed 500-draw refinement brings all eight candidates within
-one percentage point of the 60% target; the report outputs should move to that
-set only when its reference and robustness performance artifacts are adopted
-together. In the comparisons reviewed on
-24 July, HS+20 generally provided higher short-term catch and lower interannual
-catch variability, whereas PR+20 responded more quickly to declining indices
-and showed comparatively stronger recovery under the recruitment-crash and
-cyclic-recruitment scenarios. Differences were often modest, depended on the
-OM and performance measure, and do not establish a preferred or "optimal" CMP.
-Reference-OM vulnerable-biomass performance across the evaluated variants is
-summarized in @fig-vb-reference.
+All eight CMPs were refined against the same 500 posterior draws to target an
+approximately 60% mean probability of dynamic Kobe-green status during
+2041--2050. Their realized probabilities range from 59.2% to 61.0%, so the
+comparison is now like-for-like with respect to the tuning objective. The
+archived 100-draw results remain useful provenance but are superseded by the
+500-draw reference and robustness results used throughout this report. The
+earlier comparisons reviewed on 24 July identified a broad contrast between
+the stability of the hockey-stick family and the stronger response of the
+power-ramp family as indicators declined. The completed results refine that
+comparison across all eight CMPs; differences depend on the OM and performance
+measure and do not establish a preferred or "optimal" CMP.
 
 The most consequential robustness finding came from the two-stock hypotheses.
 Without movement, the southern component passed the agreed benchmark while the
@@ -129,11 +117,12 @@ declining southern component when northern indices increased. Separate annual
 tracking of northern and southern indices is therefore an important candidate
 element of exceptional-circumstances monitoring.
 
-The Scientific Committee is asked to consider the adequacy of HS+20 and PR+20 as
-the central rule-shape comparison; the annual TAC-change variants to retain;
+The Scientific Committee is asked to consider the adequacy of HS-20 (MP43) and
+PR-20 (MP44) as the focal cases; the role of HS+20 (MP29) and PR+20 (MP32) as
+sensitivity cases; the other annual TAC-change variants to retain;
 the role of all five indices, including the only fishery-independent series;
-the interpretation of two-stock robustness; the restored 100-replicate
-results pending a validated higher-replication refinement; and the work needed
+the interpretation of two-stock robustness; the completed 500-draw reference
+and robustness evaluation; and the work needed
 to validate and complete banking-and-borrowing and
 exceptional-circumstances evaluation.
 
@@ -152,7 +141,9 @@ the design record from the
 [SCW17 MSE Workshop report](https://sprfmo.github.io/scw17/SCW17-MSE-Workshop-report.html),
 and the post-workshop analysis summarized in the
 [final 24 July task-team meeting report](https://sprfmo.github.io/jmMSE26/outputs/meeting-report-20260724/SC14_JM_MSE_meeting_report_2026-07-24.pdf)
-and 25 July progress presentation. The preparation site preceded SCW17 and
+and the [presentation from Wageningen Marine Research consultants
+(WUR)](presentation_20260725.pdf).
+The preparation site preceded SCW17 and
 provided the detailed model specifications, diagnostics, working papers, and
 technical discussions needed to update the operating models used at SCW17 and
 in subsequent MSE work. Their different roles are summarized in
@@ -164,7 +155,7 @@ in subsequent MSE work. Their different roles are summarized in
 | SCW17 workshop report, 15--19 June 2026 | Agreed MSE design, OM and CMP principles, reference-point approach, performance framework, and planned robustness work. |
 | Post-workshop `jmMSE` analysis | Implemented CMP definitions, tuning runs, reference and robustness simulation outputs, and reproducibility records. |
 | Task-team meeting, 24 July 2026 | Interpretation of results, wording cautions, issues for SC14, and agreed follow-up. |
-| Progress presentation dated 25 July 2026 | Detailed tuning sequence, OM contrasts, and graphical robustness diagnostics available at the time of review. |
+| [July WUR presentation](presentation_20260725.pdf) | Detailed tuning sequence, OM contrasts, and graphical robustness diagnostics available at the time of review. |
 | Draft weighted scorecard, 23 July 2026 | Example of an editable multi-criteria comparison method; not an exhaustive candidate list, metric list, or decision. |
 
 : Source materials and their roles in this synthesis. {#tbl-source-roles}
@@ -175,7 +166,9 @@ analysis is not an adoption decision.
 
 ## Development from SCW17 to the current analysis
 
-SCW17 continued work begun at SCW15 and the 2026 benchmark. The
+SCW17 continued work begun at the
+[2025 SCW15 MSE workshop](https://sprfmo.github.io/SCW15_report/)
+[@sprfmo2025scw15] and the 2026 benchmark. The
 [benchmark-preparation and MSE-planning site](https://sprfmo.github.io/JM_SCW_prep/)
 preserves the detailed model specifications, diagnostics, index working
 papers, and preparatory meeting discussions that preceded SCW17. That record
@@ -206,7 +199,14 @@ Post-workshop work made the following material advances:
 7. Alternative annual TAC-change limits were retuned instead of being compared
    using triggers tuned under a different constraint.
 
-The 25 July presentation used the word "optimal" for some within-family runs.
+The development of vulnerable-biomass performance indicators responded to a
+request from SCW17 for a measure that could complement spawning biomass and be
+more relatable to fishers. In this context, vulnerable biomass represents the
+fish available to the fishing fleet under the modeled selectivity. It was
+therefore developed as a fishery-facing performance measure, while spawning
+biomass remains the principal measure of reproductive stock condition.
+
+The July WUR presentation used the word "optimal" for some within-family runs.
 The 24 July meeting clarified the interpretation: those runs were useful
 within-family representatives, but the analysis does not establish an optimal
 procedure across management objectives.
@@ -251,7 +251,9 @@ stage rather than embedding a single climate forecast in the core OM.
 ### Dynamic reference points
 
 Environmental recruitment variability can make static reference points
-misleading. SCW17 strongly recommended calculating the ratio
+misleading. In [paragraph 58 of the SCW17 workshop
+report](https://sprfmo.github.io/scw17/SCW17-MSE-Workshop-report.html#reference-points-and-kobe-plot-summaries),
+the Working Group strongly recommended calculating the ratio
 $B_{\mathrm{MSY}}/B_0$ within each MCMC draw, multiplying it by the
 corresponding dynamic $B_0$, and evaluating spawning biomass relative to that
 dynamic $B_{\mathrm{MSY}}$. The current tuning objective uses a dynamic
@@ -309,8 +311,10 @@ represent observation uncertainty rather than receiving true stock status
 The central CMPs use five observed series: northern Chile acoustic biomass,
 Chilean CPUE, Peruvian artisanal and industrial indices, and offshore CPUE.
 Each series is expressed relative to its 2019--2023 mean. The standardized
-values are combined with equal weights within each year, and the CMP uses a
-three-year recent average.
+values are combined with equal weights within each year, after the OMs have
+generated the indices using estimated uncertainty, temporal autocorrelation,
+and cross-correlation among series. The CMP then uses a three-year recent
+average of the combined indicator.
 
 Most data are assumed to arrive with a one-year lag, while offshore CPUE has a
 two-year lag. Under the tested timing, a calculation during 2026 for 2027
@@ -330,12 +334,36 @@ figures and interpretive prose. The legacy MP identifiers remain in the table
 only to preserve the link to code, saved outputs, and earlier documents.
 The complete mapping is given in @tbl-candidate-variants.
 
-### Central rule-shape comparison
+### Focal cases and annual-limit sensitivities
 
 All eight CMPs use the same five-index mean, 2019--2023 reference period,
 three-year averaging window, 270-kt minimum catch, 0.1 index limit, and
-1,385-kt initial simulated catch. The six non-base variants were retuned under
-the reference OM after changing the annual constraint.
+1,385-kt initial simulated catch. Each variant was refined under the reference
+OM using the same 500 posterior draws after setting its annual constraint.
+
+The nested development framework in @fig-nested-cmp-development shows how the
+focused comparison was constructed: first select the HCR shape, then its target
+catch, and finally tune the trigger controlling the indicator-to-catch
+response, while retaining the common minimum catch and index limit. The figure
+records the earlier 100-draw trigger controls used during development; the
+subsequent common 500-draw refinement used for current results is reported in
+@tbl-candidate-variants.
+
+![Nested development of the focused CMP set from HCR family through target catch and tuned response to the resulting HS and PR cases. Trigger values in this development diagram are the earlier 100-draw controls; the current 500-draw refined controls are given in @tbl-candidate-variants.](../figures/candidates/nested_cmp_development.png){#fig-nested-cmp-development fig-align="center" width="100%"}
+
+The matched example in @fig-hcr-shape-comparison isolates the effect of HCR
+shape by assigning both rules the same minimum, target, limit, and trigger. The
+hockey-stick increases catch advice linearly and then remains at its target.
+The power ramp is more conservative below the trigger but continues above the
+target when the index exceeds the trigger. Its second panel illustrates the
+harvest-rate pattern that would follow **if** vulnerable biomass were directly
+proportional to the index. For both HCR forms, the implied harvest rate rises
+at low stock sizes because catch advice is not allowed to fall below the
+270-kt minimum; that fixed catch floor becomes an increasing proportion of the
+vulnerable biomass as stock size declines. The panel is explanatory rather
+than an estimated performance result or an additional rule used by the CMPs.
+
+![Matched illustration of hockey-stick and power-ramp responses to the same relative index. Both examples use a 270-kt minimum catch, 2,000-kt target, 0.1 index limit, and trigger of 2 solely to isolate rule shape; the focal HS and PR CMPs retain their own targets and refined triggers listed in @tbl-candidate-variants. The implied-harvest-rate panel assumes vulnerable biomass is proportional to the index and is conceptual rather than a simulated performance result.](../figures/candidates/hcr_shape_matched_comparison.png){#fig-hcr-shape-comparison fig-align="center" width="100%"}
 
 ```{=latex}
 \begingroup\small
@@ -344,13 +372,13 @@ the reference OM after changing the annual constraint.
 | Working label | Legacy ID | HCR family | Target or breakpoint (kt) | Tuned trigger | Annual decrease/increase limits |
 |---|---|---|---:|---:|---:|
 | HS+20 | MP29 | Hockey-stick | 2,000 | 2.125 | -15% / +20% |
-| HS-20 | MP43 | Hockey-stick | 2,000 | 3.0625 | -20% / +15% |
-| HSsym | MP45 | Hockey-stick | 2,000 | 3.0625 | -15% / +15% |
-| HS-30 | MP47 | Hockey-stick | 2,000 | 3.0625 | -30% / +20% |
-| PR+20 | MP32 | Power ramp | 1,500 | 1.421875 | -15% / +20% |
-| PR-20 | MP44 | Power ramp | 1,500 | 1.9140625 | -20% / +15% |
-| PRsym | MP46 | Power ramp | 1,500 | 1.9375 | -15% / +15% |
-| PR-30 | MP48 | Power ramp | 1,500 | 1.890625 | -30% / +20% |
+| HS-20 | MP43 | Hockey-stick | 2,000 | 1.9375 | -20% / +15% |
+| HSsym | MP45 | Hockey-stick | 2,000 | 2.0625 | -15% / +15% |
+| HS-30 | MP47 | Hockey-stick | 2,000 | 2.0000 | -30% / +20% |
+| PR+20 | MP32 | Power ramp | 1,500 | 1.640625 | -15% / +20% |
+| PR-20 | MP44 | Power ramp | 1,500 | 1.6015625 | -20% / +15% |
+| PRsym | MP46 | Power ramp | 1,500 | 1.6250 | -15% / +15% |
+| PR-30 | MP48 | Power ramp | 1,500 | 1.578125 | -30% / +20% |
 
 : Naming convention, legacy identifiers, and definitions of the eight candidate variants. {#tbl-candidate-variants}
 
@@ -358,26 +386,25 @@ the reference OM after changing the annual constraint.
 \endgroup
 ```
 
-::: {.callout-caution title="Trigger values require a common-resolution check"}
-The identical 3.0625 triggers for HS-20, HSsym, and HS-30 were produced by
-separate tuning runs; the saved traces do not indicate that one value was
-carried across candidates. Each bisection began with the same interval and
-stopped at the first tested trigger whose simulated Kobe-green probability was
-within 0.01 of the 0.60 objective. At 3.0625, the three probabilities were
-0.606, 0.604, and 0.606, respectively. Their probabilities were also nearly
-identical at the preceding bisection points. The shared displayed trigger
-therefore reflects the tuning tolerance and resolution of these 100-replicate
-runs; it does not demonstrate that the three exact trigger values are
-identical.
+The 500-draw refinement began from the earlier 100-draw tuned controls rather
+than restarting from a broad search. It then evaluated nearby trigger values
+under one frozen OM and common random-number configuration. The resulting
+dynamic Kobe-green probabilities for HS+20, HS-20, HSsym, HS-30, PR+20,
+PR-20, PRsym, and PR-30 are 61.0%, 59.2%, 60.4%, 60.4%, 60.3%, 59.8%, 59.5%,
+and 60.6%, respectively.
 
-The contrast with HS+20 remains important: its reported trigger is 2.125,
-whereas the retuned hockey-stick variants first met the stated tolerance at
-3.0625. Because that direction is not intuitively implied by the annual
-TAC-change constraints alone, the reduced candidate set should be retuned and
-the trigger--objective relationship explicitly profiled using one frozen OM,
-software configuration, random-number design, and higher replication before
-the triggers are treated as final.
-:::
+A completed local trigger check tested one grid step below and above every
+selected control using the same frozen 500 draws. The steps were 0.0625 for
+the hockey-stick rules and 0.03125 for the power-ramp rules, matching the final
+bisection resolution for each family. All eight checks behaved as expected:
+a higher trigger produced a higher long-term Kobe-green probability and a
+lower trigger produced a lower probability. Across the eight CMPs, one lower
+step changed the probability by -1.36 to -1.74 percentage points and one upper
+step changed it by +1.10 to +1.84 points. In plain language, this is a local
+tolerance profile: it checks how much the tuning result changes after a small
+move on either side of the chosen trigger, rather than assuming the selected
+number is uniquely precise. The full values are saved in the
+[trigger-tolerance summary](../data/candidates/trigger_tolerance_summary_500.csv).
 
 The hockey-stick increases advice linearly between the limit and trigger and
 then reaches a plateau. The power ramp reduces catch more quickly when the
@@ -385,12 +412,9 @@ indicator is below its trigger and can continue to increase above its stated
 breakpoint according to the implemented rule. These structural differences,
 not the labels alone, create the main responsiveness-versus-stability contrast.
 
-The progress presentation also reported separate 500-replicate tuning checks
-for the central HS and PR configurations. Their triggers were close to the
-100-replicate results, and the reported performance differences were small.
-They are replication checks, not new conceptual CMPs. Final candidate summaries
-should use higher-replication results only after the CMP definitions and
-annual-limit behavior have been independently validated.
+The completed 500-draw refinement is a higher-replication evaluation of the
+same conceptual CMPs, not a new set of procedures. Its controls and performance
+outputs are now the common basis for the candidate summaries in this report.
 
 ### Annual TAC-change variants
 
@@ -407,11 +431,10 @@ comparison, summarized in @tbl-annual-limit-variants.
 
 The variants change both management responsiveness and the tuned trigger.
 They should therefore be compared as complete, retuned CMPs. The available
-100-replicate reference and nine-OM robustness runs support exploratory
-comparison; they do not replace final higher-replication evaluation of the
-reduced set.
+500-draw reference and nine-OM robustness runs support the common
+higher-replication comparison reported here.
 
-The following reference-OM plot shows 30 reproducibly selected simulation
+The following reference-OM plot shows 15 reproducibly selected simulation
 iterations for the two hockey-stick asymmetry cases over 2025--2050. Iteration
 IDs are paired exactly across panels: for example, iteration 6 would be shown
 for both MPs if selected, and every selected ID occurs once in each panel.
@@ -421,13 +444,13 @@ HS-20 is MP43 (`tun43`), with annual limits of -20%/+15%; HS+20 is MP29
 (`tun29`), with limits of -15%/+20%. The vertically stacked panels share a
 common catch scale, as shown in @fig-catch-spaghetti.
 
-![Projected catch trajectories for the same 30 simulation iteration IDs under both hockey-stick MPs in the reference operating model. Each iteration retains the same line color in both panels so matching trajectories can be traced through time and across MPs.](../figures/candidates/catch_spaghetti_hs_reference.png){#fig-catch-spaghetti fig-align="center" width="95%"}
+![Projected catch trajectories for the same 15 simulation iteration IDs under both hockey-stick MPs in the reference operating model. Each iteration retains the same line color in both panels so matching trajectories can be traced through time and across MPs.](../figures/candidates/catch_spaghetti_hs_reference.png){#fig-catch-spaghetti fig-align="center" width="95%"}
 
 ### Choice of indices
 
 A CPUE/fishery-index-only comparison was more responsive but produced slightly
 lower short-term catch and higher short-term catch variability. The task team
-retained all five indices for the current central comparison. The northern
+retained all five indices for the current focal comparison. The northern
 Chile acoustic survey is the only fishery-independent abundance index in the
 set and provides information that fishery-dependent series cannot fully
 replace. Conversely, equal weighting across regions can become problematic if
@@ -467,7 +490,7 @@ corresponding robustness results in @fig-vb-robustness.
 
 ![Vulnerable-biomass performance for the reference operating model.](../figures/candidates/vb_reference.png){#fig-vb-reference fig-align="center" width="90%"}
 
-![Vulnerable-biomass performance across the robustness operating models.](../figures/candidates/vb_robustness.png){#fig-vb-robustness fig-align="center" width="90%"}
+![Vulnerable-biomass performance across the five single-stock CJM robustness operating models. The four two-stock operating models are omitted from this pooled figure because their Northern and Southern components require stock-specific interpretation and are examined separately in the robustness results.](../figures/candidates/vb_robustness.png){#fig-vb-robustness fig-align="center" width="90%"}
 
 ### Performance metrics by CMPs
 
@@ -512,8 +535,50 @@ user decision under the method below.
 
 ### Extensible weighted-scorecard method
 
-The performance quilt in @fig-candidate-quilt now supplies a reproducible
-worked scorecard for the eight candidate variants under the reference OM. Let
+The scorecard should be read as three connected layers, with no layer replacing
+the one before it:
+
+1. **Raw performance and uncertainty.** Report the performance statistic in
+   its original units together with its simulated distribution or an
+   appropriate interval. This is the primary evidence layer and includes, for
+   example, catch in kt, biomass and fishing-pressure ratios, probabilities,
+   and IACC. The boxplots and uncertainty bars elsewhere in this report provide
+   examples. Point estimates alone are insufficient where CMP distributions
+   overlap.
+2. **Threshold- or target-based absolute performance.** Where the Scientific
+   Committee or Commission has agreed a biologically or operationally
+   meaningful target and limiting boundary, performance can be expressed
+   relative to those fixed reference values. Potential applications include
+   dynamic Kobe probabilities, biomass thresholds, low-catch risk, and an
+   agreed tolerance for interannual catch variability. The target, limiting
+   boundary, direction, time window, and treatment of uncertainty must be
+   specified before calculating this layer; they must not be inferred from the
+   candidate results.
+3. **Range-normalized relative preference.** For metrics without agreed
+   absolute targets, the quilt can scale each CMP between the least and most
+   preferred observed values. This supports comparison across unlike units but
+   describes position within the current candidate set, not absolute
+   performance or acceptability.
+
+For an absolute higher-is-better metric with agreed limiting boundary $L_m$
+and target $T_m>L_m$, one possible transparent score is
+
+$$
+a_{jm}=\min\!\left(1,\max\!\left(0,
+\frac{x_{jm}-L_m}{T_m-L_m}\right)\right).
+$$
+
+For a lower-is-better metric with $T_m<L_m$, the numerator and denominator are
+reversed: $a_{jm}=\min(1,\max(0,(L_m-x_{jm})/(L_m-T_m)))$. These forms are
+illustrative; an agreed probability, risk tolerance, or other metric-specific
+function may be preferable. Unlike min--max normalization, fixed $L_m$ and
+$T_m$ values permit comparison across candidate sets and report versions.
+
+The current worked scorecard implements **Layer 3**, using the performance
+quilt in @fig-candidate-quilt as a reproducible relative trade-off calculation
+for the eight candidate variants under the reference OM. It does not yet
+calculate Layer 2 absolute scores because the necessary metric-specific targets
+and limiting boundaries have not been agreed. Let
 $x_{jm}$ be the value for CMP $j$ and metric $m$, and let $x_m^{\min}$ and
 $x_m^{\max}$ be the minimum and maximum across the included CMPs. The
 directionally normalized preference score $p_{jm}$ is
@@ -529,7 +594,8 @@ p_{jm} =
 $$
 
 Thus $p_{jm}=0$ is the least preferred observed value and $p_{jm}=1$ is the
-most preferred observed value for that metric and comparison set. If all CMPs
+most preferred observed value for that metric and comparison set. It is a
+relative-preference score, not an acceptability score. If all CMPs
 have the same value for a metric, they are tied at $p_{jm}=1$. With inclusion
 indicator $I_m$ and non-negative weight $w_m$, the aggregate score is
 
@@ -539,6 +605,12 @@ S_j =
 \frac{\sum_m I_m w_m p_{jm}}
      {\sum_m I_m w_m}.
 $$
+
+The companion Slick Spider (radar) view applies the same higher-is-better
+orientation to the six included scorecard metrics and repeats the 0--1
+normalization within each selected OM. It is useful for seeing how the shape of
+CMP trade-offs changes among OMs, but radar shapes from different OMs do not
+show absolute changes in performance because each OM is scaled separately.
 
 The contribution of metric $m$ to the total is
 $C_{jm}=100 I_m w_m p_{jm}/\sum_m I_m w_m$, so
@@ -574,11 +646,11 @@ The machine-readable totals are in
 and the individual weighted contributions are in
 [`candidate_scorecard_contributions_reference.csv`](../data/candidates/candidate_scorecard_contributions_reference.csv).
 These values are a reproducible calculation, but both orders remain
-**illustrative rather than management rankings**: neither weighting scheme is
-an agreed statement of management priorities, and the scores are relative to
-this candidate set.
+**illustrative relative trade-offs rather than management rankings or
+acceptability scores**: neither weighting scheme is an agreed statement of
+management priorities, and the scores are relative to this candidate set.
 
-The current Figure 4--based worked scorecard is an **illustrative framework**,
+The current worked scorecard based on @fig-candidate-quilt is an **illustrative framework**,
 not the final scorecard. It contains eight CMPs and ten displayed performance
 metrics, six of which are included in the worked composite scores.
 Please note:
@@ -592,30 +664,31 @@ Please note:
 
 Min--max normalization is relative to the alternatives included. Adding or
 removing a CMP can therefore change every normalized score even when underlying
-MSE results do not change. Weights express management priorities and should be
+MSE results do not change. This sensitivity is especially important here:
+because all eight CMPs have been tuned close to the same 60% dynamic
+Kobe-green objective, a narrow absolute range can still be stretched across
+the full 0--1 relative-preference scale. Absolute distances from agreed targets
+and the uncertainty in the raw outcomes are therefore more informative than
+min--max ordering when candidates are closely clustered. Weights express
+management priorities and should be
 agreed and recorded rather than presented as scientific constants. A weighted
 score is a decision aid, not a recommendation, and should always be shown with
-the underlying metric values and sensitivity analyses.
-
-The draft example also includes a "green margin" based on mean biomass and
-fishing-pressure ratios. That diagnostic is not the simulated probability of
-being in the Kobe-green quadrant and must not replace the full-distribution MSE
-probability metric.
+the Layer 1 underlying values and uncertainty, any defensible Layer 2 absolute
+scores, and sensitivity analyses.
 
 ## Main performance and robustness findings
 
 ### Reference comparison
 
-The preliminary reference-OM scorecard in @tbl-scorecard-results provides the
-current eight-CMP comparison. HS-20 ranks first under both the equal-weight and
-balanced schemes. HSsym and PRsym form the next group: HSsym ranks second with
-equal weights, while PRsym ranks second when Catch and IACC jointly receive
-half of the total weight. PR-20 and HS-30 follow closely under both schemes,
-then PR-30. The two base variants, HS+20 and PR+20, receive lower composite
-scores because their relatively strong catch or stability outcomes are offset
-by weaker values for several stock-condition metrics.
+The illustrative reference-OM scorecard in @tbl-scorecard-results provides the
+current eight-CMP comparison. HS+20 ranks first and HSsym second under both the
+equal-weight and balanced schemes. PR-20 ranks third under both. HS-30 and
+PRsym exchange fourth and fifth positions between the schemes, followed by
+HS-20, PR+20, and PR-30. The separation between the two **+20** sensitivity
+CMPs shows why an analytical role should not be confused with a shared
+performance ranking.
 
-This ordering is preliminary and relative to the CMPs, metrics, directions,
+This ordering is illustrative and relative to the CMPs, metrics, directions,
 2041--2050 window, and weights included in the scorecard. It does not mean that
 one CMP dominates every biological, yield, stability, and responsiveness
 objective. The underlying values and trade-off figures should therefore remain
@@ -627,10 +700,10 @@ the basis for interpreting why the order changes with management priorities.
 comparison of spawning-biomass status and fishing pressure for the near-term
 (2026--2035) and long-term (2041--2050) periods. Within each posterior
 iteration, each ratio is averaged over the stated period; points are the
-medians of those period means across the 100 iterations. The vertical and
+medians of those period means across the 500 iterations. The vertical and
 horizontal lines at 1 define the conventional Kobe quadrants.
 
-![Near- and long-term Kobe plots for the eight CMPs under the reference operating model.](../figures/candidates/kobe_reference_periods.png){#fig-kobe-reference-periods fig-align="center" width="95%" fig-alt="Two Kobe panels compare eight candidate management procedures. Spawning biomass relative to SBMSY is on the horizontal axis and fishing mortality relative to FMSY is on the vertical axis. Panels show 2026 to 2035 and 2041 to 2050."}
+![Near- and long-term Kobe plots for the eight CMPs under the reference operating model. The horizontal axis uses the time-varying dynamic SBMSY denominator used in tuning.](../figures/candidates/kobe_reference_periods.png){#fig-kobe-reference-periods fig-align="center" width="95%" fig-alt="Two Kobe panels compare eight candidate management procedures. Spawning biomass relative to dynamic SBMSY is on the horizontal axis and fishing mortality relative to FMSY is on the vertical axis. Panels show 2026 to 2035 and 2041 to 2050."}
 
 **Vulnerable biomass.** The near-term reference comparison uses mean annual
 catch and mean $VB/VB_{\mathrm{MSY}}$ over 2026--2035
@@ -647,19 +720,20 @@ $VB/VB_{2025}$ over 2041--2050 with the same aggregation
 
 **Spawning biomass.** The reference-set yield--spawning-biomass comparison uses
 mean catch during 2026--2030 and mean $SB/SB_{\mathrm{MSY}}$ during
-2036--2040. Points show means among 100 replicates, and horizontal and vertical
+2036--2040. Points show means among 500 draws, and horizontal and vertical
 bars show the separate 10th--90th percentile ranges for the two measures.
 
-![Preliminary reference-OM trade-off for the eight HS and PR configurations.](../figures/sc14-tradeoff-reference.png){#fig-tradeoff-reference fig-alt="Near-term catch on the horizontal axis and mean spawning biomass relative to SBMSY on the vertical axis for eight HS and PR candidate configurations under the reference operating model."}
+![Reference-OM trade-off for the eight HS and PR configurations.](../figures/sc14-tradeoff-reference.png){#fig-tradeoff-reference fig-alt="Near-term catch on the horizontal axis and mean spawning biomass relative to SBMSY on the vertical axis for eight HS and PR candidate configurations under the reference operating model."}
 
-@fig-tradeoff-reference shows the reference-OM pattern. The less restrictive
-base configurations lie toward higher near-term catch and lower later
-$SB/SB_{\mathrm{MSY}}$, while variants allowing a larger annual decrease or
-smaller annual increase generally shift toward lower near-term catch and higher
-later biomass. The uncertainty ranges overlap substantially, so the plot should
-not be read as a deterministic ranking.
+@fig-tradeoff-reference shows the reference-OM pattern. The hockey-stick CMPs
+generally occupy the higher-catch, lower-biomass part of
+the plot, while the power-ramp CMPs generally produce lower catch and higher
+biomass. Responses to the annual-change variants are not monotonic across the
+two families because each variant includes a separately tuned trigger as well
+as different change limits. The uncertainty ranges overlap substantially, so
+the plot should not be read as a deterministic ranking.
 
-![Preliminary reference-OM spawning-biomass and interannual-catch-variability trade-off for the eight HS and PR configurations.](../figures/sc14-tradeoff-reference-biomass-iacc.png){#fig-tradeoff-reference-iacc fig-alt="Mean spawning biomass relative to SBMSY on the horizontal axis and mean absolute interannual percentage change in catch on the vertical axis for eight HS and PR candidate configurations under the reference operating model."}
+![Reference-OM spawning-biomass and interannual-catch-variability trade-off for the eight HS and PR configurations.](../figures/sc14-tradeoff-reference-biomass-iacc.png){#fig-tradeoff-reference-iacc fig-alt="Mean spawning biomass relative to SBMSY on the horizontal axis and mean absolute interannual percentage change in catch on the vertical axis for eight HS and PR candidate configurations under the reference operating model."}
 
 @fig-tradeoff-reference-iacc provides a complementary reference-OM view of
 biological status and catch stability. The horizontal axis is the replicate
@@ -667,7 +741,7 @@ mean $SB/SB_{\mathrm{MSY}}$ during 2036--2040. The vertical axis is mean IACC
 during the same period, where annual IACC is
 $100|C_t/C_{t-1}-1|$: the plotted period therefore covers the five annual
 changes from 2035--2036 through 2039--2040. Lower IACC indicates more stable
-catch. Points are means among 100 replicates; horizontal and vertical bars are
+catch. Points are means among 500 draws; horizontal and vertical bars are
 the separate 10th--90th percentile ranges of the replicate-level period means.
 As in @fig-tradeoff-reference, overlap is substantial and the marginal bars do
 not show within-replicate covariance.
@@ -687,9 +761,10 @@ recruitment path will occur.
 
 The alternative-selectivity OM exposed younger and smaller fish to greater
 fishing pressure. Similar catch levels could then occur with lower spawning
-biomass and poorer Kobe performance. HS+20 showed a somewhat better long-term
-trade-off than PR+20 in the presented results, but differences were modest and
-were affected by the changed $F_{\mathrm{MSY}}$ reference point.
+biomass and poorer Kobe performance. In the completed results, HS+20 retained
+higher catch while PR+20 retained higher spawning biomass; this is a trade-off,
+not evidence that either CMP is uniformly better. Interpretation is also
+affected by the changed $F_{\mathrm{MSY}}$ reference point.
 
 #### Two-stock hypotheses and catch distribution
 
@@ -714,18 +789,18 @@ $VB/VB_{\mathrm{MSY}}$ comparison across robustness OMs is shown in
 @fig-catch-vbmsy-robustness. It uses the same 2026--2035 period, CMP medians,
 and marginal 5th--95th percentiles as the reference comparison.
 
-![Near-term catch versus VB/VBMSY across robustness operating models, 2026--2035.](../figures/candidates/catch_vbmsy_robustness.png){#fig-catch-vbmsy-robustness fig-align="center" width="90%"}
+![Near-term catch versus VB/VBMSY across robustness operating models, 2026--2035. CJM points pool the five single-stock robustness OMs; Northern and Southern points separately pool the corresponding components of the four two-stock OMs.](../figures/candidates/catch_vbmsy_robustness.png){#fig-catch-vbmsy-robustness fig-align="center" width="90%"}
 
 The long-term robustness comparison in @fig-catch-vb2025-robustness uses mean
 annual catch and mean $VB/VB_{2025}$ over 2041--2050.
 
-![Long-term catch versus VB/VB2025 across robustness operating models, 2041--2050.](../figures/candidates/catch_vb2025_robustness.png){#fig-catch-vb2025-robustness fig-align="center" width="90%"}
+![Long-term catch versus VB/VB2025 across robustness operating models, 2041--2050. CJM points pool the five single-stock robustness OMs; Northern and Southern points separately pool the corresponding components of the four two-stock OMs.](../figures/candidates/catch_vb2025_robustness.png){#fig-catch-vb2025-robustness fig-align="center" width="90%"}
 
-**Spawning biomass.** The saved results also support preliminary
+**Spawning biomass.** The saved results also support
 yield--spawning-biomass comparisons across the single-stock and two-stock
 robustness cases.
 
-![Preliminary trade-offs across the five single-stock robustness OMs.](../figures/sc14-tradeoff-single-stock-robustness.png){#fig-tradeoff-single fig-alt="Five panels show near-term catch and later spawning biomass relative to SBMSY for eight HS and PR configurations under single-stock robustness operating models."}
+![Trade-offs across the five single-stock robustness OMs.](../figures/sc14-tradeoff-single-stock-robustness.png){#fig-tradeoff-single fig-alt="Five panels show near-term catch and later spawning biomass relative to SBMSY for eight HS and PR configurations under single-stock robustness operating models."}
 
 The same broad direction is visible across the single-stock robustness cases
 (@fig-tradeoff-single), but the location and separation of configurations
@@ -733,7 +808,7 @@ changes by OM. Recruitment stress reduces later biomass and changes the
 apparent trade-off, while productivity and assessment-configuration
 alternatives move both axes.
 
-![Preliminary component-level trade-offs across the four two-stock robustness OMs.](../figures/sc14-tradeoff-two-stock-robustness.png){#fig-tradeoff-two fig-alt="A grid of panels shows near-term component catch and later spawning biomass relative to SBMSY for northern and southern components under four two-stock operating models."}
+![Component-level trade-offs across the four two-stock robustness OMs.](../figures/sc14-tradeoff-two-stock-robustness.png){#fig-tradeoff-two fig-alt="A grid of panels shows near-term component catch and later spawning biomass relative to SBMSY for northern and southern components under four two-stock operating models."}
 
 For the two-stock cases (@fig-tradeoff-two), each row is a biological component
 and the horizontal axis is **component catch**, not total catch. The plots
@@ -741,12 +816,14 @@ therefore diagnose stock-specific consequences and must not be interpreted as
 an allocation comparison. They reinforce the need to keep northern and
 southern outcomes separate.
 
-The spawning-biomass figures in Sections 6.2 and 6.3 are preliminary for four
-reasons. First, they use the completed 100-replicate runs, not the planned final
-higher-replication comparison. Second, the x and y uncertainty bars are
-marginal percentiles and do not show the within-replicate covariance between
-plotted measures. Third, spawning biomass is shown as a standardized
-dynamic-reference-point ratio rather than in tonnes. Fourth, these views cover
+The spawning-biomass figures in Sections 6.2 and 6.3 use the completed
+500-draw comparison but remain selective summaries for three reasons. First,
+the x and y uncertainty bars are marginal percentiles and do not show the
+within-replicate covariance between
+plotted measures. Second, spawning biomass is shown relative to each draw's
+equilibrium SBMSY rather than in tonnes. This differs from the time-varying
+dynamic SBMSY denominator used for tuning and in @fig-kobe-reference-periods.
+Third, these views cover
 only selected yield, biological, and catch-stability periods; they do not
 include fishing pressure, Kobe-green probability, low-catch risk, feasibility,
 or the other performance measures needed for a decision. The plotted summary
@@ -874,10 +951,11 @@ catch, stability, and responsiveness rather than identifying a single CMP that
 dominates every objective. The performance quilt and worked scorecards provide
 transparent summaries, but the underlying distributions, metric definitions,
 weights, and robustness results remain necessary for interpretation.
-For example, MP43 and MP45 (HS-20 and HSsym) perform well under the reference
-OM and remain comparatively strong across the robustness set, although their
-relative performance still depends on the metric, weighting, and robustness
-scenario considered.
+For example, MP29 and MP45 (HS+20 and HSsym) receive the two highest
+illustrative composite scores under the reference OM. That result is not a
+claim that either dominates across the robustness set: their relative
+performance still depends on the metric, weighting, and robustness scenario
+considered.
 
 The [external experts invited to
 SCW17](https://sprfmo.github.io/scw17/SCW17-MSE-Workshop-report.html#appendix-d.-comments-from-external-experts)
@@ -959,13 +1037,13 @@ The remaining analytical and documentation tasks are summarized in
 
 | Work item | Why it matters | Current status in source material |
 |---|---|---|
-| Retune the reduced set at higher replication and profile each trigger objective | Stabilizes final triggers and resolves the HS+20 versus retuned-HS discrepancy and the shared 3.0625 stopping value | Required under one frozen OM, software, and random-number configuration |
-| Finalize TAC-change comparison | Tests responsiveness and stability under management-relevant constraints | Retuned 100-replicate reference and robustness variants available |
+| Archive and independently reproduce the completed 500-draw tuning traces | Confirms the common tuning objective and preserves an auditable record of the refined controls | Eight CMPs refined under one frozen OM and common random-number configuration; archive review remains |
+| Review the TAC-change comparison and document the shortlist | Connects the completed responsiveness and stability results to the alternatives advanced for Commission consideration | Common 500-draw reference and nine-OM robustness results available; interpretation and shortlist decision remain |
 | Validate and complete banking-and-borrowing sensitivity | Tests an implementation provision outside the HCR | Preliminary contractor results available; transferred archive records no transactions and requires a corrected, matched rerun |
 | Add index-error parameter distributions | Makes observation uncertainty auditable | Requested for technical annex |
 | Improve index and HCR diagnostics | Clarifies responsiveness and the acoustic survey's role | Requested for technical annex |
-| Finalize metric definitions and periods | Prevents ambiguous or directionally incorrect scoring | Full framework still being assembled |
-| Expand and sensitivity-test the scorecard | Allows changing CMP and metric sets without implying a fixed ranking | Draft framework available |
+| Finalize metric definitions, periods, and absolute targets where defensible | Prevents ambiguous or directionally incorrect scoring | Three-layer framework documented; management targets and tolerances remain to be agreed |
+| Sensitivity-test the scorecard | Shows how weights, candidate membership, and relative scaling affect the illustrative ordering | Reproducible relative-preference calculation available; sensitivity analysis remains |
 | Specify exceptional-circumstances protocol | Defines detection, authority, response, and return to the CMP | Proof-of-concept stage |
 | Freeze reproducible inputs and outputs | Supports independent review and exact reruns | Run records exist; final archive still required |
 

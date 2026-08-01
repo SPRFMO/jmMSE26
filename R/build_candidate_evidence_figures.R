@@ -8,11 +8,28 @@ suppressPackageStartupMessages({
 
 output_dir <- file.path("doc", "figures", "candidates")
 summary_dir <- file.path("doc", "data", "candidates")
+performance_root <- Sys.getenv("JMMSE_PERFORMANCE_ROOT",
+  unset = file.path("output", "candidate-performance-500"))
+reference_runs_file <- Sys.getenv("JMMSE_REFERENCE_RUNS",
+  unset = file.path("..", "jmMSE-500-refine", "model", "tune",
+    "refine_500_from_100", "runs.rds"))
+reference_om_file <- Sys.getenv("JMMSE_REFERENCE_OM",
+  unset = file.path("..", "jmMSE-500-refine", "data",
+    "om11_h1_0.16_065.rds"))
 dir.create(output_dir, recursive = TRUE, showWarnings = FALSE)
 dir.create(summary_dir, recursive = TRUE, showWarnings = FALSE)
 
+candidate_labels <- c(
+  tun29 = "HS+20", tun43 = "HS-20", tun45 = "HSsym", tun47 = "HS-30",
+  tun32 = "PR+20", tun44 = "PR-20", tun46 = "PRsym", tun48 = "PR-30"
+)
+candidate_label_levels <- unname(candidate_labels[c(
+  "tun29", "tun43", "tun45", "tun47",
+  "tun32", "tun44", "tun46", "tun48"
+)])
+
 candidate_vb_plot <- function(mode) {
-  input_file <- file.path("output", "candidate-performance", mode,
+  input_file <- file.path(performance_root, mode,
     "performance_with_vb.rds")
   if (!file.exists(input_file)) stop("Missing candidate results: ", input_file)
 
@@ -22,18 +39,23 @@ candidate_vb_plot <- function(mode) {
     stop("Missing vulnerable-biomass statistics in ", input_file)
   }
 
+  # The robustness vulnerable-biomass boxplot is a like-for-like summary of
+  # the five single-stock CJM robustness OMs. North and Southern components
+  # from the four two-stock OMs are examined in the stock-specific figures.
+  vb_perf <- if (mode == "robustness") perf[biol == "CJM"] else perf
+
   periods <- rbindlist(list(
-    perf[statistic %in% needed & year %in% 2026:2035][,
+    vb_perf[statistic %in% needed & year %in% 2026:2035][,
       .(data = mean(data)), by = .(om, biol, mp, statistic, iter)][,
         period := "Short term (2026-2035)"],
-    perf[statistic %in% needed & year %in% 2041:2050][,
+    vb_perf[statistic %in% needed & year %in% 2041:2050][,
       .(data = mean(data)), by = .(om, biol, mp, statistic, iter)][,
         period := "Long term (2041-2050)"]
   ))
   periods[, metric := factor(statistic, levels = needed,
     labels = c("VB / VB[2025]", "VB / VB[MSY]"))]
-  periods[, mp := factor(sub("^tun", "MP", sub("_.*$", "", mp)),
-    levels = paste0("MP", c(29, 43, 45, 47, 32, 44, 46, 48)))]
+  periods[, mp := factor(candidate_labels[sub("_.*$", "", mp)],
+    levels = candidate_label_levels)]
 
   summary <- periods[, .(
     median = median(data),
@@ -85,8 +107,8 @@ candidate_vb_plot <- function(mode) {
     sub("^tun[0-9]+_", "", mp),
     "reference"
   )]
-  near_term[, mp := factor(sub("^tun", "MP", sub("_.*$", "", mp)),
-    levels = paste0("MP", c(29, 43, 45, 47, 32, 44, 46, 48)))]
+  near_term[, mp := factor(candidate_labels[sub("_.*$", "", mp)],
+    levels = candidate_label_levels)]
   paired <- dcast(near_term, scenario + om + biol + mp + iter ~ statistic,
     value.var = "data")
   tradeoff <- paired[, .(
@@ -137,8 +159,8 @@ candidate_vb_plot <- function(mode) {
     sub("^tun[0-9]+_", "", mp),
     "reference"
   )]
-  long_term[, mp := factor(sub("^tun", "MP", sub("_.*$", "", mp)),
-    levels = paste0("MP", c(29, 43, 45, 47, 32, 44, 46, 48)))]
+  long_term[, mp := factor(candidate_labels[sub("_.*$", "", mp)],
+    levels = candidate_label_levels)]
   paired_long <- dcast(
     long_term,
     scenario + om + biol + mp + iter ~ statistic,
@@ -189,9 +211,56 @@ candidate_vb_plot("robustness")
 # Reference-set catch trajectories for the two asymmetric hockey-stick MPs.
 # The shorthand refers to the binding side of each TAC-change limit:
 # tun43 is -20%/+15%, while tun29 is -15%/+20%.
-reference_file <- file.path("output", "candidate-performance", "reference",
+reference_file <- file.path(performance_root, "reference",
   "performance_with_vb.rds")
 reference_perf <- as.data.table(readRDS(reference_file))
+
+# Recover the dynamic biomass denominator used in CMP tuning. For the complete
+# 500-draw workflow all eight runs are stored together; the fallback preserves
+# compatibility with the archived split 100-draw artifacts.
+if (nzchar(reference_runs_file)) {
+  all_candidate_runs <- readRDS(reference_runs_file)
+  candidate_runs <- all_candidate_runs@.Data[
+    match(names(candidate_labels), names(all_candidate_runs))]
+  names(candidate_runs) <- names(candidate_labels)
+} else {
+  candidate_runs <- c(
+    readRDS(file.path("..", "jmMSE", "model", "candidates", "reference",
+      "runs.rds"))[c("tun29", "tun43", "tun32", "tun44")]@.Data,
+    readRDS(file.path("..", "jmMSE", "model", "candidates",
+      "additional-change-limits", "reference", "runs.rds"))[
+        c("tun45", "tun47", "tun46", "tun48")]@.Data
+  )
+  names(candidate_runs) <- c(
+    "tun29", "tun43", "tun32", "tun44",
+    "tun45", "tun47", "tun46", "tun48"
+  )
+}
+unfished_ssb <- readRDS(reference_om_file)$unfishedSSB
+flq_year_iter_table <- function(x, run_code, statistic_code) {
+  years <- as.integer(dimnames(x)$year)
+  iterations <- as.integer(dimnames(x)$iter)
+  data.table(
+    mp = run_code,
+    iter = rep(iterations, each = length(years)),
+    year = rep(years, times = length(iterations)),
+    statistic = statistic_code,
+    data = as.numeric(x)
+  )
+}
+dynamic_kobe_annual <- rbindlist(lapply(names(candidate_runs), function(run_code) {
+  projected_om <- mse::om(candidate_runs[[run_code]])
+  metric <- FLCore::metrics(projected_om)$CJM
+  rp <- FLCore::refpts(projected_om)
+  years <- as.integer(dimnames(metric$SB)$year)
+  sb0msy <- metric$SB /
+    ((rp["SBMSY", ] / rp["SB0", ]) * unfished_ssb$CJM[, as.character(years)])
+  ffmsy <- metric$F / rp["FMSY", ]
+  rbindlist(list(
+    flq_year_iter_table(sb0msy, run_code, "SB0MSY"),
+    flq_year_iter_table(ffmsy, run_code, "FMSY")
+  ))
+}))
 
 # Reference-OM Kobe plots for the near- and long-term reporting periods.
 # Kobe convention: biomass status is horizontal and fishing pressure vertical.
@@ -204,14 +273,14 @@ kobe_labels <- c(
   tun32 = "PR+20", tun44 = "PR-20", tun46 = "PRsym", tun48 = "PR-30"
 )
 kobe_periods <- rbindlist(list(
-  reference_perf[
-    mp %in% kobe_mps & statistic %in% c("SBMSY", "FMSY") &
+  dynamic_kobe_annual[
+    mp %in% kobe_mps & statistic %in% c("SB0MSY", "FMSY") &
       year %in% 2026:2035,
     .(data = mean(data, na.rm = TRUE)),
     by = .(mp, iter, statistic)
   ][, period := "Near term (2026-2035)"],
-  reference_perf[
-    mp %in% kobe_mps & statistic %in% c("SBMSY", "FMSY") &
+  dynamic_kobe_annual[
+    mp %in% kobe_mps & statistic %in% c("SB0MSY", "FMSY") &
       year %in% 2041:2050,
     .(data = mean(data, na.rm = TRUE)),
     by = .(mp, iter, statistic)
@@ -221,8 +290,8 @@ kobe_wide <- dcast(kobe_periods, mp + iter + period ~ statistic,
   value.var = "data")
 kobe_summary <- kobe_wide[, .(
   f_fmsy = median(FMSY, na.rm = TRUE),
-  sb_sbmsy = median(SBMSY, na.rm = TRUE),
-  n = sum(is.finite(FMSY) & is.finite(SBMSY))
+  sb_sbmsy = median(SB0MSY, na.rm = TRUE),
+  n = sum(is.finite(FMSY) & is.finite(SB0MSY))
 ), by = .(mp, period)]
 kobe_summary[, cmp := factor(kobe_labels[mp],
   levels = unname(kobe_labels[kobe_mps]))]
@@ -270,10 +339,10 @@ kobe_plot <- ggplot() +
   labs(
     title = "Reference-OM Kobe status by candidate management procedure",
     subtitle = paste(
-      "Points are medians across 100 posterior iterations of each",
+      "Points are medians across 500 posterior iterations of each",
       "iteration's period mean"
     ),
-    x = "Spawning biomass relative to SB[MSY]",
+    x = "Spawning biomass relative to dynamic SB[MSY]",
     y = "Fishing mortality relative to F[MSY]",
     colour = "CMP"
   ) +
@@ -288,11 +357,11 @@ catch_trajectories <- reference_perf[
 ]
 
 available_iters <- sort(unique(catch_trajectories$iter))
-if (length(available_iters) < 30L) {
-  stop("Fewer than 30 reference-set iterations are available")
+if (length(available_iters) < 15L) {
+  stop("Fewer than 15 reference-set iterations are available")
 }
 set.seed(12000)
-selected_iters <- sort(sample(available_iters, 30L))
+selected_iters <- sort(sample(available_iters, 15L))
 catch_trajectories <- catch_trajectories[iter %in% selected_iters]
 
 ids_by_mp <- catch_trajectories[, .(ids = list(sort(unique(iter)))), by = mp]
@@ -300,7 +369,7 @@ if (nrow(ids_by_mp) != 2L ||
     !setequal(ids_by_mp[mp == "tun43", ids][[1]],
       ids_by_mp[mp == "tun29", ids][[1]]) ||
     !setequal(ids_by_mp[mp == "tun43", ids][[1]], selected_iters)) {
-  stop("Spaghetti panels do not contain the same 30 iteration IDs")
+  stop("Spaghetti panels do not contain the same 15 iteration IDs")
 }
 
 mp_labels <- c(
@@ -324,13 +393,13 @@ fwrite(data.table(
 
 catch_spaghetti_plot <- ggplot(catch_trajectories,
   aes(year, data, group = interaction(mp, iter), colour = factor(iter))) +
-  geom_line(linewidth = 0.45, alpha = 0.78) +
+  geom_line(linewidth = 0.70, alpha = 0.84) +
   facet_wrap(~panel, ncol = 1, scales = "fixed") +
   scale_colour_viridis_d(option = "turbo", guide = "none") +
   labs(
     title = "Projected catch trajectories: reference operating model",
     subtitle = paste(
-      "The same 30 reproducibly selected iterations and matching colors",
+      "The same 15 reproducibly selected iterations and matching colors",
       "are shown for each MP, 2025-2050"
     ),
     x = "Projection year",
@@ -345,53 +414,27 @@ ggsave(file.path(output_dir, "catch_spaghetti_hs_reference.png"),
 # Long-term reference-set quilt. Scores are normalized independently within
 # each metric and show relative performance among the eight annual-change
 # variants listed in the report's naming-convention table.
-additional_reference_file <- file.path(
-  "output", "candidate-performance", "additional-change-limits", "reference",
-  "performance_with_vb.rds"
-)
-if (!file.exists(additional_reference_file)) {
-  stop("Missing additional-variant results: ", additional_reference_file)
+additional_reference_file <- file.path(performance_root,
+  "additional-change-limits", "reference", "performance_with_vb.rds")
+if (file.exists(additional_reference_file)) {
+  additional_reference_perf <- as.data.table(readRDS(additional_reference_file))
+  quilt_perf <- rbindlist(list(
+    reference_perf[mp %in% c("tun29", "tun43", "tun32", "tun44")],
+    additional_reference_perf[mp %in% c("tun45", "tun47", "tun46", "tun48")]
+  ), use.names = TRUE)
+} else {
+  # The 500-draw reference file already contains all eight candidates.
+  quilt_perf <- reference_perf[mp %in% names(candidate_labels)]
 }
-additional_reference_perf <- as.data.table(readRDS(additional_reference_file))
-quilt_perf <- rbindlist(list(
-  reference_perf[mp %in% c("tun29", "tun43", "tun32", "tun44")],
-  additional_reference_perf[mp %in% c("tun45", "tun47", "tun46", "tun48")]
-), use.names = TRUE)
 
-# Recover the dynamic Kobe statistic used for tuning directly from the saved
-# FLmse runs.  SBMSY in the flat performance table uses the equilibrium
-# reference point; tuning instead scales it by projected unfished biomass.
-candidate_runs <- c(
-  readRDS(file.path("..", "jmMSE", "model", "candidates", "reference",
-    "runs.rds"))[c("tun29", "tun43", "tun32", "tun44")]@.Data,
-  readRDS(file.path("..", "jmMSE", "model", "candidates",
-    "additional-change-limits", "reference", "runs.rds"))[
-      c("tun45", "tun47", "tun46", "tun48")]@.Data
-)
-names(candidate_runs) <- c(
-  "tun29", "tun43", "tun32", "tun44",
-  "tun45", "tun47", "tun46", "tun48"
-)
-unfished_ssb <- readRDS(file.path("..", "jmMSE", "data",
-  "om11_h1_0.16_065.rds"))$unfishedSSB
-
-dynamic_kobe <- rbindlist(lapply(names(candidate_runs), function(run_code) {
-  projected_om <- mse::om(candidate_runs[[run_code]])
-  metric <- FLCore::metrics(projected_om)$CJM
-  rp <- FLCore::refpts(projected_om)
-  years <- as.character(2041:2050)
-  sb0msy <- metric$SB[, years] /
-    ((rp["SBMSY", ] / rp["SB0", ]) * unfished_ssb$CJM[, years])
-  ffmsy <- metric$F[, years] / rp["FMSY", ]
-  data.table(
-    mp = run_code,
-    statistic = c("SB0green", "SB0red"),
-    value = c(
-      mean(as.numeric(sb0msy >= 1 & ffmsy <= 1), na.rm = TRUE),
-      mean(as.numeric(sb0msy < 1 & ffmsy > 1), na.rm = TRUE)
-    )
-  )
-}))
+dynamic_kobe_wide <- dcast(
+  dynamic_kobe_annual[year %in% 2041:2050],
+  mp + iter + year ~ statistic, value.var = "data")
+dynamic_kobe <- dynamic_kobe_wide[, .(
+  SB0green = mean(SB0MSY >= 1 & FMSY <= 1, na.rm = TRUE),
+  SB0red = mean(SB0MSY < 1 & FMSY > 1, na.rm = TRUE)
+), by = mp][, melt(.SD, id.vars = "mp", variable.name = "statistic",
+  value.name = "value")]
 
 catch_diagnostics <- quilt_perf[
   statistic == "C" & year %in% 2026:2050,
