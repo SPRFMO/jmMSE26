@@ -152,6 +152,8 @@ in subsequent MSE work. Their different roles are summarized in
 | Source | Role in this synthesis |
 |:---|:---|
 | [Benchmark preparation and MSE planning](https://sprfmo.github.io/JM_SCW_prep/) | Pre-SCW17 benchmark papers, OM specifications, diagnostics, index analyses, and preparatory meeting records that supported updates to the OMs used at SCW17 and beyond. |
+| [SCW16 benchmark report](https://sprfmo.github.io/JM_SCW_prep/JMWG-Benchmark-Meeting-report-2026.html) | Formal record of the May 2026 benchmark review, including assessment inputs, abundance indices, biological assumptions, model alternatives, decisions, and uncertainties to carry into OM conditioning. |
+| [SCW17/Paper-01: Model developments](https://sprfmo.github.io/scw17/SCW17-Paper-01-ModelDevelopments.html) | Post-SCW16, pre-SCW17 bridge from the benchmark model sequence to the `0.15` and `0.16` configurations considered for MSE conditioning, with model comparisons and diagnostics. |
 | SCW17 workshop report, 15--19 June 2026 | Agreed MSE design, OM and CMP principles, reference-point approach, performance framework, and planned robustness work. |
 | Post-workshop `jmMSE` analysis | Implemented CMP definitions, tuning runs, reference and robustness simulation outputs, and reproducibility records. |
 | Task-team meeting, 24 July 2026 | Interpretation of results, wording cautions, issues for SC14, and agreed follow-up. |
@@ -214,6 +216,30 @@ procedure across management objectives.
 ## Operating models and simulation methods
 
 ### Reference and robustness set
+
+The operating-model set did not begin at SCW17. The
+[SCW16 benchmark workshop report](https://sprfmo.github.io/JM_SCW_prep/JMWG-Benchmark-Meeting-report-2026.html)
+records the 18--22 May 2026 review of assessment inputs, abundance indices,
+biological assumptions, assessment-model alternatives, and priorities for OM
+conditioning [@sprfmo2026benchmark]. It is the benchmark decision record that
+defined the assessment foundation and identified which uncertainties should be
+fixed, retained as OM axes, or examined diagnostically.
+
+Following SCW16 and before the SCW17 workshop, the working group prepared
+[SCW17/Paper-01: Model developments](https://sprfmo.github.io/scw17/SCW17-Paper-01-ModelDevelopments.html)
+[@sprfmo2026modeldevelopments]. That paper explicitly bridged the SCW16
+baseline (`0.00`) and proposed final benchmark configuration (`0.14`) to the
+post-benchmark `0.15` and `0.16` developments. It documented the revised
+treatment of the Peruvian artisanal and industrial CPUE series, the change to
+the two-stock productivity-regime specification in `0.16`, comparisons with
+the benchmark anchor models, and diagnostics for the configurations presented
+for MSE conditioning. SCW17 subsequently used `h1_0.16` as the primary basis
+for CMP testing, retained the matching two-stock configuration for structural
+robustness, and retained the SC13-era `0.00`/`1.14` configuration as an
+assessment/configuration robustness case. Thus, the current OM set should be
+read as the product of the SCW16 benchmark followed by a documented
+post-benchmark model-development step, rather than as a set first defined at
+SCW17.
 
 The current grid centers on the one-stock benchmark model `h1_0.16` with
 steepness 0.65. Robustness OMs test major structural and parametric
@@ -745,6 +771,24 @@ catch. Points are means among 500 draws; horizontal and vertical bars are
 the separate 10th--90th percentile ranges of the replicate-level period means.
 As in @fig-tradeoff-reference, overlap is substantial and the marginal bars do
 not show within-replicate covariance.
+
+The marked difference in IACC between the four hockey-stick and four
+power-ramp CMPs is not caused by different calculations. For every CMP and
+year, IACC is calculated identically as
+$100|C_t/C_{t-1}-1|$; an independent recalculation from the saved annual catch
+series reproduced every stored IACC value exactly. The pattern reflects HCR
+structure. Hockey-stick advice reaches a constant 2,000-kt target above its
+trigger, producing many years with essentially no catch change. The power
+ramp has no equivalent upper plateau: advice continues to respond to changes
+in the combined indicator above its trigger, so catch can vary even when the
+stock is on the upper branch of the rule. Over 2041--2050, mean IACC is about
+5.4--6.0% for the hockey-stick CMPs and 10.1--11.6% for the power-ramp CMPs.
+The quilt values are somewhat different because @fig-candidate-quilt reports
+the median across iteration-specific period means rather than the mean across
+all iteration-years. This structural family contrast is a genuine stability
+trade-off, but it also means that a highly weighted IACC column can strongly
+influence a composite score; the raw IACC distributions and HCR shapes should
+therefore remain visible alongside any weighted summary.
 
 ### Trade-offs under robustness cases
 
