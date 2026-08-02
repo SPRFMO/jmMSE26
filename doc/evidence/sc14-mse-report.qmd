@@ -2,7 +2,9 @@
 title: "Jack mackerel management strategy evaluation for SC14"
 subtitle: "Operating models, candidate management procedures, robustness tests, and matters for Scientific Committee consideration"
 date: now
-date-format: "D MMMM YYYY, h:mm A z"
+date-format: "[Draft —] D MMMM YYYY, h:mm A z"
+language:
+  title-block-published: ""
 bibliography: sc14-mse-report.bib
 nocite: |
   @*
