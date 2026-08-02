@@ -529,24 +529,29 @@ normalized independently within each metric across the eight variants.
 Purple means lower relative preference and light lavender means higher relative
 preference (0 is darkest; 1 is lightest). Higher
 $SB/SB_{\mathrm{MSY}}$, catch, $VB/VB_{2025}$, and
-$VB/VB_{\mathrm{MSY}}$, and dynamic Kobe-green probability are treated as
-better; lower $F/F_{\mathrm{MSY}}$, IACC, dynamic Kobe-red probability,
+$VB/VB_{\mathrm{MSY}}$ are treated as better; lower
+$F/F_{\mathrm{MSY}}$, IACC, dynamic Kobe-red probability,
 probability of catch below 270 kt, and mean annual catch reduction are treated
 as better. Lower
 $F/F_{\mathrm{MSY}}$ represents lower fishing pressure, while catch is shown
 separately. The within-column color scale is not an absolute biological or
 management threshold and must not be interpreted as a rank or recommendation.
 
-The Kobe probabilities use the same dynamic biomass denominator as the tuning
-objective: the equilibrium $SB_{\mathrm{MSY}}/SB_0$ fraction is applied to
-projected unfished spawning biomass in each year and iteration. The low-catch
-probability uses 2041--2050; mean catch reduction averages positive annual
-percentage reductions during 2026--2050. These four diagnostics are displayed
-in the quilt but are not automatically added to the illustrative composite
-score below, avoiding an undocumented change in weights and partial
-double-counting of stock status, fishing pressure, catch, and IACC.
+The Kobe-red probability uses the same dynamic biomass denominator as the
+tuning objective: the equilibrium $SB_{\mathrm{MSY}}/SB_0$ fraction is applied
+to projected unfished spawning biomass in each year and iteration. The
+low-catch probability is the proportion of all valid iteration-year catch
+outcomes below 270 kt during 2041--2050. Thus, if 10% of iterations are below
+270 kt for five of the ten years and all are above it for the other five, the
+reported probability is 5%. Mean catch reduction averages positive annual
+percentage reductions during 2026--2050. Kobe-red probability and mean catch
+reduction are included in the illustrative composite score below. The
+low-catch diagnostic remains displayed but is not included in the worked
+composite until its management weight is reviewed. Kobe-green probability is omitted from
+the quilt because it is already the common tuning objective and provides
+little independent contrast among the closely tuned CMPs.
 
-![Reference-OM candidate performance metrics for the eight naming-convention variants. Cell labels are median iteration summaries, except the dynamic Kobe probabilities, which are means over all iteration-years. Purple indicates lower relative preference and light lavender indicates higher relative preference within each metric (0 is darkest; 1 is lightest).](../figures/candidates/candidate_quilt_reference.png){#fig-candidate-quilt fig-align="center" width="100%"}
+![Reference-OM candidate performance metrics for the eight naming-convention variants. Cell labels are median iteration summaries except Kobe-red probability and probability of catch below 270 kt, which pool all valid 2041--2050 iteration-years. Purple indicates lower relative preference and light lavender indicates higher relative preference within each metric (0 is darkest; 1 is lightest).](../figures/candidates/candidate_quilt_reference.png){#fig-candidate-quilt fig-align="center" width="100%"}
 
 The underlying values, preferred directions, metric ranges, and normalized
 scores are saved in
@@ -632,8 +637,8 @@ S_j =
      {\sum_m I_m w_m}.
 $$
 
-The companion Slick Spider (radar) view applies the same higher-is-better
-orientation to the six included scorecard metrics and repeats the 0--1
+The companion Slick Spider (radar) view applies a higher-is-better orientation
+to its displayed metrics and repeats the 0--1
 normalization within each selected OM. It is useful for seeing how the shape of
 CMP trade-offs changes among OMs, but radar shapes from different OMs do not
 show absolute changes in performance because each OM is scaled separately.
@@ -646,15 +651,43 @@ reads the editable @fig-candidate-quilt input, checks that every CMP has one
 value for every included metric, and writes both the totals and metric-level
 contributions.
 
-The worked results in @tbl-scorecard-results include the established six
-scorecard metrics from @fig-candidate-quilt; the four added diagnostic columns
-are visible inputs with `include = FALSE` until their inclusion and weights are
-reviewed. The equal-weight view assigns one-sixth to every included metric.
-The balanced view assigns half the total weight to fishing performance---25%
-each to Catch and IACC---and half to stock condition---12.5% each to
-$SB/SB_{\mathrm{MSY}}$, $F/F_{\mathrm{MSY}}$, $VB/VB_{2025}$, and
-$VB/VB_{\mathrm{MSY}}$. All inputs use the reference OM and the 2041--2050
-summary window used in @fig-candidate-quilt.
+The worked results in @tbl-scorecard-results include eight metrics from
+@fig-candidate-quilt: the established six plus Kobe-red probability and mean
+catch reduction. The low-catch diagnostic remains a visible input with
+`include = FALSE`. The equal-weight view assigns one-eighth to every included
+metric. The balanced view assigns half the total weight equally across Catch,
+IACC, and mean catch reduction, and half equally across
+$SB/SB_{\mathrm{MSY}}$, $F/F_{\mathrm{MSY}}$, $VB/VB_{2025}$,
+$VB/VB_{\mathrm{MSY}}$, and Kobe-red probability. All inputs use the reference
+OM and the 2041--2050 summary window used in @fig-candidate-quilt, except mean
+catch reduction, which summarizes reductions over 2026--2050.
+
+The spread among CMP point estimates is highly unequal among these metrics.
+Across the eight CMP medians, the coefficient of variation
+$CV_m=sd_j(x_{jm})/|\bar{x}_m|$ is 51.2% for IACC, compared with 1.4% for
+Catch, 1.5--2.3% for the four biomass and fishing-pressure ratios, 6.9% for
+Kobe-red probability, and 38.3% for mean catch reduction. Within the
+hockey-stick and power-ramp families, IACC CVs are 7.9% and 3.9%, respectively.
+Consequently, ordinary min--max normalization visually expands small absolute
+contrasts in Catch and stock condition to the same 0--1 range as the much
+larger contrasts in IACC and mean catch reduction.
+
+To expose this issue, @tbl-scorecard-results provides a reproducible
+**dispersion-weighted sensitivity**.
+For this calculation, the weight for metric $m$ is
+
+$$
+w_m^{CV}=\frac{\sqrt{CV_m}}{\sum_k\sqrt{CV_k}}.
+$$
+
+The square root moderates the dominance that would result from weighting
+directly in proportion to CV. With the current CMP set, the resulting weights
+are 31.4% for IACC, 27.1% for mean catch reduction, 11.5% for Kobe-red
+probability, 6.6% for $VB/VB_{2025}$, 6.4% for $VB/VB_{\mathrm{MSY}}$, 6.3%
+for $F/F_{\mathrm{MSY}}$, 5.4% for $SB/SB_{\mathrm{MSY}}$, and 5.3% for
+Catch. These weights answer which metrics most strongly distinguish the
+current CMPs; they do not answer which outcomes management should value most.
+They must be recalculated if the CMP set changes.
 
 ```{=latex}
 \begingroup\small
@@ -667,18 +700,19 @@ summary window used in @fig-candidate-quilt.
 \endgroup
 ```
 
-The machine-readable totals are in
+The machine-readable totals, including the dispersion-weighted sensitivity,
+are in
 [`candidate_scorecard_result_reference.csv`](../data/candidates/candidate_scorecard_result_reference.csv),
 and the individual weighted contributions are in
 [`candidate_scorecard_contributions_reference.csv`](../data/candidates/candidate_scorecard_contributions_reference.csv).
-These values are a reproducible calculation, but both orders remain
+These values are a reproducible calculation, but all three orders remain
 **illustrative relative trade-offs rather than management rankings or
-acceptability scores**: neither weighting scheme is an agreed statement of
+acceptability scores**: none of the weighting schemes is an agreed statement of
 management priorities, and the scores are relative to this candidate set.
 
 The current worked scorecard based on @fig-candidate-quilt is an **illustrative framework**,
-not the final scorecard. It contains eight CMPs and ten displayed performance
-metrics, six of which are included in the worked composite scores.
+not the final scorecard. It contains eight CMPs and nine displayed performance
+metrics, eight of which are included in the worked composite scores.
 Please note:
 
 - candidate rows can be added, removed, or replaced as the shortlist evolves;
@@ -707,12 +741,14 @@ scores, and sensitivity analyses.
 ### Reference comparison
 
 The illustrative reference-OM scorecard in @tbl-scorecard-results provides the
-current eight-CMP comparison. HS+20 ranks first and HSsym second under both the
-equal-weight and balanced schemes. PR-20 ranks third under both. HS-30 and
-PRsym exchange fourth and fifth positions between the schemes, followed by
-HS-20, PR+20, and PR-30. The separation between the two **+20** sensitivity
-CMPs shows why an analytical role should not be confused with a shared
-performance ranking.
+current eight-CMP comparison. HS+20 ranks first and HSsym second under all
+three schemes. Adding Kobe-red probability and mean catch reduction moves
+HS-30 to third under the balanced and dispersion-weighted schemes. The
+dispersion-weighted result then places HS-20 fourth, followed by PR-20, PRsym,
+PR+20, and PR-30. The equal-weight and balanced columns show how several of
+these middle positions change when metric emphasis changes. The separation
+between the two **+20** sensitivity CMPs shows why an analytical role should
+not be confused with a shared performance ranking.
 
 This ordering is illustrative and relative to the CMPs, metrics, directions,
 2041--2050 window, and weights included in the scorecard. It does not mean that
@@ -730,19 +766,6 @@ medians of those period means across the 500 iterations. The vertical and
 horizontal lines at 1 define the conventional Kobe quadrants.
 
 ![Near- and long-term Kobe plots for the eight CMPs under the reference operating model. The horizontal axis uses the time-varying dynamic SBMSY denominator used in tuning.](../figures/candidates/kobe_reference_periods.png){#fig-kobe-reference-periods fig-align="center" width="95%" fig-alt="Two Kobe panels compare eight candidate management procedures. Spawning biomass relative to dynamic SBMSY is on the horizontal axis and fishing mortality relative to FMSY is on the vertical axis. Panels show 2026 to 2035 and 2041 to 2050."}
-
-**Vulnerable biomass.** The near-term reference comparison uses mean annual
-catch and mean $VB/VB_{\mathrm{MSY}}$ over 2026--2035
-(@fig-catch-vbmsy-reference). Points are CMP medians and bars are marginal
-5th--95th percentiles.
-
-![Near-term catch versus VB/VBMSY for the reference operating model, 2026--2035.](../figures/candidates/catch_vbmsy_reference.png){#fig-catch-vbmsy-reference fig-align="center" width="90%"}
-
-The long-term reference comparison uses mean annual catch and mean
-$VB/VB_{2025}$ over 2041--2050 with the same aggregation
-(@fig-catch-vb2025-reference).
-
-![Long-term catch versus VB/VB2025 for the reference operating model, 2041--2050.](../figures/candidates/catch_vb2025_reference.png){#fig-catch-vb2025-reference fig-align="center" width="90%"}
 
 **Spawning biomass.** The reference-set yield--spawning-biomass comparison uses
 mean catch during 2026--2030 and mean $SB/SB_{\mathrm{MSY}}$ during
@@ -827,18 +850,6 @@ resolved the long-term benchmark for both components. The test is deliberately
 stressful and does not establish that this movement process is occurring.
 It does establish a management-relevant warning signal: persistent divergence
 between northern and southern indices.
-
-**Vulnerable biomass.** The near-term catch and
-$VB/VB_{\mathrm{MSY}}$ comparison across robustness OMs is shown in
-@fig-catch-vbmsy-robustness. It uses the same 2026--2035 period, CMP medians,
-and marginal 5th--95th percentiles as the reference comparison.
-
-![Near-term catch versus VB/VBMSY across robustness operating models, 2026--2035. CJM points pool the five single-stock robustness OMs; Northern and Southern points separately pool the corresponding components of the four two-stock OMs.](../figures/candidates/catch_vbmsy_robustness.png){#fig-catch-vbmsy-robustness fig-align="center" width="90%"}
-
-The long-term robustness comparison in @fig-catch-vb2025-robustness uses mean
-annual catch and mean $VB/VB_{2025}$ over 2041--2050.
-
-![Long-term catch versus VB/VB2025 across robustness operating models, 2041--2050. CJM points pool the five single-stock robustness OMs; Northern and Southern points separately pool the corresponding components of the four two-stock OMs.](../figures/candidates/catch_vb2025_robustness.png){#fig-catch-vb2025-robustness fig-align="center" width="90%"}
 
 **Spawning biomass.** The saved results also support
 yield--spawning-biomass comparisons across the single-stock and two-stock
@@ -1036,9 +1047,11 @@ rather than treating the current analysis as a one-time exercise.
 The available work supports taking a reduced subset of CMPs forward for
 Commission selection, accompanied by annual monitoring and a formal
 exceptional-circumstances process. Because this synthesis contains
-result-dependent statements, scores, and conclusions, **this section must be
-updated dynamically in future report versions whenever simulation results,
-candidate definitions, performance metrics, or agreed weights change.**
+result-dependent statements, scores, and conclusions, the
+[interactive scorecard explorer](../application/scorecard.qmd) lets users
+compare CMPs, select performance metrics, apply alternative weighting schemes,
+and specify weights directly. The application complements rather than replaces
+the underlying performance distributions and documented management judgments.
 
 The Scientific Committee is asked to consider the following:
 
@@ -1071,29 +1084,6 @@ The Scientific Committee is asked to consider the following:
 - review and documentation of the full performance-metric set and any weighting
   process, while retaining the underlying outcomes rather than relying on a
   composite score alone.
-
-## Work required before final advice
-
-::: {.callout-note}
-
-The remaining analytical and documentation tasks are summarized in
-@tbl-work-required.
-
-| Work item | Why it matters | Current status in source material |
-|---|---|---|
-| Archive and independently reproduce the completed 500-draw tuning traces | Confirms the common tuning objective and preserves an auditable record of the refined controls | Eight CMPs refined under one frozen OM and common random-number configuration; archive review remains |
-| Review the TAC-change comparison and document the shortlist | Connects the completed responsiveness and stability results to the alternatives advanced for Commission consideration | Common 500-draw reference and nine-OM robustness results available; interpretation and shortlist decision remain |
-| Validate and complete banking-and-borrowing sensitivity | Tests an implementation provision outside the HCR | Preliminary contractor results available; transferred archive records no transactions and requires a corrected, matched rerun |
-| Add index-error parameter distributions | Makes observation uncertainty auditable | Requested for technical annex |
-| Improve index and HCR diagnostics | Clarifies responsiveness and the acoustic survey's role | Requested for technical annex |
-| Finalize metric definitions, periods, and absolute targets where defensible | Prevents ambiguous or directionally incorrect scoring | Three-layer framework documented; management targets and tolerances remain to be agreed |
-| Sensitivity-test the scorecard | Shows how weights, candidate membership, and relative scaling affect the illustrative ordering | Reproducible relative-preference calculation available; sensitivity analysis remains |
-| Specify exceptional-circumstances protocol | Defines detection, authority, response, and return to the CMP | Proof-of-concept stage |
-| Freeze reproducible inputs and outputs | Supports independent review and exact reruns | Run records exist; final archive still required |
-
-: Work required before final scientific advice. {#tbl-work-required}
-
-:::
 
 ## Source, terminology, and interpretation notes
 

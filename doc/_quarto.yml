@@ -38,6 +38,8 @@ website:
         text: Annual application
       - href: application/slick.qmd
         text: Slick explorer
+      - href: application/scorecard.qmd
+        text: Scorecard explorer
       - href: workflow/mse-flow.qmd
         text: How MSE fits
       - href: evidence/scw17-evidence.qmd
@@ -66,6 +68,7 @@ website:
           - application/tac-2027.qmd
           - application/input-data.qmd
           - application/slick.qmd
+          - application/scorecard.qmd
       - workflow/mse-flow.qmd
       - evidence/scw17-evidence.qmd
       - evidence/sc14-mse-report.qmd

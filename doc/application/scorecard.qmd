@@ -1,0 +1,265 @@
+---
+title: "Interactive CMP scorecard explorer"
+subtitle: "Static browser application using the current reference-OM performance metrics"
+toc: false
+page-layout: full
+---
+
+This browser-based explorer reproduces the relative-preference scorecard
+without requiring R or a Shiny server. Select CMPs and metrics, choose a
+weighting scheme, or enter weights manually. Scores are recalculated relative
+to the selected CMP set and are **not absolute acceptability scores or agreed
+management preferences**.
+
+<style>
+.scorecard-app { --panel-border:#d9dde3; --muted:#5d6670; }
+.scorecard-controls { display:grid; grid-template-columns:repeat(3,minmax(240px,1fr)); gap:1rem; margin:1rem 0; }
+.scorecard-panel { border:1px solid var(--panel-border); border-radius:.45rem; padding:1rem; background:#fff; }
+.scorecard-panel h3 { margin-top:0; font-size:1.05rem; }
+.scorecard-options { max-height:260px; overflow:auto; display:grid; gap:.3rem; }
+.scorecard-options label { display:flex; gap:.45rem; align-items:center; font-weight:400; }
+.scorecard-custom { display:none; margin-top:.8rem; }
+.scorecard-custom.active { display:grid; gap:.35rem; }
+.scorecard-custom label { display:grid; grid-template-columns:1fr 90px; gap:.5rem; align-items:center; }
+.scorecard-custom input { width:100%; }
+.scorecard-output { margin-top:1rem; }
+#score-plot { width:100%; min-height:430px; }
+.scorecard-table-wrap { overflow-x:auto; }
+.scorecard-app table { width:100%; border-collapse:collapse; margin-top:.75rem; }
+.scorecard-app th,.scorecard-app td { border-bottom:1px solid #e3e6ea; padding:.45rem .55rem; text-align:right; }
+.scorecard-app th:first-child,.scorecard-app td:first-child { text-align:left; }
+.quilt-cell { text-align:center!important; min-width:95px; color:#18141d; }
+.scorecard-note { color:var(--muted); font-size:.92rem; }
+.scorecard-error { color:#a12622; font-weight:600; min-height:1.5rem; }
+@media (max-width:900px) { .scorecard-controls { grid-template-columns:1fr; } }
+</style>
+
+```{=html}
+<div class="scorecard-app">
+  <div class="scorecard-controls">
+    <section class="scorecard-panel">
+      <h3>Weighting scheme</h3>
+      <select id="weight-scheme" class="form-select">
+        <option value="equal">Equal weights</option>
+        <option value="balanced">Balanced fishing and stock condition</option>
+        <option value="dispersion" selected>Dispersion weighted (square-root CV)</option>
+        <option value="custom">Specify weights manually</option>
+      </select>
+      <div id="custom-weights" class="scorecard-custom"></div>
+    </section>
+    <section class="scorecard-panel">
+      <h3>CMPs</h3>
+      <div id="cmp-options" class="scorecard-options"></div>
+    </section>
+    <section class="scorecard-panel">
+      <h3>Performance metrics</h3>
+      <div id="metric-options" class="scorecard-options"></div>
+    </section>
+  </div>
+
+  <div id="scorecard-error" class="scorecard-error"></div>
+
+  <section class="scorecard-panel scorecard-output">
+    <h3>CMP relative trade-off scores</h3>
+    <svg id="score-plot" role="img" aria-label="CMP score bar chart"></svg>
+    <div id="score-table" class="scorecard-table-wrap"></div>
+  </section>
+
+  <section class="scorecard-panel scorecard-output">
+    <h3>Selected metric weights</h3>
+    <div id="weight-table" class="scorecard-table-wrap"></div>
+  </section>
+
+  <section class="scorecard-panel scorecard-output">
+    <h3>Performance quilt</h3>
+    <p class="scorecard-note">Purple indicates lower and light lavender higher relative preference within each selected metric.</p>
+    <div id="quilt-table" class="scorecard-table-wrap"></div>
+  </section>
+</div>
+```
+
+<script>
+(async function () {
+  const dataUrl = "../data/candidates/candidate_scorecard_input_reference.json";
+  const colors = {
+    "HS+20 (MP29)":"#C87A8A", "HS-20 (MP43)":"#B6875B",
+    "HSsym (MP45)":"#909646", "HS-30 (MP47)":"#55A067",
+    "PR+20 (MP32)":"#00A396", "PR-20 (MP44)":"#409BBB",
+    "PRsym (MP46)":"#9189C7", "PR-30 (MP48)":"#BE7AB4"
+  };
+  const stockMetrics = new Set([
+    "SB / SB[MSY]", "F / F[MSY]", "VB / VB[2025]", "VB / VB[MSY]",
+    "P(Kobe red)"
+  ]);
+  const fishingMetrics = new Set(["Catch", "IACC", "Mean catch reduction"]);
+  const unique = xs => [...new Set(xs)];
+  const mean = xs => xs.reduce((a,b) => a+b, 0) / xs.length;
+  const sd = xs => {
+    if (xs.length < 2) return 0;
+    const m = mean(xs);
+    return Math.sqrt(xs.reduce((s,x) => s+(x-m)*(x-m), 0)/(xs.length-1));
+  };
+  const escapeHtml = value => String(value)
+    .replaceAll("&","&amp;").replaceAll("<","&lt;")
+    .replaceAll(">","&gt;").replaceAll('"',"&quot;");
+
+  let rows;
+  try {
+    const response = await fetch(dataUrl);
+    if (!response.ok) throw new Error(`Data request failed (${response.status})`);
+    rows = await response.json();
+  } catch (error) {
+    document.getElementById("scorecard-error").textContent =
+      `Could not load scorecard data: ${error.message}`;
+    return;
+  }
+
+  const cmps = unique(rows.map(d => d.mp));
+  const metrics = unique(rows.map(d => d.metric));
+  const defaultMetrics = unique(rows.filter(d => d.include).map(d => d.metric));
+
+  function optionList(containerId, values, selected, prefix) {
+    document.getElementById(containerId).innerHTML = values.map((value, i) =>
+      `<label><input type="checkbox" id="${prefix}-${i}" value="${escapeHtml(value)}" ${selected.includes(value)?"checked":""}> ${escapeHtml(value)}</label>`
+    ).join("");
+  }
+  optionList("cmp-options", cmps, cmps, "cmp");
+  optionList("metric-options", metrics, defaultMetrics, "metric");
+
+  function selectedValues(containerId) {
+    return [...document.querySelectorAll(`#${containerId} input:checked`)]
+      .map(input => input.value);
+  }
+
+  function normalize(selectedRows, selectedMetrics) {
+    const output = selectedRows.map(d => ({...d}));
+    selectedMetrics.forEach(metric => {
+      const subset = output.filter(d => d.metric === metric);
+      const values = subset.map(d => Number(d.raw_value));
+      const lo = Math.min(...values), hi = Math.max(...values), span = hi-lo;
+      subset.forEach(d => {
+        if (span === 0) d.preference = 1;
+        else if (d.preferred_direction === "higher is better")
+          d.preference = (Number(d.raw_value)-lo)/span;
+        else d.preference = (hi-Number(d.raw_value))/span;
+      });
+    });
+    return output;
+  }
+
+  function renderCustomWeights(selectedMetrics) {
+    const container = document.getElementById("custom-weights");
+    const existing = Object.fromEntries([...container.querySelectorAll("input")]
+      .map(input => [input.dataset.metric, input.value]));
+    container.innerHTML = selectedMetrics.map((metric, i) =>
+      `<label>${escapeHtml(metric)}<input type="number" min="0" step="0.1" value="${existing[metric] ?? 1}" data-metric="${escapeHtml(metric)}" id="custom-${i}"></label>`
+    ).join("");
+    container.classList.toggle("active",
+      document.getElementById("weight-scheme").value === "custom");
+    container.querySelectorAll("input").forEach(input =>
+      input.addEventListener("input", update));
+  }
+
+  function calculateWeights(normalizedRows, selectedMetrics, scheme) {
+    let raw = {};
+    if (scheme === "equal") selectedMetrics.forEach(m => raw[m] = 1);
+    if (scheme === "balanced") {
+      const stock = selectedMetrics.filter(m => stockMetrics.has(m));
+      const fishing = selectedMetrics.filter(m => fishingMetrics.has(m));
+      const other = selectedMetrics.filter(m => !stockMetrics.has(m) && !fishingMetrics.has(m));
+      stock.forEach(m => raw[m] = 0.5/stock.length);
+      fishing.forEach(m => raw[m] = 0.5/fishing.length);
+      other.forEach(m => raw[m] = 1/other.length);
+    }
+    if (scheme === "dispersion") selectedMetrics.forEach(metric => {
+      const values = normalizedRows.filter(d => d.metric === metric)
+        .map(d => Number(d.raw_value));
+      const cv = Math.abs(mean(values)) > 0 ? sd(values)/Math.abs(mean(values)) : 0;
+      raw[metric] = Math.sqrt(Number.isFinite(cv) ? cv : 0);
+    });
+    if (scheme === "custom") selectedMetrics.forEach(metric => {
+      const input = [...document.querySelectorAll("#custom-weights input")]
+        .find(el => el.dataset.metric === metric);
+      raw[metric] = Math.max(0, Number(input?.value ?? 0));
+    });
+    const total = Object.values(raw).reduce((a,b) => a+b, 0);
+    if (!(total > 0)) throw new Error("At least one metric weight must be positive.");
+    return Object.fromEntries(Object.entries(raw).map(([k,v]) => [k,v/total]));
+  }
+
+  function drawBars(scores) {
+    const svg = document.getElementById("score-plot");
+    const width=960, height=470, left=70, right=20, top=30, bottom=120;
+    const innerW=width-left-right, innerH=height-top-bottom;
+    const band=innerW/scores.length, barW=band*0.66;
+    let markup = `<rect width="${width}" height="${height}" fill="white"/>`;
+    [0,25,50,75,100].forEach(tick => {
+      const y=top+innerH-(tick/100)*innerH;
+      markup += `<line x1="${left}" x2="${width-right}" y1="${y}" y2="${y}" stroke="#dfe2e6"/><text x="${left-10}" y="${y+5}" text-anchor="end" font-size="13">${tick}</text>`;
+    });
+    scores.forEach((d,i) => {
+      const x=left+i*band+(band-barW)/2, h=(d.score/100)*innerH, y=top+innerH-h;
+      markup += `<rect x="${x}" y="${y}" width="${barW}" height="${h}" fill="${colors[d.mp]||"#777"}"/>`;
+      markup += `<text x="${x+barW/2}" y="${y-7}" text-anchor="middle" font-size="14">${d.score.toFixed(1)}</text>`;
+      markup += `<text transform="translate(${x+barW/2},${top+innerH+18}) rotate(38)" text-anchor="start" font-size="12">${escapeHtml(d.mp)}</text>`;
+    });
+    markup += `<text transform="translate(18,${top+innerH/2}) rotate(-90)" text-anchor="middle" font-size="14">Relative trade-off score (0–100)</text>`;
+    markup += `<text x="${left+innerW/2}" y="${height-8}" text-anchor="middle" font-size="14">CMP (ordered from highest score)</text>`;
+    svg.setAttribute("viewBox",`0 0 ${width} ${height}`);
+    svg.innerHTML=markup;
+  }
+
+  function tableHtml(headers, bodyRows, classes="") {
+    return `<table class="${classes}"><thead><tr>${headers.map(h=>`<th>${escapeHtml(h)}</th>`).join("")}</tr></thead><tbody>${bodyRows.map(row=>`<tr>${row.map((cell,i)=>`<td${i?"":""}>${cell}</td>`).join("")}</tr>`).join("")}</tbody></table>`;
+  }
+
+  function quiltColor(preference) {
+    const low=[121,82,168], high=[244,239,248];
+    return `rgb(${low.map((v,i)=>Math.round(v+(high[i]-v)*preference)).join(",")})`;
+  }
+
+  function update() {
+    const selectedCmps=selectedValues("cmp-options");
+    const selectedMetrics=selectedValues("metric-options");
+    const error=document.getElementById("scorecard-error"); error.textContent="";
+    renderCustomWeights(selectedMetrics);
+    if (selectedCmps.length<2) { error.textContent="Select at least two CMPs."; return; }
+    if (!selectedMetrics.length) { error.textContent="Select at least one metric."; return; }
+    try {
+      const filtered=rows.filter(d=>selectedCmps.includes(d.mp)&&selectedMetrics.includes(d.metric));
+      const normalized=normalize(filtered,selectedMetrics);
+      const weights=calculateWeights(normalized,selectedMetrics,
+        document.getElementById("weight-scheme").value);
+      const scores=selectedCmps.map(mp=>({mp,score:normalized.filter(d=>d.mp===mp)
+        .reduce((sum,d)=>sum+100*d.preference*weights[d.metric],0)}))
+        .sort((a,b)=>b.score-a.score || a.mp.localeCompare(b.mp));
+      drawBars(scores);
+      document.getElementById("score-table").innerHTML=tableHtml(
+        ["Rank","CMP","Score"], scores.map((d,i)=>[i+1,escapeHtml(d.mp),d.score.toFixed(2)]));
+      document.getElementById("weight-table").innerHTML=tableHtml(
+        ["Metric","Weight (%)"], selectedMetrics.map(m=>[escapeHtml(m),(100*weights[m]).toFixed(2)]));
+      const quiltRows=scores.map(s=>s.mp);
+      const quiltBody=quiltRows.map(mp=>[escapeHtml(mp),...selectedMetrics.map(metric=>{
+        const d=normalized.find(x=>x.mp===mp&&x.metric===metric);
+        let label=Number(d.raw_value).toFixed(2);
+        if (d.statistic==="C") label=Number(d.raw_value).toFixed(0);
+        if (["SB0red","PC270"].includes(d.statistic)) label=(100*Number(d.raw_value)).toFixed(1)+"%";
+        return `<span>${label}</span>`;
+      })]);
+      let quilt=tableHtml(["CMP",...selectedMetrics],quiltBody,"quilt");
+      document.getElementById("quilt-table").innerHTML=quilt;
+      const cells=document.querySelectorAll("#quilt-table tbody tr");
+      cells.forEach((tr,rowIndex)=>selectedMetrics.forEach((metric,colIndex)=>{
+        const d=normalized.find(x=>x.mp===quiltRows[rowIndex]&&x.metric===metric);
+        const td=tr.children[colIndex+1]; td.classList.add("quilt-cell");
+        td.style.backgroundColor=quiltColor(d.preference);
+      }));
+    } catch (e) { error.textContent=e.message; }
+  }
+
+  document.getElementById("weight-scheme").addEventListener("change",update);
+  document.querySelectorAll("#cmp-options input,#metric-options input")
+    .forEach(input=>input.addEventListener("change",update));
+  update();
+})();
+</script>

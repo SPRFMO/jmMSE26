@@ -212,6 +212,11 @@ Finite $F/F_{MSY}$ values above 4 are shown at 4 so that a small number of
 post-collapse numerical values do not make the plots unreadable. This is a
 display rule only: the original `jmMSE` performance tables are not changed.
 
+The Slick quilt's probability of catch below 270 kt is calculated over all
+valid iteration-year outcomes during 2041--2050. For example, if 10% of
+iterations are below 270 kt in five of those ten years and all iterations are
+above it in the other five, the displayed probability is 5%.
+
 The OM metadata is kept in exactly the same order as the OM dimension in each
 Slick value array. This ensures that Northern and Southern stock results retain
 the correct labels in the two-stock operating models.

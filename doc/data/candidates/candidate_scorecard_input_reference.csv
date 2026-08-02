@@ -47,35 +47,27 @@ PR+20 (MP32),VBMSY,VB / VB[MSY],0.785442851395198,higher is better,46.4132271809
 PR-20 (MP44),VBMSY,VB / VB[MSY],0.815213380535892,higher is better,100,TRUE,1,2041-2050,Median across iteration-specific 2041-2050 means
 PRsym (MP46),VBMSY,VB / VB[MSY],0.800348962847574,higher is better,73.2441378523481,TRUE,1,2041-2050,Median across iteration-specific 2041-2050 means
 PR-30 (MP48),VBMSY,VB / VB[MSY],0.787373105831448,higher is better,49.8876735191404,TRUE,1,2041-2050,Median across iteration-specific 2041-2050 means
-HS+20 (MP29),SB0green,P(Kobe green),0.6098,higher is better,100,FALSE,1,2041-2050,Median across iteration-specific 2041-2050 means
-PR+20 (MP32),SB0green,P(Kobe green),0.6026,higher is better,60.0000000000001,FALSE,1,2041-2050,Median across iteration-specific 2041-2050 means
-HS-20 (MP43),SB0green,P(Kobe green),0.5918,higher is better,0,FALSE,1,2041-2050,Median across iteration-specific 2041-2050 means
-PR-20 (MP44),SB0green,P(Kobe green),0.5984,higher is better,36.6666666666669,FALSE,1,2041-2050,Median across iteration-specific 2041-2050 means
-HSsym (MP45),SB0green,P(Kobe green),0.6042,higher is better,68.8888888888886,FALSE,1,2041-2050,Median across iteration-specific 2041-2050 means
-PRsym (MP46),SB0green,P(Kobe green),0.5954,higher is better,20.0000000000003,FALSE,1,2041-2050,Median across iteration-specific 2041-2050 means
-HS-30 (MP47),SB0green,P(Kobe green),0.6038,higher is better,66.6666666666667,FALSE,1,2041-2050,Median across iteration-specific 2041-2050 means
-PR-30 (MP48),SB0green,P(Kobe green),0.6056,higher is better,76.6666666666668,FALSE,1,2041-2050,Median across iteration-specific 2041-2050 means
-HS+20 (MP29),SB0red,P(Kobe red),0.2818,lower is better,29.126213592233,FALSE,1,2041-2050,Median across iteration-specific 2041-2050 means
-PR+20 (MP32),SB0red,P(Kobe red),0.272,lower is better,44.9838187702265,FALSE,1,2041-2050,Median across iteration-specific 2041-2050 means
-HS-20 (MP43),SB0red,P(Kobe red),0.2998,lower is better,0,FALSE,1,2041-2050,Median across iteration-specific 2041-2050 means
-PR-20 (MP44),SB0red,P(Kobe red),0.2592,lower is better,65.6957928802589,FALSE,1,2041-2050,Median across iteration-specific 2041-2050 means
-HSsym (MP45),SB0red,P(Kobe red),0.2874,lower is better,20.0647249190939,FALSE,1,2041-2050,Median across iteration-specific 2041-2050 means
-PRsym (MP46),SB0red,P(Kobe red),0.275,lower is better,40.1294498381877,FALSE,1,2041-2050,Median across iteration-specific 2041-2050 means
-HS-30 (MP47),SB0red,P(Kobe red),0.285,lower is better,23.948220064725,FALSE,1,2041-2050,Median across iteration-specific 2041-2050 means
-PR-30 (MP48),SB0red,P(Kobe red),0.238,lower is better,100,FALSE,1,2041-2050,Median across iteration-specific 2041-2050 means
-HS+20 (MP29),PC270,P(catch < 270 kt),0,lower is better,100,FALSE,1,2041-2050,Median across iteration-specific 2041-2050 means
-HS-20 (MP43),PC270,P(catch < 270 kt),0,lower is better,100,FALSE,1,2041-2050,Median across iteration-specific 2041-2050 means
-HSsym (MP45),PC270,P(catch < 270 kt),0,lower is better,100,FALSE,1,2041-2050,Median across iteration-specific 2041-2050 means
-HS-30 (MP47),PC270,P(catch < 270 kt),0,lower is better,100,FALSE,1,2041-2050,Median across iteration-specific 2041-2050 means
-PR+20 (MP32),PC270,P(catch < 270 kt),0,lower is better,100,FALSE,1,2041-2050,Median across iteration-specific 2041-2050 means
-PR-20 (MP44),PC270,P(catch < 270 kt),0,lower is better,100,FALSE,1,2041-2050,Median across iteration-specific 2041-2050 means
-PRsym (MP46),PC270,P(catch < 270 kt),0,lower is better,100,FALSE,1,2041-2050,Median across iteration-specific 2041-2050 means
-PR-30 (MP48),PC270,P(catch < 270 kt),0,lower is better,100,FALSE,1,2041-2050,Median across iteration-specific 2041-2050 means
-HS+20 (MP29),Creduction,Mean catch reduction,2.25699315259484,lower is better,94.3241444376318,FALSE,1,2041-2050,Median across iteration-specific 2041-2050 means
-PR+20 (MP32),Creduction,Mean catch reduction,4.69480480408109,lower is better,7.47482565741043,FALSE,1,2041-2050,Median across iteration-specific 2041-2050 means
-HS-20 (MP43),Creduction,Mean catch reduction,2.21435130338251,lower is better,95.8433001744425,FALSE,1,2041-2050,Median across iteration-specific 2041-2050 means
-PR-20 (MP44),Creduction,Mean catch reduction,4.68069679547602,lower is better,7.97743665114716,FALSE,1,2041-2050,Median across iteration-specific 2041-2050 means
-HSsym (MP45),Creduction,Mean catch reduction,2.09767507138905,lower is better,100,FALSE,1,2041-2050,Median across iteration-specific 2041-2050 means
-PRsym (MP46),Creduction,Mean catch reduction,4.46960823403602,lower is better,15.4976639632873,FALSE,1,2041-2050,Median across iteration-specific 2041-2050 means
-HS-30 (MP47),Creduction,Mean catch reduction,2.33450309713878,lower is better,91.5627802123726,FALSE,1,2041-2050,Median across iteration-specific 2041-2050 means
-PR-30 (MP48),Creduction,Mean catch reduction,4.90461896654535,lower is better,0,FALSE,1,2041-2050,Median across iteration-specific 2041-2050 means
+HS+20 (MP29),SB0red,P(Kobe red),0.2818,lower is better,29.126213592233,TRUE,1,2041-2050,Proportion across all 2041-2050 iteration-years
+PR+20 (MP32),SB0red,P(Kobe red),0.272,lower is better,44.9838187702265,TRUE,1,2041-2050,Proportion across all 2041-2050 iteration-years
+HS-20 (MP43),SB0red,P(Kobe red),0.2998,lower is better,0,TRUE,1,2041-2050,Proportion across all 2041-2050 iteration-years
+PR-20 (MP44),SB0red,P(Kobe red),0.2592,lower is better,65.6957928802589,TRUE,1,2041-2050,Proportion across all 2041-2050 iteration-years
+HSsym (MP45),SB0red,P(Kobe red),0.2874,lower is better,20.0647249190939,TRUE,1,2041-2050,Proportion across all 2041-2050 iteration-years
+PRsym (MP46),SB0red,P(Kobe red),0.275,lower is better,40.1294498381877,TRUE,1,2041-2050,Proportion across all 2041-2050 iteration-years
+HS-30 (MP47),SB0red,P(Kobe red),0.285,lower is better,23.948220064725,TRUE,1,2041-2050,Proportion across all 2041-2050 iteration-years
+PR-30 (MP48),SB0red,P(Kobe red),0.238,lower is better,100,TRUE,1,2041-2050,Proportion across all 2041-2050 iteration-years
+HS+20 (MP29),PC270,P(catch < 270 kt),0.0412,lower is better,48.2456140350877,FALSE,1,2041-2050,Proportion of 2041-2050 iteration-years with catch below 270 kt
+HS-20 (MP43),PC270,P(catch < 270 kt),0.0468,lower is better,23.6842105263158,FALSE,1,2041-2050,Proportion of 2041-2050 iteration-years with catch below 270 kt
+HSsym (MP45),PC270,P(catch < 270 kt),0.0522,lower is better,0,FALSE,1,2041-2050,Proportion of 2041-2050 iteration-years with catch below 270 kt
+HS-30 (MP47),PC270,P(catch < 270 kt),0.0348,lower is better,76.3157894736842,FALSE,1,2041-2050,Proportion of 2041-2050 iteration-years with catch below 270 kt
+PR+20 (MP32),PC270,P(catch < 270 kt),0.0434,lower is better,38.5964912280702,FALSE,1,2041-2050,Proportion of 2041-2050 iteration-years with catch below 270 kt
+PR-20 (MP44),PC270,P(catch < 270 kt),0.0388,lower is better,58.7719298245614,FALSE,1,2041-2050,Proportion of 2041-2050 iteration-years with catch below 270 kt
+PRsym (MP46),PC270,P(catch < 270 kt),0.0444,lower is better,34.2105263157895,FALSE,1,2041-2050,Proportion of 2041-2050 iteration-years with catch below 270 kt
+PR-30 (MP48),PC270,P(catch < 270 kt),0.0294,lower is better,100,FALSE,1,2041-2050,Proportion of 2041-2050 iteration-years with catch below 270 kt
+HS+20 (MP29),Creduction,Mean catch reduction,2.25699315259484,lower is better,94.3241444376318,TRUE,1,2041-2050,Median across iteration-specific 2026-2050 mean reductions
+PR+20 (MP32),Creduction,Mean catch reduction,4.69480480408109,lower is better,7.47482565741043,TRUE,1,2041-2050,Median across iteration-specific 2026-2050 mean reductions
+HS-20 (MP43),Creduction,Mean catch reduction,2.21435130338251,lower is better,95.8433001744425,TRUE,1,2041-2050,Median across iteration-specific 2026-2050 mean reductions
+PR-20 (MP44),Creduction,Mean catch reduction,4.68069679547602,lower is better,7.97743665114716,TRUE,1,2041-2050,Median across iteration-specific 2026-2050 mean reductions
+HSsym (MP45),Creduction,Mean catch reduction,2.09767507138905,lower is better,100,TRUE,1,2041-2050,Median across iteration-specific 2026-2050 mean reductions
+PRsym (MP46),Creduction,Mean catch reduction,4.46960823403602,lower is better,15.4976639632873,TRUE,1,2041-2050,Median across iteration-specific 2026-2050 mean reductions
+HS-30 (MP47),Creduction,Mean catch reduction,2.33450309713878,lower is better,91.5627802123726,TRUE,1,2041-2050,Median across iteration-specific 2026-2050 mean reductions
+PR-30 (MP48),Creduction,Mean catch reduction,4.90461896654535,lower is better,0,TRUE,1,2041-2050,Median across iteration-specific 2026-2050 mean reductions

@@ -448,10 +448,12 @@ catch_diagnostics[, catch_reduction := fifelse(
   NA_real_
 )]
 catch_summary <- rbindlist(list(
+  # Probability over all valid iteration-year outcomes in the long-term
+  # window. For example, if 10% of iterations are below 270 kt in five of
+  # ten years, the pooled probability is 0.10 * 0.50 = 0.05.
   quilt_perf[statistic == "C" & year %in% 2041:2050,
-    .(iteration_mean = mean(data < 270, na.rm = TRUE)), by = .(mp, iter)][
-      , .(value = median(iteration_mean, na.rm = TRUE)), by = mp][
-        , statistic := "PC270"],
+    .(value = mean(data < 270, na.rm = TRUE)), by = mp][
+      , statistic := "PC270"],
   catch_diagnostics[year %in% 2026:2050,
     .(iteration_mean = mean(catch_reduction, na.rm = TRUE)), by = .(mp, iter)][
       , .(value = median(iteration_mean, na.rm = TRUE)), by = mp][
@@ -461,21 +463,20 @@ catch_summary <- rbindlist(list(
 metric_definitions <- data.table(
   statistic = c(
     "SBMSY", "FMSY", "C", "IACC", "VB2025", "VBMSY",
-    "SB0green", "SB0red", "PC270", "Creduction"
+    "SB0red", "PC270", "Creduction"
   ),
   metric = c(
     "SB / SB[MSY]", "F / F[MSY]", "Catch", "IACC",
-    "VB / VB[2025]", "VB / VB[MSY]", "P(Kobe green)",
-    "P(Kobe red)", "P(catch < 270 kt)", "Mean catch reduction"
+    "VB / VB[2025]", "VB / VB[MSY]", "P(Kobe red)",
+    "P(catch < 270 kt)", "Mean catch reduction"
   ),
   direction = c(
     "higher is better", "lower is better", "higher is better",
     "lower is better", "higher is better", "higher is better",
-    "higher is better", "lower is better", "lower is better",
-    "lower is better"
+    "lower is better", "lower is better", "lower is better"
   ),
   higher_is_better = c(TRUE, FALSE, TRUE, FALSE, TRUE, TRUE,
-    TRUE, FALSE, FALSE, FALSE)
+    FALSE, FALSE, FALSE)
 )
 
 base_quilt <- quilt_perf[
@@ -519,6 +520,12 @@ quilt[, `:=`(
   years = "2041-2050",
   summary = "Median across iteration-specific 2041-2050 means"
 )]
+quilt[statistic == "SB0red",
+  summary := "Proportion across all 2041-2050 iteration-years"]
+quilt[statistic == "PC270",
+  summary := "Proportion of 2041-2050 iteration-years with catch below 270 kt"]
+quilt[statistic == "Creduction",
+  summary := "Median across iteration-specific 2026-2050 mean reductions"]
 quilt[, display_value := fifelse(
   statistic == "C", sprintf("%.0f", value),
   fifelse(statistic %in% c("IACC", "Creduction"), sprintf("%.1f", value),
@@ -543,16 +550,24 @@ scorecard_input <- quilt[, .(
   raw_value = value,
   preferred_direction = direction,
   normalized_score = 100 * relative_preference,
-  # Preserve the report's established six-metric illustrative weighting.
-  # The four new diagnostics remain editable but are not silently added to
-  # the composite score, where they would partly duplicate existing metrics.
-  include = statistic %in% c("SBMSY", "FMSY", "C", "IACC", "VB2025", "VBMSY"),
+  # Include Kobe-red risk and mean catch reduction in addition to the six
+  # established metrics. Low-catch risk remains visible and editable but is
+  # not silently added to the worked composite without an agreed weight.
+  include = statistic %in% c(
+    "SBMSY", "FMSY", "C", "IACC", "VB2025", "VBMSY", "SB0red",
+    "Creduction"
+  ),
   weight = 1,
   years,
   summary
 )]
 fwrite(scorecard_input,
   file.path(summary_dir, "candidate_scorecard_input_reference.csv"))
+jsonlite::write_json(
+  scorecard_input,
+  file.path(summary_dir, "candidate_scorecard_input_reference.json"),
+  dataframe = "rows", pretty = TRUE, auto_unbox = TRUE, na = "null"
+)
 
 quilt_plot <- ggplot(quilt, aes(metric, mp, fill = relative_preference)) +
   geom_tile(colour = "grey80", linewidth = 0.35) +
@@ -564,8 +579,8 @@ quilt_plot <- ggplot(quilt, aes(metric, mp, fill = relative_preference)) +
   labs(
     title = "Long-term candidate performance metrics: reference OM",
     subtitle = paste(
-      "Cell labels are median 2041-2050 values; color is normalized",
-      "within each metric across MPs"
+      "Labels are long-term summaries; probabilities pool 2041-2050",
+      "iteration-years; color is normalized within each metric"
     ),
     x = NULL, y = NULL,
     caption = paste(

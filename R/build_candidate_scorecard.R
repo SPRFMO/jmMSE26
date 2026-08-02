@@ -87,7 +87,8 @@ if (total_weight <= 0) {
 cmp_order <- unique(included$mp)
 expected_metrics <- c(
   "SB / SB[MSY]", "F / F[MSY]", "Catch", "IACC",
-  "VB / VB[2025]", "VB / VB[MSY]"
+  "VB / VB[2025]", "VB / VB[MSY]", "P(Kobe red)",
+  "Mean catch reduction"
 )
 if (!setequal(metric_settings$metric, expected_metrics)) {
   stop(
@@ -97,12 +98,29 @@ if (!setequal(metric_settings$metric, expected_metrics)) {
 }
 
 weight_schemes <- list(
-  equal = setNames(rep(1 / 6, 6), expected_metrics),
+  equal = setNames(rep(1 / 8, 8), expected_metrics),
   balanced = setNames(
-    c(0.125, 0.125, 0.25, 0.25, 0.125, 0.125),
+    c(0.10, 0.10, 1 / 6, 1 / 6, 0.10, 0.10, 0.10, 1 / 6),
     expected_metrics
   )
 )
+
+# A candidate-set-dependent sensitivity weighting based on how strongly each
+# metric distinguishes the included CMP point estimates. The square root
+# moderates the otherwise overwhelming influence of IACC under direct-CV
+# weighting. These weights describe observed contrast, not management value.
+metric_cv <- vapply(
+  expected_metrics,
+  function(metric_name) {
+    values <- included$raw_value[included$metric == metric_name]
+    stats::sd(values) / abs(mean(values))
+  },
+  numeric(1)
+)
+if (any(!is.finite(metric_cv)) || sum(metric_cv) <= 0) {
+  stop("Dispersion weights require finite, positive metric CVs.")
+}
+weight_schemes$dispersion <- sqrt(metric_cv) / sum(sqrt(metric_cv))
 
 calculate_scheme <- function(scheme_name, scheme_weights) {
   rows <- included
@@ -133,6 +151,10 @@ balanced <- calculate_scheme(
   "Balanced: 50% fishing performance / 50% stock condition",
   weight_schemes$balanced
 )
+dispersion <- calculate_scheme(
+  "Dispersion sensitivity: square-root-CV weights",
+  weight_schemes$dispersion
+)
 
 result <- data.frame(
   mp = cmp_order,
@@ -140,15 +162,23 @@ result <- data.frame(
   equal_weight_score = unname(equal$scores),
   balanced_rank = rank(-balanced$scores, ties.method = "min"),
   balanced_score = unname(balanced$scores),
+  dispersion_rank = rank(-dispersion$scores, ties.method = "min"),
+  dispersion_score = unname(dispersion$scores),
   included_metrics = length(expected_metrics),
   years = paste(sort(unique(included$years)), collapse = "; "),
   stringsAsFactors = FALSE
 )
 result <- result[order(result$equal_weight_rank, result$mp), , drop = FALSE]
-result[c("equal_weight_score", "balanced_score")] <-
-  round(result[c("equal_weight_score", "balanced_score")], 2)
+result[c(
+  "equal_weight_score", "balanced_score", "dispersion_score"
+)] <-
+  round(result[c(
+    "equal_weight_score", "balanced_score", "dispersion_score"
+  )], 2)
 
-contributions <- rbind(equal$rows, balanced$rows)
+contributions <- rbind(
+  equal$rows, balanced$rows, dispersion$rows
+)
 contributions <- contributions[
   order(
     contributions$weight_scheme,
@@ -168,18 +198,32 @@ write.csv(result, output_path, row.names = FALSE, na = "")
 write.csv(contributions, contribution_path, row.names = FALSE, na = "")
 
 table_lines <- c(
-  "| Equal-weight rank | CMP | Equal-weight score | Balanced score | Balanced rank |",
-  "|---:|:---|---:|---:|---:|",
+  paste(
+    "| CMP | Equal weight | Balanced | Dispersion weighted |"
+  ),
+  "|:---|---:|---:|---:|",
   sprintf(
-    "| %d | %s | %.2f | %.2f | %d |",
-    result$equal_weight_rank,
+    "| %s | %.2f (%d) | %.2f (%d) | %.2f (%d) |",
     result$mp,
     result$equal_weight_score,
+    result$equal_weight_rank,
     result$balanced_score,
-    result$balanced_rank
+    result$balanced_rank,
+    result$dispersion_score,
+    result$dispersion_rank
   ),
   "",
-  ": Equal-weight and balanced scorecard results for the eight performance-metric-quilt CMPs under the reference OM, 2041--2050. The balanced score assigns 25% each to Catch and IACC and 12.5% each to SB/SBMSY, F/FMSY, VB/VB[2025], and VB/VB[MSY]. {#tbl-scorecard-results}"
+  paste(
+    ": Relative scorecard sensitivity results for the eight",
+    "performance-metric-quilt CMPs under the reference OM, 2041--2050.",
+    "The balanced score assigns one-half across Catch, IACC, and mean catch",
+    "reduction, and one-half across SB/SBMSY, F/FMSY, VB/VB[2025],",
+    "VB/VB[MSY], and P(Kobe red). The",
+    "dispersion-weighted sensitivity derives weights from the square root of",
+    "each metric's across-CMP coefficient of variation. Each cell reports",
+    "score (rank).",
+    "{#tbl-scorecard-results}"
+  )
 )
 writeLines(table_lines, table_path)
 
