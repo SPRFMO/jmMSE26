@@ -86,9 +86,10 @@ Two CMPs are the focal cases for the current comparison:
   increase.
 - **PR-20 (MP44)** uses a power-ramp HCR, a 1,500-kt catch target, the same
   minimum, and the same annual limits, with a more responsive reduction in
-  advice as the indicator declines.
+  advice as the indicator declines, and the ability to increase catches above
+  the target level.
 
-Both use the combined indicator from five standardized abundance indices.
+Both use the combined indicator assembled from five standardized abundance indices.
 The earlier **HS+20 (MP29)** and **PR+20 (MP32)** specifications are retained
 as sensitivity cases. They arose from an initial request informed by early
 feedback from Chile's internal MSE research project; their 20% maximum annual
@@ -209,7 +210,7 @@ Post-workshop work made the following material advances:
    its limit. The correction was required for consistent implementation but did
    not overturn the broad workshop conclusions.
 5. A projected effort constraint was added to avoid implausible catches that
-   would require extreme effort.
+   would require extreme effort increases from current levels.
 6. CMP tuning was performed as a nested screen of HCR family, catch target,
    minimum catch, index limit, index set, simulation replication, and robustness
    performance.
@@ -362,7 +363,7 @@ two-year lag. Under the tested timing, a calculation during 2026 for 2027
 advice would use 2025 values for the acoustic, Chilean CPUE, and Peruvian
 indices, and the 2024 offshore CPUE value. Same-year 2026 observations do not
 enter that tested 2027 calculation unless the timing rule is explicitly
-changed and re-evaluated.
+changed and re-evaluated, and observations were known to be available in time.
 
 ### Naming convention and candidate variants
 
@@ -903,7 +904,7 @@ regenerated with `R/plot_sc14_tradeoffs.R`.
 ## Banking, borrowing, and implementation constraints
 
 SCW17 treated banking and borrowing as a sensitivity to apply to the final CMP
-set rather than as feedback within the HCR. Preliminary 100-iteration results
+set rather than as feedback within the HCR. Results
 are now available for HS+20 and PR+20 under the reference, low-recruitment, and
 cyclic-recruitment OMs. The tested implementation used a 10% banking or
 borrowing amount when unconstrained HCR advice changed by at least 15%, subject
@@ -913,9 +914,9 @@ more than 15% made an iteration eligible to **borrow** 10% of the new advice
 of more than 15% made it eligible to **bank** 10% (deducting it from the current
 TAC and making it available subsequently). Eligibility was restricted to years
 in which the combined abundance indicator was in the upper, or ``healthy'',
-branch of the applicable HCR. For HS+20 this is rule 3: the indicator is at or
+branch of the applicable HCR. For HS+20 this is rule status 3: the indicator is at or
 above the hockey-stick trigger and the unconstrained advice is on the constant
-target branch. For PR+20 this is rule 2: the indicator is at or above the
+target branch. For PR+20 this is rule status 2: the indicator is at or above the
 power-ramp trigger and advice is on its upper branch. Thus, a change exceeding
 15% was necessary but was not by itself sufficient. These runs did **not**
 retain the annual TAC-change limits, so they do not isolate banking and
@@ -923,27 +924,24 @@ borrowing from the effect of removing those limits.
 
 The contractor-reported long-term results are summarized in
 @tbl-bb-sb0green. Under the reference OM, mean SB0green during 2041--2050
-declined from 0.603 to 0.589 for HS+20 and from 0.607 to 0.585 for PR+20. The
+declined from 0.603 to 0.582 for HS+20 and from 0.607 to 0.464 for PR+20. The
 reported banking-and-borrowing values under low recruitment were 0.530 and
 0.617, respectively, and under cyclic recruitment were 0.419 and 0.539.
 
 | OM | CMP | Without B&B | With B&B |
 |:---|:---|---:|---:|
-| Reference OM | HS+20 | 0.603 | 0.589 |
-| Reference OM | PR+20 | 0.607 | 0.585 |
-| Low recruitment | HS+20 | -- | 0.530 |
-| Low recruitment | PR+20 | -- | 0.617 |
-| Cyclic recruitment | HS+20 | -- | 0.419 |
-| Cyclic recruitment | PR+20 | -- | 0.539 |
+| Reference OM | HS+20 | 0.603 | 0.582 |
+| Reference OM | PR+20 | 0.607 | 0.464 |
+| Low recruitment | HS+20 | 0.508 | 0.416 |
+| Low recruitment | PR+20 | 0.613 | 0.489 |
+| Cyclic recruitment | HS+20 | 0.407 | 0.409 |
+| Cyclic recruitment | PR+20 | 0.527 | 0.457 |
 
-: Contractor-reported mean SB0green during 2041--2050 for the preliminary
-100-iteration banking-and-borrowing sensitivity. A dash indicates that the
-corresponding no-B&B comparison was not supplied in the contractor summary.
-{#tbl-bb-sb0green}
+: Contractor-reported mean SB0green during 2041--2050. {#tbl-bb-sb0green}
 
 The spawning-biomass distributions for the six banking-and-borrowing runs in
 @tbl-bb-sb0green are shown in @fig-bb-sbmsy-periods. Each boxplot summarizes
-the distribution across 100 iterations after first averaging SB/SBMSY within
+the distribution across the 500 iterations after first averaging SB/SBMSY within
 each iteration over the stated period. This is a stock-status ratio, whereas
 SB0green in @tbl-bb-sb0green is the probability of being in the dynamic Kobe
 green quadrant; the two summaries are complementary and should not be read as
@@ -968,16 +966,12 @@ actually applied in the archived runs.
 
 ![Reconstructed annual eligibility for banking and borrowing in the preliminary 100-iteration runs. Circles denote iterations eligible for banking and triangles denote iterations eligible for borrowing.](../figures/banking-borrowing-eligibility.png){#fig-bb-eligibility fig-align="center" fig-pos="H" width="95%" fig-alt="Six-panel plot of reconstructed banking and borrowing eligibility counts by year. Rows show the reference, low-recruitment, and cyclic-recruitment OMs; columns show HS plus 20 and PR plus 20. Banking eligibility is more frequent for PR plus 20, while borrowing eligibility is relatively uncommon."}
 
-Final advice should use a corrected rerun that retains explicit transaction
-tracking and, if the intent is to estimate the incremental effect of banking
-and borrowing, includes a matched comparison with the same TAC-change-limit
-treatment.
-
 Effort feasibility is another implementation constraint. A TAC can be
 mathematically available but difficult to catch when fish distribution or
-catchability changes. The OM includes an effort cap to prevent unrealistic
-projected effort. Low realized catch, catch-rate proxies, and the frequency of
-binding effort constraints should be retained as supporting diagnostics.
+catchability changes. The OM includes an effort cap across all fisheries, set at three 
+times the effort level of 2025, to prevent unrealistic projected effort. Low realized 
+catch, catch-rate proxies, and the frequency of binding effort constraints should be
+retained as supporting diagnostics.
 
 ## Exceptional circumstances and annual monitoring
 
@@ -1085,8 +1079,8 @@ The Scientific Committee is asked to consider the following:
   monitored through the annual assessment process, including when evaluating
   whether exceptional circumstances may be occurring;
 - that the preliminary banking-and-borrowing results suggest effects of a
-  manageable magnitude at the investigated levels, but require a corrected,
-  matched rerun before implementation conclusions are drawn; and
+  manageable magnitude at the investigated levels, but a clerar potential impact on
+  MP pertormance; and
 - that the robustness tests provide plausible scenarios for testing the CMPs.
 
 **Endorsing**
