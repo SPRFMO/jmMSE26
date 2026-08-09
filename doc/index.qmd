@@ -7,7 +7,7 @@ format:
 
 {{< include _includes/sprfmo-banner.qmd >}}
 
-<div class="paper-title">Candidate Management Procedures: Specifications, Evidence, and Application</div>
+<div class="paper-title">Candidate Management Procedures: Specifications, Results, and Application</div>
 
 ::: {.status-note}
 This site distinguishes **test candidates**, **shortlisted candidates**, and
@@ -52,7 +52,7 @@ analysis supports it.
   interactively.
 - [How the MSE work fits together](workflow/mse-flow.qmd): where CMPs fit within the assessment
   and simulation system.
-- [Evidence and history](evidence/scw17-evidence.qmd): current `jmMSE` evidence
+- [Background and results](evidence/scw17-evidence.qmd): current `jmMSE` results
   with SCW17 development context.
 - [Sources and record of changes](governance/traceability.qmd): sources, review status, and a
   record of changes.

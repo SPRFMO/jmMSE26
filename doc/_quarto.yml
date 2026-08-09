@@ -16,6 +16,18 @@ website:
     left:
       - href: index.qmd
         text: Home
+      - text: MSE papers
+        menu:
+          - href: sc14/index.qmd
+            text: Guide to the papers
+          - href: sc14/decision-paper.qmd
+            text: SC14 questions and tasks
+          - href: evidence/sc14-mse-report.qmd
+            text: Full MSE report
+          - href: sc14/technical-paper.qmd
+            text: Technical paper
+          - href: sc14/review-response.qmd
+            text: Response to review
       - text: Candidate MPs
         menu:
           - href: cmp/index.qmd
@@ -29,29 +41,42 @@ website:
           - href: cmp/mp32.qmd
             text: MP32 sensitivity
           - href: cmp/control-reference.qmd
-            text: Trial & robustness runs
+            text: Tuning and alternative runs
           - href: cmp/components.qmd
             text: Parts of a CMP
           - href: cmp/specification-template.qmd
             text: How to specify a CMP
-      - href: application/annual-workflow.qmd
-        text: Annual application
-      - href: application/slick.qmd
-        text: Slick explorer
-      - href: application/scorecard.qmd
-        text: Scorecard explorer
-      - href: workflow/mse-flow.qmd
-        text: How MSE fits
-      - href: evidence/scw17-evidence.qmd
-        text: Evidence
-      - href: evidence/sc14-mse-report.qmd
-        text: SC14 MSE report
-      - href: governance/traceability.qmd
-        text: Sources & changes
+      - text: Annual use
+        menu:
+          - href: application/annual-workflow.qmd
+            text: Annual calculation
+          - href: application/input-data.qmd
+            text: Input data
+          - href: application/tac-2027.qmd
+            text: Worked example
+      - text: Results & background
+        menu:
+          - href: application/slick.qmd
+            text: Results explorer
+          - href: application/scorecard.qmd
+            text: Scorecard
+          - href: evidence/scw17-evidence.qmd
+            text: SCW17 background and results
+          - href: workflow/mse-flow.qmd
+            text: How MSE fits
+          - href: governance/traceability.qmd
+            text: Sources & changes
   sidebar:
     style: docked
     contents:
       - index.qmd
+      - section: "MSE papers"
+        contents:
+          - sc14/index.qmd
+          - sc14/decision-paper.qmd
+          - evidence/sc14-mse-report.qmd
+          - sc14/technical-paper.qmd
+          - sc14/review-response.qmd
       - section: "Candidate management procedures"
         contents:
           - cmp/index.qmd
@@ -62,20 +87,21 @@ website:
           - cmp/control-reference.qmd
           - cmp/components.qmd
           - cmp/specification-template.qmd
-      - section: "Applying a CMP"
+      - section: "Annual use"
         contents:
           - application/annual-workflow.qmd
           - application/tac-2027.qmd
           - application/input-data.qmd
+      - section: "Results and background"
+        contents:
           - application/slick.qmd
           - application/scorecard.qmd
-      - workflow/mse-flow.qmd
-      - evidence/scw17-evidence.qmd
-      - evidence/sc14-mse-report.qmd
-      - governance/traceability.qmd
+          - evidence/scw17-evidence.qmd
+          - workflow/mse-flow.qmd
+          - governance/traceability.qmd
   page-footer:
     left: "SPRFMO Jack Mackerel Working Group"
-    right: "Specifications and evidence are version controlled."
+    right: "Specifications and results are version controlled."
 
 format:
   html:
