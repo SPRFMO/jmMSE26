@@ -13,7 +13,7 @@ format:
     toc: true
     toc-depth: 3
     number-sections: true
-    embed-resources: true
+    embed-resources: false
     lightbox: true
     format-links: false
   pdf: default
@@ -904,29 +904,35 @@ regenerated with `R/plot_sc14_tradeoffs.R`.
 ## Banking, borrowing, and implementation constraints
 
 SCW17 treated banking and borrowing as a sensitivity to apply to the final CMP
-set rather than as feedback within the HCR. Results
-are now available for HS+20 and PR+20 under the reference, low-recruitment, and
+set rather than as feedback within the HCR. Updated 500-iteration results are
+now available for HS+20 and PR+20 under the reference, low-recruitment, and
 cyclic-recruitment OMs. The tested implementation used a 10% banking or
-borrowing amount when unconstrained HCR advice changed by at least 15%, subject
-to the CMP-specific healthy-rule condition. In operational terms, a decline of
-more than 15% made an iteration eligible to **borrow** 10% of the new advice
-(adding it to the current TAC and deducting it subsequently), while an increase
-of more than 15% made it eligible to **bank** 10% (deducting it from the current
-TAC and making it available subsequently). Eligibility was restricted to years
-in which the combined abundance indicator was in the upper, or ``healthy'',
-branch of the applicable HCR. For HS+20 this is rule status 3: the indicator is at or
-above the hockey-stick trigger and the unconstrained advice is on the constant
-target branch. For PR+20 this is rule status 2: the indicator is at or above the
-power-ramp trigger and advice is on its upper branch. Thus, a change exceeding
-15% was necessary but was not by itself sufficient. These runs did **not**
-retain the annual TAC-change limits, so they do not isolate banking and
-borrowing from the effect of removing those limits.
+borrowing amount when HCR advice changed by at least 15%, subject to the
+CMP-specific healthy-rule condition. In operational terms, a decline of more
+than 15% made an iteration eligible to **borrow** 10% of the new advice (adding
+it to the current TAC and deducting it subsequently), while an increase of more
+than 15% made it eligible to **bank** 10% (deducting it from the current TAC and
+making it available subsequently).
 
-The contractor-reported long-term results are summarized in
-@tbl-bb-sb0green. Under the reference OM, mean SB0green during 2041--2050
-declined from 0.603 to 0.582 for HS+20 and from 0.607 to 0.464 for PR+20. The
-reported banking-and-borrowing values under low recruitment were 0.530 and
-0.617, respectively, and under cyclic recruitment were 0.419 and 0.539.
+The current `msemodules::bank_borrow.is()` implementation also evaluates the
+recorded HCR branch against the CMP-specific `healthy` threshold. For HS+20
+this requires rule status 3: the indicator is at or above the hockey-stick
+trigger and advice is on the constant target branch. For PR+20 it requires rule
+status 2: the indicator is at or above the power-ramp trigger and advice is on
+its upper branch. All recorded applications in the updated archive satisfy the
+applicable healthy-branch condition. These B&B runs did **not** retain the
+annual TAC-change limits, so comparison with the standard runs combines the
+effect of banking and borrowing with the effect of removing those limits.
+
+The long-term results are summarized in @tbl-bb-sb0green. The values with B&B
+come from the supplied 500-iteration `performance_babs.rds`, whose six run
+identifiers match the updated `babs.rds` archive. Under the reference OM, mean
+SB0green during 2041--2050 was 0.582 for HS+20 and 0.464 for PR+20. The values
+under low recruitment were 0.416 and 0.489, respectively, and under cyclic
+recruitment were 0.409 and 0.455. The without-B&B values added in Iago
+Mosqueira's contribution cover the same three OMs, but the comparison is not a
+controlled estimate of the incremental B&B effect because the B&B runs removed
+the annual TAC-change limits.
 
 | OM | CMP | Without B&B | With B&B |
 |:---|:---|---:|---:|
@@ -935,9 +941,13 @@ reported banking-and-borrowing values under low recruitment were 0.530 and
 | Low recruitment | HS+20 | 0.508 | 0.416 |
 | Low recruitment | PR+20 | 0.613 | 0.489 |
 | Cyclic recruitment | HS+20 | 0.407 | 0.409 |
-| Cyclic recruitment | PR+20 | 0.527 | 0.457 |
+| Cyclic recruitment | PR+20 | 0.527 | 0.455 |
 
-: Contractor-reported mean SB0green during 2041--2050. {#tbl-bb-sb0green}
+: Mean SB0green during 2041--2050. Values with B&B use the matched updated
+500-iteration run and performance archives. Values without B&B are the standard
+runs supplied in Iago Mosqueira's contribution. Because annual TAC-change
+limits were removed from the B&B runs, the columns are not an otherwise-matched
+estimate of the incremental B&B effect. {#tbl-bb-sb0green}
 
 The spawning-biomass distributions for the six banking-and-borrowing runs in
 @tbl-bb-sb0green are shown in @fig-bb-sbmsy-periods. Each boxplot summarizes
@@ -947,31 +957,33 @@ SB0green in @tbl-bb-sb0green is the probability of being in the dynamic Kobe
 green quadrant; the two summaries are complementary and should not be read as
 the same performance measure. The dashed line marks SB/SBMSY = 1.
 
-![Spawning biomass relative to SBMSY in the preliminary banking-and-borrowing runs, for the near-term (2026--2035) and long-term (2041--2050) periods.](../figures/banking-borrowing-sbmsy-periods.png){#fig-bb-sbmsy-periods fig-align="center" width="95%" fig-alt="Two boxplot panels show iteration-level mean spawning biomass relative to SBMSY for HS plus 20 and PR plus 20 under the reference, low-recruitment, and cyclic-recruitment operating models. The left panel covers 2026 to 2035 and the right panel covers 2041 to 2050. A dashed horizontal line marks one."}
+![Spawning biomass relative to SBMSY in the updated 500-iteration banking-and-borrowing runs, for the near-term (2026--2035) and long-term (2041--2050) periods.](../figures/banking-borrowing-sbmsy-periods.png){#fig-bb-sbmsy-periods fig-align="center" width="95%" fig-alt="Two boxplot panels show iteration-level mean spawning biomass relative to SBMSY for HS plus 20 and PR plus 20 under the reference, low-recruitment, and cyclic-recruitment operating models. The left panel covers 2026 to 2035 and the right panel covers 2041 to 2050. A dashed horizontal line marks one."}
 
-The transferred run archive requires an implementation check before these
-values are treated as final. Recalculation from the supplied `babs.rds` gives
-some different SB0green values, and its saved `banking.isys` and
-`borrowing.isys` tracking fields contain no non-zero transactions. Inspection
-of the archived implementation shows that the intended previous HCR advice is
-retrieved for the current year, which makes the transaction test compare the
-current value with itself. @fig-bb-eligibility therefore shows **reconstructed
-eligibility events**, based on the intended comparison with the preceding
-year's HCR advice; it must not be interpreted as a count of transactions
-actually applied in the archived runs.
+The updated archive resolves the earlier provenance problem: its six run names
+match the performance table, and its `banking.isys` and `borrowing.isys`
+tracking fields contain non-zero recorded applications. @fig-bb-applications
+therefore counts transactions recorded in the run archive directly, rather
+than reconstructing eligibility from annual changes in HCR advice. The updated
+500-iteration pattern is consistent in kind with the contractor's earlier
+100-iteration plot, while the exact counts differ because the simulation sample
+is larger and not the same set of draws.
 
 ::: {.content-visible when-format="pdf"}
 \newpage
 :::
 
-![Reconstructed annual eligibility for banking and borrowing in the preliminary 100-iteration runs. Circles denote iterations eligible for banking and triangles denote iterations eligible for borrowing.](../figures/banking-borrowing-eligibility.png){#fig-bb-eligibility fig-align="center" fig-pos="H" width="95%" fig-alt="Six-panel plot of reconstructed banking and borrowing eligibility counts by year. Rows show the reference, low-recruitment, and cyclic-recruitment OMs; columns show HS plus 20 and PR plus 20. Banking eligibility is more frequent for PR plus 20, while borrowing eligibility is relatively uncommon."}
+![Recorded annual applications of banking and borrowing in the updated 500-iteration runs. Circles denote iterations in which banking was applied and triangles denote iterations in which borrowing was applied.](../figures/banking-borrowing-eligibility.png){#fig-bb-applications fig-align="center" fig-pos="H" width="95%" fig-alt="Six-panel plot of recorded banking and borrowing application counts by year. Rows show the reference, low-recruitment, and cyclic-recruitment OMs; columns show HS plus 20 and PR plus 20. Banking is applied more frequently for PR plus 20, while borrowing is relatively uncommon."}
+
+If the intent is to estimate the incremental effect of banking and borrowing,
+the analysis still requires a matched no-B&B comparison using the same 500 OM
+draws and the same TAC-change-limit treatment.
 
 Effort feasibility is another implementation constraint. A TAC can be
 mathematically available but difficult to catch when fish distribution or
-catchability changes. The OM includes an effort cap across all fisheries, set at three 
-times the effort level of 2025, to prevent unrealistic projected effort. Low realized 
-catch, catch-rate proxies, and the frequency of binding effort constraints should be
-retained as supporting diagnostics.
+catchability changes. The OM includes an effort cap across all fisheries, set
+at three times the effort level of 2025, to prevent unrealistic projected
+effort. Low realized catch, catch-rate proxies, and the frequency of binding
+effort constraints should be retained as supporting diagnostics.
 
 ## Exceptional circumstances and annual monitoring
 
@@ -1078,9 +1090,10 @@ The Scientific Committee is asked to consider the following:
   separately, as in the past, alongside the combined CMP indicator and
   monitored through the annual assessment process, including when evaluating
   whether exceptional circumstances may be occurring;
-- that the preliminary banking-and-borrowing results suggest effects of a
-  manageable magnitude at the investigated levels, but a clerar potential impact on
-  MP pertormance; and
+- that the updated 500-iteration banking-and-borrowing runs retain explicit
+  transaction tracking and indicate a potentially material effect on MP
+  performance, but require a matched no-B&B comparison before the incremental
+  effect is interpreted for implementation; and
 - that the robustness tests provide plausible scenarios for testing the CMPs.
 
 **Endorsing**

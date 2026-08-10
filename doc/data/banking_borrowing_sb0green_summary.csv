@@ -1,0 +1,7 @@
+scenario,cmp,SB0green
+Reference OM,HS+20,0.5818
+Reference OM,PR+20,0.464
+Low recruitment,HS+20,0.4162
+Low recruitment,PR+20,0.4886
+Cyclic recruitment,HS+20,0.4092
+Cyclic recruitment,PR+20,0.4546

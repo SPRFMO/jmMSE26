@@ -60,6 +60,13 @@
   font-weight: 700;
 }
 
+.draft-stamp {
+  margin: -0.85rem 0 1.5rem;
+  color: #53606c;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
 .status-note {
   padding: 0.9rem 1rem;
   border-left: 4px solid var(--sprfmo-orange);
@@ -69,4 +76,3 @@
 table {
   font-size: 0.94rem;
 }
-
