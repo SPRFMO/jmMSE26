@@ -47,13 +47,13 @@ comparisons, and products that are no longer current.
 
 | Topic | Current detailed source | Additional information needed |
 |---|---|---|
-| Development from SCW17 | [Current report: development](../evidence/sc14-mse-report.qmd#development-from-scw17-to-the-current-analysis) | Candidate translation table showing what changed and when |
-| OM set and simulation | [Operating models](../evidence/sc14-mse-report.qmd#operating-models-and-simulation-methods) | Complete OM definitions, plausibility rationale, and decision role |
-| Index errors | [Generating OM data indices](../evidence/sc14-mse-report.qmd#generating-om-data-indices) | Calculations, values, data changes, overlapping years, uncertainty, and checks against the observed indices |
+| Development from SCW17 | [Current report: development](../evidence/sc14-mse-report.qmd#development-from-scw17-to-the-current-analysis) | **Completed for submission:** dated candidate translation table and decision status |
+| OM set and simulation | [Operating models](../evidence/sc14-mse-report.qmd#operating-models-and-simulation-methods) | **Completed for submission:** definitions, analytical role, and proposed decision treatment; SC14 plausibility judgments remain |
+| Index errors | [Generating OM data indices](../evidence/sc14-mse-report.qmd#generating-om-data-indices) | **Core documentation completed:** equation, values, coverage, overlap, gaps, and scope; additional index stress tests remain |
 | CMP definitions | [CMP list](../cmp/index.qmd) and individual CMP pages | One table with names, roles, units, settings, and file version |
 | Tuning | [Candidate procedures](../evidence/sc14-mse-report.qmd#candidate-management-procedures) | Exact quantity used for tuning, result for every CMP, uncertainty due to the number of runs, and effect of small changes to the trigger |
-| Performance measures | [Performance evaluation](../evidence/sc14-mse-report.qmd#performance-evaluation-and-the-draft-scorecard) | Calculations, time periods, how results are combined, whether high or low values are preferred, and how each measure is used |
-| Alternative OMs | [Main findings](../evidence/sc14-mse-report.qmd#main-performance-and-robustness-findings) | CMP-by-OM biological performance table, ranges of results, and results for each component in the two-stock OMs |
+| Performance measures | [Performance evaluation](../evidence/sc14-mse-report.qmd#performance-evaluation-and-the-draft-scorecard) | **Submission framing completed:** calculations, periods, directions, weights, exclusions, and preliminary status; final measures await SC14 guidance |
+| Alternative OMs | [Main findings](../evidence/sc14-mse-report.qmd#biological-requirements-and-the-complete-om-table) | **Completed for submission:** 112-row CMP-by-OM/stock table, including `om23` and both two-stock components |
 | Banking and borrowing | [Current analysis](../evidence/sc14-mse-report.qmd#banking-borrowing-and-implementation-constraints) | Matched with/without comparison using identical OM draws before implementation conclusions |
 | Annual calculation | [Annual workflow](../application/annual-workflow.qmd) and [input data](../application/input-data.qmd) | Complete instructions for calculating advice from every shortlisted CMP |
 | Exceptional circumstances | [Current framework](../evidence/sc14-mse-report.qmd#exceptional-circumstances-and-annual-monitoring) | Indicators, thresholds, false alarms, missed detections, authority, and response options |
@@ -62,27 +62,67 @@ comparisons, and products that are no longer current.
 
 ## Results to report for each CMP and OM
 
-For every CMP and OM or stock-component combination, the final results will
-report at least:
+The current decision table reports dynamic Kobe status, biomass and
+overfishing risks, catch, and IACC for every CMP and OM or stock-component
+combination. The complete downloadable table has 112 rows:
 
-- mean dynamic Kobe-green probability for the defined tuning period;
-- probability below the agreed biomass limit by year, maximum annual risk, and
-  probability of crossing the limit at least once;
-- dynamic Kobe-red or other agreed joint-risk statistic;
-- overfishing probability;
-- near-, medium-, and long-term catch;
-- IACC and mean annual reduction in advice;
-- probability of catch below 270 kt and any shutdown statistic;
-- catch-rate or effort-feasibility measures and frequency of a binding effort
-  cap; and
-- whether the CMP is ready for annual use and the reason for any remaining
-  problem.
+[Download the CMP-by-OM biological decision table](../data/candidates/candidate_biological_decision_table.csv).
 
-The results will show uncertainty caused by the number of simulation runs. The
-paper will explain how uncertainty in the assessment and future stock and index
-conditions was included, whether CMPs were tested using the same random draws,
-and whether the conclusions change when more simulations or different random
-draws are used.
+The probabilities below are calculated over 2041--2050 from the checked
+`SC14-MSE-2026-RC1` Slick object. `SB < 1` means spawning biomass below the
+draw- and year-specific dynamic $SB_{\mathrm{MSY}}$; it is a candidate
+diagnostic, not an agreed $B_{\mathrm{lim}}$ criterion. Catch is total catch for
+one-stock OMs and component catch for two-stock OMs. None of the eight CMPs is
+yet operationally ready for annual use.
+
+```{=latex}
+\begingroup\scriptsize
+\setlength{\tabcolsep}{2.5pt}
+```
+
+```{r}
+#| label: tbl-cmp-om-biological
+#| tbl-cap: "Complete CMP-by-OM and stock-component biological decision table, 2041--2050."
+#| echo: false
+
+decision_table <- read.csv(
+  "../data/candidates/candidate_biological_decision_table.csv",
+  stringsAsFactors = FALSE, check.names = FALSE)
+probability_columns <- c("p_dynamic_kobe_green",
+  "p_sb_below_dynamic_sbmsy",
+  "max_annual_p_sb_below_dynamic_sbmsy",
+  "p_any_year_sb_below_dynamic_sbmsy", "p_f_above_fmsy")
+decision_table[probability_columns] <- lapply(
+  decision_table[probability_columns], function(x) sprintf("%.1f", 100 * x))
+decision_table$median_long_term_catch <- sprintf("%.1f",
+  decision_table$median_long_term_catch)
+decision_table$median_long_term_iacc <- sprintf("%.1f",
+  decision_table$median_long_term_iacc)
+knitr::kable(decision_table[c("om", "stock", "cmp",
+  "p_dynamic_kobe_green", "p_sb_below_dynamic_sbmsy",
+  "max_annual_p_sb_below_dynamic_sbmsy",
+  "p_any_year_sb_below_dynamic_sbmsy", "p_f_above_fmsy",
+  "median_long_term_catch", "median_long_term_iacc")],
+  col.names = c("OM", "Stock", "CMP", "Green %", "SB<1 %",
+    "Max annual %", "Any year %", "F>1 %", "Catch", "IACC"),
+  longtable = knitr::is_latex_output(), booktabs = TRUE)
+```
+
+```{=latex}
+\endgroup
+```
+
+Before a final recommendation, the results package should add criteria based
+on an agreed $B_{\mathrm{lim}}$, finalize near- and medium-term decision
+periods, retain the low-catch and mean-reduction diagnostics, report catch-rate
+or effort-feasibility measures and the frequency of a binding effort cap, and
+complete the operational-readiness test.
+
+The finite-run precision analysis also remains. It should distinguish
+posterior/model uncertainty from future process and observation draws, confirm
+the use of common draws among CMPs, provide uncertainty intervals for key
+probabilities, and test whether conclusions change with more simulations or
+different random seeds.
 
 ## Separate biological requirements from management preferences
 
@@ -96,9 +136,11 @@ The technical paper keeps three steps distinct:
    requirements in the first two steps.
 
 The scorecard belongs only in the third step. Its measures, scaling, weights,
-candidate set, and comparison tests will be saved in downloadable files. It
-will show how rankings change when OMs, measures, periods, candidates, weights,
-or random draws change.
+candidate set, and current comparison tests are saved in downloadable files.
+The present worked examples show sensitivity to measures and weights and the
+interactive application recalculates after candidate changes. Sensitivity to
+OM choice and finite-run random variation remains work before a final
+recommendation.
 
 ## Spatial structure and movement
 

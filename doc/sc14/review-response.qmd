@@ -52,13 +52,13 @@ completion of the instructions and checks needed for annual use.
 | Priority and review issue | Response | Work needed | Timing |
 |---|---|---|---|
 | High — align published files | **Completed** for `SC14-MSE-2026-RC1` | All 47 automatic checks passed. The report, CMP list and pages, annual-use pages, figures, CSVs, Slick file, simulation and file lists, and SHA-256 fingerprints are tied to the same release; see the [automatic agreement report](../governance/release-check.qmd) | Completed before SC14 submission |
-| High — limit current request to shortlist consideration | Agreed | Revised requested-advice text and explicit pre-adoption completion list | Before SC14 submission |
-| High — clarify minimum biological requirements and difficult cases | Agreed | Explain the relationship between COMM8 and K60; agree measures of the chance of falling below a biomass limit; provide a CMP-by-OM table including `om23`; show results for each stock component; explain how plausible each OM is and how it should affect the decision | Requirements requested at SC14; completed before adoption |
-| High — describe HS versus PR as complete configurations | Agreed | Revised terminology; matched illustration used only to explain rule shape | Before SC14 submission |
+| High — limit current request to shortlist consideration | **Completed for submission** | The requested advice is limited to scientific endorsement, agreement on criteria, and a provisional shortlist. The decision paper contains an explicit list of work required before recommendation or adoption | Completed before SC14 submission |
+| High — clarify minimum biological requirements and difficult cases | **Decision package completed; SC14 judgment required** | The report relates COMM8 and K60, proposes risk measures, and publishes a [112-row CMP-by-OM/stock table](../data/candidates/candidate_biological_decision_table.csv), including separate components and `om23`. OM roles are stated without inventing plausibility weights | Evidence completed before submission; requirements requested at SC14 |
+| High — describe HS versus PR as complete configurations | **Completed for submission** | Results are described as comparisons of complete, retuned configurations. The matched illustration is explicitly conceptual and used only to isolate rule shape | Completed before SC14 submission |
 | Medium — assess whether 500 simulations are sufficiently precise | Agreed | Description of how uncertainty was represented, use of the same random draws, uncertainty ranges, and whether conclusions change with more runs or different draws | Before final recommendation |
-| Medium — treat scorecard rankings as preliminary | Agreed | First determine which CMPs meet the minimum biological performance requirements; retain the original results; show how rankings change with measures, weights, candidates, periods, and OMs | Before SC14 submission for framing; complete before final recommendation |
-| Medium — document and test index errors | Agreed in stages | Final calculations and values; record of overlapping years and data changes; checks against observed indices; tests of gradual change, abrupt change, missing surveys, regional balance, and index reliability | Core documentation before SC14; additional tests in continuing work |
-| Medium — show candidate evolution and retain reviewer caveats | Agreed | SCW17-to-current comparison table; dated decision records; reviewer comments separated from author response | Before SC14 submission |
+| Medium — treat scorecard rankings as preliminary | **Submission framing completed** | Rankings were removed from the executive summary; raw outcomes remain primary; inputs, exclusions, scaling, three weighting sensitivities, and candidate-set dependence are documented. OM and finite-run sensitivity remain before final recommendation | Submission framing completed; full sensitivity before final recommendation |
+| Medium — document and test index errors | **Core documentation completed** | The report publishes the simulation equation, final SD and autocorrelation values, correlation matrix, series overlap and gaps, treatment of posterior uncertainty, and what the model does not cover. Gradual drift, abrupt change, revised data, missing-survey rules, regional balance, and reliability weighting remain continuing tests | Core documentation completed before SC14; additional tests in continuing work |
+| Medium — show candidate evolution and retain reviewer caveats | **Completed for submission** | A [machine-readable chronology](../data/candidate-development-history.csv) links the SCW17 trial subset, MP29/MP32 refinement, MP43--MP48 variants, and the named release. It identifies analyst-added comparisons and separates external-review caveats from the author response | Completed before SC14 submission |
 
 : Response to the review's eight principal issues. {#tbl-issues}
 
@@ -75,12 +75,13 @@ files](../governance/release-check.qmd).
 
 ### Minimum biological performance requirements
 
-The 60% dynamic Kobe-green probability remains a common tuning target,
-not the only requirement for biological performance. The response should
-explain how this target relates to the COMM8 objectives and should report the
-chance of low biomass and overfishing. Results must be shown for each relevant
-stock component and difficult OM. A decision to accept a known weakness must
-be identified as a management judgment.
+The 60% dynamic Kobe-green probability remains a common tuning target, not the
+only requirement for biological performance. The report now explains how K60
+relates to the earlier COMM8 objectives and reports dynamic Kobe status,
+low-biomass diagnostics, and overfishing risk for every CMP, OM, and stock
+component. The very low northern result under `om23` is brought forward
+explicitly. SC14 must still agree the requirements and record any decision to
+accept a known weakness as a management judgment.
 
 ### Ready for annual use
 

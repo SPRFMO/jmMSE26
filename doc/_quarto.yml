@@ -3,6 +3,8 @@ project:
   output-dir: ../docs
   resources:
     - data/candidates/*
+    - data/candidate-development-history.csv
+    - data/index-error-*.csv
     - data/release/*
 
 lang: en-US

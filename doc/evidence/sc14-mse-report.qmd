@@ -2,7 +2,7 @@
 title: "Jack mackerel management strategy evaluation for SC14"
 subtitle: "Operating models, candidate management procedures, robustness tests, and matters for Scientific Committee consideration"
 date: 2026-08-09
-date-format: "[SC14-MSE-2026-RC1 —] D MMMM YYYY"
+date-format: "[Working revision based on SC14-MSE-2026-RC1 —] D MMMM YYYY"
 language:
   title-block-published: ""
 bibliography: sc14-mse-report.bib
@@ -41,9 +41,12 @@ format:
 :::
 
 ::: {.status-note}
-**Status and purpose.** This report is part of `SC14-MSE-2026-RC1`. It
-synthesizes the June 2026 SCW17 MSE workshop and subsequent model and
-management-procedure development.
+**Status and purpose.** This is a working pre-submission revision based on the
+scientific outputs frozen in `SC14-MSE-2026-RC1`. The revised documents and
+new review-evidence tables are not part of that fingerprinted release; they
+require a new release candidate after review. The report synthesizes the June
+2026 SCW17 MSE workshop and subsequent model and management-procedure
+development.
 :::
 
 ## Executive summary {.unnumbered}
@@ -101,15 +104,11 @@ additional comparison cases. The paired catch trajectories for focal HS-20
 and sensitivity HS+20 illustrate one annual-limit contrast in
 @fig-catch-spaghetti.
 
-This distinction matters for interpreting the illustrative scorecard. With all
-eight CMPs now tuned on the same 500 draws, HS+20 ranks first under both shown
-weighting schemes, while PR+20 ranks seventh; the six variants occupy positions
-throughout the ordering. That order is a relative trade-off result, not an
-acceptability test. It depends on the selected metrics, directions, scaling,
-and weights, and should be read alongside the raw outcomes and uncertainty.
-The scorecard ordering does not determine which cases are focal: focal status
-records the present analytical emphasis, whereas the scorecard summarizes
-relative trade-offs under selected metrics and weights.
+The scorecard is retained as a preliminary sensitivity tool rather than an
+executive ranking. Its ordering changes with the candidate set, metrics,
+directions, scaling, and weights; it does not determine biological
+acceptability, focal status, or a shortlist. Raw outcomes, uncertainty, and
+performance under individual OMs remain the primary evidence.
 
 All eight CMPs were refined against the same 500 posterior draws to target an
 approximately 60% mean probability of dynamic Kobe-green status during
@@ -230,6 +229,26 @@ The 24 July meeting clarified the interpretation: those runs were useful
 within-family representatives, but the analysis does not establish an optimal
 procedure across management objectives.
 
+The sequence from the workshop trials to the current comparison is recorded in
+[`candidate-development-history.csv`](../data/candidate-development-history.csv).
+The workshop `run18`/`run20`/`run22` subset is an antecedent development set,
+not a one-to-one renaming of MP29/MP32 or MP43--MP48. The annual-limit variants
+were added after the 24 July meeting and remain analyst-developed comparison
+cases awaiting Task Team and Scientific Committee review.
+
+```{r}
+#| label: tbl-candidate-history
+#| tbl-cap: "Development and decision status of the current CMP comparison."
+#| echo: false
+
+candidate_history <- read.csv("../data/candidate-development-history.csv",
+  stringsAsFactors = FALSE, check.names = FALSE)
+knitr::kable(candidate_history[c("stage", "date", "identifiers",
+  "material_change", "decision_status")],
+  col.names = c("Stage", "Date", "Identifiers", "Material change",
+    "Decision status"))
+```
+
 ## Operating models and simulation methods
 
 ### Reference and robustness set
@@ -263,24 +282,27 @@ steepness 0.65. Robustness OMs test major structural and parametric
 uncertainties rather than assigning probability to one forecast
 (@tbl-om-set).
 
-| OM label | Main contrast | Analytical role |
-|:---|:---|:---|
-| om11 | One stock, model 0.16, steepness 0.65 | Reference OM for current tuning |
-| om11_1 | Alternative selectivity | Younger/smaller fish exposed to greater fishing pressure |
-| om11_2 | One-year recruitment crash | Acute recruitment stress |
-| om11_3 | Seven-year cyclic recruitment reduction | Prolonged recruitment stress |
-| om12 | One stock, steepness 0.8 | Productivity robustness |
-| om13 | One stock, SC13-era/model 1.14 configuration | Assessment/configuration robustness |
-| om21 | Two stocks, no movement | Stock-structure and catch-distribution robustness |
-| om21_1 | Two stocks with movement | Spatial redistribution and indicator-conflict robustness |
-| om22 | Two stocks, steepness 0.8 | Two-stock productivity robustness |
-| om23 | Two stocks, model 1.14 configuration | Two-stock assessment/configuration robustness |
+| OM label | Main contrast | Analytical role | Proposed decision treatment |
+|:---|:---|:---|:---|
+| om11 | One stock, model 0.16, steepness 0.65 | Reference OM for current tuning | Primary comparison; not assigned a numerical plausibility weight |
+| om11_1 | Alternative selectivity | Younger/smaller fish exposed to greater fishing pressure | Structural sensitivity that may affect reference-point interpretation |
+| om11_2 | One-year recruitment crash | Acute recruitment stress | Stress test; concern should be reported rather than silently pooled |
+| om11_3 | Seven-year cyclic recruitment reduction | Prolonged recruitment stress | Stress test; concern should be reported rather than silently pooled |
+| om12 | One stock, steepness 0.8 | Productivity robustness | Parameter sensitivity |
+| om13 | One stock, SC13-era/model 1.14 configuration | Assessment/configuration robustness | Legacy-configuration sensitivity |
+| om21 | Two stocks, no movement | Stock-structure and catch-distribution robustness | Structural sensitivity requiring component-level results |
+| om21_1 | Two stocks with movement | Spatial redistribution and indicator-conflict robustness | Difficult structural case requiring an explicit SC14 judgment |
+| om22 | Two stocks, steepness 0.8 | Two-stock productivity robustness | Structural and parameter sensitivity requiring component-level results |
+| om23 | Two stocks, model 1.14 configuration | Two-stock assessment/configuration robustness | Difficult legacy-configuration case requiring an explicit SC14 judgment |
 
 : Reference and robustness operating-model set. {#tbl-om-set}
 
 The OM set (reference and robustness) is not a declaration that all states are
-equally plausible. Its purpose is to expose CMP sensitivity to assumptions
-that could matter to management outcomes. Any later OM weighting should be
+equally plausible. No numerical plausibility weights have been agreed. The
+proposed treatments above keep the reference comparison, structural
+sensitivities, and deliberate stress tests distinct while bringing difficult
+results forward. SC14 should decide whether any case is exclusionary, a source
+of concern, or informative but non-decisive; any later OM weighting must be
 explicit and documented.
 
 ### Recruitment, observation, and implementation uncertainty
@@ -312,10 +334,9 @@ from changes in underlying CMP behavior.
 
 Each CMP receives simulated abundance indices rather than true stock status.
 Projected index deviations include autocorrelation and cross-correlation so
-that the observation model better represents the historical behavior of
-multiple surveys and CPUE series. Simulation diagnostics should show the
-distributions of index-error standard deviations, autocorrelation parameters,
-and correlations used.
+that the observation model represents the estimated historical behavior of
+multiple surveys and CPUE series. The final values and data coverage used by
+the reference OM are reported below.
 
 The combined indicator does not assume that five series provide five
 independent confirmations of stock change. In each OM iteration, projected
@@ -326,6 +347,42 @@ correlation matrix preserves cross-correlation among indices. These
 relationships matter because common environmental effects, fleet behavior,
 and spatial redistribution of the population can cause several indices to
 rise or fall together.
+
+For index $i$ in year $t$, the log deviation follows
+$x_{i,t}=\rho_i x_{i,t-1}+\epsilon_{i,t}$ and the multiplicative observation
+deviation is $\exp(x_{i,t})$. The innovation covariance is constructed from
+the iteration-specific marginal log-scale standard deviations, lag-1
+coefficients, and historical cross-correlation matrix. The implementation
+adjusts the innovation correlation for the AR(1) coefficients and applies a
+nearest-positive-definite correction before Cholesky simulation when needed.
+Parameters are estimated separately within each posterior iteration from the
+available historical index deviations through 2025; @tbl-index-error-parameters
+shows their means across iterations.
+
+```{r}
+#| label: tbl-index-error-parameters
+#| tbl-cap: "OM11 index-error parameters and historical coverage used for projection."
+#| echo: false
+
+index_parameters <- read.csv("../data/index-error-parameters.csv",
+  stringsAsFactors = FALSE, check.names = FALSE)
+index_parameters$sd <- round(index_parameters$sd, 3)
+index_parameters$rho <- round(index_parameters$rho, 3)
+knitr::kable(index_parameters[c("index", "first_year", "last_year",
+  "years_with_data", "sd", "rho")],
+  col.names = c("Index", "First year", "Last year", "Years with data",
+    "Mean log SD", "Mean lag-1 rho"), row.names = FALSE)
+```
+
+The five series overlap completely only during 2008--2009, 2011--2014, and
+2018--2021. The northern Chile acoustic series has earlier and intermittent
+coverage, including no 2022 value; the Peruvian industrial series has four
+historical gaps; and offshore CPUE ends in 2024. These gaps are retained in
+the estimation data rather than silently filled. The full mean correlation
+matrix is downloadable as
+[`index-error-correlations.csv`](../data/index-error-correlations.csv), and the
+complete gap list, coverage, and parameter values are in
+[`index-error-parameters.csv`](../data/index-error-parameters.csv).
 
 ![OM11 index observation-error correlations. Each cell gives the mean correlation across posterior iterations, with its between-iteration standard deviation in parentheses. Positive values indicate index errors that tend to move together; negative values indicate opposing movements.](../figures/om11-index-observation-error-correlations.png){#fig-om11-index-error-correlations fig-align="center" width="88%" fig-alt="Correlation-matrix heat map for the five OM11 abundance indices. Cells show the posterior-iteration mean correlation and standard deviation. The largest positive off-diagonal correlation is 0.54 between the Peru artisanal and Peru industrial indices."}
 
@@ -346,6 +403,13 @@ This approach is consistent with the MSE best-practice principle that
 management procedures should be tested using simulated management data that
 represent observation uncertainty rather than receiving true stock status
 [@punt2016mse].
+
+This model covers stochastic marginal error, persistence, cross-series
+correlation, and posterior variation in those estimates. It does **not** by
+itself represent gradual catchability drift, abrupt re-standardization,
+revised historical data, systematic regional imbalance, or reliability-based
+index weighting. Tests of those mechanisms, missing-survey rules, and
+region-balanced or reliability-weighted indicators remain continuing work.
 
 ## Candidate management procedures
 
@@ -768,6 +832,68 @@ scores, and sensitivity analyses.
 
 ## Main performance and robustness findings
 
+### Biological requirements and the complete OM table
+
+The approximately 60% dynamic Kobe-green probability used for tuning is a
+common comparison control, not a complete safety standard. The earlier
+[COMM8 draft management objective](https://www.sprfmo.int/assets/Meetings/01-COMM/8th-Commission-2020COMM8/reports/annex/Annex-8b-JM-MSE-Management-Objectives.pdf)
+included both a probability of being above $B_{\mathrm{MSY}}$ in 2030 and a
+higher-probability requirement to remain above $B_{\mathrm{lim}}$ during
+2025--2040. The later K60 pathway supplied the common long-term Kobe-green
+tuning target. The present results should therefore be used to ask SC14 which
+biomass-limit, overfishing, time-specific, and component-specific requirements
+must be met; K60 should not be interpreted as having replaced every earlier
+objective unless SC14 records that decision.
+
+The complete machine-readable table contains 112 CMP, OM, and stock-component
+rows and is available as
+[`candidate_biological_decision_table.csv`](../data/candidates/candidate_biological_decision_table.csv).
+It was generated directly from the checked 500-draw Slick release with
+`R/build_sc14_review_evidence.R`. It reports long-term dynamic Kobe-green
+probability, three ways of describing the chance that spawning biomass falls
+below dynamic $SB_{\mathrm{MSY}}$, overfishing probability, catch, and IACC.
+These are candidate diagnostics for discussion, **not agreed limit-reference
+criteria**. All eight CMPs remain not ready for annual use because their final
+operational specifications are incomplete.
+
+```{r}
+#| label: tbl-biological-decision-preview
+#| tbl-cap: "Decision-table excerpt for the reference OM and the difficult om23 case, 2041--2050."
+#| echo: false
+
+biological_table <- read.csv(
+  "../data/candidates/candidate_biological_decision_table.csv",
+  stringsAsFactors = FALSE, check.names = FALSE)
+biological_preview <- biological_table[
+  biological_table$om %in% c("om11", "om23"), ]
+percent_columns <- c("p_dynamic_kobe_green",
+  "p_sb_below_dynamic_sbmsy",
+  "max_annual_p_sb_below_dynamic_sbmsy",
+  "p_any_year_sb_below_dynamic_sbmsy", "p_f_above_fmsy")
+biological_preview[percent_columns] <- lapply(
+  biological_preview[percent_columns], function(x) sprintf("%.1f%%", 100 * x))
+biological_preview$median_long_term_catch <- round(
+  biological_preview$median_long_term_catch, 1)
+biological_preview$median_long_term_iacc <- round(
+  biological_preview$median_long_term_iacc, 1)
+knitr::kable(biological_preview[c("om", "stock", "cmp",
+  "p_dynamic_kobe_green", "p_any_year_sb_below_dynamic_sbmsy",
+  "p_f_above_fmsy", "median_long_term_catch",
+  "median_long_term_iacc")],
+  col.names = c("OM", "Stock", "CMP", "P(green)",
+    "P(any SB < 1)", "P(F > 1)", "Catch", "IACC"),
+  row.names = FALSE)
+```
+
+The `om23` result requires particular attention. For its northern component,
+long-term dynamic Kobe-green probability is only 0.9--2.9% across the eight
+CMPs in the current checked release, while the probability of falling below
+dynamic $SB_{\mathrm{MSY}}$ in at least one year is 97.0--99.0%. This is a
+model/configuration sensitivity rather than a forecast, but it must not be
+hidden by pooling OMs or stock components. SC14 should explicitly record
+whether `om23` is decisive, a concern requiring additional protection or
+analysis, or too implausible to determine selection.
+
 ### Reference comparison
 
 The illustrative reference-OM scorecard in @tbl-scorecard-results provides the
@@ -1062,14 +1188,19 @@ after an MP is adopted and applied.
 David Miller and Rosana Ourens likewise viewed the benchmark assessment as a
 strong basis for the reference OM, the robustness set as covering important
 uncertainties, and the use of dynamic reference points and simple empirical
-index-based rules as sensible. Their comments were made at a particular stage
-of the workshop process and should not be read as a complete account of
-stakeholder engagement. Commission participants and other stakeholders had
-received several presentations and opportunities to provide input before and
-during the MSE process, including input on management preferences and annual
-TAC-change limits. Suggestions for further engagement are therefore best
-understood as support for continuing and documenting that involvement, not as
-an indication that stakeholder input was absent.
+index-based rules as sensible.
+
+**External-review caveats.** Their comments also stated that CMP design would
+have benefited from more stakeholder input and that earlier agreement on the
+assessment and reference points would have kept the discussion more focused.
+Those caveats are retained here as reviewer findings.
+
+**Author response.** Commission participants and other stakeholders received
+presentations and opportunities to provide input before and during the MSE
+process, including on management preferences and annual TAC-change limits.
+This history does not remove the reviewers' caveats. It supports continued and
+better-documented stakeholder involvement, especially when narrowing the CMP
+set and setting weights or other management preferences.
 
 The technically relevant priorities identified by the experts include
 accurately representing historical cross-correlation among indices, exploring
@@ -1079,9 +1210,10 @@ supports applying the MSE as a living management process, with monitoring,
 stakeholder input, and agreed revisions continuing after initial adoption
 rather than treating the current analysis as a one-time exercise.
 
-The available work supports taking a reduced subset of CMPs forward for
-Commission selection, accompanied by annual monitoring and a formal
-exceptional-circumstances process. Because this synthesis contains
+The available work supports asking SC14 to identify a provisional shortlist
+for final comparative evaluation, accompanied by annual monitoring and a
+formal exceptional-circumstances process. It does not request Commission
+selection or adoption at this stage. Because this synthesis contains
 result-dependent statements, scores, and conclusions, the
 [interactive scorecard explorer](../application/scorecard.qmd) lets users
 compare CMPs, select performance metrics, apply alternative weighting schemes,
@@ -1096,8 +1228,9 @@ The Scientific Committee is asked to consider the following:
   for application in the tested HCRs;
 - that the work identifies reasonable annual TAC-change variants informed by
   polling of Commission members;
-- that the results satisfy the Commission requests and recorded management
-  preferences;
+- that the current comparison addresses the K60 tuning pathway but SC14 still
+  needs to state how the earlier COMM8 objectives and component-level risks
+  should be applied;
 - the use of all five indices and the complementary value of the
   fishery-independent acoustic series;
 - that northern and southern indicators should continue to be tracked
@@ -1110,11 +1243,11 @@ The Scientific Committee is asked to consider the following:
   effect is interpreted for implementation; and
 - that the robustness tests provide plausible scenarios for testing the CMPs.
 
-**Endorsing**
+**Advising**
 
 - the analytical work as satisfying the request from the Commission;
-- adoption of a subset of the CMPs presented so that the Commission may select
-  one among them to satisfy the trade-offs it may consider;
+- identification of a provisional shortlist for final comparative evaluation,
+  without implying selection or adoption;
 - development of a formal exceptional-circumstances protocol, including
   evaluation of detection performance and pre-agreed responses; and
 - review and documentation of the full performance-metric set and any weighting
