@@ -41,7 +41,7 @@ $$
 The upper branch can rise above the breakpoint. The annual constraint then
 limits advice to 80%--115% of the previous advice.
 
-## Evidence status
+## What the current analysis shows
 
 MP44 was refined from the earlier 100-draw control using the same 500
 posterior draws and tuning years (2041--2050) as the other seven CMPs. Its

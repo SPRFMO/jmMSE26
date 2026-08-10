@@ -1,8 +1,8 @@
 ---
 title: "Jack mackerel management strategy evaluation for SC14"
 subtitle: "Operating models, candidate management procedures, robustness tests, and matters for Scientific Committee consideration"
-date: now
-date-format: "[Draft —] D MMMM YYYY, h:mm A z"
+date: 2026-08-09
+date-format: "[SC14-MSE-2026-RC1 —] D MMMM YYYY"
 language:
   title-block-published: ""
 bibliography: sc14-mse-report.bib
@@ -29,11 +29,11 @@ format:
 
 ::: {.content-visible when-format="html"}
 ```{=html}
-<div id="sc14-draft-stamp" class="draft-stamp" aria-label="Report draft timestamp"></div>
+<div id="sc14-release-stamp" class="draft-stamp" aria-label="Report release candidate and date"></div>
 <script>
 (() => {
   const source = document.querySelector("#title-block-header .date");
-  const target = document.getElementById("sc14-draft-stamp");
+  const target = document.getElementById("sc14-release-stamp");
   if (source && target) target.textContent = source.textContent.trim();
 })();
 </script>
@@ -41,8 +41,9 @@ format:
 :::
 
 ::: {.status-note}
-**Status and purpose.** This report synthesizes the June 2026 SCW17 MSE
-workshop and subsequent model and management-procedure development.
+**Status and purpose.** This report is part of `SC14-MSE-2026-RC1`. It
+synthesizes the June 2026 SCW17 MSE workshop and subsequent model and
+management-procedure development.
 :::
 
 ## Executive summary {.unnumbered}
@@ -59,7 +60,7 @@ their performance under one-stock and two-stock hypotheses, recruitment
 stress, movement, selectivity, and alternative annual TAC-change limits.
 
 A novel feature of this MSE is its treatment of the five abundance indicators
-as related observations rather than independent pieces of evidence. The OMs
+as related observations rather than independent sources of information. The OMs
 simulate their observation errors jointly using historical estimates of each
 series' uncertainty, temporal autocorrelation, and cross-correlation. This
 allows the evaluation to represent shared movements among indicators,
@@ -391,7 +392,7 @@ records the earlier 100-draw trigger controls used during development; the
 subsequent common 500-draw refinement used for current results is reported in
 @tbl-candidate-variants.
 
-![Nested development of the focused CMP set from HCR family through target catch and tuned response to the resulting HS and PR cases. Trigger values in this development diagram are the earlier 100-draw controls; the current 500-draw refined controls are given in @tbl-candidate-variants.](../figures/candidates/nested_cmp_development.png){#fig-nested-cmp-development fig-align="center" width="100%"}
+![Nested development of the focused CMP set from HCR family through target catch and tuned response to the resulting HS and PR cases. Trigger values in this development diagram are the earlier 100-draw controls; the current 500-draw refined controls are given in @tbl-candidate-variants.](../figures/candidates/nested_cmp_development.png){#fig-nested-cmp-development fig-align="center" width="100%" fig-alt="Flow diagram showing how the CMP comparison narrows from two harvest-control-rule families to hockey-stick and power-ramp targets, common minimum and limit settings, and the eight annual-change variants used in the 500-draw comparison."}
 
 The matched example in @fig-hcr-shape-comparison isolates the effect of HCR
 shape by assigning both rules the same minimum, target, limit, and trigger. The
@@ -405,24 +406,37 @@ at low stock sizes because catch advice is not allowed to fall below the
 vulnerable biomass as stock size declines. The panel is explanatory rather
 than an estimated performance result or an additional rule used by the CMPs.
 
-![Matched illustration of hockey-stick and power-ramp responses to the same relative index. Both examples use a 270-kt minimum catch, 2,000-kt target, 0.1 index limit, and trigger of 2 solely to isolate rule shape; the focal HS and PR CMPs retain their own targets and refined triggers listed in @tbl-candidate-variants. The implied-harvest-rate panel assumes vulnerable biomass is proportional to the index and is conceptual rather than a simulated performance result.](../figures/candidates/hcr_shape_matched_comparison.png){#fig-hcr-shape-comparison fig-align="center" width="100%"}
+![Matched illustration of hockey-stick and power-ramp responses to the same relative index. Both examples use a 270-kt minimum catch, 2,000-kt target, 0.1 index limit, and trigger of 2 solely to isolate rule shape; the focal HS and PR CMPs retain their own targets and refined triggers listed in @tbl-candidate-variants. The implied-harvest-rate panel assumes vulnerable biomass is proportional to the index and is conceptual rather than a simulated performance result.](../figures/candidates/hcr_shape_matched_comparison.png){#fig-hcr-shape-comparison fig-align="center" width="100%" fig-alt="Two matched panels compare hockey-stick and power-ramp catch advice against the relative index, plus their conceptual implied harvest rates. The hockey-stick becomes flat at its target, while the power ramp continues increasing above its trigger."}
 
 ```{=latex}
 \begingroup\small
 ```
 
-| Working label | Legacy ID | HCR family | Target or breakpoint (kt) | Tuned trigger | Annual decrease/increase limits |
-|---|---|---|---:|---:|---:|
-| HS+20 | MP29 | Hockey-stick | 2,000 | 2.125 | -15% / +20% |
-| HS-20 | MP43 | Hockey-stick | 2,000 | 1.9375 | -20% / +15% |
-| HSsym | MP45 | Hockey-stick | 2,000 | 2.0625 | -15% / +15% |
-| HS-30 | MP47 | Hockey-stick | 2,000 | 2.0000 | -30% / +20% |
-| PR+20 | MP32 | Power ramp | 1,500 | 1.640625 | -15% / +20% |
-| PR-20 | MP44 | Power ramp | 1,500 | 1.6015625 | -20% / +15% |
-| PRsym | MP46 | Power ramp | 1,500 | 1.6250 | -15% / +15% |
-| PR-30 | MP48 | Power ramp | 1,500 | 1.578125 | -30% / +20% |
+```{r}
+#| label: tbl-candidate-variants
+#| tbl-cap: "Naming convention, legacy identifiers, and definitions of the eight candidate variants."
+#| echo: false
 
-: Naming convention, legacy identifiers, and definitions of the eight candidate variants. {#tbl-candidate-variants}
+cmp_registry <- read.csv("../data/cmp-registry.csv",
+  stringsAsFactors = FALSE, check.names = FALSE)
+cmp_registry <- cmp_registry[tolower(cmp_registry$sc14_release) == "yes", ]
+fmt_number <- function(x) format(x, scientific = FALSE, trim = TRUE,
+  digits = 12)
+cmp_table <- data.frame(
+  `Working label` = cmp_registry$label,
+  `Legacy ID` = cmp_registry$cmp_id,
+  `HCR family` = ifelse(grepl("hockeystick", cmp_registry$hcr),
+    "Hockey-stick", "Power ramp"),
+  `Target or breakpoint (kt)` = format(cmp_registry$target,
+    big.mark = ",", scientific = FALSE, trim = TRUE),
+  `Tuned trigger` = vapply(cmp_registry$trigger, fmt_number, character(1)),
+  `Annual decrease/increase limits` = paste0(
+    "-", round(100 * (1 - cmp_registry$dlow)), "% / +",
+    round(100 * (cmp_registry$dupp - 1)), "%"),
+  check.names = FALSE
+)
+knitr::kable(cmp_table, align = c("l", "l", "l", "r", "r", "r"))
+```
 
 ```{=latex}
 \endgroup
@@ -430,13 +444,13 @@ than an estimated performance result or an additional rule used by the CMPs.
 
 The 500-draw refinement began from the earlier 100-draw tuned controls rather
 than restarting from a broad search. It then evaluated nearby trigger values
-under one frozen OM and common random-number configuration. The resulting
+under one saved OM and common random-number configuration. The resulting
 dynamic Kobe-green probabilities for HS+20, HS-20, HSsym, HS-30, PR+20,
 PR-20, PRsym, and PR-30 are 61.0%, 59.2%, 60.4%, 60.4%, 60.3%, 59.8%, 59.5%,
 and 60.6%, respectively.
 
 A completed local trigger check tested one grid step below and above every
-selected control using the same frozen 500 draws. The steps were 0.0625 for
+selected control using the same saved 500 draws. The steps were 0.0625 for
 the hockey-stick rules and 0.03125 for the power-ramp rules, matching the final
 bisection resolution for each family. All eight checks behaved as expected:
 a higher trigger produced a higher long-term Kobe-green probability and a
@@ -486,7 +500,7 @@ HS-20 is MP43 (`tun43`), with annual limits of -20%/+15%; HS+20 is MP29
 (`tun29`), with limits of -15%/+20%. The vertically stacked panels share a
 common catch scale, as shown in @fig-catch-spaghetti.
 
-![Projected catch trajectories for the same 15 simulation iteration IDs under both hockey-stick MPs in the reference operating model. Each iteration retains the same line color in both panels so matching trajectories can be traced through time and across MPs.](../figures/candidates/catch_spaghetti_hs_reference.png){#fig-catch-spaghetti fig-align="center" width="95%"}
+![Projected catch trajectories for the same 15 simulation iteration IDs under both hockey-stick MPs in the reference operating model. Each iteration retains the same line color in both panels so matching trajectories can be traced through time and across MPs.](../figures/candidates/catch_spaghetti_hs_reference.png){#fig-catch-spaghetti fig-align="center" width="95%" fig-alt="Two time-series panels show projected 2025 to 2050 catch for the same 15 simulation draws under HS-20 and HS+20. Matching draws follow similar broad stock-driven patterns, while the annual limits alter the size and timing of changes."}
 
 ### Choice of indices
 
@@ -530,9 +544,9 @@ the modeled selectivity, complementing spawning-biomass measures of biological
 stock condition. Reference-OM results are shown in @fig-vb-reference and the
 corresponding robustness results in @fig-vb-robustness.
 
-![Vulnerable-biomass performance for the reference operating model.](../figures/candidates/vb_reference.png){#fig-vb-reference fig-align="center" width="90%"}
+![Vulnerable-biomass performance for the reference operating model.](../figures/candidates/vb_reference.png){#fig-vb-reference fig-align="center" width="90%" fig-alt="Point and interval plots compare vulnerable biomass relative to 2025 and relative to the vulnerable-biomass level associated with MSY for eight CMPs in the reference operating model, in near- and long-term periods."}
 
-![Vulnerable-biomass performance across the five single-stock CJM robustness operating models. The four two-stock operating models are omitted from this pooled figure because their Northern and Southern components require stock-specific interpretation and are examined separately in the robustness results.](../figures/candidates/vb_robustness.png){#fig-vb-robustness fig-align="center" width="90%"}
+![Vulnerable-biomass performance across the five single-stock CJM robustness operating models. The four two-stock operating models are omitted from this pooled figure because their Northern and Southern components require stock-specific interpretation and are examined separately in the robustness results.](../figures/candidates/vb_robustness.png){#fig-vb-robustness fig-align="center" width="90%" fig-alt="Faceted point and interval plots compare two vulnerable-biomass ratios for eight CMPs across five single-stock alternative operating models and near- and long-term periods. Differences among operating models are larger than many differences among CMPs."}
 
 ### Performance metrics by CMPs
 
@@ -567,7 +581,7 @@ composite until its management weight is reviewed. Kobe-green probability is omi
 the quilt because it is already the common tuning objective and provides
 little independent contrast among the closely tuned CMPs.
 
-![Reference-OM candidate performance metrics for the eight naming-convention variants. Cell labels are median iteration summaries except Kobe-red probability and probability of catch below 270 kt, which pool all valid 2041--2050 iteration-years. Purple indicates lower relative preference and light lavender indicates higher relative preference within each metric (0 is darkest; 1 is lightest).](../figures/candidates/candidate_quilt_reference.png){#fig-candidate-quilt fig-align="center" width="100%"}
+![Reference-OM candidate performance metrics for the eight naming-convention variants. Cell labels are median iteration summaries except Kobe-red probability and probability of catch below 270 kt, which pool all valid 2041--2050 iteration-years. Purple indicates lower relative preference and light lavender indicates higher relative preference within each metric (0 is darkest; 1 is lightest).](../figures/candidates/candidate_quilt_reference.png){#fig-candidate-quilt fig-align="center" width="100%" fig-alt="Quilt table comparing eight CMPs across nine stock, catch, variability, and risk measures for 2041 to 2050. Each cell contains the numerical result, so color is not the only way to compare cases; no CMP is best on every measure."}
 
 The underlying values, preferred directions, metric ranges, and normalized
 scores are saved in
@@ -587,7 +601,7 @@ the one before it:
 
 1. **Raw performance and uncertainty.** Report the performance statistic in
    its original units together with its simulated distribution or an
-   appropriate interval. This is the primary evidence layer and includes, for
+   appropriate interval. This is the primary results layer and includes, for
    example, catch in kt, biomass and fishing-pressure ratios, probabilities,
    and IACC. The boxplots and uncertainty bars elsewhere in this report provide
    examples. Point estimates alone are insufficient where CMP distributions
@@ -846,7 +860,7 @@ The alternative-selectivity OM exposed younger and smaller fish to greater
 fishing pressure. Similar catch levels could then occur with lower spawning
 biomass and poorer Kobe performance. In the completed results, HS+20 retained
 higher catch while PR+20 retained higher spawning biomass; this is a trade-off,
-not evidence that either CMP is uniformly better. Interpretation is also
+does not show that either CMP is uniformly better. Interpretation is also
 affected by the changed $F_{\mathrm{MSY}}$ reference point.
 
 #### Two-stock hypotheses and catch distribution
@@ -1004,7 +1018,7 @@ The current analysis identifies at least two monitoring priorities:
 Preliminary oral fishery updates reported at the 24 July meeting are not
 validated data submissions and do not by themselves establish exceptional
 circumstances. A protocol should specify the observations, data timing,
-triggering evidence, review authority, possible responses, and return-to-rule
+triggering information, review authority, possible responses, and return-to-rule
 conditions before operational use.
 
 ## Summary and conclusions
@@ -1116,7 +1130,7 @@ used for two-stock sensitivity tests; those tests are not allocation advice.
 reference-point implementation described above.
 
 Numerical values from presentations and meeting materials should be checked
-against the frozen final simulation archive before submission. Where a
+against the named final simulation archive before submission. Where a
 presentation takeaway and the later meeting interpretation differed in tone,
 this report follows the meeting's more cautious interpretation. The meeting
 report itself was prepared from meeting notes, transcript material, and an

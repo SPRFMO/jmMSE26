@@ -1,21 +1,27 @@
 ---
-title: "Trial and robustness run reference"
+title: "Earlier trial and robustness controls"
 ---
 
 {{< include ../_includes/sprfmo-banner.qmd >}}
 
-<div class="paper-title">Cross-reference for CMP Trial and Robustness Runs</div>
+<div class="paper-title">Earlier CMP Trial and Robustness Controls</div>
 
-This page provides a quick reference to the procedure settings recorded in
-`tuns_ctrl.csv` and `robs_ctrl.csv`. The tables are rebuilt from those files
-when the website is rendered, so they remain aligned with the analysis control
-files.
+::: {.status-note}
+**Historical development record.** The controls on this page include earlier
+100-draw settings and candidates that are not in the named SC14 release. They
+must not be used as the current CMP list. Use the [SC14 CMP
+registry](index.qmd) and [release agreement report](../governance/release-check.qmd)
+for the current eight-CMP set.
+:::
+
+This page preserves the procedure settings recorded in the earlier
+`tuns_ctrl.csv` and `robs_ctrl.csv` files so that the development sequence can
+still be understood.
 
 ## Tuning trials
 
-These are the procedure designs examined during tuning. MP43 and MP44 are the
-current focal cases. MP29 and MP32 preserve the earlier +20 annual-limit
-specification as sensitivity cases.
+These are procedure designs examined during earlier tuning. The table is not a
+current release control file.
 
 ```{r}
 #| label: tbl-tuning-controls
@@ -51,10 +57,10 @@ knitr::kable(tuning_table, align = c("l", "l", "l", "l", rep("r", 6)))
 
 ## Robustness runs
 
-The focused control table applies focal MP43/MP44 and sensitivity MP29/MP32 to nine
-alternative operating models. Each row below identifies one
-procedure–operating-model combination. The combined Slick file also includes
-the other six comparison cases across these operating models.
+The earlier robustness table applied MP29, MP32, MP43, and MP44 to nine
+alternative operating models. Each row below identifies one historical
+procedure–operating-model combination. The current 500-draw release instead
+contains all eight SC14 CMPs, listed in the release run index.
 
 ```{r}
 #| label: tbl-robustness-controls
@@ -95,6 +101,6 @@ knitr::kable(robustness_table,
   used for robustness testing. See the MSE analysis for the assumptions that
   define each operating model.
 
-The [MP29](mp29.qmd) and [MP32](mp32.qmd) pages document the earlier +20
-sensitivity specifications. The registry and SC14 report record the focal
-MP43/MP44 controls and their completed 500-draw refinement.
+The [MP29](mp29.qmd) and [MP32](mp32.qmd) pages document their current 500-draw
+sensitivity specifications. The registry and SC14 report record the complete
+eight-CMP refinement.

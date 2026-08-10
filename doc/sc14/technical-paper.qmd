@@ -38,9 +38,10 @@ The official set of files is organized in this order:
 5. the CMP and annual-use pages made from the same settings.
 
 The current status is documented on the
-[sources and changes page](../governance/traceability.qmd). The final version
-will include a file list recording the code version, model runs, paper files,
-software used, file checksums, and products that are no longer current.
+[sources and changes page](../governance/traceability.qmd). The named release
+also has an [automatic agreement report](../governance/release-check.qmd) with
+the code versions, model runs, paper files, file fingerprints, numerical
+comparisons, and products that are no longer current.
 
 ## Where to find the supporting information
 

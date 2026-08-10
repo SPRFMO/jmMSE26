@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.9.37">
@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>CMP evidence and development history – SPRFMO Jack Mackerel CMPs</title>
+<title>CMP results and development history – SPRFMO Jack Mackerel CMPs</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -182,7 +182,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
         <li>
     <a class="dropdown-item" href="../cmp/control-reference.html">
- <span class="dropdown-text">Tuning and alternative runs</span></a>
+ <span class="dropdown-text">Earlier tuning controls</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../cmp/components.html">
@@ -238,6 +238,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="dropdown-item" href="../governance/traceability.html">
  <span class="dropdown-text">Sources &amp; changes</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../governance/release-check.html">
+ <span class="dropdown-text">Agreement checks</span></a>
+  </li>  
     </ul>
   </li>
 </ul>
@@ -251,7 +255,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../application/slick.html">Results and background</a></li><li class="breadcrumb-item"><a href="../evidence/scw17-evidence.html">CMP evidence and development history</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../application/slick.html">Results and background</a></li><li class="breadcrumb-item"><a href="../evidence/scw17-evidence.html">CMP results and development history</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -352,7 +356,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../cmp/control-reference.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Trial and robustness run reference</span></a>
+ <span class="menu-text">Earlier trial and robustness controls</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -422,7 +426,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../evidence/scw17-evidence.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">CMP evidence and development history</span></a>
+ <span class="menu-text">CMP results and development history</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -437,6 +441,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Sources and record of changes</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../governance/release-check.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Checks of agreement among the SC14 files</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -449,7 +459,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#current-candidate-evidence-from-jmmse" id="toc-current-candidate-evidence-from-jmmse" class="nav-link active" data-scroll-target="#current-candidate-evidence-from-jmmse"><span class="header-section-number">1</span> Current candidate evidence from jmMSE</a></li>
+  <li><a href="#current-candidate-results-from-jmmse" id="toc-current-candidate-results-from-jmmse" class="nav-link active" data-scroll-target="#current-candidate-results-from-jmmse"><span class="header-section-number">1</span> Current candidate results from jmMSE</a></li>
   <li><a href="#paper-08-subset-screen" id="toc-paper-08-subset-screen" class="nav-link" data-scroll-target="#paper-08-subset-screen"><span class="header-section-number">2</span> Paper-08 subset screen</a></li>
   <li><a href="#paper-09-hockeystick-test-set" id="toc-paper-09-hockeystick-test-set" class="nav-link" data-scroll-target="#paper-09-hockeystick-test-set"><span class="header-section-number">3</span> Paper-09 hockeystick test set</a></li>
   <li><a href="#current-interpretation" id="toc-current-interpretation" class="nav-link" data-scroll-target="#current-interpretation"><span class="header-section-number">4</span> Current interpretation</a></li>
@@ -460,9 +470,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../application/slick.html">Results and background</a></li><li class="breadcrumb-item"><a href="../evidence/scw17-evidence.html">CMP evidence and development history</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../application/slick.html">Results and background</a></li><li class="breadcrumb-item"><a href="../evidence/scw17-evidence.html">CMP results and development history</a></li></ol></nav>
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">CMP evidence and development history</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<div class="quarto-title-block"><div><h1 class="title">CMP results and development history</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -491,12 +501,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 Current jmMSE Evidence and SCW17 Development History
 </div>
 <div class="status-note">
-<p>This page summarizes the available evidence; it does not record an adoption decision. The current candidate interpretation comes from <code>jmMSE</code>, while the SCW17 papers describe earlier development. The published candidate results use the completed common 500-draw reference and nine-OM robustness evaluation.</p>
+<p>This page summarizes the available results; it does not record an adoption decision. The current candidate interpretation comes from <code>jmMSE</code>, while the SCW17 papers describe earlier development. The published candidate results use the completed common 500-draw reference and nine-OM robustness evaluation.</p>
 </div>
-<section id="current-candidate-evidence-from-jmmse" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="current-candidate-evidence-from-jmmse"><span class="header-section-number">1</span> Current candidate evidence from jmMSE</h2>
-<p>The current evidence set contains eight CMPs from two empirical rule families: HS+20 (MP29), HS-20 (MP43), HSsym (MP45), HS-30 (MP47), PR+20 (MP32), PR-20 (MP44), PRsym (MP46), and PR-30 (MP48). <strong>MP43 and MP44 are the focal cases; MP29 and MP32 are sensitivity cases</strong> retaining the earlier +20 annual-limit specification. This designation describes their role in the current analysis, not a formal recommendation or adoption decision.</p>
-<p>The eight-CMP comparison provides the following evidence:</p>
+<section id="current-candidate-results-from-jmmse" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="current-candidate-results-from-jmmse"><span class="header-section-number">1</span> Current candidate results from jmMSE</h2>
+<p>The current result set contains eight CMPs from two empirical rule families: HS+20 (MP29), HS-20 (MP43), HSsym (MP45), HS-30 (MP47), PR+20 (MP32), PR-20 (MP44), PRsym (MP46), and PR-30 (MP48). <strong>MP43 and MP44 are the focal cases; MP29 and MP32 are sensitivity cases</strong> retaining the earlier +20 annual-limit specification. This designation describes their role in the current analysis, not a formal recommendation or adoption decision.</p>
+<p>The eight-CMP comparison provides the following results:</p>
 <ol type="1">
 <li>All CMPs use the same five observed abundance indices and transparent empirical HCR structures, while the variants isolate alternative annual TAC-change constraints.</li>
 <li>The completed analysis contains 500 posterior draws for the reference OM and nine robustness OMs, with spawning biomass, fishing pressure, catch, IACC, VB/VB[2025], and VB/VB[MSY] outputs.</li>
@@ -536,7 +546,7 @@ Current jmMSE Evidence and SCW17 Development History
 <section id="current-interpretation" class="level2" data-number="4">
 <h2 data-number="4" class="anchored" data-anchor-id="current-interpretation"><span class="header-section-number">4</span> Current interpretation</h2>
 <p>SCW17 narrowed dozens of exploratory MPs to simple hockey-stick and power-ramp families and reasonable variants for continued evaluation. Subsequent work expanded robustness testing, corrected implementations, added vulnerable biomass metrics, documented the observation-error correlation structure, and developed reproducible trade-off and scorecard views.</p>
-<p>The current evidence supports carrying a reduced subset forward for Scientific Committee and Commission consideration. It does not by itself select an adopted CMP. Final advice requires a frozen and reviewed metric set, sensitivity to any weighting scheme, corrected banking-and-borrowing tests, and a formal exceptional-circumstances protocol.</p>
+<p>The current results support carrying a reduced subset forward for Scientific Committee and Commission consideration. It does not by itself select an adopted CMP. Final advice requires a frozen and reviewed metric set, sensitivity to any weighting scheme, corrected banking-and-borrowing tests, and a formal exceptional-circumstances protocol.</p>
 </section>
 <section id="evidence-promotion-checklist" class="level2" data-number="5">
 <h2 data-number="5" class="anchored" data-anchor-id="evidence-promotion-checklist"><span class="header-section-number">5</span> Evidence promotion checklist</h2>
@@ -1077,7 +1087,7 @@ Current jmMSE Evidence and SCW17 Development History
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "CMP evidence and development history"</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "CMP results and development history"</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>{{&lt; include ../_includes/sprfmo-banner.qmd &gt;}}</span>
@@ -1085,22 +1095,22 @@ Current jmMSE Evidence and SCW17 Development History
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">"paper-title"</span><span class="dt">&gt;</span>Current jmMSE Evidence and SCW17 Development History<span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>::: {.status-note}</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>This page summarizes the available evidence; it does not record an adoption</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>This page summarizes the available results; it does not record an adoption</span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>decision. The current candidate interpretation comes from <span class="in">`jmMSE`</span>, while the</span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>SCW17 papers describe earlier development. The published candidate results use</span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>the completed common 500-draw reference and nine-OM robustness evaluation.</span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">## Current candidate evidence from jmMSE</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">## Current candidate results from jmMSE</span></span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>The current evidence set contains eight CMPs from two empirical rule families:</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>The current result set contains eight CMPs from two empirical rule families:</span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>HS+20 (MP29), HS-20 (MP43), HSsym (MP45), HS-30 (MP47), PR+20 (MP32), PR-20</span>
 <span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>(MP44), PRsym (MP46), and PR-30 (MP48). **MP43 and MP44 are the focal cases;</span>
 <span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>MP29 and MP32 are sensitivity cases** retaining the earlier +20 annual-limit</span>
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>specification. This designation describes their role in the current analysis,</span>
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>not a formal recommendation or adoption decision.</span>
 <span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>The eight-CMP comparison provides the following evidence:</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>The eight-CMP comparison provides the following results:</span>
 <span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>All CMPs use the same five observed abundance indices and transparent</span>
 <span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>   empirical HCR structures, while the variants isolate alternative annual</span>
@@ -1178,7 +1188,7 @@ Current jmMSE Evidence and SCW17 Development History
 <span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a>biomass metrics, documented the observation-error correlation structure, and</span>
 <span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a>developed reproducible trade-off and scorecard views.</span>
 <span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a>The current evidence supports carrying a reduced subset forward for Scientific</span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a>The current results support carrying a reduced subset forward for Scientific</span>
 <span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a>Committee and Commission consideration. It does not by itself select an</span>
 <span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a>adopted CMP. Final advice requires a frozen and reviewed metric set,</span>
 <span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a>sensitivity to any weighting scheme, corrected</span>

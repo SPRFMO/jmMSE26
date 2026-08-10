@@ -16,8 +16,8 @@ CMP, but they do not change how it operates. If background text differs from
 the approved specification, the approved specification takes precedence.
 
 Use this structure for every shortlisted CMP. The approved specification tells
-analysts how to calculate the advice; supporting evidence belongs in the
-evidence section.
+analysts how to calculate the advice; supporting results belong in the
+results section.
 
 ## Identity and authority
 

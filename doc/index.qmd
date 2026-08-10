@@ -25,7 +25,7 @@ analysis and brings together:
 2. the earlier HS+20 (MP29) and PR+20 (MP32) specifications retained as
    sensitivity cases, plus four other annual-limit comparison cases;
 3. the full management strategy evaluation (MSE) process;
-4. evidence from tuning, trade-off, and robustness comparisons; and
+4. results from tuning, trade-off, and robustness comparisons; and
 5. instructions for applying a selected procedure when new annual data become
    available.
 
@@ -42,13 +42,13 @@ analysis supports it.
 - [CMP registry](cmp/index.qmd): focal, sensitivity, and comparison cases with
   stable legacy identifiers and current HS/PR labels.
 - [MP43](cmp/mp43.qmd) and [MP44](cmp/mp44.qmd): focal-case controls,
-  rules, and evidence status.
+  rules, and current analytical results.
 - [MP29](cmp/mp29.qmd) and [MP32](cmp/mp32.qmd): the earlier **+20**
   sensitivity specifications and annual calculation details; the registry and
   SC14 report give the focal MP43/MP44 controls.
 - [Annual application](application/annual-workflow.qmd): steps from receiving
   new data to producing advice.
-- [Slick explorer](application/slick.qmd): compare all ten MSE cases
+- [Slick explorer](application/slick.qmd): compare the eight SC14 MSE cases
   interactively.
 - [How the MSE work fits together](workflow/mse-flow.qmd): where CMPs fit within the assessment
   and simulation system.
@@ -56,6 +56,8 @@ analysis supports it.
   with SCW17 development context.
 - [Sources and record of changes](governance/traceability.qmd): sources, review status, and a
   record of changes.
+- [Checks of agreement among the SC14 files](governance/release-check.qmd):
+  named release, run list, file list, and automatic numerical comparisons.
 
 ## Governing principle
 
