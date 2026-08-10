@@ -1,0 +1,36 @@
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{xcolor}
+
+\definecolor{sprfmoblue}{HTML}{17365F}
+
+\providecommand{\SCdocumentnumber}{SC14-JMXX}
+\providecommand{\SCshorttitle}{Jack mackerel MSE paper}
+\providecommand{\SCcovertitle}{Jack mackerel MSE paper}
+\providecommand{\SCcoverfootnoteoffset}{0pt}
+
+\setlength{\headheight}{15pt}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\sffamily\small\color{sprfmoblue}\SCdocumentnumber}
+\fancyhead[R]{\sffamily\small\color{sprfmoblue}\SCshorttitle}
+\fancyfoot[C]{\sffamily\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\fancypagestyle{plain}{%
+  \fancyhf{}
+  \fancyhead[L]{\sffamily\small\color{sprfmoblue}\SCdocumentnumber}
+  \fancyhead[R]{\sffamily\small\color{sprfmoblue}\SCshorttitle}
+  \fancyfoot[C]{\sffamily\small\thepage}
+  \renewcommand{\headrulewidth}{0.4pt}
+  \renewcommand{\footrulewidth}{0pt}
+}
+
+\fancypagestyle{sc14cover}{%
+  \fancyhf{}
+  \fancyhead[L]{\sffamily\small\color{sprfmoblue}\SCdocumentnumber}
+  \fancyhead[R]{\sffamily\small\color{sprfmoblue}\SCshorttitle}
+  \renewcommand{\headrulewidth}{0.4pt}
+  \renewcommand{\footrulewidth}{0pt}
+}

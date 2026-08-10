@@ -16,7 +16,15 @@ format:
     embed-resources: false
     lightbox: true
     format-links: false
-  pdf: default
+  pdf:
+    include-in-header:
+      - ../_includes/sc14-pdf-header.tex
+      - ../_includes/sc14-pdf-cover.tex
+header-includes:
+  - '\renewcommand{\SCdocumentnumber}{SC14-JM07}'
+  - '\renewcommand{\SCshorttitle}{Jack mackerel MSE}'
+  - '\renewcommand{\SCcovertitle}{Jack mackerel management strategy evaluation for SC14}'
+  - '\renewcommand{\SCcoverfootnoteoffset}{2.5in}'
 ---
 
 {{< include ../_includes/sprfmo-banner.qmd >}}
