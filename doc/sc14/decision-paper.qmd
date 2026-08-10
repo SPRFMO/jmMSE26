@@ -3,11 +3,21 @@ title: "Jack mackerel MSE: questions and tasks for SC14"
 format:
   html:
     number-sections: true
+  pdf:
+    documentclass: scrartcl
+    fontsize: 9pt
+    colorlinks: true
+    geometry:
+      - margin=0.7in
 ---
 
+::: {.content-visible when-format="html"}
 {{< include ../_includes/sprfmo-banner.qmd >}}
 
 <div class="paper-title">Jack mackerel MSE: questions and tasks for SC14</div>
+
+[Download the PDF version](decision-paper.pdf){.btn .btn-primary}
+:::
 
 ## Purpose
 

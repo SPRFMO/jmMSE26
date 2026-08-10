@@ -3,11 +3,21 @@ title: "Jack mackerel MSE: technical information and work remaining"
 format:
   html:
     number-sections: true
+  pdf:
+    documentclass: scrartcl
+    fontsize: 9pt
+    colorlinks: true
+    geometry:
+      - margin=0.65in
 ---
 
+::: {.content-visible when-format="html"}
 {{< include ../_includes/sprfmo-banner.qmd >}}
 
 <div class="paper-title">Jack mackerel MSE: technical information and work remaining</div>
+
+[Download the PDF version](technical-paper.pdf){.btn .btn-primary}
+:::
 
 ## Scope
 

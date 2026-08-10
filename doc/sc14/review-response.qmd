@@ -3,11 +3,21 @@ title: "Response to the independent SC14 MSE desk review"
 format:
   html:
     number-sections: true
+  pdf:
+    documentclass: scrartcl
+    fontsize: 8pt
+    colorlinks: true
+    geometry:
+      - margin=0.55in
 ---
 
+::: {.content-visible when-format="html"}
 {{< include ../_includes/sprfmo-banner.qmd >}}
 
 <div class="paper-title">Response to the independent SC14 MSE desk review</div>
+
+[Download the PDF version](review-response.pdf){.btn .btn-primary}
+:::
 
 ## Overall response
 
