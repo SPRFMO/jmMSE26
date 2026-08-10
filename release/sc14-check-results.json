@@ -2,26 +2,26 @@
   "release_id": "SC14-MSE-2026-RC1",
   "checked": "2026-08-09",
   "summary": {
-    "Pass": 45,
-    "Not ready": 2,
+    "Pass": 47,
+    "Not ready": 0,
     "Fail": 0
   },
   "checks": [
     {
       "area": "release identity",
       "check": "SPRFMO/jmMSE26 revision",
-      "outcome": "Not ready",
+      "outcome": "Pass",
       "expected": "SC14-MSE-2026-RC1",
-      "observed": "11fe481abdec38cc873042cf52107cde9f7991d7",
+      "observed": "SC14-MSE-2026-RC1 resolves to current commit",
       "source": ".",
-      "note": "Create the SC14-MSE-2026-RC1 tag on the approved release commit."
+      "note": ""
     },
     {
       "area": "release identity",
       "check": "SPRFMO/jmMSE26 tracked files",
-      "outcome": "Not ready",
+      "outcome": "Pass",
       "expected": "no uncommitted tracked changes",
-      "observed": " M README.md\n M doc/_freeze/application/tac-2027/execute-results/html.json\n M doc/_freeze/cmp/control-reference/execute-results/html.json\n M doc/_freeze/cmp/index/execute-results/html.json\n M doc/_quarto.yml\n M doc/application/tac-2027.qmd\n M doc/cmp/control-reference.qmd\n M doc/cmp/index.qmd\n M doc/cmp/mp29.qmd\n M doc/cmp/mp32.qmd\n M doc/cmp/mp43.qmd\n M doc/cmp/mp44.qmd\n M doc/cmp/specification-template.qmd\n M doc/data/cmp-registry.csv\n M doc/evidence/sc14-mse-report.qmd\n M doc/evidence/scw17-evidence.qmd\n M doc/governance/traceability.qmd\n M doc/index.qmd\n M doc/sc14/review-response.qmd\n M doc/sc14/technical-paper.qmd\n M docs/application/annual-workflow.html\n M docs/application/input-data.html\n M docs/application/scorecard.html\n M docs/application/slick.html\n M docs/application/tac-2027.html\n M docs/cmp/components.html\n M docs/cmp/control-reference.html\n M docs/cmp/index.html\n M docs/cmp/mp29.html\n M docs/cmp/mp32.html\n M docs/cmp/mp43.html\n M docs/cmp/mp44.html\n M docs/cmp/specification-template.html\n M docs/data/candidates/candidate_scorecard_result_reference.html\n M docs/evidence/sc14-mse-report.html\n M docs/evidence/sc14-mse-report.pdf\n M docs/evidence/scw17-evidence.html\n M docs/governance/traceability.html\n M docs/index.html\n M docs/sc14/decision-paper.html\n M docs/sc14/decision-paper.pdf\n M docs/sc14/index.html\n M docs/sc14/index.pdf\n M docs/sc14/review-response.html\n M docs/sc14/review-response.pdf\n M docs/sc14/technical-paper.html\n M docs/sc14/technical-paper.pdf\n M docs/search.json\n M docs/sitemap.xml\n M docs/workflow/mse-flow.html",
+      "observed": "none",
       "source": ".",
       "note": ""
     },

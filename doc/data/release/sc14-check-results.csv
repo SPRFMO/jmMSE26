@@ -1,55 +1,6 @@
 "area","check","outcome","expected","observed","source","note"
-"release identity","SPRFMO/jmMSE26 revision","Not ready","SC14-MSE-2026-RC1","11fe481abdec38cc873042cf52107cde9f7991d7",".","Create the SC14-MSE-2026-RC1 tag on the approved release commit."
-"release identity","SPRFMO/jmMSE26 tracked files","Not ready","no uncommitted tracked changes"," M README.md
- M doc/_freeze/application/tac-2027/execute-results/html.json
- M doc/_freeze/cmp/control-reference/execute-results/html.json
- M doc/_freeze/cmp/index/execute-results/html.json
- M doc/_quarto.yml
- M doc/application/tac-2027.qmd
- M doc/cmp/control-reference.qmd
- M doc/cmp/index.qmd
- M doc/cmp/mp29.qmd
- M doc/cmp/mp32.qmd
- M doc/cmp/mp43.qmd
- M doc/cmp/mp44.qmd
- M doc/cmp/specification-template.qmd
- M doc/data/cmp-registry.csv
- M doc/evidence/sc14-mse-report.qmd
- M doc/evidence/scw17-evidence.qmd
- M doc/governance/traceability.qmd
- M doc/index.qmd
- M doc/sc14/review-response.qmd
- M doc/sc14/technical-paper.qmd
- M docs/application/annual-workflow.html
- M docs/application/input-data.html
- M docs/application/scorecard.html
- M docs/application/slick.html
- M docs/application/tac-2027.html
- M docs/cmp/components.html
- M docs/cmp/control-reference.html
- M docs/cmp/index.html
- M docs/cmp/mp29.html
- M docs/cmp/mp32.html
- M docs/cmp/mp43.html
- M docs/cmp/mp44.html
- M docs/cmp/specification-template.html
- M docs/data/candidates/candidate_scorecard_result_reference.html
- M docs/evidence/sc14-mse-report.html
- M docs/evidence/sc14-mse-report.pdf
- M docs/evidence/scw17-evidence.html
- M docs/governance/traceability.html
- M docs/index.html
- M docs/sc14/decision-paper.html
- M docs/sc14/decision-paper.pdf
- M docs/sc14/index.html
- M docs/sc14/index.pdf
- M docs/sc14/review-response.html
- M docs/sc14/review-response.pdf
- M docs/sc14/technical-paper.html
- M docs/sc14/technical-paper.pdf
- M docs/search.json
- M docs/sitemap.xml
- M docs/workflow/mse-flow.html",".",""
+"release identity","SPRFMO/jmMSE26 revision","Pass","SC14-MSE-2026-RC1","SC14-MSE-2026-RC1 resolves to current commit",".",""
+"release identity","SPRFMO/jmMSE26 tracked files","Pass","no uncommitted tracked changes","none",".",""
 "release identity","SPRFMO/jmMSE revision","Pass","77968e4a9febcad5315a7c00419b6d1690e3e102","77968e4a9febcad5315a7c00419b6d1690e3e102","../jmMSE-500-refine",""
 "release identity","SPRFMO/jmMSE tracked files","Pass","no uncommitted tracked changes","none","../jmMSE-500-refine",""
 "CMP definitions","SC14 CMP membership","Pass","MP29, MP32, MP43, MP44, MP45, MP46, MP47, MP48","MP29, MP32, MP43, MP44, MP45, MP46, MP47, MP48","doc/data/cmp-registry.csv",""
