@@ -17,6 +17,8 @@ doc/*_files/
 *.log
 *.out
 *.tex
+!doc/_includes/sc14-pdf-header.tex
+!doc/_includes/sc14-pdf-cover.tex
 *.toc
 
 # Analysis outputs belong in jmMSE unless explicitly promoted as evidence.

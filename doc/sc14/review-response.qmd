@@ -7,8 +7,15 @@ format:
     documentclass: scrartcl
     fontsize: 8pt
     colorlinks: true
+    include-in-header:
+      - ../_includes/sc14-pdf-header.tex
+      - ../_includes/sc14-pdf-cover.tex
     geometry:
       - margin=0.55in
+header-includes:
+  - '\renewcommand{\SCdocumentnumber}{SC14-JM09}'
+  - '\renewcommand{\SCshorttitle}{Response to desk review}'
+  - '\renewcommand{\SCcovertitle}{Response to the independent SC14 MSE desk review}'
 ---
 
 ::: {.content-visible when-format="html"}
