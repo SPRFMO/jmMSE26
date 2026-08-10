@@ -100,11 +100,26 @@ expanded robustness testing, corrected implementations, added vulnerable
 biomass metrics, documented the observation-error correlation structure, and
 developed reproducible trade-off and scorecard views.
 
+The [machine-readable development
+history](../data/candidate-development-history.csv) links the SCW17
+`run18`/`run20`/`run22` subset to the later MP29/MP32 family refinement and the
+MP43--MP48 annual-limit variants. The workshop runs are an antecedent
+development set rather than one-to-one aliases for the current CMPs. The
+expanded eight-CMP comparison was added after the 24 July meeting and remains
+subject to Task Team and Scientific Committee review.
+
 The current results support carrying a reduced subset forward for Scientific
 Committee and Commission consideration. It does not by itself select an
 adopted CMP. Final advice requires a frozen and reviewed metric set,
 sensitivity to any weighting scheme, corrected
 banking-and-borrowing tests, and a formal exceptional-circumstances protocol.
+
+The external experts' positive overall assessment is retained together with
+their caveats: candidate design would have benefited from additional
+stakeholder input, and earlier agreement on the assessment and reference
+points would have kept the technical discussion more focused. The authors'
+record of engagement and their response to those caveats are presented
+separately in the SC14 synthesis.
 
 ## Evidence promotion checklist
 

@@ -91,9 +91,23 @@ For each CMP, report whether it meets criteria agreed by SC14 for:
   judgment.
 
 The relationship between the COMM8 objectives and the later K60 tuning target
-should be stated explicitly. Failure of a difficult OM need not automatically
-exclude a CMP, but accepting that risk should be an explicit decision supported
-by an assessment of the OM's plausibility and consequences.
+is not treated as already resolved. COMM8 included time-specific biomass
+objectives, including a high-probability requirement above a biomass limit,
+whereas K60 is the common 2041--2050 dynamic Kobe-green tuning target used to
+make the current CMPs comparable. SC14 is asked to decide which requirements
+apply in screening and whether K60 supplements or replaces any earlier
+objective. Failure of a difficult OM need not automatically exclude a CMP,
+but accepting that risk should be an explicit decision supported by an
+assessment of the OM's plausibility and consequences.
+
+The [complete CMP-by-OM and stock-component decision
+table](../data/candidates/candidate_biological_decision_table.csv) reports
+dynamic Kobe-green probability, biomass and overfishing risks, catch, and IACC
+for all 112 CMP/OM/stock combinations. In `om23`, northern dynamic Kobe-green
+probability is only 0.9--2.9% across the eight CMPs. SC14 should record whether
+that legacy model/configuration sensitivity is decisive, a concern requiring
+additional work or protection, or non-decisive because of its assessed
+plausibility.
 
 ### Step 2: performance under alternative assumptions
 

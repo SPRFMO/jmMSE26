@@ -1,0 +1,6 @@
+"index","first_year","last_year","years_with_data","missing_years","sd","rho","estimation_end_year","sd_scale","method"
+"Chile_AcousN",1984,2025,25,"1989;1990;1992;1993;1994;1995;1996;1997;1998;1999;2000;2001;2002;2003;2004;2005;2022",0.897352379678523,0.0935032208637449,2025,"log","iteration-specific multivariate lognormal AR(1)"
+"Chile_CPUE",1998,2025,28,"",0.171419501561428,0.283025484843277,2025,"log","iteration-specific multivariate lognormal AR(1)"
+"Peru_Artis",2002,2025,24,"",0.301854696510193,0.581499962866269,2025,"log","iteration-specific multivariate lognormal AR(1)"
+"Peru_Ind",2002,2025,20,"2010;2015;2016;2017",0.347652378257505,0.627764312467443,2025,"log","iteration-specific multivariate lognormal AR(1)"
+"Offshore_CPUE",2008,2024,17,"2025",0.238890276491172,-0.0365058043890729,2025,"log","iteration-specific multivariate lognormal AR(1)"

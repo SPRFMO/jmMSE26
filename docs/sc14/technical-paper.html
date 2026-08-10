@@ -108,6 +108,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
@@ -540,17 +569,17 @@ Table&nbsp;1: Where to find the information needed for each decision.
 <tr class="odd">
 <td>Development from SCW17</td>
 <td><a href="../evidence/sc14-mse-report.html#development-from-scw17-to-the-current-analysis">Current report: development</a></td>
-<td>Candidate translation table showing what changed and when</td>
+<td><strong>Completed for submission:</strong> dated candidate translation table and decision status</td>
 </tr>
 <tr class="even">
 <td>OM set and simulation</td>
 <td><a href="../evidence/sc14-mse-report.html#operating-models-and-simulation-methods">Operating models</a></td>
-<td>Complete OM definitions, plausibility rationale, and decision role</td>
+<td><strong>Completed for submission:</strong> definitions, analytical role, and proposed decision treatment; SC14 plausibility judgments remain</td>
 </tr>
 <tr class="odd">
 <td>Index errors</td>
 <td><a href="../evidence/sc14-mse-report.html#generating-om-data-indices">Generating OM data indices</a></td>
-<td>Calculations, values, data changes, overlapping years, uncertainty, and checks against the observed indices</td>
+<td><strong>Core documentation completed:</strong> equation, values, coverage, overlap, gaps, and scope; additional index stress tests remain</td>
 </tr>
 <tr class="even">
 <td>CMP definitions</td>
@@ -565,12 +594,12 @@ Table&nbsp;1: Where to find the information needed for each decision.
 <tr class="even">
 <td>Performance measures</td>
 <td><a href="../evidence/sc14-mse-report.html#performance-evaluation-and-the-draft-scorecard">Performance evaluation</a></td>
-<td>Calculations, time periods, how results are combined, whether high or low values are preferred, and how each measure is used</td>
+<td><strong>Submission framing completed:</strong> calculations, periods, directions, weights, exclusions, and preliminary status; final measures await SC14 guidance</td>
 </tr>
 <tr class="odd">
 <td>Alternative OMs</td>
-<td><a href="../evidence/sc14-mse-report.html#main-performance-and-robustness-findings">Main findings</a></td>
-<td>CMP-by-OM biological performance table, ranges of results, and results for each component in the two-stock OMs</td>
+<td><a href="../evidence/sc14-mse-report.html#biological-requirements-and-the-complete-om-table">Main findings</a></td>
+<td><strong>Completed for submission:</strong> 112-row CMP-by-OM/stock table, including <code>om23</code> and both two-stock components</td>
 </tr>
 <tr class="even">
 <td>Banking and borrowing</td>
@@ -595,19 +624,1398 @@ Table&nbsp;1: Where to find the information needed for each decision.
 </section>
 <section id="results-to-report-for-each-cmp-and-om" class="level2" data-number="4">
 <h2 data-number="4" class="anchored" data-anchor-id="results-to-report-for-each-cmp-and-om"><span class="header-section-number">4</span> Results to report for each CMP and OM</h2>
-<p>For every CMP and OM or stock-component combination, the final results will report at least:</p>
-<ul>
-<li>mean dynamic Kobe-green probability for the defined tuning period;</li>
-<li>probability below the agreed biomass limit by year, maximum annual risk, and probability of crossing the limit at least once;</li>
-<li>dynamic Kobe-red or other agreed joint-risk statistic;</li>
-<li>overfishing probability;</li>
-<li>near-, medium-, and long-term catch;</li>
-<li>IACC and mean annual reduction in advice;</li>
-<li>probability of catch below 270 kt and any shutdown statistic;</li>
-<li>catch-rate or effort-feasibility measures and frequency of a binding effort cap; and</li>
-<li>whether the CMP is ready for annual use and the reason for any remaining problem.</li>
-</ul>
-<p>The results will show uncertainty caused by the number of simulation runs. The paper will explain how uncertainty in the assessment and future stock and index conditions was included, whether CMPs were tested using the same random draws, and whether the conclusions change when more simulations or different random draws are used.</p>
+<p>The current decision table reports dynamic Kobe status, biomass and overfishing risks, catch, and IACC for every CMP and OM or stock-component combination. The complete downloadable table has 112 rows:</p>
+<p><a href="../data/candidates/candidate_biological_decision_table.csv">Download the CMP-by-OM biological decision table</a>.</p>
+<p>The probabilities below are calculated over 2041–2050 from the checked <code>SC14-MSE-2026-RC1</code> Slick object. <code>SB &lt; 1</code> means spawning biomass below the draw- and year-specific dynamic <span class="math inline">\(SB_{\mathrm{MSY}}\)</span>; it is a candidate diagnostic, not an agreed <span class="math inline">\(B_{\mathrm{lim}}\)</span> criterion. Catch is total catch for one-stock OMs and component catch for two-stock OMs. None of the eight CMPs is yet operationally ready for annual use.</p>
+<div class="cell">
+<div id="tbl-cmp-om-biological" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-cmp-om-biological-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2: Complete CMP-by-OM and stock-component biological decision table, 2041–2050.
+</figcaption>
+<div aria-describedby="tbl-cmp-om-biological-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="cell caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 8%">
+<col style="width: 11%">
+<col style="width: 7%">
+<col style="width: 10%">
+<col style="width: 8%">
+<col style="width: 16%">
+<col style="width: 13%">
+<col style="width: 7%">
+<col style="width: 8%">
+<col style="width: 6%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">OM</th>
+<th style="text-align: left;">Stock</th>
+<th style="text-align: left;">CMP</th>
+<th style="text-align: left;">Green %</th>
+<th style="text-align: left;">SB&lt;1 %</th>
+<th style="text-align: left;">Max annual %</th>
+<th style="text-align: left;">Any year %</th>
+<th style="text-align: left;">F&gt;1 %</th>
+<th style="text-align: left;">Catch</th>
+<th style="text-align: left;">IACC</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">om11</td>
+<td style="text-align: left;">CJM</td>
+<td style="text-align: left;">HS+20</td>
+<td style="text-align: left;">61.0</td>
+<td style="text-align: left;">30.2</td>
+<td style="text-align: left;">31.8</td>
+<td style="text-align: left;">45.2</td>
+<td style="text-align: left;">37.0</td>
+<td style="text-align: left;">1570.8</td>
+<td style="text-align: left;">5.5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">om11</td>
+<td style="text-align: left;">CJM</td>
+<td style="text-align: left;">HS-20</td>
+<td style="text-align: left;">59.2</td>
+<td style="text-align: left;">32.1</td>
+<td style="text-align: left;">33.2</td>
+<td style="text-align: left;">47.2</td>
+<td style="text-align: left;">38.7</td>
+<td style="text-align: left;">1552.0</td>
+<td style="text-align: left;">5.6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">om11</td>
+<td style="text-align: left;">CJM</td>
+<td style="text-align: left;">HSsym</td>
+<td style="text-align: left;">60.4</td>
+<td style="text-align: left;">30.9</td>
+<td style="text-align: left;">32.0</td>
+<td style="text-align: left;">45.4</td>
+<td style="text-align: left;">37.4</td>
+<td style="text-align: left;">1557.9</td>
+<td style="text-align: left;">5.4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">om11</td>
+<td style="text-align: left;">CJM</td>
+<td style="text-align: left;">HS-30</td>
+<td style="text-align: left;">60.4</td>
+<td style="text-align: left;">30.6</td>
+<td style="text-align: left;">32.2</td>
+<td style="text-align: left;">46.4</td>
+<td style="text-align: left;">37.5</td>
+<td style="text-align: left;">1568.7</td>
+<td style="text-align: left;">6.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">om11</td>
+<td style="text-align: left;">CJM</td>
+<td style="text-align: left;">PR+20</td>
+<td style="text-align: left;">60.3</td>
+<td style="text-align: left;">30.4</td>
+<td style="text-align: left;">32.8</td>
+<td style="text-align: left;">52.0</td>
+<td style="text-align: left;">36.6</td>
+<td style="text-align: left;">1881.5</td>
+<td style="text-align: left;">10.5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">om11</td>
+<td style="text-align: left;">CJM</td>
+<td style="text-align: left;">PR-20</td>
+<td style="text-align: left;">59.8</td>
+<td style="text-align: left;">29.7</td>
+<td style="text-align: left;">32.2</td>
+<td style="text-align: left;">52.2</td>
+<td style="text-align: left;">36.4</td>
+<td style="text-align: left;">1923.2</td>
+<td style="text-align: left;">10.7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">om11</td>
+<td style="text-align: left;">CJM</td>
+<td style="text-align: left;">PRsym</td>
+<td style="text-align: left;">59.5</td>
+<td style="text-align: left;">30.5</td>
+<td style="text-align: left;">33.4</td>
+<td style="text-align: left;">52.0</td>
+<td style="text-align: left;">37.5</td>
+<td style="text-align: left;">1914.4</td>
+<td style="text-align: left;">10.1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">om11</td>
+<td style="text-align: left;">CJM</td>
+<td style="text-align: left;">PR-30</td>
+<td style="text-align: left;">60.6</td>
+<td style="text-align: left;">29.4</td>
+<td style="text-align: left;">30.6</td>
+<td style="text-align: left;">53.2</td>
+<td style="text-align: left;">33.8</td>
+<td style="text-align: left;">1865.6</td>
+<td style="text-align: left;">11.6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">om11_1</td>
+<td style="text-align: left;">CJM</td>
+<td style="text-align: left;">HS+20</td>
+<td style="text-align: left;">41.2</td>
+<td style="text-align: left;">51.3</td>
+<td style="text-align: left;">54.0</td>
+<td style="text-align: left;">61.2</td>
+<td style="text-align: left;">57.2</td>
+<td style="text-align: left;">1436.4</td>
+<td style="text-align: left;">6.2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">om11_1</td>
+<td style="text-align: left;">CJM</td>
+<td style="text-align: left;">HS-20</td>
+<td style="text-align: left;">40.6</td>
+<td style="text-align: left;">52.5</td>
+<td style="text-align: left;">55.0</td>
+<td style="text-align: left;">62.2</td>
+<td style="text-align: left;">57.7</td>
+<td style="text-align: left;">1411.2</td>
+<td style="text-align: left;">6.1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">om11_1</td>
+<td style="text-align: left;">CJM</td>
+<td style="text-align: left;">HSsym</td>
+<td style="text-align: left;">41.5</td>
+<td style="text-align: left;">51.2</td>
+<td style="text-align: left;">53.6</td>
+<td style="text-align: left;">61.0</td>
+<td style="text-align: left;">57.0</td>
+<td style="text-align: left;">1428.5</td>
+<td style="text-align: left;">5.9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">om11_1</td>
+<td style="text-align: left;">CJM</td>
+<td style="text-align: left;">HS-30</td>
+<td style="text-align: left;">40.8</td>
+<td style="text-align: left;">52.2</td>
+<td style="text-align: left;">54.4</td>
+<td style="text-align: left;">62.4</td>
+<td style="text-align: left;">57.4</td>
+<td style="text-align: left;">1429.9</td>
+<td style="text-align: left;">6.3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">om11_1</td>
+<td style="text-align: left;">CJM</td>
+<td style="text-align: left;">PR+20</td>
+<td style="text-align: left;">25.7</td>
+<td style="text-align: left;">61.4</td>
+<td style="text-align: left;">68.2</td>
+<td style="text-align: left;">83.2</td>
+<td style="text-align: left;">70.6</td>
+<td style="text-align: left;">1797.1</td>
+<td style="text-align: left;">10.9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">om11_1</td>
+<td style="text-align: left;">CJM</td>
+<td style="text-align: left;">PR-20</td>
+<td style="text-align: left;">25.3</td>
+<td style="text-align: left;">58.6</td>
+<td style="text-align: left;">67.2</td>
+<td style="text-align: left;">82.8</td>
+<td style="text-align: left;">70.7</td>
+<td style="text-align: left;">1912.3</td>
+<td style="text-align: left;">11.3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">om11_1</td>
+<td style="text-align: left;">CJM</td>
+<td style="text-align: left;">PRsym</td>
+<td style="text-align: left;">26.0</td>
+<td style="text-align: left;">59.4</td>
+<td style="text-align: left;">67.8</td>
+<td style="text-align: left;">82.2</td>
+<td style="text-align: left;">70.8</td>
+<td style="text-align: left;">1873.6</td>
+<td style="text-align: left;">10.7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">om11_1</td>
+<td style="text-align: left;">CJM</td>
+<td style="text-align: left;">PR-30</td>
+<td style="text-align: left;">24.7</td>
+<td style="text-align: left;">61.3</td>
+<td style="text-align: left;">66.6</td>
+<td style="text-align: left;">85.0</td>
+<td style="text-align: left;">69.4</td>
+<td style="text-align: left;">1805.4</td>
+<td style="text-align: left;">11.9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">om11_2</td>
+<td style="text-align: left;">CJM</td>
+<td style="text-align: left;">HS+20</td>
+<td style="text-align: left;">45.2</td>
+<td style="text-align: left;">42.9</td>
+<td style="text-align: left;">48.0</td>
+<td style="text-align: left;">63.8</td>
+<td style="text-align: left;">51.8</td>
+<td style="text-align: left;">1396.8</td>
+<td style="text-align: left;">8.7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">om11_2</td>
+<td style="text-align: left;">CJM</td>
+<td style="text-align: left;">HS-20</td>
+<td style="text-align: left;">42.8</td>
+<td style="text-align: left;">45.6</td>
+<td style="text-align: left;">53.2</td>
+<td style="text-align: left;">67.2</td>
+<td style="text-align: left;">53.8</td>
+<td style="text-align: left;">1371.9</td>
+<td style="text-align: left;">8.7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">om11_2</td>
+<td style="text-align: left;">CJM</td>
+<td style="text-align: left;">HSsym</td>
+<td style="text-align: left;">44.6</td>
+<td style="text-align: left;">43.7</td>
+<td style="text-align: left;">48.4</td>
+<td style="text-align: left;">64.0</td>
+<td style="text-align: left;">52.3</td>
+<td style="text-align: left;">1381.8</td>
+<td style="text-align: left;">8.4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">om11_2</td>
+<td style="text-align: left;">CJM</td>
+<td style="text-align: left;">HS-30</td>
+<td style="text-align: left;">44.4</td>
+<td style="text-align: left;">43.2</td>
+<td style="text-align: left;">51.2</td>
+<td style="text-align: left;">65.2</td>
+<td style="text-align: left;">51.9</td>
+<td style="text-align: left;">1402.0</td>
+<td style="text-align: left;">9.2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">om11_2</td>
+<td style="text-align: left;">CJM</td>
+<td style="text-align: left;">PR+20</td>
+<td style="text-align: left;">52.9</td>
+<td style="text-align: left;">34.8</td>
+<td style="text-align: left;">40.6</td>
+<td style="text-align: left;">57.2</td>
+<td style="text-align: left;">42.2</td>
+<td style="text-align: left;">1472.5</td>
+<td style="text-align: left;">12.1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">om11_2</td>
+<td style="text-align: left;">CJM</td>
+<td style="text-align: left;">PR-20</td>
+<td style="text-align: left;">54.5</td>
+<td style="text-align: left;">32.4</td>
+<td style="text-align: left;">38.6</td>
+<td style="text-align: left;">55.8</td>
+<td style="text-align: left;">40.1</td>
+<td style="text-align: left;">1498.3</td>
+<td style="text-align: left;">12.3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">om11_2</td>
+<td style="text-align: left;">CJM</td>
+<td style="text-align: left;">PRsym</td>
+<td style="text-align: left;">52.4</td>
+<td style="text-align: left;">34.2</td>
+<td style="text-align: left;">39.2</td>
+<td style="text-align: left;">55.8</td>
+<td style="text-align: left;">43.3</td>
+<td style="text-align: left;">1506.5</td>
+<td style="text-align: left;">11.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">om11_2</td>
+<td style="text-align: left;">CJM</td>
+<td style="text-align: left;">PR-30</td>
+<td style="text-align: left;">57.5</td>
+<td style="text-align: left;">30.9</td>
+<td style="text-align: left;">39.8</td>
+<td style="text-align: left;">56.2</td>
+<td style="text-align: left;">34.2</td>
+<td style="text-align: left;">1429.0</td>
+<td style="text-align: left;">13.9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">om11_3</td>
+<td style="text-align: left;">CJM</td>
+<td style="text-align: left;">HS+20</td>
+<td style="text-align: left;">45.9</td>
+<td style="text-align: left;">45.2</td>
+<td style="text-align: left;">49.2</td>
+<td style="text-align: left;">63.8</td>
+<td style="text-align: left;">51.1</td>
+<td style="text-align: left;">1428.0</td>
+<td style="text-align: left;">7.6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">om11_3</td>
+<td style="text-align: left;">CJM</td>
+<td style="text-align: left;">HS-20</td>
+<td style="text-align: left;">44.1</td>
+<td style="text-align: left;">47.0</td>
+<td style="text-align: left;">50.8</td>
+<td style="text-align: left;">65.6</td>
+<td style="text-align: left;">53.5</td>
+<td style="text-align: left;">1408.0</td>
+<td style="text-align: left;">7.7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">om11_3</td>
+<td style="text-align: left;">CJM</td>
+<td style="text-align: left;">HSsym</td>
+<td style="text-align: left;">46.1</td>
+<td style="text-align: left;">45.6</td>
+<td style="text-align: left;">48.6</td>
+<td style="text-align: left;">64.0</td>
+<td style="text-align: left;">51.3</td>
+<td style="text-align: left;">1417.4</td>
+<td style="text-align: left;">7.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">om11_3</td>
+<td style="text-align: left;">CJM</td>
+<td style="text-align: left;">HS-30</td>
+<td style="text-align: left;">44.2</td>
+<td style="text-align: left;">46.4</td>
+<td style="text-align: left;">51.2</td>
+<td style="text-align: left;">65.6</td>
+<td style="text-align: left;">52.8</td>
+<td style="text-align: left;">1428.1</td>
+<td style="text-align: left;">8.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">om11_3</td>
+<td style="text-align: left;">CJM</td>
+<td style="text-align: left;">PR+20</td>
+<td style="text-align: left;">50.9</td>
+<td style="text-align: left;">39.7</td>
+<td style="text-align: left;">42.2</td>
+<td style="text-align: left;">64.4</td>
+<td style="text-align: left;">44.2</td>
+<td style="text-align: left;">1625.8</td>
+<td style="text-align: left;">11.1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">om11_3</td>
+<td style="text-align: left;">CJM</td>
+<td style="text-align: left;">PR-20</td>
+<td style="text-align: left;">51.5</td>
+<td style="text-align: left;">38.5</td>
+<td style="text-align: left;">40.6</td>
+<td style="text-align: left;">65.0</td>
+<td style="text-align: left;">42.9</td>
+<td style="text-align: left;">1652.3</td>
+<td style="text-align: left;">11.4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">om11_3</td>
+<td style="text-align: left;">CJM</td>
+<td style="text-align: left;">PRsym</td>
+<td style="text-align: left;">50.4</td>
+<td style="text-align: left;">39.8</td>
+<td style="text-align: left;">42.6</td>
+<td style="text-align: left;">64.6</td>
+<td style="text-align: left;">45.1</td>
+<td style="text-align: left;">1660.4</td>
+<td style="text-align: left;">10.7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">om11_3</td>
+<td style="text-align: left;">CJM</td>
+<td style="text-align: left;">PR-30</td>
+<td style="text-align: left;">53.1</td>
+<td style="text-align: left;">37.4</td>
+<td style="text-align: left;">39.0</td>
+<td style="text-align: left;">64.8</td>
+<td style="text-align: left;">38.3</td>
+<td style="text-align: left;">1597.4</td>
+<td style="text-align: left;">12.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">om12</td>
+<td style="text-align: left;">CJM</td>
+<td style="text-align: left;">HS+20</td>
+<td style="text-align: left;">69.5</td>
+<td style="text-align: left;">23.2</td>
+<td style="text-align: left;">24.6</td>
+<td style="text-align: left;">44.0</td>
+<td style="text-align: left;">28.7</td>
+<td style="text-align: left;">1406.3</td>
+<td style="text-align: left;">8.7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">om12</td>
+<td style="text-align: left;">CJM</td>
+<td style="text-align: left;">HS-20</td>
+<td style="text-align: left;">68.8</td>
+<td style="text-align: left;">24.0</td>
+<td style="text-align: left;">25.8</td>
+<td style="text-align: left;">46.4</td>
+<td style="text-align: left;">29.0</td>
+<td style="text-align: left;">1391.7</td>
+<td style="text-align: left;">8.7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">om12</td>
+<td style="text-align: left;">CJM</td>
+<td style="text-align: left;">HSsym</td>
+<td style="text-align: left;">68.5</td>
+<td style="text-align: left;">23.9</td>
+<td style="text-align: left;">25.8</td>
+<td style="text-align: left;">43.6</td>
+<td style="text-align: left;">29.6</td>
+<td style="text-align: left;">1392.7</td>
+<td style="text-align: left;">8.4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">om12</td>
+<td style="text-align: left;">CJM</td>
+<td style="text-align: left;">HS-30</td>
+<td style="text-align: left;">71.6</td>
+<td style="text-align: left;">21.4</td>
+<td style="text-align: left;">23.6</td>
+<td style="text-align: left;">43.2</td>
+<td style="text-align: left;">26.0</td>
+<td style="text-align: left;">1415.5</td>
+<td style="text-align: left;">9.4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">om12</td>
+<td style="text-align: left;">CJM</td>
+<td style="text-align: left;">PR+20</td>
+<td style="text-align: left;">73.6</td>
+<td style="text-align: left;">21.4</td>
+<td style="text-align: left;">23.4</td>
+<td style="text-align: left;">40.8</td>
+<td style="text-align: left;">24.2</td>
+<td style="text-align: left;">1437.1</td>
+<td style="text-align: left;">11.8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">om12</td>
+<td style="text-align: left;">CJM</td>
+<td style="text-align: left;">PR-20</td>
+<td style="text-align: left;">74.3</td>
+<td style="text-align: left;">20.6</td>
+<td style="text-align: left;">22.4</td>
+<td style="text-align: left;">41.2</td>
+<td style="text-align: left;">23.1</td>
+<td style="text-align: left;">1421.4</td>
+<td style="text-align: left;">12.1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">om12</td>
+<td style="text-align: left;">CJM</td>
+<td style="text-align: left;">PRsym</td>
+<td style="text-align: left;">72.1</td>
+<td style="text-align: left;">22.2</td>
+<td style="text-align: left;">24.4</td>
+<td style="text-align: left;">41.0</td>
+<td style="text-align: left;">25.6</td>
+<td style="text-align: left;">1446.1</td>
+<td style="text-align: left;">11.2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">om12</td>
+<td style="text-align: left;">CJM</td>
+<td style="text-align: left;">PR-30</td>
+<td style="text-align: left;">78.8</td>
+<td style="text-align: left;">17.1</td>
+<td style="text-align: left;">18.4</td>
+<td style="text-align: left;">38.0</td>
+<td style="text-align: left;">18.6</td>
+<td style="text-align: left;">1387.0</td>
+<td style="text-align: left;">13.9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">om13</td>
+<td style="text-align: left;">CJM</td>
+<td style="text-align: left;">HS+20</td>
+<td style="text-align: left;">91.4</td>
+<td style="text-align: left;">7.0</td>
+<td style="text-align: left;">8.2</td>
+<td style="text-align: left;">14.6</td>
+<td style="text-align: left;">6.8</td>
+<td style="text-align: left;">1652.1</td>
+<td style="text-align: left;">6.4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">om13</td>
+<td style="text-align: left;">CJM</td>
+<td style="text-align: left;">HS-20</td>
+<td style="text-align: left;">90.0</td>
+<td style="text-align: left;">8.0</td>
+<td style="text-align: left;">9.2</td>
+<td style="text-align: left;">16.6</td>
+<td style="text-align: left;">7.6</td>
+<td style="text-align: left;">1657.8</td>
+<td style="text-align: left;">6.1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">om13</td>
+<td style="text-align: left;">CJM</td>
+<td style="text-align: left;">HSsym</td>
+<td style="text-align: left;">90.8</td>
+<td style="text-align: left;">7.4</td>
+<td style="text-align: left;">8.6</td>
+<td style="text-align: left;">14.8</td>
+<td style="text-align: left;">7.5</td>
+<td style="text-align: left;">1650.4</td>
+<td style="text-align: left;">6.1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">om13</td>
+<td style="text-align: left;">CJM</td>
+<td style="text-align: left;">HS-30</td>
+<td style="text-align: left;">91.3</td>
+<td style="text-align: left;">6.8</td>
+<td style="text-align: left;">8.2</td>
+<td style="text-align: left;">15.0</td>
+<td style="text-align: left;">6.4</td>
+<td style="text-align: left;">1661.4</td>
+<td style="text-align: left;">6.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">om13</td>
+<td style="text-align: left;">CJM</td>
+<td style="text-align: left;">PR+20</td>
+<td style="text-align: left;">94.8</td>
+<td style="text-align: left;">4.3</td>
+<td style="text-align: left;">5.8</td>
+<td style="text-align: left;">8.2</td>
+<td style="text-align: left;">4.2</td>
+<td style="text-align: left;">1811.9</td>
+<td style="text-align: left;">10.2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">om13</td>
+<td style="text-align: left;">CJM</td>
+<td style="text-align: left;">PR-20</td>
+<td style="text-align: left;">96.0</td>
+<td style="text-align: left;">3.4</td>
+<td style="text-align: left;">4.6</td>
+<td style="text-align: left;">7.8</td>
+<td style="text-align: left;">3.1</td>
+<td style="text-align: left;">1814.1</td>
+<td style="text-align: left;">10.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">om13</td>
+<td style="text-align: left;">CJM</td>
+<td style="text-align: left;">PRsym</td>
+<td style="text-align: left;">95.1</td>
+<td style="text-align: left;">4.1</td>
+<td style="text-align: left;">5.6</td>
+<td style="text-align: left;">8.6</td>
+<td style="text-align: left;">4.0</td>
+<td style="text-align: left;">1812.0</td>
+<td style="text-align: left;">9.6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">om13</td>
+<td style="text-align: left;">CJM</td>
+<td style="text-align: left;">PR-30</td>
+<td style="text-align: left;">96.5</td>
+<td style="text-align: left;">2.8</td>
+<td style="text-align: left;">3.8</td>
+<td style="text-align: left;">7.4</td>
+<td style="text-align: left;">2.4</td>
+<td style="text-align: left;">1820.7</td>
+<td style="text-align: left;">11.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">om21</td>
+<td style="text-align: left;">North</td>
+<td style="text-align: left;">HS+20</td>
+<td style="text-align: left;">0.0</td>
+<td style="text-align: left;">100.0</td>
+<td style="text-align: left;">100.0</td>
+<td style="text-align: left;">100.0</td>
+<td style="text-align: left;">100.0</td>
+<td style="text-align: left;">216.2</td>
+<td style="text-align: left;">12.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">om21</td>
+<td style="text-align: left;">North</td>
+<td style="text-align: left;">HS-20</td>
+<td style="text-align: left;">0.0</td>
+<td style="text-align: left;">100.0</td>
+<td style="text-align: left;">100.0</td>
+<td style="text-align: left;">100.0</td>
+<td style="text-align: left;">100.0</td>
+<td style="text-align: left;">211.3</td>
+<td style="text-align: left;">12.3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">om21</td>
+<td style="text-align: left;">North</td>
+<td style="text-align: left;">HSsym</td>
+<td style="text-align: left;">0.0</td>
+<td style="text-align: left;">100.0</td>
+<td style="text-align: left;">100.0</td>
+<td style="text-align: left;">100.0</td>
+<td style="text-align: left;">100.0</td>
+<td style="text-align: left;">214.5</td>
+<td style="text-align: left;">12.2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">om21</td>
+<td style="text-align: left;">North</td>
+<td style="text-align: left;">HS-30</td>
+<td style="text-align: left;">0.0</td>
+<td style="text-align: left;">100.0</td>
+<td style="text-align: left;">100.0</td>
+<td style="text-align: left;">100.0</td>
+<td style="text-align: left;">100.0</td>
+<td style="text-align: left;">213.0</td>
+<td style="text-align: left;">12.2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">om21</td>
+<td style="text-align: left;">North</td>
+<td style="text-align: left;">PR+20</td>
+<td style="text-align: left;">0.0</td>
+<td style="text-align: left;">100.0</td>
+<td style="text-align: left;">100.0</td>
+<td style="text-align: left;">100.0</td>
+<td style="text-align: left;">100.0</td>
+<td style="text-align: left;">214.8</td>
+<td style="text-align: left;">14.4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">om21</td>
+<td style="text-align: left;">North</td>
+<td style="text-align: left;">PR-20</td>
+<td style="text-align: left;">0.0</td>
+<td style="text-align: left;">100.0</td>
+<td style="text-align: left;">100.0</td>
+<td style="text-align: left;">100.0</td>
+<td style="text-align: left;">100.0</td>
+<td style="text-align: left;">214.2</td>
+<td style="text-align: left;">14.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">om21</td>
+<td style="text-align: left;">North</td>
+<td style="text-align: left;">PRsym</td>
+<td style="text-align: left;">0.0</td>
+<td style="text-align: left;">100.0</td>
+<td style="text-align: left;">100.0</td>
+<td style="text-align: left;">100.0</td>
+<td style="text-align: left;">100.0</td>
+<td style="text-align: left;">215.5</td>
+<td style="text-align: left;">14.2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">om21</td>
+<td style="text-align: left;">North</td>
+<td style="text-align: left;">PR-30</td>
+<td style="text-align: left;">0.0</td>
+<td style="text-align: left;">100.0</td>
+<td style="text-align: left;">100.0</td>
+<td style="text-align: left;">100.0</td>
+<td style="text-align: left;">100.0</td>
+<td style="text-align: left;">214.2</td>
+<td style="text-align: left;">15.2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">om21</td>
+<td style="text-align: left;">Southern</td>
+<td style="text-align: left;">HS+20</td>
+<td style="text-align: left;">61.3</td>
+<td style="text-align: left;">23.4</td>
+<td style="text-align: left;">28.0</td>
+<td style="text-align: left;">35.0</td>
+<td style="text-align: left;">29.7</td>
+<td style="text-align: left;">1070.2</td>
+<td style="text-align: left;">4.9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">om21</td>
+<td style="text-align: left;">Southern</td>
+<td style="text-align: left;">HS-20</td>
+<td style="text-align: left;">43.7</td>
+<td style="text-align: left;">41.0</td>
+<td style="text-align: left;">49.2</td>
+<td style="text-align: left;">55.8</td>
+<td style="text-align: left;">44.5</td>
+<td style="text-align: left;">1061.1</td>
+<td style="text-align: left;">4.9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">om21</td>
+<td style="text-align: left;">Southern</td>
+<td style="text-align: left;">HSsym</td>
+<td style="text-align: left;">55.9</td>
+<td style="text-align: left;">28.2</td>
+<td style="text-align: left;">34.2</td>
+<td style="text-align: left;">41.6</td>
+<td style="text-align: left;">34.3</td>
+<td style="text-align: left;">1067.5</td>
+<td style="text-align: left;">4.8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">om21</td>
+<td style="text-align: left;">Southern</td>
+<td style="text-align: left;">HS-30</td>
+<td style="text-align: left;">50.1</td>
+<td style="text-align: left;">33.7</td>
+<td style="text-align: left;">39.4</td>
+<td style="text-align: left;">48.0</td>
+<td style="text-align: left;">39.3</td>
+<td style="text-align: left;">1064.8</td>
+<td style="text-align: left;">4.9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">om21</td>
+<td style="text-align: left;">Southern</td>
+<td style="text-align: left;">PR+20</td>
+<td style="text-align: left;">91.3</td>
+<td style="text-align: left;">1.6</td>
+<td style="text-align: left;">4.4</td>
+<td style="text-align: left;">7.4</td>
+<td style="text-align: left;">7.8</td>
+<td style="text-align: left;">1049.2</td>
+<td style="text-align: left;">9.1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">om21</td>
+<td style="text-align: left;">Southern</td>
+<td style="text-align: left;">PR-20</td>
+<td style="text-align: left;">90.4</td>
+<td style="text-align: left;">1.6</td>
+<td style="text-align: left;">4.2</td>
+<td style="text-align: left;">7.2</td>
+<td style="text-align: left;">8.8</td>
+<td style="text-align: left;">1054.8</td>
+<td style="text-align: left;">8.9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">om21</td>
+<td style="text-align: left;">Southern</td>
+<td style="text-align: left;">PRsym</td>
+<td style="text-align: left;">89.7</td>
+<td style="text-align: left;">2.3</td>
+<td style="text-align: left;">6.6</td>
+<td style="text-align: left;">8.6</td>
+<td style="text-align: left;">9.0</td>
+<td style="text-align: left;">1054.1</td>
+<td style="text-align: left;">8.5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">om21</td>
+<td style="text-align: left;">Southern</td>
+<td style="text-align: left;">PR-30</td>
+<td style="text-align: left;">90.0</td>
+<td style="text-align: left;">2.0</td>
+<td style="text-align: left;">4.0</td>
+<td style="text-align: left;">8.6</td>
+<td style="text-align: left;">9.1</td>
+<td style="text-align: left;">1062.7</td>
+<td style="text-align: left;">9.7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">om21_1</td>
+<td style="text-align: left;">North</td>
+<td style="text-align: left;">HS+20</td>
+<td style="text-align: left;">0.0</td>
+<td style="text-align: left;">99.8</td>
+<td style="text-align: left;">100.0</td>
+<td style="text-align: left;">100.0</td>
+<td style="text-align: left;">100.0</td>
+<td style="text-align: left;">230.6</td>
+<td style="text-align: left;">11.2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">om21_1</td>
+<td style="text-align: left;">North</td>
+<td style="text-align: left;">HS-20</td>
+<td style="text-align: left;">0.0</td>
+<td style="text-align: left;">99.9</td>
+<td style="text-align: left;">100.0</td>
+<td style="text-align: left;">100.0</td>
+<td style="text-align: left;">100.0</td>
+<td style="text-align: left;">229.2</td>
+<td style="text-align: left;">11.2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">om21_1</td>
+<td style="text-align: left;">North</td>
+<td style="text-align: left;">HSsym</td>
+<td style="text-align: left;">0.0</td>
+<td style="text-align: left;">99.8</td>
+<td style="text-align: left;">100.0</td>
+<td style="text-align: left;">100.0</td>
+<td style="text-align: left;">100.0</td>
+<td style="text-align: left;">230.2</td>
+<td style="text-align: left;">11.2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">om21_1</td>
+<td style="text-align: left;">North</td>
+<td style="text-align: left;">HS-30</td>
+<td style="text-align: left;">0.0</td>
+<td style="text-align: left;">99.8</td>
+<td style="text-align: left;">100.0</td>
+<td style="text-align: left;">100.0</td>
+<td style="text-align: left;">100.0</td>
+<td style="text-align: left;">229.8</td>
+<td style="text-align: left;">11.2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">om21_1</td>
+<td style="text-align: left;">North</td>
+<td style="text-align: left;">PR+20</td>
+<td style="text-align: left;">0.0</td>
+<td style="text-align: left;">99.8</td>
+<td style="text-align: left;">99.8</td>
+<td style="text-align: left;">99.8</td>
+<td style="text-align: left;">100.0</td>
+<td style="text-align: left;">221.5</td>
+<td style="text-align: left;">14.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">om21_1</td>
+<td style="text-align: left;">North</td>
+<td style="text-align: left;">PR-20</td>
+<td style="text-align: left;">0.0</td>
+<td style="text-align: left;">99.7</td>
+<td style="text-align: left;">99.8</td>
+<td style="text-align: left;">99.8</td>
+<td style="text-align: left;">100.0</td>
+<td style="text-align: left;">221.1</td>
+<td style="text-align: left;">14.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">om21_1</td>
+<td style="text-align: left;">North</td>
+<td style="text-align: left;">PRsym</td>
+<td style="text-align: left;">0.0</td>
+<td style="text-align: left;">99.6</td>
+<td style="text-align: left;">99.8</td>
+<td style="text-align: left;">99.8</td>
+<td style="text-align: left;">100.0</td>
+<td style="text-align: left;">220.1</td>
+<td style="text-align: left;">13.5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">om21_1</td>
+<td style="text-align: left;">North</td>
+<td style="text-align: left;">PR-30</td>
+<td style="text-align: left;">0.0</td>
+<td style="text-align: left;">99.8</td>
+<td style="text-align: left;">99.8</td>
+<td style="text-align: left;">99.8</td>
+<td style="text-align: left;">100.0</td>
+<td style="text-align: left;">226.4</td>
+<td style="text-align: left;">14.9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">om21_1</td>
+<td style="text-align: left;">Southern</td>
+<td style="text-align: left;">HS+20</td>
+<td style="text-align: left;">45.9</td>
+<td style="text-align: left;">46.1</td>
+<td style="text-align: left;">54.6</td>
+<td style="text-align: left;">62.4</td>
+<td style="text-align: left;">34.4</td>
+<td style="text-align: left;">989.9</td>
+<td style="text-align: left;">5.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">om21_1</td>
+<td style="text-align: left;">Southern</td>
+<td style="text-align: left;">HS-20</td>
+<td style="text-align: left;">25.3</td>
+<td style="text-align: left;">69.0</td>
+<td style="text-align: left;">75.2</td>
+<td style="text-align: left;">82.4</td>
+<td style="text-align: left;">49.4</td>
+<td style="text-align: left;">983.7</td>
+<td style="text-align: left;">5.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">om21_1</td>
+<td style="text-align: left;">Southern</td>
+<td style="text-align: left;">HSsym</td>
+<td style="text-align: left;">39.1</td>
+<td style="text-align: left;">53.8</td>
+<td style="text-align: left;">62.2</td>
+<td style="text-align: left;">70.0</td>
+<td style="text-align: left;">38.9</td>
+<td style="text-align: left;">987.9</td>
+<td style="text-align: left;">5.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">om21_1</td>
+<td style="text-align: left;">Southern</td>
+<td style="text-align: left;">HS-30</td>
+<td style="text-align: left;">31.9</td>
+<td style="text-align: left;">61.6</td>
+<td style="text-align: left;">68.8</td>
+<td style="text-align: left;">76.6</td>
+<td style="text-align: left;">44.2</td>
+<td style="text-align: left;">986.4</td>
+<td style="text-align: left;">5.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">om21_1</td>
+<td style="text-align: left;">Southern</td>
+<td style="text-align: left;">PR+20</td>
+<td style="text-align: left;">89.7</td>
+<td style="text-align: left;">3.6</td>
+<td style="text-align: left;">7.0</td>
+<td style="text-align: left;">14.2</td>
+<td style="text-align: left;">8.7</td>
+<td style="text-align: left;">950.6</td>
+<td style="text-align: left;">10.2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">om21_1</td>
+<td style="text-align: left;">Southern</td>
+<td style="text-align: left;">PR-20</td>
+<td style="text-align: left;">89.3</td>
+<td style="text-align: left;">3.9</td>
+<td style="text-align: left;">7.6</td>
+<td style="text-align: left;">17.0</td>
+<td style="text-align: left;">9.1</td>
+<td style="text-align: left;">948.8</td>
+<td style="text-align: left;">10.1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">om21_1</td>
+<td style="text-align: left;">Southern</td>
+<td style="text-align: left;">PRsym</td>
+<td style="text-align: left;">88.4</td>
+<td style="text-align: left;">4.4</td>
+<td style="text-align: left;">9.0</td>
+<td style="text-align: left;">17.6</td>
+<td style="text-align: left;">9.6</td>
+<td style="text-align: left;">944.3</td>
+<td style="text-align: left;">9.6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">om21_1</td>
+<td style="text-align: left;">Southern</td>
+<td style="text-align: left;">PR-30</td>
+<td style="text-align: left;">88.5</td>
+<td style="text-align: left;">4.3</td>
+<td style="text-align: left;">7.4</td>
+<td style="text-align: left;">17.2</td>
+<td style="text-align: left;">9.9</td>
+<td style="text-align: left;">972.0</td>
+<td style="text-align: left;">10.9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">om22</td>
+<td style="text-align: left;">North</td>
+<td style="text-align: left;">HS+20</td>
+<td style="text-align: left;">16.6</td>
+<td style="text-align: left;">82.8</td>
+<td style="text-align: left;">83.6</td>
+<td style="text-align: left;">83.6</td>
+<td style="text-align: left;">83.0</td>
+<td style="text-align: left;">214.9</td>
+<td style="text-align: left;">11.4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">om22</td>
+<td style="text-align: left;">North</td>
+<td style="text-align: left;">HS-20</td>
+<td style="text-align: left;">16.3</td>
+<td style="text-align: left;">83.3</td>
+<td style="text-align: left;">84.2</td>
+<td style="text-align: left;">84.2</td>
+<td style="text-align: left;">83.3</td>
+<td style="text-align: left;">215.8</td>
+<td style="text-align: left;">11.3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">om22</td>
+<td style="text-align: left;">North</td>
+<td style="text-align: left;">HSsym</td>
+<td style="text-align: left;">16.5</td>
+<td style="text-align: left;">82.9</td>
+<td style="text-align: left;">84.0</td>
+<td style="text-align: left;">84.2</td>
+<td style="text-align: left;">83.1</td>
+<td style="text-align: left;">215.0</td>
+<td style="text-align: left;">11.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">om22</td>
+<td style="text-align: left;">North</td>
+<td style="text-align: left;">HS-30</td>
+<td style="text-align: left;">16.4</td>
+<td style="text-align: left;">83.1</td>
+<td style="text-align: left;">84.0</td>
+<td style="text-align: left;">84.2</td>
+<td style="text-align: left;">83.2</td>
+<td style="text-align: left;">215.6</td>
+<td style="text-align: left;">11.4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">om22</td>
+<td style="text-align: left;">North</td>
+<td style="text-align: left;">PR+20</td>
+<td style="text-align: left;">17.1</td>
+<td style="text-align: left;">82.4</td>
+<td style="text-align: left;">82.8</td>
+<td style="text-align: left;">83.6</td>
+<td style="text-align: left;">82.3</td>
+<td style="text-align: left;">201.4</td>
+<td style="text-align: left;">14.7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">om22</td>
+<td style="text-align: left;">North</td>
+<td style="text-align: left;">PR-20</td>
+<td style="text-align: left;">16.9</td>
+<td style="text-align: left;">82.7</td>
+<td style="text-align: left;">83.0</td>
+<td style="text-align: left;">83.8</td>
+<td style="text-align: left;">82.5</td>
+<td style="text-align: left;">200.6</td>
+<td style="text-align: left;">14.7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">om22</td>
+<td style="text-align: left;">North</td>
+<td style="text-align: left;">PRsym</td>
+<td style="text-align: left;">17.0</td>
+<td style="text-align: left;">82.7</td>
+<td style="text-align: left;">83.0</td>
+<td style="text-align: left;">83.8</td>
+<td style="text-align: left;">82.4</td>
+<td style="text-align: left;">199.1</td>
+<td style="text-align: left;">14.1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">om22</td>
+<td style="text-align: left;">North</td>
+<td style="text-align: left;">PR-30</td>
+<td style="text-align: left;">16.9</td>
+<td style="text-align: left;">82.5</td>
+<td style="text-align: left;">83.0</td>
+<td style="text-align: left;">83.8</td>
+<td style="text-align: left;">82.6</td>
+<td style="text-align: left;">208.0</td>
+<td style="text-align: left;">15.6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">om22</td>
+<td style="text-align: left;">Southern</td>
+<td style="text-align: left;">HS+20</td>
+<td style="text-align: left;">99.9</td>
+<td style="text-align: left;">0.1</td>
+<td style="text-align: left;">0.6</td>
+<td style="text-align: left;">1.0</td>
+<td style="text-align: left;">0.0</td>
+<td style="text-align: left;">959.4</td>
+<td style="text-align: left;">5.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">om22</td>
+<td style="text-align: left;">Southern</td>
+<td style="text-align: left;">HS-20</td>
+<td style="text-align: left;">99.1</td>
+<td style="text-align: left;">0.9</td>
+<td style="text-align: left;">2.6</td>
+<td style="text-align: left;">3.8</td>
+<td style="text-align: left;">0.0</td>
+<td style="text-align: left;">969.6</td>
+<td style="text-align: left;">5.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">om22</td>
+<td style="text-align: left;">Southern</td>
+<td style="text-align: left;">HSsym</td>
+<td style="text-align: left;">99.8</td>
+<td style="text-align: left;">0.2</td>
+<td style="text-align: left;">0.8</td>
+<td style="text-align: left;">1.4</td>
+<td style="text-align: left;">0.0</td>
+<td style="text-align: left;">962.2</td>
+<td style="text-align: left;">5.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">om22</td>
+<td style="text-align: left;">Southern</td>
+<td style="text-align: left;">HS-30</td>
+<td style="text-align: left;">99.6</td>
+<td style="text-align: left;">0.4</td>
+<td style="text-align: left;">1.8</td>
+<td style="text-align: left;">2.2</td>
+<td style="text-align: left;">0.0</td>
+<td style="text-align: left;">966.6</td>
+<td style="text-align: left;">5.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">om22</td>
+<td style="text-align: left;">Southern</td>
+<td style="text-align: left;">PR+20</td>
+<td style="text-align: left;">100.0</td>
+<td style="text-align: left;">0.0</td>
+<td style="text-align: left;">0.0</td>
+<td style="text-align: left;">0.0</td>
+<td style="text-align: left;">0.0</td>
+<td style="text-align: left;">892.5</td>
+<td style="text-align: left;">11.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">om22</td>
+<td style="text-align: left;">Southern</td>
+<td style="text-align: left;">PR-20</td>
+<td style="text-align: left;">100.0</td>
+<td style="text-align: left;">0.0</td>
+<td style="text-align: left;">0.0</td>
+<td style="text-align: left;">0.0</td>
+<td style="text-align: left;">0.0</td>
+<td style="text-align: left;">890.2</td>
+<td style="text-align: left;">10.9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">om22</td>
+<td style="text-align: left;">Southern</td>
+<td style="text-align: left;">PRsym</td>
+<td style="text-align: left;">100.0</td>
+<td style="text-align: left;">0.0</td>
+<td style="text-align: left;">0.2</td>
+<td style="text-align: left;">0.2</td>
+<td style="text-align: left;">0.0</td>
+<td style="text-align: left;">882.7</td>
+<td style="text-align: left;">10.4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">om22</td>
+<td style="text-align: left;">Southern</td>
+<td style="text-align: left;">PR-30</td>
+<td style="text-align: left;">100.0</td>
+<td style="text-align: left;">0.0</td>
+<td style="text-align: left;">0.0</td>
+<td style="text-align: left;">0.0</td>
+<td style="text-align: left;">0.0</td>
+<td style="text-align: left;">924.4</td>
+<td style="text-align: left;">11.8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">om23</td>
+<td style="text-align: left;">North</td>
+<td style="text-align: left;">HS+20</td>
+<td style="text-align: left;">1.1</td>
+<td style="text-align: left;">98.6</td>
+<td style="text-align: left;">99.0</td>
+<td style="text-align: left;">99.0</td>
+<td style="text-align: left;">98.9</td>
+<td style="text-align: left;">4.2</td>
+<td style="text-align: left;">0.6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">om23</td>
+<td style="text-align: left;">North</td>
+<td style="text-align: left;">HS-20</td>
+<td style="text-align: left;">0.9</td>
+<td style="text-align: left;">98.8</td>
+<td style="text-align: left;">99.0</td>
+<td style="text-align: left;">99.0</td>
+<td style="text-align: left;">99.1</td>
+<td style="text-align: left;">3.2</td>
+<td style="text-align: left;">0.3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">om23</td>
+<td style="text-align: left;">North</td>
+<td style="text-align: left;">HSsym</td>
+<td style="text-align: left;">1.0</td>
+<td style="text-align: left;">98.7</td>
+<td style="text-align: left;">99.0</td>
+<td style="text-align: left;">99.0</td>
+<td style="text-align: left;">99.0</td>
+<td style="text-align: left;">3.8</td>
+<td style="text-align: left;">0.5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">om23</td>
+<td style="text-align: left;">North</td>
+<td style="text-align: left;">HS-30</td>
+<td style="text-align: left;">1.0</td>
+<td style="text-align: left;">98.8</td>
+<td style="text-align: left;">99.0</td>
+<td style="text-align: left;">99.0</td>
+<td style="text-align: left;">99.0</td>
+<td style="text-align: left;">3.5</td>
+<td style="text-align: left;">0.4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">om23</td>
+<td style="text-align: left;">North</td>
+<td style="text-align: left;">PR+20</td>
+<td style="text-align: left;">2.7</td>
+<td style="text-align: left;">96.3</td>
+<td style="text-align: left;">97.4</td>
+<td style="text-align: left;">97.4</td>
+<td style="text-align: left;">97.2</td>
+<td style="text-align: left;">10.3</td>
+<td style="text-align: left;">1.6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">om23</td>
+<td style="text-align: left;">North</td>
+<td style="text-align: left;">PR-20</td>
+<td style="text-align: left;">2.9</td>
+<td style="text-align: left;">96.2</td>
+<td style="text-align: left;">97.0</td>
+<td style="text-align: left;">97.0</td>
+<td style="text-align: left;">97.1</td>
+<td style="text-align: left;">11.2</td>
+<td style="text-align: left;">1.8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">om23</td>
+<td style="text-align: left;">North</td>
+<td style="text-align: left;">PRsym</td>
+<td style="text-align: left;">2.7</td>
+<td style="text-align: left;">96.3</td>
+<td style="text-align: left;">97.2</td>
+<td style="text-align: left;">97.2</td>
+<td style="text-align: left;">97.2</td>
+<td style="text-align: left;">10.8</td>
+<td style="text-align: left;">1.7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">om23</td>
+<td style="text-align: left;">North</td>
+<td style="text-align: left;">PR-30</td>
+<td style="text-align: left;">2.7</td>
+<td style="text-align: left;">96.6</td>
+<td style="text-align: left;">97.2</td>
+<td style="text-align: left;">97.2</td>
+<td style="text-align: left;">97.3</td>
+<td style="text-align: left;">10.1</td>
+<td style="text-align: left;">1.6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">om23</td>
+<td style="text-align: left;">Southern</td>
+<td style="text-align: left;">HS+20</td>
+<td style="text-align: left;">100.0</td>
+<td style="text-align: left;">0.0</td>
+<td style="text-align: left;">0.0</td>
+<td style="text-align: left;">0.0</td>
+<td style="text-align: left;">0.0</td>
+<td style="text-align: left;">1284.5</td>
+<td style="text-align: left;">4.5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">om23</td>
+<td style="text-align: left;">Southern</td>
+<td style="text-align: left;">HS-20</td>
+<td style="text-align: left;">99.9</td>
+<td style="text-align: left;">0.0</td>
+<td style="text-align: left;">0.0</td>
+<td style="text-align: left;">0.0</td>
+<td style="text-align: left;">0.1</td>
+<td style="text-align: left;">1304.2</td>
+<td style="text-align: left;">4.3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">om23</td>
+<td style="text-align: left;">Southern</td>
+<td style="text-align: left;">HSsym</td>
+<td style="text-align: left;">100.0</td>
+<td style="text-align: left;">0.0</td>
+<td style="text-align: left;">0.0</td>
+<td style="text-align: left;">0.0</td>
+<td style="text-align: left;">0.0</td>
+<td style="text-align: left;">1291.0</td>
+<td style="text-align: left;">4.4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">om23</td>
+<td style="text-align: left;">Southern</td>
+<td style="text-align: left;">HS-30</td>
+<td style="text-align: left;">99.9</td>
+<td style="text-align: left;">0.0</td>
+<td style="text-align: left;">0.0</td>
+<td style="text-align: left;">0.0</td>
+<td style="text-align: left;">0.1</td>
+<td style="text-align: left;">1297.9</td>
+<td style="text-align: left;">4.4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">om23</td>
+<td style="text-align: left;">Southern</td>
+<td style="text-align: left;">PR+20</td>
+<td style="text-align: left;">100.0</td>
+<td style="text-align: left;">0.0</td>
+<td style="text-align: left;">0.0</td>
+<td style="text-align: left;">0.0</td>
+<td style="text-align: left;">0.0</td>
+<td style="text-align: left;">1234.0</td>
+<td style="text-align: left;">6.6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">om23</td>
+<td style="text-align: left;">Southern</td>
+<td style="text-align: left;">PR-20</td>
+<td style="text-align: left;">100.0</td>
+<td style="text-align: left;">0.0</td>
+<td style="text-align: left;">0.0</td>
+<td style="text-align: left;">0.0</td>
+<td style="text-align: left;">0.0</td>
+<td style="text-align: left;">1243.4</td>
+<td style="text-align: left;">6.4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">om23</td>
+<td style="text-align: left;">Southern</td>
+<td style="text-align: left;">PRsym</td>
+<td style="text-align: left;">100.0</td>
+<td style="text-align: left;">0.0</td>
+<td style="text-align: left;">0.0</td>
+<td style="text-align: left;">0.0</td>
+<td style="text-align: left;">0.0</td>
+<td style="text-align: left;">1237.0</td>
+<td style="text-align: left;">6.2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">om23</td>
+<td style="text-align: left;">Southern</td>
+<td style="text-align: left;">PR-30</td>
+<td style="text-align: left;">100.0</td>
+<td style="text-align: left;">0.0</td>
+<td style="text-align: left;">0.0</td>
+<td style="text-align: left;">0.0</td>
+<td style="text-align: left;">0.0</td>
+<td style="text-align: left;">1250.1</td>
+<td style="text-align: left;">6.8</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p>Before a final recommendation, the results package should add criteria based on an agreed <span class="math inline">\(B_{\mathrm{lim}}\)</span>, finalize near- and medium-term decision periods, retain the low-catch and mean-reduction diagnostics, report catch-rate or effort-feasibility measures and the frequency of a binding effort cap, and complete the operational-readiness test.</p>
+<p>The finite-run precision analysis also remains. It should distinguish posterior/model uncertainty from future process and observation draws, confirm the use of common draws among CMPs, provide uncertainty intervals for key probabilities, and test whether conclusions change with more simulations or different random seeds.</p>
 </section>
 <section id="separate-biological-requirements-from-management-preferences" class="level2" data-number="5">
 <h2 data-number="5" class="anchored" data-anchor-id="separate-biological-requirements-from-management-preferences"><span class="header-section-number">5</span> Separate biological requirements from management preferences</h2>
@@ -617,7 +2025,7 @@ Table&nbsp;1: Where to find the information needed for each decision.
 <li><strong>Alternative assumptions:</strong> performance and plausibility across alternative OMs, including component-specific outcomes.</li>
 <li><strong>Management preferences:</strong> trade-offs among candidates that meet the requirements in the first two steps.</li>
 </ol>
-<p>The scorecard belongs only in the third step. Its measures, scaling, weights, candidate set, and comparison tests will be saved in downloadable files. It will show how rankings change when OMs, measures, periods, candidates, weights, or random draws change.</p>
+<p>The scorecard belongs only in the third step. Its measures, scaling, weights, candidate set, and current comparison tests are saved in downloadable files. The present worked examples show sensitivity to measures and weights and the interactive application recalculates after candidate changes. Sensitivity to OM choice and finite-run random variation remains work before a final recommendation.</p>
 </section>
 <section id="spatial-structure-and-movement" class="level2" data-number="6">
 <h2 data-number="6" class="anchored" data-anchor-id="spatial-structure-and-movement"><span class="header-section-number">6</span> Spatial structure and movement</h2>
@@ -1171,13 +2579,13 @@ Table&nbsp;1: Where to find the information needed for each decision.
 <span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Topic <span class="pp">|</span> Current detailed source <span class="pp">|</span> Additional information needed <span class="pp">|</span></span>
 <span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|</span></span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Development from SCW17 <span class="pp">|</span> <span class="co">[</span><span class="ot">Current report: development</span><span class="co">](../evidence/sc14-mse-report.qmd#development-from-scw17-to-the-current-analysis)</span> <span class="pp">|</span> Candidate translation table showing what changed and when <span class="pp">|</span></span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> OM set and simulation <span class="pp">|</span> <span class="co">[</span><span class="ot">Operating models</span><span class="co">](../evidence/sc14-mse-report.qmd#operating-models-and-simulation-methods)</span> <span class="pp">|</span> Complete OM definitions, plausibility rationale, and decision role <span class="pp">|</span></span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Index errors <span class="pp">|</span> <span class="co">[</span><span class="ot">Generating OM data indices</span><span class="co">](../evidence/sc14-mse-report.qmd#generating-om-data-indices)</span> <span class="pp">|</span> Calculations, values, data changes, overlapping years, uncertainty, and checks against the observed indices <span class="pp">|</span></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Development from SCW17 <span class="pp">|</span> <span class="co">[</span><span class="ot">Current report: development</span><span class="co">](../evidence/sc14-mse-report.qmd#development-from-scw17-to-the-current-analysis)</span> <span class="pp">|</span> **Completed for submission:** dated candidate translation table and decision status <span class="pp">|</span></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> OM set and simulation <span class="pp">|</span> <span class="co">[</span><span class="ot">Operating models</span><span class="co">](../evidence/sc14-mse-report.qmd#operating-models-and-simulation-methods)</span> <span class="pp">|</span> **Completed for submission:** definitions, analytical role, and proposed decision treatment; SC14 plausibility judgments remain <span class="pp">|</span></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Index errors <span class="pp">|</span> <span class="co">[</span><span class="ot">Generating OM data indices</span><span class="co">](../evidence/sc14-mse-report.qmd#generating-om-data-indices)</span> <span class="pp">|</span> **Core documentation completed:** equation, values, coverage, overlap, gaps, and scope; additional index stress tests remain <span class="pp">|</span></span>
 <span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> CMP definitions <span class="pp">|</span> <span class="co">[</span><span class="ot">CMP list</span><span class="co">](../cmp/index.qmd)</span> and individual CMP pages <span class="pp">|</span> One table with names, roles, units, settings, and file version <span class="pp">|</span></span>
 <span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Tuning <span class="pp">|</span> <span class="co">[</span><span class="ot">Candidate procedures</span><span class="co">](../evidence/sc14-mse-report.qmd#candidate-management-procedures)</span> <span class="pp">|</span> Exact quantity used for tuning, result for every CMP, uncertainty due to the number of runs, and effect of small changes to the trigger <span class="pp">|</span></span>
-<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Performance measures <span class="pp">|</span> <span class="co">[</span><span class="ot">Performance evaluation</span><span class="co">](../evidence/sc14-mse-report.qmd#performance-evaluation-and-the-draft-scorecard)</span> <span class="pp">|</span> Calculations, time periods, how results are combined, whether high or low values are preferred, and how each measure is used <span class="pp">|</span></span>
-<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Alternative OMs <span class="pp">|</span> <span class="co">[</span><span class="ot">Main findings</span><span class="co">](../evidence/sc14-mse-report.qmd#main-performance-and-robustness-findings)</span> <span class="pp">|</span> CMP-by-OM biological performance table, ranges of results, and results for each component in the two-stock OMs <span class="pp">|</span></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Performance measures <span class="pp">|</span> <span class="co">[</span><span class="ot">Performance evaluation</span><span class="co">](../evidence/sc14-mse-report.qmd#performance-evaluation-and-the-draft-scorecard)</span> <span class="pp">|</span> **Submission framing completed:** calculations, periods, directions, weights, exclusions, and preliminary status; final measures await SC14 guidance <span class="pp">|</span></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Alternative OMs <span class="pp">|</span> <span class="co">[</span><span class="ot">Main findings</span><span class="co">](../evidence/sc14-mse-report.qmd#biological-requirements-and-the-complete-om-table)</span> <span class="pp">|</span> **Completed for submission:** 112-row CMP-by-OM/stock table, including <span class="in">`om23`</span> and both two-stock components <span class="pp">|</span></span>
 <span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Banking and borrowing <span class="pp">|</span> <span class="co">[</span><span class="ot">Current analysis</span><span class="co">](../evidence/sc14-mse-report.qmd#banking-borrowing-and-implementation-constraints)</span> <span class="pp">|</span> Matched with/without comparison using identical OM draws before implementation conclusions <span class="pp">|</span></span>
 <span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Annual calculation <span class="pp">|</span> <span class="co">[</span><span class="ot">Annual workflow</span><span class="co">](../application/annual-workflow.qmd)</span> and <span class="co">[</span><span class="ot">input data</span><span class="co">](../application/input-data.qmd)</span> <span class="pp">|</span> Complete instructions for calculating advice from every shortlisted CMP <span class="pp">|</span></span>
 <span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Exceptional circumstances <span class="pp">|</span> <span class="co">[</span><span class="ot">Current framework</span><span class="co">](../evidence/sc14-mse-report.qmd#exceptional-circumstances-and-annual-monitoring)</span> <span class="pp">|</span> Indicators, thresholds, false alarms, missed detections, authority, and response options <span class="pp">|</span></span>
@@ -1186,87 +2594,130 @@ Table&nbsp;1: Where to find the information needed for each decision.
 <span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a><span class="fu">## Results to report for each CMP and OM</span></span>
 <span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>For every CMP and OM or stock-component combination, the final results will</span>
-<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>report at least:</span>
-<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>mean dynamic Kobe-green probability for the defined tuning period;</span>
-<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>probability below the agreed biomass limit by year, maximum annual risk, and</span>
-<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>  probability of crossing the limit at least once;</span>
-<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>dynamic Kobe-red or other agreed joint-risk statistic;</span>
-<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>overfishing probability;</span>
-<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>near-, medium-, and long-term catch;</span>
-<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>IACC and mean annual reduction in advice;</span>
-<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>probability of catch below 270 kt and any shutdown statistic;</span>
-<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>catch-rate or effort-feasibility measures and frequency of a binding effort</span>
-<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>  cap; and</span>
-<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>whether the CMP is ready for annual use and the reason for any remaining</span>
-<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>  problem.</span>
-<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a>The results will show uncertainty caused by the number of simulation runs. The</span>
-<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a>paper will explain how uncertainty in the assessment and future stock and index</span>
-<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a>conditions was included, whether CMPs were tested using the same random draws,</span>
-<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a>and whether the conclusions change when more simulations or different random</span>
-<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a>draws are used.</span>
-<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a><span class="fu">## Separate biological requirements from management preferences</span></span>
-<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a>The technical paper keeps three steps distinct:</span>
-<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Minimum biological performance:** the requirements that determine whether</span>
-<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a>   a CMP can advance.</span>
-<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Alternative assumptions:** performance and plausibility across alternative OMs,</span>
-<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a>   including component-specific outcomes.</span>
-<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Management preferences:** trade-offs among candidates that meet the</span>
-<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a>   requirements in the first two steps.</span>
-<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a>The scorecard belongs only in the third step. Its measures, scaling, weights,</span>
-<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a>candidate set, and comparison tests will be saved in downloadable files. It</span>
-<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a>will show how rankings change when OMs, measures, periods, candidates, weights,</span>
-<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a>or random draws change.</span>
-<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a><span class="fu">## Spatial structure and movement</span></span>
-<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a>The technical paper reports northern and southern components separately for</span>
-<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a>every two-stock OM and shows the regional indices used by the CMP. It explains:</span>
-<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>the fixed catch splits used to test different assumptions;</span>
-<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>the <span class="in">`split.is`</span> method used in the CMP definitions; and</span>
-<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>any separate northern assessment or management process relevant to</span>
-<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a>  interpreting the results.</span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>The current decision table reports dynamic Kobe status, biomass and</span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>overfishing risks, catch, and IACC for every CMP and OM or stock-component</span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>combination. The complete downloadable table has 112 rows:</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Download the CMP-by-OM biological decision table</span><span class="co">](../data/candidates/candidate_biological_decision_table.csv)</span>.</span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>The probabilities below are calculated over 2041--2050 from the checked</span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a><span class="in">`SC14-MSE-2026-RC1`</span> Slick object. <span class="in">`SB &lt; 1`</span> means spawning biomass below the</span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>draw- and year-specific dynamic $SB_{\mathrm{MSY}}$; it is a candidate</span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>diagnostic, not an agreed $B_{\mathrm{lim}}$ criterion. Catch is total catch for</span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>one-stock OMs and component catch for two-stock OMs. None of the eight CMPs is</span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a>yet operationally ready for annual use.</span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a><span class="in">```{=latex}</span></span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a><span class="in">\begingroup\scriptsize</span></span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a><span class="in">\setlength{\tabcolsep}{2.5pt}</span></span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-cmp-om-biological</span></span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Complete CMP-by-OM and stock-component biological decision table, 2041--2050."</span></span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a>decision_table <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(</span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a>  <span class="st">"../data/candidates/candidate_biological_decision_table.csv"</span>,</span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a>  <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>, <span class="at">check.names =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a>probability_columns <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"p_dynamic_kobe_green"</span>,</span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a>  <span class="st">"p_sb_below_dynamic_sbmsy"</span>,</span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a>  <span class="st">"max_annual_p_sb_below_dynamic_sbmsy"</span>,</span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a>  <span class="st">"p_any_year_sb_below_dynamic_sbmsy"</span>, <span class="st">"p_f_above_fmsy"</span>)</span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a>decision_table[probability_columns] <span class="ot">&lt;-</span> <span class="fu">lapply</span>(</span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a>  decision_table[probability_columns], <span class="cf">function</span>(x) <span class="fu">sprintf</span>(<span class="st">"%.1f"</span>, <span class="dv">100</span> <span class="sc">*</span> x))</span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a>decision_table<span class="sc">$</span>median_long_term_catch <span class="ot">&lt;-</span> <span class="fu">sprintf</span>(<span class="st">"%.1f"</span>,</span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a>  decision_table<span class="sc">$</span>median_long_term_catch)</span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a>decision_table<span class="sc">$</span>median_long_term_iacc <span class="ot">&lt;-</span> <span class="fu">sprintf</span>(<span class="st">"%.1f"</span>,</span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a>  decision_table<span class="sc">$</span>median_long_term_iacc)</span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(decision_table[<span class="fu">c</span>(<span class="st">"om"</span>, <span class="st">"stock"</span>, <span class="st">"cmp"</span>,</span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a>  <span class="st">"p_dynamic_kobe_green"</span>, <span class="st">"p_sb_below_dynamic_sbmsy"</span>,</span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a>  <span class="st">"max_annual_p_sb_below_dynamic_sbmsy"</span>,</span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a>  <span class="st">"p_any_year_sb_below_dynamic_sbmsy"</span>, <span class="st">"p_f_above_fmsy"</span>,</span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a>  <span class="st">"median_long_term_catch"</span>, <span class="st">"median_long_term_iacc"</span>)],</span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a>  <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"OM"</span>, <span class="st">"Stock"</span>, <span class="st">"CMP"</span>, <span class="st">"Green %"</span>, <span class="st">"SB&lt;1 %"</span>,</span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Max annual %"</span>, <span class="st">"Any year %"</span>, <span class="st">"F&gt;1 %"</span>, <span class="st">"Catch"</span>, <span class="st">"IACC"</span>),</span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a>  <span class="at">longtable =</span> knitr<span class="sc">::</span><span class="fu">is_latex_output</span>(), <span class="at">booktabs =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a>The allocation work is treated as complete for the present analysis. This</span>
-<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a>section documents what was tested and why; it does not open a new line of</span>
-<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a>allocation analysis. The author's response to the reviewer provides the</span>
-<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a>interpretation to accompany it.</span>
-<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a><span class="fu">## Instructions for annual calculation</span></span>
-<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a>Each shortlisted CMP will have one complete set of instructions containing</span>
-<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a>its indicator equation, HCR equation, allocation rule, parameters, data rules,</span>
-<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a>fallback rules, calculation sequence, and ECP interface. A saved retrospective</span>
-<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a>example will include the source data, intermediate values, unrounded advice,</span>
-<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a>annual-limit calculation, allocation, rounding, and final result.</span>
-<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a>An automatic test will run the example independently and compare every</span>
-<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a>intermediate and final value with saved expected results. Explanatory text</span>
-<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a>may explain the CMP but does not redefine its settings.</span>
-<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a><span class="fu">## Work remaining after SC14</span></span>
-<span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a>Unless completed before submission, the paper records:</span>
-<span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-134"><a href="#cb1-134" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>final operational units, cut-offs, missing/revised-data rules, and rounding;</span>
-<span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>matched banking-and-borrowing evaluation;</span>
-<span id="cb1-136"><a href="#cb1-136" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>advice-versus-realized-catch simulation or justification;</span>
-<span id="cb1-137"><a href="#cb1-137" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>simulation-precision analysis;</span>
-<span id="cb1-138"><a href="#cb1-138" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>final performance measures and agreed biological requirements;</span>
-<span id="cb1-139"><a href="#cb1-139" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>tests of whether the ECP detects problems, and rules for who decides what</span>
-<span id="cb1-140"><a href="#cb1-140" aria-hidden="true" tabindex="-1"></a>  happens next; and</span>
-<span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>an independent check that the annual calculation can be repeated.</span>
-<span id="cb1-142"><a href="#cb1-142" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-143"><a href="#cb1-143" aria-hidden="true" tabindex="-1"></a>Each item should have a named person or group responsible for it, a clear test</span>
-<span id="cb1-144"><a href="#cb1-144" aria-hidden="true" tabindex="-1"></a>for completion, and a date for decision before a CMP is recommended for</span>
-<span id="cb1-145"><a href="#cb1-145" aria-hidden="true" tabindex="-1"></a>adoption.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a><span class="in">```{=latex}</span></span>
+<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a><span class="in">\endgroup</span></span>
+<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a>Before a final recommendation, the results package should add criteria based</span>
+<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a>on an agreed $B_{\mathrm{lim}}$, finalize near- and medium-term decision</span>
+<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a>periods, retain the low-catch and mean-reduction diagnostics, report catch-rate</span>
+<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a>or effort-feasibility measures and the frequency of a binding effort cap, and</span>
+<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a>complete the operational-readiness test.</span>
+<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a>The finite-run precision analysis also remains. It should distinguish</span>
+<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a>posterior/model uncertainty from future process and observation draws, confirm</span>
+<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a>the use of common draws among CMPs, provide uncertainty intervals for key</span>
+<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a>probabilities, and test whether conclusions change with more simulations or</span>
+<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a>different random seeds.</span>
+<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a><span class="fu">## Separate biological requirements from management preferences</span></span>
+<span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a>The technical paper keeps three steps distinct:</span>
+<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Minimum biological performance:** the requirements that determine whether</span>
+<span id="cb1-134"><a href="#cb1-134" aria-hidden="true" tabindex="-1"></a>   a CMP can advance.</span>
+<span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Alternative assumptions:** performance and plausibility across alternative OMs,</span>
+<span id="cb1-136"><a href="#cb1-136" aria-hidden="true" tabindex="-1"></a>   including component-specific outcomes.</span>
+<span id="cb1-137"><a href="#cb1-137" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Management preferences:** trade-offs among candidates that meet the</span>
+<span id="cb1-138"><a href="#cb1-138" aria-hidden="true" tabindex="-1"></a>   requirements in the first two steps.</span>
+<span id="cb1-139"><a href="#cb1-139" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-140"><a href="#cb1-140" aria-hidden="true" tabindex="-1"></a>The scorecard belongs only in the third step. Its measures, scaling, weights,</span>
+<span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a>candidate set, and current comparison tests are saved in downloadable files.</span>
+<span id="cb1-142"><a href="#cb1-142" aria-hidden="true" tabindex="-1"></a>The present worked examples show sensitivity to measures and weights and the</span>
+<span id="cb1-143"><a href="#cb1-143" aria-hidden="true" tabindex="-1"></a>interactive application recalculates after candidate changes. Sensitivity to</span>
+<span id="cb1-144"><a href="#cb1-144" aria-hidden="true" tabindex="-1"></a>OM choice and finite-run random variation remains work before a final</span>
+<span id="cb1-145"><a href="#cb1-145" aria-hidden="true" tabindex="-1"></a>recommendation.</span>
+<span id="cb1-146"><a href="#cb1-146" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-147"><a href="#cb1-147" aria-hidden="true" tabindex="-1"></a><span class="fu">## Spatial structure and movement</span></span>
+<span id="cb1-148"><a href="#cb1-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-149"><a href="#cb1-149" aria-hidden="true" tabindex="-1"></a>The technical paper reports northern and southern components separately for</span>
+<span id="cb1-150"><a href="#cb1-150" aria-hidden="true" tabindex="-1"></a>every two-stock OM and shows the regional indices used by the CMP. It explains:</span>
+<span id="cb1-151"><a href="#cb1-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-152"><a href="#cb1-152" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>the fixed catch splits used to test different assumptions;</span>
+<span id="cb1-153"><a href="#cb1-153" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>the <span class="in">`split.is`</span> method used in the CMP definitions; and</span>
+<span id="cb1-154"><a href="#cb1-154" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>any separate northern assessment or management process relevant to</span>
+<span id="cb1-155"><a href="#cb1-155" aria-hidden="true" tabindex="-1"></a>  interpreting the results.</span>
+<span id="cb1-156"><a href="#cb1-156" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-157"><a href="#cb1-157" aria-hidden="true" tabindex="-1"></a>The allocation work is treated as complete for the present analysis. This</span>
+<span id="cb1-158"><a href="#cb1-158" aria-hidden="true" tabindex="-1"></a>section documents what was tested and why; it does not open a new line of</span>
+<span id="cb1-159"><a href="#cb1-159" aria-hidden="true" tabindex="-1"></a>allocation analysis. The author's response to the reviewer provides the</span>
+<span id="cb1-160"><a href="#cb1-160" aria-hidden="true" tabindex="-1"></a>interpretation to accompany it.</span>
+<span id="cb1-161"><a href="#cb1-161" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-162"><a href="#cb1-162" aria-hidden="true" tabindex="-1"></a><span class="fu">## Instructions for annual calculation</span></span>
+<span id="cb1-163"><a href="#cb1-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-164"><a href="#cb1-164" aria-hidden="true" tabindex="-1"></a>Each shortlisted CMP will have one complete set of instructions containing</span>
+<span id="cb1-165"><a href="#cb1-165" aria-hidden="true" tabindex="-1"></a>its indicator equation, HCR equation, allocation rule, parameters, data rules,</span>
+<span id="cb1-166"><a href="#cb1-166" aria-hidden="true" tabindex="-1"></a>fallback rules, calculation sequence, and ECP interface. A saved retrospective</span>
+<span id="cb1-167"><a href="#cb1-167" aria-hidden="true" tabindex="-1"></a>example will include the source data, intermediate values, unrounded advice,</span>
+<span id="cb1-168"><a href="#cb1-168" aria-hidden="true" tabindex="-1"></a>annual-limit calculation, allocation, rounding, and final result.</span>
+<span id="cb1-169"><a href="#cb1-169" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-170"><a href="#cb1-170" aria-hidden="true" tabindex="-1"></a>An automatic test will run the example independently and compare every</span>
+<span id="cb1-171"><a href="#cb1-171" aria-hidden="true" tabindex="-1"></a>intermediate and final value with saved expected results. Explanatory text</span>
+<span id="cb1-172"><a href="#cb1-172" aria-hidden="true" tabindex="-1"></a>may explain the CMP but does not redefine its settings.</span>
+<span id="cb1-173"><a href="#cb1-173" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-174"><a href="#cb1-174" aria-hidden="true" tabindex="-1"></a><span class="fu">## Work remaining after SC14</span></span>
+<span id="cb1-175"><a href="#cb1-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-176"><a href="#cb1-176" aria-hidden="true" tabindex="-1"></a>Unless completed before submission, the paper records:</span>
+<span id="cb1-177"><a href="#cb1-177" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-178"><a href="#cb1-178" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>final operational units, cut-offs, missing/revised-data rules, and rounding;</span>
+<span id="cb1-179"><a href="#cb1-179" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>matched banking-and-borrowing evaluation;</span>
+<span id="cb1-180"><a href="#cb1-180" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>advice-versus-realized-catch simulation or justification;</span>
+<span id="cb1-181"><a href="#cb1-181" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>simulation-precision analysis;</span>
+<span id="cb1-182"><a href="#cb1-182" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>final performance measures and agreed biological requirements;</span>
+<span id="cb1-183"><a href="#cb1-183" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>tests of whether the ECP detects problems, and rules for who decides what</span>
+<span id="cb1-184"><a href="#cb1-184" aria-hidden="true" tabindex="-1"></a>  happens next; and</span>
+<span id="cb1-185"><a href="#cb1-185" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>an independent check that the annual calculation can be repeated.</span>
+<span id="cb1-186"><a href="#cb1-186" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-187"><a href="#cb1-187" aria-hidden="true" tabindex="-1"></a>Each item should have a named person or group responsible for it, a clear test</span>
+<span id="cb1-188"><a href="#cb1-188" aria-hidden="true" tabindex="-1"></a>for completion, and a date for decision before a CMP is recommended for</span>
+<span id="cb1-189"><a href="#cb1-189" aria-hidden="true" tabindex="-1"></a>adoption.</span>
+</code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
