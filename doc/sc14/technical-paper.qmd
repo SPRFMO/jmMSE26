@@ -127,19 +127,6 @@ An automatic test will run the example independently and compare every
 intermediate and final value with saved expected results. Explanatory text
 may explain the CMP but does not redefine its settings.
 
-## Checks before publication
-
-Publication should stop if any of the following disagree:
-
-- CMP membership, names, roles, triggers, targets, minima, or annual limits;
-- report, CMP-list, CMP-page, and annual-use-page settings;
-- results from the main and alternative OMs;
-- tuning probabilities and reference-point definitions;
-- two-stock component labels or results;
-- scorecard inputs and generated rankings;
-- downloadable CSVs, figures, Slick contents, and report statements; or
-- file checksums and the final file list.
-
 ## Work remaining after SC14
 
 Unless completed before submission, the paper records:
