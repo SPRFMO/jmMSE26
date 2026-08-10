@@ -1,0 +1,110 @@
+---
+title: "Guide to the Jack Mackerel MSE papers for SC14"
+format:
+  html:
+    number-sections: false
+  pdf:
+    documentclass: scrartcl
+    number-sections: false
+    colorlinks: true
+    geometry:
+      - margin=1in
+---
+
+::: {.content-visible when-format="html"}
+{{< include ../_includes/sprfmo-banner.qmd >}}
+
+<div class="paper-title">Guide to the Jack Mackerel MSE papers for SC14</div>
+:::
+
+## Purpose
+
+::: {.content-visible when-format="html"}
+[Download the PDF version of this guide](index.pdf).
+:::
+
+The independent desk review found the main report strong. Its main concern was
+that the report and the linked CMP descriptions, results, downloads, and
+instructions did not always tell one consistent story.
+
+The material stemming from the MSE is organized according to what each reader
+needs:
+
+1. a short [SC14 questions and tasks paper](decision-paper.qmd) tells the
+   Scientific Committee what the results show, which questions it needs to
+   answer, and what advice is being requested;
+2. the [full MSE report](../evidence/sc14-mse-report.qmd) provides the complete
+   scientific account of the analysis and results;
+3. a [technical paper](technical-paper.qmd) gives the methods, definitions,
+   full results, and details needed to check the work; and
+4. a [response to the review](review-response.qmd) shows what has been changed,
+   what remains to be done, and when it should be completed.
+
+The website, CMP list, downloadable results, Slick file, and code should all be
+produced from the same final set of results. A reader should not have to compare
+different pages or downloads to discover which numbers are current.
+
+## Document roles
+
+| Paper or supporting item | Main readers | What it is for |
+|---|---|---|
+| SC14 questions and tasks | Scientific Committee and Commission delegates | Summarize the results, choices, and requested advice |
+| Full MSE report | Scientific Committee and scientific reviewers | Provide the complete scientific analysis and interpretation |
+| Technical paper | Scientific reviewers and analysts | Give enough detail to understand and check the work |
+| Response to the review | Scientific Committee, reviewer, and authors | Show how each important comment has been handled |
+| Saved results and code | Analysts and future reviewers | Provide the exact files used to make the papers, tables, figures, and downloads |
+
+## How the parts fit together
+
+::: {.content-visible when-format="html"}
+```{mermaid}
+flowchart TD
+  A["Final saved results and code"] --> B["SC14 questions and tasks"]
+  A --> K["Full MSE report"]
+  A --> C["Technical paper"]
+  A --> D["Response to the review"]
+  A --> E["CMP registry and specifications"]
+  A --> F["Slick, tables, and figures"]
+  A --> G["Code, saved runs, and file list"]
+  C --> B
+  D --> B
+  C --> K
+  K --> B
+  E --> C
+  F --> C
+  G --> C
+  B --> H["Scientific Committee advice"]
+  H --> I["Final operational package"]
+  I --> J["Commission choice"]
+```
+:::
+
+::: {.content-visible when-format="pdf"}
+The papers, CMP descriptions, tables, figures, Slick file, and code all use the
+same final saved results. The full MSE report provides the scientific account,
+the technical paper provides supporting detail, and the short SC14 paper sets
+out the questions and tasks. SC14 advice then guides completion of the
+instructions for annual use before the Commission chooses a CMP.
+:::
+
+## SC14 tasks
+
+The papers allow SC14 to decide whether the MSE is scientifically sound,
+agree the minimum biological performance requirements, and recommend a short
+list of CMPs for final work. SC14 should also identify the questions that need a Commission choice,
+especially the acceptable balance between catch, stability, and risk.
+
+Before the Commission chooses a CMP, the remaining rules for annual use should
+be completed. These include treatment of missing or revised data and the action
+to take when circumstances fall outside those tested in the MSE. Catch
+allocation does not require further analytical work for this paper. The
+author's response explains how the existing analysis addresses the review
+comments on allocation. The final papers, results, website files, and code will
+be saved together as the official version.
+
+::: {.status-note}
+**Editorial note — delete before submission.** During development, the original
+SC14 report and its result files remain unchanged and continue to provide the
+scientific content used in this proposed package. Adoption of this new
+structure will require a separate decision.
+:::

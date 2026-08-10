@@ -1,0 +1,163 @@
+---
+title: "Jack mackerel MSE: questions and tasks for SC14"
+format:
+  html:
+    number-sections: true
+---
+
+{{< include ../_includes/sprfmo-banner.qmd >}}
+
+<div class="paper-title">Jack mackerel MSE: questions and tasks for SC14</div>
+
+## Purpose
+
+The MSE has advanced from the broad SCW17 design to a common 500-draw
+comparison of eight candidate management procedures (CMPs) under a main
+operating model (OM) and nine alternative OMs. This paper helps SC14 decide
+whether the scientific work is sound, agree how candidates should be
+judged, and give the guidance needed to complete the CMPs for annual use.
+
+The Scientific Committee is asked to:
+
+1. agree that the MSE provides a sound basis for completing the jack
+   mackerel management procedure;
+2. agree the minimum biological performance requirements and the practical
+   requirements for annual use;
+3. identify a provisional shortlist for final comparative evaluation;
+4. advise on index use and the treatment of difficult alternative cases; and
+5. recommend completion of the operational specifications and formal
+   exceptional-circumstances protocol before Commission selection or adoption.
+
+## What the analysis establishes
+
+The MSE tests complete catch-advice rules by simulating how each rule performs
+over time. It includes related errors among five abundance
+indices, dynamic reference points, alternative productivity and recruitment
+conditions, selectivity uncertainty, stock-structure hypotheses, movement,
+and alternative annual TAC-change limits.
+
+The current comparison contains hockey-stick (HS) and power-ramp (PR)
+configurations. All eight cases were refined using the same 500 model runs,
+which represent uncertainty in the assessment, toward an approximately 60%
+mean probability of dynamic Kobe-green
+status during 2041--2050. This common tuning objective makes their trade-offs
+more comparable; it is not, by itself, a complete set of minimum biological
+performance requirements.
+
+The analysis demonstrates differences in catch, biological condition,
+stability, and responsiveness. It does not demonstrate that one CMP dominates
+all objectives and alternative cases. MP43 and MP44 are the main cases. MP29
+and MP32 retain the earlier annual-increase setting for comparison, and
+MP45--MP48 provide additional annual-limit comparisons. These roles do not
+constitute a short list.
+
+## Questions for SC14
+
+| Question for SC14 | Information now available | Choice still required | SC14 task |
+|---|---|---|---|
+| Is the MSE scientifically sound? | Simulation tests that repeatedly apply each CMP over time, the main OM, a set of alternative OMs, treatment of the five indices, and external review | Whether the remaining limitations prevent the work from advancing | Agree that the work can advance, or identify corrections that must be made first |
+| What constitutes acceptable biological performance? | Dynamic Kobe measures and results from the main and alternative OMs | Acceptable biological risk, including the chance of low biomass or overfishing in each stock component and difficult OM | Agree the minimum biological performance requirements |
+| Which CMPs should advance? | A common 500-draw comparison of HS and PR candidates | The desired balance among catch, stability, response to decline, and remaining risk | Select a provisional short list from the CMPs that meet those requirements |
+| How should two-stock risk be treated? | Tests with and without movement and under alternative productivity and model assumptions | Which cases are plausible enough to affect the choice, the geographic coverage, and whether regional protection is needed | Give clear guidance rather than rely only on later monitoring |
+| Is further allocation analysis needed for this MSE paper? | The CMP allocation method and the fixed-split tests are already documented | The author's response explains how these results answer the review comments | Treat the analytical allocation work as complete unless SC14 identifies a specific new scientific question |
+| Is annual application ready? | Current CMP pages, data template, annual workflow, and record of sources and changes | Units, cut-off dates, missing or revised data, rounding, fallback, verification, and responses to exceptional circumstances | Require completion before adoption |
+
+: Questions and tasks for SC14. {#tbl-decisions}
+
+## How candidates will be considered
+
+The evaluation has three steps.
+
+### Step 1: review biological performance and readiness for annual use
+
+For each CMP, report whether it meets criteria agreed by SC14 for:
+
+- probability of remaining above the biomass limit, including the highest
+  single-year risk and the probability of crossing the limit at any time;
+- overfishing risk;
+- component-level performance in relevant two-stock OMs;
+- feasibility under low catch and binding effort constraints; and
+- ability to produce repeatable annual advice without untested analyst
+  judgment.
+
+The relationship between the COMM8 objectives and the later K60 tuning target
+should be stated explicitly. Failure of a difficult OM need not automatically
+exclude a CMP, but accepting that risk should be an explicit decision supported
+by an assessment of the OM's plausibility and consequences.
+
+### Step 2: performance under alternative assumptions
+
+Describe each candidate as acceptable, of concern, or unacceptable under every
+OM. Show the two stock components separately. Give particular attention to
+the movement case, in which a combined indicator may mask a declining southern
+component, and to the `om23` assessment/configuration case.
+
+### Step 3: management trade-offs
+
+Among candidates that meet the requirements in the first two steps, compare
+catch, stability, responsiveness, low-catch frequency, and other agreed objectives. Weighted
+scorecards may illustrate preferences and sensitivity to weights, but should
+not replace raw outcomes or determine biological acceptability.
+
+## Interpretation of HS and PR configurations
+
+The focal HS and PR cases are complete CMP configurations, not a controlled
+test of HCR shape alone: they differ in target catch, tuned trigger, and the way
+the indicator is converted to advice. Conclusions should therefore concern the
+performance of complete configurations. A matched conceptual comparison can
+still illustrate rule shape when all other settings are held constant.
+
+At least one HS and one PR candidate may need to remain under consideration
+until SC14 expresses its preference between relative stability and stronger
+responsiveness. The shortlist should explain why its members advance,
+why other variants do not, and whether apparently similar candidates add
+useful information.
+
+## Two-stock and movement results
+
+The two-stock tests connect biological stock structure, movement, regional
+indices, and the geographic interpretation of the results. Separate northern
+and southern monitoring is valuable, but an
+exceptional-circumstances protocol cannot by itself remove a vulnerability
+already demonstrated in an OM.
+
+SC14 should advise whether the results require a rule to protect a regional
+stock component, separate component indicators, or a clear decision that a difficult OM should not
+determine selection. The fixed catch splits are tests of the CMP under
+different assumptions. No further allocation analysis is required for this
+paper; the author's response addresses the reviewer's interpretation of those
+tests.
+
+## Requirements before Commission adoption
+
+A shortlisted CMP should not be described as ready for annual use until two
+independent analysts can calculate identical advice from the same annual data.
+The final specification should define:
+
+- official data series, providers, units, calculations, and cut-off dates;
+- index reference periods and treatment of missing, late, or revised data;
+- the prior-advice value, annual-change limits, units, and rounding;
+- treatment of differences between advice and realized catch;
+- effort constraints, fallback calculations, and independent sign-off; and
+- exceptional-circumstances indicators, thresholds, review steps, authority,
+  and possible responses.
+
+The final saved version should link the exact code and simulation runs to the
+CMP settings, papers, CMP list, tables, figures, downloads, and Slick file. An
+automatic check should confirm that the important numbers agree everywhere.
+
+## Advice requested from SC14
+
+> The Scientific Committee agrees that the MSE provides a sound basis for
+> completing the jack mackerel management procedure; agrees the minimum
+> biological performance requirements and practical requirements for annual
+> use recorded in its report; identifies a provisional shortlist for final
+> evaluation; provides guidance on index use and the treatment of difficult
+> alternative cases; and recommends completion of the
+> instructions for annual use, final saved results and code, and
+> exceptional-circumstances protocol before a CMP is presented to the Commission for selection or
+> adoption.
+
+The [technical paper](technical-paper.qmd) provides the supporting results and
+methods. The [response to the review](review-response.qmd) records the answer to
+each finding.

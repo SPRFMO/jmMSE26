@@ -1,0 +1,110 @@
+---
+title: "Response to the independent SC14 MSE desk review"
+format:
+  html:
+    number-sections: true
+---
+
+{{< include ../_includes/sprfmo-banner.qmd >}}
+
+<div class="paper-title">Response to the independent SC14 MSE desk review</div>
+
+## Overall response
+
+The review concludes that the report is a strong scientific summary of a
+credible MSE and supports its use to continue SC14 discussion and
+identify a provisional shortlist. Its central concern is consistency across
+the report, CMP specifications, registries, source and public data, figures,
+Slick results, and annual-application material.
+
+The authors accept that central finding. The full MSE report, SC14 questions
+and tasks paper, technical paper, and this response use the same final results.
+The immediate request is for SC14 to
+agree that the scientific work is sound, agree the decision criteria, identify
+a provisional short list, and provide management guidance. Adoption can follow
+completion of the instructions and checks needed for annual use.
+
+## Response to the Terms of Reference
+
+| ToR finding | Response |
+|---|---|
+| Design is broadly consistent with SCW17, but reported results and public files are not consistently aligned | Save one final SC14 set of results and use it to remake all public products; document how the candidates changed from SCW17 to the final comparison |
+| Overall MSE structure is appropriate, but tuning, allocation, precision, performance measures, and criteria for alternative cases need further support | Put definitions and complete CMP-by-OM results in the technical paper and ask SC14 to agree the minimum biological performance requirements and how alternative cases should be used. Treat allocation analysis as complete; add the author's explanation of why the existing work is sufficient |
+| Uncertainties and limitations are clear in prose but not always supported by one checkable numerical account | Add one biological-performance table, results for each component in the two-stock OMs, uncertainty due to the number of runs, effort and low-catch results, and a comparison using alternative reference points |
+| A provisional shortlist may be supportable, but the supporting results and annual rules are incomplete | Ask for a provisional shortlist and a list of work to finish rather than immediate adoption |
+| Material inconsistencies occur in settings, data timing, candidate membership, results, and figure construction | Require the important numbers to agree across all products before publication and identify every product that is no longer current |
+| Scientific findings and management choices are not always separated | Separate minimum biological performance, results under alternative assumptions, and management preferences, and place management questions in the decision table |
+
+: Response to the six review questions. {#tbl-tor-response}
+
+## Response to the main issues
+
+| Priority and review issue | Response | Work needed | Timing |
+|---|---|---|---|
+| High — align published files | Agreed | One named final version; exact code revision; list of simulation runs and files; remade report, CMP list, CMP and annual-use pages, figures, CSVs, and Slick file; automatic report showing that the important numbers agree | Before SC14 submission |
+| High — limit current request to shortlist consideration | Agreed | Revised requested-advice text and explicit pre-adoption completion list | Before SC14 submission |
+| High — clarify minimum biological requirements and difficult cases | Agreed | Explain the relationship between COMM8 and K60; agree measures of the chance of falling below a biomass limit; provide a CMP-by-OM table including `om23`; show results for each stock component; explain how plausible each OM is and how it should affect the decision | Requirements requested at SC14; completed before adoption |
+| High — describe HS versus PR as complete configurations | Agreed | Revised terminology; matched illustration used only to explain rule shape | Before SC14 submission |
+| Medium — assess whether 500 simulations are sufficiently precise | Agreed | Description of how uncertainty was represented, use of the same random draws, uncertainty ranges, and whether conclusions change with more runs or different draws | Before final recommendation |
+| Medium — treat scorecard rankings as preliminary | Agreed | First determine which CMPs meet the minimum biological performance requirements; retain the original results; show how rankings change with measures, weights, candidates, periods, and OMs | Before SC14 submission for framing; complete before final recommendation |
+| Medium — document and test index errors | Agreed in stages | Final calculations and values; record of overlapping years and data changes; checks against observed indices; tests of gradual change, abrupt change, missing surveys, regional balance, and index reliability | Core documentation before SC14; additional tests in continuing work |
+| Medium — show candidate evolution and retain reviewer caveats | Agreed | SCW17-to-current comparison table; dated decision records; reviewer comments separated from author response | Before SC14 submission |
+
+: Response to the review's eight principal issues. {#tbl-issues}
+
+## How to tell when the work is complete
+
+### Agreement among the published files
+
+Completion requires more than checking that a file exists or has the expected
+size. Automatic checks compare CMP settings, candidate membership, tuning,
+performance statistics, time periods, labels, two-stock components, scorecard
+inputs, public downloads, and reported statements. A checksum identifies a
+file; it does not establish scientific consistency among files.
+
+### Minimum biological performance requirements
+
+The 60% dynamic Kobe-green probability remains a common tuning target,
+not the only requirement for biological performance. The response should
+explain how this target relates to the COMM8 objectives and should report the
+chance of low biomass and overfishing. Results must be shown for each relevant
+stock component and difficult OM. A decision to accept a known weakness must
+be identified as a management judgment.
+
+### Ready for annual use
+
+Completion requires a complete set of instructions from which two independent
+analysts obtain identical advice. It must address units, providers, cut-off
+dates, missing and revised data, weighting, prior advice, annual limits,
+rounding, allocation, realized catch, effort, fallback, verification, and ECP
+rules for who reviews a problem and what action can be taken.
+
+### Spatial results and the allocation comment
+
+The allocation analysis is complete for this paper. The author's response will
+explain the purpose of the fixed-split tests, how they relate to the allocation
+method in the CMP, and why no additional allocation analysis is needed. The
+spatial results remain relevant where they help SC14 understand stock
+structure, movement, or regional monitoring.
+
+### Banking and borrowing
+
+The updated runs may be reported as work in progress. A conclusion
+about the incremental effect of banking and borrowing requires a matched
+without-banking-and-borrowing comparison using identical OM draws and all
+other CMP settings held constant.
+
+## Overall conclusion
+
+> The authors thank the reviewer and accept the central recommendation that the
+> scientific synthesis and its supporting products must present one consistent
+> account. The MSE is sufficiently advanced for Scientific Committee
+> review and provisional shortlisting. Final recommendation or adoption should
+> depend on completion of the checks on published results, minimum biological
+> performance requirements, instructions
+> for annual use, and exceptional-circumstances items
+> recorded in this response.
+
+The complete reviewer text will accompany this response or be submitted as a
+separate official information paper. These response tables do not replace the
+independent review.

@@ -1,0 +1,147 @@
+---
+title: "Jack mackerel MSE: technical information and work remaining"
+format:
+  html:
+    number-sections: true
+---
+
+{{< include ../_includes/sprfmo-banner.qmd >}}
+
+<div class="paper-title">Jack mackerel MSE: technical information and work remaining</div>
+
+## Scope
+
+This paper allows a reviewer to find the CMP description, OM, performance
+measure, and results that support the [full MSE
+report](../evidence/sc14-mse-report.qmd) and the [SC14 questions and tasks
+paper](decision-paper.qmd). It also distinguishes completed work from
+scientific and practical work that remains.
+
+## Which files control the results
+
+The official set of files is organized in this order:
+
+1. the saved source code, CMP settings, simulation settings, and complete runs;
+2. the checked result files, including the 500-draw Slick file;
+3. the CMP list, tables, figures, and scorecard inputs made from those results;
+4. the explanation in the technical and main papers; and
+5. the CMP and annual-use pages made from the same settings.
+
+The current status is documented on the
+[sources and changes page](../governance/traceability.qmd). The final version
+will include a file list recording the code version, model runs, paper files,
+software used, file checksums, and products that are no longer current.
+
+## Where to find the supporting information
+
+| Topic | Current detailed source | Additional information needed |
+|---|---|---|
+| Development from SCW17 | [Current report: development](../evidence/sc14-mse-report.qmd#development-from-scw17-to-the-current-analysis) | Candidate translation table showing what changed and when |
+| OM set and simulation | [Operating models](../evidence/sc14-mse-report.qmd#operating-models-and-simulation-methods) | Complete OM definitions, plausibility rationale, and decision role |
+| Index errors | [Generating OM data indices](../evidence/sc14-mse-report.qmd#generating-om-data-indices) | Calculations, values, data changes, overlapping years, uncertainty, and checks against the observed indices |
+| CMP definitions | [CMP list](../cmp/index.qmd) and individual CMP pages | One table with names, roles, units, settings, and file version |
+| Tuning | [Candidate procedures](../evidence/sc14-mse-report.qmd#candidate-management-procedures) | Exact quantity used for tuning, result for every CMP, uncertainty due to the number of runs, and effect of small changes to the trigger |
+| Performance measures | [Performance evaluation](../evidence/sc14-mse-report.qmd#performance-evaluation-and-the-draft-scorecard) | Calculations, time periods, how results are combined, whether high or low values are preferred, and how each measure is used |
+| Alternative OMs | [Main findings](../evidence/sc14-mse-report.qmd#main-performance-and-robustness-findings) | CMP-by-OM biological performance table, ranges of results, and results for each component in the two-stock OMs |
+| Banking and borrowing | [Current analysis](../evidence/sc14-mse-report.qmd#banking-borrowing-and-implementation-constraints) | Matched with/without comparison using identical OM draws before implementation conclusions |
+| Annual calculation | [Annual workflow](../application/annual-workflow.qmd) and [input data](../application/input-data.qmd) | Complete instructions for calculating advice from every shortlisted CMP |
+| Exceptional circumstances | [Current framework](../evidence/sc14-mse-report.qmd#exceptional-circumstances-and-annual-monitoring) | Indicators, thresholds, false alarms, missed detections, authority, and response options |
+
+: Where to find the information needed for each decision. {#tbl-evidence-map}
+
+## Results to report for each CMP and OM
+
+For every CMP and OM or stock-component combination, the final results will
+report at least:
+
+- mean dynamic Kobe-green probability for the defined tuning period;
+- probability below the agreed biomass limit by year, maximum annual risk, and
+  probability of crossing the limit at least once;
+- dynamic Kobe-red or other agreed joint-risk statistic;
+- overfishing probability;
+- near-, medium-, and long-term catch;
+- IACC and mean annual reduction in advice;
+- probability of catch below 270 kt and any shutdown statistic;
+- catch-rate or effort-feasibility measures and frequency of a binding effort
+  cap; and
+- whether the CMP is ready for annual use and the reason for any remaining
+  problem.
+
+The results will show uncertainty caused by the number of simulation runs. The
+paper will explain how uncertainty in the assessment and future stock and index
+conditions was included, whether CMPs were tested using the same random draws,
+and whether the conclusions change when more simulations or different random
+draws are used.
+
+## Separate biological requirements from management preferences
+
+The technical paper keeps three steps distinct:
+
+1. **Minimum biological performance:** the requirements that determine whether
+   a CMP can advance.
+2. **Alternative assumptions:** performance and plausibility across alternative OMs,
+   including component-specific outcomes.
+3. **Management preferences:** trade-offs among candidates that meet the
+   requirements in the first two steps.
+
+The scorecard belongs only in the third step. Its measures, scaling, weights,
+candidate set, and comparison tests will be saved in downloadable files. It
+will show how rankings change when OMs, measures, periods, candidates, weights,
+or random draws change.
+
+## Spatial structure and movement
+
+The technical paper reports northern and southern components separately for
+every two-stock OM and shows the regional indices used by the CMP. It explains:
+
+- the fixed catch splits used to test different assumptions;
+- the `split.is` method used in the CMP definitions; and
+- any separate northern assessment or management process relevant to
+  interpreting the results.
+
+The allocation work is treated as complete for the present analysis. This
+section documents what was tested and why; it does not open a new line of
+allocation analysis. The author's response to the reviewer provides the
+interpretation to accompany it.
+
+## Instructions for annual calculation
+
+Each shortlisted CMP will have one complete set of instructions containing
+its indicator equation, HCR equation, allocation rule, parameters, data rules,
+fallback rules, calculation sequence, and ECP interface. A saved retrospective
+example will include the source data, intermediate values, unrounded advice,
+annual-limit calculation, allocation, rounding, and final result.
+
+An automatic test will run the example independently and compare every
+intermediate and final value with saved expected results. Explanatory text
+may explain the CMP but does not redefine its settings.
+
+## Checks before publication
+
+Publication should stop if any of the following disagree:
+
+- CMP membership, names, roles, triggers, targets, minima, or annual limits;
+- report, CMP-list, CMP-page, and annual-use-page settings;
+- results from the main and alternative OMs;
+- tuning probabilities and reference-point definitions;
+- two-stock component labels or results;
+- scorecard inputs and generated rankings;
+- downloadable CSVs, figures, Slick contents, and report statements; or
+- file checksums and the final file list.
+
+## Work remaining after SC14
+
+Unless completed before submission, the paper records:
+
+- final operational units, cut-offs, missing/revised-data rules, and rounding;
+- matched banking-and-borrowing evaluation;
+- advice-versus-realized-catch simulation or justification;
+- simulation-precision analysis;
+- final performance measures and agreed biological requirements;
+- tests of whether the ECP detects problems, and rules for who decides what
+  happens next; and
+- an independent check that the annual calculation can be repeated.
+
+Each item should have a named person or group responsible for it, a clear test
+for completion, and a date for decision before a CMP is recommended for
+adoption.
