@@ -1,0 +1,240 @@
+release_id: SC14-MSE-2026-RC1
+title: Jack mackerel MSE package for SC14
+stage: release-candidate
+prepared: 2026-08-09
+purpose: >-
+  The named set of CMP definitions, simulation results, papers, figures,
+  downloads, and checks prepared for SC14 review.
+
+repositories:
+  reporting:
+    name: SPRFMO/jmMSE26
+    path: "."
+    revision: SC14-MSE-2026-RC1
+    require_clean_tracked_files: true
+  analysis:
+    name: SPRFMO/jmMSE
+    path: "../jmMSE-500-refine"
+    revision: 77968e4a9febcad5315a7c00419b6d1690e3e102
+    require_clean_tracked_files: true
+
+authoritative_files:
+  cmp_registry: doc/data/cmp-registry.csv
+  simulation_controls: ../jmMSE-500-refine/candidate_mps_500.csv
+  tuning_summary: ../jmMSE-500-refine/output/tune/tuning_500_from_100_summary.csv
+  reference_results: output/candidate-performance-500/reference/performance_with_vb.rds
+  robustness_results: output/candidate-performance-500/robustness/performance_with_vb.rds
+  slick_file: output/jm_candidates_500.slick
+
+expected:
+  candidates:
+    - MP29
+    - MP43
+    - MP45
+    - MP47
+    - MP32
+    - MP44
+    - MP46
+    - MP48
+  candidate_codes:
+    - tun29
+    - tun43
+    - tun45
+    - tun47
+    - tun32
+    - tun44
+    - tun46
+    - tun48
+  draws: 500
+  result_first_year: 2024
+  result_last_year: 2050
+  tuning_first_year: 2041
+  tuning_last_year: 2050
+  reference_om_code: om11
+  reference_source_om: h1_0.16
+  robustness_om_codes:
+    - om11_1
+    - om11_2
+    - om11_3
+    - om12
+    - om13
+    - om21
+    - om21_1
+    - om22
+    - om23
+  statistics:
+    - C
+    - FMSY
+    - IACC
+    - SBMSY
+    - VB2025
+    - VBMSY
+  numeric_tolerance: 1.0e-10
+
+release_files:
+  - category: analysis-code
+    path: ../jmMSE-500-refine/config.R
+  - category: analysis-code
+    path: ../jmMSE-500-refine/data_load.R
+  - category: analysis-code
+    path: ../jmMSE-500-refine/utilities.R
+  - category: analysis-code
+    path: ../jmMSE-500-refine/tune_candidate_change_limits.R
+  - category: analysis-code
+    path: ../jmMSE-500-refine/prepare_sc14_reference_500.R
+  - category: analysis-code
+    path: ../jmMSE-500-refine/run_candidate_mps.R
+  - category: reporting-code
+    path: R/augment_candidate_vb_performance.R
+  - category: reporting-code
+    path: R/build_banking_borrowing_evidence.R
+  - category: reporting-code
+    path: R/build_candidate_evidence_figures.R
+  - category: reporting-code
+    path: R/build_candidate_scorecard.R
+  - category: reporting-code
+    path: R/build_candidate_slick.R
+  - category: reporting-code
+    path: R/extract_candidate_robustness_500.R
+  - category: reporting-code
+    path: R/plot_sc14_tradeoffs.R
+  - category: definition
+    path: doc/data/cmp-registry.csv
+  - category: definition
+    path: ../jmMSE-500-refine/candidate_mps_500.csv
+  - category: tuning
+    path: ../jmMSE-500-refine/output/tune/tuning_500_from_100_summary.csv
+  - category: tuning
+    path: doc/data/candidates/trigger_tolerance_summary_500.csv
+  - category: results
+    path: output/candidate-performance-500/reference/performance_with_vb.rds
+  - category: results
+    path: output/candidate-performance-500/robustness/performance_with_vb.rds
+  - category: results
+    path: output/jm_candidates_500.slick
+  - category: results
+    path: doc/data/candidates/candidate_quilt_reference_summary.csv
+  - category: results
+    path: doc/data/candidates/candidate_scorecard_input_reference.csv
+  - category: results
+    path: doc/data/candidates/candidate_scorecard_result_reference.csv
+  - category: results
+    path: doc/data/candidates/kobe_reference_periods_summary.csv
+  - category: results
+    path: doc/data/candidates/vb_reference_summary.csv
+  - category: results
+    path: doc/data/candidates/vb_robustness_summary.csv
+  - category: figure
+    path: doc/figures/candidates/candidate_quilt_reference.png
+  - category: figure
+    path: doc/figures/candidates/kobe_reference_periods.png
+  - category: figure
+    path: doc/figures/candidates/vb_reference.png
+  - category: figure
+    path: doc/figures/candidates/vb_robustness.png
+  - category: figure
+    path: doc/figures/sc14-tradeoff-reference.png
+  - category: figure
+    path: doc/figures/sc14-tradeoff-single-stock-robustness.png
+  - category: figure
+    path: doc/figures/sc14-tradeoff-two-stock-robustness.png
+  - category: paper-source
+    path: doc/sc14/index.qmd
+  - category: paper-source
+    path: doc/sc14/decision-paper.qmd
+  - category: paper-source
+    path: doc/evidence/sc14-mse-report.qmd
+  - category: paper-source
+    path: doc/sc14/technical-paper.qmd
+  - category: paper-source
+    path: doc/sc14/review-response.qmd
+  - category: public-page-source
+    path: doc/cmp/index.qmd
+  - category: public-page-source
+    path: doc/cmp/mp29.qmd
+  - category: public-page-source
+    path: doc/cmp/mp32.qmd
+  - category: public-page-source
+    path: doc/cmp/mp43.qmd
+  - category: public-page-source
+    path: doc/cmp/mp44.qmd
+  - category: public-page-source
+    path: doc/application/annual-workflow.qmd
+  - category: public-page-source
+    path: doc/application/input-data.qmd
+  - category: public-page-source
+    path: doc/application/tac-2027.qmd
+  - category: public-page-source
+    path: doc/application/slick.qmd
+  - category: release-check
+    path: R/prepare_sc14_release.R
+  - category: release-check
+    path: R/check_sc14_release.R
+  - category: release-check
+    path: R/render_sc14_release.R
+  - category: release-check
+    path: doc/governance/release-check.qmd
+  - category: published-paper
+    path: docs/sc14/index.html
+  - category: published-paper
+    path: docs/sc14/index.pdf
+  - category: published-paper
+    path: docs/sc14/decision-paper.html
+  - category: published-paper
+    path: docs/sc14/decision-paper.pdf
+  - category: published-paper
+    path: docs/evidence/sc14-mse-report.html
+  - category: published-paper
+    path: docs/evidence/sc14-mse-report.pdf
+  - category: published-paper
+    path: docs/sc14/technical-paper.html
+  - category: published-paper
+    path: docs/sc14/technical-paper.pdf
+  - category: published-paper
+    path: docs/sc14/review-response.html
+  - category: published-paper
+    path: docs/sc14/review-response.pdf
+  - category: published-page
+    path: docs/cmp/index.html
+  - category: published-page
+    path: docs/cmp/mp29.html
+  - category: published-page
+    path: docs/cmp/mp32.html
+  - category: published-page
+    path: docs/cmp/mp43.html
+  - category: published-page
+    path: docs/cmp/mp44.html
+  - category: published-page
+    path: docs/application/annual-workflow.html
+  - category: published-page
+    path: docs/application/input-data.html
+  - category: published-page
+    path: docs/application/tac-2027.html
+  - category: published-page
+    path: docs/application/slick.html
+  - category: published-page
+    path: docs/governance/traceability.html
+
+published_outputs:
+  - docs/sc14/index.html
+  - docs/sc14/index.pdf
+  - docs/sc14/decision-paper.html
+  - docs/sc14/decision-paper.pdf
+  - docs/evidence/sc14-mse-report.html
+  - docs/evidence/sc14-mse-report.pdf
+  - docs/sc14/technical-paper.html
+  - docs/sc14/technical-paper.pdf
+  - docs/sc14/review-response.html
+  - docs/sc14/review-response.pdf
+  - docs/governance/release-check.html
+  - docs/data/release/sc14-run-index.csv
+  - docs/data/release/sc14-file-list.csv
+  - docs/data/release/sc14-check-results.csv
+  - docs/data/release/sc14-check-results.json
+
+superseded_current_products:
+  - output/jm_candidates.slick
+  - output/candidate-performance/reference/performance_with_vb.rds
+  - output/candidate-performance/robustness/performance_with_vb.rds
+  - doc/tuns_ctrl.csv
+  - doc/robs_ctrl.csv

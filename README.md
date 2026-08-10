@@ -19,6 +19,28 @@ quarto render
 
 Rendered files are written to `docs/` for GitHub Pages.
 
+## Prepare and check the named SC14 release
+
+The current release candidate is `SC14-MSE-2026-RC1`. Use these commands from
+the repository root:
+
+```sh
+Rscript R/render_sc14_release.R
+Rscript R/prepare_sc14_release.R
+Rscript R/check_sc14_release.R
+Rscript R/render_sc14_release.R governance/release-check.qmd
+```
+
+The first command renders the site and PDFs using the release date as a fixed
+creation time. The second intentionally records the run list and the
+fingerprints of the files being accepted for the release. The third compares
+the CMP controls, runs, results, Slick values, public summaries, and recorded
+files. The final command updates the plain-language agreement report without
+changing the accepted file list.
+
+Do not rerun `prepare_sc14_release.R` merely to make a changed-file warning go
+away. First review why the file changed and whether it belongs in the release.
+
 ## Repository roles
 
 - `doc/cmp/`: CMP registry, component inventory, and specification template.
@@ -28,7 +50,7 @@ Rendered files are written to `docs/` for GitHub Pages.
 - `doc/governance/`: provenance, versioning, and change-control rules.
 - `doc/data/cmp-registry.csv`: machine-readable registry sourced from `jmMSE`.
 - `R/build_candidate_slick.R`: validated eight-CMP performance-to-Slick adapter.
-- `output/jm_candidates.slick`: the single validated eight-CMP review file,
+- `output/jm_candidates_500.slick`: the named eight-CMP SC14 review file,
   combining the om11 reference with the single-stock and two-stock robustness
   sets (500 posterior iterations, 1970–2050), with Set, OM, and Stock filters and
   one-click OM presets.
@@ -38,8 +60,8 @@ procedure unless its registry status and decision record say so.
 
 ## Open the current Slick results
 
-The validated file is
-[`output/jm_candidates.slick`](output/jm_candidates.slick). It contains eight
+The checked 500-draw file is
+[`output/jm_candidates_500.slick`](output/jm_candidates_500.slick). It contains eight
 CMP comparison cases across the reference and robustness operating models.
 Northern and Southern stock components retain their source labels. For readable
 plots, F/FMSY is missing where FMSY is zero and finite F/FMSY values above 4
@@ -47,7 +69,7 @@ are displayed at 4; the original `jmMSE` performance tables are unchanged.
 
 ### Use the hosted Slick app
 
-1. [Download `jm_candidates.slick`](https://raw.githubusercontent.com/SPRFMO/jmMSE26/main/output/jm_candidates.slick).
+1. [Download `jm_candidates_500.slick`](https://raw.githubusercontent.com/SPRFMO/jmMSE26/main/output/jm_candidates_500.slick).
 2. Open the [Blue Matter Slick app](https://shiny.bluematterscience.com/app/slick).
 3. If the service says the app has stopped, select **Restart app**.
 4. On the opening page, under **Load your MSE Results**, select the downloaded
@@ -68,7 +90,7 @@ library(Slick)
 
 url <- paste0(
   "https://raw.githubusercontent.com/SPRFMO/jmMSE26/",
-  "main/output/jm_candidates.slick"
+  "main/output/jm_candidates_500.slick"
 )
 file <- tempfile(fileext = ".slick")
 download.file(url, file, mode = "wb")

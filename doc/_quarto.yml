@@ -3,6 +3,9 @@ project:
   output-dir: ../docs
   resources:
     - data/candidates/*
+    - data/release/*
+
+lang: en-US
 
 website:
   title: "SPRFMO Jack Mackerel CMPs"
@@ -41,7 +44,7 @@ website:
           - href: cmp/mp32.qmd
             text: MP32 sensitivity
           - href: cmp/control-reference.qmd
-            text: Tuning and alternative runs
+            text: Earlier tuning controls
           - href: cmp/components.qmd
             text: Parts of a CMP
           - href: cmp/specification-template.qmd
@@ -66,6 +69,8 @@ website:
             text: How MSE fits
           - href: governance/traceability.qmd
             text: Sources & changes
+          - href: governance/release-check.qmd
+            text: Agreement checks
   sidebar:
     style: docked
     contents:
@@ -99,6 +104,7 @@ website:
           - evidence/scw17-evidence.qmd
           - workflow/mse-flow.qmd
           - governance/traceability.qmd
+          - governance/release-check.qmd
   page-footer:
     left: "SPRFMO Jack Mackerel Working Group"
     right: "Specifications and results are version controlled."

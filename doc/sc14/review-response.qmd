@@ -51,7 +51,7 @@ completion of the instructions and checks needed for annual use.
 
 | Priority and review issue | Response | Work needed | Timing |
 |---|---|---|---|
-| High — align published files | Agreed | One named final version; exact code revision; list of simulation runs and files; remade report, CMP list, CMP and annual-use pages, figures, CSVs, and Slick file; automatic report showing that the important numbers agree | Before SC14 submission |
+| High — align published files | Agreed; release candidate assembled | `SC14-MSE-2026-RC1`; exact revisions and remaining tracked changes; complete simulation and file lists; report, CMP list, annual-use pages, figures, CSVs, and Slick file linked to the same set; [automatic report](../governance/release-check.qmd) comparing the important numbers | Resolve any checks marked not ready before SC14 submission |
 | High — limit current request to shortlist consideration | Agreed | Revised requested-advice text and explicit pre-adoption completion list | Before SC14 submission |
 | High — clarify minimum biological requirements and difficult cases | Agreed | Explain the relationship between COMM8 and K60; agree measures of the chance of falling below a biomass limit; provide a CMP-by-OM table including `om23`; show results for each stock component; explain how plausible each OM is and how it should affect the decision | Requirements requested at SC14; completed before adoption |
 | High — describe HS versus PR as complete configurations | Agreed | Revised terminology; matched illustration used only to explain rule shape | Before SC14 submission |
@@ -71,6 +71,9 @@ size. Automatic checks compare CMP settings, candidate membership, tuning,
 performance statistics, time periods, labels, two-stock components, scorecard
 inputs, public downloads, and reported statements. A checksum identifies a
 file; it does not establish scientific consistency among files.
+
+The current results and remaining release steps are shown in the
+[checks of agreement among the SC14 files](../governance/release-check.qmd).
 
 ### Minimum biological performance requirements
 

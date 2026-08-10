@@ -1,0 +1,434 @@
+{
+  "release_id": "SC14-MSE-2026-RC1",
+  "checked": "2026-08-09",
+  "summary": {
+    "Pass": 47,
+    "Not ready": 0,
+    "Fail": 0
+  },
+  "checks": [
+    {
+      "area": "release identity",
+      "check": "SPRFMO/jmMSE26 revision",
+      "outcome": "Pass",
+      "expected": "SC14-MSE-2026-RC1",
+      "observed": "SC14-MSE-2026-RC1 resolves to current commit",
+      "source": ".",
+      "note": ""
+    },
+    {
+      "area": "release identity",
+      "check": "SPRFMO/jmMSE26 tracked files",
+      "outcome": "Pass",
+      "expected": "no uncommitted tracked changes",
+      "observed": "none",
+      "source": ".",
+      "note": ""
+    },
+    {
+      "area": "release identity",
+      "check": "SPRFMO/jmMSE revision",
+      "outcome": "Pass",
+      "expected": "77968e4a9febcad5315a7c00419b6d1690e3e102",
+      "observed": "77968e4a9febcad5315a7c00419b6d1690e3e102",
+      "source": "../jmMSE-500-refine",
+      "note": ""
+    },
+    {
+      "area": "release identity",
+      "check": "SPRFMO/jmMSE tracked files",
+      "outcome": "Pass",
+      "expected": "no uncommitted tracked changes",
+      "observed": "none",
+      "source": "../jmMSE-500-refine",
+      "note": ""
+    },
+    {
+      "area": "CMP definitions",
+      "check": "SC14 CMP membership",
+      "outcome": "Pass",
+      "expected": "MP29, MP32, MP43, MP44, MP45, MP46, MP47, MP48",
+      "observed": "MP29, MP32, MP43, MP44, MP45, MP46, MP47, MP48",
+      "source": "doc/data/cmp-registry.csv",
+      "note": ""
+    },
+    {
+      "area": "CMP definitions",
+      "check": "simulation-control membership",
+      "outcome": "Pass",
+      "expected": "tun29, tun32, tun43, tun44, tun45, tun46, tun47, tun48",
+      "observed": "tun29, tun32, tun43, tun44, tun45, tun46, tun47, tun48",
+      "source": "../jmMSE-500-refine/candidate_mps_500.csv",
+      "note": ""
+    },
+    {
+      "area": "CMP definitions",
+      "check": "registry agrees with simulation controls",
+      "outcome": "Pass",
+      "expected": "all eight HCRs and numerical settings agree",
+      "observed": "all agree",
+      "source": "doc/data/cmp-registry.csv; ../jmMSE-500-refine/candidate_mps_500.csv",
+      "note": ""
+    },
+    {
+      "area": "tuning",
+      "check": "registry agrees with 500-draw tuning summary",
+      "outcome": "Pass",
+      "expected": "eight matching labels and triggers",
+      "observed": "all agree",
+      "source": "../jmMSE-500-refine/output/tune/tuning_500_from_100_summary.csv",
+      "note": ""
+    },
+    {
+      "area": "simulation results",
+      "check": "reference CMP membership",
+      "outcome": "Pass",
+      "expected": "tun29, tun32, tun43, tun44, tun45, tun46, tun47, tun48",
+      "observed": "tun29, tun32, tun43, tun44, tun45, tun46, tun47, tun48",
+      "source": "output/candidate-performance-500/reference/performance_with_vb.rds",
+      "note": ""
+    },
+    {
+      "area": "simulation results",
+      "check": "reference draws",
+      "outcome": "Pass",
+      "expected": "500",
+      "observed": "500",
+      "source": "output/candidate-performance-500/reference/performance_with_vb.rds",
+      "note": ""
+    },
+    {
+      "area": "simulation results",
+      "check": "reference years",
+      "outcome": "Pass",
+      "expected": "2024-2050",
+      "observed": "2024-2050",
+      "source": "output/candidate-performance-500/reference/performance_with_vb.rds",
+      "note": ""
+    },
+    {
+      "area": "simulation results",
+      "check": "reference statistics",
+      "outcome": "Pass",
+      "expected": "C, FMSY, IACC, SBMSY, VB2025, VBMSY",
+      "observed": "C, FMSY, IACC, SBMSY, VB2025, VBMSY",
+      "source": "output/candidate-performance-500/reference/performance_with_vb.rds",
+      "note": ""
+    },
+    {
+      "area": "simulation results",
+      "check": "robustness CMP membership",
+      "outcome": "Pass",
+      "expected": "tun29, tun32, tun43, tun44, tun45, tun46, tun47, tun48",
+      "observed": "tun29, tun32, tun43, tun44, tun45, tun46, tun47, tun48",
+      "source": "output/candidate-performance-500/robustness/performance_with_vb.rds",
+      "note": ""
+    },
+    {
+      "area": "simulation results",
+      "check": "robustness draws",
+      "outcome": "Pass",
+      "expected": "500",
+      "observed": "500",
+      "source": "output/candidate-performance-500/robustness/performance_with_vb.rds",
+      "note": ""
+    },
+    {
+      "area": "simulation results",
+      "check": "robustness years",
+      "outcome": "Pass",
+      "expected": "2024-2050",
+      "observed": "2024-2050",
+      "source": "output/candidate-performance-500/robustness/performance_with_vb.rds",
+      "note": ""
+    },
+    {
+      "area": "simulation results",
+      "check": "robustness statistics",
+      "outcome": "Pass",
+      "expected": "C, FMSY, IACC, SBMSY, VB2025, VBMSY",
+      "observed": "C, FMSY, IACC, SBMSY, VB2025, VBMSY",
+      "source": "output/candidate-performance-500/robustness/performance_with_vb.rds",
+      "note": ""
+    },
+    {
+      "area": "simulation results",
+      "check": "robustness operating models",
+      "outcome": "Pass",
+      "expected": "om11_1, om11_2, om11_3, om12, om13, om21, om21_1, om22, om23",
+      "observed": "om11_1, om11_2, om11_3, om12, om13, om21, om21_1, om22, om23",
+      "source": "output/candidate-performance-500/robustness/performance_with_vb.rds",
+      "note": ""
+    },
+    {
+      "area": "simulation results",
+      "check": "published run list candidate membership",
+      "outcome": "Pass",
+      "expected": "tun29, tun32, tun43, tun44, tun45, tun46, tun47, tun48",
+      "observed": "tun29, tun32, tun43, tun44, tun45, tun46, tun47, tun48",
+      "source": "release/sc14-run-index.csv",
+      "note": ""
+    },
+    {
+      "area": "simulation results",
+      "check": "published run list draw count",
+      "outcome": "Pass",
+      "expected": "500",
+      "observed": "500",
+      "source": "release/sc14-run-index.csv",
+      "note": ""
+    },
+    {
+      "area": "simulation results",
+      "check": "published run and stock combinations",
+      "outcome": "Pass",
+      "expected": "112",
+      "observed": "112",
+      "source": "release/sc14-run-index.csv",
+      "note": "Two-stock operating models have one row for each stock component."
+    },
+    {
+      "area": "Slick file",
+      "check": "Slick structural check",
+      "outcome": "Pass",
+      "expected": "Slick::Check completes",
+      "observed": "complete",
+      "source": "output/jm_candidates_500.slick",
+      "note": ""
+    },
+    {
+      "area": "Slick file",
+      "check": "CMP codes and labels",
+      "outcome": "Pass",
+      "expected": "tun29=HS+20, tun43=HS-20, tun45=HSsym, tun47=HS-30, tun32=PR+20, tun44=PR-20, tun46=PRsym, tun48=PR-30",
+      "observed": "tun29=HS+20, tun43=HS-20, tun45=HSsym, tun47=HS-30, tun32=PR+20, tun44=PR-20, tun46=PRsym, tun48=PR-30",
+      "source": "output/jm_candidates_500.slick",
+      "note": ""
+    },
+    {
+      "area": "Slick file",
+      "check": "operating-model and stock rows",
+      "outcome": "Pass",
+      "expected": "14 rows including om23 North and Southern",
+      "observed": "14 rows",
+      "source": "output/jm_candidates_500.slick",
+      "note": ""
+    },
+    {
+      "area": "Slick file",
+      "check": "future numerical values agree with result files",
+      "outcome": "Pass",
+      "expected": "no differences",
+      "observed": "0 differences; maximum absolute difference 0e+00",
+      "source": "output/candidate-performance-500/reference/performance_with_vb.rds; output/candidate-performance-500/robustness/performance_with_vb.rds; output/jm_candidates_500.slick",
+      "note": ""
+    },
+    {
+      "area": "tuning",
+      "check": "reported tuning probabilities recalculate from Slick",
+      "outcome": "Pass",
+      "expected": "0.6098, 0.5918, 0.6042, 0.6038, 0.6026, 0.5984, 0.5954, 0.6056",
+      "observed": "0.6098, 0.5918, 0.6042, 0.6038, 0.6026, 0.5984, 0.5954, 0.6056",
+      "source": "../jmMSE-500-refine/output/tune/tuning_500_from_100_summary.csv; output/jm_candidates_500.slick",
+      "note": "maximum absolute difference 9.992007e-16"
+    },
+    {
+      "area": "public summaries",
+      "check": "CMP membership in figure and scorecard tables",
+      "outcome": "Pass",
+      "expected": "the same eight CMPs in all six tables",
+      "observed": "all agree",
+      "source": "doc/data/candidates/candidate_quilt_reference_summary.csv; doc/data/candidates/candidate_scorecard_input_reference.csv; doc/data/candidates/candidate_scorecard_result_reference.csv; doc/data/candidates/kobe_reference_periods_summary.csv; doc/data/candidates/vb_reference_summary.csv; doc/data/candidates/vb_robustness_summary.csv",
+      "note": ""
+    },
+    {
+      "area": "public summaries",
+      "check": "scorecard inputs agree with the figure summary",
+      "outcome": "Pass",
+      "expected": "identical numerical inputs",
+      "observed": "maximum absolute difference 0e+00",
+      "source": "doc/data/candidates/candidate_quilt_reference_summary.csv; doc/data/candidates/candidate_scorecard_input_reference.csv",
+      "note": ""
+    },
+    {
+      "area": "public summaries",
+      "check": "Kobe figure table agrees with the Slick file",
+      "outcome": "Pass",
+      "expected": "identical period summaries",
+      "observed": "maximum absolute difference 4.218847e-15",
+      "source": "doc/data/candidates/kobe_reference_periods_summary.csv; output/jm_candidates_500.slick",
+      "note": ""
+    },
+    {
+      "area": "public pages",
+      "check": "individual CMP pages use the refined triggers",
+      "outcome": "Pass",
+      "expected": "current triggers and no earlier trigger values",
+      "observed": "all agree",
+      "source": "doc/cmp/mp29.qmd; doc/cmp/mp32.qmd; doc/cmp/mp43.qmd; doc/cmp/mp44.qmd",
+      "note": ""
+    },
+    {
+      "area": "published files",
+      "check": "all listed files exist",
+      "outcome": "Pass",
+      "expected": "all present",
+      "observed": "all present",
+      "source": "release/sc14-file-list.csv",
+      "note": ""
+    },
+    {
+      "area": "published files",
+      "check": "listed files match the accepted baseline",
+      "outcome": "Pass",
+      "expected": "all fingerprints agree",
+      "observed": "all agree",
+      "source": "release/sc14-file-list.csv",
+      "note": ""
+    },
+    {
+      "area": "published files",
+      "check": "published output docs/sc14/index.html",
+      "outcome": "Pass",
+      "expected": "file exists",
+      "observed": "present",
+      "source": "docs/sc14/index.html",
+      "note": ""
+    },
+    {
+      "area": "published files",
+      "check": "published output docs/sc14/index.pdf",
+      "outcome": "Pass",
+      "expected": "file exists",
+      "observed": "present",
+      "source": "docs/sc14/index.pdf",
+      "note": ""
+    },
+    {
+      "area": "published files",
+      "check": "published output docs/sc14/decision-paper.html",
+      "outcome": "Pass",
+      "expected": "file exists",
+      "observed": "present",
+      "source": "docs/sc14/decision-paper.html",
+      "note": ""
+    },
+    {
+      "area": "published files",
+      "check": "published output docs/sc14/decision-paper.pdf",
+      "outcome": "Pass",
+      "expected": "file exists",
+      "observed": "present",
+      "source": "docs/sc14/decision-paper.pdf",
+      "note": ""
+    },
+    {
+      "area": "published files",
+      "check": "published output docs/evidence/sc14-mse-report.html",
+      "outcome": "Pass",
+      "expected": "file exists",
+      "observed": "present",
+      "source": "docs/evidence/sc14-mse-report.html",
+      "note": ""
+    },
+    {
+      "area": "published files",
+      "check": "published output docs/evidence/sc14-mse-report.pdf",
+      "outcome": "Pass",
+      "expected": "file exists",
+      "observed": "present",
+      "source": "docs/evidence/sc14-mse-report.pdf",
+      "note": ""
+    },
+    {
+      "area": "published files",
+      "check": "published output docs/sc14/technical-paper.html",
+      "outcome": "Pass",
+      "expected": "file exists",
+      "observed": "present",
+      "source": "docs/sc14/technical-paper.html",
+      "note": ""
+    },
+    {
+      "area": "published files",
+      "check": "published output docs/sc14/technical-paper.pdf",
+      "outcome": "Pass",
+      "expected": "file exists",
+      "observed": "present",
+      "source": "docs/sc14/technical-paper.pdf",
+      "note": ""
+    },
+    {
+      "area": "published files",
+      "check": "published output docs/sc14/review-response.html",
+      "outcome": "Pass",
+      "expected": "file exists",
+      "observed": "present",
+      "source": "docs/sc14/review-response.html",
+      "note": ""
+    },
+    {
+      "area": "published files",
+      "check": "published output docs/sc14/review-response.pdf",
+      "outcome": "Pass",
+      "expected": "file exists",
+      "observed": "present",
+      "source": "docs/sc14/review-response.pdf",
+      "note": ""
+    },
+    {
+      "area": "published files",
+      "check": "published output docs/governance/release-check.html",
+      "outcome": "Pass",
+      "expected": "file exists",
+      "observed": "present",
+      "source": "docs/governance/release-check.html",
+      "note": ""
+    },
+    {
+      "area": "published files",
+      "check": "published output docs/data/release/sc14-run-index.csv",
+      "outcome": "Pass",
+      "expected": "file exists",
+      "observed": "present",
+      "source": "docs/data/release/sc14-run-index.csv",
+      "note": ""
+    },
+    {
+      "area": "published files",
+      "check": "published output docs/data/release/sc14-file-list.csv",
+      "outcome": "Pass",
+      "expected": "file exists",
+      "observed": "present",
+      "source": "docs/data/release/sc14-file-list.csv",
+      "note": ""
+    },
+    {
+      "area": "published files",
+      "check": "published output docs/data/release/sc14-check-results.csv",
+      "outcome": "Pass",
+      "expected": "file exists",
+      "observed": "present",
+      "source": "docs/data/release/sc14-check-results.csv",
+      "note": ""
+    },
+    {
+      "area": "published files",
+      "check": "published output docs/data/release/sc14-check-results.json",
+      "outcome": "Pass",
+      "expected": "file exists",
+      "observed": "present",
+      "source": "docs/data/release/sc14-check-results.json",
+      "note": ""
+    },
+    {
+      "area": "published files",
+      "check": "superseded filenames are not presented as current",
+      "outcome": "Pass",
+      "expected": "none",
+      "observed": "none",
+      "source": "release/sc14-mse-2026-rc1.yml",
+      "note": "Historical references may remain, but they must be labelled as replaced."
+    }
+  ]
+}

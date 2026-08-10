@@ -1,0 +1,103 @@
+---
+title: "Checks of agreement among the SC14 files"
+---
+
+{{< include ../_includes/sprfmo-banner.qmd >}}
+
+<div class="paper-title">Checks of Agreement among the SC14 Files</div>
+
+```{r}
+#| label: release-check-setup
+#| include: false
+
+manifest <- yaml::read_yaml("../../release/sc14-mse-2026-rc1.yml")
+checks <- read.csv("../../release/sc14-check-results.csv",
+  stringsAsFactors = FALSE, check.names = FALSE)
+run_index <- read.csv("../../release/sc14-run-index.csv",
+  stringsAsFactors = FALSE, check.names = FALSE)
+file_list <- read.csv("../../release/sc14-file-list.csv",
+  stringsAsFactors = FALSE, check.names = FALSE)
+```
+
+## Result
+
+This page reports automatic checks for **`r manifest$release_id`**. It answers
+the reviewer's question of whether the CMP settings, named simulation runs,
+results, figures, downloads, Slick file, and papers belong to the same
+release.
+
+```{r}
+#| label: tbl-release-check-summary
+#| tbl-cap: "Summary of the automatic checks."
+#| echo: false
+
+summary <- as.data.frame(table(factor(checks$outcome,
+  levels = c("Pass", "Not ready", "Fail"))))
+names(summary) <- c("Outcome", "Number of checks")
+knitr::kable(summary)
+```
+
+**Pass** means that the automatic comparison found agreement. **Not ready**
+means that an administrative release step, such as committing the named
+revision or rendering a file, remains. **Fail** means that scientific or
+numerical content differs and must be resolved.
+
+## Checks requiring attention
+
+```{r}
+#| label: tbl-release-check-attention
+#| tbl-cap: "Checks that are not yet ready or failed."
+#| echo: false
+
+attention <- checks[checks$outcome != "Pass",
+  c("area", "check", "outcome", "observed", "note")]
+if (!nrow(attention)) {
+  attention <- data.frame(Result = "All automatic checks passed.")
+}
+knitr::kable(attention)
+```
+
+## Complete check record
+
+```{r}
+#| label: tbl-release-check-complete
+#| tbl-cap: "Complete automatic check record."
+#| echo: false
+
+knitr::kable(checks[c("area", "check", "outcome", "expected", "observed")])
+```
+
+## Simulation runs included
+
+The release contains `r nrow(run_index)` CMP, operating-model, and stock
+combinations. Two-stock operating models have separate rows for the northern
+and southern components.
+
+```{r}
+#| label: tbl-release-run-summary
+#| tbl-cap: "Summary of the named simulation runs."
+#| echo: false
+
+run_summary <- aggregate(run ~ set + om_code + stock + draws,
+  run_index, function(x) length(unique(x)))
+names(run_summary)[names(run_summary) == "run"] <- "CMP runs"
+knitr::kable(run_summary)
+```
+
+[Download the complete run list](../data/release/sc14-run-index.csv), the
+[complete file list with SHA-256 fingerprints](../data/release/sc14-file-list.csv),
+and the [machine-readable check results](../data/release/sc14-check-results.json).
+
+## What the automatic report does not decide
+
+These checks establish that the named files agree. They do not decide whether
+a CMP should be shortlisted or adopted, whether an operating model is
+plausible, or which management trade-offs should be preferred. Those remain
+questions for SC14 and, later, the Commission.
+
+Allocation is recorded only to confirm that the same implemented method is
+described throughout the package. This report does not reopen allocation as an
+analytical comparison.
+
+Manual review is still required for the scientific interpretation, figure
+readability, links, HTML accessibility, and PDF accessibility.

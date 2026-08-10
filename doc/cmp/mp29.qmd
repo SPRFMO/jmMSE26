@@ -9,8 +9,7 @@ title: "MP29 hockeystick candidate"
 ::: {.status-note}
 **Status:** sensitivity case in the current `jmMSE` analysis. MP29 preserves
 the earlier +20 annual-increase specification and has not been adopted. This
-page reflects the exact `jmMSE` version
-`94d4d325ba46220f56097b3de90824c83b7cf3cd` and the 25 July 2026 presentation.
+page is part of `SC14-MSE-2026-RC1` and uses the common 500-draw refinement.
 :::
 
 ## Identity
@@ -33,7 +32,7 @@ page reflects the exact `jmMSE` version
 |---|---:|
 | Minimum catch, `min` | 270 |
 | Limit metric, `lim` | 0.1 |
-| Trigger metric | 2.12 |
+| Trigger metric | 2.125 |
 | Target catch | 2000 |
 | Initial catch for constraints | 1385 |
 | Maximum annual decrease multiplier, `dlow` | 0.85 |
@@ -53,8 +52,8 @@ $$
 C_t^* =
 \begin{cases}
 270, & I_t \le 0.1,\\
-270 + (I_t-0.1)\dfrac{2000-270}{2.12-0.1}, & 0.1 < I_t < 2.12,\\
-2000, & I_t \ge 2.12.
+270 + (I_t-0.1)\dfrac{2000-270}{2.125-0.1}, & 0.1 < I_t < 2.125,\\
+2000, & I_t \ge 2.125.
 \end{cases}
 $$
 
@@ -62,13 +61,13 @@ The annual change rule then prevents the recommendation from falling below 85%
 or rising above 120% of the previous recommendation. For the first application
 year, the current calculation uses 1385 as the previous value.
 
-## Evidence status
+## What the current analysis shows
 
-The July WUR presentation identifies MP29 as the optimal hockeystick minimum/limit
-run and reports less year-to-year catch variation (IACC) than MP32, with
-slightly higher short-term catches. The current analysis retains MP29 and MP32
-as sensitivities to focal MP43 and MP44 across alternative operating models.
-Final adoption still requires approved annual data rules and a formal decision.
+The current analysis retains MP29 and MP32 as annual-limit sensitivities to
+focal MP43 and MP44 across the reference and alternative operating models.
+MP29's realized mean dynamic Kobe-green probability was 0.6098 over
+2041--2050. Final adoption still requires approved annual data rules and a
+formal decision.
 
 Primary sources: [`model_tune.R`](https://github.com/SPRFMO/jmMSE/blob/main/model_tune.R),
 [`model_robustness.R`](https://github.com/SPRFMO/jmMSE/blob/main/model_robustness.R),

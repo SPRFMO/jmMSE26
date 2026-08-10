@@ -20,13 +20,12 @@ title: "CMP registry"
 | Adopted | Formally adopted through the applicable SPRFMO process. |
 | Retired | Kept in the historical record but no longer under active consideration. |
 
-The primary registry comes from the current approved working version of
-`jmMSE`. **HS-20 (MP43) and PR-20 (MP44) are the focal cases for the current
-analysis. HS+20 (MP29) and PR+20 (MP32) are sensitivity cases** that preserve
-the earlier +20 maximum-increase specification. Other registered CMPs examine
-target catch, limit, rule shape, index set, and annual change limits. The focal
-designation records the current analytical emphasis; it is not a formal
-recommendation or adoption decision.
+The `SC14 release` field distinguishes the eight procedures in the named SC14
+package from earlier comparison cases. **HS-20 (MP43) and PR-20 (MP44) are the
+focal cases for the current analysis. HS+20 (MP29) and PR+20 (MP32) are
+sensitivity cases.** HSsym, PRsym, HS-30, and PR-30 complete the common
+500-draw comparison. The focal designation records the current analytical
+emphasis; it is not a formal recommendation or adoption decision.
 
 ## Working-label convention
 
@@ -43,12 +42,26 @@ agreed convention exists.
 
 ```{r}
 #| label: tbl-cmp-registry
-#| tbl-cap: "Focal, sensitivity, and comparison cases derived from jmMSE."
+#| tbl-cap: "The eight CMPs in the named SC14 release."
 #| echo: false
 
 registry <- read.csv("../data/cmp-registry.csv", check.names = FALSE)
-knitr::kable(registry)
+sc14_registry <- registry[tolower(registry$sc14_release) == "yes", ]
+display_registry <- sc14_registry[c(
+  "cmp_id", "label", "status", "hcr", "min", "lim", "trigger",
+  "target", "dlow", "dupp"
+)]
+names(display_registry) <- c(
+  "Legacy ID", "Working label", "Role", "Rule", "Minimum", "Limit",
+  "Trigger", "Target", "Decrease multiplier", "Increase multiplier"
+)
+knitr::kable(display_registry)
 ```
+
+The complete [machine-readable registry](../data/cmp-registry.csv) retains six
+earlier comparison cases so their historical identifiers and settings are not
+lost. They are marked `sc14_release = no` and are not part of the current
+SC14 result set, Slick file, figures, scorecard, or annual-use example.
 
 ## Candidate pages
 
@@ -59,11 +72,9 @@ knitr::kable(registry)
 - [Trial and robustness run reference](control-reference.qmd): the full set of
   tuning trials and the operating models used to test MP29 and MP32.
 
-The current Slick comparison includes focal HS-20 (MP43) and PR-20 (MP44),
-sensitivity HS+20 (MP29) and PR+20 (MP32), and MP18,
-MP24, MP31, MP23, MP35, and MP36. The registry additionally contains HSsym
-(MP45), PRsym (MP46), HS-30 (MP47), and PR-30 (MP48). These are clearly
-labelled as comparison cases rather than focal or adopted procedures.
+The current Slick comparison contains exactly the eight rows in the table
+above: four hockey-stick and four power-ramp procedures, each evaluated using
+the same 500 draws.
 
 ## How these candidates were developed
 

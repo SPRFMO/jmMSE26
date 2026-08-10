@@ -10,9 +10,13 @@ title: "Sources and record of changes"
 
 | Source | Exact saved version used | Material used here |
 |---|---|---|
-| `SPRFMO/jmMSE` plus the isolated 500-draw refinement worktree | 500-draw tuning summaries and matched reference/robustness outputs | Primary source: completed 500-posterior reference and nine-OM robustness runs for the eight CMP comparison cases |
+| `SPRFMO/jmMSE` isolated 500-draw refinement worktree | `77968e4a9febcad5315a7c00419b6d1690e3e102`; the release check also reports whether tracked changes remain | Primary source: completed 500-posterior reference and nine-OM robustness runs for the eight CMP comparison cases |
 | `SPRFMO/scw17` | `0eb97c9c0329f5ec3338e3cf885f6e1f184c4780` | Secondary source: Papers 03, 04, 08, and 09 plus Quarto conventions |
 | `output/jm_candidates_500.slick` | SHA-256 `eac4d67ed02884b833397b601f5406e17c08cfe31cb507db2637a88ff41eddf5` | Combined 500-posterior reference and nine-OM robustness results for eight CMPs, including VB/VB[2025], VB/VB[MSY], and pooled 2041--2050 low-catch probability |
+
+The named package is **SC14-MSE-2026-RC1**. Its [automatic agreement
+report](release-check.qmd) provides the complete run list, file list, current
+repository revisions, and the result of the numerical comparisons.
 
 The current registry derives from `jmMSE`, not the SCW17 test table. **MP43
 (HS-20) and MP44 (PR-20) are the focal analytical cases. MP29 (HS+20) and MP32
@@ -49,7 +53,7 @@ Every CMP version must link to:
 |---|---|---|
 | Assign analytical roles and stable identifiers | **Complete for the current analysis** | MP43/MP44 are focal cases; MP29/MP32 are sensitivity cases. Legacy MP identifiers remain the stable links to code and saved results. Formal recommendation or adoption remains a separate decision. |
 | Complete common 500-draw tuning and robustness evaluation | **Complete** | All eight CMPs were refined against the same 500 draws and evaluated under the reference OM and nine robustness OMs. |
-| Check performance at small trigger changes around each final value | **Complete** | Every CMP was evaluated one grid step below and above its selected trigger using the same frozen 500 draws: 0.0625 for hockey-stick rules and 0.03125 for power-ramp rules. All eight local profiles were monotonic; see the [saved summary](../data/candidates/trigger_tolerance_summary_500.csv). In plain language, this checks how much the result changes after a small move on either side of the chosen trigger. |
-| Archive full run objects with the Slick file and fingerprints | **Partial** | Full reference and robustness run objects and the 500-draw Slick file exist locally, and the Slick SHA-256 is recorded above. A frozen, published archive manifest containing all run objects has not yet been assembled. |
+| Check performance at small trigger changes around each final value | **Complete** | Every CMP was evaluated one grid step below and above its selected trigger using the same saved 500 draws: 0.0625 for hockey-stick rules and 0.03125 for power-ramp rules. All eight local profiles were monotonic; see the [saved summary](../data/candidates/trigger_tolerance_summary_500.csv). In plain language, this checks how much the result changes after a small move on either side of the chosen trigger. |
+| Record full run objects with the Slick file and fingerprints | **In progress** | The named release now has a run index, a file list, and an automatic comparison report. Publication remains incomplete until the reporting revision is committed and the tracked changes in the analysis worktree are resolved. |
 | Finalize operational specifications | **Partial** | Candidate controls and tested data windows are documented. Authoritative units, annual cutoffs, missing-data rules, rounding, and the formal exceptional-circumstances provisions still require approval and completion. |
-| Save worked examples and automatic repeat-calculation checks | **Partial** | A saved retrospective worked example and reproducible report/Slick build scripts exist. Independent automatic repeat-calculation tests against frozen expected advice values remain to be added. |
+| Save worked examples and automatic repeat-calculation checks | **Partial** | A saved retrospective worked example and reproducible report/Slick build scripts exist. Independent automatic repeat-calculation tests against saved expected advice values remain to be added. |

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.9.37">
@@ -181,7 +181,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
         <li>
     <a class="dropdown-item" href="./cmp/control-reference.html">
- <span class="dropdown-text">Tuning and alternative runs</span></a>
+ <span class="dropdown-text">Earlier tuning controls</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./cmp/components.html">
@@ -236,6 +236,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li>
     <a class="dropdown-item" href="./governance/traceability.html">
  <span class="dropdown-text">Sources &amp; changes</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./governance/release-check.html">
+ <span class="dropdown-text">Agreement checks</span></a>
   </li>  
     </ul>
   </li>
@@ -351,7 +355,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./cmp/control-reference.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Trial and robustness run reference</span></a>
+ <span class="menu-text">Earlier trial and robustness controls</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -421,7 +425,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./evidence/scw17-evidence.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">CMP evidence and development history</span></a>
+ <span class="menu-text">CMP results and development history</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -434,6 +438,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="./governance/traceability.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sources and record of changes</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./governance/release-check.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Checks of agreement among the SC14 files</span></a>
   </div>
 </li>
       </ul>
@@ -498,7 +508,7 @@ Candidate Management Procedures: Specifications, Results, and Application
 <li>the focal HS-20 (MP43) and PR-20 (MP44) candidate definitions;</li>
 <li>the earlier HS+20 (MP29) and PR+20 (MP32) specifications retained as sensitivity cases, plus four other annual-limit comparison cases;</li>
 <li>the full management strategy evaluation (MSE) process;</li>
-<li>evidence from tuning, trade-off, and robustness comparisons; and</li>
+<li>results from tuning, trade-off, and robustness comparisons; and</li>
 <li>instructions for applying a selected procedure when new annual data become available.</li>
 </ol>
 <p>SCW17 Papers 03, 04, 08, and 09 provide historical context and documentation structure, but they do not define the current candidate registry.</p>
@@ -508,13 +518,14 @@ Candidate Management Procedures: Specifications, Results, and Application
 <h2 class="anchored" data-anchor-id="start-here">Start here</h2>
 <ul>
 <li><a href="./cmp/index.html">CMP registry</a>: focal, sensitivity, and comparison cases with stable legacy identifiers and current HS/PR labels.</li>
-<li><a href="./cmp/mp43.html">MP43</a> and <a href="./cmp/mp44.html">MP44</a>: focal-case controls, rules, and evidence status.</li>
+<li><a href="./cmp/mp43.html">MP43</a> and <a href="./cmp/mp44.html">MP44</a>: focal-case controls, rules, and current analytical results.</li>
 <li><a href="./cmp/mp29.html">MP29</a> and <a href="./cmp/mp32.html">MP32</a>: the earlier <strong>+20</strong> sensitivity specifications and annual calculation details; the registry and SC14 report give the focal MP43/MP44 controls.</li>
 <li><a href="./application/annual-workflow.html">Annual application</a>: steps from receiving new data to producing advice.</li>
-<li><a href="./application/slick.html">Slick explorer</a>: compare all ten MSE cases interactively.</li>
+<li><a href="./application/slick.html">Slick explorer</a>: compare the eight SC14 MSE cases interactively.</li>
 <li><a href="./workflow/mse-flow.html">How the MSE work fits together</a>: where CMPs fit within the assessment and simulation system.</li>
 <li><a href="./evidence/scw17-evidence.html">Background and results</a>: current <code>jmMSE</code> results with SCW17 development context.</li>
 <li><a href="./governance/traceability.html">Sources and record of changes</a>: sources, review status, and a record of changes.</li>
+<li><a href="./governance/release-check.html">Checks of agreement among the SC14 files</a>: named release, run list, file list, and automatic numerical comparisons.</li>
 </ul>
 </section>
 <section id="governing-principle" class="level2">
@@ -1056,7 +1067,7 @@ Candidate Management Procedures: Specifications, Results, and Application
 <span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>the earlier HS+20 (MP29) and PR+20 (MP32) specifications retained as</span>
 <span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>   sensitivity cases, plus four other annual-limit comparison cases;</span>
 <span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>the full management strategy evaluation (MSE) process;</span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>evidence from tuning, trade-off, and robustness comparisons; and</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>results from tuning, trade-off, and robustness comparisons; and</span>
 <span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>instructions for applying a selected procedure when new annual data become</span>
 <span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>   available.</span>
 <span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
@@ -1073,13 +1084,13 @@ Candidate Management Procedures: Specifications, Results, and Application
 <span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">CMP registry</span><span class="co">](cmp/index.qmd)</span>: focal, sensitivity, and comparison cases with</span>
 <span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>  stable legacy identifiers and current HS/PR labels.</span>
 <span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">MP43</span><span class="co">](cmp/mp43.qmd)</span> and <span class="co">[</span><span class="ot">MP44</span><span class="co">](cmp/mp44.qmd)</span>: focal-case controls,</span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>  rules, and evidence status.</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>  rules, and current analytical results.</span>
 <span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">MP29</span><span class="co">](cmp/mp29.qmd)</span> and <span class="co">[</span><span class="ot">MP32</span><span class="co">](cmp/mp32.qmd)</span>: the earlier **+20**</span>
 <span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>  sensitivity specifications and annual calculation details; the registry and</span>
 <span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>  SC14 report give the focal MP43/MP44 controls.</span>
 <span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Annual application</span><span class="co">](application/annual-workflow.qmd)</span>: steps from receiving</span>
 <span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>  new data to producing advice.</span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Slick explorer</span><span class="co">](application/slick.qmd)</span>: compare all ten MSE cases</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Slick explorer</span><span class="co">](application/slick.qmd)</span>: compare the eight SC14 MSE cases</span>
 <span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>  interactively.</span>
 <span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">How the MSE work fits together</span><span class="co">](workflow/mse-flow.qmd)</span>: where CMPs fit within the assessment</span>
 <span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>  and simulation system.</span>
@@ -1087,23 +1098,25 @@ Candidate Management Procedures: Specifications, Results, and Application
 <span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>  with SCW17 development context.</span>
 <span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Sources and record of changes</span><span class="co">](governance/traceability.qmd)</span>: sources, review status, and a</span>
 <span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>  record of changes.</span>
-<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a><span class="fu">## Governing principle</span></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Checks of agreement among the SC14 files</span><span class="co">](governance/release-check.qmd)</span>:</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>  named release, run list, file list, and automatic numerical comparisons.</span>
 <span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>The approved CMP specification is separate from background explanations and</span>
-<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>MSE results. New scientific results may change whether a candidate is retained,</span>
-<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>but they do not automatically change its data inputs, harvest control rule,</span>
-<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>parameter values, catch-allocation method, or exceptional-circumstances rules.</span>
-<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a><span class="fu">## Terms used on this site</span></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a><span class="fu">## Governing principle</span></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>The approved CMP specification is separate from background explanations and</span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>MSE results. New scientific results may change whether a candidate is retained,</span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>but they do not automatically change its data inputs, harvest control rule,</span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>parameter values, catch-allocation method, or exceptional-circumstances rules.</span>
 <span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Term <span class="pp">|</span> Meaning <span class="pp">|</span></span>
-<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|</span></span>
-<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> CMP <span class="pp">|</span> Candidate management procedure: the complete rule for turning agreed data into management advice. <span class="pp">|</span></span>
-<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> HCR <span class="pp">|</span> Harvest control rule: the part of a CMP that converts a stock or index indicator into a catch or fishing-effort recommendation. <span class="pp">|</span></span>
-<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Operating model (OM) <span class="pp">|</span> A simulated description of the stock and fishery used to test a CMP. Alternative OMs represent different plausible assumptions. <span class="pp">|</span></span>
-<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Performance measure <span class="pp">|</span> A quantity used to compare CMPs, such as catch, spawning biomass, biological risk, or year-to-year catch variation. <span class="pp">|</span></span>
-<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> IACC <span class="pp">|</span> Interannual catch change: a measure of how much catch changes from one year to the next. <span class="pp">|</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a><span class="fu">## Terms used on this site</span></span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Term <span class="pp">|</span> Meaning <span class="pp">|</span></span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|</span></span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> CMP <span class="pp">|</span> Candidate management procedure: the complete rule for turning agreed data into management advice. <span class="pp">|</span></span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> HCR <span class="pp">|</span> Harvest control rule: the part of a CMP that converts a stock or index indicator into a catch or fishing-effort recommendation. <span class="pp">|</span></span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Operating model (OM) <span class="pp">|</span> A simulated description of the stock and fishery used to test a CMP. Alternative OMs represent different plausible assumptions. <span class="pp">|</span></span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Performance measure <span class="pp">|</span> A quantity used to compare CMPs, such as catch, spawning biomass, biological risk, or year-to-year catch variation. <span class="pp">|</span></span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> IACC <span class="pp">|</span> Interannual catch change: a measure of how much catch changes from one year to the next. <span class="pp">|</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
