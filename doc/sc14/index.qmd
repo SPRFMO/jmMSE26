@@ -108,10 +108,3 @@ allocation does not require further analytical work for this paper. The
 author's response explains how the existing analysis addresses the review
 comments on allocation. The final papers, results, website files, and code will
 be saved together as the official version.
-
-::: {.status-note}
-**Editorial note — delete before submission.** During development, the original
-SC14 report and its result files remain unchanged and continue to provide the
-scientific content used in this proposed package. Adoption of this new
-structure will require a separate decision.
-:::
