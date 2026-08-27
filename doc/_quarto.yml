@@ -65,6 +65,8 @@ website:
             text: Results explorer
           - href: application/scorecard.qmd
             text: Scorecard
+          - href: application/scorecard-best-relative.qmd
+            text: "Scorecard: best-relative weights"
           - href: evidence/scw17-evidence.qmd
             text: SCW17 background and results
           - href: workflow/mse-flow.qmd
@@ -103,6 +105,7 @@ website:
         contents:
           - application/slick.qmd
           - application/scorecard.qmd
+          - application/scorecard-best-relative.qmd
           - evidence/scw17-evidence.qmd
           - workflow/mse-flow.qmd
           - governance/traceability.qmd

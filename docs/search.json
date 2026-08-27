@@ -1644,5 +1644,29 @@
       "Annual use",
       "Illustrative 2027 TAC calculation"
     ]
+  },
+  {
+    "objectID": "application/scorecard-best-relative.html",
+    "href": "application/scorecard-best-relative.html",
+    "title": "Interactive CMP scorecard: best-relative weighting",
+    "section": "",
+    "text": "This browser-based explorer reproduces the relative-preference scorecard without requiring R or a Shiny server. Select CMPs and metrics, choose a weighting scheme, or enter weights manually. Scores are recalculated relative to the selected CMP set and are not absolute acceptability scores or agreed management preferences.",
+    "crumbs": [
+      "Home",
+      "Results and background",
+      "Interactive CMP scorecard: best-relative weighting"
+    ]
+  },
+  {
+    "objectID": "application/scorecard-best-relative.html#footnotes",
+    "href": "application/scorecard-best-relative.html#footnotes",
+    "title": "Interactive CMP scorecard: best-relative weighting",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nFor each PI \\(x\\), the best-performing CMP among the \\(N\\) selected CMPs is assigned a weight of 100. For a PI where higher values are preferred, CMP \\(i\\) receives \\(W_{i,x}=100\\,V_{i,x}/V_{\\mathrm{best},x}\\), where \\(V_{\\mathrm{best},x}=\\max_j(V_{j,x})\\). For a PI where lower values are preferred, the direction-consistent reciprocal is used: \\(W_{i,x}=100\\,V_{\\mathrm{best},x}/V_{i,x}\\), where \\(V_{\\mathrm{best},x}=\\min_j(V_{j,x})\\). Thus the best CMP has \\(W_{i,x}=100\\), while the other weights retain their proportional contrast with the best observed value. The weights are recalculated whenever the selected CMP set changes; they express relative performance, not an absolute acceptability threshold.↩︎",
+    "crumbs": [
+      "Home",
+      "Results and background",
+      "Interactive CMP scorecard: best-relative weighting"
+    ]
   }
 ]
